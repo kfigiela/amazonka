@@ -114,9 +114,8 @@ instance Core.AWSRequest GetBucketWebsite where
   type
     AWSResponse GetBucketWebsite =
       GetBucketWebsiteResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -129,6 +128,9 @@ instance Core.AWSRequest GetBucketWebsite where
             Prelude.<*> (x Core..@? "IndexDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketWebsite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketWebsite where
   hashWithSalt _salt GetBucketWebsite' {..} =

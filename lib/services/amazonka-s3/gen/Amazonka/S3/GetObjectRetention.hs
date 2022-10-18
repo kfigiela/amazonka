@@ -170,9 +170,8 @@ instance Core.AWSRequest GetObjectRetention where
   type
     AWSResponse GetObjectRetention =
       GetObjectRetentionResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -180,6 +179,9 @@ instance Core.AWSRequest GetObjectRetention where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectRetention where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectRetention where
   hashWithSalt _salt GetObjectRetention' {..} =

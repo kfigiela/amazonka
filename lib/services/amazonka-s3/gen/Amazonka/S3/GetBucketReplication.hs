@@ -122,9 +122,8 @@ instance Core.AWSRequest GetBucketReplication where
   type
     AWSResponse GetBucketReplication =
       GetBucketReplicationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -132,6 +131,9 @@ instance Core.AWSRequest GetBucketReplication where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketReplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketReplication where
   hashWithSalt _salt GetBucketReplication' {..} =

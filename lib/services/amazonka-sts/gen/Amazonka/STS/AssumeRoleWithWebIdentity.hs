@@ -591,7 +591,7 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
   type
     AWSResponse AssumeRoleWithWebIdentity =
       AssumeRoleWithWebIdentityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AssumeRoleWithWebIdentityResult"
@@ -606,6 +606,9 @@ instance Core.AWSRequest AssumeRoleWithWebIdentity where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Credentials")
       )
+
+instance Core.AWSService AssumeRoleWithWebIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssumeRoleWithWebIdentity where
   hashWithSalt _salt AssumeRoleWithWebIdentity' {..} =

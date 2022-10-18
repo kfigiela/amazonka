@@ -226,11 +226,13 @@ instance Core.AWSRequest PutBucketVersioning where
   type
     AWSResponse PutBucketVersioning =
       PutBucketVersioningResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketVersioningResponse'
+
+instance Core.AWSService PutBucketVersioning where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketVersioning where
   hashWithSalt _salt PutBucketVersioning' {..} =

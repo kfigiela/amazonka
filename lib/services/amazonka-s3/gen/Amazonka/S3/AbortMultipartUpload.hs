@@ -213,9 +213,8 @@ instance Core.AWSRequest AbortMultipartUpload where
   type
     AWSResponse AbortMultipartUpload =
       AbortMultipartUploadResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -223,6 +222,9 @@ instance Core.AWSRequest AbortMultipartUpload where
             Prelude.<$> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AbortMultipartUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AbortMultipartUpload where
   hashWithSalt _salt AbortMultipartUpload' {..} =

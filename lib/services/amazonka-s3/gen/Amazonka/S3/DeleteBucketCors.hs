@@ -106,11 +106,13 @@ instance Core.AWSRequest DeleteBucketCors where
   type
     AWSResponse DeleteBucketCors =
       DeleteBucketCorsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull DeleteBucketCorsResponse'
+
+instance Core.AWSService DeleteBucketCors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBucketCors where
   hashWithSalt _salt DeleteBucketCors' {..} =

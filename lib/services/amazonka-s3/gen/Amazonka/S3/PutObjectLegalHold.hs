@@ -236,9 +236,8 @@ instance Core.AWSRequest PutObjectLegalHold where
   type
     AWSResponse PutObjectLegalHold =
       PutObjectLegalHoldResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -246,6 +245,9 @@ instance Core.AWSRequest PutObjectLegalHold where
             Prelude.<$> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutObjectLegalHold where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutObjectLegalHold where
   hashWithSalt _salt PutObjectLegalHold' {..} =

@@ -186,9 +186,8 @@ getObjectAcl_key = Lens.lens (\GetObjectAcl' {key} -> key) (\s@GetObjectAcl' {} 
 
 instance Core.AWSRequest GetObjectAcl where
   type AWSResponse GetObjectAcl = GetObjectAclResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -201,6 +200,9 @@ instance Core.AWSRequest GetObjectAcl where
             Prelude.<*> (x Core..@? "Owner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectAcl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectAcl where
   hashWithSalt _salt GetObjectAcl' {..} =

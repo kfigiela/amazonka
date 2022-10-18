@@ -131,12 +131,17 @@ instance
   type
     AWSResponse DeleteBucketMetricsConfiguration =
       DeleteBucketMetricsConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketMetricsConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteBucketMetricsConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

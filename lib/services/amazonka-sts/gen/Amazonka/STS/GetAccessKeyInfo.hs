@@ -112,7 +112,7 @@ instance Core.AWSRequest GetAccessKeyInfo where
   type
     AWSResponse GetAccessKeyInfo =
       GetAccessKeyInfoResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccessKeyInfoResult"
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetAccessKeyInfo where
             Prelude.<$> (x Core..@? "Account")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccessKeyInfo where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccessKeyInfo where
   hashWithSalt _salt GetAccessKeyInfo' {..} =

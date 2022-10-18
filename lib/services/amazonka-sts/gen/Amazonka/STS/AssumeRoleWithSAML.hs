@@ -521,7 +521,7 @@ instance Core.AWSRequest AssumeRoleWithSAML where
   type
     AWSResponse AssumeRoleWithSAML =
       AssumeRoleWithSAMLResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AssumeRoleWithSAMLResult"
@@ -538,6 +538,9 @@ instance Core.AWSRequest AssumeRoleWithSAML where
             Prelude.<*> (x Core..@? "Subject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssumeRoleWithSAML where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssumeRoleWithSAML where
   hashWithSalt _salt AssumeRoleWithSAML' {..} =

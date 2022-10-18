@@ -185,12 +185,17 @@ instance
   type
     AWSResponse PutBucketInventoryConfiguration =
       PutBucketInventoryConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketInventoryConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBucketInventoryConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

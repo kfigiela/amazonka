@@ -112,9 +112,8 @@ instance Core.AWSRequest GetBucketTagging where
   type
     AWSResponse GetBucketTagging =
       GetBucketTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +123,9 @@ instance Core.AWSRequest GetBucketTagging where
                             Prelude.>>= Core.parseXMLList "Tag"
                         )
       )
+
+instance Core.AWSService GetBucketTagging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketTagging where
   hashWithSalt _salt GetBucketTagging' {..} =

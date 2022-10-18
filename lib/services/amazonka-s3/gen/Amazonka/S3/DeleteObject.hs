@@ -249,9 +249,8 @@ deleteObject_key = Lens.lens (\DeleteObject' {key} -> key) (\s@DeleteObject' {} 
 
 instance Core.AWSRequest DeleteObject where
   type AWSResponse DeleteObject = DeleteObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -261,6 +260,9 @@ instance Core.AWSRequest DeleteObject where
             Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteObject where
   hashWithSalt _salt DeleteObject' {..} =

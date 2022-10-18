@@ -228,11 +228,13 @@ instance Core.AWSRequest PutBucketLogging where
   type
     AWSResponse PutBucketLogging =
       PutBucketLoggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketLoggingResponse'
+
+instance Core.AWSService PutBucketLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketLogging where
   hashWithSalt _salt PutBucketLogging' {..} =

@@ -1029,9 +1029,8 @@ copyObject_key = Lens.lens (\CopyObject' {key} -> key) (\s@CopyObject' {} a -> s
 
 instance Core.AWSRequest CopyObject where
   type AWSResponse CopyObject = CopyObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.put defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.put srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -1057,6 +1056,9 @@ instance Core.AWSRequest CopyObject where
             Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyObject where
   hashWithSalt _salt CopyObject' {..} =

@@ -111,7 +111,7 @@ instance Core.AWSRequest GetBucketLocation where
   type
     AWSResponse GetBucketLocation =
       GetBucketLocationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetBucketLocation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.parseXML x)
       )
+
+instance Core.AWSService GetBucketLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketLocation where
   hashWithSalt _salt GetBucketLocation' {..} =

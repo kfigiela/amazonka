@@ -106,9 +106,8 @@ instance Core.AWSRequest GetBucketRequestPayment where
   type
     AWSResponse GetBucketRequestPayment =
       GetBucketRequestPaymentResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -116,6 +115,9 @@ instance Core.AWSRequest GetBucketRequestPayment where
             Prelude.<$> (x Core..@? "Payer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketRequestPayment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketRequestPayment where
   hashWithSalt _salt GetBucketRequestPayment' {..} =

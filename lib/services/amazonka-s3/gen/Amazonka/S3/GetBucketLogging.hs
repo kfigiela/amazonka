@@ -103,9 +103,8 @@ instance Core.AWSRequest GetBucketLogging where
   type
     AWSResponse GetBucketLogging =
       GetBucketLoggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -113,6 +112,9 @@ instance Core.AWSRequest GetBucketLogging where
             Prelude.<$> (x Core..@? "LoggingEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketLogging where
   hashWithSalt _salt GetBucketLogging' {..} =

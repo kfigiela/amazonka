@@ -210,9 +210,8 @@ instance Core.AWSRequest GetObjectTagging where
   type
     AWSResponse GetObjectTagging =
       GetObjectTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -223,6 +222,9 @@ instance Core.AWSRequest GetObjectTagging where
                             Prelude.>>= Core.parseXMLList "Tag"
                         )
       )
+
+instance Core.AWSService GetObjectTagging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectTagging where
   hashWithSalt _salt GetObjectTagging' {..} =

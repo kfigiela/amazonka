@@ -541,9 +541,8 @@ putObjectAcl_key = Lens.lens (\PutObjectAcl' {key} -> key) (\s@PutObjectAcl' {} 
 
 instance Core.AWSRequest PutObjectAcl where
   type AWSResponse PutObjectAcl = PutObjectAclResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -551,6 +550,9 @@ instance Core.AWSRequest PutObjectAcl where
             Prelude.<$> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutObjectAcl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutObjectAcl where
   hashWithSalt _salt PutObjectAcl' {..} =

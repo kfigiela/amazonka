@@ -117,9 +117,8 @@ instance Core.AWSRequest GetBucketPolicy where
   type
     AWSResponse GetBucketPolicy =
       GetBucketPolicyResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -127,6 +126,9 @@ instance Core.AWSRequest GetBucketPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetBucketPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketPolicy where
   hashWithSalt _salt GetBucketPolicy' {..} =

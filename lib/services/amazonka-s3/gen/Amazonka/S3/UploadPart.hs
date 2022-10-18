@@ -563,9 +563,8 @@ uploadPart_body = Lens.lens (\UploadPart' {body} -> body) (\s@UploadPart' {} a -
 
 instance Core.AWSRequest UploadPart where
   type AWSResponse UploadPart = UploadPartResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putBody defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -591,6 +590,9 @@ instance Core.AWSRequest UploadPart where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadPart where
+  service _proxy = defaultService
 
 instance Core.ToBody UploadPart where
   toBody UploadPart' {..} = Core.toBody body

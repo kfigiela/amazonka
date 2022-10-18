@@ -107,12 +107,17 @@ instance
   type
     AWSResponse DeleteBucketOwnershipControls =
       DeleteBucketOwnershipControlsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketOwnershipControlsResponse'
+
+instance
+  Core.AWSService
+    DeleteBucketOwnershipControls
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -194,9 +194,8 @@ instance Core.AWSRequest DeleteObjectTagging where
   type
     AWSResponse DeleteObjectTagging =
       DeleteObjectTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -204,6 +203,9 @@ instance Core.AWSRequest DeleteObjectTagging where
             Prelude.<$> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteObjectTagging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteObjectTagging where
   hashWithSalt _salt DeleteObjectTagging' {..} =

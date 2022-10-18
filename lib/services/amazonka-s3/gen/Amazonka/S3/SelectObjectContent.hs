@@ -409,9 +409,8 @@ instance Core.AWSRequest SelectObjectContent where
   type
     AWSResponse SelectObjectContent =
       SelectObjectContentResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.postXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -419,6 +418,9 @@ instance Core.AWSRequest SelectObjectContent where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SelectObjectContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SelectObjectContent where
   hashWithSalt _salt SelectObjectContent' {..} =

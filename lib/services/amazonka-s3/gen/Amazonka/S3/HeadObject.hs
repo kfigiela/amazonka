@@ -453,9 +453,8 @@ headObject_key = Lens.lens (\HeadObject' {key} -> key) (\s@HeadObject' {} a -> s
 
 instance Core.AWSRequest HeadObject where
   type AWSResponse HeadObject = HeadObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.head' defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.head' srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -504,6 +503,9 @@ instance Core.AWSRequest HeadObject where
             Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService HeadObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable HeadObject where
   hashWithSalt _salt HeadObject' {..} =

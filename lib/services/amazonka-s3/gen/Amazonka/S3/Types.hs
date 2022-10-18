@@ -1291,6 +1291,7 @@ defaultService =
       Core._serviceEndpointPrefix = "s3",
       Core._serviceSigningName = "s3",
       Core._serviceVersion = "2006-03-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -111,9 +111,8 @@ instance Core.AWSRequest GetBucketOwnershipControls where
   type
     AWSResponse GetBucketOwnershipControls =
       GetBucketOwnershipControlsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -121,6 +120,9 @@ instance Core.AWSRequest GetBucketOwnershipControls where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketOwnershipControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketOwnershipControls where
   hashWithSalt _salt GetBucketOwnershipControls' {..} =

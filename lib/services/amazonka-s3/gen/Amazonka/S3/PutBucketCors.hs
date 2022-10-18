@@ -228,12 +228,15 @@ instance Core.AWSRequest PutBucketCors where
   type
     AWSResponse PutBucketCors =
       PutBucketCorsResponse
-  request =
+  request srv =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.putXML defaultService
+      Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketCorsResponse'
+
+instance Core.AWSService PutBucketCors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketCors where
   hashWithSalt _salt PutBucketCors' {..} =

@@ -116,7 +116,7 @@ instance Core.AWSRequest GetRoleCredentials where
   type
     AWSResponse GetRoleCredentials =
       GetRoleCredentialsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest GetRoleCredentials where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "roleCredentials")
       )
+
+instance Core.AWSService GetRoleCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRoleCredentials where
   hashWithSalt _salt GetRoleCredentials' {..} =

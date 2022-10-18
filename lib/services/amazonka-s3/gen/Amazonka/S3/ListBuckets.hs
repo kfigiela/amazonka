@@ -62,9 +62,8 @@ newListBuckets = ListBuckets'
 
 instance Core.AWSRequest ListBuckets where
   type AWSResponse ListBuckets = ListBucketsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -75,6 +74,9 @@ instance Core.AWSRequest ListBuckets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBuckets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBuckets where
   hashWithSalt _salt _ =

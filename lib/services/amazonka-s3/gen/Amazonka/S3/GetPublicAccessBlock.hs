@@ -123,9 +123,8 @@ instance Core.AWSRequest GetPublicAccessBlock where
   type
     AWSResponse GetPublicAccessBlock =
       GetPublicAccessBlockResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -133,6 +132,9 @@ instance Core.AWSRequest GetPublicAccessBlock where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPublicAccessBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPublicAccessBlock where
   hashWithSalt _salt GetPublicAccessBlock' {..} =

@@ -136,9 +136,8 @@ instance Core.AWSRequest GetObjectTorrent where
   type
     AWSResponse GetObjectTorrent =
       GetObjectTorrentResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -147,6 +146,9 @@ instance Core.AWSRequest GetObjectTorrent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetObjectTorrent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectTorrent where
   hashWithSalt _salt GetObjectTorrent' {..} =

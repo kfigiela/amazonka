@@ -216,11 +216,13 @@ instance Core.AWSRequest PutBucketEncryption where
   type
     AWSResponse PutBucketEncryption =
       PutBucketEncryptionResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketEncryptionResponse'
+
+instance Core.AWSService PutBucketEncryption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketEncryption where
   hashWithSalt _salt PutBucketEncryption' {..} =

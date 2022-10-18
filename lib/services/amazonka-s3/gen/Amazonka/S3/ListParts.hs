@@ -345,9 +345,8 @@ instance Core.AWSPager ListParts where
 
 instance Core.AWSRequest ListParts where
   type AWSResponse ListParts = ListPartsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -369,6 +368,9 @@ instance Core.AWSRequest ListParts where
             Prelude.<*> (x Core..@? "Initiator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListParts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =

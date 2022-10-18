@@ -183,12 +183,17 @@ instance
   type
     AWSResponse PutBucketNotificationConfiguration =
       PutBucketNotificationConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketNotificationConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBucketNotificationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

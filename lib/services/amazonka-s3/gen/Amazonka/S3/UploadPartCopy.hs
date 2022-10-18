@@ -643,9 +643,8 @@ instance Core.AWSRequest UploadPartCopy where
   type
     AWSResponse UploadPartCopy =
       UploadPartCopyResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.put defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.put srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -668,6 +667,9 @@ instance Core.AWSRequest UploadPartCopy where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadPartCopy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UploadPartCopy where
   hashWithSalt _salt UploadPartCopy' {..} =

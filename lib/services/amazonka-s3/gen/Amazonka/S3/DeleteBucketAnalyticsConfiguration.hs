@@ -128,12 +128,17 @@ instance
   type
     AWSResponse DeleteBucketAnalyticsConfiguration =
       DeleteBucketAnalyticsConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketAnalyticsConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteBucketAnalyticsConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

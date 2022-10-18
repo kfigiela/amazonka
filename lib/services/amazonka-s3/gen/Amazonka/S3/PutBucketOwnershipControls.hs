@@ -146,12 +146,14 @@ instance Core.AWSRequest PutBucketOwnershipControls where
   type
     AWSResponse PutBucketOwnershipControls =
       PutBucketOwnershipControlsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketOwnershipControlsResponse'
+
+instance Core.AWSService PutBucketOwnershipControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketOwnershipControls where
   hashWithSalt _salt PutBucketOwnershipControls' {..} =

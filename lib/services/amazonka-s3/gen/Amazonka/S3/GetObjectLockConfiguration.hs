@@ -130,9 +130,8 @@ instance Core.AWSRequest GetObjectLockConfiguration where
   type
     AWSResponse GetObjectLockConfiguration =
       GetObjectLockConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -140,6 +139,9 @@ instance Core.AWSRequest GetObjectLockConfiguration where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectLockConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectLockConfiguration where
   hashWithSalt _salt GetObjectLockConfiguration' {..} =

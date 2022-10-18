@@ -253,11 +253,13 @@ instance Core.AWSRequest PutBucketReplication where
   type
     AWSResponse PutBucketReplication =
       PutBucketReplicationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketReplicationResponse'
+
+instance Core.AWSService PutBucketReplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketReplication where
   hashWithSalt _salt PutBucketReplication' {..} =

@@ -188,12 +188,17 @@ instance
   type
     AWSResponse PutBucketAccelerateConfiguration =
       PutBucketAccelerateConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketAccelerateConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBucketAccelerateConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

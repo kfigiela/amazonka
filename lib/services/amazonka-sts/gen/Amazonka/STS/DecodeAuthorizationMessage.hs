@@ -116,7 +116,7 @@ instance Core.AWSRequest DecodeAuthorizationMessage where
   type
     AWSResponse DecodeAuthorizationMessage =
       DecodeAuthorizationMessageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DecodeAuthorizationMessageResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest DecodeAuthorizationMessage where
             Prelude.<$> (x Core..@? "DecodedMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DecodeAuthorizationMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DecodeAuthorizationMessage where
   hashWithSalt _salt DecodeAuthorizationMessage' {..} =

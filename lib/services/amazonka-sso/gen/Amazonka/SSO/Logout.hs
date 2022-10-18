@@ -98,8 +98,11 @@ logout_accessToken = Lens.lens (\Logout' {accessToken} -> accessToken) (\s@Logou
 
 instance Core.AWSRequest Logout where
   type AWSResponse Logout = LogoutResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull LogoutResponse'
+
+instance Core.AWSService Logout where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Logout where
   hashWithSalt _salt Logout' {..} =

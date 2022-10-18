@@ -863,12 +863,14 @@ instance Core.AWSRequest WriteGetObjectResponse where
   type
     AWSResponse WriteGetObjectResponse =
       WriteGetObjectResponseResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.postBody defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.postBody srv
   response =
     Response.receiveNull
       WriteGetObjectResponseResponse'
+
+instance Core.AWSService WriteGetObjectResponse where
+  service _proxy = defaultService
 
 instance Core.ToBody WriteGetObjectResponse where
   toBody WriteGetObjectResponse' {..} = Core.toBody body

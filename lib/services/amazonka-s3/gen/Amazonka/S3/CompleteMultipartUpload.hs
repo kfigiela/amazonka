@@ -457,9 +457,8 @@ instance Core.AWSRequest CompleteMultipartUpload where
   type
     AWSResponse CompleteMultipartUpload =
       CompleteMultipartUploadResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.postXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -484,6 +483,9 @@ instance Core.AWSRequest CompleteMultipartUpload where
             Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompleteMultipartUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteMultipartUpload where
   hashWithSalt _salt CompleteMultipartUpload' {..} =

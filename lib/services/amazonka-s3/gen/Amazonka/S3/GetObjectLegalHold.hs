@@ -170,9 +170,8 @@ instance Core.AWSRequest GetObjectLegalHold where
   type
     AWSResponse GetObjectLegalHold =
       GetObjectLegalHoldResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -180,6 +179,9 @@ instance Core.AWSRequest GetObjectLegalHold where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectLegalHold where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectLegalHold where
   hashWithSalt _salt GetObjectLegalHold' {..} =

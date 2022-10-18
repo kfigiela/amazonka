@@ -216,13 +216,19 @@ instance
   type
     AWSResponse PutBucketLifecycleConfiguration =
       PutBucketLifecycleConfigurationResponse
-  request =
+  request srv =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.putXML defaultService
+      Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketLifecycleConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBucketLifecycleConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -148,7 +148,7 @@ instance Core.AWSRequest ListAccountRoles where
   type
     AWSResponse ListAccountRoles =
       ListAccountRolesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListAccountRoles where
             Prelude.<*> (x Core..?> "roleList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccountRoles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountRoles where
   hashWithSalt _salt ListAccountRoles' {..} =

@@ -583,7 +583,7 @@ instance Core.AWSRequest GetFederationToken where
   type
     AWSResponse GetFederationToken =
       GetFederationTokenResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetFederationTokenResult"
@@ -594,6 +594,9 @@ instance Core.AWSRequest GetFederationToken where
             Prelude.<*> (x Core..@? "PackedPolicySize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFederationToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFederationToken where
   hashWithSalt _salt GetFederationToken' {..} =

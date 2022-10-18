@@ -267,9 +267,8 @@ instance Core.AWSRequest ListObjectVersions where
   type
     AWSResponse ListObjectVersions =
       ListObjectVersionsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -289,6 +288,9 @@ instance Core.AWSRequest ListObjectVersions where
             Prelude.<*> (x Core..@? "VersionIdMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListObjectVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListObjectVersions where
   hashWithSalt _salt ListObjectVersions' {..} =

@@ -112,9 +112,8 @@ instance Core.AWSRequest GetBucketVersioning where
   type
     AWSResponse GetBucketVersioning =
       GetBucketVersioningResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -123,6 +122,9 @@ instance Core.AWSRequest GetBucketVersioning where
             Prelude.<*> (x Core..@? "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketVersioning where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketVersioning where
   hashWithSalt _salt GetBucketVersioning' {..} =

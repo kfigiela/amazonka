@@ -961,10 +961,10 @@ putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  request =
+  request srv =
     Request.expectHeader
       Prelude.. Request.s3vhost
-      Prelude.. Request.putBody defaultService
+      Prelude.. Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -993,6 +993,9 @@ instance Core.AWSRequest PutObject where
             Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutObject where
+  service _proxy = defaultService
 
 instance Core.ToBody PutObject where
   toBody PutObject' {..} = Core.toBody body

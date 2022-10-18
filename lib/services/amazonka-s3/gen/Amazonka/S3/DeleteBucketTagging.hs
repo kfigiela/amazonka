@@ -102,11 +102,13 @@ instance Core.AWSRequest DeleteBucketTagging where
   type
     AWSResponse DeleteBucketTagging =
       DeleteBucketTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull DeleteBucketTaggingResponse'
+
+instance Core.AWSService DeleteBucketTagging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBucketTagging where
   hashWithSalt _salt DeleteBucketTagging' {..} =

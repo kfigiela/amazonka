@@ -241,7 +241,7 @@ instance Core.AWSRequest GetSessionToken where
   type
     AWSResponse GetSessionToken =
       GetSessionTokenResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSessionTokenResult"
@@ -250,6 +250,9 @@ instance Core.AWSRequest GetSessionToken where
             Prelude.<$> (x Core..@? "Credentials")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSessionToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSessionToken where
   hashWithSalt _salt GetSessionToken' {..} =

@@ -302,10 +302,10 @@ instance Core.AWSRequest DeleteObjects where
   type
     AWSResponse DeleteObjects =
       DeleteObjectsResponse
-  request =
+  request srv =
     Request.contentMD5Header
       Prelude.. Request.s3vhost
-      Prelude.. Request.postXML defaultService
+      Prelude.. Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -315,6 +315,9 @@ instance Core.AWSRequest DeleteObjects where
             Prelude.<*> (Core.may (Core.parseXMLList "Error") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteObjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteObjects where
   hashWithSalt _salt DeleteObjects' {..} =

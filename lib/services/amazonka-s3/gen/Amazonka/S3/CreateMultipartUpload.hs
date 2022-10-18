@@ -811,9 +811,8 @@ instance Core.AWSRequest CreateMultipartUpload where
   type
     AWSResponse CreateMultipartUpload =
       CreateMultipartUploadResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.post defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -841,6 +840,9 @@ instance Core.AWSRequest CreateMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "UploadId")
       )
+
+instance Core.AWSService CreateMultipartUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMultipartUpload where
   hashWithSalt _salt CreateMultipartUpload' {..} =

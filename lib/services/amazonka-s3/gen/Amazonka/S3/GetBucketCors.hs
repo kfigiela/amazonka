@@ -110,9 +110,8 @@ instance Core.AWSRequest GetBucketCors where
   type
     AWSResponse GetBucketCors =
       GetBucketCorsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -120,6 +119,9 @@ instance Core.AWSRequest GetBucketCors where
             Prelude.<$> (Core.may (Core.parseXMLList "CORSRule") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketCors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketCors where
   hashWithSalt _salt GetBucketCors' {..} =

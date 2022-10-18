@@ -110,12 +110,14 @@ instance Core.AWSRequest DeletePublicAccessBlock where
   type
     AWSResponse DeletePublicAccessBlock =
       DeletePublicAccessBlockResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeletePublicAccessBlockResponse'
+
+instance Core.AWSService DeletePublicAccessBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePublicAccessBlock where
   hashWithSalt _salt DeletePublicAccessBlock' {..} =

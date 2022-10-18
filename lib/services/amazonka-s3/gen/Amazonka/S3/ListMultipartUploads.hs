@@ -371,9 +371,8 @@ instance Core.AWSRequest ListMultipartUploads where
   type
     AWSResponse ListMultipartUploads =
       ListMultipartUploadsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -392,6 +391,9 @@ instance Core.AWSRequest ListMultipartUploads where
             Prelude.<*> (x Core..@? "EncodingType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMultipartUploads where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMultipartUploads where
   hashWithSalt _salt ListMultipartUploads' {..} =

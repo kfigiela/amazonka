@@ -110,9 +110,8 @@ getBucketAcl_bucket = Lens.lens (\GetBucketAcl' {bucket} -> bucket) (\s@GetBucke
 
 instance Core.AWSRequest GetBucketAcl where
   type AWSResponse GetBucketAcl = GetBucketAclResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +123,9 @@ instance Core.AWSRequest GetBucketAcl where
             Prelude.<*> (x Core..@? "Owner")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketAcl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketAcl where
   hashWithSalt _salt GetBucketAcl' {..} =

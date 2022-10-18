@@ -154,9 +154,8 @@ instance
   type
     AWSResponse ListBucketInventoryConfigurations =
       ListBucketInventoryConfigurationsResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -170,6 +169,12 @@ instance
               Prelude.<*> (x Core..@? "NextContinuationToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListBucketInventoryConfigurations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

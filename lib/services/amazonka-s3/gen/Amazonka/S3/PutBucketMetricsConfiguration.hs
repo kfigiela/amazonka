@@ -155,12 +155,17 @@ instance
   type
     AWSResponse PutBucketMetricsConfiguration =
       PutBucketMetricsConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketMetricsConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBucketMetricsConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

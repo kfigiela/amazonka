@@ -180,12 +180,17 @@ instance
   type
     AWSResponse PutBucketAnalyticsConfiguration =
       PutBucketAnalyticsConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull
       PutBucketAnalyticsConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBucketAnalyticsConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

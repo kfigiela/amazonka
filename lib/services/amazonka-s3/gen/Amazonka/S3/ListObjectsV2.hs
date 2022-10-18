@@ -331,9 +331,8 @@ instance Core.AWSRequest ListObjectsV2 where
   type
     AWSResponse ListObjectsV2 =
       ListObjectsV2Response
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -352,6 +351,9 @@ instance Core.AWSRequest ListObjectsV2 where
             Prelude.<*> (x Core..@? "EncodingType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListObjectsV2 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListObjectsV2 where
   hashWithSalt _salt ListObjectsV2' {..} =

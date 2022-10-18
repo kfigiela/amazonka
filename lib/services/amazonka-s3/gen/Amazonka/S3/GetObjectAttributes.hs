@@ -375,9 +375,8 @@ instance Core.AWSRequest GetObjectAttributes where
   type
     AWSResponse GetObjectAttributes =
       GetObjectAttributesResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -393,6 +392,9 @@ instance Core.AWSRequest GetObjectAttributes where
             Prelude.<*> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectAttributes where
   hashWithSalt _salt GetObjectAttributes' {..} =

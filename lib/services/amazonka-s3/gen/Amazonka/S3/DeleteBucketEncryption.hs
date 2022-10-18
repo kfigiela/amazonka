@@ -114,12 +114,14 @@ instance Core.AWSRequest DeleteBucketEncryption where
   type
     AWSResponse DeleteBucketEncryption =
       DeleteBucketEncryptionResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketEncryptionResponse'
+
+instance Core.AWSService DeleteBucketEncryption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBucketEncryption where
   hashWithSalt _salt DeleteBucketEncryption' {..} =

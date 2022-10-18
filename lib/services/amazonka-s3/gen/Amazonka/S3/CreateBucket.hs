@@ -308,9 +308,8 @@ createBucket_bucket = Lens.lens (\CreateBucket' {bucket} -> bucket) (\s@CreateBu
 
 instance Core.AWSRequest CreateBucket where
   type AWSResponse CreateBucket = CreateBucketResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -318,6 +317,9 @@ instance Core.AWSRequest CreateBucket where
             Prelude.<$> (h Core..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBucket where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBucket where
   hashWithSalt _salt CreateBucket' {..} =

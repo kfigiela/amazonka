@@ -129,9 +129,8 @@ instance
     AWSResponse
       GetBucketIntelligentTieringConfiguration =
       GetBucketIntelligentTieringConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -139,6 +138,12 @@ instance
             Prelude.<$> (Core.parseXML x)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetBucketIntelligentTieringConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

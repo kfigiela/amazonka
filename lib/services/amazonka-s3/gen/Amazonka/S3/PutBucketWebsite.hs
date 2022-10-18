@@ -243,11 +243,13 @@ instance Core.AWSRequest PutBucketWebsite where
   type
     AWSResponse PutBucketWebsite =
       PutBucketWebsiteResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveNull PutBucketWebsiteResponse'
+
+instance Core.AWSService PutBucketWebsite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBucketWebsite where
   hashWithSalt _salt PutBucketWebsite' {..} =

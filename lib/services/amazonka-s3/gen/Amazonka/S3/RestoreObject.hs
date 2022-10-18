@@ -462,9 +462,8 @@ instance Core.AWSRequest RestoreObject where
   type
     AWSResponse RestoreObject =
       RestoreObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.postXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.postXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -473,6 +472,9 @@ instance Core.AWSRequest RestoreObject where
             Prelude.<*> (h Core..#? "x-amz-restore-output-path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreObject where
   hashWithSalt _salt RestoreObject' {..} =

@@ -309,9 +309,8 @@ instance Core.AWSRequest PutObjectTagging where
   type
     AWSResponse PutObjectTagging =
       PutObjectTaggingResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -319,6 +318,9 @@ instance Core.AWSRequest PutObjectTagging where
             Prelude.<$> (h Core..#? "x-amz-version-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutObjectTagging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutObjectTagging where
   hashWithSalt _salt PutObjectTagging' {..} =

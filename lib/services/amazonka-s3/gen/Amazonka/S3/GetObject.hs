@@ -580,9 +580,8 @@ getObject_key = Lens.lens (\GetObject' {key} -> key) (\s@GetObject' {} a -> s {k
 
 instance Core.AWSRequest GetObject where
   type AWSResponse GetObject = GetObjectResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.get defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -633,6 +632,9 @@ instance Core.AWSRequest GetObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObject where
   hashWithSalt _salt GetObject' {..} =

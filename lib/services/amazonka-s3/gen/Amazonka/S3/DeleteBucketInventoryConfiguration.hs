@@ -127,12 +127,17 @@ instance
   type
     AWSResponse DeleteBucketInventoryConfiguration =
       DeleteBucketInventoryConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketInventoryConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteBucketInventoryConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -113,12 +113,14 @@ instance Core.AWSRequest DeleteBucketReplication where
   type
     AWSResponse DeleteBucketReplication =
       DeleteBucketReplicationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.delete defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteBucketReplicationResponse'
+
+instance Core.AWSService DeleteBucketReplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBucketReplication where
   hashWithSalt _salt DeleteBucketReplication' {..} =

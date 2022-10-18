@@ -207,9 +207,8 @@ instance Core.AWSRequest PutObjectLockConfiguration where
   type
     AWSResponse PutObjectLockConfiguration =
       PutObjectLockConfigurationResponse
-  request =
-    Request.s3vhost
-      Prelude.. Request.putXML defaultService
+  request srv =
+    Request.s3vhost Prelude.. Request.putXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -217,6 +216,9 @@ instance Core.AWSRequest PutObjectLockConfiguration where
             Prelude.<$> (h Core..#? "x-amz-request-charged")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutObjectLockConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutObjectLockConfiguration where
   hashWithSalt _salt PutObjectLockConfiguration' {..} =

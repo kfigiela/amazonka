@@ -73,7 +73,7 @@ instance Core.AWSRequest GetCallerIdentity where
   type
     AWSResponse GetCallerIdentity =
       GetCallerIdentityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetCallerIdentityResult"
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetCallerIdentity where
             Prelude.<*> (x Core..@? "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCallerIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCallerIdentity where
   hashWithSalt _salt _ =
