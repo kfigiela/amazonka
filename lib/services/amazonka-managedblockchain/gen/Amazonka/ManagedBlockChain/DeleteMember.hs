@@ -97,13 +97,16 @@ deleteMember_memberId = Lens.lens (\DeleteMember' {memberId} -> memberId) (\s@De
 
 instance Core.AWSRequest DeleteMember where
   type AWSResponse DeleteMember = DeleteMemberResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMember where
   hashWithSalt _salt DeleteMember' {..} =

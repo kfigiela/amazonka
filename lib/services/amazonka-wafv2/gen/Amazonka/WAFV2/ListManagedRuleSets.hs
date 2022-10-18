@@ -160,7 +160,7 @@ instance Core.AWSRequest ListManagedRuleSets where
   type
     AWSResponse ListManagedRuleSets =
       ListManagedRuleSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest ListManagedRuleSets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListManagedRuleSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListManagedRuleSets where
   hashWithSalt _salt ListManagedRuleSets' {..} =

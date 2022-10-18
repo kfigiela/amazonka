@@ -160,7 +160,7 @@ instance Core.AWSRequest GetUserDefinedFunctions where
   type
     AWSResponse GetUserDefinedFunctions =
       GetUserDefinedFunctionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest GetUserDefinedFunctions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUserDefinedFunctions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUserDefinedFunctions where
   hashWithSalt _salt GetUserDefinedFunctions' {..} =

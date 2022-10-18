@@ -145,13 +145,16 @@ instance Core.AWSRequest StartContactRecording where
   type
     AWSResponse StartContactRecording =
       StartContactRecordingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartContactRecordingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartContactRecording where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartContactRecording where
   hashWithSalt _salt StartContactRecording' {..} =

@@ -119,7 +119,7 @@ instance
     AWSResponse
       CreateTransitGatewayRouteTableAttachment =
       CreateTransitGatewayRouteTableAttachmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,12 @@ instance
             Prelude.<$> (x Core..?> "TransitGatewayRouteTableAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateTransitGatewayRouteTableAttachment
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

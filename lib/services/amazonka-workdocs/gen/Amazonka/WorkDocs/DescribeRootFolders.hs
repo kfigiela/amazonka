@@ -137,7 +137,7 @@ instance Core.AWSRequest DescribeRootFolders where
   type
     AWSResponse DescribeRootFolders =
       DescribeRootFoldersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest DescribeRootFolders where
             Prelude.<*> (x Core..?> "Folders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRootFolders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRootFolders where
   hashWithSalt _salt DescribeRootFolders' {..} =

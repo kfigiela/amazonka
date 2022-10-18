@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeHumanTaskUi where
   type
     AWSResponse DescribeHumanTaskUi =
       DescribeHumanTaskUiResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DescribeHumanTaskUi where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "UiTemplate")
       )
+
+instance Core.AWSService DescribeHumanTaskUi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHumanTaskUi where
   hashWithSalt _salt DescribeHumanTaskUi' {..} =

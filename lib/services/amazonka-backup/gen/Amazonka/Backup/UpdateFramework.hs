@@ -134,7 +134,7 @@ instance Core.AWSRequest UpdateFramework where
   type
     AWSResponse UpdateFramework =
       UpdateFrameworkResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UpdateFramework where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFramework where
   hashWithSalt _salt UpdateFramework' {..} =

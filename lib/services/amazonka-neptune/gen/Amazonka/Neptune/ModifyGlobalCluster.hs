@@ -215,7 +215,7 @@ instance Core.AWSRequest ModifyGlobalCluster where
   type
     AWSResponse ModifyGlobalCluster =
       ModifyGlobalClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyGlobalClusterResult"
@@ -224,6 +224,9 @@ instance Core.AWSRequest ModifyGlobalCluster where
             Prelude.<$> (x Core..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyGlobalCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyGlobalCluster where
   hashWithSalt _salt ModifyGlobalCluster' {..} =

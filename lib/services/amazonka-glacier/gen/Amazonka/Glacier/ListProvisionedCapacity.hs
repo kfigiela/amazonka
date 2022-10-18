@@ -90,9 +90,9 @@ instance Core.AWSRequest ListProvisionedCapacity where
   type
     AWSResponse ListProvisionedCapacity =
       ListProvisionedCapacityResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest ListProvisionedCapacity where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProvisionedCapacity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProvisionedCapacity where
   hashWithSalt _salt ListProvisionedCapacity' {..} =

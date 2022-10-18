@@ -109,7 +109,7 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
   type
     AWSResponse BatchAssociateProjectAssets =
       BatchAssociateProjectAssetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest BatchAssociateProjectAssets where
             Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchAssociateProjectAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchAssociateProjectAssets where
   hashWithSalt _salt BatchAssociateProjectAssets' {..} =

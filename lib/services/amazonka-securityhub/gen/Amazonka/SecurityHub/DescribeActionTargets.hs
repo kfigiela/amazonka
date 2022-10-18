@@ -143,7 +143,7 @@ instance Core.AWSRequest DescribeActionTargets where
   type
     AWSResponse DescribeActionTargets =
       DescribeActionTargetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest DescribeActionTargets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "ActionTargets" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeActionTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeActionTargets where
   hashWithSalt _salt DescribeActionTargets' {..} =

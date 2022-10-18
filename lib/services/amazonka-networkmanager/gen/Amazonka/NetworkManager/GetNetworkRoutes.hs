@@ -184,7 +184,7 @@ instance Core.AWSRequest GetNetworkRoutes where
   type
     AWSResponse GetNetworkRoutes =
       GetNetworkRoutesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest GetNetworkRoutes where
             Prelude.<*> (x Core..?> "RouteTableTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNetworkRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetworkRoutes where
   hashWithSalt _salt GetNetworkRoutes' {..} =

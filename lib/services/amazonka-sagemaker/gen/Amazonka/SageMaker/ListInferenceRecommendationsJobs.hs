@@ -222,7 +222,7 @@ instance
   type
     AWSResponse ListInferenceRecommendationsJobs =
       ListInferenceRecommendationsJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -233,6 +233,12 @@ instance
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance
+  Core.AWSService
+    ListInferenceRecommendationsJobs
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

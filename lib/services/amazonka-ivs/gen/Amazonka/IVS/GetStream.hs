@@ -75,7 +75,7 @@ getStream_channelArn = Lens.lens (\GetStream' {channelArn} -> channelArn) (\s@Ge
 
 instance Core.AWSRequest GetStream where
   type AWSResponse GetStream = GetStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetStream where
             Prelude.<$> (x Core..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStream where
   hashWithSalt _salt GetStream' {..} =

@@ -81,10 +81,13 @@ instance Core.AWSRequest DeleteMedicalVocabulary where
   type
     AWSResponse DeleteMedicalVocabulary =
       DeleteMedicalVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteMedicalVocabularyResponse'
+
+instance Core.AWSService DeleteMedicalVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMedicalVocabulary where
   hashWithSalt _salt DeleteMedicalVocabulary' {..} =

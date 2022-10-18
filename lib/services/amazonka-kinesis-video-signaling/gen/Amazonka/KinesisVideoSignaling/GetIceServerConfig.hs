@@ -135,7 +135,7 @@ instance Core.AWSRequest GetIceServerConfig where
   type
     AWSResponse GetIceServerConfig =
       GetIceServerConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest GetIceServerConfig where
             Prelude.<$> (x Core..?> "IceServerList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIceServerConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIceServerConfig where
   hashWithSalt _salt GetIceServerConfig' {..} =

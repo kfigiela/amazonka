@@ -103,7 +103,7 @@ describeUser_userName = Lens.lens (\DescribeUser' {userName} -> userName) (\s@De
 
 instance Core.AWSRequest DescribeUser where
   type AWSResponse DescribeUser = DescribeUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..:> "User")
       )
+
+instance Core.AWSService DescribeUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =

@@ -116,7 +116,7 @@ instance Core.AWSRequest CreateCustomPlugin where
   type
     AWSResponse CreateCustomPlugin =
       CreateCustomPluginResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest CreateCustomPlugin where
             Prelude.<*> (x Core..?> "customPluginArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCustomPlugin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomPlugin where
   hashWithSalt _salt CreateCustomPlugin' {..} =

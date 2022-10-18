@@ -270,10 +270,16 @@ instance
   type
     AWSResponse PutScheduledUpdateGroupAction =
       PutScheduledUpdateGroupActionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       PutScheduledUpdateGroupActionResponse'
+
+instance
+  Core.AWSService
+    PutScheduledUpdateGroupAction
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

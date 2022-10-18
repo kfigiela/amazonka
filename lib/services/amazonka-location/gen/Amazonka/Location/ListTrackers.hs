@@ -119,7 +119,7 @@ instance Core.AWSPager ListTrackers where
 
 instance Core.AWSRequest ListTrackers where
   type AWSResponse ListTrackers = ListTrackersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListTrackers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListTrackers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTrackers where
   hashWithSalt _salt ListTrackers' {..} =

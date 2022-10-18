@@ -107,13 +107,19 @@ instance
   type
     AWSResponse PutConfigurationSetReputationOptions =
       PutConfigurationSetReputationOptionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutConfigurationSetReputationOptionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutConfigurationSetReputationOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

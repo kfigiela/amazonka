@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteStreamProcessor where
   type
     AWSResponse DeleteStreamProcessor =
       DeleteStreamProcessorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStreamProcessorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStreamProcessor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStreamProcessor where
   hashWithSalt _salt DeleteStreamProcessor' {..} =

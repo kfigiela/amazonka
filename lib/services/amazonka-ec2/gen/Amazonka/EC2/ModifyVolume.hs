@@ -304,7 +304,7 @@ modifyVolume_volumeId = Lens.lens (\ModifyVolume' {volumeId} -> volumeId) (\s@Mo
 
 instance Core.AWSRequest ModifyVolume where
   type AWSResponse ModifyVolume = ModifyVolumeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -312,6 +312,9 @@ instance Core.AWSRequest ModifyVolume where
             Prelude.<$> (x Core..@? "volumeModification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyVolume where
   hashWithSalt _salt ModifyVolume' {..} =

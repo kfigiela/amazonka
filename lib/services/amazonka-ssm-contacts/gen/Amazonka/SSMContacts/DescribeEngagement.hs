@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeEngagement where
   type
     AWSResponse DescribeEngagement =
       DescribeEngagementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DescribeEngagement where
             Prelude.<*> (x Core..:> "Subject")
             Prelude.<*> (x Core..:> "Content")
       )
+
+instance Core.AWSService DescribeEngagement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEngagement where
   hashWithSalt _salt DescribeEngagement' {..} =

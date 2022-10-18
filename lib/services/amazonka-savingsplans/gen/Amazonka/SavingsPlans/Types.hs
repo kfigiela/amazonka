@@ -215,6 +215,7 @@ defaultService =
       Core._serviceEndpointPrefix = "savingsplans",
       Core._serviceSigningName = "savingsplans",
       Core._serviceVersion = "2019-06-28",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetResolverDnssecConfig where
   type
     AWSResponse GetResolverDnssecConfig =
       GetResolverDnssecConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetResolverDnssecConfig where
             Prelude.<$> (x Core..?> "ResolverDNSSECConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResolverDnssecConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResolverDnssecConfig where
   hashWithSalt _salt GetResolverDnssecConfig' {..} =

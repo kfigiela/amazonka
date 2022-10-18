@@ -105,10 +105,13 @@ instance Core.AWSRequest UpdateUserHierarchyGroupName where
   type
     AWSResponse UpdateUserHierarchyGroupName =
       UpdateUserHierarchyGroupNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserHierarchyGroupNameResponse'
+
+instance Core.AWSService UpdateUserHierarchyGroupName where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -409,7 +409,7 @@ instance Core.AWSRequest CreateInstancesFromSnapshot where
   type
     AWSResponse CreateInstancesFromSnapshot =
       CreateInstancesFromSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -417,6 +417,9 @@ instance Core.AWSRequest CreateInstancesFromSnapshot where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInstancesFromSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInstancesFromSnapshot where
   hashWithSalt _salt CreateInstancesFromSnapshot' {..} =

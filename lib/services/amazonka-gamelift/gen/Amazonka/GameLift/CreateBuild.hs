@@ -241,7 +241,7 @@ createBuild_version = Lens.lens (\CreateBuild' {version} -> version) (\s@CreateB
 
 instance Core.AWSRequest CreateBuild where
   type AWSResponse CreateBuild = CreateBuildResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -251,6 +251,9 @@ instance Core.AWSRequest CreateBuild where
             Prelude.<*> (x Core..?> "StorageLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBuild where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBuild where
   hashWithSalt _salt CreateBuild' {..} =

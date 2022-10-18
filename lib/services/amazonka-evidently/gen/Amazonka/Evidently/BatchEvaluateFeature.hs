@@ -119,7 +119,7 @@ instance Core.AWSRequest BatchEvaluateFeature where
   type
     AWSResponse BatchEvaluateFeature =
       BatchEvaluateFeatureResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest BatchEvaluateFeature where
             Prelude.<$> (x Core..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchEvaluateFeature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchEvaluateFeature where
   hashWithSalt _salt BatchEvaluateFeature' {..} =

@@ -374,6 +374,7 @@ defaultService =
       Core._serviceEndpointPrefix = "wisdom",
       Core._serviceSigningName = "wisdom",
       Core._serviceVersion = "2020-10-19",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -225,13 +225,16 @@ instance Core.AWSRequest UpdateCustomKeyStore where
   type
     AWSResponse UpdateCustomKeyStore =
       UpdateCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateCustomKeyStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCustomKeyStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCustomKeyStore where
   hashWithSalt _salt UpdateCustomKeyStore' {..} =

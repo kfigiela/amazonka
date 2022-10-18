@@ -98,9 +98,12 @@ instance Core.AWSRequest DeletePlacementGroup where
   type
     AWSResponse DeletePlacementGroup =
       DeletePlacementGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeletePlacementGroupResponse'
+
+instance Core.AWSService DeletePlacementGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlacementGroup where
   hashWithSalt _salt DeletePlacementGroup' {..} =

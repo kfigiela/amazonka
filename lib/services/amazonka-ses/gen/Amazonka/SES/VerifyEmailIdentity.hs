@@ -85,7 +85,7 @@ instance Core.AWSRequest VerifyEmailIdentity where
   type
     AWSResponse VerifyEmailIdentity =
       VerifyEmailIdentityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "VerifyEmailIdentityResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest VerifyEmailIdentity where
           VerifyEmailIdentityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService VerifyEmailIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyEmailIdentity where
   hashWithSalt _salt VerifyEmailIdentity' {..} =

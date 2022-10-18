@@ -74,13 +74,16 @@ deleteInput_inputName = Lens.lens (\DeleteInput' {inputName} -> inputName) (\s@D
 
 instance Core.AWSRequest DeleteInput where
   type AWSResponse DeleteInput = DeleteInputResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteInputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInput where
   hashWithSalt _salt DeleteInput' {..} =

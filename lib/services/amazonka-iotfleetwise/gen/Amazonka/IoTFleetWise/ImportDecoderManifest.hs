@@ -91,7 +91,7 @@ instance Core.AWSRequest ImportDecoderManifest where
   type
     AWSResponse ImportDecoderManifest =
       ImportDecoderManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest ImportDecoderManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService ImportDecoderManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportDecoderManifest where
   hashWithSalt _salt ImportDecoderManifest' {..} =

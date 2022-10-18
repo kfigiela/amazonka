@@ -168,7 +168,7 @@ deleteIpam_ipamId = Lens.lens (\DeleteIpam' {ipamId} -> ipamId) (\s@DeleteIpam' 
 
 instance Core.AWSRequest DeleteIpam where
   type AWSResponse DeleteIpam = DeleteIpamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest DeleteIpam where
             Prelude.<$> (x Core..@? "ipam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIpam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIpam where
   hashWithSalt _salt DeleteIpam' {..} =

@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeApplicationSnapshot where
   type
     AWSResponse DescribeApplicationSnapshot =
       DescribeApplicationSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeApplicationSnapshot where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "SnapshotDetails")
       )
+
+instance Core.AWSService DescribeApplicationSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeApplicationSnapshot where
   hashWithSalt _salt DescribeApplicationSnapshot' {..} =

@@ -76,13 +76,16 @@ instance Core.AWSRequest ExpireSession where
   type
     AWSResponse ExpireSession =
       ExpireSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ExpireSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExpireSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExpireSession where
   hashWithSalt _salt ExpireSession' {..} =

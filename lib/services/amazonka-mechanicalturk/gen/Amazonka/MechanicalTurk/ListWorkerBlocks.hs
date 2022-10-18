@@ -113,7 +113,7 @@ instance Core.AWSRequest ListWorkerBlocks where
   type
     AWSResponse ListWorkerBlocks =
       ListWorkerBlocksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ListWorkerBlocks where
             Prelude.<*> (x Core..?> "WorkerBlocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWorkerBlocks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorkerBlocks where
   hashWithSalt _salt ListWorkerBlocks' {..} =

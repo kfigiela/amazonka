@@ -122,9 +122,12 @@ instance Core.AWSRequest DetachUserPolicy where
   type
     AWSResponse DetachUserPolicy =
       DetachUserPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DetachUserPolicyResponse'
+
+instance Core.AWSService DetachUserPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachUserPolicy where
   hashWithSalt _salt DetachUserPolicy' {..} =

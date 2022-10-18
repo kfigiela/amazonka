@@ -129,13 +129,16 @@ instance Core.AWSRequest ApproveAssignment where
   type
     AWSResponse ApproveAssignment =
       ApproveAssignmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ApproveAssignmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ApproveAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ApproveAssignment where
   hashWithSalt _salt ApproveAssignment' {..} =

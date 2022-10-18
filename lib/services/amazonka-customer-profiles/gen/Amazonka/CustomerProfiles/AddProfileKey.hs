@@ -137,7 +137,7 @@ instance Core.AWSRequest AddProfileKey where
   type
     AWSResponse AddProfileKey =
       AddProfileKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest AddProfileKey where
             Prelude.<*> (x Core..?> "Values" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddProfileKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddProfileKey where
   hashWithSalt _salt AddProfileKey' {..} =

@@ -125,9 +125,9 @@ instance Core.AWSRequest GetVaultNotifications where
   type
     AWSResponse GetVaultNotifications =
       GetVaultNotificationsResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest GetVaultNotifications where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVaultNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVaultNotifications where
   hashWithSalt _salt GetVaultNotifications' {..} =

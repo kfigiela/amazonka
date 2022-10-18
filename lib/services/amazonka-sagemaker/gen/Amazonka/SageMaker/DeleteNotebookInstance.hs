@@ -81,10 +81,13 @@ instance Core.AWSRequest DeleteNotebookInstance where
   type
     AWSResponse DeleteNotebookInstance =
       DeleteNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteNotebookInstanceResponse'
+
+instance Core.AWSService DeleteNotebookInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNotebookInstance where
   hashWithSalt _salt DeleteNotebookInstance' {..} =

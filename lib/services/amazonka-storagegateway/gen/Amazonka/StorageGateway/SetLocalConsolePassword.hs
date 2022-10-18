@@ -98,7 +98,7 @@ instance Core.AWSRequest SetLocalConsolePassword where
   type
     AWSResponse SetLocalConsolePassword =
       SetLocalConsolePasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest SetLocalConsolePassword where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetLocalConsolePassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetLocalConsolePassword where
   hashWithSalt _salt SetLocalConsolePassword' {..} =

@@ -95,7 +95,7 @@ instance Core.AWSRequest ListTargetResourceTypes where
   type
     AWSResponse ListTargetResourceTypes =
       ListTargetResourceTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest ListTargetResourceTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTargetResourceTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTargetResourceTypes where
   hashWithSalt _salt ListTargetResourceTypes' {..} =

@@ -121,7 +121,7 @@ instance Core.AWSRequest AssociateConnectPeer where
   type
     AWSResponse AssociateConnectPeer =
       AssociateConnectPeerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest AssociateConnectPeer where
             Prelude.<$> (x Core..?> "ConnectPeerAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateConnectPeer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateConnectPeer where
   hashWithSalt _salt AssociateConnectPeer' {..} =

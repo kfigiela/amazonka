@@ -105,7 +105,7 @@ instance Core.AWSRequest ListPositionConfigurations where
   type
     AWSResponse ListPositionConfigurations =
       ListPositionConfigurationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListPositionConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPositionConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPositionConfigurations where
   hashWithSalt _salt ListPositionConfigurations' {..} =

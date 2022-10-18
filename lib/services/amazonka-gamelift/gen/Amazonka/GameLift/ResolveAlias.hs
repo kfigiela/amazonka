@@ -87,7 +87,7 @@ resolveAlias_aliasId = Lens.lens (\ResolveAlias' {aliasId} -> aliasId) (\s@Resol
 
 instance Core.AWSRequest ResolveAlias where
   type AWSResponse ResolveAlias = ResolveAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest ResolveAlias where
             Prelude.<*> (x Core..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResolveAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResolveAlias where
   hashWithSalt _salt ResolveAlias' {..} =

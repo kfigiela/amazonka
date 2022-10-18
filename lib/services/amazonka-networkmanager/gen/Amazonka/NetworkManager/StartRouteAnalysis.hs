@@ -132,7 +132,7 @@ instance Core.AWSRequest StartRouteAnalysis where
   type
     AWSResponse StartRouteAnalysis =
       StartRouteAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest StartRouteAnalysis where
             Prelude.<$> (x Core..?> "RouteAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartRouteAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartRouteAnalysis where
   hashWithSalt _salt StartRouteAnalysis' {..} =

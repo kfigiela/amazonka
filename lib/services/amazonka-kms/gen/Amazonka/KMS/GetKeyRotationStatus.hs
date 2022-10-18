@@ -184,7 +184,7 @@ instance Core.AWSRequest GetKeyRotationStatus where
   type
     AWSResponse GetKeyRotationStatus =
       GetKeyRotationStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest GetKeyRotationStatus where
             Prelude.<$> (x Core..?> "KeyRotationEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKeyRotationStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKeyRotationStatus where
   hashWithSalt _salt GetKeyRotationStatus' {..} =

@@ -90,13 +90,16 @@ instance Core.AWSRequest DeletePermissionPolicy where
   type
     AWSResponse DeletePermissionPolicy =
       DeletePermissionPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePermissionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePermissionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePermissionPolicy where
   hashWithSalt _salt DeletePermissionPolicy' {..} =

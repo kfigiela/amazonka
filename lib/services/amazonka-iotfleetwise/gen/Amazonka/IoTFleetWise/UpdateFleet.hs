@@ -91,7 +91,7 @@ updateFleet_fleetId = Lens.lens (\UpdateFleet' {fleetId} -> fleetId) (\s@UpdateF
 
 instance Core.AWSRequest UpdateFleet where
   type AWSResponse UpdateFleet = UpdateFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest UpdateFleet where
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFleet where
   hashWithSalt _salt UpdateFleet' {..} =

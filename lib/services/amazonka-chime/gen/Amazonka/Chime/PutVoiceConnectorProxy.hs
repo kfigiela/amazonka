@@ -133,7 +133,7 @@ instance Core.AWSRequest PutVoiceConnectorProxy where
   type
     AWSResponse PutVoiceConnectorProxy =
       PutVoiceConnectorProxyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest PutVoiceConnectorProxy where
             Prelude.<$> (x Core..?> "Proxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutVoiceConnectorProxy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutVoiceConnectorProxy where
   hashWithSalt _salt PutVoiceConnectorProxy' {..} =

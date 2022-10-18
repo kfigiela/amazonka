@@ -108,13 +108,16 @@ updateField_fieldId = Lens.lens (\UpdateField' {fieldId} -> fieldId) (\s@UpdateF
 
 instance Core.AWSRequest UpdateField where
   type AWSResponse UpdateField = UpdateFieldResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFieldResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateField where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateField where
   hashWithSalt _salt UpdateField' {..} =

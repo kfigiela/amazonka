@@ -107,7 +107,7 @@ instance Core.AWSRequest UpdateVoiceConnector where
   type
     AWSResponse UpdateVoiceConnector =
       UpdateVoiceConnectorResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdateVoiceConnector where
             Prelude.<$> (x Core..?> "VoiceConnector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVoiceConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVoiceConnector where
   hashWithSalt _salt UpdateVoiceConnector' {..} =

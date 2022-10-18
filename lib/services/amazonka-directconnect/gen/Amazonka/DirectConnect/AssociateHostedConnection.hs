@@ -121,10 +121,13 @@ instance Core.AWSRequest AssociateHostedConnection where
   type
     AWSResponse AssociateHostedConnection =
       Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService AssociateHostedConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateHostedConnection where
   hashWithSalt _salt AssociateHostedConnection' {..} =

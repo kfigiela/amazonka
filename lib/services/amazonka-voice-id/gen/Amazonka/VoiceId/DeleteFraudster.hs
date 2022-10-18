@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteFraudster where
   type
     AWSResponse DeleteFraudster =
       DeleteFraudsterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteFraudsterResponse'
+
+instance Core.AWSService DeleteFraudster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFraudster where
   hashWithSalt _salt DeleteFraudster' {..} =

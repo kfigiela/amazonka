@@ -78,7 +78,7 @@ instance Core.AWSRequest DeleteFleetAdvisorDatabases where
   type
     AWSResponse DeleteFleetAdvisorDatabases =
       DeleteFleetAdvisorDatabasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteFleetAdvisorDatabases where
             Prelude.<$> (x Core..?> "DatabaseIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFleetAdvisorDatabases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFleetAdvisorDatabases where
   hashWithSalt _salt DeleteFleetAdvisorDatabases' {..} =

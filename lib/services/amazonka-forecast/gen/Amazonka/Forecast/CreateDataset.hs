@@ -337,7 +337,7 @@ instance Core.AWSRequest CreateDataset where
   type
     AWSResponse CreateDataset =
       CreateDatasetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -345,6 +345,9 @@ instance Core.AWSRequest CreateDataset where
             Prelude.<$> (x Core..?> "DatasetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDataset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataset where
   hashWithSalt _salt CreateDataset' {..} =

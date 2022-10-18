@@ -79,7 +79,7 @@ instance Core.AWSRequest GetFirewallRuleGroupPolicy where
   type
     AWSResponse GetFirewallRuleGroupPolicy =
       GetFirewallRuleGroupPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetFirewallRuleGroupPolicy where
             Prelude.<$> (x Core..?> "FirewallRuleGroupPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFirewallRuleGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFirewallRuleGroupPolicy where
   hashWithSalt _salt GetFirewallRuleGroupPolicy' {..} =

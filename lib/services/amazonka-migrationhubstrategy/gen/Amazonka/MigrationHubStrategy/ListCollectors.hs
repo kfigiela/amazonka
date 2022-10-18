@@ -126,7 +126,7 @@ instance Core.AWSRequest ListCollectors where
   type
     AWSResponse ListCollectors =
       ListCollectorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListCollectors where
             Prelude.<*> (x Core..?> "Collectors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCollectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCollectors where
   hashWithSalt _salt ListCollectors' {..} =

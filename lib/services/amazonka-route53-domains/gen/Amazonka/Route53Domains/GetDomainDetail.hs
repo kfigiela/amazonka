@@ -101,7 +101,7 @@ instance Core.AWSRequest GetDomainDetail where
   type
     AWSResponse GetDomainDetail =
       GetDomainDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest GetDomainDetail where
             Prelude.<*> (x Core..:> "RegistrantContact")
             Prelude.<*> (x Core..:> "TechContact")
       )
+
+instance Core.AWSService GetDomainDetail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomainDetail where
   hashWithSalt _salt GetDomainDetail' {..} =

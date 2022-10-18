@@ -97,7 +97,7 @@ instance Core.AWSRequest RenewOffering where
   type
     AWSResponse RenewOffering =
       RenewOfferingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest RenewOffering where
             Prelude.<$> (x Core..?> "offeringTransaction")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RenewOffering where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RenewOffering where
   hashWithSalt _salt RenewOffering' {..} =

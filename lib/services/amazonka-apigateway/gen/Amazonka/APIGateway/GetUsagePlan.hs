@@ -83,10 +83,13 @@ getUsagePlan_usagePlanId = Lens.lens (\GetUsagePlan' {usagePlanId} -> usagePlanI
 
 instance Core.AWSRequest GetUsagePlan where
   type AWSResponse GetUsagePlan = UsagePlan
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetUsagePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUsagePlan where
   hashWithSalt _salt GetUsagePlan' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeSchema where
   type
     AWSResponse DescribeSchema =
       DescribeSchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeSchema where
             Prelude.<$> (x Core..?> "schema")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSchema where
   hashWithSalt _salt DescribeSchema' {..} =

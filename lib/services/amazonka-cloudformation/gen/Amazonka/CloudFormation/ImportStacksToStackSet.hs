@@ -180,7 +180,7 @@ instance Core.AWSRequest ImportStacksToStackSet where
   type
     AWSResponse ImportStacksToStackSet =
       ImportStacksToStackSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ImportStacksToStackSetResult"
@@ -189,6 +189,9 @@ instance Core.AWSRequest ImportStacksToStackSet where
             Prelude.<$> (x Core..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportStacksToStackSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportStacksToStackSet where
   hashWithSalt _salt ImportStacksToStackSet' {..} =

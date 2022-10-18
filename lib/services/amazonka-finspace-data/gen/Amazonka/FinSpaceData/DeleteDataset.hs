@@ -91,7 +91,7 @@ instance Core.AWSRequest DeleteDataset where
   type
     AWSResponse DeleteDataset =
       DeleteDatasetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteDataset where
             Prelude.<$> (x Core..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDataset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDataset where
   hashWithSalt _salt DeleteDataset' {..} =

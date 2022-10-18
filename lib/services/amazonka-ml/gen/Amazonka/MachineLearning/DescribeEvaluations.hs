@@ -359,7 +359,7 @@ instance Core.AWSRequest DescribeEvaluations where
   type
     AWSResponse DescribeEvaluations =
       DescribeEvaluationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -368,6 +368,9 @@ instance Core.AWSRequest DescribeEvaluations where
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEvaluations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEvaluations where
   hashWithSalt _salt DescribeEvaluations' {..} =

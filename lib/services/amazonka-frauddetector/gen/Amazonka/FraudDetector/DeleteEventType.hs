@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteEventType where
   type
     AWSResponse DeleteEventType =
       DeleteEventTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEventTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEventType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventType where
   hashWithSalt _salt DeleteEventType' {..} =

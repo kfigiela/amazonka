@@ -344,7 +344,7 @@ instance Core.AWSRequest RegisterJobDefinition where
   type
     AWSResponse RegisterJobDefinition =
       RegisterJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -354,6 +354,9 @@ instance Core.AWSRequest RegisterJobDefinition where
             Prelude.<*> (x Core..:> "jobDefinitionArn")
             Prelude.<*> (x Core..:> "revision")
       )
+
+instance Core.AWSService RegisterJobDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterJobDefinition where
   hashWithSalt _salt RegisterJobDefinition' {..} =

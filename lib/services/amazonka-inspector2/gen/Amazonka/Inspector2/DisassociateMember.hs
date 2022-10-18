@@ -81,7 +81,7 @@ instance Core.AWSRequest DisassociateMember where
   type
     AWSResponse DisassociateMember =
       DisassociateMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DisassociateMember where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "accountId")
       )
+
+instance Core.AWSService DisassociateMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateMember where
   hashWithSalt _salt DisassociateMember' {..} =

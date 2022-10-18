@@ -535,7 +535,7 @@ instance Core.AWSRequest PutScalingPolicy where
   type
     AWSResponse PutScalingPolicy =
       PutScalingPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutScalingPolicyResult"
@@ -547,6 +547,9 @@ instance Core.AWSRequest PutScalingPolicy where
             Prelude.<*> (x Core..@? "PolicyARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutScalingPolicy where
   hashWithSalt _salt PutScalingPolicy' {..} =

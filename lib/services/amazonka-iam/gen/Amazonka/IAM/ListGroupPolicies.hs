@@ -183,7 +183,7 @@ instance Core.AWSRequest ListGroupPolicies where
   type
     AWSResponse ListGroupPolicies =
       ListGroupPoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListGroupPoliciesResult"
@@ -196,6 +196,9 @@ instance Core.AWSRequest ListGroupPolicies where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListGroupPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGroupPolicies where
   hashWithSalt _salt ListGroupPolicies' {..} =

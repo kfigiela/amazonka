@@ -151,7 +151,7 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
   type
     AWSResponse ListSqlInjectionMatchSets =
       ListSqlInjectionMatchSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListSqlInjectionMatchSets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSqlInjectionMatchSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSqlInjectionMatchSets where
   hashWithSalt _salt ListSqlInjectionMatchSets' {..} =

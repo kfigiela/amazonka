@@ -184,7 +184,7 @@ instance Core.AWSRequest StartFaceSearch where
   type
     AWSResponse StartFaceSearch =
       StartFaceSearchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest StartFaceSearch where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartFaceSearch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFaceSearch where
   hashWithSalt _salt StartFaceSearch' {..} =

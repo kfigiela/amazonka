@@ -342,7 +342,7 @@ updateWebACL_lockToken = Lens.lens (\UpdateWebACL' {lockToken} -> lockToken) (\s
 
 instance Core.AWSRequest UpdateWebACL where
   type AWSResponse UpdateWebACL = UpdateWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -350,6 +350,9 @@ instance Core.AWSRequest UpdateWebACL where
             Prelude.<$> (x Core..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWebACL where
   hashWithSalt _salt UpdateWebACL' {..} =

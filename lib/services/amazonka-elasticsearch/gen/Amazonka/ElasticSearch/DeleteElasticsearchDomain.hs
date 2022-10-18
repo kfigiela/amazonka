@@ -88,7 +88,7 @@ instance Core.AWSRequest DeleteElasticsearchDomain where
   type
     AWSResponse DeleteElasticsearchDomain =
       DeleteElasticsearchDomainResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DeleteElasticsearchDomain where
             Prelude.<$> (x Core..?> "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteElasticsearchDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteElasticsearchDomain where
   hashWithSalt _salt DeleteElasticsearchDomain' {..} =

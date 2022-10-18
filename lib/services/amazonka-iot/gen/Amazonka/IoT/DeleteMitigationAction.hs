@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteMitigationAction where
   type
     AWSResponse DeleteMitigationAction =
       DeleteMitigationActionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMitigationActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMitigationAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMitigationAction where
   hashWithSalt _salt DeleteMitigationAction' {..} =

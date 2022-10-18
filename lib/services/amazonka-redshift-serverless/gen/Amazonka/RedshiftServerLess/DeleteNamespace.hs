@@ -102,7 +102,7 @@ instance Core.AWSRequest DeleteNamespace where
   type
     AWSResponse DeleteNamespace =
       DeleteNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DeleteNamespace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "namespace")
       )
+
+instance Core.AWSService DeleteNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNamespace where
   hashWithSalt _salt DeleteNamespace' {..} =

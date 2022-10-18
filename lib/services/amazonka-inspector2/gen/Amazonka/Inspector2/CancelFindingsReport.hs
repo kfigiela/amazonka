@@ -77,7 +77,7 @@ instance Core.AWSRequest CancelFindingsReport where
   type
     AWSResponse CancelFindingsReport =
       CancelFindingsReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest CancelFindingsReport where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "reportId")
       )
+
+instance Core.AWSService CancelFindingsReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelFindingsReport where
   hashWithSalt _salt CancelFindingsReport' {..} =

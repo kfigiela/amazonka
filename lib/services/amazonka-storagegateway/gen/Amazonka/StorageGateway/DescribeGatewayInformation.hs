@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeGatewayInformation where
   type
     AWSResponse DescribeGatewayInformation =
       DescribeGatewayInformationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest DescribeGatewayInformation where
             Prelude.<*> (x Core..?> "HostEnvironment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeGatewayInformation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGatewayInformation where
   hashWithSalt _salt DescribeGatewayInformation' {..} =

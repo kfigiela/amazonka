@@ -84,13 +84,16 @@ instance Core.AWSRequest CancelInputDeviceTransfer where
   type
     AWSResponse CancelInputDeviceTransfer =
       CancelInputDeviceTransferResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelInputDeviceTransferResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelInputDeviceTransfer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelInputDeviceTransfer where
   hashWithSalt _salt CancelInputDeviceTransfer' {..} =

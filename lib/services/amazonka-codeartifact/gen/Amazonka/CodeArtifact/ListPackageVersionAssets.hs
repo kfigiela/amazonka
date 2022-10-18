@@ -256,7 +256,7 @@ instance Core.AWSRequest ListPackageVersionAssets where
   type
     AWSResponse ListPackageVersionAssets =
       ListPackageVersionAssetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -270,6 +270,9 @@ instance Core.AWSRequest ListPackageVersionAssets where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPackageVersionAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPackageVersionAssets where
   hashWithSalt _salt ListPackageVersionAssets' {..} =

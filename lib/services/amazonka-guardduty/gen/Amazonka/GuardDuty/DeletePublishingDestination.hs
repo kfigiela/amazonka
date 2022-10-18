@@ -96,13 +96,16 @@ instance Core.AWSRequest DeletePublishingDestination where
   type
     AWSResponse DeletePublishingDestination =
       DeletePublishingDestinationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePublishingDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePublishingDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePublishingDestination where
   hashWithSalt _salt DeletePublishingDestination' {..} =

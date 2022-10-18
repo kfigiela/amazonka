@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateConnectClientAddIn where
   type
     AWSResponse CreateConnectClientAddIn =
       CreateConnectClientAddInResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest CreateConnectClientAddIn where
             Prelude.<$> (x Core..?> "AddInId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConnectClientAddIn where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConnectClientAddIn where
   hashWithSalt _salt CreateConnectClientAddIn' {..} =

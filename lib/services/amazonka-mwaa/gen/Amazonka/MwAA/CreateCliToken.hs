@@ -82,7 +82,7 @@ instance Core.AWSRequest CreateCliToken where
   type
     AWSResponse CreateCliToken =
       CreateCliTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest CreateCliToken where
             Prelude.<*> (x Core..?> "CliToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCliToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCliToken where
   hashWithSalt _salt CreateCliToken' {..} =

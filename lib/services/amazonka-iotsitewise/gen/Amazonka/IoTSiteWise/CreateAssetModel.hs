@@ -222,7 +222,7 @@ instance Core.AWSRequest CreateAssetModel where
   type
     AWSResponse CreateAssetModel =
       CreateAssetModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -232,6 +232,9 @@ instance Core.AWSRequest CreateAssetModel where
             Prelude.<*> (x Core..:> "assetModelArn")
             Prelude.<*> (x Core..:> "assetModelStatus")
       )
+
+instance Core.AWSService CreateAssetModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAssetModel where
   hashWithSalt _salt CreateAssetModel' {..} =

@@ -79,7 +79,7 @@ describeTags_resourceArns = Lens.lens (\DescribeTags' {resourceArns} -> resource
 
 instance Core.AWSRequest DescribeTags where
   type AWSResponse DescribeTags = DescribeTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTagsResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeTags where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTags where
   hashWithSalt _salt DescribeTags' {..} =

@@ -122,7 +122,7 @@ instance
   type
     AWSResponse MergePullRequestByFastForward =
       MergePullRequestByFastForwardResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,12 @@ instance
             Prelude.<$> (x Core..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    MergePullRequestByFastForward
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

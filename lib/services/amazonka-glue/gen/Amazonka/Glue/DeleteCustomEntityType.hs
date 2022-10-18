@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteCustomEntityType where
   type
     AWSResponse DeleteCustomEntityType =
       DeleteCustomEntityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteCustomEntityType where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomEntityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomEntityType where
   hashWithSalt _salt DeleteCustomEntityType' {..} =

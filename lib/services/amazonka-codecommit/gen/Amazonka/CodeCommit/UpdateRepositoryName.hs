@@ -95,9 +95,12 @@ instance Core.AWSRequest UpdateRepositoryName where
   type
     AWSResponse UpdateRepositoryName =
       UpdateRepositoryNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateRepositoryNameResponse'
+
+instance Core.AWSService UpdateRepositoryName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRepositoryName where
   hashWithSalt _salt UpdateRepositoryName' {..} =

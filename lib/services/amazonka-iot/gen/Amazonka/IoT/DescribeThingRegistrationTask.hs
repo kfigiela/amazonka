@@ -95,7 +95,7 @@ instance
   type
     AWSResponse DescribeThingRegistrationTask =
       DescribeThingRegistrationTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,12 @@ instance
             Prelude.<*> (x Core..?> "successCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeThingRegistrationTask
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

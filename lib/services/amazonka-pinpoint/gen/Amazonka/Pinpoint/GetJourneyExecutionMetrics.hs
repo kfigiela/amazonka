@@ -130,7 +130,7 @@ instance Core.AWSRequest GetJourneyExecutionMetrics where
   type
     AWSResponse GetJourneyExecutionMetrics =
       GetJourneyExecutionMetricsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetJourneyExecutionMetrics where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetJourneyExecutionMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetJourneyExecutionMetrics where
   hashWithSalt _salt GetJourneyExecutionMetrics' {..} =

@@ -125,7 +125,7 @@ instance Core.AWSRequest DeleteSizeConstraintSet where
   type
     AWSResponse DeleteSizeConstraintSet =
       DeleteSizeConstraintSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DeleteSizeConstraintSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSizeConstraintSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSizeConstraintSet where
   hashWithSalt _salt DeleteSizeConstraintSet' {..} =

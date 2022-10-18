@@ -184,7 +184,7 @@ createRule_resourceType = Lens.lens (\CreateRule' {resourceType} -> resourceType
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest CreateRule where
             Prelude.<*> (x Core..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =

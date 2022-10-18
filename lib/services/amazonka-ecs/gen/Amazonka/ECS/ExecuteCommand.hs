@@ -145,7 +145,7 @@ instance Core.AWSRequest ExecuteCommand where
   type
     AWSResponse ExecuteCommand =
       ExecuteCommandResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest ExecuteCommand where
             Prelude.<*> (x Core..?> "interactive")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExecuteCommand where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecuteCommand where
   hashWithSalt _salt ExecuteCommand' {..} =

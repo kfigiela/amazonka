@@ -159,13 +159,16 @@ instance Core.AWSRequest SetTaskStatus where
   type
     AWSResponse SetTaskStatus =
       SetTaskStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SetTaskStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetTaskStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTaskStatus where
   hashWithSalt _salt SetTaskStatus' {..} =

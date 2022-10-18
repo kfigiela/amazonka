@@ -177,7 +177,7 @@ instance Core.AWSRequest DetectCustomLabels where
   type
     AWSResponse DetectCustomLabels =
       DetectCustomLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest DetectCustomLabels where
             Prelude.<$> (x Core..?> "CustomLabels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectCustomLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectCustomLabels where
   hashWithSalt _salt DetectCustomLabels' {..} =

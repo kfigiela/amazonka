@@ -210,7 +210,7 @@ instance Core.AWSRequest UpdateInAppTemplate where
   type
     AWSResponse UpdateInAppTemplate =
       UpdateInAppTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest UpdateInAppTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateInAppTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInAppTemplate where
   hashWithSalt _salt UpdateInAppTemplate' {..} =

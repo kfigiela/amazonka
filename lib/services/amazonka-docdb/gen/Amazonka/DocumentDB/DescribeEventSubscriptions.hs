@@ -171,7 +171,7 @@ instance Core.AWSRequest DescribeEventSubscriptions where
   type
     AWSResponse DescribeEventSubscriptions =
       DescribeEventSubscriptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEventSubscriptionsResult"
@@ -184,6 +184,9 @@ instance Core.AWSRequest DescribeEventSubscriptions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEventSubscriptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEventSubscriptions where
   hashWithSalt _salt DescribeEventSubscriptions' {..} =

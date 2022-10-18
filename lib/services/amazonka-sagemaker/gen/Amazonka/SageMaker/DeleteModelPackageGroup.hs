@@ -76,10 +76,13 @@ instance Core.AWSRequest DeleteModelPackageGroup where
   type
     AWSResponse DeleteModelPackageGroup =
       DeleteModelPackageGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteModelPackageGroupResponse'
+
+instance Core.AWSService DeleteModelPackageGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteModelPackageGroup where
   hashWithSalt _salt DeleteModelPackageGroup' {..} =

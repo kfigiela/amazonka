@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeDimension where
   type
     AWSResponse DescribeDimension =
       DescribeDimensionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DescribeDimension where
             Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDimension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDimension where
   hashWithSalt _salt DescribeDimension' {..} =

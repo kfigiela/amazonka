@@ -148,7 +148,7 @@ instance Core.AWSRequest UpdateWebhook where
   type
     AWSResponse UpdateWebhook =
       UpdateWebhookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdateWebhook where
             Prelude.<$> (x Core..?> "webhook")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWebhook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWebhook where
   hashWithSalt _salt UpdateWebhook' {..} =

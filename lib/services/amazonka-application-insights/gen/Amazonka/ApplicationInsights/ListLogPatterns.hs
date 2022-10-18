@@ -117,7 +117,7 @@ instance Core.AWSRequest ListLogPatterns where
   type
     AWSResponse ListLogPatterns =
       ListLogPatternsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListLogPatterns where
             Prelude.<*> (x Core..?> "LogPatterns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLogPatterns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLogPatterns where
   hashWithSalt _salt ListLogPatterns' {..} =

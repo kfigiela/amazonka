@@ -87,7 +87,7 @@ instance
   type
     AWSResponse DescribeEntitiesDetectionV2Job =
       DescribeEntitiesDetectionV2JobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
             Prelude.<$> (x Core..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEntitiesDetectionV2Job
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

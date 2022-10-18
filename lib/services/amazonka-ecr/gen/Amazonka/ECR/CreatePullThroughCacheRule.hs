@@ -121,7 +121,7 @@ instance Core.AWSRequest CreatePullThroughCacheRule where
   type
     AWSResponse CreatePullThroughCacheRule =
       CreatePullThroughCacheRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest CreatePullThroughCacheRule where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePullThroughCacheRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePullThroughCacheRule where
   hashWithSalt _salt CreatePullThroughCacheRule' {..} =

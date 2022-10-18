@@ -310,11 +310,14 @@ instance Core.AWSRequest UpdateEnvironment where
   type
     AWSResponse UpdateEnvironment =
       EnvironmentDescription
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateEnvironmentResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService UpdateEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEnvironment where
   hashWithSalt _salt UpdateEnvironment' {..} =

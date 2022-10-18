@@ -152,13 +152,19 @@ instance
   type
     AWSResponse UpdateAccountAuditConfiguration =
       UpdateAccountAuditConfigurationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAccountAuditConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateAccountAuditConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

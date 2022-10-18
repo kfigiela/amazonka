@@ -315,11 +315,14 @@ instance Core.AWSRequest CreateConfigurationTemplate where
   type
     AWSResponse CreateConfigurationTemplate =
       ConfigurationSettingsDescription
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateConfigurationTemplateResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateConfigurationTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConfigurationTemplate where
   hashWithSalt _salt CreateConfigurationTemplate' {..} =

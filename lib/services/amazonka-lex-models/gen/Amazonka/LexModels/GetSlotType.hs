@@ -99,7 +99,7 @@ getSlotType_version = Lens.lens (\GetSlotType' {version} -> version) (\s@GetSlot
 
 instance Core.AWSRequest GetSlotType where
   type AWSResponse GetSlotType = GetSlotTypeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetSlotType where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSlotType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSlotType where
   hashWithSalt _salt GetSlotType' {..} =

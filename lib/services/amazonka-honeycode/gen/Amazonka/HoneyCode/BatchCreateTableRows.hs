@@ -191,7 +191,7 @@ instance Core.AWSRequest BatchCreateTableRows where
   type
     AWSResponse BatchCreateTableRows =
       BatchCreateTableRowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -203,6 +203,9 @@ instance Core.AWSRequest BatchCreateTableRows where
             Prelude.<*> (x Core..:> "workbookCursor")
             Prelude.<*> (x Core..?> "createdRows" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchCreateTableRows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchCreateTableRows where
   hashWithSalt _salt BatchCreateTableRows' {..} =

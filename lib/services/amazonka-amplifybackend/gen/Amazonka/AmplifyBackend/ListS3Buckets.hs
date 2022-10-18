@@ -78,7 +78,7 @@ instance Core.AWSRequest ListS3Buckets where
   type
     AWSResponse ListS3Buckets =
       ListS3BucketsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest ListS3Buckets where
             Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListS3Buckets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListS3Buckets where
   hashWithSalt _salt ListS3Buckets' {..} =

@@ -77,7 +77,7 @@ getTrail_name = Lens.lens (\GetTrail' {name} -> name) (\s@GetTrail' {} a -> s {n
 
 instance Core.AWSRequest GetTrail where
   type AWSResponse GetTrail = GetTrailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetTrail where
             Prelude.<$> (x Core..?> "Trail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTrail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTrail where
   hashWithSalt _salt GetTrail' {..} =

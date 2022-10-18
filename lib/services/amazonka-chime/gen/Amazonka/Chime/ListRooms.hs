@@ -110,7 +110,7 @@ listRooms_accountId = Lens.lens (\ListRooms' {accountId} -> accountId) (\s@ListR
 
 instance Core.AWSRequest ListRooms where
   type AWSResponse ListRooms = ListRoomsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListRooms where
             Prelude.<*> (x Core..?> "Rooms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRooms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRooms where
   hashWithSalt _salt ListRooms' {..} =

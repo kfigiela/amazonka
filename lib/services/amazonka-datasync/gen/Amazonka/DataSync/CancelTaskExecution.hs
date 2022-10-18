@@ -90,13 +90,16 @@ instance Core.AWSRequest CancelTaskExecution where
   type
     AWSResponse CancelTaskExecution =
       CancelTaskExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelTaskExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelTaskExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelTaskExecution where
   hashWithSalt _salt CancelTaskExecution' {..} =

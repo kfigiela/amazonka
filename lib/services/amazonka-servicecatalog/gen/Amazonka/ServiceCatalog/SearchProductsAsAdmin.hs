@@ -198,7 +198,7 @@ instance Core.AWSRequest SearchProductsAsAdmin where
   type
     AWSResponse SearchProductsAsAdmin =
       SearchProductsAsAdminResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest SearchProductsAsAdmin where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchProductsAsAdmin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchProductsAsAdmin where
   hashWithSalt _salt SearchProductsAsAdmin' {..} =

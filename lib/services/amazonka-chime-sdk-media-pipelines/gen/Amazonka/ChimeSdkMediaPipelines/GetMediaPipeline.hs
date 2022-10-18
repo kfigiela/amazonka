@@ -80,7 +80,7 @@ instance Core.AWSRequest GetMediaPipeline where
   type
     AWSResponse GetMediaPipeline =
       GetMediaPipelineResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetMediaPipeline where
             Prelude.<$> (x Core..?> "MediaPipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMediaPipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMediaPipeline where
   hashWithSalt _salt GetMediaPipeline' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest DeleteEnvironmentTemplate where
   type
     AWSResponse DeleteEnvironmentTemplate =
       DeleteEnvironmentTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteEnvironmentTemplate where
             Prelude.<$> (x Core..?> "environmentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEnvironmentTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEnvironmentTemplate where
   hashWithSalt _salt DeleteEnvironmentTemplate' {..} =

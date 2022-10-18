@@ -207,7 +207,7 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
   type
     AWSResponse ModifyDBSnapshotAttribute =
       ModifyDBSnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBSnapshotAttributeResult"
@@ -216,6 +216,9 @@ instance Core.AWSRequest ModifyDBSnapshotAttribute where
             Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBSnapshotAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBSnapshotAttribute where
   hashWithSalt _salt ModifyDBSnapshotAttribute' {..} =

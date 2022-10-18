@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateWorkerConfiguration where
   type
     AWSResponse CreateWorkerConfiguration =
       CreateWorkerConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest CreateWorkerConfiguration where
             Prelude.<*> (x Core..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkerConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkerConfiguration where
   hashWithSalt _salt CreateWorkerConfiguration' {..} =

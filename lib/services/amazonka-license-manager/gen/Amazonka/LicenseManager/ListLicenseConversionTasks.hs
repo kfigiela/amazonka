@@ -102,7 +102,7 @@ instance Core.AWSRequest ListLicenseConversionTasks where
   type
     AWSResponse ListLicenseConversionTasks =
       ListLicenseConversionTasksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListLicenseConversionTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLicenseConversionTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLicenseConversionTasks where
   hashWithSalt _salt ListLicenseConversionTasks' {..} =

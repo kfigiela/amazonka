@@ -243,9 +243,12 @@ instance Core.AWSRequest PutSubscriptionFilter where
   type
     AWSResponse PutSubscriptionFilter =
       PutSubscriptionFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutSubscriptionFilterResponse'
+
+instance Core.AWSService PutSubscriptionFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSubscriptionFilter where
   hashWithSalt _salt PutSubscriptionFilter' {..} =

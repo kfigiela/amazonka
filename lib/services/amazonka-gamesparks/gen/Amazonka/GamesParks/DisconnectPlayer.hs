@@ -107,7 +107,7 @@ instance Core.AWSRequest DisconnectPlayer where
   type
     AWSResponse DisconnectPlayer =
       DisconnectPlayerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DisconnectPlayer where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisconnectPlayer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisconnectPlayer where
   hashWithSalt _salt DisconnectPlayer' {..} =

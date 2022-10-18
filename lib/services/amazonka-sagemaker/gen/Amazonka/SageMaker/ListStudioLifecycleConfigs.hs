@@ -221,7 +221,7 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
   type
     AWSResponse ListStudioLifecycleConfigs =
       ListStudioLifecycleConfigsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -232,6 +232,9 @@ instance Core.AWSRequest ListStudioLifecycleConfigs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStudioLifecycleConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStudioLifecycleConfigs where
   hashWithSalt _salt ListStudioLifecycleConfigs' {..} =

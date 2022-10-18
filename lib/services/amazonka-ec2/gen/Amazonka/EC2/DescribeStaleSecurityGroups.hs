@@ -157,7 +157,7 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
   type
     AWSResponse DescribeStaleSecurityGroups =
       DescribeStaleSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest DescribeStaleSecurityGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStaleSecurityGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStaleSecurityGroups where
   hashWithSalt _salt DescribeStaleSecurityGroups' {..} =

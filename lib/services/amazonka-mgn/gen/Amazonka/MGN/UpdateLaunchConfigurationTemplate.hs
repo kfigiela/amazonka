@@ -97,10 +97,16 @@ instance
   type
     AWSResponse UpdateLaunchConfigurationTemplate =
       LaunchConfigurationTemplate
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    UpdateLaunchConfigurationTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

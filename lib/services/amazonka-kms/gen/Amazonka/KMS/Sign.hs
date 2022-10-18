@@ -309,7 +309,7 @@ sign_signingAlgorithm = Lens.lens (\Sign' {signingAlgorithm} -> signingAlgorithm
 
 instance Core.AWSRequest Sign where
   type AWSResponse Sign = SignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -319,6 +319,9 @@ instance Core.AWSRequest Sign where
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Sign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Sign where
   hashWithSalt _salt Sign' {..} =

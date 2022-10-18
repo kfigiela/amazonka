@@ -127,7 +127,7 @@ instance Core.AWSRequest UpdateRevision where
   type
     AWSResponse UpdateRevision =
       UpdateRevisionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest UpdateRevision where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRevision where
   hashWithSalt _salt UpdateRevision' {..} =

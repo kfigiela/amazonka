@@ -211,11 +211,14 @@ instance Core.AWSRequest ModifyCustomDBEngineVersion where
   type
     AWSResponse ModifyCustomDBEngineVersion =
       DBEngineVersion
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCustomDBEngineVersionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyCustomDBEngineVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCustomDBEngineVersion where
   hashWithSalt _salt ModifyCustomDBEngineVersion' {..} =

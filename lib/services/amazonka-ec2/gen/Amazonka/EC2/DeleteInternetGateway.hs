@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteInternetGateway where
   type
     AWSResponse DeleteInternetGateway =
       DeleteInternetGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteInternetGatewayResponse'
+
+instance Core.AWSService DeleteInternetGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInternetGateway where
   hashWithSalt _salt DeleteInternetGateway' {..} =

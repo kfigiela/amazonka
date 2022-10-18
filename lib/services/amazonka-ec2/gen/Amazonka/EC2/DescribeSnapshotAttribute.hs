@@ -118,7 +118,7 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
   type
     AWSResponse DescribeSnapshotAttribute =
       DescribeSnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DescribeSnapshotAttribute where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSnapshotAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSnapshotAttribute where
   hashWithSalt _salt DescribeSnapshotAttribute' {..} =

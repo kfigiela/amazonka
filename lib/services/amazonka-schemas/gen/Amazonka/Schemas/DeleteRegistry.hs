@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteRegistry where
   type
     AWSResponse DeleteRegistry =
       DeleteRegistryResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRegistryResponse'
+
+instance Core.AWSService DeleteRegistry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRegistry where
   hashWithSalt _salt DeleteRegistry' {..} =

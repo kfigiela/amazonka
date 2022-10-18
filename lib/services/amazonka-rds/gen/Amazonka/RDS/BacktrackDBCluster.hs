@@ -220,11 +220,14 @@ instance Core.AWSRequest BacktrackDBCluster where
   type
     AWSResponse BacktrackDBCluster =
       DBClusterBacktrack
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BacktrackDBClusterResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService BacktrackDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BacktrackDBCluster where
   hashWithSalt _salt BacktrackDBCluster' {..} =

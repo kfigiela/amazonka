@@ -62,7 +62,7 @@ instance Core.AWSRequest GetMessagingSessionEndpoint where
   type
     AWSResponse GetMessagingSessionEndpoint =
       GetMessagingSessionEndpointResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetMessagingSessionEndpoint where
             Prelude.<$> (x Core..?> "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMessagingSessionEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMessagingSessionEndpoint where
   hashWithSalt _salt _ =

@@ -81,7 +81,7 @@ instance Core.AWSRequest GetNetworkResource where
   type
     AWSResponse GetNetworkResource =
       GetNetworkResourceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetNetworkResource where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "networkResource")
       )
+
+instance Core.AWSService GetNetworkResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetworkResource where
   hashWithSalt _salt GetNetworkResource' {..} =

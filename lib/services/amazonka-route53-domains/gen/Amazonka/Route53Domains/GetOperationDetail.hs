@@ -93,7 +93,7 @@ instance Core.AWSRequest GetOperationDetail where
   type
     AWSResponse GetOperationDetail =
       GetOperationDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetOperationDetail where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOperationDetail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOperationDetail where
   hashWithSalt _salt GetOperationDetail' {..} =

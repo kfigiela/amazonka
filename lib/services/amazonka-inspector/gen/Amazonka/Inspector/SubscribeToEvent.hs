@@ -103,9 +103,12 @@ instance Core.AWSRequest SubscribeToEvent where
   type
     AWSResponse SubscribeToEvent =
       SubscribeToEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SubscribeToEventResponse'
+
+instance Core.AWSService SubscribeToEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SubscribeToEvent where
   hashWithSalt _salt SubscribeToEvent' {..} =

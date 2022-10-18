@@ -81,9 +81,12 @@ instance Core.AWSRequest DeleteVocabulary where
   type
     AWSResponse DeleteVocabulary =
       DeleteVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteVocabularyResponse'
+
+instance Core.AWSService DeleteVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVocabulary where
   hashWithSalt _salt DeleteVocabulary' {..} =

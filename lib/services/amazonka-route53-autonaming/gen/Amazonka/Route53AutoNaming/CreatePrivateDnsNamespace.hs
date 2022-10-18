@@ -161,7 +161,7 @@ instance Core.AWSRequest CreatePrivateDnsNamespace where
   type
     AWSResponse CreatePrivateDnsNamespace =
       CreatePrivateDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest CreatePrivateDnsNamespace where
             Prelude.<$> (x Core..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePrivateDnsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePrivateDnsNamespace where
   hashWithSalt _salt CreatePrivateDnsNamespace' {..} =

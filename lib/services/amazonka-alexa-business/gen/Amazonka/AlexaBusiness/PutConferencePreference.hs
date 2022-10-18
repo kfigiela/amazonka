@@ -80,13 +80,16 @@ instance Core.AWSRequest PutConferencePreference where
   type
     AWSResponse PutConferencePreference =
       PutConferencePreferenceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutConferencePreferenceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutConferencePreference where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutConferencePreference where
   hashWithSalt _salt PutConferencePreference' {..} =

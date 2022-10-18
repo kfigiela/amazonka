@@ -59,9 +59,12 @@ instance Core.AWSRequest DeleteOrganization where
   type
     AWSResponse DeleteOrganization =
       DeleteOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteOrganizationResponse'
+
+instance Core.AWSService DeleteOrganization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOrganization where
   hashWithSalt _salt _ =

@@ -137,7 +137,7 @@ instance Core.AWSRequest ListPricingRules where
   type
     AWSResponse ListPricingRules =
       ListPricingRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListPricingRules where
             Prelude.<*> (x Core..?> "BillingPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPricingRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPricingRules where
   hashWithSalt _salt ListPricingRules' {..} =

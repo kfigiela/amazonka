@@ -101,7 +101,7 @@ detectSyntax_languageCode = Lens.lens (\DetectSyntax' {languageCode} -> language
 
 instance Core.AWSRequest DetectSyntax where
   type AWSResponse DetectSyntax = DetectSyntaxResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DetectSyntax where
             Prelude.<$> (x Core..?> "SyntaxTokens" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectSyntax where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectSyntax where
   hashWithSalt _salt DetectSyntax' {..} =

@@ -79,13 +79,16 @@ instance Core.AWSRequest DisassociateNetworkSettings where
   type
     AWSResponse DisassociateNetworkSettings =
       DisassociateNetworkSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateNetworkSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateNetworkSettings where
   hashWithSalt _salt DisassociateNetworkSettings' {..} =

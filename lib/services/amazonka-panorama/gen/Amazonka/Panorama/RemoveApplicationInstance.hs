@@ -79,13 +79,16 @@ instance Core.AWSRequest RemoveApplicationInstance where
   type
     AWSResponse RemoveApplicationInstance =
       RemoveApplicationInstanceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveApplicationInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveApplicationInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveApplicationInstance where
   hashWithSalt _salt RemoveApplicationInstance' {..} =

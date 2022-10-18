@@ -116,9 +116,12 @@ instance Core.AWSRequest SetVisibleToAllUsers where
   type
     AWSResponse SetVisibleToAllUsers =
       SetVisibleToAllUsersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetVisibleToAllUsersResponse'
+
+instance Core.AWSService SetVisibleToAllUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetVisibleToAllUsers where
   hashWithSalt _salt SetVisibleToAllUsers' {..} =

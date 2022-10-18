@@ -155,7 +155,7 @@ testFailover_nodeGroupId = Lens.lens (\TestFailover' {nodeGroupId} -> nodeGroupI
 
 instance Core.AWSRequest TestFailover where
   type AWSResponse TestFailover = TestFailoverResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TestFailoverResult"
@@ -164,6 +164,9 @@ instance Core.AWSRequest TestFailover where
             Prelude.<$> (x Core..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestFailover where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestFailover where
   hashWithSalt _salt TestFailover' {..} =

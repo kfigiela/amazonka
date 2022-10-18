@@ -175,7 +175,7 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
   type
     AWSResponse GetDiscoveredResourceCounts =
       GetDiscoveredResourceCountsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest GetDiscoveredResourceCounts where
             Prelude.<*> (x Core..?> "totalDiscoveredResources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDiscoveredResourceCounts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDiscoveredResourceCounts where
   hashWithSalt _salt GetDiscoveredResourceCounts' {..} =

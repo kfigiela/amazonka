@@ -118,7 +118,7 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
   type
     AWSResponse ListDataflowEndpointGroups =
       ListDataflowEndpointGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListDataflowEndpointGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataflowEndpointGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataflowEndpointGroups where
   hashWithSalt _salt ListDataflowEndpointGroups' {..} =

@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeGlobalTable where
   type
     AWSResponse DescribeGlobalTable =
       DescribeGlobalTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeGlobalTable where
             Prelude.<$> (x Core..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeGlobalTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGlobalTable where
   hashWithSalt _salt DescribeGlobalTable' {..} =

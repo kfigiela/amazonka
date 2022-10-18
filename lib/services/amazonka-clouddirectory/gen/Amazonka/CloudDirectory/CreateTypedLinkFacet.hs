@@ -94,13 +94,16 @@ instance Core.AWSRequest CreateTypedLinkFacet where
   type
     AWSResponse CreateTypedLinkFacet =
       CreateTypedLinkFacetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateTypedLinkFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTypedLinkFacet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTypedLinkFacet where
   hashWithSalt _salt CreateTypedLinkFacet' {..} =

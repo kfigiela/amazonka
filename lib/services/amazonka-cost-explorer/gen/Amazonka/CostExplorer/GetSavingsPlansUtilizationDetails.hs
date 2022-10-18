@@ -265,7 +265,7 @@ instance
   type
     AWSResponse GetSavingsPlansUtilizationDetails =
       GetSavingsPlansUtilizationDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,12 @@ instance
                           )
               Prelude.<*> (x Core..:> "TimePeriod")
       )
+
+instance
+  Core.AWSService
+    GetSavingsPlansUtilizationDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

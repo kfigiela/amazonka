@@ -79,7 +79,7 @@ instance Core.AWSRequest GetContactPolicy where
   type
     AWSResponse GetContactPolicy =
       GetContactPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetContactPolicy where
             Prelude.<*> (x Core..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContactPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContactPolicy where
   hashWithSalt _salt GetContactPolicy' {..} =

@@ -119,7 +119,7 @@ instance Core.AWSRequest UpdateFolderPermissions where
   type
     AWSResponse UpdateFolderPermissions =
       UpdateFolderPermissionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest UpdateFolderPermissions where
             Prelude.<*> (x Core..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFolderPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFolderPermissions where
   hashWithSalt _salt UpdateFolderPermissions' {..} =

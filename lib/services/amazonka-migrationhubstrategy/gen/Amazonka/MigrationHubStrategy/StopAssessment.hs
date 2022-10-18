@@ -76,13 +76,16 @@ instance Core.AWSRequest StopAssessment where
   type
     AWSResponse StopAssessment =
       StopAssessmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopAssessmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopAssessment where
   hashWithSalt _salt StopAssessment' {..} =

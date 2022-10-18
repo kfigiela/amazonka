@@ -88,7 +88,7 @@ instance Core.AWSRequest GetCurrentUser where
   type
     AWSResponse GetCurrentUser =
       GetCurrentUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetCurrentUser where
             Prelude.<$> (x Core..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCurrentUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCurrentUser where
   hashWithSalt _salt GetCurrentUser' {..} =

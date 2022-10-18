@@ -104,10 +104,13 @@ instance Core.AWSRequest EnableAWSServiceAccess where
   type
     AWSResponse EnableAWSServiceAccess =
       EnableAWSServiceAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       EnableAWSServiceAccessResponse'
+
+instance Core.AWSService EnableAWSServiceAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableAWSServiceAccess where
   hashWithSalt _salt EnableAWSServiceAccess' {..} =

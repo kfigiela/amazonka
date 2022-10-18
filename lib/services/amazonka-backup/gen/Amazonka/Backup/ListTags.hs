@@ -120,7 +120,7 @@ listTags_resourceArn = Lens.lens (\ListTags' {resourceArn} -> resourceArn) (\s@L
 
 instance Core.AWSRequest ListTags where
   type AWSResponse ListTags = ListTagsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListTags where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTags where
   hashWithSalt _salt ListTags' {..} =

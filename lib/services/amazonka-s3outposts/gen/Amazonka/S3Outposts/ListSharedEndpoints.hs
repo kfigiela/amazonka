@@ -134,7 +134,7 @@ instance Core.AWSRequest ListSharedEndpoints where
   type
     AWSResponse ListSharedEndpoints =
       ListSharedEndpointsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ListSharedEndpoints where
             Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSharedEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSharedEndpoints where
   hashWithSalt _salt ListSharedEndpoints' {..} =

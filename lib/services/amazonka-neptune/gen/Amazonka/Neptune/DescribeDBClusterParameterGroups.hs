@@ -188,7 +188,7 @@ instance
   type
     AWSResponse DescribeDBClusterParameterGroups =
       DescribeDBClusterParameterGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBClusterParameterGroupsResult"
@@ -202,6 +202,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeDBClusterParameterGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -82,7 +82,7 @@ instance Core.AWSRequest GetCorsPolicy where
   type
     AWSResponse GetCorsPolicy =
       GetCorsPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetCorsPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CorsPolicy")
       )
+
+instance Core.AWSService GetCorsPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCorsPolicy where
   hashWithSalt _salt GetCorsPolicy' {..} =

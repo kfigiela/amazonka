@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteLoggingConfiguration where
   type
     AWSResponse DeleteLoggingConfiguration =
       DeleteLoggingConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteLoggingConfigurationResponse'
+
+instance Core.AWSService DeleteLoggingConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLoggingConfiguration where
   hashWithSalt _salt DeleteLoggingConfiguration' {..} =

@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteOptionGroup where
   type
     AWSResponse DeleteOptionGroup =
       DeleteOptionGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteOptionGroupResponse'
+
+instance Core.AWSService DeleteOptionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOptionGroup where
   hashWithSalt _salt DeleteOptionGroup' {..} =

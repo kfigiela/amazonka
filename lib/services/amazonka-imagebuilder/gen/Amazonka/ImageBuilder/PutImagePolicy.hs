@@ -101,7 +101,7 @@ instance Core.AWSRequest PutImagePolicy where
   type
     AWSResponse PutImagePolicy =
       PutImagePolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest PutImagePolicy where
             Prelude.<*> (x Core..?> "imageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutImagePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutImagePolicy where
   hashWithSalt _salt PutImagePolicy' {..} =

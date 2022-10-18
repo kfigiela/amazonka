@@ -91,7 +91,7 @@ instance Core.AWSRequest DeleteProjectVersion where
   type
     AWSResponse DeleteProjectVersion =
       DeleteProjectVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteProjectVersion where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProjectVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProjectVersion where
   hashWithSalt _salt DeleteProjectVersion' {..} =

@@ -183,7 +183,7 @@ instance Core.AWSRequest CreateTaskTemplate where
   type
     AWSResponse CreateTaskTemplate =
       CreateTaskTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest CreateTaskTemplate where
             Prelude.<*> (x Core..:> "Id")
             Prelude.<*> (x Core..:> "Arn")
       )
+
+instance Core.AWSService CreateTaskTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTaskTemplate where
   hashWithSalt _salt CreateTaskTemplate' {..} =

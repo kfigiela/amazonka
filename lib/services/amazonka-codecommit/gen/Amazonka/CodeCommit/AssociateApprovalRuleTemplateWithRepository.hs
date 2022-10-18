@@ -102,10 +102,16 @@ instance
     AWSResponse
       AssociateApprovalRuleTemplateWithRepository =
       AssociateApprovalRuleTemplateWithRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AssociateApprovalRuleTemplateWithRepositoryResponse'
+
+instance
+  Core.AWSService
+    AssociateApprovalRuleTemplateWithRepository
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

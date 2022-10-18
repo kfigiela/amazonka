@@ -79,10 +79,16 @@ instance
   type
     AWSResponse StopInferenceRecommendationsJob =
       StopInferenceRecommendationsJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopInferenceRecommendationsJobResponse'
+
+instance
+  Core.AWSService
+    StopInferenceRecommendationsJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

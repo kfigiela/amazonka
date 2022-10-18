@@ -121,9 +121,12 @@ instance Core.AWSRequest AssociateDhcpOptions where
   type
     AWSResponse AssociateDhcpOptions =
       AssociateDhcpOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AssociateDhcpOptionsResponse'
+
+instance Core.AWSService AssociateDhcpOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateDhcpOptions where
   hashWithSalt _salt AssociateDhcpOptions' {..} =

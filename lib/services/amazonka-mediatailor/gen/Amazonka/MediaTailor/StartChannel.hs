@@ -74,13 +74,16 @@ startChannel_channelName = Lens.lens (\StartChannel' {channelName} -> channelNam
 
 instance Core.AWSRequest StartChannel where
   type AWSResponse StartChannel = StartChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartChannel where
   hashWithSalt _salt StartChannel' {..} =

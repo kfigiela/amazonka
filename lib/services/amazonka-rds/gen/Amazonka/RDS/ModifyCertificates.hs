@@ -134,7 +134,7 @@ instance Core.AWSRequest ModifyCertificates where
   type
     AWSResponse ModifyCertificates =
       ModifyCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCertificatesResult"
@@ -143,6 +143,9 @@ instance Core.AWSRequest ModifyCertificates where
             Prelude.<$> (x Core..@? "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCertificates where
   hashWithSalt _salt ModifyCertificates' {..} =

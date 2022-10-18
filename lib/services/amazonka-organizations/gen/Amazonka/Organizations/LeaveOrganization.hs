@@ -111,9 +111,12 @@ instance Core.AWSRequest LeaveOrganization where
   type
     AWSResponse LeaveOrganization =
       LeaveOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull LeaveOrganizationResponse'
+
+instance Core.AWSService LeaveOrganization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable LeaveOrganization where
   hashWithSalt _salt _ =

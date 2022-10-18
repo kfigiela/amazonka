@@ -94,13 +94,16 @@ instance Core.AWSRequest PutContactPolicy where
   type
     AWSResponse PutContactPolicy =
       PutContactPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutContactPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutContactPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutContactPolicy where
   hashWithSalt _salt PutContactPolicy' {..} =

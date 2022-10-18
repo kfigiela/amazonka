@@ -120,7 +120,7 @@ instance Core.AWSRequest ExecuteBudgetAction where
   type
     AWSResponse ExecuteBudgetAction =
       ExecuteBudgetActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ExecuteBudgetAction where
             Prelude.<*> (x Core..:> "ActionId")
             Prelude.<*> (x Core..:> "ExecutionType")
       )
+
+instance Core.AWSService ExecuteBudgetAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecuteBudgetAction where
   hashWithSalt _salt ExecuteBudgetAction' {..} =

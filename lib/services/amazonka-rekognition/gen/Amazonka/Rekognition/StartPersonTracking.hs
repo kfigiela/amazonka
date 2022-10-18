@@ -153,7 +153,7 @@ instance Core.AWSRequest StartPersonTracking where
   type
     AWSResponse StartPersonTracking =
       StartPersonTrackingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest StartPersonTracking where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartPersonTracking where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartPersonTracking where
   hashWithSalt _salt StartPersonTracking' {..} =

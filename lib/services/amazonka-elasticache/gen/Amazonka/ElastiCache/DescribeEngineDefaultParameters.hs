@@ -177,7 +177,7 @@ instance
   type
     AWSResponse DescribeEngineDefaultParameters =
       DescribeEngineDefaultParametersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEngineDefaultParametersResult"
@@ -186,6 +186,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "EngineDefaults")
       )
+
+instance
+  Core.AWSService
+    DescribeEngineDefaultParameters
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -124,7 +124,7 @@ instance Core.AWSRequest ExportComponents where
   type
     AWSResponse ExportComponents =
       ExportComponentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ExportComponents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ExportComponents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportComponents where
   hashWithSalt _salt ExportComponents' {..} =

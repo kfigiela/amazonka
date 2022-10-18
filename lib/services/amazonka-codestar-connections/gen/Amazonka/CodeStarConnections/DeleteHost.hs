@@ -78,13 +78,16 @@ deleteHost_hostArn = Lens.lens (\DeleteHost' {hostArn} -> hostArn) (\s@DeleteHos
 
 instance Core.AWSRequest DeleteHost where
   type AWSResponse DeleteHost = DeleteHostResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHostResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteHost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHost where
   hashWithSalt _salt DeleteHost' {..} =

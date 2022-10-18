@@ -101,7 +101,7 @@ createACL_aCLName = Lens.lens (\CreateACL' {aCLName} -> aCLName) (\s@CreateACL' 
 
 instance Core.AWSRequest CreateACL where
   type AWSResponse CreateACL = CreateACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest CreateACL where
             Prelude.<$> (x Core..?> "ACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateACL where
   hashWithSalt _salt CreateACL' {..} =

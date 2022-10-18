@@ -111,7 +111,7 @@ instance Core.AWSRequest RegisterThing where
   type
     AWSResponse RegisterThing =
       RegisterThingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest RegisterThing where
             Prelude.<*> (x Core..?> "resourceArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterThing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterThing where
   hashWithSalt _salt RegisterThing' {..} =

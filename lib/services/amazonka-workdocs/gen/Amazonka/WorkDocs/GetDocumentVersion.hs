@@ -129,7 +129,7 @@ instance Core.AWSRequest GetDocumentVersion where
   type
     AWSResponse GetDocumentVersion =
       GetDocumentVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetDocumentVersion where
             Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDocumentVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocumentVersion where
   hashWithSalt _salt GetDocumentVersion' {..} =

@@ -128,7 +128,7 @@ instance Core.AWSRequest DescribeStackResource where
   type
     AWSResponse DescribeStackResource =
       DescribeStackResourceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackResourceResult"
@@ -137,6 +137,9 @@ instance Core.AWSRequest DescribeStackResource where
             Prelude.<$> (x Core..@? "StackResourceDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStackResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStackResource where
   hashWithSalt _salt DescribeStackResource' {..} =

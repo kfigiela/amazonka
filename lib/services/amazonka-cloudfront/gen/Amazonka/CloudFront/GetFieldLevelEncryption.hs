@@ -78,7 +78,7 @@ instance Core.AWSRequest GetFieldLevelEncryption where
   type
     AWSResponse GetFieldLevelEncryption =
       GetFieldLevelEncryptionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetFieldLevelEncryption where
             Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFieldLevelEncryption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFieldLevelEncryption where
   hashWithSalt _salt GetFieldLevelEncryption' {..} =

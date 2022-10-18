@@ -91,13 +91,16 @@ disableLDAPS_type = Lens.lens (\DisableLDAPS' {type'} -> type') (\s@DisableLDAPS
 
 instance Core.AWSRequest DisableLDAPS where
   type AWSResponse DisableLDAPS = DisableLDAPSResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableLDAPSResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableLDAPS where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableLDAPS where
   hashWithSalt _salt DisableLDAPS' {..} =

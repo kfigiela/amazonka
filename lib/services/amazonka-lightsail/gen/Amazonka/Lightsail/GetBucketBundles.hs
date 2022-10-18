@@ -88,7 +88,7 @@ instance Core.AWSRequest GetBucketBundles where
   type
     AWSResponse GetBucketBundles =
       GetBucketBundlesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetBucketBundles where
             Prelude.<$> (x Core..?> "bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketBundles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketBundles where
   hashWithSalt _salt GetBucketBundles' {..} =

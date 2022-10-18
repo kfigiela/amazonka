@@ -135,7 +135,7 @@ updateStudio_studioId = Lens.lens (\UpdateStudio' {studioId} -> studioId) (\s@Up
 
 instance Core.AWSRequest UpdateStudio where
   type AWSResponse UpdateStudio = UpdateStudioResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest UpdateStudio where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "studio")
       )
+
+instance Core.AWSService UpdateStudio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStudio where
   hashWithSalt _salt UpdateStudio' {..} =

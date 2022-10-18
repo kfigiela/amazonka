@@ -82,7 +82,7 @@ startFlow_flowName = Lens.lens (\StartFlow' {flowName} -> flowName) (\s@StartFlo
 
 instance Core.AWSRequest StartFlow where
   type AWSResponse StartFlow = StartFlowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest StartFlow where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFlow where
   hashWithSalt _salt StartFlow' {..} =

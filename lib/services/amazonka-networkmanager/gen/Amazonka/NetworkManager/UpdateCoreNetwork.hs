@@ -89,7 +89,7 @@ instance Core.AWSRequest UpdateCoreNetwork where
   type
     AWSResponse UpdateCoreNetwork =
       UpdateCoreNetworkResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest UpdateCoreNetwork where
             Prelude.<$> (x Core..?> "CoreNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCoreNetwork where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCoreNetwork where
   hashWithSalt _salt UpdateCoreNetwork' {..} =

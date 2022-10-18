@@ -127,7 +127,7 @@ instance
     AWSResponse
       DisableTransitGatewayRouteTablePropagation =
       DisableTransitGatewayRouteTablePropagationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -135,6 +135,12 @@ instance
             Prelude.<$> (x Core..@? "propagation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisableTransitGatewayRouteTablePropagation
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

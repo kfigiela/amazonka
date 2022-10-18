@@ -129,10 +129,16 @@ instance
   type
     AWSResponse DeleteProvisionedConcurrencyConfig =
       DeleteProvisionedConcurrencyConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteProvisionedConcurrencyConfigResponse'
+
+instance
+  Core.AWSService
+    DeleteProvisionedConcurrencyConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

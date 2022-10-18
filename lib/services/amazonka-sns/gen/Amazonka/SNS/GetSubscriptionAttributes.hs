@@ -82,7 +82,7 @@ instance Core.AWSRequest GetSubscriptionAttributes where
   type
     AWSResponse GetSubscriptionAttributes =
       GetSubscriptionAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSubscriptionAttributesResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetSubscriptionAttributes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSubscriptionAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSubscriptionAttributes where
   hashWithSalt _salt GetSubscriptionAttributes' {..} =

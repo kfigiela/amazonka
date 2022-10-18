@@ -159,9 +159,12 @@ instance Core.AWSRequest PutContactInformation where
   type
     AWSResponse PutContactInformation =
       PutContactInformationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutContactInformationResponse'
+
+instance Core.AWSService PutContactInformation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutContactInformation where
   hashWithSalt _salt PutContactInformation' {..} =

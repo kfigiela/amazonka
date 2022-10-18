@@ -150,7 +150,7 @@ instance Core.AWSRequest UpdateNetworkSettings where
   type
     AWSResponse UpdateNetworkSettings =
       UpdateNetworkSettingsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest UpdateNetworkSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "networkSettings")
       )
+
+instance Core.AWSService UpdateNetworkSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNetworkSettings where
   hashWithSalt _salt UpdateNetworkSettings' {..} =

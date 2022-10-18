@@ -88,7 +88,7 @@ instance Core.AWSRequest GetQuantumTask where
   type
     AWSResponse GetQuantumTask =
       GetQuantumTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetQuantumTask where
             Prelude.<*> (x Core..:> "shots")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetQuantumTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQuantumTask where
   hashWithSalt _salt GetQuantumTask' {..} =

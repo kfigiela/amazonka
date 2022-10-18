@@ -91,7 +91,7 @@ getFeature_project = Lens.lens (\GetFeature' {project} -> project) (\s@GetFeatur
 
 instance Core.AWSRequest GetFeature where
   type AWSResponse GetFeature = GetFeatureResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetFeature where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "feature")
       )
+
+instance Core.AWSService GetFeature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFeature where
   hashWithSalt _salt GetFeature' {..} =

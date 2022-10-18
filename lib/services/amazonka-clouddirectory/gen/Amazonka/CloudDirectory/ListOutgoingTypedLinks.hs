@@ -187,7 +187,7 @@ instance Core.AWSRequest ListOutgoingTypedLinks where
   type
     AWSResponse ListOutgoingTypedLinks =
       ListOutgoingTypedLinksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest ListOutgoingTypedLinks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOutgoingTypedLinks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOutgoingTypedLinks where
   hashWithSalt _salt ListOutgoingTypedLinks' {..} =

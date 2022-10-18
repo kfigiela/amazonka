@@ -76,9 +76,12 @@ instance Core.AWSRequest DeletePredictor where
   type
     AWSResponse DeletePredictor =
       DeletePredictorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeletePredictorResponse'
+
+instance Core.AWSService DeletePredictor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePredictor where
   hashWithSalt _salt DeletePredictor' {..} =

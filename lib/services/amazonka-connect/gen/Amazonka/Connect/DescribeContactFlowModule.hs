@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeContactFlowModule where
   type
     AWSResponse DescribeContactFlowModule =
       DescribeContactFlowModuleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeContactFlowModule where
             Prelude.<$> (x Core..?> "ContactFlowModule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeContactFlowModule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeContactFlowModule where
   hashWithSalt _salt DescribeContactFlowModule' {..} =

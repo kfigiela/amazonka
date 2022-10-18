@@ -165,7 +165,7 @@ instance Core.AWSRequest ListAccountAssignments where
   type
     AWSResponse ListAccountAssignments =
       ListAccountAssignmentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest ListAccountAssignments where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccountAssignments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountAssignments where
   hashWithSalt _salt ListAccountAssignments' {..} =

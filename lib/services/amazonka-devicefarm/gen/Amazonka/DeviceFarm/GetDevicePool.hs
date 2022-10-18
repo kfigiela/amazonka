@@ -78,7 +78,7 @@ instance Core.AWSRequest GetDevicePool where
   type
     AWSResponse GetDevicePool =
       GetDevicePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetDevicePool where
             Prelude.<$> (x Core..?> "devicePool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDevicePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDevicePool where
   hashWithSalt _salt GetDevicePool' {..} =

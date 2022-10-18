@@ -127,7 +127,7 @@ instance Core.AWSRequest UpdateAssessmentControl where
   type
     AWSResponse UpdateAssessmentControl =
       UpdateAssessmentControlResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest UpdateAssessmentControl where
             Prelude.<$> (x Core..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAssessmentControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssessmentControl where
   hashWithSalt _salt UpdateAssessmentControl' {..} =

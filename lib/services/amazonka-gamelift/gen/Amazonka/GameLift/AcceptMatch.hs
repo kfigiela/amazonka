@@ -142,13 +142,16 @@ acceptMatch_acceptanceType = Lens.lens (\AcceptMatch' {acceptanceType} -> accept
 
 instance Core.AWSRequest AcceptMatch where
   type AWSResponse AcceptMatch = AcceptMatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptMatchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptMatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptMatch where
   hashWithSalt _salt AcceptMatch' {..} =

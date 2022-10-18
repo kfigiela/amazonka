@@ -141,7 +141,7 @@ instance Core.AWSRequest CreateDecoderManifest where
   type
     AWSResponse CreateDecoderManifest =
       CreateDecoderManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest CreateDecoderManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateDecoderManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDecoderManifest where
   hashWithSalt _salt CreateDecoderManifest' {..} =

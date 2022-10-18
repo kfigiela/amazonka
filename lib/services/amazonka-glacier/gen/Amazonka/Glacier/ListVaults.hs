@@ -168,9 +168,9 @@ instance Core.AWSPager ListVaults where
 
 instance Core.AWSRequest ListVaults where
   type AWSResponse ListVaults = ListVaultsResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListVaults where
             Prelude.<*> (x Core..?> "VaultList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVaults where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVaults where
   hashWithSalt _salt ListVaults' {..} =

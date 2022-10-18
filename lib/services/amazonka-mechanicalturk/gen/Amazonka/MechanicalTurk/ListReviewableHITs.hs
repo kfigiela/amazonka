@@ -140,7 +140,7 @@ instance Core.AWSRequest ListReviewableHITs where
   type
     AWSResponse ListReviewableHITs =
       ListReviewableHITsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListReviewableHITs where
             Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReviewableHITs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReviewableHITs where
   hashWithSalt _salt ListReviewableHITs' {..} =

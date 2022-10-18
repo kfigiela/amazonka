@@ -92,7 +92,7 @@ putEvents_eventsRequest = Lens.lens (\PutEvents' {eventsRequest} -> eventsReques
 
 instance Core.AWSRequest PutEvents where
   type AWSResponse PutEvents = PutEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest PutEvents where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService PutEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEvents where
   hashWithSalt _salt PutEvents' {..} =

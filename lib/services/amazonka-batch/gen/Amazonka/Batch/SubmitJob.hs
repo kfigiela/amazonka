@@ -406,7 +406,7 @@ submitJob_jobDefinition = Lens.lens (\SubmitJob' {jobDefinition} -> jobDefinitio
 
 instance Core.AWSRequest SubmitJob where
   type AWSResponse SubmitJob = SubmitJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -416,6 +416,9 @@ instance Core.AWSRequest SubmitJob where
             Prelude.<*> (x Core..:> "jobName")
             Prelude.<*> (x Core..:> "jobId")
       )
+
+instance Core.AWSService SubmitJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SubmitJob where
   hashWithSalt _salt SubmitJob' {..} =

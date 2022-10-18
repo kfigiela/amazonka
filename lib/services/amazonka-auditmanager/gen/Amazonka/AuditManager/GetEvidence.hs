@@ -117,7 +117,7 @@ getEvidence_evidenceId = Lens.lens (\GetEvidence' {evidenceId} -> evidenceId) (\
 
 instance Core.AWSRequest GetEvidence where
   type AWSResponse GetEvidence = GetEvidenceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetEvidence where
             Prelude.<$> (x Core..?> "evidence")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEvidence where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEvidence where
   hashWithSalt _salt GetEvidence' {..} =

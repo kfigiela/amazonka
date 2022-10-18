@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteApnsChannel where
   type
     AWSResponse DeleteApnsChannel =
       DeleteApnsChannelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteApnsChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteApnsChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApnsChannel where
   hashWithSalt _salt DeleteApnsChannel' {..} =

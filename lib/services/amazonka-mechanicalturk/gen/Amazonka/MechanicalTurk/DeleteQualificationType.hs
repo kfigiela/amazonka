@@ -92,13 +92,16 @@ instance Core.AWSRequest DeleteQualificationType where
   type
     AWSResponse DeleteQualificationType =
       DeleteQualificationTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQualificationTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteQualificationType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQualificationType where
   hashWithSalt _salt DeleteQualificationType' {..} =

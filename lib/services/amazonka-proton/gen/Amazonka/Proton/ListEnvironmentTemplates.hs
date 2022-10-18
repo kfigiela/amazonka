@@ -118,7 +118,7 @@ instance Core.AWSRequest ListEnvironmentTemplates where
   type
     AWSResponse ListEnvironmentTemplates =
       ListEnvironmentTemplatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListEnvironmentTemplates where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "templates" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListEnvironmentTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEnvironmentTemplates where
   hashWithSalt _salt ListEnvironmentTemplates' {..} =

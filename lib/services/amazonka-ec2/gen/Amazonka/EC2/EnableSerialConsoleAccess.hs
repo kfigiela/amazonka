@@ -91,7 +91,7 @@ instance Core.AWSRequest EnableSerialConsoleAccess where
   type
     AWSResponse EnableSerialConsoleAccess =
       EnableSerialConsoleAccessResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest EnableSerialConsoleAccess where
             Prelude.<$> (x Core..@? "serialConsoleAccessEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableSerialConsoleAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableSerialConsoleAccess where
   hashWithSalt _salt EnableSerialConsoleAccess' {..} =

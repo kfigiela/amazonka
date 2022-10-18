@@ -235,7 +235,7 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
   type
     AWSResponse DescribeClassicLinkInstances =
       DescribeClassicLinkInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -246,6 +246,9 @@ instance Core.AWSRequest DescribeClassicLinkInstances where
             Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClassicLinkInstances where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

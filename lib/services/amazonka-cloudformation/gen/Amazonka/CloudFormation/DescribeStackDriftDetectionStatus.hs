@@ -116,7 +116,7 @@ instance
   type
     AWSResponse DescribeStackDriftDetectionStatus =
       DescribeStackDriftDetectionStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackDriftDetectionStatusResult"
@@ -131,6 +131,12 @@ instance
               Prelude.<*> (x Core..@ "DetectionStatus")
               Prelude.<*> (x Core..@ "Timestamp")
       )
+
+instance
+  Core.AWSService
+    DescribeStackDriftDetectionStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

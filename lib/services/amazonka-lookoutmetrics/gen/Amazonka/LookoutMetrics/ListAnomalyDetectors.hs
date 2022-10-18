@@ -99,7 +99,7 @@ instance Core.AWSRequest ListAnomalyDetectors where
   type
     AWSResponse ListAnomalyDetectors =
       ListAnomalyDetectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest ListAnomalyDetectors where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAnomalyDetectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnomalyDetectors where
   hashWithSalt _salt ListAnomalyDetectors' {..} =

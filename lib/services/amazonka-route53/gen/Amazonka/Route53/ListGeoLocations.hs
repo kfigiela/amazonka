@@ -197,7 +197,7 @@ instance Core.AWSRequest ListGeoLocations where
   type
     AWSResponse ListGeoLocations =
       ListGeoLocationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -213,6 +213,9 @@ instance Core.AWSRequest ListGeoLocations where
             Prelude.<*> (x Core..@ "IsTruncated")
             Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance Core.AWSService ListGeoLocations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGeoLocations where
   hashWithSalt _salt ListGeoLocations' {..} =

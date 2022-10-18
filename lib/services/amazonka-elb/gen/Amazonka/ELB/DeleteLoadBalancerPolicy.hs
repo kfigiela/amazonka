@@ -96,7 +96,7 @@ instance Core.AWSRequest DeleteLoadBalancerPolicy where
   type
     AWSResponse DeleteLoadBalancerPolicy =
       DeleteLoadBalancerPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteLoadBalancerPolicyResult"
@@ -104,6 +104,9 @@ instance Core.AWSRequest DeleteLoadBalancerPolicy where
           DeleteLoadBalancerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLoadBalancerPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLoadBalancerPolicy where
   hashWithSalt _salt DeleteLoadBalancerPolicy' {..} =

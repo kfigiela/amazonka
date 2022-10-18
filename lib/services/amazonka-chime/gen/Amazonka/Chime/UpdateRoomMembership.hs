@@ -119,7 +119,7 @@ instance Core.AWSRequest UpdateRoomMembership where
   type
     AWSResponse UpdateRoomMembership =
       UpdateRoomMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateRoomMembership where
             Prelude.<$> (x Core..?> "RoomMembership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoomMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoomMembership where
   hashWithSalt _salt UpdateRoomMembership' {..} =

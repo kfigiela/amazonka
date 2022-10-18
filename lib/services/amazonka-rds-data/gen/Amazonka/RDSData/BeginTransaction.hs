@@ -125,7 +125,7 @@ instance Core.AWSRequest BeginTransaction where
   type
     AWSResponse BeginTransaction =
       BeginTransactionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest BeginTransaction where
             Prelude.<$> (x Core..?> "transactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BeginTransaction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BeginTransaction where
   hashWithSalt _salt BeginTransaction' {..} =

@@ -85,7 +85,7 @@ instance Core.AWSRequest GetDeploymentConfig where
   type
     AWSResponse GetDeploymentConfig =
       GetDeploymentConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetDeploymentConfig where
             Prelude.<$> (x Core..?> "deploymentConfigInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeploymentConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeploymentConfig where
   hashWithSalt _salt GetDeploymentConfig' {..} =

@@ -129,7 +129,7 @@ instance Core.AWSRequest DeleteHostedZone where
   type
     AWSResponse DeleteHostedZone =
       DeleteHostedZoneResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest DeleteHostedZone where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService DeleteHostedZone where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHostedZone where
   hashWithSalt _salt DeleteHostedZone' {..} =

@@ -471,6 +471,7 @@ defaultService =
       Core._serviceEndpointPrefix = "transcribe",
       Core._serviceSigningName = "transcribe",
       Core._serviceVersion = "2017-10-26",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

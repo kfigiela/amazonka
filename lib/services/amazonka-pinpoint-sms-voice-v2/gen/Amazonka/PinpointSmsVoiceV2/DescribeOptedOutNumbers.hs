@@ -167,7 +167,7 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
   type
     AWSResponse DescribeOptedOutNumbers =
       DescribeOptedOutNumbersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest DescribeOptedOutNumbers where
             Prelude.<*> (x Core..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeOptedOutNumbers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOptedOutNumbers where
   hashWithSalt _salt DescribeOptedOutNumbers' {..} =

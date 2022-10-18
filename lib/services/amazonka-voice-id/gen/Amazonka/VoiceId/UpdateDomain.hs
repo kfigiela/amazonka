@@ -135,7 +135,7 @@ updateDomain_serverSideEncryptionConfiguration = Lens.lens (\UpdateDomain' {serv
 
 instance Core.AWSRequest UpdateDomain where
   type AWSResponse UpdateDomain = UpdateDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest UpdateDomain where
             Prelude.<$> (x Core..?> "Domain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =

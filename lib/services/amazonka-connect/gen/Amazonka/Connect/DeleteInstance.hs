@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteInstance where
   type
     AWSResponse DeleteInstance =
       DeleteInstanceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteInstanceResponse'
+
+instance Core.AWSService DeleteInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInstance where
   hashWithSalt _salt DeleteInstance' {..} =

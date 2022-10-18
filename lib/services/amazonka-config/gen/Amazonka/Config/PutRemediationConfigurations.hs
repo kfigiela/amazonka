@@ -99,7 +99,7 @@ instance Core.AWSRequest PutRemediationConfigurations where
   type
     AWSResponse PutRemediationConfigurations =
       PutRemediationConfigurationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest PutRemediationConfigurations where
             Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRemediationConfigurations where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -79,7 +79,7 @@ instance Core.AWSRequest GetCustomEntityType where
   type
     AWSResponse GetCustomEntityType =
       GetCustomEntityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetCustomEntityType where
             Prelude.<*> (x Core..?> "RegexString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCustomEntityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCustomEntityType where
   hashWithSalt _salt GetCustomEntityType' {..} =

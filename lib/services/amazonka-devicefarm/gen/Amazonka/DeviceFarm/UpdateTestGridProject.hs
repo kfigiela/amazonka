@@ -109,7 +109,7 @@ instance Core.AWSRequest UpdateTestGridProject where
   type
     AWSResponse UpdateTestGridProject =
       UpdateTestGridProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateTestGridProject where
             Prelude.<$> (x Core..?> "testGridProject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTestGridProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTestGridProject where
   hashWithSalt _salt UpdateTestGridProject' {..} =

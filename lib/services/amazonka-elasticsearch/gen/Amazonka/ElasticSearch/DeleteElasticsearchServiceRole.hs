@@ -66,10 +66,16 @@ instance
   type
     AWSResponse DeleteElasticsearchServiceRole =
       DeleteElasticsearchServiceRoleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteElasticsearchServiceRoleResponse'
+
+instance
+  Core.AWSService
+    DeleteElasticsearchServiceRole
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -107,7 +107,7 @@ listThesauri_indexId = Lens.lens (\ListThesauri' {indexId} -> indexId) (\s@ListT
 
 instance Core.AWSRequest ListThesauri where
   type AWSResponse ListThesauri = ListThesauriResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ListThesauri where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListThesauri where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListThesauri where
   hashWithSalt _salt ListThesauri' {..} =

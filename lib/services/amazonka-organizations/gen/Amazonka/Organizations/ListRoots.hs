@@ -163,7 +163,7 @@ instance Core.AWSPager ListRoots where
 
 instance Core.AWSRequest ListRoots where
   type AWSResponse ListRoots = ListRootsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest ListRoots where
             Prelude.<*> (x Core..?> "Roots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRoots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRoots where
   hashWithSalt _salt ListRoots' {..} =

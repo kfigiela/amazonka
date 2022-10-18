@@ -1195,7 +1195,7 @@ instance
   type
     AWSResponse RestoreDBInstanceFromDBSnapshot =
       RestoreDBInstanceFromDBSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceFromDBSnapshotResult"
@@ -1204,6 +1204,12 @@ instance
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RestoreDBInstanceFromDBSnapshot
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -96,13 +96,16 @@ instance Core.AWSRequest DeleteEnvironmentMembership where
   type
     AWSResponse DeleteEnvironmentMembership =
       DeleteEnvironmentMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEnvironmentMembershipResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEnvironmentMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEnvironmentMembership where
   hashWithSalt _salt DeleteEnvironmentMembership' {..} =

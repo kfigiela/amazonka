@@ -113,10 +113,16 @@ instance
   type
     AWSResponse DisassociateQueueQuickConnects =
       DisassociateQueueQuickConnectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateQueueQuickConnectsResponse'
+
+instance
+  Core.AWSService
+    DisassociateQueueQuickConnects
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

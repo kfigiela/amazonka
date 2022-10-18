@@ -147,7 +147,7 @@ instance Core.AWSRequest AssociateVPCWithHostedZone where
   type
     AWSResponse AssociateVPCWithHostedZone =
       AssociateVPCWithHostedZoneResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest AssociateVPCWithHostedZone where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService AssociateVPCWithHostedZone where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateVPCWithHostedZone where
   hashWithSalt _salt AssociateVPCWithHostedZone' {..} =

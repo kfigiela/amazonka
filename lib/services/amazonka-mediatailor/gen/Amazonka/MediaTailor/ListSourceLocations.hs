@@ -118,7 +118,7 @@ instance Core.AWSRequest ListSourceLocations where
   type
     AWSResponse ListSourceLocations =
       ListSourceLocationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListSourceLocations where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSourceLocations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSourceLocations where
   hashWithSalt _salt ListSourceLocations' {..} =

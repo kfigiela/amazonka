@@ -76,13 +76,16 @@ instance Core.AWSRequest CancelWorldExportJob where
   type
     AWSResponse CancelWorldExportJob =
       CancelWorldExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelWorldExportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelWorldExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelWorldExportJob where
   hashWithSalt _salt CancelWorldExportJob' {..} =

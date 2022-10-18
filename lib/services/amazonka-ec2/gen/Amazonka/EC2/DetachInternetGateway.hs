@@ -108,9 +108,12 @@ instance Core.AWSRequest DetachInternetGateway where
   type
     AWSResponse DetachInternetGateway =
       DetachInternetGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DetachInternetGatewayResponse'
+
+instance Core.AWSService DetachInternetGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachInternetGateway where
   hashWithSalt _salt DetachInternetGateway' {..} =

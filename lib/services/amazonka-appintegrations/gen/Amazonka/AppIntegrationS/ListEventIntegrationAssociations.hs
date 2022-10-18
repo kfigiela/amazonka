@@ -113,7 +113,7 @@ instance
   type
     AWSResponse ListEventIntegrationAssociations =
       ListEventIntegrationAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,12 @@ instance
             Prelude.<*> (x Core..?> "EventIntegrationAssociations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListEventIntegrationAssociations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

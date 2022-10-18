@@ -94,7 +94,7 @@ instance Core.AWSRequest StartAssessment where
   type
     AWSResponse StartAssessment =
       StartAssessmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest StartAssessment where
             Prelude.<$> (x Core..?> "assessmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartAssessment where
   hashWithSalt _salt StartAssessment' {..} =

@@ -105,9 +105,12 @@ instance Core.AWSRequest StartMonitoringMember where
   type
     AWSResponse StartMonitoringMember =
       StartMonitoringMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartMonitoringMemberResponse'
+
+instance Core.AWSService StartMonitoringMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMonitoringMember where
   hashWithSalt _salt StartMonitoringMember' {..} =

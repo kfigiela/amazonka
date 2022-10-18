@@ -187,13 +187,16 @@ instance Core.AWSRequest UpdateLocationNfs where
   type
     AWSResponse UpdateLocationNfs =
       UpdateLocationNfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLocationNfsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLocationNfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLocationNfs where
   hashWithSalt _salt UpdateLocationNfs' {..} =

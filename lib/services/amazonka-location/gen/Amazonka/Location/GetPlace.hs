@@ -163,7 +163,7 @@ getPlace_placeId = Lens.lens (\GetPlace' {placeId} -> placeId) (\s@GetPlace' {} 
 
 instance Core.AWSRequest GetPlace where
   type AWSResponse GetPlace = GetPlaceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest GetPlace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Place")
       )
+
+instance Core.AWSService GetPlace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPlace where
   hashWithSalt _salt GetPlace' {..} =

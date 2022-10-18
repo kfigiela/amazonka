@@ -719,13 +719,16 @@ instance Core.AWSRequest RegisterScalableTarget where
   type
     AWSResponse RegisterScalableTarget =
       RegisterScalableTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterScalableTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterScalableTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterScalableTarget where
   hashWithSalt _salt RegisterScalableTarget' {..} =

@@ -120,7 +120,7 @@ instance Core.AWSRequest ModifyCacheSubnetGroup where
   type
     AWSResponse ModifyCacheSubnetGroup =
       ModifyCacheSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCacheSubnetGroupResult"
@@ -129,6 +129,9 @@ instance Core.AWSRequest ModifyCacheSubnetGroup where
             Prelude.<$> (x Core..@? "CacheSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyCacheSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCacheSubnetGroup where
   hashWithSalt _salt ModifyCacheSubnetGroup' {..} =

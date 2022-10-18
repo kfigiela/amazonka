@@ -152,7 +152,7 @@ instance Core.AWSRequest ListBotRecommendations where
   type
     AWSResponse ListBotRecommendations =
       ListBotRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest ListBotRecommendations where
             Prelude.<*> (x Core..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBotRecommendations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBotRecommendations where
   hashWithSalt _salt ListBotRecommendations' {..} =

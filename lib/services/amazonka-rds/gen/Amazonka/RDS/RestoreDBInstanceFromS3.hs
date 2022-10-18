@@ -1261,7 +1261,7 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
   type
     AWSResponse RestoreDBInstanceFromS3 =
       RestoreDBInstanceFromS3Response
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceFromS3Result"
@@ -1270,6 +1270,9 @@ instance Core.AWSRequest RestoreDBInstanceFromS3 where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreDBInstanceFromS3 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreDBInstanceFromS3 where
   hashWithSalt _salt RestoreDBInstanceFromS3' {..} =

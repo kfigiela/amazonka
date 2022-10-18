@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeLocationFsxWindows where
   type
     AWSResponse DescribeLocationFsxWindows =
       DescribeLocationFsxWindowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeLocationFsxWindows where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocationFsxWindows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocationFsxWindows where
   hashWithSalt _salt DescribeLocationFsxWindows' {..} =

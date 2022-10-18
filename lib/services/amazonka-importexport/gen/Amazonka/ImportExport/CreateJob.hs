@@ -128,7 +128,7 @@ createJob_validateOnly = Lens.lens (\CreateJob' {validateOnly} -> validateOnly) 
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateJobResult"
@@ -144,6 +144,9 @@ instance Core.AWSRequest CreateJob where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =

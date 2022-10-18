@@ -227,7 +227,7 @@ instance Core.AWSRequest CreateStudioComponent where
   type
     AWSResponse CreateStudioComponent =
       CreateStudioComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -235,6 +235,9 @@ instance Core.AWSRequest CreateStudioComponent where
             Prelude.<$> (x Core..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStudioComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStudioComponent where
   hashWithSalt _salt CreateStudioComponent' {..} =

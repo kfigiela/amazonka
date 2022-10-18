@@ -108,7 +108,7 @@ instance Core.AWSRequest IsMemberInGroups where
   type
     AWSResponse IsMemberInGroups =
       IsMemberInGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest IsMemberInGroups where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService IsMemberInGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable IsMemberInGroups where
   hashWithSalt _salt IsMemberInGroups' {..} =

@@ -93,7 +93,7 @@ instance Core.AWSPager ListStudios where
 
 instance Core.AWSRequest ListStudios where
   type AWSResponse ListStudios = ListStudiosResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest ListStudios where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "studios" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListStudios where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStudios where
   hashWithSalt _salt ListStudios' {..} =

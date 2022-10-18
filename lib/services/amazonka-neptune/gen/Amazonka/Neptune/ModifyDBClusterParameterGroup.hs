@@ -112,11 +112,17 @@ instance
   type
     AWSResponse ModifyDBClusterParameterGroup =
       DBClusterParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance
+  Core.AWSService
+    ModifyDBClusterParameterGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

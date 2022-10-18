@@ -77,7 +77,7 @@ instance Core.AWSRequest DescribeListener where
   type
     AWSResponse DescribeListener =
       DescribeListenerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeListener where
             Prelude.<$> (x Core..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeListener where
   hashWithSalt _salt DescribeListener' {..} =

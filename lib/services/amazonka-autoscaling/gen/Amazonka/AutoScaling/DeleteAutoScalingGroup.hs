@@ -111,10 +111,13 @@ instance Core.AWSRequest DeleteAutoScalingGroup where
   type
     AWSResponse DeleteAutoScalingGroup =
       DeleteAutoScalingGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteAutoScalingGroupResponse'
+
+instance Core.AWSService DeleteAutoScalingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAutoScalingGroup where
   hashWithSalt _salt DeleteAutoScalingGroup' {..} =

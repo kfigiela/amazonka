@@ -108,7 +108,7 @@ instance Core.AWSRequest DisassociateLink where
   type
     AWSResponse DisassociateLink =
       DisassociateLinkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DisassociateLink where
             Prelude.<$> (x Core..?> "LinkAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateLink where
   hashWithSalt _salt DisassociateLink' {..} =

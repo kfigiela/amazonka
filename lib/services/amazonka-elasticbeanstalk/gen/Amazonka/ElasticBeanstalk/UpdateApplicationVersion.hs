@@ -127,11 +127,14 @@ instance Core.AWSRequest UpdateApplicationVersion where
   type
     AWSResponse UpdateApplicationVersion =
       ApplicationVersionDescriptionMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateApplicationVersionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService UpdateApplicationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApplicationVersion where
   hashWithSalt _salt UpdateApplicationVersion' {..} =

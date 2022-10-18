@@ -101,9 +101,12 @@ instance Core.AWSRequest DeleteWorkloadShare where
   type
     AWSResponse DeleteWorkloadShare =
       DeleteWorkloadShareResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteWorkloadShareResponse'
+
+instance Core.AWSService DeleteWorkloadShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkloadShare where
   hashWithSalt _salt DeleteWorkloadShare' {..} =

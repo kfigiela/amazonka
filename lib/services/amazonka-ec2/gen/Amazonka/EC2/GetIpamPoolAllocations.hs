@@ -170,7 +170,7 @@ instance Core.AWSRequest GetIpamPoolAllocations where
   type
     AWSResponse GetIpamPoolAllocations =
       GetIpamPoolAllocationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest GetIpamPoolAllocations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIpamPoolAllocations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIpamPoolAllocations where
   hashWithSalt _salt GetIpamPoolAllocations' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeReportPlan where
   type
     AWSResponse DescribeReportPlan =
       DescribeReportPlanResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeReportPlan where
             Prelude.<$> (x Core..?> "ReportPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReportPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReportPlan where
   hashWithSalt _salt DescribeReportPlan' {..} =

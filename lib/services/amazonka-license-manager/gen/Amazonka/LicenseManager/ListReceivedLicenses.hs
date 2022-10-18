@@ -138,7 +138,7 @@ instance Core.AWSRequest ListReceivedLicenses where
   type
     AWSResponse ListReceivedLicenses =
       ListReceivedLicensesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListReceivedLicenses where
             Prelude.<*> (x Core..?> "Licenses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReceivedLicenses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReceivedLicenses where
   hashWithSalt _salt ListReceivedLicenses' {..} =

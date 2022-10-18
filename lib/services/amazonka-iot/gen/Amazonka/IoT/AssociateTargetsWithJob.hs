@@ -153,7 +153,7 @@ instance Core.AWSRequest AssociateTargetsWithJob where
   type
     AWSResponse AssociateTargetsWithJob =
       AssociateTargetsWithJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest AssociateTargetsWithJob where
             Prelude.<*> (x Core..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateTargetsWithJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateTargetsWithJob where
   hashWithSalt _salt AssociateTargetsWithJob' {..} =

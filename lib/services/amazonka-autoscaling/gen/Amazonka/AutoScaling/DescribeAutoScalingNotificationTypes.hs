@@ -66,7 +66,7 @@ instance
   type
     AWSResponse DescribeAutoScalingNotificationTypes =
       DescribeAutoScalingNotificationTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAutoScalingNotificationTypesResult"
@@ -78,6 +78,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAutoScalingNotificationTypes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

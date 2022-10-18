@@ -151,7 +151,7 @@ instance Core.AWSRequest CreateSavingsPlan where
   type
     AWSResponse CreateSavingsPlan =
       CreateSavingsPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest CreateSavingsPlan where
             Prelude.<$> (x Core..?> "savingsPlanId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSavingsPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSavingsPlan where
   hashWithSalt _salt CreateSavingsPlan' {..} =

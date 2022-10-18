@@ -273,13 +273,16 @@ instance Core.AWSRequest ConfirmForgotPassword where
   type
     AWSResponse ConfirmForgotPassword =
       ConfirmForgotPasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConfirmForgotPasswordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmForgotPassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmForgotPassword where
   hashWithSalt _salt ConfirmForgotPassword' {..} =

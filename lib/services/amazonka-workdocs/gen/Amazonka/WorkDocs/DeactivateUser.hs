@@ -90,9 +90,12 @@ instance Core.AWSRequest DeactivateUser where
   type
     AWSResponse DeactivateUser =
       DeactivateUserResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeactivateUserResponse'
+
+instance Core.AWSService DeactivateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateUser where
   hashWithSalt _salt DeactivateUser' {..} =

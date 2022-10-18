@@ -207,7 +207,7 @@ instance Core.AWSRequest GetPersonalizedRanking where
   type
     AWSResponse GetPersonalizedRanking =
       GetPersonalizedRankingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest GetPersonalizedRanking where
             Prelude.<*> (x Core..?> "recommendationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPersonalizedRanking where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPersonalizedRanking where
   hashWithSalt _salt GetPersonalizedRanking' {..} =

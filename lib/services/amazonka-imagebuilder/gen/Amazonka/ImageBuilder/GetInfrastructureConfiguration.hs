@@ -90,7 +90,7 @@ instance
   type
     AWSResponse GetInfrastructureConfiguration =
       GetInfrastructureConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,12 @@ instance
             Prelude.<*> (x Core..?> "infrastructureConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetInfrastructureConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

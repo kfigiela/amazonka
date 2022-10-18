@@ -82,7 +82,7 @@ instance Core.AWSRequest GetDestination where
   type
     AWSResponse GetDestination =
       GetDestinationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetDestination where
             Prelude.<*> (x Core..?> "ExpressionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDestination where
   hashWithSalt _salt GetDestination' {..} =

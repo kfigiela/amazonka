@@ -92,7 +92,7 @@ instance
   type
     AWSResponse BatchDescribeTypeConfigurations =
       BatchDescribeTypeConfigurationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchDescribeTypeConfigurationsResult"
@@ -111,6 +111,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    BatchDescribeTypeConfigurations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

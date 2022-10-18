@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteDataCatalog where
   type
     AWSResponse DeleteDataCatalog =
       DeleteDataCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDataCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDataCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDataCatalog where
   hashWithSalt _salt DeleteDataCatalog' {..} =

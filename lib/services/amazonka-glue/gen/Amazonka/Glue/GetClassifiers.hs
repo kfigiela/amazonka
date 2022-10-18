@@ -111,7 +111,7 @@ instance Core.AWSRequest GetClassifiers where
   type
     AWSResponse GetClassifiers =
       GetClassifiersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetClassifiers where
             Prelude.<*> (x Core..?> "Classifiers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetClassifiers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetClassifiers where
   hashWithSalt _salt GetClassifiers' {..} =

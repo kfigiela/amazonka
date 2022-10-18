@@ -105,13 +105,16 @@ instance Core.AWSRequest RebootInputDevice' where
   type
     AWSResponse RebootInputDevice' =
       RebootInputDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RebootInputDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootInputDevice' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootInputDevice' where
   hashWithSalt _salt RebootInputDevice'' {..} =

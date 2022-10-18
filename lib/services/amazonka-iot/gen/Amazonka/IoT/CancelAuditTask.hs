@@ -85,13 +85,16 @@ instance Core.AWSRequest CancelAuditTask where
   type
     AWSResponse CancelAuditTask =
       CancelAuditTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelAuditTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelAuditTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelAuditTask where
   hashWithSalt _salt CancelAuditTask' {..} =

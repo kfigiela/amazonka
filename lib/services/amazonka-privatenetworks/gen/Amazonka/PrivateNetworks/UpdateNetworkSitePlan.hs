@@ -110,10 +110,13 @@ instance Core.AWSRequest UpdateNetworkSitePlan where
   type
     AWSResponse UpdateNetworkSitePlan =
       UpdateNetworkSiteResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateNetworkSitePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNetworkSitePlan where
   hashWithSalt _salt UpdateNetworkSitePlan' {..} =

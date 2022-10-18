@@ -93,13 +93,16 @@ instance Core.AWSRequest PutInboundDmarcSettings where
   type
     AWSResponse PutInboundDmarcSettings =
       PutInboundDmarcSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutInboundDmarcSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutInboundDmarcSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutInboundDmarcSettings where
   hashWithSalt _salt PutInboundDmarcSettings' {..} =

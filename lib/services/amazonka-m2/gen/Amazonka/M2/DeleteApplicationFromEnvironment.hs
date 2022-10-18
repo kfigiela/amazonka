@@ -103,13 +103,19 @@ instance
   type
     AWSResponse DeleteApplicationFromEnvironment =
       DeleteApplicationFromEnvironmentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationFromEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteApplicationFromEnvironment
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

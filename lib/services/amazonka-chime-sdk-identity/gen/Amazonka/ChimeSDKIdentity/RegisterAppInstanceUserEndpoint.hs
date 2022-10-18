@@ -198,7 +198,7 @@ instance
   type
     AWSResponse RegisterAppInstanceUserEndpoint =
       RegisterAppInstanceUserEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,12 @@ instance
             Prelude.<*> (x Core..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RegisterAppInstanceUserEndpoint
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

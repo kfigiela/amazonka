@@ -186,6 +186,7 @@ defaultService =
       Core._serviceEndpointPrefix = "sso",
       Core._serviceSigningName = "sso",
       Core._serviceVersion = "2020-07-20",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

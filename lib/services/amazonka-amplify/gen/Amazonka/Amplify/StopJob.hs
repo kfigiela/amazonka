@@ -103,7 +103,7 @@ stopJob_jobId = Lens.lens (\StopJob' {jobId} -> jobId) (\s@StopJob' {} a -> s {j
 
 instance Core.AWSRequest StopJob where
   type AWSResponse StopJob = StopJobResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest StopJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "jobSummary")
       )
+
+instance Core.AWSService StopJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopJob where
   hashWithSalt _salt StopJob' {..} =

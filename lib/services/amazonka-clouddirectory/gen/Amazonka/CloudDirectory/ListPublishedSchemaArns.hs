@@ -128,7 +128,7 @@ instance Core.AWSRequest ListPublishedSchemaArns where
   type
     AWSResponse ListPublishedSchemaArns =
       ListPublishedSchemaArnsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListPublishedSchemaArns where
             Prelude.<*> (x Core..?> "SchemaArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPublishedSchemaArns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPublishedSchemaArns where
   hashWithSalt _salt ListPublishedSchemaArns' {..} =

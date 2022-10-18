@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteNamedQuery where
   type
     AWSResponse DeleteNamedQuery =
       DeleteNamedQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNamedQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNamedQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNamedQuery where
   hashWithSalt _salt DeleteNamedQuery' {..} =

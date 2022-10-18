@@ -170,7 +170,7 @@ instance Core.AWSRequest DescribeTrafficMirrorFilters where
   type
     AWSResponse DescribeTrafficMirrorFilters =
       DescribeTrafficMirrorFiltersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest DescribeTrafficMirrorFilters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTrafficMirrorFilters where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

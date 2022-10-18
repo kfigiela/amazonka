@@ -148,7 +148,7 @@ getRuleGroup_scope = Lens.lens (\GetRuleGroup' {scope} -> scope) (\s@GetRuleGrou
 
 instance Core.AWSRequest GetRuleGroup where
   type AWSResponse GetRuleGroup = GetRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest GetRuleGroup where
             Prelude.<*> (x Core..?> "LockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRuleGroup where
   hashWithSalt _salt GetRuleGroup' {..} =

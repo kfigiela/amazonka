@@ -102,6 +102,7 @@ defaultService =
       Core._serviceEndpointPrefix = "tagging",
       Core._serviceSigningName = "tagging",
       Core._serviceVersion = "2017-01-26",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateKeyPair where
   type
     AWSResponse CreateKeyPair =
       CreateKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest CreateKeyPair where
             Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateKeyPair where
   hashWithSalt _salt CreateKeyPair' {..} =

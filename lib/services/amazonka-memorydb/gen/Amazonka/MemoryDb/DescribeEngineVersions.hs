@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeEngineVersions where
   type
     AWSResponse DescribeEngineVersions =
       DescribeEngineVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest DescribeEngineVersions where
             Prelude.<*> (x Core..?> "EngineVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEngineVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEngineVersions where
   hashWithSalt _salt DescribeEngineVersions' {..} =

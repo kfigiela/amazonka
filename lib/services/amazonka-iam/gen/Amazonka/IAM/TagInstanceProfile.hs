@@ -134,9 +134,12 @@ instance Core.AWSRequest TagInstanceProfile where
   type
     AWSResponse TagInstanceProfile =
       TagInstanceProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull TagInstanceProfileResponse'
+
+instance Core.AWSService TagInstanceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagInstanceProfile where
   hashWithSalt _salt TagInstanceProfile' {..} =

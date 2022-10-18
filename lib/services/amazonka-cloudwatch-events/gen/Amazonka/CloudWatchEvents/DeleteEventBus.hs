@@ -75,9 +75,12 @@ instance Core.AWSRequest DeleteEventBus where
   type
     AWSResponse DeleteEventBus =
       DeleteEventBusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteEventBusResponse'
+
+instance Core.AWSService DeleteEventBus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventBus where
   hashWithSalt _salt DeleteEventBus' {..} =

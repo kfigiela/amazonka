@@ -136,7 +136,7 @@ instance Core.AWSRequest UntagResources where
   type
     AWSResponse UntagResources =
       UntagResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest UntagResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UntagResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagResources where
   hashWithSalt _salt UntagResources' {..} =

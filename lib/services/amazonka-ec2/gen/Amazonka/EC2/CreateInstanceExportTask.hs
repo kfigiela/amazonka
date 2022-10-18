@@ -135,7 +135,7 @@ instance Core.AWSRequest CreateInstanceExportTask where
   type
     AWSResponse CreateInstanceExportTask =
       CreateInstanceExportTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateInstanceExportTask where
             Prelude.<$> (x Core..@? "exportTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInstanceExportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInstanceExportTask where
   hashWithSalt _salt CreateInstanceExportTask' {..} =

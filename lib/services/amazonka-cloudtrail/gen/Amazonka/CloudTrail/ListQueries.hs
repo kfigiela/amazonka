@@ -148,7 +148,7 @@ listQueries_eventDataStore = Lens.lens (\ListQueries' {eventDataStore} -> eventD
 
 instance Core.AWSRequest ListQueries where
   type AWSResponse ListQueries = ListQueriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListQueries where
             Prelude.<*> (x Core..?> "Queries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListQueries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListQueries where
   hashWithSalt _salt ListQueries' {..} =

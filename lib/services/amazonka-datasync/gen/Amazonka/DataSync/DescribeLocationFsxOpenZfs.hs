@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeLocationFsxOpenZfs where
   type
     AWSResponse DescribeLocationFsxOpenZfs =
       DescribeLocationFsxOpenZfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DescribeLocationFsxOpenZfs where
             Prelude.<*> (x Core..?> "Protocol")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocationFsxOpenZfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocationFsxOpenZfs where
   hashWithSalt _salt DescribeLocationFsxOpenZfs' {..} =

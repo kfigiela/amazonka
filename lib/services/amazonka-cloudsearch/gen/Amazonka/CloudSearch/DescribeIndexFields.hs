@@ -117,7 +117,7 @@ instance Core.AWSRequest DescribeIndexFields where
   type
     AWSResponse DescribeIndexFields =
       DescribeIndexFieldsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeIndexFieldsResult"
@@ -128,6 +128,9 @@ instance Core.AWSRequest DescribeIndexFields where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeIndexFields where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIndexFields where
   hashWithSalt _salt DescribeIndexFields' {..} =

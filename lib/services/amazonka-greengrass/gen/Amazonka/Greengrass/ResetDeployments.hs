@@ -102,7 +102,7 @@ instance Core.AWSRequest ResetDeployments where
   type
     AWSResponse ResetDeployments =
       ResetDeploymentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest ResetDeployments where
             Prelude.<*> (x Core..?> "DeploymentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetDeployments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetDeployments where
   hashWithSalt _salt ResetDeployments' {..} =

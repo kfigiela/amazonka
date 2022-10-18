@@ -133,7 +133,7 @@ instance
   type
     AWSResponse CreateEgressOnlyInternetGateway =
       CreateEgressOnlyInternetGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -142,6 +142,12 @@ instance
             Prelude.<*> (x Core..@? "egressOnlyInternetGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateEgressOnlyInternetGateway
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

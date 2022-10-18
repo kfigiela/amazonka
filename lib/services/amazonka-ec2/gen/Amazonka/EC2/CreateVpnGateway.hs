@@ -152,7 +152,7 @@ instance Core.AWSRequest CreateVpnGateway where
   type
     AWSResponse CreateVpnGateway =
       CreateVpnGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest CreateVpnGateway where
             Prelude.<$> (x Core..@? "vpnGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVpnGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpnGateway where
   hashWithSalt _salt CreateVpnGateway' {..} =

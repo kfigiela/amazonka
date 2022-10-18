@@ -190,7 +190,7 @@ instance
   type
     AWSResponse ListPoliciesGrantingServiceAccess =
       ListPoliciesGrantingServiceAccessResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPoliciesGrantingServiceAccessResult"
@@ -204,6 +204,12 @@ instance
                               Prelude.>>= Core.parseXMLList "member"
                           )
       )
+
+instance
+  Core.AWSService
+    ListPoliciesGrantingServiceAccess
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

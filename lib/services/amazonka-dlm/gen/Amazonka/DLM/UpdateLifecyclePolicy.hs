@@ -128,13 +128,16 @@ instance Core.AWSRequest UpdateLifecyclePolicy where
   type
     AWSResponse UpdateLifecyclePolicy =
       UpdateLifecyclePolicyResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLifecyclePolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLifecyclePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLifecyclePolicy where
   hashWithSalt _salt UpdateLifecyclePolicy' {..} =

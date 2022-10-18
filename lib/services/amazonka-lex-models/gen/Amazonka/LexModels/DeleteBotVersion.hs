@@ -97,9 +97,12 @@ instance Core.AWSRequest DeleteBotVersion where
   type
     AWSResponse DeleteBotVersion =
       DeleteBotVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBotVersionResponse'
+
+instance Core.AWSService DeleteBotVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBotVersion where
   hashWithSalt _salt DeleteBotVersion' {..} =

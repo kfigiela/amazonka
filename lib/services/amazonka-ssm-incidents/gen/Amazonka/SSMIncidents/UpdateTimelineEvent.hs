@@ -139,13 +139,16 @@ instance Core.AWSRequest UpdateTimelineEvent where
   type
     AWSResponse UpdateTimelineEvent =
       UpdateTimelineEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateTimelineEventResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTimelineEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTimelineEvent where
   hashWithSalt _salt UpdateTimelineEvent' {..} =

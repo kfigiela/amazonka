@@ -89,7 +89,7 @@ createDomain_domainName = Lens.lens (\CreateDomain' {domainName} -> domainName) 
 
 instance Core.AWSRequest CreateDomain where
   type AWSResponse CreateDomain = CreateDomainResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDomainResult"
@@ -98,6 +98,9 @@ instance Core.AWSRequest CreateDomain where
             Prelude.<$> (x Core..@? "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDomain where
   hashWithSalt _salt CreateDomain' {..} =

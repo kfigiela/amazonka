@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeChannelBan where
   type
     AWSResponse DescribeChannelBan =
       DescribeChannelBanResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeChannelBan where
             Prelude.<$> (x Core..?> "ChannelBan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeChannelBan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChannelBan where
   hashWithSalt _salt DescribeChannelBan' {..} =

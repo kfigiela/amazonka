@@ -87,7 +87,7 @@ instance Core.AWSRequest DeclineInvitations where
   type
     AWSResponse DeclineInvitations =
       DeclineInvitationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest DeclineInvitations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DeclineInvitations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeclineInvitations where
   hashWithSalt _salt DeclineInvitations' {..} =

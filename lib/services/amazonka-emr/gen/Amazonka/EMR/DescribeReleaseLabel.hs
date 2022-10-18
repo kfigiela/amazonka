@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeReleaseLabel where
   type
     AWSResponse DescribeReleaseLabel =
       DescribeReleaseLabelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeReleaseLabel where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReleaseLabel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReleaseLabel where
   hashWithSalt _salt DescribeReleaseLabel' {..} =

@@ -108,13 +108,16 @@ instance Core.AWSRequest UpdateClassifier where
   type
     AWSResponse UpdateClassifier =
       UpdateClassifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateClassifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateClassifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateClassifier where
   hashWithSalt _salt UpdateClassifier' {..} =

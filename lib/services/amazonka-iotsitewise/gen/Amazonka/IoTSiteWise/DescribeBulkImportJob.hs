@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeBulkImportJob where
   type
     AWSResponse DescribeBulkImportJob =
       DescribeBulkImportJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeBulkImportJob where
             Prelude.<*> (x Core..:> "jobCreationDate")
             Prelude.<*> (x Core..:> "jobLastUpdateDate")
       )
+
+instance Core.AWSService DescribeBulkImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBulkImportJob where
   hashWithSalt _salt DescribeBulkImportJob' {..} =

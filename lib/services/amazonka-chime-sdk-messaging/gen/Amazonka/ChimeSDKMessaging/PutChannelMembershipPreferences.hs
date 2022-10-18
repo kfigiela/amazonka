@@ -130,7 +130,7 @@ instance
   type
     AWSResponse PutChannelMembershipPreferences =
       PutChannelMembershipPreferencesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,12 @@ instance
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutChannelMembershipPreferences
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

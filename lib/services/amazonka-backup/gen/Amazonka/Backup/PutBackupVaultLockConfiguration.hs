@@ -267,10 +267,16 @@ instance
   type
     AWSResponse PutBackupVaultLockConfiguration =
       PutBackupVaultLockConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       PutBackupVaultLockConfigurationResponse'
+
+instance
+  Core.AWSService
+    PutBackupVaultLockConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

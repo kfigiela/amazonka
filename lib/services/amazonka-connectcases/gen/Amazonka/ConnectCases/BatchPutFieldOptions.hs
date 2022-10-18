@@ -102,7 +102,7 @@ instance Core.AWSRequest BatchPutFieldOptions where
   type
     AWSResponse BatchPutFieldOptions =
       BatchPutFieldOptionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest BatchPutFieldOptions where
             Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchPutFieldOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchPutFieldOptions where
   hashWithSalt _salt BatchPutFieldOptions' {..} =

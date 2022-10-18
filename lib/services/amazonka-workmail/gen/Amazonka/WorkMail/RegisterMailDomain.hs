@@ -103,13 +103,16 @@ instance Core.AWSRequest RegisterMailDomain where
   type
     AWSResponse RegisterMailDomain =
       RegisterMailDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterMailDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterMailDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterMailDomain where
   hashWithSalt _salt RegisterMailDomain' {..} =

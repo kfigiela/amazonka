@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeSettings where
   type
     AWSResponse DescribeSettings =
       DescribeSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeSettings where
             Prelude.<*> (x Core..?> "SettingEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSettings where
   hashWithSalt _salt DescribeSettings' {..} =

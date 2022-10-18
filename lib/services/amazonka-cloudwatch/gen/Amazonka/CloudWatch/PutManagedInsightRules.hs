@@ -86,7 +86,7 @@ instance Core.AWSRequest PutManagedInsightRules where
   type
     AWSResponse PutManagedInsightRules =
       PutManagedInsightRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutManagedInsightRulesResult"
@@ -97,6 +97,9 @@ instance Core.AWSRequest PutManagedInsightRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutManagedInsightRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutManagedInsightRules where
   hashWithSalt _salt PutManagedInsightRules' {..} =

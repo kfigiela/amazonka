@@ -102,7 +102,7 @@ createMember_account = Lens.lens (\CreateMember' {account} -> account) (\s@Creat
 
 instance Core.AWSRequest CreateMember where
   type AWSResponse CreateMember = CreateMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateMember where
             Prelude.<$> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMember where
   hashWithSalt _salt CreateMember' {..} =

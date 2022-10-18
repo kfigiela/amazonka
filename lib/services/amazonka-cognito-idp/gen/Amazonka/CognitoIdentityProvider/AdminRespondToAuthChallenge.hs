@@ -463,7 +463,7 @@ instance Core.AWSRequest AdminRespondToAuthChallenge where
   type
     AWSResponse AdminRespondToAuthChallenge =
       AdminRespondToAuthChallengeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -476,6 +476,9 @@ instance Core.AWSRequest AdminRespondToAuthChallenge where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminRespondToAuthChallenge where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminRespondToAuthChallenge where
   hashWithSalt _salt AdminRespondToAuthChallenge' {..} =

@@ -121,10 +121,13 @@ instance Core.AWSRequest RemoveLayerVersionPermission where
   type
     AWSResponse RemoveLayerVersionPermission =
       RemoveLayerVersionPermissionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       RemoveLayerVersionPermissionResponse'
+
+instance Core.AWSService RemoveLayerVersionPermission where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -133,7 +133,7 @@ instance Core.AWSRequest StartContactStreaming where
   type
     AWSResponse StartContactStreaming =
       StartContactStreamingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest StartContactStreaming where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "StreamingId")
       )
+
+instance Core.AWSService StartContactStreaming where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartContactStreaming where
   hashWithSalt _salt StartContactStreaming' {..} =

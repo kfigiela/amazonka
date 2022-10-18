@@ -107,10 +107,13 @@ updateModel_modelName = Lens.lens (\UpdateModel' {modelName} -> modelName) (\s@U
 
 instance Core.AWSRequest UpdateModel where
   type AWSResponse UpdateModel = Model
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModel where
   hashWithSalt _salt UpdateModel' {..} =

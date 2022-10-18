@@ -427,7 +427,7 @@ registerUser_namespace = Lens.lens (\RegisterUser' {namespace} -> namespace) (\s
 
 instance Core.AWSRequest RegisterUser where
   type AWSResponse RegisterUser = RegisterUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -437,6 +437,9 @@ instance Core.AWSRequest RegisterUser where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterUser where
   hashWithSalt _salt RegisterUser' {..} =

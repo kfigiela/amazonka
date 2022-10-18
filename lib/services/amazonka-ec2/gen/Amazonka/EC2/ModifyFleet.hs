@@ -173,7 +173,7 @@ modifyFleet_fleetId = Lens.lens (\ModifyFleet' {fleetId} -> fleetId) (\s@ModifyF
 
 instance Core.AWSRequest ModifyFleet where
   type AWSResponse ModifyFleet = ModifyFleetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ModifyFleet where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyFleet where
   hashWithSalt _salt ModifyFleet' {..} =

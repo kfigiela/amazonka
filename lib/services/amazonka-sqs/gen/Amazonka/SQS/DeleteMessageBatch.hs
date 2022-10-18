@@ -112,7 +112,7 @@ instance Core.AWSRequest DeleteMessageBatch where
   type
     AWSResponse DeleteMessageBatch =
       DeleteMessageBatchResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteMessageBatchResult"
@@ -122,6 +122,9 @@ instance Core.AWSRequest DeleteMessageBatch where
             Prelude.<*> (Core.parseXMLList "DeleteMessageBatchResultEntry" x)
             Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
+
+instance Core.AWSService DeleteMessageBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMessageBatch where
   hashWithSalt _salt DeleteMessageBatch' {..} =

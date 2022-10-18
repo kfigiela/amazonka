@@ -74,7 +74,7 @@ stopTrigger_name = Lens.lens (\StopTrigger' {name} -> name) (\s@StopTrigger' {} 
 
 instance Core.AWSRequest StopTrigger where
   type AWSResponse StopTrigger = StopTriggerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest StopTrigger where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopTrigger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopTrigger where
   hashWithSalt _salt StopTrigger' {..} =

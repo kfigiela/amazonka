@@ -110,11 +110,14 @@ modifyUsageLimit_usageLimitId = Lens.lens (\ModifyUsageLimit' {usageLimitId} -> 
 
 instance Core.AWSRequest ModifyUsageLimit where
   type AWSResponse ModifyUsageLimit = UsageLimit
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyUsageLimitResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyUsageLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyUsageLimit where
   hashWithSalt _salt ModifyUsageLimit' {..} =

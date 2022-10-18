@@ -135,7 +135,7 @@ instance Core.AWSRequest ListFirewallPolicies where
   type
     AWSResponse ListFirewallPolicies =
       ListFirewallPoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListFirewallPolicies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFirewallPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFirewallPolicies where
   hashWithSalt _salt ListFirewallPolicies' {..} =

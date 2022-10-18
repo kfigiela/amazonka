@@ -135,7 +135,7 @@ instance Core.AWSRequest ReleaseIpamPoolAllocation where
   type
     AWSResponse ReleaseIpamPoolAllocation =
       ReleaseIpamPoolAllocationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ReleaseIpamPoolAllocation where
             Prelude.<$> (x Core..@? "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReleaseIpamPoolAllocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleaseIpamPoolAllocation where
   hashWithSalt _salt ReleaseIpamPoolAllocation' {..} =

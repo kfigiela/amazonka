@@ -106,7 +106,7 @@ createCell_cellName = Lens.lens (\CreateCell' {cellName} -> cellName) (\s@Create
 
 instance Core.AWSRequest CreateCell where
   type AWSResponse CreateCell = CreateCellResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateCell where
             Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCell where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCell where
   hashWithSalt _salt CreateCell' {..} =

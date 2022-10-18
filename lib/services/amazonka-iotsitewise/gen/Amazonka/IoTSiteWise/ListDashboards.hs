@@ -129,7 +129,7 @@ instance Core.AWSRequest ListDashboards where
   type
     AWSResponse ListDashboards =
       ListDashboardsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListDashboards where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListDashboards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =

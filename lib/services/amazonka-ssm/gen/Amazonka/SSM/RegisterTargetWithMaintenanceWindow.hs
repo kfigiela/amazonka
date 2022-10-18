@@ -270,7 +270,7 @@ instance
   type
     AWSResponse RegisterTargetWithMaintenanceWindow =
       RegisterTargetWithMaintenanceWindowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,12 @@ instance
             Prelude.<$> (x Core..?> "WindowTargetId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RegisterTargetWithMaintenanceWindow
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -100,7 +100,7 @@ instance Core.AWSRequest GetCoreNetworkPolicy where
   type
     AWSResponse GetCoreNetworkPolicy =
       GetCoreNetworkPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetCoreNetworkPolicy where
             Prelude.<$> (x Core..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCoreNetworkPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCoreNetworkPolicy where
   hashWithSalt _salt GetCoreNetworkPolicy' {..} =

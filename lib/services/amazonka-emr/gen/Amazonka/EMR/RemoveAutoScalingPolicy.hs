@@ -99,13 +99,16 @@ instance Core.AWSRequest RemoveAutoScalingPolicy where
   type
     AWSResponse RemoveAutoScalingPolicy =
       RemoveAutoScalingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveAutoScalingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveAutoScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveAutoScalingPolicy where
   hashWithSalt _salt RemoveAutoScalingPolicy' {..} =

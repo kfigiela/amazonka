@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeMonitoringSchedule where
   type
     AWSResponse DescribeMonitoringSchedule =
       DescribeMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeMonitoringSchedule where
             Prelude.<*> (x Core..:> "LastModifiedTime")
             Prelude.<*> (x Core..:> "MonitoringScheduleConfig")
       )
+
+instance Core.AWSService DescribeMonitoringSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMonitoringSchedule where
   hashWithSalt _salt DescribeMonitoringSchedule' {..} =

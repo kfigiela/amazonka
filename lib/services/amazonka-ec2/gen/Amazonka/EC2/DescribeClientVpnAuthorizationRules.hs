@@ -192,7 +192,7 @@ instance
   type
     AWSResponse DescribeClientVpnAuthorizationRules =
       DescribeClientVpnAuthorizationRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -204,6 +204,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeClientVpnAuthorizationRules
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeStackSummary where
   type
     AWSResponse DescribeStackSummary =
       DescribeStackSummaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DescribeStackSummary where
             Prelude.<$> (x Core..?> "StackSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStackSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStackSummary where
   hashWithSalt _salt DescribeStackSummary' {..} =

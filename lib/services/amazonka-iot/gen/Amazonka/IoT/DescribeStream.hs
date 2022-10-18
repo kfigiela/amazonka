@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeStream where
   type
     AWSResponse DescribeStream =
       DescribeStreamResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeStream where
             Prelude.<$> (x Core..?> "streamInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStream where
   hashWithSalt _salt DescribeStream' {..} =

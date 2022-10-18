@@ -100,7 +100,7 @@ instance Core.AWSRequest DisableSnapshotCopy where
   type
     AWSResponse DisableSnapshotCopy =
       DisableSnapshotCopyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisableSnapshotCopyResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest DisableSnapshotCopy where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableSnapshotCopy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableSnapshotCopy where
   hashWithSalt _salt DisableSnapshotCopy' {..} =

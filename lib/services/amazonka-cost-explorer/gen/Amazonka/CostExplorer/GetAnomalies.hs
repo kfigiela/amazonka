@@ -150,7 +150,7 @@ getAnomalies_dateInterval = Lens.lens (\GetAnomalies' {dateInterval} -> dateInte
 
 instance Core.AWSRequest GetAnomalies where
   type AWSResponse GetAnomalies = GetAnomaliesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest GetAnomalies where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Anomalies" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetAnomalies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAnomalies where
   hashWithSalt _salt GetAnomalies' {..} =

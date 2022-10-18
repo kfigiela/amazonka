@@ -93,7 +93,7 @@ deleteFaces_faceIds = Lens.lens (\DeleteFaces' {faceIds} -> faceIds) (\s@DeleteF
 
 instance Core.AWSRequest DeleteFaces where
   type AWSResponse DeleteFaces = DeleteFacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteFaces where
             Prelude.<$> (x Core..?> "DeletedFaces")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFaces where
   hashWithSalt _salt DeleteFaces' {..} =

@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteTerminology where
   type
     AWSResponse DeleteTerminology =
       DeleteTerminologyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteTerminologyResponse'
+
+instance Core.AWSService DeleteTerminology where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTerminology where
   hashWithSalt _salt DeleteTerminology' {..} =

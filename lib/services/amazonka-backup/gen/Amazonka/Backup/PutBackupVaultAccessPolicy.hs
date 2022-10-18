@@ -97,10 +97,13 @@ instance Core.AWSRequest PutBackupVaultAccessPolicy where
   type
     AWSResponse PutBackupVaultAccessPolicy =
       PutBackupVaultAccessPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       PutBackupVaultAccessPolicyResponse'
+
+instance Core.AWSService PutBackupVaultAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBackupVaultAccessPolicy where
   hashWithSalt _salt PutBackupVaultAccessPolicy' {..} =

@@ -116,7 +116,7 @@ instance Core.AWSRequest ListDimensions where
   type
     AWSResponse ListDimensions =
       ListDimensionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListDimensions where
             Prelude.<*> (x Core..?> "dimensionNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDimensions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDimensions where
   hashWithSalt _salt ListDimensions' {..} =

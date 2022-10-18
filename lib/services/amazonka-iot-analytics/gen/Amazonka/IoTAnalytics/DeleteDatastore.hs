@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteDatastore where
   type
     AWSResponse DeleteDatastore =
       DeleteDatastoreResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDatastoreResponse'
+
+instance Core.AWSService DeleteDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDatastore where
   hashWithSalt _salt DeleteDatastore' {..} =

@@ -132,7 +132,7 @@ sendEvent_connectionToken = Lens.lens (\SendEvent' {connectionToken} -> connecti
 
 instance Core.AWSRequest SendEvent where
   type AWSResponse SendEvent = SendEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest SendEvent where
             Prelude.<*> (x Core..?> "AbsoluteTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendEvent where
   hashWithSalt _salt SendEvent' {..} =

@@ -125,7 +125,7 @@ instance Core.AWSRequest ListTemplates where
   type
     AWSResponse ListTemplates =
       ListTemplatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTemplatesResult"
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListTemplates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTemplates where
   hashWithSalt _salt ListTemplates' {..} =

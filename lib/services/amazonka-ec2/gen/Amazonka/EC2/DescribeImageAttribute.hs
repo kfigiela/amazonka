@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeImageAttribute where
   type
     AWSResponse DescribeImageAttribute =
       DescribeImageAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest DescribeImageAttribute where
             Prelude.<*> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImageAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImageAttribute where
   hashWithSalt _salt DescribeImageAttribute' {..} =

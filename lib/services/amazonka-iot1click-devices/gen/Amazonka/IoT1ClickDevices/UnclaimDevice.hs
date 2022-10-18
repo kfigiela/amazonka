@@ -77,7 +77,7 @@ instance Core.AWSRequest UnclaimDevice where
   type
     AWSResponse UnclaimDevice =
       UnclaimDeviceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest UnclaimDevice where
             Prelude.<$> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UnclaimDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnclaimDevice where
   hashWithSalt _salt UnclaimDevice' {..} =

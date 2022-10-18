@@ -124,7 +124,7 @@ instance Core.AWSRequest UpdateBrowserSettings where
   type
     AWSResponse UpdateBrowserSettings =
       UpdateBrowserSettingsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest UpdateBrowserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "browserSettings")
       )
+
+instance Core.AWSService UpdateBrowserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBrowserSettings where
   hashWithSalt _salt UpdateBrowserSettings' {..} =

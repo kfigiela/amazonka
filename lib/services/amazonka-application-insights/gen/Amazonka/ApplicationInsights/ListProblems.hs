@@ -142,7 +142,7 @@ listProblems_startTime = Lens.lens (\ListProblems' {startTime} -> startTime) (\s
 
 instance Core.AWSRequest ListProblems where
   type AWSResponse ListProblems = ListProblemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListProblems where
             Prelude.<*> (x Core..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProblems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProblems where
   hashWithSalt _salt ListProblems' {..} =

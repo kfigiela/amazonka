@@ -141,7 +141,7 @@ instance Core.AWSRequest UpdateDashboardPermissions where
   type
     AWSResponse UpdateDashboardPermissions =
       UpdateDashboardPermissionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest UpdateDashboardPermissions where
             Prelude.<*> (x Core..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDashboardPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDashboardPermissions where
   hashWithSalt _salt UpdateDashboardPermissions' {..} =

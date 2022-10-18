@@ -148,7 +148,7 @@ updatePolicy_policyId = Lens.lens (\UpdatePolicy' {policyId} -> policyId) (\s@Up
 
 instance Core.AWSRequest UpdatePolicy where
   type AWSResponse UpdatePolicy = UpdatePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdatePolicy where
             Prelude.<$> (x Core..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePolicy where
   hashWithSalt _salt UpdatePolicy' {..} =

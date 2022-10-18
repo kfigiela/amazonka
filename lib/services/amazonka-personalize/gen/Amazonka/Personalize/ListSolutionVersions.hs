@@ -129,7 +129,7 @@ instance Core.AWSRequest ListSolutionVersions where
   type
     AWSResponse ListSolutionVersions =
       ListSolutionVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListSolutionVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSolutionVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSolutionVersions where
   hashWithSalt _salt ListSolutionVersions' {..} =

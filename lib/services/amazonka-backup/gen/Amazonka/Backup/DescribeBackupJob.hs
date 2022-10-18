@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeBackupJob where
   type
     AWSResponse DescribeBackupJob =
       DescribeBackupJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeBackupJob where
             Prelude.<*> (x Core..?> "BytesTransferred")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBackupJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBackupJob where
   hashWithSalt _salt DescribeBackupJob' {..} =

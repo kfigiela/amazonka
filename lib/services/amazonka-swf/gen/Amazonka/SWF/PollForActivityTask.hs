@@ -164,7 +164,7 @@ instance Core.AWSRequest PollForActivityTask where
   type
     AWSResponse PollForActivityTask =
       PollForActivityTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest PollForActivityTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "startedEventId")
       )
+
+instance Core.AWSService PollForActivityTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PollForActivityTask where
   hashWithSalt _salt PollForActivityTask' {..} =

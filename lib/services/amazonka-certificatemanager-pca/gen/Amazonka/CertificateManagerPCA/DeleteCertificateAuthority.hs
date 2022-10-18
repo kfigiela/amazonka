@@ -135,10 +135,13 @@ instance Core.AWSRequest DeleteCertificateAuthority where
   type
     AWSResponse DeleteCertificateAuthority =
       DeleteCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCertificateAuthorityResponse'
+
+instance Core.AWSService DeleteCertificateAuthority where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCertificateAuthority where
   hashWithSalt _salt DeleteCertificateAuthority' {..} =

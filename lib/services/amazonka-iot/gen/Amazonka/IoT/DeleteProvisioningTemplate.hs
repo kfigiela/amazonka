@@ -83,13 +83,16 @@ instance Core.AWSRequest DeleteProvisioningTemplate where
   type
     AWSResponse DeleteProvisioningTemplate =
       DeleteProvisioningTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProvisioningTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProvisioningTemplate where
   hashWithSalt _salt DeleteProvisioningTemplate' {..} =

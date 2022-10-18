@@ -97,9 +97,12 @@ instance Core.AWSRequest DeleteDhcpOptions where
   type
     AWSResponse DeleteDhcpOptions =
       DeleteDhcpOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteDhcpOptionsResponse'
+
+instance Core.AWSService DeleteDhcpOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDhcpOptions where
   hashWithSalt _salt DeleteDhcpOptions' {..} =

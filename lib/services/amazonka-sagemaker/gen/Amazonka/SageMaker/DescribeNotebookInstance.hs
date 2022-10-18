@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeNotebookInstance where
   type
     AWSResponse DescribeNotebookInstance =
       DescribeNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest DescribeNotebookInstance where
             Prelude.<*> (x Core..?> "RootAccess")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeNotebookInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNotebookInstance where
   hashWithSalt _salt DescribeNotebookInstance' {..} =

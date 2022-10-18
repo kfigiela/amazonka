@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteEntityType where
   type
     AWSResponse DeleteEntityType =
       DeleteEntityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEntityTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEntityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEntityType where
   hashWithSalt _salt DeleteEntityType' {..} =

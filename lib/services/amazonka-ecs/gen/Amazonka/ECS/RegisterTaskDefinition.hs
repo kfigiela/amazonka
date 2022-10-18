@@ -987,7 +987,7 @@ instance Core.AWSRequest RegisterTaskDefinition where
   type
     AWSResponse RegisterTaskDefinition =
       RegisterTaskDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -996,6 +996,9 @@ instance Core.AWSRequest RegisterTaskDefinition where
             Prelude.<*> (x Core..?> "taskDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterTaskDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterTaskDefinition where
   hashWithSalt _salt RegisterTaskDefinition' {..} =

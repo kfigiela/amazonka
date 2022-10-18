@@ -101,13 +101,16 @@ createLabels_labels = Lens.lens (\CreateLabels' {labels} -> labels) (\s@CreateLa
 
 instance Core.AWSRequest CreateLabels where
   type AWSResponse CreateLabels = CreateLabelsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateLabelsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLabels where
   hashWithSalt _salt CreateLabels' {..} =

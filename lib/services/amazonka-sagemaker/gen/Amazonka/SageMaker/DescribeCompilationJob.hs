@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeCompilationJob where
   type
     AWSResponse DescribeCompilationJob =
       DescribeCompilationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DescribeCompilationJob where
             Prelude.<*> (x Core..:> "InputConfig")
             Prelude.<*> (x Core..:> "OutputConfig")
       )
+
+instance Core.AWSService DescribeCompilationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCompilationJob where
   hashWithSalt _salt DescribeCompilationJob' {..} =

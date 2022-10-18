@@ -71,7 +71,7 @@ instance Core.AWSRequest GetDiscoverySummary where
   type
     AWSResponse GetDiscoverySummary =
       GetDiscoverySummaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetDiscoverySummary where
             Prelude.<*> (x Core..?> "serversMappedToApplications")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDiscoverySummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDiscoverySummary where
   hashWithSalt _salt _ =

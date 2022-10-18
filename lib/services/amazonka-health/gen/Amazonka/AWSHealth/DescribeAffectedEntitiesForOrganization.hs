@@ -185,7 +185,7 @@ instance
     AWSResponse
       DescribeAffectedEntitiesForOrganization =
       DescribeAffectedEntitiesForOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,12 @@ instance
               Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAffectedEntitiesForOrganization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

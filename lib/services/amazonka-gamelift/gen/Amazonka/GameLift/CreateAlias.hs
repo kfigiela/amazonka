@@ -166,7 +166,7 @@ createAlias_routingStrategy = Lens.lens (\CreateAlias' {routingStrategy} -> rout
 
 instance Core.AWSRequest CreateAlias where
   type AWSResponse CreateAlias = CreateAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest CreateAlias where
             Prelude.<$> (x Core..?> "Alias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =

@@ -152,7 +152,7 @@ instance Core.AWSRequest ListAttachments where
   type
     AWSResponse ListAttachments =
       ListAttachmentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListAttachments where
             Prelude.<*> (x Core..?> "Attachments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAttachments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAttachments where
   hashWithSalt _salt ListAttachments' {..} =

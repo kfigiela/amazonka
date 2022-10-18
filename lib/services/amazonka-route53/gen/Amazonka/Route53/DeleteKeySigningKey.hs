@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteKeySigningKey where
   type
     AWSResponse DeleteKeySigningKey =
       DeleteKeySigningKeyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteKeySigningKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService DeleteKeySigningKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteKeySigningKey where
   hashWithSalt _salt DeleteKeySigningKey' {..} =

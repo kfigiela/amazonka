@@ -266,7 +266,7 @@ instance Core.AWSRequest CreateProfileJob where
   type
     AWSResponse CreateProfileJob =
       CreateProfileJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -274,6 +274,9 @@ instance Core.AWSRequest CreateProfileJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService CreateProfileJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProfileJob where
   hashWithSalt _salt CreateProfileJob' {..} =

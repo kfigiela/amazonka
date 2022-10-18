@@ -110,13 +110,19 @@ instance
   type
     AWSResponse AssociateApplicationToEntitlement =
       AssociateApplicationToEntitlementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateApplicationToEntitlementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateApplicationToEntitlement
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -100,13 +100,16 @@ instance Core.AWSRequest DeregisterEventTopic where
   type
     AWSResponse DeregisterEventTopic =
       DeregisterEventTopicResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterEventTopicResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterEventTopic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterEventTopic where
   hashWithSalt _salt DeregisterEventTopic' {..} =

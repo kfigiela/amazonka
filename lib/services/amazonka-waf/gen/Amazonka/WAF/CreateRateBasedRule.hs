@@ -264,7 +264,7 @@ instance Core.AWSRequest CreateRateBasedRule where
   type
     AWSResponse CreateRateBasedRule =
       CreateRateBasedRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -273,6 +273,9 @@ instance Core.AWSRequest CreateRateBasedRule where
             Prelude.<*> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRateBasedRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRateBasedRule where
   hashWithSalt _salt CreateRateBasedRule' {..} =

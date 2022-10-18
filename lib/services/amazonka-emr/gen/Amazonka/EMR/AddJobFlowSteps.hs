@@ -150,7 +150,7 @@ instance Core.AWSRequest AddJobFlowSteps where
   type
     AWSResponse AddJobFlowSteps =
       AddJobFlowStepsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest AddJobFlowSteps where
             Prelude.<$> (x Core..?> "StepIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddJobFlowSteps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddJobFlowSteps where
   hashWithSalt _salt AddJobFlowSteps' {..} =

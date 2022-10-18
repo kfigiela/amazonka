@@ -90,7 +90,7 @@ getEvent_eventTypeName = Lens.lens (\GetEvent' {eventTypeName} -> eventTypeName)
 
 instance Core.AWSRequest GetEvent where
   type AWSResponse GetEvent = GetEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetEvent where
             Prelude.<$> (x Core..?> "event")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEvent where
   hashWithSalt _salt GetEvent' {..} =

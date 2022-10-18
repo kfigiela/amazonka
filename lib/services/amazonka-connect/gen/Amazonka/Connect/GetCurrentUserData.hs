@@ -128,7 +128,7 @@ instance Core.AWSRequest GetCurrentUserData where
   type
     AWSResponse GetCurrentUserData =
       GetCurrentUserDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest GetCurrentUserData where
             Prelude.<*> (x Core..?> "UserDataList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCurrentUserData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCurrentUserData where
   hashWithSalt _salt GetCurrentUserData' {..} =

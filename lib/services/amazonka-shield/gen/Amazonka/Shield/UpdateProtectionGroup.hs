@@ -204,13 +204,16 @@ instance Core.AWSRequest UpdateProtectionGroup where
   type
     AWSResponse UpdateProtectionGroup =
       UpdateProtectionGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateProtectionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateProtectionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProtectionGroup where
   hashWithSalt _salt UpdateProtectionGroup' {..} =

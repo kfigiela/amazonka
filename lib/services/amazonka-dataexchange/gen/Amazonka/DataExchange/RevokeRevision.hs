@@ -119,7 +119,7 @@ instance Core.AWSRequest RevokeRevision where
   type
     AWSResponse RevokeRevision =
       RevokeRevisionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest RevokeRevision where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeRevision where
   hashWithSalt _salt RevokeRevision' {..} =

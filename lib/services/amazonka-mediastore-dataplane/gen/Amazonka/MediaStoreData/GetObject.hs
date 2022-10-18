@@ -179,7 +179,7 @@ getObject_path = Lens.lens (\GetObject' {path} -> path) (\s@GetObject' {} a -> s
 
 instance Core.AWSRequest GetObject where
   type AWSResponse GetObject = GetObjectResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest GetObject where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObject where
   hashWithSalt _salt GetObject' {..} =

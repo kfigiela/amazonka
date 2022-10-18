@@ -90,13 +90,16 @@ instance Core.AWSRequest DeleteResourceDataSync where
   type
     AWSResponse DeleteResourceDataSync =
       DeleteResourceDataSyncResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourceDataSyncResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResourceDataSync where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourceDataSync where
   hashWithSalt _salt DeleteResourceDataSync' {..} =

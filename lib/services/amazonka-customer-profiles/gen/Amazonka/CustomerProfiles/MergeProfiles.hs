@@ -157,7 +157,7 @@ instance Core.AWSRequest MergeProfiles where
   type
     AWSResponse MergeProfiles =
       MergeProfilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest MergeProfiles where
             Prelude.<$> (x Core..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MergeProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MergeProfiles where
   hashWithSalt _salt MergeProfiles' {..} =

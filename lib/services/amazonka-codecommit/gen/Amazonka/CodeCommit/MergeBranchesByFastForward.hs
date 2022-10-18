@@ -125,7 +125,7 @@ instance Core.AWSRequest MergeBranchesByFastForward where
   type
     AWSResponse MergeBranchesByFastForward =
       MergeBranchesByFastForwardResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest MergeBranchesByFastForward where
             Prelude.<*> (x Core..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MergeBranchesByFastForward where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MergeBranchesByFastForward where
   hashWithSalt _salt MergeBranchesByFastForward' {..} =

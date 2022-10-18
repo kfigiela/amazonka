@@ -135,7 +135,7 @@ instance Core.AWSRequest GetBucketsAggregation where
   type
     AWSResponse GetBucketsAggregation =
       GetBucketsAggregationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest GetBucketsAggregation where
             Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketsAggregation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketsAggregation where
   hashWithSalt _salt GetBucketsAggregation' {..} =

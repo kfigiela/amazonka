@@ -132,13 +132,19 @@ instance
     AWSResponse
       PutConfigurationSetSuppressionOptions =
       PutConfigurationSetSuppressionOptionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutConfigurationSetSuppressionOptionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutConfigurationSetSuppressionOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

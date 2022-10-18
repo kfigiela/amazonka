@@ -135,7 +135,7 @@ instance Core.AWSRequest ListV2LoggingLevels where
   type
     AWSResponse ListV2LoggingLevels =
       ListV2LoggingLevelsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListV2LoggingLevels where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListV2LoggingLevels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListV2LoggingLevels where
   hashWithSalt _salt ListV2LoggingLevels' {..} =

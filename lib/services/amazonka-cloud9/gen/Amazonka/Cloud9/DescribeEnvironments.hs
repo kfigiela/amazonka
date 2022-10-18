@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeEnvironments where
   type
     AWSResponse DescribeEnvironments =
       DescribeEnvironmentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeEnvironments where
             Prelude.<$> (x Core..?> "environments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEnvironments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEnvironments where
   hashWithSalt _salt DescribeEnvironments' {..} =

@@ -147,7 +147,7 @@ instance Core.AWSRequest GetAccountLimit where
   type
     AWSResponse GetAccountLimit =
       GetAccountLimitResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest GetAccountLimit where
             Prelude.<*> (x Core..@ "Limit")
             Prelude.<*> (x Core..@ "Count")
       )
+
+instance Core.AWSService GetAccountLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountLimit where
   hashWithSalt _salt GetAccountLimit' {..} =

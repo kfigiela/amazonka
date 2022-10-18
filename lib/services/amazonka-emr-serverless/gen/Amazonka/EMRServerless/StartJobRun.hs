@@ -162,7 +162,7 @@ startJobRun_executionRoleArn = Lens.lens (\StartJobRun' {executionRoleArn} -> ex
 
 instance Core.AWSRequest StartJobRun where
   type AWSResponse StartJobRun = StartJobRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest StartJobRun where
             Prelude.<*> (x Core..:> "jobRunId")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService StartJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartJobRun where
   hashWithSalt _salt StartJobRun' {..} =

@@ -98,7 +98,7 @@ instance Core.AWSRequest GetArchiveRule where
   type
     AWSResponse GetArchiveRule =
       GetArchiveRuleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetArchiveRule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "archiveRule")
       )
+
+instance Core.AWSService GetArchiveRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetArchiveRule where
   hashWithSalt _salt GetArchiveRule' {..} =

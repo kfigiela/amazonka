@@ -158,7 +158,7 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
   type
     AWSResponse DescribeImportSnapshotTasks =
       DescribeImportSnapshotTasksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest DescribeImportSnapshotTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImportSnapshotTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImportSnapshotTasks where
   hashWithSalt _salt DescribeImportSnapshotTasks' {..} =

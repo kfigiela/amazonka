@@ -525,13 +525,16 @@ instance Core.AWSRequest DeleteScalingPolicy where
   type
     AWSResponse DeleteScalingPolicy =
       DeleteScalingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteScalingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteScalingPolicy where
   hashWithSalt _salt DeleteScalingPolicy' {..} =

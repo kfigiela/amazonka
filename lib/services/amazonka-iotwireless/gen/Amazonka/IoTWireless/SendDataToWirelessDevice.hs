@@ -119,7 +119,7 @@ instance Core.AWSRequest SendDataToWirelessDevice where
   type
     AWSResponse SendDataToWirelessDevice =
       SendDataToWirelessDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest SendDataToWirelessDevice where
             Prelude.<$> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendDataToWirelessDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendDataToWirelessDevice where
   hashWithSalt _salt SendDataToWirelessDevice' {..} =

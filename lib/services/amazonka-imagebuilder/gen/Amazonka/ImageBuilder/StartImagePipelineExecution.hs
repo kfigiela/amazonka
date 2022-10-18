@@ -99,7 +99,7 @@ instance Core.AWSRequest StartImagePipelineExecution where
   type
     AWSResponse StartImagePipelineExecution =
       StartImagePipelineExecutionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest StartImagePipelineExecution where
             Prelude.<*> (x Core..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartImagePipelineExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartImagePipelineExecution where
   hashWithSalt _salt StartImagePipelineExecution' {..} =

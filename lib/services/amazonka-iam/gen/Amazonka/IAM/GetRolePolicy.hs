@@ -143,7 +143,7 @@ instance Core.AWSRequest GetRolePolicy where
   type
     AWSResponse GetRolePolicy =
       GetRolePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetRolePolicyResult"
@@ -154,6 +154,9 @@ instance Core.AWSRequest GetRolePolicy where
             Prelude.<*> (x Core..@ "PolicyName")
             Prelude.<*> (x Core..@ "PolicyDocument")
       )
+
+instance Core.AWSService GetRolePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRolePolicy where
   hashWithSalt _salt GetRolePolicy' {..} =

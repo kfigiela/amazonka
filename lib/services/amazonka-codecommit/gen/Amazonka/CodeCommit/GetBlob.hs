@@ -92,7 +92,7 @@ getBlob_blobId = Lens.lens (\GetBlob' {blobId} -> blobId) (\s@GetBlob' {} a -> s
 
 instance Core.AWSRequest GetBlob where
   type AWSResponse GetBlob = GetBlobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetBlob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "content")
       )
+
+instance Core.AWSService GetBlob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBlob where
   hashWithSalt _salt GetBlob' {..} =

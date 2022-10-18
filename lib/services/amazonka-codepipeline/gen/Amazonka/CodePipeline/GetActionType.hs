@@ -167,7 +167,7 @@ instance Core.AWSRequest GetActionType where
   type
     AWSResponse GetActionType =
       GetActionTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest GetActionType where
             Prelude.<$> (x Core..?> "actionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetActionType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetActionType where
   hashWithSalt _salt GetActionType' {..} =

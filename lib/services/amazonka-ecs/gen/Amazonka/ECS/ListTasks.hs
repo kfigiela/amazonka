@@ -284,7 +284,7 @@ instance Core.AWSPager ListTasks where
 
 instance Core.AWSRequest ListTasks where
   type AWSResponse ListTasks = ListTasksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -293,6 +293,9 @@ instance Core.AWSRequest ListTasks where
             Prelude.<*> (x Core..?> "taskArns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTasks where
   hashWithSalt _salt ListTasks' {..} =

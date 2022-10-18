@@ -80,13 +80,16 @@ instance Core.AWSRequest CreateDataCellsFilter where
   type
     AWSResponse CreateDataCellsFilter =
       CreateDataCellsFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateDataCellsFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDataCellsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataCellsFilter where
   hashWithSalt _salt CreateDataCellsFilter' {..} =

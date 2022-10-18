@@ -106,13 +106,16 @@ instance Core.AWSRequest UpdateFindings where
   type
     AWSResponse UpdateFindings =
       UpdateFindingsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =

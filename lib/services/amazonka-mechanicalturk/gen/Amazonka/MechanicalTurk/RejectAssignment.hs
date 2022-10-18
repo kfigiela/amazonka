@@ -108,13 +108,16 @@ instance Core.AWSRequest RejectAssignment where
   type
     AWSResponse RejectAssignment =
       RejectAssignmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RejectAssignmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectAssignment where
   hashWithSalt _salt RejectAssignment' {..} =

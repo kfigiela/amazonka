@@ -135,7 +135,7 @@ instance Core.AWSRequest StopBotRecommendation where
   type
     AWSResponse StopBotRecommendation =
       StopBotRecommendationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest StopBotRecommendation where
             Prelude.<*> (x Core..?> "botRecommendationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopBotRecommendation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopBotRecommendation where
   hashWithSalt _salt StopBotRecommendation' {..} =

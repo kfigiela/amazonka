@@ -167,7 +167,7 @@ createQueue_hoursOfOperationId = Lens.lens (\CreateQueue' {hoursOfOperationId} -
 
 instance Core.AWSRequest CreateQueue where
   type AWSResponse CreateQueue = CreateQueueResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateQueue where
             Prelude.<*> (x Core..?> "QueueId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =

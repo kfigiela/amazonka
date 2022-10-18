@@ -179,7 +179,7 @@ instance Core.AWSRequest ListCreateAccountStatus where
   type
     AWSResponse ListCreateAccountStatus =
       ListCreateAccountStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest ListCreateAccountStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCreateAccountStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCreateAccountStatus where
   hashWithSalt _salt ListCreateAccountStatus' {..} =

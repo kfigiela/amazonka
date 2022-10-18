@@ -137,7 +137,7 @@ instance Core.AWSRequest UpdateDomainAssociation where
   type
     AWSResponse UpdateDomainAssociation =
       UpdateDomainAssociationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest UpdateDomainAssociation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "domainAssociation")
       )
+
+instance Core.AWSService UpdateDomainAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainAssociation where
   hashWithSalt _salt UpdateDomainAssociation' {..} =

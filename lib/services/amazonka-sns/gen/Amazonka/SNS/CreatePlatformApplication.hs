@@ -151,7 +151,7 @@ instance Core.AWSRequest CreatePlatformApplication where
   type
     AWSResponse CreatePlatformApplication =
       CreatePlatformApplicationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreatePlatformApplicationResult"
@@ -160,6 +160,9 @@ instance Core.AWSRequest CreatePlatformApplication where
             Prelude.<$> (x Core..@? "PlatformApplicationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePlatformApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePlatformApplication where
   hashWithSalt _salt CreatePlatformApplication' {..} =

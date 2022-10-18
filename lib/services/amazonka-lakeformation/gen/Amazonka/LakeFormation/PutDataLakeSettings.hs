@@ -107,13 +107,16 @@ instance Core.AWSRequest PutDataLakeSettings where
   type
     AWSResponse PutDataLakeSettings =
       PutDataLakeSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutDataLakeSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDataLakeSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDataLakeSettings where
   hashWithSalt _salt PutDataLakeSettings' {..} =

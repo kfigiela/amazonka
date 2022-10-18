@@ -120,7 +120,7 @@ instance Core.AWSRequest GetCommentReactions where
   type
     AWSResponse GetCommentReactions =
       GetCommentReactionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetCommentReactions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetCommentReactions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCommentReactions where
   hashWithSalt _salt GetCommentReactions' {..} =

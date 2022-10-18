@@ -85,7 +85,7 @@ getGroup_groupARN = Lens.lens (\GetGroup' {groupARN} -> groupARN) (\s@GetGroup' 
 
 instance Core.AWSRequest GetGroup where
   type AWSResponse GetGroup = GetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetGroup where
             Prelude.<$> (x Core..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroup where
   hashWithSalt _salt GetGroup' {..} =

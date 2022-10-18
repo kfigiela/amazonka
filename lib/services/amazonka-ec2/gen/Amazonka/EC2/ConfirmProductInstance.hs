@@ -114,7 +114,7 @@ instance Core.AWSRequest ConfirmProductInstance where
   type
     AWSResponse ConfirmProductInstance =
       ConfirmProductInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ConfirmProductInstance where
             Prelude.<*> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmProductInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmProductInstance where
   hashWithSalt _salt ConfirmProductInstance' {..} =

@@ -105,7 +105,7 @@ instance Core.AWSRequest GetChannelMessage where
   type
     AWSResponse GetChannelMessage =
       GetChannelMessageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetChannelMessage where
             Prelude.<$> (x Core..?> "ChannelMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChannelMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChannelMessage where
   hashWithSalt _salt GetChannelMessage' {..} =

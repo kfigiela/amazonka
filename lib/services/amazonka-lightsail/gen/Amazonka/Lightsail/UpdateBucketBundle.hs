@@ -121,7 +121,7 @@ instance Core.AWSRequest UpdateBucketBundle where
   type
     AWSResponse UpdateBucketBundle =
       UpdateBucketBundleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateBucketBundle where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBucketBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBucketBundle where
   hashWithSalt _salt UpdateBucketBundle' {..} =

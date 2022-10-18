@@ -79,13 +79,16 @@ removeRegion_directoryId = Lens.lens (\RemoveRegion' {directoryId} -> directoryI
 
 instance Core.AWSRequest RemoveRegion where
   type AWSResponse RemoveRegion = RemoveRegionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveRegionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveRegion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveRegion where
   hashWithSalt _salt RemoveRegion' {..} =

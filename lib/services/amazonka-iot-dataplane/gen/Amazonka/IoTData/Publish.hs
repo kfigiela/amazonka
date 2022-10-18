@@ -155,8 +155,11 @@ publish_topic = Lens.lens (\Publish' {topic} -> topic) (\s@Publish' {} a -> s {t
 
 instance Core.AWSRequest Publish where
   type AWSResponse Publish = PublishResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response = Response.receiveNull PublishResponse'
+
+instance Core.AWSService Publish where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =

@@ -126,7 +126,7 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
   type
     AWSResponse BatchModifyClusterSnapshots =
       BatchModifyClusterSnapshotsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchModifyClusterSnapshotsResult"
@@ -140,6 +140,9 @@ instance Core.AWSRequest BatchModifyClusterSnapshots where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchModifyClusterSnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchModifyClusterSnapshots where
   hashWithSalt _salt BatchModifyClusterSnapshots' {..} =

@@ -112,7 +112,7 @@ instance Core.AWSPager GetRestApis where
 
 instance Core.AWSRequest GetRestApis where
   type AWSResponse GetRestApis = GetRestApisResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetRestApis where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRestApis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRestApis where
   hashWithSalt _salt GetRestApis' {..} =

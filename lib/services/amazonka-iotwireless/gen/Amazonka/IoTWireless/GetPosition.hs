@@ -98,7 +98,7 @@ getPosition_resourceType = Lens.lens (\GetPosition' {resourceType} -> resourceTy
 
 instance Core.AWSRequest GetPosition where
   type AWSResponse GetPosition = GetPositionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest GetPosition where
             Prelude.<*> (x Core..?> "Position" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPosition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPosition where
   hashWithSalt _salt GetPosition' {..} =

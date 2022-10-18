@@ -93,9 +93,12 @@ instance Core.AWSRequest AddTagsToStream where
   type
     AWSResponse AddTagsToStream =
       AddTagsToStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AddTagsToStreamResponse'
+
+instance Core.AWSService AddTagsToStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTagsToStream where
   hashWithSalt _salt AddTagsToStream' {..} =

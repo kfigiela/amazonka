@@ -118,6 +118,7 @@ defaultService =
       Core._serviceEndpointPrefix = "participant.connect",
       Core._serviceSigningName = "execute-api",
       Core._serviceVersion = "2018-09-07",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

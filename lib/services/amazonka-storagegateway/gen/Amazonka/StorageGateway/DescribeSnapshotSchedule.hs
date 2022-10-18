@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeSnapshotSchedule where
   type
     AWSResponse DescribeSnapshotSchedule =
       DescribeSnapshotScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeSnapshotSchedule where
             Prelude.<*> (x Core..?> "StartAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSnapshotSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSnapshotSchedule where
   hashWithSalt _salt DescribeSnapshotSchedule' {..} =

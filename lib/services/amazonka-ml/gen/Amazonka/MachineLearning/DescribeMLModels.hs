@@ -368,7 +368,7 @@ instance Core.AWSRequest DescribeMLModels where
   type
     AWSResponse DescribeMLModels =
       DescribeMLModelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -377,6 +377,9 @@ instance Core.AWSRequest DescribeMLModels where
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMLModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMLModels where
   hashWithSalt _salt DescribeMLModels' {..} =

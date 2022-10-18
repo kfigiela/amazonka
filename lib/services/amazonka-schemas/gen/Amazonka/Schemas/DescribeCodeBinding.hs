@@ -120,7 +120,7 @@ instance Core.AWSRequest DescribeCodeBinding where
   type
     AWSResponse DescribeCodeBinding =
       DescribeCodeBindingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest DescribeCodeBinding where
             Prelude.<*> (x Core..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCodeBinding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCodeBinding where
   hashWithSalt _salt DescribeCodeBinding' {..} =

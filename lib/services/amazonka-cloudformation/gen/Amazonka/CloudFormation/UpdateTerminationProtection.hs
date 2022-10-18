@@ -107,7 +107,7 @@ instance Core.AWSRequest UpdateTerminationProtection where
   type
     AWSResponse UpdateTerminationProtection =
       UpdateTerminationProtectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateTerminationProtectionResult"
@@ -116,6 +116,9 @@ instance Core.AWSRequest UpdateTerminationProtection where
             Prelude.<$> (x Core..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTerminationProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTerminationProtection where
   hashWithSalt _salt UpdateTerminationProtection' {..} =

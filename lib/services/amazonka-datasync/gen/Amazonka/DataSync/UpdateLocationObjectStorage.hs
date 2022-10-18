@@ -181,13 +181,16 @@ instance Core.AWSRequest UpdateLocationObjectStorage where
   type
     AWSResponse UpdateLocationObjectStorage =
       UpdateLocationObjectStorageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLocationObjectStorageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLocationObjectStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLocationObjectStorage where
   hashWithSalt _salt UpdateLocationObjectStorage' {..} =

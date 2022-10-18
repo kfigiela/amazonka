@@ -114,7 +114,7 @@ createTheme_themeToCreate = Lens.lens (\CreateTheme' {themeToCreate} -> themeToC
 
 instance Core.AWSRequest CreateTheme where
   type AWSResponse CreateTheme = CreateThemeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest CreateTheme where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTheme where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTheme where
   hashWithSalt _salt CreateTheme' {..} =

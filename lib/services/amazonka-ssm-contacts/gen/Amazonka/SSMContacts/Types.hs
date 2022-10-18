@@ -173,6 +173,7 @@ defaultService =
       Core._serviceEndpointPrefix = "ssm-contacts",
       Core._serviceSigningName = "ssm-contacts",
       Core._serviceVersion = "2021-05-03",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

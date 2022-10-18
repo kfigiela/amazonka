@@ -138,7 +138,7 @@ updateModel_apiId = Lens.lens (\UpdateModel' {apiId} -> apiId) (\s@UpdateModel' 
 
 instance Core.AWSRequest UpdateModel where
   type AWSResponse UpdateModel = UpdateModelResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest UpdateModel where
             Prelude.<*> (x Core..?> "contentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModel where
   hashWithSalt _salt UpdateModel' {..} =

@@ -196,7 +196,7 @@ instance Core.AWSRequest GetMergeConflicts where
   type
     AWSResponse GetMergeConflicts =
       GetMergeConflictsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest GetMergeConflicts where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetMergeConflicts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMergeConflicts where
   hashWithSalt _salt GetMergeConflicts' {..} =

@@ -88,10 +88,13 @@ instance Core.AWSRequest GetLaunchConfiguration where
   type
     AWSResponse GetLaunchConfiguration =
       LaunchConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetLaunchConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLaunchConfiguration where
   hashWithSalt _salt GetLaunchConfiguration' {..} =

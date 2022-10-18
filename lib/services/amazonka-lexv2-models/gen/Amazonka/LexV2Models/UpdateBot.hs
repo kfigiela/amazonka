@@ -187,7 +187,7 @@ updateBot_idleSessionTTLInSeconds = Lens.lens (\UpdateBot' {idleSessionTTLInSeco
 
 instance Core.AWSRequest UpdateBot where
   type AWSResponse UpdateBot = UpdateBotResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -203,6 +203,9 @@ instance Core.AWSRequest UpdateBot where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBot where
   hashWithSalt _salt UpdateBot' {..} =

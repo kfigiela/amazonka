@@ -1254,7 +1254,7 @@ instance
   type
     AWSResponse RestoreDBInstanceToPointInTime =
       RestoreDBInstanceToPointInTimeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBInstanceToPointInTimeResult"
@@ -1263,6 +1263,12 @@ instance
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RestoreDBInstanceToPointInTime
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

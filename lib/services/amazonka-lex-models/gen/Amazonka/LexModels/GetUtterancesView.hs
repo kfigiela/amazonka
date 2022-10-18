@@ -140,7 +140,7 @@ instance Core.AWSRequest GetUtterancesView where
   type
     AWSResponse GetUtterancesView =
       GetUtterancesViewResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest GetUtterancesView where
             Prelude.<*> (x Core..?> "botName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUtterancesView where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUtterancesView where
   hashWithSalt _salt GetUtterancesView' {..} =

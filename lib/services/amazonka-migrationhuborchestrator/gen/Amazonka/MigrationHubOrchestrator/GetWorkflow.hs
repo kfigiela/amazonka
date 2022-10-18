@@ -93,7 +93,7 @@ getWorkflow_id = Lens.lens (\GetWorkflow' {id} -> id) (\s@GetWorkflow' {} a -> s
 
 instance Core.AWSRequest GetWorkflow where
   type AWSResponse GetWorkflow = GetWorkflowResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetWorkflow where
             Prelude.<*> (x Core..?> "workflowInputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorkflow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkflow where
   hashWithSalt _salt GetWorkflow' {..} =

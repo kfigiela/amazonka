@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteWorkspaceBundle where
   type
     AWSResponse DeleteWorkspaceBundle =
       DeleteWorkspaceBundleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkspaceBundleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkspaceBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkspaceBundle where
   hashWithSalt _salt DeleteWorkspaceBundle' {..} =

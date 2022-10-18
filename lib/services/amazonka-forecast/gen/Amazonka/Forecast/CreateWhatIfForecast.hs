@@ -185,7 +185,7 @@ instance Core.AWSRequest CreateWhatIfForecast where
   type
     AWSResponse CreateWhatIfForecast =
       CreateWhatIfForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest CreateWhatIfForecast where
             Prelude.<$> (x Core..?> "WhatIfForecastArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWhatIfForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWhatIfForecast where
   hashWithSalt _salt CreateWhatIfForecast' {..} =

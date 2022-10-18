@@ -66,7 +66,7 @@ instance Core.AWSRequest DescribeDefaultAuthorizer where
   type
     AWSResponse DescribeDefaultAuthorizer =
       DescribeDefaultAuthorizerResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest DescribeDefaultAuthorizer where
             Prelude.<$> (x Core..?> "authorizerDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDefaultAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDefaultAuthorizer where
   hashWithSalt _salt _ =

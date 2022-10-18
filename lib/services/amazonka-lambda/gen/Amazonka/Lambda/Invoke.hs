@@ -279,7 +279,7 @@ invoke_payload = Lens.lens (\Invoke' {payload} -> payload) (\s@Invoke' {} a -> s
 
 instance Core.AWSRequest Invoke where
   type AWSResponse Invoke = InvokeResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -290,6 +290,9 @@ instance Core.AWSRequest Invoke where
             Prelude.<*> (h Core..#? "X-Amz-Log-Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Invoke where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Invoke where
   hashWithSalt _salt Invoke' {..} =

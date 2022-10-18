@@ -131,7 +131,7 @@ instance Core.AWSRequest UpdatePricingRule where
   type
     AWSResponse UpdatePricingRule =
       UpdatePricingRuleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest UpdatePricingRule where
             Prelude.<*> (x Core..?> "AssociatedPricingPlanCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePricingRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePricingRule where
   hashWithSalt _salt UpdatePricingRule' {..} =

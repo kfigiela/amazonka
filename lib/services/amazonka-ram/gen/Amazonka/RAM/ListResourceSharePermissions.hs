@@ -149,7 +149,7 @@ instance Core.AWSRequest ListResourceSharePermissions where
   type
     AWSResponse ListResourceSharePermissions =
       ListResourceSharePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest ListResourceSharePermissions where
             Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResourceSharePermissions where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -117,7 +117,7 @@ instance Core.AWSRequest DescribeTimeSeries where
   type
     AWSResponse DescribeTimeSeries =
       DescribeTimeSeriesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest DescribeTimeSeries where
             Prelude.<*> (x Core..:> "timeSeriesCreationDate")
             Prelude.<*> (x Core..:> "timeSeriesLastUpdateDate")
       )
+
+instance Core.AWSService DescribeTimeSeries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTimeSeries where
   hashWithSalt _salt DescribeTimeSeries' {..} =

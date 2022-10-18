@@ -196,10 +196,13 @@ instance Core.AWSRequest DeletePrincipalMapping where
   type
     AWSResponse DeletePrincipalMapping =
       DeletePrincipalMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeletePrincipalMappingResponse'
+
+instance Core.AWSService DeletePrincipalMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePrincipalMapping where
   hashWithSalt _salt DeletePrincipalMapping' {..} =

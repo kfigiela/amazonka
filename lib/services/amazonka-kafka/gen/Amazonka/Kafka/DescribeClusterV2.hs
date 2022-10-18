@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeClusterV2 where
   type
     AWSResponse DescribeClusterV2 =
       DescribeClusterV2Response
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeClusterV2 where
             Prelude.<$> (x Core..?> "clusterInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClusterV2 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClusterV2 where
   hashWithSalt _salt DescribeClusterV2' {..} =

@@ -95,9 +95,12 @@ instance Core.AWSRequest RegisterDevices where
   type
     AWSResponse RegisterDevices =
       RegisterDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterDevicesResponse'
+
+instance Core.AWSService RegisterDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterDevices where
   hashWithSalt _salt RegisterDevices' {..} =

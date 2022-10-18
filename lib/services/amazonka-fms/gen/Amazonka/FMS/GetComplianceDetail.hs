@@ -117,7 +117,7 @@ instance Core.AWSRequest GetComplianceDetail where
   type
     AWSResponse GetComplianceDetail =
       GetComplianceDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetComplianceDetail where
             Prelude.<$> (x Core..?> "PolicyComplianceDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetComplianceDetail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComplianceDetail where
   hashWithSalt _salt GetComplianceDetail' {..} =

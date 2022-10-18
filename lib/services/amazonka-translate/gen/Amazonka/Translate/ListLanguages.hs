@@ -106,7 +106,7 @@ instance Core.AWSRequest ListLanguages where
   type
     AWSResponse ListLanguages =
       ListLanguagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListLanguages where
             Prelude.<*> (x Core..?> "DisplayLanguageCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLanguages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLanguages where
   hashWithSalt _salt ListLanguages' {..} =

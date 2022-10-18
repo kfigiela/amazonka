@@ -101,7 +101,7 @@ deleteBot_botId = Lens.lens (\DeleteBot' {botId} -> botId) (\s@DeleteBot' {} a -
 
 instance Core.AWSRequest DeleteBot where
   type AWSResponse DeleteBot = DeleteBotResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DeleteBot where
             Prelude.<*> (x Core..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBot where
   hashWithSalt _salt DeleteBot' {..} =

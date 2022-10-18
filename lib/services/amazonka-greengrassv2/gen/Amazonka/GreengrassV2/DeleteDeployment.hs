@@ -80,9 +80,12 @@ instance Core.AWSRequest DeleteDeployment where
   type
     AWSResponse DeleteDeployment =
       DeleteDeploymentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDeploymentResponse'
+
+instance Core.AWSService DeleteDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDeployment where
   hashWithSalt _salt DeleteDeployment' {..} =

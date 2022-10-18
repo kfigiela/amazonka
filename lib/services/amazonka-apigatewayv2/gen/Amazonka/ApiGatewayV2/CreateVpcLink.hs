@@ -119,7 +119,7 @@ instance Core.AWSRequest CreateVpcLink where
   type
     AWSResponse CreateVpcLink =
       CreateVpcLinkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest CreateVpcLink where
             Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVpcLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =

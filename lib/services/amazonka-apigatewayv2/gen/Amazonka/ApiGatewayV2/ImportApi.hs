@@ -132,7 +132,7 @@ importApi_body = Lens.lens (\ImportApi' {body} -> body) (\s@ImportApi' {} a -> s
 
 instance Core.AWSRequest ImportApi where
   type AWSResponse ImportApi = ImportApiResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ImportApi where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportApi where
   hashWithSalt _salt ImportApi' {..} =

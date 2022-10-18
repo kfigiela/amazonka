@@ -123,7 +123,7 @@ instance Core.AWSRequest CreateDetector where
   type
     AWSResponse CreateDetector =
       CreateDetectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest CreateDetector where
             Prelude.<$> (x Core..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDetector where
   hashWithSalt _salt CreateDetector' {..} =

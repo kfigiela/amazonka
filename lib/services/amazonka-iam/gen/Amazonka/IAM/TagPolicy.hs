@@ -134,8 +134,11 @@ tagPolicy_tags = Lens.lens (\TagPolicy' {tags} -> tags) (\s@TagPolicy' {} a -> s
 
 instance Core.AWSRequest TagPolicy where
   type AWSResponse TagPolicy = TagPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull TagPolicyResponse'
+
+instance Core.AWSService TagPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagPolicy where
   hashWithSalt _salt TagPolicy' {..} =

@@ -133,7 +133,7 @@ instance
     AWSResponse
       IncreaseNodeGroupsInGlobalReplicationGroup =
       IncreaseNodeGroupsInGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "IncreaseNodeGroupsInGlobalReplicationGroupResult"
@@ -142,6 +142,12 @@ instance
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    IncreaseNodeGroupsInGlobalReplicationGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

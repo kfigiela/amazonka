@@ -75,7 +75,7 @@ getStudio_studioId = Lens.lens (\GetStudio' {studioId} -> studioId) (\s@GetStudi
 
 instance Core.AWSRequest GetStudio where
   type AWSResponse GetStudio = GetStudioResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetStudio where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "studio")
       )
+
+instance Core.AWSService GetStudio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStudio where
   hashWithSalt _salt GetStudio' {..} =

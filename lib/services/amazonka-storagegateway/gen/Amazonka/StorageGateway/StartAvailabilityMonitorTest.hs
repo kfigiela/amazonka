@@ -86,7 +86,7 @@ instance Core.AWSRequest StartAvailabilityMonitorTest where
   type
     AWSResponse StartAvailabilityMonitorTest =
       StartAvailabilityMonitorTestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest StartAvailabilityMonitorTest where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartAvailabilityMonitorTest where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

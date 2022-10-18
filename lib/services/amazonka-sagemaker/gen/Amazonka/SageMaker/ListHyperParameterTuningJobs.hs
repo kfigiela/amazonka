@@ -214,7 +214,7 @@ instance Core.AWSRequest ListHyperParameterTuningJobs where
   type
     AWSResponse ListHyperParameterTuningJobs =
       ListHyperParameterTuningJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -225,6 +225,9 @@ instance Core.AWSRequest ListHyperParameterTuningJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListHyperParameterTuningJobs where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

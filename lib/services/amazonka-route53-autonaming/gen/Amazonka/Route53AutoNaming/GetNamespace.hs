@@ -74,7 +74,7 @@ getNamespace_id = Lens.lens (\GetNamespace' {id} -> id) (\s@GetNamespace' {} a -
 
 instance Core.AWSRequest GetNamespace where
   type AWSResponse GetNamespace = GetNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetNamespace where
             Prelude.<$> (x Core..?> "Namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNamespace where
   hashWithSalt _salt GetNamespace' {..} =

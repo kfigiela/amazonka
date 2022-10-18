@@ -155,7 +155,7 @@ instance
   type
     AWSResponse AttachCertificateToDistribution =
       AttachCertificateToDistributionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,12 @@ instance
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AttachCertificateToDistribution
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

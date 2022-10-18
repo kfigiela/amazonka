@@ -92,7 +92,7 @@ instance Core.AWSRequest GetBackupVaultNotifications where
   type
     AWSResponse GetBackupVaultNotifications =
       GetBackupVaultNotificationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetBackupVaultNotifications where
             Prelude.<*> (x Core..?> "SNSTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackupVaultNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackupVaultNotifications where
   hashWithSalt _salt GetBackupVaultNotifications' {..} =

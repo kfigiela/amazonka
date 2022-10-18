@@ -106,9 +106,12 @@ instance Core.AWSRequest UnsubscribeFromEvent where
   type
     AWSResponse UnsubscribeFromEvent =
       UnsubscribeFromEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnsubscribeFromEventResponse'
+
+instance Core.AWSService UnsubscribeFromEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnsubscribeFromEvent where
   hashWithSalt _salt UnsubscribeFromEvent' {..} =

@@ -107,7 +107,7 @@ instance Core.AWSRequest GetExtensionVersion where
   type
     AWSResponse GetExtensionVersion =
       GetExtensionVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest GetExtensionVersion where
             Prelude.<$> (x Core..?> "ExtensionVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetExtensionVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExtensionVersion where
   hashWithSalt _salt GetExtensionVersion' {..} =

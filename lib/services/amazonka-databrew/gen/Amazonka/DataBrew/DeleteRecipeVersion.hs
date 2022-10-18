@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteRecipeVersion where
   type
     AWSResponse DeleteRecipeVersion =
       DeleteRecipeVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteRecipeVersion where
             Prelude.<*> (x Core..:> "Name")
             Prelude.<*> (x Core..:> "RecipeVersion")
       )
+
+instance Core.AWSService DeleteRecipeVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRecipeVersion where
   hashWithSalt _salt DeleteRecipeVersion' {..} =

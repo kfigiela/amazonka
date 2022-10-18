@@ -182,7 +182,7 @@ startImport_mergeStrategy = Lens.lens (\StartImport' {mergeStrategy} -> mergeStr
 
 instance Core.AWSRequest StartImport where
   type AWSResponse StartImport = StartImportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest StartImport where
             Prelude.<*> (x Core..?> "mergeStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartImport where
   hashWithSalt _salt StartImport' {..} =

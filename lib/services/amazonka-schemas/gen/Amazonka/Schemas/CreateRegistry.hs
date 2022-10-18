@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateRegistry where
   type
     AWSResponse CreateRegistry =
       CreateRegistryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest CreateRegistry where
             Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRegistry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRegistry where
   hashWithSalt _salt CreateRegistry' {..} =

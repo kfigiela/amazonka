@@ -59,7 +59,7 @@ newPing = Ping'
 
 instance Core.AWSRequest Ping where
   type AWSResponse Ping = PingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -67,6 +67,9 @@ instance Core.AWSRequest Ping where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Ping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Ping where
   hashWithSalt _salt _ =

@@ -123,7 +123,7 @@ instance Core.AWSRequest DescribePackageVersion where
   type
     AWSResponse DescribePackageVersion =
       DescribePackageVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest DescribePackageVersion where
             Prelude.<*> (x Core..:> "PatchVersion")
             Prelude.<*> (x Core..:> "Status")
       )
+
+instance Core.AWSService DescribePackageVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePackageVersion where
   hashWithSalt _salt DescribePackageVersion' {..} =

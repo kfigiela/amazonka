@@ -749,7 +749,7 @@ runJobFlow_instances = Lens.lens (\RunJobFlow' {instances} -> instances) (\s@Run
 
 instance Core.AWSRequest RunJobFlow where
   type AWSResponse RunJobFlow = RunJobFlowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -758,6 +758,9 @@ instance Core.AWSRequest RunJobFlow where
             Prelude.<*> (x Core..?> "JobFlowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RunJobFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RunJobFlow where
   hashWithSalt _salt RunJobFlow' {..} =

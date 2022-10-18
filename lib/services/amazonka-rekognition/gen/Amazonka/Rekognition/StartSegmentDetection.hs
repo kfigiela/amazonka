@@ -186,7 +186,7 @@ instance Core.AWSRequest StartSegmentDetection where
   type
     AWSResponse StartSegmentDetection =
       StartSegmentDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -194,6 +194,9 @@ instance Core.AWSRequest StartSegmentDetection where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSegmentDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSegmentDetection where
   hashWithSalt _salt StartSegmentDetection' {..} =

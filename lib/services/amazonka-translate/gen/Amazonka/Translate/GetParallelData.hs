@@ -80,7 +80,7 @@ instance Core.AWSRequest GetParallelData where
   type
     AWSResponse GetParallelData =
       GetParallelDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetParallelData where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetParallelData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetParallelData where
   hashWithSalt _salt GetParallelData' {..} =

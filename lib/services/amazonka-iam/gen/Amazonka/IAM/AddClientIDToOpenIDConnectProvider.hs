@@ -107,10 +107,16 @@ instance
   type
     AWSResponse AddClientIDToOpenIDConnectProvider =
       AddClientIDToOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       AddClientIDToOpenIDConnectProviderResponse'
+
+instance
+  Core.AWSService
+    AddClientIDToOpenIDConnectProvider
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

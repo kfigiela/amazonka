@@ -134,7 +134,7 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
   type
     AWSResponse ListAnomalyGroupTimeSeries =
       ListAnomalyGroupTimeSeriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListAnomalyGroupTimeSeries where
             Prelude.<*> (x Core..?> "TimestampList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAnomalyGroupTimeSeries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnomalyGroupTimeSeries where
   hashWithSalt _salt ListAnomalyGroupTimeSeries' {..} =

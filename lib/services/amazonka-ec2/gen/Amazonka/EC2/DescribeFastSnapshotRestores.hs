@@ -178,7 +178,7 @@ instance Core.AWSRequest DescribeFastSnapshotRestores where
   type
     AWSResponse DescribeFastSnapshotRestores =
       DescribeFastSnapshotRestoresResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest DescribeFastSnapshotRestores where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFastSnapshotRestores where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

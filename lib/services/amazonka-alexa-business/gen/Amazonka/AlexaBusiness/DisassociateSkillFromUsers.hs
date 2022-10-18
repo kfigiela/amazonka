@@ -77,13 +77,16 @@ instance Core.AWSRequest DisassociateSkillFromUsers where
   type
     AWSResponse DisassociateSkillFromUsers =
       DisassociateSkillFromUsersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateSkillFromUsersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateSkillFromUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateSkillFromUsers where
   hashWithSalt _salt DisassociateSkillFromUsers' {..} =

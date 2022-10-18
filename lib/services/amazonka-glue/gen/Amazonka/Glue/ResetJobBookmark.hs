@@ -89,7 +89,7 @@ instance Core.AWSRequest ResetJobBookmark where
   type
     AWSResponse ResetJobBookmark =
       ResetJobBookmarkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest ResetJobBookmark where
             Prelude.<$> (x Core..?> "JobBookmarkEntry")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetJobBookmark where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetJobBookmark where
   hashWithSalt _salt ResetJobBookmark' {..} =

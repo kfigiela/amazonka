@@ -145,9 +145,12 @@ instance Core.AWSRequest PutDestinationPolicy where
   type
     AWSResponse PutDestinationPolicy =
       PutDestinationPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutDestinationPolicyResponse'
+
+instance Core.AWSService PutDestinationPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDestinationPolicy where
   hashWithSalt _salt PutDestinationPolicy' {..} =

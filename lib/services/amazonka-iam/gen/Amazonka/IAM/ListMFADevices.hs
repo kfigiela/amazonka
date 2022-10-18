@@ -176,7 +176,7 @@ instance Core.AWSRequest ListMFADevices where
   type
     AWSResponse ListMFADevices =
       ListMFADevicesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListMFADevicesResult"
@@ -189,6 +189,9 @@ instance Core.AWSRequest ListMFADevices where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListMFADevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMFADevices where
   hashWithSalt _salt ListMFADevices' {..} =

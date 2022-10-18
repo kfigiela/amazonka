@@ -82,9 +82,12 @@ instance Core.AWSRequest UnassignInstance where
   type
     AWSResponse UnassignInstance =
       UnassignInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnassignInstanceResponse'
+
+instance Core.AWSService UnassignInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnassignInstance where
   hashWithSalt _salt UnassignInstance' {..} =

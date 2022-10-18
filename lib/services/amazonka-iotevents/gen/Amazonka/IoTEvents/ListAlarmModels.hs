@@ -89,7 +89,7 @@ instance Core.AWSRequest ListAlarmModels where
   type
     AWSResponse ListAlarmModels =
       ListAlarmModelsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest ListAlarmModels where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAlarmModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAlarmModels where
   hashWithSalt _salt ListAlarmModels' {..} =

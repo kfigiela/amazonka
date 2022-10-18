@@ -93,7 +93,7 @@ instance Core.AWSRequest DeleteDomainAssociation where
   type
     AWSResponse DeleteDomainAssociation =
       DeleteDomainAssociationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteDomainAssociation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "domainAssociation")
       )
+
+instance Core.AWSService DeleteDomainAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDomainAssociation where
   hashWithSalt _salt DeleteDomainAssociation' {..} =

@@ -97,7 +97,7 @@ deleteImage_imageBuildVersionArn = Lens.lens (\DeleteImage' {imageBuildVersionAr
 
 instance Core.AWSRequest DeleteImage where
   type AWSResponse DeleteImage = DeleteImageResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteImage where
             Prelude.<*> (x Core..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImage where
   hashWithSalt _salt DeleteImage' {..} =

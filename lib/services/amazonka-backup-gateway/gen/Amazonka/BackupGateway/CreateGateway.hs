@@ -120,7 +120,7 @@ instance Core.AWSRequest CreateGateway where
   type
     AWSResponse CreateGateway =
       CreateGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest CreateGateway where
             Prelude.<$> (x Core..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGateway where
   hashWithSalt _salt CreateGateway' {..} =

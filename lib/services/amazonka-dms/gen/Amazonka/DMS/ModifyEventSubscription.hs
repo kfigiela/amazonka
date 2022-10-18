@@ -143,7 +143,7 @@ instance Core.AWSRequest ModifyEventSubscription where
   type
     AWSResponse ModifyEventSubscription =
       ModifyEventSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ModifyEventSubscription where
             Prelude.<$> (x Core..?> "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyEventSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyEventSubscription where
   hashWithSalt _salt ModifyEventSubscription' {..} =

@@ -335,7 +335,7 @@ restoreTable_targetTableName = Lens.lens (\RestoreTable' {targetTableName} -> ta
 
 instance Core.AWSRequest RestoreTable where
   type AWSResponse RestoreTable = RestoreTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -343,6 +343,9 @@ instance Core.AWSRequest RestoreTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "restoredTableARN")
       )
+
+instance Core.AWSService RestoreTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreTable where
   hashWithSalt _salt RestoreTable' {..} =

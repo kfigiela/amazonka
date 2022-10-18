@@ -141,7 +141,7 @@ instance Core.AWSRequest DiscoverInputSchema where
   type
     AWSResponse DiscoverInputSchema =
       DiscoverInputSchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest DiscoverInputSchema where
             Prelude.<*> (x Core..?> "InputSchema")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DiscoverInputSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DiscoverInputSchema where
   hashWithSalt _salt DiscoverInputSchema' {..} =

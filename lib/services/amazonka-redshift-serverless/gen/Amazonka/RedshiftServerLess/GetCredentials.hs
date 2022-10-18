@@ -157,7 +157,7 @@ instance Core.AWSRequest GetCredentials where
   type
     AWSResponse GetCredentials =
       GetCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest GetCredentials where
             Prelude.<*> (x Core..?> "dbUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCredentials where
   hashWithSalt _salt GetCredentials' {..} =

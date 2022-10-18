@@ -105,7 +105,7 @@ instance Core.AWSRequest PutAggregationAuthorization where
   type
     AWSResponse PutAggregationAuthorization =
       PutAggregationAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest PutAggregationAuthorization where
             Prelude.<$> (x Core..?> "AggregationAuthorization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAggregationAuthorization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAggregationAuthorization where
   hashWithSalt _salt PutAggregationAuthorization' {..} =

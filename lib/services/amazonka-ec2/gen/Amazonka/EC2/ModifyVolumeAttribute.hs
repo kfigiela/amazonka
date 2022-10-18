@@ -114,9 +114,12 @@ instance Core.AWSRequest ModifyVolumeAttribute where
   type
     AWSResponse ModifyVolumeAttribute =
       ModifyVolumeAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ModifyVolumeAttributeResponse'
+
+instance Core.AWSService ModifyVolumeAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyVolumeAttribute where
   hashWithSalt _salt ModifyVolumeAttribute' {..} =

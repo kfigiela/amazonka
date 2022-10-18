@@ -253,7 +253,7 @@ updateSlot_intentId = Lens.lens (\UpdateSlot' {intentId} -> intentId) (\s@Update
 
 instance Core.AWSRequest UpdateSlot where
   type AWSResponse UpdateSlot = UpdateSlotResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -274,6 +274,9 @@ instance Core.AWSRequest UpdateSlot where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSlot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSlot where
   hashWithSalt _salt UpdateSlot' {..} =

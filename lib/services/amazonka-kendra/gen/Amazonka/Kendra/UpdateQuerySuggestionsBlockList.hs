@@ -178,10 +178,16 @@ instance
   type
     AWSResponse UpdateQuerySuggestionsBlockList =
       UpdateQuerySuggestionsBlockListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQuerySuggestionsBlockListResponse'
+
+instance
+  Core.AWSService
+    UpdateQuerySuggestionsBlockList
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

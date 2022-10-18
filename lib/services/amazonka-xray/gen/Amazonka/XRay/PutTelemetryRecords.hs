@@ -103,13 +103,16 @@ instance Core.AWSRequest PutTelemetryRecords where
   type
     AWSResponse PutTelemetryRecords =
       PutTelemetryRecordsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutTelemetryRecordsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutTelemetryRecords where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutTelemetryRecords where
   hashWithSalt _salt PutTelemetryRecords' {..} =

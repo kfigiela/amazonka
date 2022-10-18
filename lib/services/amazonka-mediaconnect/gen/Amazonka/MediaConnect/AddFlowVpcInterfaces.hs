@@ -92,7 +92,7 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
   type
     AWSResponse AddFlowVpcInterfaces =
       AddFlowVpcInterfacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest AddFlowVpcInterfaces where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddFlowVpcInterfaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddFlowVpcInterfaces where
   hashWithSalt _salt AddFlowVpcInterfaces' {..} =

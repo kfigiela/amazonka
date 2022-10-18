@@ -156,10 +156,13 @@ instance Core.AWSRequest RequestEnvironmentInfo where
   type
     AWSResponse RequestEnvironmentInfo =
       RequestEnvironmentInfoResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RequestEnvironmentInfoResponse'
+
+instance Core.AWSService RequestEnvironmentInfo where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RequestEnvironmentInfo where
   hashWithSalt _salt RequestEnvironmentInfo' {..} =

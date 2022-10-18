@@ -219,7 +219,7 @@ instance Core.AWSRequest DescribeFleets where
   type
     AWSResponse DescribeFleets =
       DescribeFleetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest DescribeFleets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFleets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFleets where
   hashWithSalt _salt DescribeFleets' {..} =

@@ -151,7 +151,7 @@ instance Core.AWSRequest ListProfilingGroups where
   type
     AWSResponse ListProfilingGroups =
       ListProfilingGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest ListProfilingGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListProfilingGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProfilingGroups where
   hashWithSalt _salt ListProfilingGroups' {..} =

@@ -134,7 +134,7 @@ instance Core.AWSRequest UpdateStateMachine where
   type
     AWSResponse UpdateStateMachine =
       UpdateStateMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest UpdateStateMachine where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "updateDate")
       )
+
+instance Core.AWSService UpdateStateMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStateMachine where
   hashWithSalt _salt UpdateStateMachine' {..} =

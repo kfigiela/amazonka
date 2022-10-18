@@ -119,7 +119,7 @@ instance Core.AWSPager ListMaps where
 
 instance Core.AWSRequest ListMaps where
   type AWSResponse ListMaps = ListMapsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListMaps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListMaps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMaps where
   hashWithSalt _salt ListMaps' {..} =

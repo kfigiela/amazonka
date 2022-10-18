@@ -142,7 +142,7 @@ instance Core.AWSRequest ListAppVersionResources where
   type
     AWSResponse ListAppVersionResources =
       ListAppVersionResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListAppVersionResources where
                         )
             Prelude.<*> (x Core..:> "resolutionId")
       )
+
+instance Core.AWSService ListAppVersionResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAppVersionResources where
   hashWithSalt _salt ListAppVersionResources' {..} =

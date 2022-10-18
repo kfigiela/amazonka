@@ -153,7 +153,7 @@ createAlert_action = Lens.lens (\CreateAlert' {action} -> action) (\s@CreateAler
 
 instance Core.AWSRequest CreateAlert where
   type AWSResponse CreateAlert = CreateAlertResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateAlert where
             Prelude.<$> (x Core..?> "AlertArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAlert where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAlert where
   hashWithSalt _salt CreateAlert' {..} =

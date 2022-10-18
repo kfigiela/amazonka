@@ -103,7 +103,7 @@ instance Core.AWSRequest AddListenerCertificates where
   type
     AWSResponse AddListenerCertificates =
       AddListenerCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddListenerCertificatesResult"
@@ -114,6 +114,9 @@ instance Core.AWSRequest AddListenerCertificates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddListenerCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddListenerCertificates where
   hashWithSalt _salt AddListenerCertificates' {..} =

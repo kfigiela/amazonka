@@ -144,13 +144,16 @@ instance Core.AWSRequest CreateEmailIdentityPolicy where
   type
     AWSResponse CreateEmailIdentityPolicy =
       CreateEmailIdentityPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateEmailIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEmailIdentityPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEmailIdentityPolicy where
   hashWithSalt _salt CreateEmailIdentityPolicy' {..} =

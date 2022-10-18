@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteRevision where
   type
     AWSResponse DeleteRevision =
       DeleteRevisionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRevisionResponse'
+
+instance Core.AWSService DeleteRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRevision where
   hashWithSalt _salt DeleteRevision' {..} =

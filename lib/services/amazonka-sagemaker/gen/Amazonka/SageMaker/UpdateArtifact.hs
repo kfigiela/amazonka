@@ -109,7 +109,7 @@ instance Core.AWSRequest UpdateArtifact where
   type
     AWSResponse UpdateArtifact =
       UpdateArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateArtifact where
             Prelude.<$> (x Core..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateArtifact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateArtifact where
   hashWithSalt _salt UpdateArtifact' {..} =

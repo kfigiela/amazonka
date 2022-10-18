@@ -97,13 +97,19 @@ instance
     AWSResponse
       AssociateConfigurationItemsToApplication =
       AssociateConfigurationItemsToApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateConfigurationItemsToApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateConfigurationItemsToApplication
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

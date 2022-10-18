@@ -227,7 +227,7 @@ updateStack_name = Lens.lens (\UpdateStack' {name} -> name) (\s@UpdateStack' {} 
 
 instance Core.AWSRequest UpdateStack where
   type AWSResponse UpdateStack = UpdateStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -235,6 +235,9 @@ instance Core.AWSRequest UpdateStack where
             Prelude.<$> (x Core..?> "Stack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStack where
   hashWithSalt _salt UpdateStack' {..} =

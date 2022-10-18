@@ -131,7 +131,7 @@ putRecord_record = Lens.lens (\PutRecord' {record} -> record) (\s@PutRecord' {} 
 
 instance Core.AWSRequest PutRecord where
   type AWSResponse PutRecord = PutRecordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest PutRecord where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "RecordId")
       )
+
+instance Core.AWSService PutRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRecord where
   hashWithSalt _salt PutRecord' {..} =

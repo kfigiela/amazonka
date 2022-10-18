@@ -92,7 +92,7 @@ getChunk_chunkToken = Lens.lens (\GetChunk' {chunkToken} -> chunkToken) (\s@GetC
 
 instance Core.AWSRequest GetChunk where
   type AWSResponse GetChunk = GetChunkResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetChunk where
             Prelude.<*> (h Core..# "x-amz-checksum-algorithm")
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetChunk where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChunk where
   hashWithSalt _salt GetChunk' {..} =

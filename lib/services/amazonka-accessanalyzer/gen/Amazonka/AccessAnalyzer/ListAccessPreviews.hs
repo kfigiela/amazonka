@@ -129,7 +129,7 @@ instance Core.AWSRequest ListAccessPreviews where
   type
     AWSResponse ListAccessPreviews =
       ListAccessPreviewsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListAccessPreviews where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAccessPreviews where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccessPreviews where
   hashWithSalt _salt ListAccessPreviews' {..} =

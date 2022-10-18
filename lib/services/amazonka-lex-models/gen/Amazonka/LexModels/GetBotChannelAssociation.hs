@@ -124,7 +124,7 @@ instance Core.AWSRequest GetBotChannelAssociation where
   type
     AWSResponse GetBotChannelAssociation =
       GetBotChannelAssociationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest GetBotChannelAssociation where
             Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBotChannelAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBotChannelAssociation where
   hashWithSalt _salt GetBotChannelAssociation' {..} =

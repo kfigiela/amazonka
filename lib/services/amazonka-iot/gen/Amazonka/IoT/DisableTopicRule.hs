@@ -79,9 +79,12 @@ instance Core.AWSRequest DisableTopicRule where
   type
     AWSResponse DisableTopicRule =
       DisableTopicRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DisableTopicRuleResponse'
+
+instance Core.AWSService DisableTopicRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableTopicRule where
   hashWithSalt _salt DisableTopicRule' {..} =

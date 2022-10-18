@@ -149,7 +149,7 @@ instance Core.AWSRequest UpdateModelPackage where
   type
     AWSResponse UpdateModelPackage =
       UpdateModelPackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest UpdateModelPackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ModelPackageArn")
       )
+
+instance Core.AWSService UpdateModelPackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModelPackage where
   hashWithSalt _salt UpdateModelPackage' {..} =

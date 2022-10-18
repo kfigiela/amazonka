@@ -91,7 +91,7 @@ instance Core.AWSRequest BatchDetectDominantLanguage where
   type
     AWSResponse BatchDetectDominantLanguage =
       BatchDetectDominantLanguageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest BatchDetectDominantLanguage where
             Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchDetectDominantLanguage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDetectDominantLanguage where
   hashWithSalt _salt BatchDetectDominantLanguage' {..} =

@@ -163,7 +163,7 @@ instance Core.AWSPager GetLinks where
 
 instance Core.AWSRequest GetLinks where
   type AWSResponse GetLinks = GetLinksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest GetLinks where
             Prelude.<*> (x Core..?> "Links" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLinks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLinks where
   hashWithSalt _salt GetLinks' {..} =

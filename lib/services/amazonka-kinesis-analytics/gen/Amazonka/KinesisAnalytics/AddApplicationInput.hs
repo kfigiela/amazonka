@@ -147,13 +147,16 @@ instance Core.AWSRequest AddApplicationInput where
   type
     AWSResponse AddApplicationInput =
       AddApplicationInputResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationInputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddApplicationInput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddApplicationInput where
   hashWithSalt _salt AddApplicationInput' {..} =

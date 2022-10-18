@@ -141,7 +141,7 @@ instance Core.AWSPager ListFlows where
 
 instance Core.AWSRequest ListFlows where
   type AWSResponse ListFlows = ListFlowsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListFlows where
             Prelude.<*> (x Core..?> "flows" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFlows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFlows where
   hashWithSalt _salt ListFlows' {..} =

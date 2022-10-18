@@ -167,7 +167,7 @@ instance Core.AWSPager GetFindings where
 
 instance Core.AWSRequest GetFindings where
   type AWSResponse GetFindings = GetFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest GetFindings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Findings" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFindings where
   hashWithSalt _salt GetFindings' {..} =

@@ -89,7 +89,7 @@ instance Core.AWSRequest StartDBInstance where
   type
     AWSResponse StartDBInstance =
       StartDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartDBInstanceResult"
@@ -98,6 +98,9 @@ instance Core.AWSRequest StartDBInstance where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDBInstance where
   hashWithSalt _salt StartDBInstance' {..} =

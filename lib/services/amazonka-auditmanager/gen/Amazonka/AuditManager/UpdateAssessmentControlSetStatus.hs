@@ -123,7 +123,7 @@ instance
   type
     AWSResponse UpdateAssessmentControlSetStatus =
       UpdateAssessmentControlSetStatusResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,12 @@ instance
             Prelude.<$> (x Core..?> "controlSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateAssessmentControlSetStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

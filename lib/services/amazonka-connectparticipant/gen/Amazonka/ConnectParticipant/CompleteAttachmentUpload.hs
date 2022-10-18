@@ -113,13 +113,16 @@ instance Core.AWSRequest CompleteAttachmentUpload where
   type
     AWSResponse CompleteAttachmentUpload =
       CompleteAttachmentUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CompleteAttachmentUploadResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompleteAttachmentUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteAttachmentUpload where
   hashWithSalt _salt CompleteAttachmentUpload' {..} =

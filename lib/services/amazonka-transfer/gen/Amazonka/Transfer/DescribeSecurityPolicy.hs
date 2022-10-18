@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeSecurityPolicy where
   type
     AWSResponse DescribeSecurityPolicy =
       DescribeSecurityPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeSecurityPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "SecurityPolicy")
       )
+
+instance Core.AWSService DescribeSecurityPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSecurityPolicy where
   hashWithSalt _salt DescribeSecurityPolicy' {..} =

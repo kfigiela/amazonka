@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeReservation where
   type
     AWSResponse DescribeReservation =
       DescribeReservationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeReservation where
             Prelude.<$> (x Core..?> "reservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReservation where
   hashWithSalt _salt DescribeReservation' {..} =

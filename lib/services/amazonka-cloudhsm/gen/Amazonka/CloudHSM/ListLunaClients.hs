@@ -119,7 +119,7 @@ instance Core.AWSRequest ListLunaClients where
   type
     AWSResponse ListLunaClients =
       ListLunaClientsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListLunaClients where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "ClientList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListLunaClients where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLunaClients where
   hashWithSalt _salt ListLunaClients' {..} =

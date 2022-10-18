@@ -97,6 +97,7 @@ defaultService =
       Core._serviceEndpointPrefix = "contact-lens",
       Core._serviceSigningName = "connect",
       Core._serviceVersion = "2020-08-21",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

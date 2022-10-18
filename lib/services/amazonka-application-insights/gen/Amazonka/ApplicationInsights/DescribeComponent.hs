@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeComponent where
   type
     AWSResponse DescribeComponent =
       DescribeComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeComponent where
             Prelude.<*> (x Core..?> "ApplicationComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeComponent where
   hashWithSalt _salt DescribeComponent' {..} =

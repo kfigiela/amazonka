@@ -129,7 +129,7 @@ instance Core.AWSPager ListIpRoutes where
 
 instance Core.AWSRequest ListIpRoutes where
   type AWSResponse ListIpRoutes = ListIpRoutesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListIpRoutes where
             Prelude.<*> (x Core..?> "IpRoutesInfo" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIpRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIpRoutes where
   hashWithSalt _salt ListIpRoutes' {..} =

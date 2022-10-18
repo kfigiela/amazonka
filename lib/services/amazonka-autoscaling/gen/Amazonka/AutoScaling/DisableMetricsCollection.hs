@@ -230,10 +230,13 @@ instance Core.AWSRequest DisableMetricsCollection where
   type
     AWSResponse DisableMetricsCollection =
       DisableMetricsCollectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DisableMetricsCollectionResponse'
+
+instance Core.AWSService DisableMetricsCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableMetricsCollection where
   hashWithSalt _salt DisableMetricsCollection' {..} =

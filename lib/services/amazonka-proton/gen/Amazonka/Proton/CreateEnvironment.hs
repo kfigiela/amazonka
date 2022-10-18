@@ -329,7 +329,7 @@ instance Core.AWSRequest CreateEnvironment where
   type
     AWSResponse CreateEnvironment =
       CreateEnvironmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -337,6 +337,9 @@ instance Core.AWSRequest CreateEnvironment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "environment")
       )
+
+instance Core.AWSService CreateEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =

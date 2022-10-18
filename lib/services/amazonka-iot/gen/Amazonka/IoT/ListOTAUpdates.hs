@@ -125,7 +125,7 @@ instance Core.AWSRequest ListOTAUpdates where
   type
     AWSResponse ListOTAUpdates =
       ListOTAUpdatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListOTAUpdates where
             Prelude.<*> (x Core..?> "otaUpdates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOTAUpdates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOTAUpdates where
   hashWithSalt _salt ListOTAUpdates' {..} =

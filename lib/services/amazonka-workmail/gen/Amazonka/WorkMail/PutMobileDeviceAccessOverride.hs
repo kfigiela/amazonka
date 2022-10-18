@@ -160,13 +160,19 @@ instance
   type
     AWSResponse PutMobileDeviceAccessOverride =
       PutMobileDeviceAccessOverrideResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutMobileDeviceAccessOverrideResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutMobileDeviceAccessOverride
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

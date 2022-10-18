@@ -185,8 +185,11 @@ moveAccount_destinationParentId = Lens.lens (\MoveAccount' {destinationParentId}
 
 instance Core.AWSRequest MoveAccount where
   type AWSResponse MoveAccount = MoveAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull MoveAccountResponse'
+
+instance Core.AWSService MoveAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MoveAccount where
   hashWithSalt _salt MoveAccount' {..} =

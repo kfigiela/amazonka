@@ -110,7 +110,7 @@ instance Core.AWSRequest CopyBackupToRegion where
   type
     AWSResponse CopyBackupToRegion =
       CopyBackupToRegionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CopyBackupToRegion where
             Prelude.<$> (x Core..?> "DestinationBackup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyBackupToRegion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyBackupToRegion where
   hashWithSalt _salt CopyBackupToRegion' {..} =

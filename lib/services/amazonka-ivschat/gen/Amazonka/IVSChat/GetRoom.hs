@@ -86,7 +86,7 @@ getRoom_identifier = Lens.lens (\GetRoom' {identifier} -> identifier) (\s@GetRoo
 
 instance Core.AWSRequest GetRoom where
   type AWSResponse GetRoom = GetRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetRoom where
             Prelude.<*> (x Core..?> "createTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRoom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRoom where
   hashWithSalt _salt GetRoom' {..} =

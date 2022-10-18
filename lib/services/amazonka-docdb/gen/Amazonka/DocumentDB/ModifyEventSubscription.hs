@@ -146,7 +146,7 @@ instance Core.AWSRequest ModifyEventSubscription where
   type
     AWSResponse ModifyEventSubscription =
       ModifyEventSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyEventSubscriptionResult"
@@ -155,6 +155,9 @@ instance Core.AWSRequest ModifyEventSubscription where
             Prelude.<$> (x Core..@? "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyEventSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyEventSubscription where
   hashWithSalt _salt ModifyEventSubscription' {..} =

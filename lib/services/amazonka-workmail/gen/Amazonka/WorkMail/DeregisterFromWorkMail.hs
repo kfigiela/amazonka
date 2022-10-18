@@ -97,13 +97,16 @@ instance Core.AWSRequest DeregisterFromWorkMail where
   type
     AWSResponse DeregisterFromWorkMail =
       DeregisterFromWorkMailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterFromWorkMailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterFromWorkMail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterFromWorkMail where
   hashWithSalt _salt DeregisterFromWorkMail' {..} =

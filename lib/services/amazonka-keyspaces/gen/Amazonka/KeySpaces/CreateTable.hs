@@ -452,7 +452,7 @@ createTable_schemaDefinition = Lens.lens (\CreateTable' {schemaDefinition} -> sc
 
 instance Core.AWSRequest CreateTable where
   type AWSResponse CreateTable = CreateTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -460,6 +460,9 @@ instance Core.AWSRequest CreateTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "resourceArn")
       )
+
+instance Core.AWSService CreateTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =

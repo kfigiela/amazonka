@@ -80,7 +80,7 @@ instance Core.AWSRequest GetArtifactUrl where
   type
     AWSResponse GetArtifactUrl =
       GetArtifactUrlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetArtifactUrl where
             Prelude.<*> (x Core..:> "artifactId")
             Prelude.<*> (x Core..:> "artifactUrl")
       )
+
+instance Core.AWSService GetArtifactUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetArtifactUrl where
   hashWithSalt _salt GetArtifactUrl' {..} =

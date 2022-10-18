@@ -256,7 +256,7 @@ instance Core.AWSPager ListPackages where
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -265,6 +265,9 @@ instance Core.AWSRequest ListPackages where
             Prelude.<*> (x Core..?> "packages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPackages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =

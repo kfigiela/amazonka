@@ -117,7 +117,7 @@ instance Core.AWSRequest DeleteStreamingSession where
   type
     AWSResponse DeleteStreamingSession =
       DeleteStreamingSessionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DeleteStreamingSession where
             Prelude.<$> (x Core..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStreamingSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStreamingSession where
   hashWithSalt _salt DeleteStreamingSession' {..} =

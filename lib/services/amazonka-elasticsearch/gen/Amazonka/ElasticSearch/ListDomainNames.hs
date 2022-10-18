@@ -81,7 +81,7 @@ instance Core.AWSRequest ListDomainNames where
   type
     AWSResponse ListDomainNames =
       ListDomainNamesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest ListDomainNames where
             Prelude.<$> (x Core..?> "DomainNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDomainNames where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDomainNames where
   hashWithSalt _salt ListDomainNames' {..} =

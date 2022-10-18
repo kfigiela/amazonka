@@ -124,7 +124,7 @@ instance Core.AWSRequest ListRouteCalculators where
   type
     AWSResponse ListRouteCalculators =
       ListRouteCalculatorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListRouteCalculators where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListRouteCalculators where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRouteCalculators where
   hashWithSalt _salt ListRouteCalculators' {..} =

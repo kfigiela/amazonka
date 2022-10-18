@@ -90,7 +90,7 @@ createSchema_name = Lens.lens (\CreateSchema' {name} -> name) (\s@CreateSchema' 
 
 instance Core.AWSRequest CreateSchema where
   type AWSResponse CreateSchema = CreateSchemaResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest CreateSchema where
             Prelude.<$> (x Core..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSchema where
   hashWithSalt _salt CreateSchema' {..} =

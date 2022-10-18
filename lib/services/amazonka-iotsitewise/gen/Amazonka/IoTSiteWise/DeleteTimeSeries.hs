@@ -124,9 +124,12 @@ instance Core.AWSRequest DeleteTimeSeries where
   type
     AWSResponse DeleteTimeSeries =
       DeleteTimeSeriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteTimeSeriesResponse'
+
+instance Core.AWSService DeleteTimeSeries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTimeSeries where
   hashWithSalt _salt DeleteTimeSeries' {..} =

@@ -85,7 +85,7 @@ instance
   type
     AWSResponse GetRelationalDatabaseLogStreams =
       GetRelationalDatabaseLogStreamsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,12 @@ instance
             Prelude.<$> (x Core..?> "logStreams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetRelationalDatabaseLogStreams
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

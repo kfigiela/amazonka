@@ -104,13 +104,19 @@ instance
   type
     AWSResponse UpdateNumberOfDomainControllers =
       UpdateNumberOfDomainControllersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNumberOfDomainControllersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateNumberOfDomainControllers
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeSchedulingPolicies where
   type
     AWSResponse DescribeSchedulingPolicies =
       DescribeSchedulingPoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeSchedulingPolicies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSchedulingPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSchedulingPolicies where
   hashWithSalt _salt DescribeSchedulingPolicies' {..} =

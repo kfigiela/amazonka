@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteAuthorizer where
   type
     AWSResponse DeleteAuthorizer =
       DeleteAuthorizerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAuthorizerResponse'
+
+instance Core.AWSService DeleteAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAuthorizer where
   hashWithSalt _salt DeleteAuthorizer' {..} =

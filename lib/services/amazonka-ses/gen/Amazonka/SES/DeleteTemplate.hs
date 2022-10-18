@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteTemplate where
   type
     AWSResponse DeleteTemplate =
       DeleteTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteTemplateResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteTemplate where
           DeleteTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTemplate where
   hashWithSalt _salt DeleteTemplate' {..} =

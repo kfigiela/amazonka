@@ -74,13 +74,16 @@ stopChannel_channelName = Lens.lens (\StopChannel' {channelName} -> channelName)
 
 instance Core.AWSRequest StopChannel where
   type AWSResponse StopChannel = StopChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopChannel where
   hashWithSalt _salt StopChannel' {..} =

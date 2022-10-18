@@ -211,7 +211,7 @@ instance Core.AWSRequest TestDNSAnswer where
   type
     AWSResponse TestDNSAnswer =
       TestDNSAnswerResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest TestDNSAnswer where
             Prelude.<*> (x Core..@ "ResponseCode")
             Prelude.<*> (x Core..@ "Protocol")
       )
+
+instance Core.AWSService TestDNSAnswer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestDNSAnswer where
   hashWithSalt _salt TestDNSAnswer' {..} =

@@ -115,7 +115,7 @@ instance Core.AWSRequest GetInstanceUefiData where
   type
     AWSResponse GetInstanceUefiData =
       GetInstanceUefiDataResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest GetInstanceUefiData where
             Prelude.<*> (x Core..@? "uefiData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstanceUefiData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstanceUefiData where
   hashWithSalt _salt GetInstanceUefiData' {..} =

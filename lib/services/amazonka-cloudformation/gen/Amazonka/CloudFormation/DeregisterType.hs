@@ -146,7 +146,7 @@ instance Core.AWSRequest DeregisterType where
   type
     AWSResponse DeregisterType =
       DeregisterTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeregisterTypeResult"
@@ -154,6 +154,9 @@ instance Core.AWSRequest DeregisterType where
           DeregisterTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterType where
   hashWithSalt _salt DeregisterType' {..} =

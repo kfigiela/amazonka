@@ -61,7 +61,7 @@ instance Core.AWSRequest DescribeLoggingOptions where
   type
     AWSResponse DescribeLoggingOptions =
       DescribeLoggingOptionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest DescribeLoggingOptions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "loggingOptions")
       )
+
+instance Core.AWSService DescribeLoggingOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLoggingOptions where
   hashWithSalt _salt _ =

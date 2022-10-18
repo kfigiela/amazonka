@@ -166,7 +166,7 @@ instance Core.AWSRequest DescribeFleetHistory where
   type
     AWSResponse DescribeFleetHistory =
       DescribeFleetHistoryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest DescribeFleetHistory where
             Prelude.<*> (x Core..@? "lastEvaluatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFleetHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFleetHistory where
   hashWithSalt _salt DescribeFleetHistory' {..} =

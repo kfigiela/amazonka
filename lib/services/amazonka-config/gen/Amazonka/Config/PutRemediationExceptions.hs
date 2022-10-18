@@ -130,7 +130,7 @@ instance Core.AWSRequest PutRemediationExceptions where
   type
     AWSResponse PutRemediationExceptions =
       PutRemediationExceptionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest PutRemediationExceptions where
             Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRemediationExceptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRemediationExceptions where
   hashWithSalt _salt PutRemediationExceptions' {..} =

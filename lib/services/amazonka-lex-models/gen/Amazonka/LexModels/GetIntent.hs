@@ -107,7 +107,7 @@ getIntent_version = Lens.lens (\GetIntent' {version} -> version) (\s@GetIntent' 
 
 instance Core.AWSRequest GetIntent where
   type AWSResponse GetIntent = GetIntentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest GetIntent where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIntent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIntent where
   hashWithSalt _salt GetIntent' {..} =

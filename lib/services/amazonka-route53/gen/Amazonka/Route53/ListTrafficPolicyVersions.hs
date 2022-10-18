@@ -152,7 +152,7 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
   type
     AWSResponse ListTrafficPolicyVersions =
       ListTrafficPolicyVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest ListTrafficPolicyVersions where
             Prelude.<*> (x Core..@ "TrafficPolicyVersionMarker")
             Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance Core.AWSService ListTrafficPolicyVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTrafficPolicyVersions where
   hashWithSalt _salt ListTrafficPolicyVersions' {..} =

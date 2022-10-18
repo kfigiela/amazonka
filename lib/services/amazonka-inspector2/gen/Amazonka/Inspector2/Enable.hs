@@ -99,7 +99,7 @@ enable_resourceTypes = Lens.lens (\Enable' {resourceTypes} -> resourceTypes) (\s
 
 instance Core.AWSRequest Enable where
   type AWSResponse Enable = EnableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest Enable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService Enable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Enable where
   hashWithSalt _salt Enable' {..} =

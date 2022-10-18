@@ -76,7 +76,7 @@ getDigest_name = Lens.lens (\GetDigest' {name} -> name) (\s@GetDigest' {} a -> s
 
 instance Core.AWSRequest GetDigest where
   type AWSResponse GetDigest = GetDigestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetDigest where
             Prelude.<*> (x Core..:> "Digest")
             Prelude.<*> (x Core..:> "DigestTipAddress")
       )
+
+instance Core.AWSService GetDigest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDigest where
   hashWithSalt _salt GetDigest' {..} =

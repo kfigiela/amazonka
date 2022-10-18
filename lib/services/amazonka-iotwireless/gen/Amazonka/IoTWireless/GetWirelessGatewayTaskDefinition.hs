@@ -83,7 +83,7 @@ instance
   type
     AWSResponse GetWirelessGatewayTaskDefinition =
       GetWirelessGatewayTaskDefinitionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,12 @@ instance
             Prelude.<*> (x Core..?> "Update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetWirelessGatewayTaskDefinition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

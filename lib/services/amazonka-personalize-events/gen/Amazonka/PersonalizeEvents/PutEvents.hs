@@ -126,8 +126,11 @@ putEvents_eventList = Lens.lens (\PutEvents' {eventList} -> eventList) (\s@PutEv
 
 instance Core.AWSRequest PutEvents where
   type AWSResponse PutEvents = PutEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull PutEventsResponse'
+
+instance Core.AWSService PutEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEvents where
   hashWithSalt _salt PutEvents' {..} =

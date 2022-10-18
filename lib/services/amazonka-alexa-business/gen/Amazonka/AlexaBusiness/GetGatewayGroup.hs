@@ -80,7 +80,7 @@ instance Core.AWSRequest GetGatewayGroup where
   type
     AWSResponse GetGatewayGroup =
       GetGatewayGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetGatewayGroup where
             Prelude.<$> (x Core..?> "GatewayGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGatewayGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGatewayGroup where
   hashWithSalt _salt GetGatewayGroup' {..} =

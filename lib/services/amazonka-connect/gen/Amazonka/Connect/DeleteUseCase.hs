@@ -106,9 +106,12 @@ instance Core.AWSRequest DeleteUseCase where
   type
     AWSResponse DeleteUseCase =
       DeleteUseCaseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteUseCaseResponse'
+
+instance Core.AWSService DeleteUseCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUseCase where
   hashWithSalt _salt DeleteUseCase' {..} =

@@ -103,7 +103,7 @@ instance Core.AWSRequest FinalizeDeviceClaim where
   type
     AWSResponse FinalizeDeviceClaim =
       FinalizeDeviceClaimResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest FinalizeDeviceClaim where
             Prelude.<$> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService FinalizeDeviceClaim where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FinalizeDeviceClaim where
   hashWithSalt _salt FinalizeDeviceClaim' {..} =

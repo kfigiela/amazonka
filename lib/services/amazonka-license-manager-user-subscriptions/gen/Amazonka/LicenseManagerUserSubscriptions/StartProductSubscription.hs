@@ -117,7 +117,7 @@ instance Core.AWSRequest StartProductSubscription where
   type
     AWSResponse StartProductSubscription =
       StartProductSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest StartProductSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProductUserSummary")
       )
+
+instance Core.AWSService StartProductSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartProductSubscription where
   hashWithSalt _salt StartProductSubscription' {..} =

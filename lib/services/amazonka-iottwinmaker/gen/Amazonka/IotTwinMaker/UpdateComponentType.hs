@@ -155,7 +155,7 @@ instance Core.AWSRequest UpdateComponentType where
   type
     AWSResponse UpdateComponentType =
       UpdateComponentTypeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest UpdateComponentType where
             Prelude.<*> (x Core..:> "state")
             Prelude.<*> (x Core..:> "workspaceId")
       )
+
+instance Core.AWSService UpdateComponentType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateComponentType where
   hashWithSalt _salt UpdateComponentType' {..} =

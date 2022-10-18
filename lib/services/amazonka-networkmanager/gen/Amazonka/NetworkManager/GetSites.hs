@@ -129,7 +129,7 @@ instance Core.AWSPager GetSites where
 
 instance Core.AWSRequest GetSites where
   type AWSResponse GetSites = GetSitesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetSites where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSites where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSites where
   hashWithSalt _salt GetSites' {..} =

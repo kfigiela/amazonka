@@ -139,7 +139,7 @@ instance Core.AWSRequest ListTableStorageOptimizers where
   type
     AWSResponse ListTableStorageOptimizers =
       ListTableStorageOptimizersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListTableStorageOptimizers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTableStorageOptimizers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTableStorageOptimizers where
   hashWithSalt _salt ListTableStorageOptimizers' {..} =

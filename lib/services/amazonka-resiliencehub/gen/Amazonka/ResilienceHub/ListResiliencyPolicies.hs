@@ -105,7 +105,7 @@ instance Core.AWSRequest ListResiliencyPolicies where
   type
     AWSResponse ListResiliencyPolicies =
       ListResiliencyPoliciesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListResiliencyPolicies where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListResiliencyPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResiliencyPolicies where
   hashWithSalt _salt ListResiliencyPolicies' {..} =

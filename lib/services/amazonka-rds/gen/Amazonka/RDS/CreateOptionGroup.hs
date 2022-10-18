@@ -241,7 +241,7 @@ instance Core.AWSRequest CreateOptionGroup where
   type
     AWSResponse CreateOptionGroup =
       CreateOptionGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateOptionGroupResult"
@@ -250,6 +250,9 @@ instance Core.AWSRequest CreateOptionGroup where
             Prelude.<$> (x Core..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOptionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOptionGroup where
   hashWithSalt _salt CreateOptionGroup' {..} =

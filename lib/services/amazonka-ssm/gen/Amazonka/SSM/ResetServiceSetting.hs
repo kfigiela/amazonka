@@ -141,7 +141,7 @@ instance Core.AWSRequest ResetServiceSetting where
   type
     AWSResponse ResetServiceSetting =
       ResetServiceSettingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ResetServiceSetting where
             Prelude.<$> (x Core..?> "ServiceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetServiceSetting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetServiceSetting where
   hashWithSalt _salt ResetServiceSetting' {..} =

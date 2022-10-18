@@ -87,7 +87,7 @@ getGrant_grantArn = Lens.lens (\GetGrant' {grantArn} -> grantArn) (\s@GetGrant' 
 
 instance Core.AWSRequest GetGrant where
   type AWSResponse GetGrant = GetGrantResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetGrant where
             Prelude.<$> (x Core..?> "Grant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGrant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGrant where
   hashWithSalt _salt GetGrant' {..} =

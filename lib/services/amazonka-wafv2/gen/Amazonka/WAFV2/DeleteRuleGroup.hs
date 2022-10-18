@@ -177,13 +177,16 @@ instance Core.AWSRequest DeleteRuleGroup where
   type
     AWSResponse DeleteRuleGroup =
       DeleteRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRuleGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRuleGroup where
   hashWithSalt _salt DeleteRuleGroup' {..} =

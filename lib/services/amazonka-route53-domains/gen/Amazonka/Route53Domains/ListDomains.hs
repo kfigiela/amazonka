@@ -172,7 +172,7 @@ instance Core.AWSPager ListDomains where
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Domains" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =

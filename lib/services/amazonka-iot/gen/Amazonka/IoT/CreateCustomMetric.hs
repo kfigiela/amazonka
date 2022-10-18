@@ -168,7 +168,7 @@ instance Core.AWSRequest CreateCustomMetric where
   type
     AWSResponse CreateCustomMetric =
       CreateCustomMetricResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest CreateCustomMetric where
             Prelude.<*> (x Core..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCustomMetric where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomMetric where
   hashWithSalt _salt CreateCustomMetric' {..} =

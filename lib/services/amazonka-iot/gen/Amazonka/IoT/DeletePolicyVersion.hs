@@ -96,9 +96,12 @@ instance Core.AWSRequest DeletePolicyVersion where
   type
     AWSResponse DeletePolicyVersion =
       DeletePolicyVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeletePolicyVersionResponse'
+
+instance Core.AWSService DeletePolicyVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePolicyVersion where
   hashWithSalt _salt DeletePolicyVersion' {..} =

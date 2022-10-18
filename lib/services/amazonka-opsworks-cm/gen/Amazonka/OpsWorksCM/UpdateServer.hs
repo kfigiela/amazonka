@@ -121,7 +121,7 @@ updateServer_serverName = Lens.lens (\UpdateServer' {serverName} -> serverName) 
 
 instance Core.AWSRequest UpdateServer where
   type AWSResponse UpdateServer = UpdateServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateServer where
             Prelude.<$> (x Core..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServer where
   hashWithSalt _salt UpdateServer' {..} =

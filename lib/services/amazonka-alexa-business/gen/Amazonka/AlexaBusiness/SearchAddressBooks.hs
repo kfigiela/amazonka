@@ -131,7 +131,7 @@ instance Core.AWSRequest SearchAddressBooks where
   type
     AWSResponse SearchAddressBooks =
       SearchAddressBooksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest SearchAddressBooks where
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchAddressBooks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchAddressBooks where
   hashWithSalt _salt SearchAddressBooks' {..} =

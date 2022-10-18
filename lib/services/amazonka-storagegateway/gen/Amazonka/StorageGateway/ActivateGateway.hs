@@ -315,7 +315,7 @@ instance Core.AWSRequest ActivateGateway where
   type
     AWSResponse ActivateGateway =
       ActivateGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -323,6 +323,9 @@ instance Core.AWSRequest ActivateGateway where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ActivateGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateGateway where
   hashWithSalt _salt ActivateGateway' {..} =

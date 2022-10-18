@@ -81,7 +81,7 @@ instance Core.AWSRequest IndexDocuments where
   type
     AWSResponse IndexDocuments =
       IndexDocumentsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "IndexDocumentsResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest IndexDocuments where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService IndexDocuments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable IndexDocuments where
   hashWithSalt _salt IndexDocuments' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest ImportKeyPair where
   type
     AWSResponse ImportKeyPair =
       ImportKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest ImportKeyPair where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportKeyPair where
   hashWithSalt _salt ImportKeyPair' {..} =

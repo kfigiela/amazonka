@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteOutpost where
   type
     AWSResponse DeleteOutpost =
       DeleteOutpostResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOutpostResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOutpost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOutpost where
   hashWithSalt _salt DeleteOutpost' {..} =

@@ -126,13 +126,16 @@ instance Core.AWSRequest ModifySamlProperties where
   type
     AWSResponse ModifySamlProperties =
       ModifySamlPropertiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifySamlPropertiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifySamlProperties where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifySamlProperties where
   hashWithSalt _salt ModifySamlProperties' {..} =

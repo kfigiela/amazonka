@@ -85,7 +85,7 @@ instance Core.AWSRequest DeleteParameters where
   type
     AWSResponse DeleteParameters =
       DeleteParametersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest DeleteParameters where
             Prelude.<*> (x Core..?> "InvalidParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteParameters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteParameters where
   hashWithSalt _salt DeleteParameters' {..} =

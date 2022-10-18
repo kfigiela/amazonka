@@ -120,7 +120,7 @@ instance
   type
     AWSResponse DescribeInstanceStorageConfig =
       DescribeInstanceStorageConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,12 @@ instance
             Prelude.<$> (x Core..?> "StorageConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeInstanceStorageConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

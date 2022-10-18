@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeReturnShippingLabel where
   type
     AWSResponse DescribeReturnShippingLabel =
       DescribeReturnShippingLabelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribeReturnShippingLabel where
             Prelude.<*> (x Core..?> "ExpirationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReturnShippingLabel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReturnShippingLabel where
   hashWithSalt _salt DescribeReturnShippingLabel' {..} =

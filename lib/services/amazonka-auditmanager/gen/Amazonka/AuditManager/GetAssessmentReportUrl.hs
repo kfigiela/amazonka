@@ -94,7 +94,7 @@ instance Core.AWSRequest GetAssessmentReportUrl where
   type
     AWSResponse GetAssessmentReportUrl =
       GetAssessmentReportUrlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetAssessmentReportUrl where
             Prelude.<$> (x Core..?> "preSignedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssessmentReportUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssessmentReportUrl where
   hashWithSalt _salt GetAssessmentReportUrl' {..} =

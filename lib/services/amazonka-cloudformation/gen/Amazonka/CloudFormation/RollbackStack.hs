@@ -121,7 +121,7 @@ instance Core.AWSRequest RollbackStack where
   type
     AWSResponse RollbackStack =
       RollbackStackResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RollbackStackResult"
@@ -130,6 +130,9 @@ instance Core.AWSRequest RollbackStack where
             Prelude.<$> (x Core..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RollbackStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RollbackStack where
   hashWithSalt _salt RollbackStack' {..} =

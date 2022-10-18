@@ -103,7 +103,7 @@ instance Core.AWSRequest SendDataToMulticastGroup where
   type
     AWSResponse SendDataToMulticastGroup =
       SendDataToMulticastGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest SendDataToMulticastGroup where
             Prelude.<$> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendDataToMulticastGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendDataToMulticastGroup where
   hashWithSalt _salt SendDataToMulticastGroup' {..} =

@@ -494,7 +494,7 @@ instance Core.AWSRequest AdminCreateUser where
   type
     AWSResponse AdminCreateUser =
       AdminCreateUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -502,6 +502,9 @@ instance Core.AWSRequest AdminCreateUser where
             Prelude.<$> (x Core..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminCreateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminCreateUser where
   hashWithSalt _salt AdminCreateUser' {..} =

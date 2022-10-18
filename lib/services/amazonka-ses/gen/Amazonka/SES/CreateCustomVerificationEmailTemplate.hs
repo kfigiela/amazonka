@@ -175,10 +175,16 @@ instance
     AWSResponse
       CreateCustomVerificationEmailTemplate =
       CreateCustomVerificationEmailTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       CreateCustomVerificationEmailTemplateResponse'
+
+instance
+  Core.AWSService
+    CreateCustomVerificationEmailTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

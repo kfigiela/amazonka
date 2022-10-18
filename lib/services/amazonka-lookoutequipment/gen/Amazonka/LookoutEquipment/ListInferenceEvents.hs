@@ -139,7 +139,7 @@ instance Core.AWSRequest ListInferenceEvents where
   type
     AWSResponse ListInferenceEvents =
       ListInferenceEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListInferenceEvents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInferenceEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInferenceEvents where
   hashWithSalt _salt ListInferenceEvents' {..} =

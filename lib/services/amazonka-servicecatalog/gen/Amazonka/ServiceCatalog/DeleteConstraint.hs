@@ -108,13 +108,16 @@ instance Core.AWSRequest DeleteConstraint where
   type
     AWSResponse DeleteConstraint =
       DeleteConstraintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConstraintResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConstraint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConstraint where
   hashWithSalt _salt DeleteConstraint' {..} =

@@ -82,7 +82,7 @@ putPolicy_policy = Lens.lens (\PutPolicy' {policy} -> policy) (\s@PutPolicy' {} 
 
 instance Core.AWSRequest PutPolicy where
   type AWSResponse PutPolicy = PutPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest PutPolicy where
             Prelude.<$> (x Core..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPolicy where
   hashWithSalt _salt PutPolicy' {..} =

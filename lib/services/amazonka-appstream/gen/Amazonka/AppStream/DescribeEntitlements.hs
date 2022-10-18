@@ -113,7 +113,7 @@ instance Core.AWSRequest DescribeEntitlements where
   type
     AWSResponse DescribeEntitlements =
       DescribeEntitlementsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeEntitlements where
             Prelude.<*> (x Core..?> "Entitlements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEntitlements where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEntitlements where
   hashWithSalt _salt DescribeEntitlements' {..} =

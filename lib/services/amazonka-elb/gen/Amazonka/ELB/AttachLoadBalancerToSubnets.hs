@@ -101,7 +101,7 @@ instance Core.AWSRequest AttachLoadBalancerToSubnets where
   type
     AWSResponse AttachLoadBalancerToSubnets =
       AttachLoadBalancerToSubnetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AttachLoadBalancerToSubnetsResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest AttachLoadBalancerToSubnets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachLoadBalancerToSubnets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachLoadBalancerToSubnets where
   hashWithSalt _salt AttachLoadBalancerToSubnets' {..} =

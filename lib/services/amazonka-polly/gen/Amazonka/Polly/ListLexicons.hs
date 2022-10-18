@@ -100,7 +100,7 @@ instance Core.AWSPager ListLexicons where
 
 instance Core.AWSRequest ListLexicons where
   type AWSResponse ListLexicons = ListLexiconsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ListLexicons where
             Prelude.<*> (x Core..?> "Lexicons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLexicons where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLexicons where
   hashWithSalt _salt ListLexicons' {..} =

@@ -137,7 +137,7 @@ instance
   type
     AWSResponse ListIAMPolicyAssignmentsForUser =
       ListIAMPolicyAssignmentsForUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,12 @@ instance
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListIAMPolicyAssignmentsForUser
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

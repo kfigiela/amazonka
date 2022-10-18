@@ -93,7 +93,7 @@ instance Core.AWSRequest GetContactAttributes where
   type
     AWSResponse GetContactAttributes =
       GetContactAttributesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetContactAttributes where
             Prelude.<$> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContactAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContactAttributes where
   hashWithSalt _salt GetContactAttributes' {..} =

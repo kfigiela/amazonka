@@ -123,7 +123,7 @@ instance Core.AWSRequest ListIdentities where
   type
     AWSResponse ListIdentities =
       ListIdentitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListIdentities where
             Prelude.<*> (x Core..?> "IdentityPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIdentities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentities where
   hashWithSalt _salt ListIdentities' {..} =

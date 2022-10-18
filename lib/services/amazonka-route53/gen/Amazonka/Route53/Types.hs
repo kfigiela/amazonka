@@ -534,6 +534,7 @@ defaultService =
       Core._serviceEndpointPrefix = "route53",
       Core._serviceSigningName = "route53",
       Core._serviceVersion = "2013-04-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

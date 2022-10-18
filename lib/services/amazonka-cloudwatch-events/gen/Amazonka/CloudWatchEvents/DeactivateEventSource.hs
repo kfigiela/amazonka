@@ -81,9 +81,12 @@ instance Core.AWSRequest DeactivateEventSource where
   type
     AWSResponse DeactivateEventSource =
       DeactivateEventSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeactivateEventSourceResponse'
+
+instance Core.AWSService DeactivateEventSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateEventSource where
   hashWithSalt _salt DeactivateEventSource' {..} =

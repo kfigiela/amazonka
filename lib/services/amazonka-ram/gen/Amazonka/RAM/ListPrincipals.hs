@@ -317,7 +317,7 @@ instance Core.AWSRequest ListPrincipals where
   type
     AWSResponse ListPrincipals =
       ListPrincipalsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -326,6 +326,9 @@ instance Core.AWSRequest ListPrincipals where
             Prelude.<*> (x Core..?> "principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPrincipals where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPrincipals where
   hashWithSalt _salt ListPrincipals' {..} =

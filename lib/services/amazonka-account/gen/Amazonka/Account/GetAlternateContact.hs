@@ -172,7 +172,7 @@ instance Core.AWSRequest GetAlternateContact where
   type
     AWSResponse GetAlternateContact =
       GetAlternateContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest GetAlternateContact where
             Prelude.<$> (x Core..?> "AlternateContact")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAlternateContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAlternateContact where
   hashWithSalt _salt GetAlternateContact' {..} =

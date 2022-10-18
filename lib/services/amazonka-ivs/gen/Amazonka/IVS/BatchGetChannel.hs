@@ -78,7 +78,7 @@ instance Core.AWSRequest BatchGetChannel where
   type
     AWSResponse BatchGetChannel =
       BatchGetChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest BatchGetChannel where
             Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetChannel where
   hashWithSalt _salt BatchGetChannel' {..} =

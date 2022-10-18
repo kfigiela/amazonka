@@ -84,7 +84,7 @@ instance
   type
     AWSResponse DescribeWorkspaceAuthentication =
       DescribeWorkspaceAuthenticationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "authentication")
       )
+
+instance
+  Core.AWSService
+    DescribeWorkspaceAuthentication
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

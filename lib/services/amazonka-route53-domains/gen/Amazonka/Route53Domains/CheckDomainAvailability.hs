@@ -163,7 +163,7 @@ instance Core.AWSRequest CheckDomainAvailability where
   type
     AWSResponse CheckDomainAvailability =
       CheckDomainAvailabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest CheckDomainAvailability where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Availability")
       )
+
+instance Core.AWSService CheckDomainAvailability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckDomainAvailability where
   hashWithSalt _salt CheckDomainAvailability' {..} =

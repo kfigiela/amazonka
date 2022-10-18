@@ -127,7 +127,7 @@ instance Core.AWSRequest ListGroundStations where
   type
     AWSResponse ListGroundStations =
       ListGroundStationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListGroundStations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGroundStations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGroundStations where
   hashWithSalt _salt ListGroundStations' {..} =

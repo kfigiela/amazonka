@@ -74,13 +74,16 @@ instance Core.AWSRequest DeleteFuotaTask where
   type
     AWSResponse DeleteFuotaTask =
       DeleteFuotaTaskResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFuotaTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFuotaTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFuotaTask where
   hashWithSalt _salt DeleteFuotaTask' {..} =

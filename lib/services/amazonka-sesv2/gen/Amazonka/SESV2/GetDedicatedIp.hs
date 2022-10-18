@@ -86,7 +86,7 @@ instance Core.AWSRequest GetDedicatedIp where
   type
     AWSResponse GetDedicatedIp =
       GetDedicatedIpResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetDedicatedIp where
             Prelude.<$> (x Core..?> "DedicatedIp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDedicatedIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDedicatedIp where
   hashWithSalt _salt GetDedicatedIp' {..} =

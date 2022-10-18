@@ -81,7 +81,7 @@ instance Core.AWSRequest RestorePhoneNumber where
   type
     AWSResponse RestorePhoneNumber =
       RestorePhoneNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest RestorePhoneNumber where
             Prelude.<$> (x Core..?> "PhoneNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestorePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestorePhoneNumber where
   hashWithSalt _salt RestorePhoneNumber' {..} =

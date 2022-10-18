@@ -115,7 +115,7 @@ instance Core.AWSRequest UpdateProxySession where
   type
     AWSResponse UpdateProxySession =
       UpdateProxySessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest UpdateProxySession where
             Prelude.<$> (x Core..?> "ProxySession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateProxySession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProxySession where
   hashWithSalt _salt UpdateProxySession' {..} =

@@ -118,10 +118,13 @@ instance Core.AWSRequest PutDataProtectionPolicy where
   type
     AWSResponse PutDataProtectionPolicy =
       PutDataProtectionPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       PutDataProtectionPolicyResponse'
+
+instance Core.AWSService PutDataProtectionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDataProtectionPolicy where
   hashWithSalt _salt PutDataProtectionPolicy' {..} =

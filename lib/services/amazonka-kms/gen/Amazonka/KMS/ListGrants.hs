@@ -242,10 +242,13 @@ instance Core.AWSPager ListGrants where
 
 instance Core.AWSRequest ListGrants where
   type AWSResponse ListGrants = ListGrantsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ListGrants where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGrants where
   hashWithSalt _salt ListGrants' {..} =

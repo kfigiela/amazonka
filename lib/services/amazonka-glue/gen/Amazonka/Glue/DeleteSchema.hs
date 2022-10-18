@@ -84,7 +84,7 @@ deleteSchema_schemaId = Lens.lens (\DeleteSchema' {schemaId} -> schemaId) (\s@De
 
 instance Core.AWSRequest DeleteSchema where
   type AWSResponse DeleteSchema = DeleteSchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest DeleteSchema where
             Prelude.<*> (x Core..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSchema where
   hashWithSalt _salt DeleteSchema' {..} =

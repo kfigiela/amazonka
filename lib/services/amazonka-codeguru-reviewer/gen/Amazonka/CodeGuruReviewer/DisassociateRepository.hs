@@ -91,7 +91,7 @@ instance Core.AWSRequest DisassociateRepository where
   type
     AWSResponse DisassociateRepository =
       DisassociateRepositoryResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DisassociateRepository where
             Prelude.<*> (x Core..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateRepository where
   hashWithSalt _salt DisassociateRepository' {..} =

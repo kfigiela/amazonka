@@ -247,7 +247,7 @@ instance Core.AWSRequest ModifyVpcEndpoint where
   type
     AWSResponse ModifyVpcEndpoint =
       ModifyVpcEndpointResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -255,6 +255,9 @@ instance Core.AWSRequest ModifyVpcEndpoint where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyVpcEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyVpcEndpoint where
   hashWithSalt _salt ModifyVpcEndpoint' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest ResetEbsDefaultKmsKeyId where
   type
     AWSResponse ResetEbsDefaultKmsKeyId =
       ResetEbsDefaultKmsKeyIdResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest ResetEbsDefaultKmsKeyId where
             Prelude.<$> (x Core..@? "kmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetEbsDefaultKmsKeyId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetEbsDefaultKmsKeyId where
   hashWithSalt _salt ResetEbsDefaultKmsKeyId' {..} =

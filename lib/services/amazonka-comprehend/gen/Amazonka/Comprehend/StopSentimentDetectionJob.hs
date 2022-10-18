@@ -90,7 +90,7 @@ instance Core.AWSRequest StopSentimentDetectionJob where
   type
     AWSResponse StopSentimentDetectionJob =
       StopSentimentDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest StopSentimentDetectionJob where
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopSentimentDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopSentimentDetectionJob where
   hashWithSalt _salt StopSentimentDetectionJob' {..} =

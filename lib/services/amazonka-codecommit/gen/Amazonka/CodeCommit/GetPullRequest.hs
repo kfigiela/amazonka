@@ -80,7 +80,7 @@ instance Core.AWSRequest GetPullRequest where
   type
     AWSResponse GetPullRequest =
       GetPullRequestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetPullRequest where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "pullRequest")
       )
+
+instance Core.AWSService GetPullRequest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPullRequest where
   hashWithSalt _salt GetPullRequest' {..} =

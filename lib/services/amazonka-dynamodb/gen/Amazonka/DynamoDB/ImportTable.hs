@@ -176,7 +176,7 @@ importTable_tableCreationParameters = Lens.lens (\ImportTable' {tableCreationPar
 
 instance Core.AWSRequest ImportTable where
   type AWSResponse ImportTable = ImportTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest ImportTable where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ImportTableDescription")
       )
+
+instance Core.AWSService ImportTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportTable where
   hashWithSalt _salt ImportTable' {..} =

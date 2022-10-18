@@ -171,7 +171,7 @@ instance Core.AWSRequest DescribeGlobalClusters where
   type
     AWSResponse DescribeGlobalClusters =
       DescribeGlobalClustersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeGlobalClustersResult"
@@ -183,6 +183,9 @@ instance Core.AWSRequest DescribeGlobalClusters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeGlobalClusters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGlobalClusters where
   hashWithSalt _salt DescribeGlobalClusters' {..} =

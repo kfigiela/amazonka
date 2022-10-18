@@ -77,8 +77,11 @@ stopStack_stackId = Lens.lens (\StopStack' {stackId} -> stackId) (\s@StopStack' 
 
 instance Core.AWSRequest StopStack where
   type AWSResponse StopStack = StopStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StopStackResponse'
+
+instance Core.AWSService StopStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopStack where
   hashWithSalt _salt StopStack' {..} =

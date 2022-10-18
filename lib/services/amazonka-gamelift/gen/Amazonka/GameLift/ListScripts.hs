@@ -127,7 +127,7 @@ instance Core.AWSPager ListScripts where
 
 instance Core.AWSRequest ListScripts where
   type AWSResponse ListScripts = ListScriptsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListScripts where
             Prelude.<*> (x Core..?> "Scripts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListScripts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListScripts where
   hashWithSalt _salt ListScripts' {..} =

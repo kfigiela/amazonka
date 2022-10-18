@@ -107,7 +107,7 @@ instance Core.AWSRequest DeleteBotAlias where
   type
     AWSResponse DeleteBotAlias =
       DeleteBotAliasResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DeleteBotAlias where
             Prelude.<*> (x Core..?> "botAliasId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBotAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBotAlias where
   hashWithSalt _salt DeleteBotAlias' {..} =

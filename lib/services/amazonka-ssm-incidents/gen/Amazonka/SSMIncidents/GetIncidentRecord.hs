@@ -77,7 +77,7 @@ instance Core.AWSRequest GetIncidentRecord where
   type
     AWSResponse GetIncidentRecord =
       GetIncidentRecordResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetIncidentRecord where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "incidentRecord")
       )
+
+instance Core.AWSService GetIncidentRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIncidentRecord where
   hashWithSalt _salt GetIncidentRecord' {..} =

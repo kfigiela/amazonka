@@ -101,7 +101,7 @@ instance Core.AWSRequest StartRecovery where
   type
     AWSResponse StartRecovery =
       StartRecoveryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest StartRecovery where
             Prelude.<$> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartRecovery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartRecovery where
   hashWithSalt _salt StartRecovery' {..} =

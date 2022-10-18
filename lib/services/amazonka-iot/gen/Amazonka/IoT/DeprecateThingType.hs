@@ -102,13 +102,16 @@ instance Core.AWSRequest DeprecateThingType where
   type
     AWSResponse DeprecateThingType =
       DeprecateThingTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeprecateThingTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeprecateThingType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeprecateThingType where
   hashWithSalt _salt DeprecateThingType' {..} =

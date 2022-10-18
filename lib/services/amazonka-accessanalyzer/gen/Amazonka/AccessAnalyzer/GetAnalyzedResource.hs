@@ -99,7 +99,7 @@ instance Core.AWSRequest GetAnalyzedResource where
   type
     AWSResponse GetAnalyzedResource =
       GetAnalyzedResourceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetAnalyzedResource where
             Prelude.<$> (x Core..?> "resource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAnalyzedResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAnalyzedResource where
   hashWithSalt _salt GetAnalyzedResource' {..} =

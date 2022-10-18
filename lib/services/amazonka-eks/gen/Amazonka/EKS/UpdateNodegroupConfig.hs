@@ -166,7 +166,7 @@ instance Core.AWSRequest UpdateNodegroupConfig where
   type
     AWSResponse UpdateNodegroupConfig =
       UpdateNodegroupConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest UpdateNodegroupConfig where
             Prelude.<$> (x Core..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNodegroupConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNodegroupConfig where
   hashWithSalt _salt UpdateNodegroupConfig' {..} =

@@ -136,9 +136,12 @@ instance Core.AWSRequest UpdateDatastore where
   type
     AWSResponse UpdateDatastore =
       UpdateDatastoreResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateDatastoreResponse'
+
+instance Core.AWSService UpdateDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDatastore where
   hashWithSalt _salt UpdateDatastore' {..} =

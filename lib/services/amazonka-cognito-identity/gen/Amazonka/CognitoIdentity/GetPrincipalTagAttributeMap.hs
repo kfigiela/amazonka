@@ -101,7 +101,7 @@ instance Core.AWSRequest GetPrincipalTagAttributeMap where
   type
     AWSResponse GetPrincipalTagAttributeMap =
       GetPrincipalTagAttributeMapResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetPrincipalTagAttributeMap where
             Prelude.<*> (x Core..?> "PrincipalTags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPrincipalTagAttributeMap where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPrincipalTagAttributeMap where
   hashWithSalt _salt GetPrincipalTagAttributeMap' {..} =

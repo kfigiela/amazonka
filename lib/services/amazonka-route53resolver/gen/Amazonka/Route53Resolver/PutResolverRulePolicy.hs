@@ -151,7 +151,7 @@ instance Core.AWSRequest PutResolverRulePolicy where
   type
     AWSResponse PutResolverRulePolicy =
       PutResolverRulePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest PutResolverRulePolicy where
             Prelude.<$> (x Core..?> "ReturnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutResolverRulePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutResolverRulePolicy where
   hashWithSalt _salt PutResolverRulePolicy' {..} =

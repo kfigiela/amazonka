@@ -135,11 +135,14 @@ instance Core.AWSRequest CompleteVaultLock where
   type
     AWSResponse CompleteVaultLock =
       CompleteVaultLockResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveNull CompleteVaultLockResponse'
+
+instance Core.AWSService CompleteVaultLock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteVaultLock where
   hashWithSalt _salt CompleteVaultLock' {..} =

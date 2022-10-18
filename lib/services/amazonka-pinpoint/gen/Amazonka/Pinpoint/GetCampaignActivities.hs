@@ -123,7 +123,7 @@ instance Core.AWSRequest GetCampaignActivities where
   type
     AWSResponse GetCampaignActivities =
       GetCampaignActivitiesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetCampaignActivities where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetCampaignActivities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCampaignActivities where
   hashWithSalt _salt GetCampaignActivities' {..} =

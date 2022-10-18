@@ -88,7 +88,7 @@ disableUser_userId = Lens.lens (\DisableUser' {userId} -> userId) (\s@DisableUse
 
 instance Core.AWSRequest DisableUser where
   type AWSResponse DisableUser = DisableUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DisableUser where
             Prelude.<$> (x Core..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableUser where
   hashWithSalt _salt DisableUser' {..} =

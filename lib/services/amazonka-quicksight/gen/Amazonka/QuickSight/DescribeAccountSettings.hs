@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeAccountSettings where
   type
     AWSResponse DescribeAccountSettings =
       DescribeAccountSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest DescribeAccountSettings where
             Prelude.<*> (x Core..?> "AccountSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccountSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountSettings where
   hashWithSalt _salt DescribeAccountSettings' {..} =

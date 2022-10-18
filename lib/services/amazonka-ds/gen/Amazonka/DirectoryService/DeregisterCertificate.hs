@@ -93,13 +93,16 @@ instance Core.AWSRequest DeregisterCertificate where
   type
     AWSResponse DeregisterCertificate =
       DeregisterCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterCertificate where
   hashWithSalt _salt DeregisterCertificate' {..} =

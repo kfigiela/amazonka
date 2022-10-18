@@ -101,7 +101,7 @@ instance Core.AWSRequest RestoreImageFromRecycleBin where
   type
     AWSResponse RestoreImageFromRecycleBin =
       RestoreImageFromRecycleBinResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest RestoreImageFromRecycleBin where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreImageFromRecycleBin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreImageFromRecycleBin where
   hashWithSalt _salt RestoreImageFromRecycleBin' {..} =

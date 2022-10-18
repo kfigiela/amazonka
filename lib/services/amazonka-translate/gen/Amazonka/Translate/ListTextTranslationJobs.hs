@@ -108,7 +108,7 @@ instance Core.AWSRequest ListTextTranslationJobs where
   type
     AWSResponse ListTextTranslationJobs =
       ListTextTranslationJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListTextTranslationJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTextTranslationJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTextTranslationJobs where
   hashWithSalt _salt ListTextTranslationJobs' {..} =

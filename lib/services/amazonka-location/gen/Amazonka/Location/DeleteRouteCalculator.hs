@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteRouteCalculator where
   type
     AWSResponse DeleteRouteCalculator =
       DeleteRouteCalculatorResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRouteCalculatorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRouteCalculator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRouteCalculator where
   hashWithSalt _salt DeleteRouteCalculator' {..} =

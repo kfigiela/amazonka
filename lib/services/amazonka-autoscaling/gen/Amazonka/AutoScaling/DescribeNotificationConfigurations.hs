@@ -135,7 +135,7 @@ instance
   type
     AWSResponse DescribeNotificationConfigurations =
       DescribeNotificationConfigurationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeNotificationConfigurationsResult"
@@ -148,6 +148,12 @@ instance
                               Prelude.>>= Core.parseXMLList "member"
                           )
       )
+
+instance
+  Core.AWSService
+    DescribeNotificationConfigurations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

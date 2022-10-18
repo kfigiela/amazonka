@@ -164,7 +164,7 @@ instance Core.AWSRequest CreateExperience where
   type
     AWSResponse CreateExperience =
       CreateExperienceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest CreateExperience where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Id")
       )
+
+instance Core.AWSService CreateExperience where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExperience where
   hashWithSalt _salt CreateExperience' {..} =

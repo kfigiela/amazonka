@@ -104,7 +104,7 @@ instance
   type
     AWSResponse RotateIngestEndpointCredentials =
       RotateIngestEndpointCredentialsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,12 @@ instance
             Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RotateIngestEndpointCredentials
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

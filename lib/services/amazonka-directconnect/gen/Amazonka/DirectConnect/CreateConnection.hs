@@ -198,10 +198,13 @@ createConnection_connectionName = Lens.lens (\CreateConnection' {connectionName}
 
 instance Core.AWSRequest CreateConnection where
   type AWSResponse CreateConnection = Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConnection where
   hashWithSalt _salt CreateConnection' {..} =

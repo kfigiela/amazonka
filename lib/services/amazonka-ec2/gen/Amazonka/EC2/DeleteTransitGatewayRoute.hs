@@ -118,7 +118,7 @@ instance Core.AWSRequest DeleteTransitGatewayRoute where
   type
     AWSResponse DeleteTransitGatewayRoute =
       DeleteTransitGatewayRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DeleteTransitGatewayRoute where
             Prelude.<$> (x Core..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTransitGatewayRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTransitGatewayRoute where
   hashWithSalt _salt DeleteTransitGatewayRoute' {..} =

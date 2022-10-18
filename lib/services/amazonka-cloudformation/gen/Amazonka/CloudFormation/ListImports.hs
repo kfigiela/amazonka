@@ -125,7 +125,7 @@ instance Core.AWSPager ListImports where
 
 instance Core.AWSRequest ListImports where
   type AWSResponse ListImports = ListImportsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListImportsResult"
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListImports where
             Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListImports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListImports where
   hashWithSalt _salt ListImports' {..} =

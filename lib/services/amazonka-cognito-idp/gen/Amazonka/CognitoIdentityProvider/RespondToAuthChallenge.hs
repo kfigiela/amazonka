@@ -406,7 +406,7 @@ instance Core.AWSRequest RespondToAuthChallenge where
   type
     AWSResponse RespondToAuthChallenge =
       RespondToAuthChallengeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -419,6 +419,9 @@ instance Core.AWSRequest RespondToAuthChallenge where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RespondToAuthChallenge where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RespondToAuthChallenge where
   hashWithSalt _salt RespondToAuthChallenge' {..} =

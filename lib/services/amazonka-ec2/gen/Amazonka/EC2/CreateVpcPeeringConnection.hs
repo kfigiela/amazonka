@@ -175,7 +175,7 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
   type
     AWSResponse CreateVpcPeeringConnection =
       CreateVpcPeeringConnectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest CreateVpcPeeringConnection where
             Prelude.<$> (x Core..@? "vpcPeeringConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVpcPeeringConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpcPeeringConnection where
   hashWithSalt _salt CreateVpcPeeringConnection' {..} =

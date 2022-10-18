@@ -101,13 +101,16 @@ instance Core.AWSRequest AssociateResource where
   type
     AWSResponse AssociateResource =
       AssociateResourceResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateResource where
   hashWithSalt _salt AssociateResource' {..} =

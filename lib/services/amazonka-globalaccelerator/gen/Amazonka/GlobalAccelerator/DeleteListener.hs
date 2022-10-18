@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteListener where
   type
     AWSResponse DeleteListener =
       DeleteListenerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteListenerResponse'
+
+instance Core.AWSService DeleteListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteListener where
   hashWithSalt _salt DeleteListener' {..} =

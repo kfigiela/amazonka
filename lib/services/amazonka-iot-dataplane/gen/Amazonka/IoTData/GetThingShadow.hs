@@ -99,7 +99,7 @@ instance Core.AWSRequest GetThingShadow where
   type
     AWSResponse GetThingShadow =
       GetThingShadowResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetThingShadow where
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetThingShadow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetThingShadow where
   hashWithSalt _salt GetThingShadow' {..} =

@@ -92,7 +92,7 @@ deleteBranch_branchName = Lens.lens (\DeleteBranch' {branchName} -> branchName) 
 
 instance Core.AWSRequest DeleteBranch where
   type AWSResponse DeleteBranch = DeleteBranchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DeleteBranch where
             Prelude.<$> (x Core..?> "deletedBranch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBranch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBranch where
   hashWithSalt _salt DeleteBranch' {..} =

@@ -94,9 +94,12 @@ instance Core.AWSRequest AssociateLexBot where
   type
     AWSResponse AssociateLexBot =
       AssociateLexBotResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull AssociateLexBotResponse'
+
+instance Core.AWSService AssociateLexBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateLexBot where
   hashWithSalt _salt AssociateLexBot' {..} =

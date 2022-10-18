@@ -98,7 +98,7 @@ instance Core.AWSRequest UpdateApnsSandboxChannel where
   type
     AWSResponse UpdateApnsSandboxChannel =
       UpdateApnsSandboxChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest UpdateApnsSandboxChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateApnsSandboxChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApnsSandboxChannel where
   hashWithSalt _salt UpdateApnsSandboxChannel' {..} =

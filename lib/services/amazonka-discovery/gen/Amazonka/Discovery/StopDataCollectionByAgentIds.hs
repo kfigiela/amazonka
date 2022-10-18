@@ -78,7 +78,7 @@ instance Core.AWSRequest StopDataCollectionByAgentIds where
   type
     AWSResponse StopDataCollectionByAgentIds =
       StopDataCollectionByAgentIdsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest StopDataCollectionByAgentIds where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopDataCollectionByAgentIds where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

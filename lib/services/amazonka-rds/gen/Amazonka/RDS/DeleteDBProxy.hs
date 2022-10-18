@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteDBProxy where
   type
     AWSResponse DeleteDBProxy =
       DeleteDBProxyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBProxyResult"
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteDBProxy where
             Prelude.<$> (x Core..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDBProxy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBProxy where
   hashWithSalt _salt DeleteDBProxy' {..} =

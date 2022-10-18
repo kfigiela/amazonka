@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeCACertificate where
   type
     AWSResponse DescribeCACertificate =
       DescribeCACertificateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeCACertificate where
             Prelude.<*> (x Core..?> "certificateDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCACertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCACertificate where
   hashWithSalt _salt DescribeCACertificate' {..} =

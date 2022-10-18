@@ -89,7 +89,7 @@ instance Core.AWSRequest CancelResourceRequest where
   type
     AWSResponse CancelResourceRequest =
       CancelResourceRequestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest CancelResourceRequest where
             Prelude.<$> (x Core..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelResourceRequest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelResourceRequest where
   hashWithSalt _salt CancelResourceRequest' {..} =

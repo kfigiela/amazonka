@@ -141,7 +141,7 @@ instance
     AWSResponse
       ListStackInstancesForProvisionedProduct =
       ListStackInstancesForProvisionedProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,12 @@ instance
               Prelude.<*> (x Core..?> "StackInstances" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListStackInstancesForProvisionedProduct
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

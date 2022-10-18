@@ -103,9 +103,12 @@ instance Core.AWSRequest ExecuteScheduledQuery where
   type
     AWSResponse ExecuteScheduledQuery =
       ExecuteScheduledQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ExecuteScheduledQueryResponse'
+
+instance Core.AWSService ExecuteScheduledQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecuteScheduledQuery where
   hashWithSalt _salt ExecuteScheduledQuery' {..} =

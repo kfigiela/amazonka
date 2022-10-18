@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteActivation where
   type
     AWSResponse DeleteActivation =
       DeleteActivationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteActivationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteActivation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteActivation where
   hashWithSalt _salt DeleteActivation' {..} =

@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteExperimentTemplate where
   type
     AWSResponse DeleteExperimentTemplate =
       DeleteExperimentTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteExperimentTemplate where
             Prelude.<$> (x Core..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteExperimentTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExperimentTemplate where
   hashWithSalt _salt DeleteExperimentTemplate' {..} =

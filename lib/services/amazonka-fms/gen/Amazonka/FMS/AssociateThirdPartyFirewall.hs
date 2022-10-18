@@ -83,7 +83,7 @@ instance Core.AWSRequest AssociateThirdPartyFirewall where
   type
     AWSResponse AssociateThirdPartyFirewall =
       AssociateThirdPartyFirewallResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest AssociateThirdPartyFirewall where
             Prelude.<$> (x Core..?> "ThirdPartyFirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateThirdPartyFirewall where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateThirdPartyFirewall where
   hashWithSalt _salt AssociateThirdPartyFirewall' {..} =

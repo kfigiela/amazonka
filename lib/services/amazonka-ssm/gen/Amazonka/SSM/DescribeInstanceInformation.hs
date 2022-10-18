@@ -178,7 +178,7 @@ instance Core.AWSRequest DescribeInstanceInformation where
   type
     AWSResponse DescribeInstanceInformation =
       DescribeInstanceInformationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest DescribeInstanceInformation where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceInformation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstanceInformation where
   hashWithSalt _salt DescribeInstanceInformation' {..} =

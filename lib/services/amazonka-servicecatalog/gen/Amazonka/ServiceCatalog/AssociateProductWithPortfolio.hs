@@ -136,13 +136,19 @@ instance
   type
     AWSResponse AssociateProductWithPortfolio =
       AssociateProductWithPortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateProductWithPortfolioResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateProductWithPortfolio
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

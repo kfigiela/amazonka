@@ -183,7 +183,7 @@ instance Core.AWSRequest ListSlotTypes where
   type
     AWSResponse ListSlotTypes =
       ListSlotTypesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest ListSlotTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSlotTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSlotTypes where
   hashWithSalt _salt ListSlotTypes' {..} =

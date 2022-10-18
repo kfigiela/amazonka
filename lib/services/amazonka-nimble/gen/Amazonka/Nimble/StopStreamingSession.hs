@@ -113,7 +113,7 @@ instance Core.AWSRequest StopStreamingSession where
   type
     AWSResponse StopStreamingSession =
       StopStreamingSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest StopStreamingSession where
             Prelude.<$> (x Core..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopStreamingSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopStreamingSession where
   hashWithSalt _salt StopStreamingSession' {..} =

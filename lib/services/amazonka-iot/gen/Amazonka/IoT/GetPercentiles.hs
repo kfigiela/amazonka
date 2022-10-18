@@ -133,7 +133,7 @@ instance Core.AWSRequest GetPercentiles where
   type
     AWSResponse GetPercentiles =
       GetPercentilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest GetPercentiles where
             Prelude.<$> (x Core..?> "percentiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPercentiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPercentiles where
   hashWithSalt _salt GetPercentiles' {..} =

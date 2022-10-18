@@ -81,7 +81,7 @@ getInsight_insightId = Lens.lens (\GetInsight' {insightId} -> insightId) (\s@Get
 
 instance Core.AWSRequest GetInsight where
   type AWSResponse GetInsight = GetInsightResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetInsight where
             Prelude.<$> (x Core..?> "Insight")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInsight where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInsight where
   hashWithSalt _salt GetInsight' {..} =

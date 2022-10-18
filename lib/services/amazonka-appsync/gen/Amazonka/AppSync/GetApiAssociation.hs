@@ -77,7 +77,7 @@ instance Core.AWSRequest GetApiAssociation where
   type
     AWSResponse GetApiAssociation =
       GetApiAssociationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetApiAssociation where
             Prelude.<$> (x Core..?> "apiAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApiAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApiAssociation where
   hashWithSalt _salt GetApiAssociation' {..} =

@@ -103,7 +103,7 @@ instance Core.AWSRequest AssociateGatewayToServer where
   type
     AWSResponse AssociateGatewayToServer =
       AssociateGatewayToServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest AssociateGatewayToServer where
             Prelude.<$> (x Core..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateGatewayToServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateGatewayToServer where
   hashWithSalt _salt AssociateGatewayToServer' {..} =

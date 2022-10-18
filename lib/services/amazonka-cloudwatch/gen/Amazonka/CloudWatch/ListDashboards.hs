@@ -128,7 +128,7 @@ instance Core.AWSRequest ListDashboards where
   type
     AWSResponse ListDashboards =
       ListDashboardsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListDashboardsResult"
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListDashboards where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDashboards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDashboards where
   hashWithSalt _salt ListDashboards' {..} =

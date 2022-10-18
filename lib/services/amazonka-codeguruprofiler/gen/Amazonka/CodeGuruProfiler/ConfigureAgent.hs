@@ -194,7 +194,7 @@ instance Core.AWSRequest ConfigureAgent where
   type
     AWSResponse ConfigureAgent =
       ConfigureAgentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest ConfigureAgent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService ConfigureAgent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfigureAgent where
   hashWithSalt _salt ConfigureAgent' {..} =

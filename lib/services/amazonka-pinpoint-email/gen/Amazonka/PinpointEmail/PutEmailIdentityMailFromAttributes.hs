@@ -157,13 +157,19 @@ instance
   type
     AWSResponse PutEmailIdentityMailFromAttributes =
       PutEmailIdentityMailFromAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutEmailIdentityMailFromAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutEmailIdentityMailFromAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

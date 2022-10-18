@@ -257,7 +257,7 @@ instance Core.AWSRequest StartGameSessionPlacement where
   type
     AWSResponse StartGameSessionPlacement =
       StartGameSessionPlacementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -265,6 +265,9 @@ instance Core.AWSRequest StartGameSessionPlacement where
             Prelude.<$> (x Core..?> "GameSessionPlacement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartGameSessionPlacement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartGameSessionPlacement where
   hashWithSalt _salt StartGameSessionPlacement' {..} =

@@ -131,13 +131,16 @@ instance Core.AWSRequest DisassociateWebACL where
   type
     AWSResponse DisassociateWebACL =
       DisassociateWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateWebACLResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateWebACL where
   hashWithSalt _salt DisassociateWebACL' {..} =

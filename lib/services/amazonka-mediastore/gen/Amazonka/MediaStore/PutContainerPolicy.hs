@@ -110,13 +110,16 @@ instance Core.AWSRequest PutContainerPolicy where
   type
     AWSResponse PutContainerPolicy =
       PutContainerPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutContainerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutContainerPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutContainerPolicy where
   hashWithSalt _salt PutContainerPolicy' {..} =

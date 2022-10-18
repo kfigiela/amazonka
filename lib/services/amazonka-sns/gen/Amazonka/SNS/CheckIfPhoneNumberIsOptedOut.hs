@@ -87,7 +87,7 @@ instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
   type
     AWSResponse CheckIfPhoneNumberIsOptedOut =
       CheckIfPhoneNumberIsOptedOutResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CheckIfPhoneNumberIsOptedOutResult"
@@ -96,6 +96,9 @@ instance Core.AWSRequest CheckIfPhoneNumberIsOptedOut where
             Prelude.<$> (x Core..@? "isOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CheckIfPhoneNumberIsOptedOut where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

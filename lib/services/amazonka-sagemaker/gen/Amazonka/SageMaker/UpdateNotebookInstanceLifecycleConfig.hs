@@ -115,13 +115,19 @@ instance
     AWSResponse
       UpdateNotebookInstanceLifecycleConfig =
       UpdateNotebookInstanceLifecycleConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotebookInstanceLifecycleConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateNotebookInstanceLifecycleConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

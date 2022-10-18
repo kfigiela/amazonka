@@ -210,7 +210,7 @@ instance Core.AWSRequest UpdateEmailTemplate where
   type
     AWSResponse UpdateEmailTemplate =
       UpdateEmailTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest UpdateEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateEmailTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEmailTemplate where
   hashWithSalt _salt UpdateEmailTemplate' {..} =

@@ -116,9 +116,12 @@ instance Core.AWSRequest DeleteMessage where
   type
     AWSResponse DeleteMessage =
       DeleteMessageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteMessageResponse'
+
+instance Core.AWSService DeleteMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMessage where
   hashWithSalt _salt DeleteMessage' {..} =

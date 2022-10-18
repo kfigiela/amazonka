@@ -135,7 +135,7 @@ instance Core.AWSRequest DescribeInventoryDeletions where
   type
     AWSResponse DescribeInventoryDeletions =
       DescribeInventoryDeletionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest DescribeInventoryDeletions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInventoryDeletions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInventoryDeletions where
   hashWithSalt _salt DescribeInventoryDeletions' {..} =

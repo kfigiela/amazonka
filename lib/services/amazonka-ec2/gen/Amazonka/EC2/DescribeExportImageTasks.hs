@@ -156,7 +156,7 @@ instance Core.AWSRequest DescribeExportImageTasks where
   type
     AWSResponse DescribeExportImageTasks =
       DescribeExportImageTasksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest DescribeExportImageTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeExportImageTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExportImageTasks where
   hashWithSalt _salt DescribeExportImageTasks' {..} =

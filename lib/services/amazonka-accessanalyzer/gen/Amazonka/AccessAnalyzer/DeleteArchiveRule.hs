@@ -102,9 +102,12 @@ instance Core.AWSRequest DeleteArchiveRule where
   type
     AWSResponse DeleteArchiveRule =
       DeleteArchiveRuleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteArchiveRuleResponse'
+
+instance Core.AWSService DeleteArchiveRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteArchiveRule where
   hashWithSalt _salt DeleteArchiveRule' {..} =

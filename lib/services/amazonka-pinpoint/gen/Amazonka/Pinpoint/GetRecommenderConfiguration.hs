@@ -87,7 +87,7 @@ instance Core.AWSRequest GetRecommenderConfiguration where
   type
     AWSResponse GetRecommenderConfiguration =
       GetRecommenderConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetRecommenderConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetRecommenderConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRecommenderConfiguration where
   hashWithSalt _salt GetRecommenderConfiguration' {..} =

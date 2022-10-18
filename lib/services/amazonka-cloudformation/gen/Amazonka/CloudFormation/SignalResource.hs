@@ -144,9 +144,12 @@ instance Core.AWSRequest SignalResource where
   type
     AWSResponse SignalResource =
       SignalResourceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SignalResourceResponse'
+
+instance Core.AWSService SignalResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SignalResource where
   hashWithSalt _salt SignalResource' {..} =

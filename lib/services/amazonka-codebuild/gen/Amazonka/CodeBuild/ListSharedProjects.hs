@@ -188,7 +188,7 @@ instance Core.AWSRequest ListSharedProjects where
   type
     AWSResponse ListSharedProjects =
       ListSharedProjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest ListSharedProjects where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSharedProjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSharedProjects where
   hashWithSalt _salt ListSharedProjects' {..} =

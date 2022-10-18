@@ -181,7 +181,7 @@ instance Core.AWSRequest DescribeScheduledActions where
   type
     AWSResponse DescribeScheduledActions =
       DescribeScheduledActionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScheduledActionsResult"
@@ -194,6 +194,9 @@ instance Core.AWSRequest DescribeScheduledActions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeScheduledActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =

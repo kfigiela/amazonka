@@ -168,7 +168,7 @@ instance Core.AWSRequest CopyOptionGroup where
   type
     AWSResponse CopyOptionGroup =
       CopyOptionGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyOptionGroupResult"
@@ -177,6 +177,9 @@ instance Core.AWSRequest CopyOptionGroup where
             Prelude.<$> (x Core..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyOptionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyOptionGroup where
   hashWithSalt _salt CopyOptionGroup' {..} =

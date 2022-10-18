@@ -322,7 +322,7 @@ putSlotType_name = Lens.lens (\PutSlotType' {name} -> name) (\s@PutSlotType' {} 
 
 instance Core.AWSRequest PutSlotType where
   type AWSResponse PutSlotType = PutSlotTypeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -344,6 +344,9 @@ instance Core.AWSRequest PutSlotType where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSlotType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSlotType where
   hashWithSalt _salt PutSlotType' {..} =

@@ -158,7 +158,7 @@ instance Core.AWSRequest GetTranscript where
   type
     AWSResponse GetTranscript =
       GetTranscriptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest GetTranscript where
             Prelude.<*> (x Core..?> "InitialContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTranscript where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTranscript where
   hashWithSalt _salt GetTranscript' {..} =

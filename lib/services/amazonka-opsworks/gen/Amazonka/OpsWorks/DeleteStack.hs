@@ -79,8 +79,11 @@ deleteStack_stackId = Lens.lens (\DeleteStack' {stackId} -> stackId) (\s@DeleteS
 
 instance Core.AWSRequest DeleteStack where
   type AWSResponse DeleteStack = DeleteStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteStackResponse'
+
+instance Core.AWSService DeleteStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStack where
   hashWithSalt _salt DeleteStack' {..} =

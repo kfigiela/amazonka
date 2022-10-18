@@ -193,7 +193,7 @@ instance Core.AWSRequest ListPredictors where
   type
     AWSResponse ListPredictors =
       ListPredictorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest ListPredictors where
             Prelude.<*> (x Core..?> "Predictors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPredictors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPredictors where
   hashWithSalt _salt ListPredictors' {..} =

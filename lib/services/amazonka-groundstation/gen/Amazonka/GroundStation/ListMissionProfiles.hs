@@ -117,7 +117,7 @@ instance Core.AWSRequest ListMissionProfiles where
   type
     AWSResponse ListMissionProfiles =
       ListMissionProfilesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListMissionProfiles where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMissionProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMissionProfiles where
   hashWithSalt _salt ListMissionProfiles' {..} =

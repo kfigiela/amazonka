@@ -175,7 +175,7 @@ instance Core.AWSRequest CreateProtection where
   type
     AWSResponse CreateProtection =
       CreateProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest CreateProtection where
             Prelude.<$> (x Core..?> "ProtectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProtection where
   hashWithSalt _salt CreateProtection' {..} =

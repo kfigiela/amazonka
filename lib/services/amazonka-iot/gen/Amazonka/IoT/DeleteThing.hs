@@ -102,13 +102,16 @@ deleteThing_thingName = Lens.lens (\DeleteThing' {thingName} -> thingName) (\s@D
 
 instance Core.AWSRequest DeleteThing where
   type AWSResponse DeleteThing = DeleteThingResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteThingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteThing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteThing where
   hashWithSalt _salt DeleteThing' {..} =

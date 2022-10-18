@@ -110,7 +110,7 @@ instance Core.AWSRequest GetIdentityDkimAttributes where
   type
     AWSResponse GetIdentityDkimAttributes =
       GetIdentityDkimAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetIdentityDkimAttributesResult"
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetIdentityDkimAttributes where
                             Prelude.>>= Core.parseXMLMap "entry" "key" "value"
                         )
       )
+
+instance Core.AWSService GetIdentityDkimAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIdentityDkimAttributes where
   hashWithSalt _salt GetIdentityDkimAttributes' {..} =

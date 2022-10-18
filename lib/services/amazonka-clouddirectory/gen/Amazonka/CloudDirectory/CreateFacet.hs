@@ -164,13 +164,16 @@ createFacet_name = Lens.lens (\CreateFacet' {name} -> name) (\s@CreateFacet' {} 
 
 instance Core.AWSRequest CreateFacet where
   type AWSResponse CreateFacet = CreateFacetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFacet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFacet where
   hashWithSalt _salt CreateFacet' {..} =

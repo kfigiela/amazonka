@@ -76,13 +76,16 @@ instance Core.AWSRequest SendInvitation where
   type
     AWSResponse SendInvitation =
       SendInvitationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendInvitationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendInvitation where
   hashWithSalt _salt SendInvitation' {..} =

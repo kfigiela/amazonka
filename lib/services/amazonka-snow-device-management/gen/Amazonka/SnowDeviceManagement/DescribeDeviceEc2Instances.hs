@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeDeviceEc2Instances where
   type
     AWSResponse DescribeDeviceEc2Instances =
       DescribeDeviceEc2InstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeDeviceEc2Instances where
             Prelude.<$> (x Core..?> "instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDeviceEc2Instances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDeviceEc2Instances where
   hashWithSalt _salt DescribeDeviceEc2Instances' {..} =

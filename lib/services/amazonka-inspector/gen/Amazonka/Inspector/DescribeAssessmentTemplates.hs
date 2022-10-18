@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeAssessmentTemplates where
   type
     AWSResponse DescribeAssessmentTemplates =
       DescribeAssessmentTemplatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribeAssessmentTemplates where
                         )
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeAssessmentTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAssessmentTemplates where
   hashWithSalt _salt DescribeAssessmentTemplates' {..} =

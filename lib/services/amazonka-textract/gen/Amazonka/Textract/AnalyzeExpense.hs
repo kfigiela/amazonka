@@ -87,7 +87,7 @@ instance Core.AWSRequest AnalyzeExpense where
   type
     AWSResponse AnalyzeExpense =
       AnalyzeExpenseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest AnalyzeExpense where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AnalyzeExpense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AnalyzeExpense where
   hashWithSalt _salt AnalyzeExpense' {..} =

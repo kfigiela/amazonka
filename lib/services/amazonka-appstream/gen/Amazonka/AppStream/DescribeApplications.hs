@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeApplications where
   type
     AWSResponse DescribeApplications =
       DescribeApplicationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribeApplications where
             Prelude.<*> (x Core..?> "Applications" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeApplications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeApplications where
   hashWithSalt _salt DescribeApplications' {..} =

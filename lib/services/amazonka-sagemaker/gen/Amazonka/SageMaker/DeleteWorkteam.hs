@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteWorkteam where
   type
     AWSResponse DeleteWorkteam =
       DeleteWorkteamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteWorkteam where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Success")
       )
+
+instance Core.AWSService DeleteWorkteam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkteam where
   hashWithSalt _salt DeleteWorkteam' {..} =

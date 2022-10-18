@@ -95,7 +95,7 @@ instance Core.AWSRequest GetObjectMetadata where
   type
     AWSResponse GetObjectMetadata =
       GetObjectMetadataResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetObjectMetadata where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetObjectMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectMetadata where
   hashWithSalt _salt GetObjectMetadata' {..} =

@@ -166,7 +166,7 @@ instance Core.AWSRequest ListAssessmentTemplates where
   type
     AWSResponse ListAssessmentTemplates =
       ListAssessmentTemplatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest ListAssessmentTemplates where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAssessmentTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssessmentTemplates where
   hashWithSalt _salt ListAssessmentTemplates' {..} =

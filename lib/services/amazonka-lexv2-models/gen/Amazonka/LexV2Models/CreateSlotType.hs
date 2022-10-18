@@ -269,7 +269,7 @@ instance Core.AWSRequest CreateSlotType where
   type
     AWSResponse CreateSlotType =
       CreateSlotTypeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -288,6 +288,9 @@ instance Core.AWSRequest CreateSlotType where
             Prelude.<*> (x Core..?> "parentSlotTypeSignature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSlotType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSlotType where
   hashWithSalt _salt CreateSlotType' {..} =

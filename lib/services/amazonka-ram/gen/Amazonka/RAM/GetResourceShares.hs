@@ -256,7 +256,7 @@ instance Core.AWSRequest GetResourceShares where
   type
     AWSResponse GetResourceShares =
       GetResourceSharesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -265,6 +265,9 @@ instance Core.AWSRequest GetResourceShares where
             Prelude.<*> (x Core..?> "resourceShares" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceShares where
   hashWithSalt _salt GetResourceShares' {..} =

@@ -113,13 +113,16 @@ instance Core.AWSRequest DeleteNotification where
   type
     AWSResponse DeleteNotification =
       DeleteNotificationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNotificationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNotification where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNotification where
   hashWithSalt _salt DeleteNotification' {..} =

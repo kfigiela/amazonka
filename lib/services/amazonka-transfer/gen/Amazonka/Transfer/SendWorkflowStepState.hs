@@ -125,13 +125,16 @@ instance Core.AWSRequest SendWorkflowStepState where
   type
     AWSResponse SendWorkflowStepState =
       SendWorkflowStepStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendWorkflowStepStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendWorkflowStepState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendWorkflowStepState where
   hashWithSalt _salt SendWorkflowStepState' {..} =

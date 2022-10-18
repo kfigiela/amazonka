@@ -354,7 +354,7 @@ updateAccess_externalId = Lens.lens (\UpdateAccess' {externalId} -> externalId) 
 
 instance Core.AWSRequest UpdateAccess where
   type AWSResponse UpdateAccess = UpdateAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -363,6 +363,9 @@ instance Core.AWSRequest UpdateAccess where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..:> "ExternalId")
       )
+
+instance Core.AWSService UpdateAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccess where
   hashWithSalt _salt UpdateAccess' {..} =

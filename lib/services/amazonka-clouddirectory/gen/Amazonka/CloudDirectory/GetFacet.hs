@@ -91,7 +91,7 @@ getFacet_name = Lens.lens (\GetFacet' {name} -> name) (\s@GetFacet' {} a -> s {n
 
 instance Core.AWSRequest GetFacet where
   type AWSResponse GetFacet = GetFacetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetFacet where
             Prelude.<$> (x Core..?> "Facet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFacet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFacet where
   hashWithSalt _salt GetFacet' {..} =

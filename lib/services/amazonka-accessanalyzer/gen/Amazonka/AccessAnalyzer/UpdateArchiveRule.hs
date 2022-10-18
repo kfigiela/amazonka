@@ -112,9 +112,12 @@ instance Core.AWSRequest UpdateArchiveRule where
   type
     AWSResponse UpdateArchiveRule =
       UpdateArchiveRuleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateArchiveRuleResponse'
+
+instance Core.AWSService UpdateArchiveRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateArchiveRule where
   hashWithSalt _salt UpdateArchiveRule' {..} =

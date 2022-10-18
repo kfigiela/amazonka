@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeRefreshSchemasStatus where
   type
     AWSResponse DescribeRefreshSchemasStatus =
       DescribeRefreshSchemasStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribeRefreshSchemasStatus where
             Prelude.<$> (x Core..?> "RefreshSchemasStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRefreshSchemasStatus where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

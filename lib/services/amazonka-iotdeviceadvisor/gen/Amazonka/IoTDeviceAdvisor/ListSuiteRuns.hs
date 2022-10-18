@@ -120,7 +120,7 @@ instance Core.AWSRequest ListSuiteRuns where
   type
     AWSResponse ListSuiteRuns =
       ListSuiteRunsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListSuiteRuns where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSuiteRuns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSuiteRuns where
   hashWithSalt _salt ListSuiteRuns' {..} =

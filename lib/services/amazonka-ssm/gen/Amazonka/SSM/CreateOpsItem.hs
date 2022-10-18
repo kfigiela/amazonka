@@ -380,7 +380,7 @@ instance Core.AWSRequest CreateOpsItem where
   type
     AWSResponse CreateOpsItem =
       CreateOpsItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -388,6 +388,9 @@ instance Core.AWSRequest CreateOpsItem where
             Prelude.<$> (x Core..?> "OpsItemId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOpsItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOpsItem where
   hashWithSalt _salt CreateOpsItem' {..} =

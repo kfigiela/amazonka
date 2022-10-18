@@ -88,7 +88,7 @@ cancelJob_jobId = Lens.lens (\CancelJob' {jobId} -> jobId) (\s@CancelJob' {} a -
 
 instance Core.AWSRequest CancelJob where
   type AWSResponse CancelJob = CancelJobResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CancelJobResult"
@@ -97,6 +97,9 @@ instance Core.AWSRequest CancelJob where
             Prelude.<$> (x Core..@? "Success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =

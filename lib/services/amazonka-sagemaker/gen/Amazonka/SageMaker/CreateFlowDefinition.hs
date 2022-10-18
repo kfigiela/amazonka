@@ -176,7 +176,7 @@ instance Core.AWSRequest CreateFlowDefinition where
   type
     AWSResponse CreateFlowDefinition =
       CreateFlowDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest CreateFlowDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "FlowDefinitionArn")
       )
+
+instance Core.AWSService CreateFlowDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFlowDefinition where
   hashWithSalt _salt CreateFlowDefinition' {..} =

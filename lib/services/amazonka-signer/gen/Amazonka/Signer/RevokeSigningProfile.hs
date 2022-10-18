@@ -124,9 +124,12 @@ instance Core.AWSRequest RevokeSigningProfile where
   type
     AWSResponse RevokeSigningProfile =
       RevokeSigningProfileResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull RevokeSigningProfileResponse'
+
+instance Core.AWSService RevokeSigningProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeSigningProfile where
   hashWithSalt _salt RevokeSigningProfile' {..} =

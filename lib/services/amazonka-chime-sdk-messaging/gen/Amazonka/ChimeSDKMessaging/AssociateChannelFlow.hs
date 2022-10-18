@@ -109,9 +109,12 @@ instance Core.AWSRequest AssociateChannelFlow where
   type
     AWSResponse AssociateChannelFlow =
       AssociateChannelFlowResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull AssociateChannelFlowResponse'
+
+instance Core.AWSService AssociateChannelFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateChannelFlow where
   hashWithSalt _salt AssociateChannelFlow' {..} =

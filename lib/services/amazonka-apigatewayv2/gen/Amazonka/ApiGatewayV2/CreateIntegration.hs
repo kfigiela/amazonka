@@ -612,7 +612,7 @@ instance Core.AWSRequest CreateIntegration where
   type
     AWSResponse CreateIntegration =
       CreateIntegrationResponse'
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -645,6 +645,9 @@ instance Core.AWSRequest CreateIntegration where
             Prelude.<*> (x Core..?> "integrationSubtype")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIntegration where
   hashWithSalt _salt CreateIntegration' {..} =

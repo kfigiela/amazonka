@@ -169,7 +169,7 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
   type
     AWSResponse DescribeManagedRuleGroup =
       DescribeManagedRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest DescribeManagedRuleGroup where
             Prelude.<*> (x Core..?> "Capacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeManagedRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeManagedRuleGroup where
   hashWithSalt _salt DescribeManagedRuleGroup' {..} =

@@ -882,9 +882,12 @@ instance Core.AWSRequest PutMetricAlarm where
   type
     AWSResponse PutMetricAlarm =
       PutMetricAlarmResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutMetricAlarmResponse'
+
+instance Core.AWSService PutMetricAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMetricAlarm where
   hashWithSalt _salt PutMetricAlarm' {..} =

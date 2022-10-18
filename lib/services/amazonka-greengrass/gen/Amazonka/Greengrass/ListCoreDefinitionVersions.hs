@@ -128,7 +128,7 @@ instance Core.AWSRequest ListCoreDefinitionVersions where
   type
     AWSResponse ListCoreDefinitionVersions =
       ListCoreDefinitionVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListCoreDefinitionVersions where
             Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCoreDefinitionVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCoreDefinitionVersions where
   hashWithSalt _salt ListCoreDefinitionVersions' {..} =

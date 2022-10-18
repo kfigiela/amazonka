@@ -218,7 +218,7 @@ instance Core.AWSRequest StartModelPackagingJob where
   type
     AWSResponse StartModelPackagingJob =
       StartModelPackagingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest StartModelPackagingJob where
             Prelude.<$> (x Core..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartModelPackagingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartModelPackagingJob where
   hashWithSalt _salt StartModelPackagingJob' {..} =

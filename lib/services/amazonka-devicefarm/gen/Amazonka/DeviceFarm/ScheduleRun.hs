@@ -169,7 +169,7 @@ scheduleRun_test = Lens.lens (\ScheduleRun' {test} -> test) (\s@ScheduleRun' {} 
 
 instance Core.AWSRequest ScheduleRun where
   type AWSResponse ScheduleRun = ScheduleRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest ScheduleRun where
             Prelude.<$> (x Core..?> "run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ScheduleRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ScheduleRun where
   hashWithSalt _salt ScheduleRun' {..} =

@@ -87,13 +87,16 @@ instance Core.AWSRequest RestoreFromSnapshot where
   type
     AWSResponse RestoreFromSnapshot =
       RestoreFromSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RestoreFromSnapshotResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreFromSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreFromSnapshot where
   hashWithSalt _salt RestoreFromSnapshot' {..} =

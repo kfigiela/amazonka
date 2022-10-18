@@ -241,7 +241,7 @@ instance Core.AWSRequest CreateAccelerator where
   type
     AWSResponse CreateAccelerator =
       CreateAcceleratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -249,6 +249,9 @@ instance Core.AWSRequest CreateAccelerator where
             Prelude.<$> (x Core..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAccelerator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccelerator where
   hashWithSalt _salt CreateAccelerator' {..} =

@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteUserSettings where
   type
     AWSResponse DeleteUserSettings =
       DeleteUserSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserSettings where
   hashWithSalt _salt DeleteUserSettings' {..} =

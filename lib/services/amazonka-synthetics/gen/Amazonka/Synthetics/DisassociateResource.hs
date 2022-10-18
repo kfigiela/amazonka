@@ -97,13 +97,16 @@ instance Core.AWSRequest DisassociateResource where
   type
     AWSResponse DisassociateResource =
       DisassociateResourceResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateResource where
   hashWithSalt _salt DisassociateResource' {..} =

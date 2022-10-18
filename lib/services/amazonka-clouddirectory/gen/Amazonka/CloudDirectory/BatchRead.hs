@@ -106,7 +106,7 @@ batchRead_operations = Lens.lens (\BatchRead' {operations} -> operations) (\s@Ba
 
 instance Core.AWSRequest BatchRead where
   type AWSResponse BatchRead = BatchReadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest BatchRead where
             Prelude.<$> (x Core..?> "Responses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchRead where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchRead where
   hashWithSalt _salt BatchRead' {..} =

@@ -125,7 +125,7 @@ instance Core.AWSRequest GetCertificate where
   type
     AWSResponse GetCertificate =
       GetCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest GetCertificate where
             Prelude.<*> (x Core..?> "CertificateChain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCertificate where
   hashWithSalt _salt GetCertificate' {..} =

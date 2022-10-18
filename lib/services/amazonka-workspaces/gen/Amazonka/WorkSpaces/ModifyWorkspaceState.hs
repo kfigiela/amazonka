@@ -98,13 +98,16 @@ instance Core.AWSRequest ModifyWorkspaceState where
   type
     AWSResponse ModifyWorkspaceState =
       ModifyWorkspaceStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyWorkspaceStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyWorkspaceState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyWorkspaceState where
   hashWithSalt _salt ModifyWorkspaceState' {..} =

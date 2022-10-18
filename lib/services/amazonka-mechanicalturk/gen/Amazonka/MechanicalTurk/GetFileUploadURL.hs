@@ -109,7 +109,7 @@ instance Core.AWSRequest GetFileUploadURL where
   type
     AWSResponse GetFileUploadURL =
       GetFileUploadURLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetFileUploadURL where
             Prelude.<$> (x Core..?> "FileUploadURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFileUploadURL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFileUploadURL where
   hashWithSalt _salt GetFileUploadURL' {..} =

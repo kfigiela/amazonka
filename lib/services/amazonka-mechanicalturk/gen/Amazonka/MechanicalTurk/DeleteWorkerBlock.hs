@@ -96,13 +96,16 @@ instance Core.AWSRequest DeleteWorkerBlock where
   type
     AWSResponse DeleteWorkerBlock =
       DeleteWorkerBlockResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkerBlockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkerBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkerBlock where
   hashWithSalt _salt DeleteWorkerBlock' {..} =

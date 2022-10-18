@@ -94,7 +94,7 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
   type
     AWSResponse BatchDeleteScheduledAction =
       BatchDeleteScheduledActionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchDeleteScheduledActionResult"
@@ -106,6 +106,9 @@ instance Core.AWSRequest BatchDeleteScheduledAction where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteScheduledAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteScheduledAction where
   hashWithSalt _salt BatchDeleteScheduledAction' {..} =

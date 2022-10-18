@@ -494,7 +494,7 @@ instance Core.AWSRequest AdminInitiateAuth where
   type
     AWSResponse AdminInitiateAuth =
       AdminInitiateAuthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -507,6 +507,9 @@ instance Core.AWSRequest AdminInitiateAuth where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminInitiateAuth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminInitiateAuth where
   hashWithSalt _salt AdminInitiateAuth' {..} =

@@ -180,7 +180,7 @@ instance Core.AWSRequest DescribeDBParameterGroups where
   type
     AWSResponse DescribeDBParameterGroups =
       DescribeDBParameterGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBParameterGroupsResult"
@@ -193,6 +193,9 @@ instance Core.AWSRequest DescribeDBParameterGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBParameterGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBParameterGroups where
   hashWithSalt _salt DescribeDBParameterGroups' {..} =

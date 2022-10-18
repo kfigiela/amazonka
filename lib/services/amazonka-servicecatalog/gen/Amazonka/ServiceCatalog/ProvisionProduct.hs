@@ -261,7 +261,7 @@ instance Core.AWSRequest ProvisionProduct where
   type
     AWSResponse ProvisionProduct =
       ProvisionProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -269,6 +269,9 @@ instance Core.AWSRequest ProvisionProduct where
             Prelude.<$> (x Core..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ProvisionProduct where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ProvisionProduct where
   hashWithSalt _salt ProvisionProduct' {..} =

@@ -129,13 +129,16 @@ instance Core.AWSRequest AdminSetUserPassword where
   type
     AWSResponse AdminSetUserPassword =
       AdminSetUserPasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminSetUserPasswordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminSetUserPassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminSetUserPassword where
   hashWithSalt _salt AdminSetUserPassword' {..} =

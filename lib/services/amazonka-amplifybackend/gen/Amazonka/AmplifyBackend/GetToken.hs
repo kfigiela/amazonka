@@ -89,7 +89,7 @@ getToken_appId = Lens.lens (\GetToken' {appId} -> appId) (\s@GetToken' {} a -> s
 
 instance Core.AWSRequest GetToken where
   type AWSResponse GetToken = GetTokenResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetToken where
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetToken where
   hashWithSalt _salt GetToken' {..} =

@@ -208,7 +208,7 @@ instance
     AWSResponse
       DescribeOrganizationResourceCollectionHealth =
       DescribeOrganizationResourceCollectionHealthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -220,6 +220,12 @@ instance
               Prelude.<*> (x Core..?> "CloudFormation" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeOrganizationResourceCollectionHealth
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

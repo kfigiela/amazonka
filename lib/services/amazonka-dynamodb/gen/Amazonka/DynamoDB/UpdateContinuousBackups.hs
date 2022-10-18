@@ -106,7 +106,7 @@ instance Core.AWSRequest UpdateContinuousBackups where
   type
     AWSResponse UpdateContinuousBackups =
       UpdateContinuousBackupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest UpdateContinuousBackups where
             Prelude.<$> (x Core..?> "ContinuousBackupsDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContinuousBackups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContinuousBackups where
   hashWithSalt _salt UpdateContinuousBackups' {..} =

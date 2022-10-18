@@ -107,7 +107,7 @@ instance Core.AWSPager GetDisks where
 
 instance Core.AWSRequest GetDisks where
   type AWSResponse GetDisks = GetDisksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest GetDisks where
             Prelude.<*> (x Core..?> "disks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDisks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDisks where
   hashWithSalt _salt GetDisks' {..} =

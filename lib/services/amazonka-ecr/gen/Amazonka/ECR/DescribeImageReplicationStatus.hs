@@ -111,7 +111,7 @@ instance
   type
     AWSResponse DescribeImageReplicationStatus =
       DescribeImageReplicationStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,12 @@ instance
             Prelude.<*> (x Core..?> "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeImageReplicationStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

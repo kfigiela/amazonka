@@ -181,7 +181,7 @@ instance Core.AWSRequest AssociateSubnets where
   type
     AWSResponse AssociateSubnets =
       AssociateSubnetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest AssociateSubnets where
             Prelude.<*> (x Core..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateSubnets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateSubnets where
   hashWithSalt _salt AssociateSubnets' {..} =

@@ -176,7 +176,7 @@ instance Core.AWSRequest DescribeDBSecurityGroups where
   type
     AWSResponse DescribeDBSecurityGroups =
       DescribeDBSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBSecurityGroupsResult"
@@ -189,6 +189,9 @@ instance Core.AWSRequest DescribeDBSecurityGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBSecurityGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBSecurityGroups where
   hashWithSalt _salt DescribeDBSecurityGroups' {..} =

@@ -143,7 +143,7 @@ instance Core.AWSRequest CreatePublicDnsNamespace where
   type
     AWSResponse CreatePublicDnsNamespace =
       CreatePublicDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest CreatePublicDnsNamespace where
             Prelude.<$> (x Core..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePublicDnsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePublicDnsNamespace where
   hashWithSalt _salt CreatePublicDnsNamespace' {..} =

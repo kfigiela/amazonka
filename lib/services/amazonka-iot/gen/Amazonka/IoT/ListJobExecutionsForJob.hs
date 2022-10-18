@@ -139,7 +139,7 @@ instance Core.AWSRequest ListJobExecutionsForJob where
   type
     AWSResponse ListJobExecutionsForJob =
       ListJobExecutionsForJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListJobExecutionsForJob where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListJobExecutionsForJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListJobExecutionsForJob where
   hashWithSalt _salt ListJobExecutionsForJob' {..} =

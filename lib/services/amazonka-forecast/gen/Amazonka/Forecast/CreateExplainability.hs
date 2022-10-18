@@ -346,7 +346,7 @@ instance Core.AWSRequest CreateExplainability where
   type
     AWSResponse CreateExplainability =
       CreateExplainabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -354,6 +354,9 @@ instance Core.AWSRequest CreateExplainability where
             Prelude.<$> (x Core..?> "ExplainabilityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateExplainability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExplainability where
   hashWithSalt _salt CreateExplainability' {..} =

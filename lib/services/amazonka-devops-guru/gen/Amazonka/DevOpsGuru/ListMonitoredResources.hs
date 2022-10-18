@@ -137,7 +137,7 @@ instance Core.AWSRequest ListMonitoredResources where
   type
     AWSResponse ListMonitoredResources =
       ListMonitoredResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest ListMonitoredResources where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListMonitoredResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMonitoredResources where
   hashWithSalt _salt ListMonitoredResources' {..} =

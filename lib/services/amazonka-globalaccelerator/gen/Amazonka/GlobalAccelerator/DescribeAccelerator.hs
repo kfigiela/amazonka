@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeAccelerator where
   type
     AWSResponse DescribeAccelerator =
       DescribeAcceleratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeAccelerator where
             Prelude.<$> (x Core..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccelerator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccelerator where
   hashWithSalt _salt DescribeAccelerator' {..} =

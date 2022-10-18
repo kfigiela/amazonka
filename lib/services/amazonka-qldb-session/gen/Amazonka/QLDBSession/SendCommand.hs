@@ -184,7 +184,7 @@ sendCommand_fetchPage = Lens.lens (\SendCommand' {fetchPage} -> fetchPage) (\s@S
 
 instance Core.AWSRequest SendCommand where
   type AWSResponse SendCommand = SendCommandResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest SendCommand where
             Prelude.<*> (x Core..?> "FetchPage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendCommand where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendCommand where
   hashWithSalt _salt SendCommand' {..} =

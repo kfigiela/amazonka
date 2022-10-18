@@ -126,7 +126,7 @@ instance Core.AWSRequest ListMobileSdkReleases where
   type
     AWSResponse ListMobileSdkReleases =
       ListMobileSdkReleasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListMobileSdkReleases where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMobileSdkReleases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMobileSdkReleases where
   hashWithSalt _salt ListMobileSdkReleases' {..} =

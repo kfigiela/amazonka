@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeLocationFsxLustre where
   type
     AWSResponse DescribeLocationFsxLustre =
       DescribeLocationFsxLustreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DescribeLocationFsxLustre where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocationFsxLustre where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocationFsxLustre where
   hashWithSalt _salt DescribeLocationFsxLustre' {..} =

@@ -189,7 +189,7 @@ instance Core.AWSRequest CreateLaunchTemplate where
   type
     AWSResponse CreateLaunchTemplate =
       CreateLaunchTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest CreateLaunchTemplate where
             Prelude.<*> (x Core..@? "warning")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLaunchTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLaunchTemplate where
   hashWithSalt _salt CreateLaunchTemplate' {..} =

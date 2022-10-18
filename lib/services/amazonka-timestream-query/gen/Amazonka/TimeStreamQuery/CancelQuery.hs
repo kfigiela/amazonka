@@ -84,7 +84,7 @@ cancelQuery_queryId = Lens.lens (\CancelQuery' {queryId} -> queryId) (\s@CancelQ
 
 instance Core.AWSRequest CancelQuery where
   type AWSResponse CancelQuery = CancelQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest CancelQuery where
             Prelude.<$> (x Core..?> "CancellationMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelQuery where
   hashWithSalt _salt CancelQuery' {..} =

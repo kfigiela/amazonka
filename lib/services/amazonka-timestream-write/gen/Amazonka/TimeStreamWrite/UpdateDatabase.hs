@@ -140,7 +140,7 @@ instance Core.AWSRequest UpdateDatabase where
   type
     AWSResponse UpdateDatabase =
       UpdateDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest UpdateDatabase where
             Prelude.<$> (x Core..?> "Database")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDatabase where
   hashWithSalt _salt UpdateDatabase' {..} =

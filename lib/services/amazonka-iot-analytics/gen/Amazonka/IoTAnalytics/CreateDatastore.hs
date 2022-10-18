@@ -158,7 +158,7 @@ instance Core.AWSRequest CreateDatastore where
   type
     AWSResponse CreateDatastore =
       CreateDatastoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest CreateDatastore where
             Prelude.<*> (x Core..?> "retentionPeriod")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDatastore where
   hashWithSalt _salt CreateDatastore' {..} =

@@ -77,7 +77,7 @@ instance Core.AWSRequest GetTransitGatewayPeering where
   type
     AWSResponse GetTransitGatewayPeering =
       GetTransitGatewayPeeringResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetTransitGatewayPeering where
             Prelude.<$> (x Core..?> "TransitGatewayPeering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTransitGatewayPeering where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTransitGatewayPeering where
   hashWithSalt _salt GetTransitGatewayPeering' {..} =

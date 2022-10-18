@@ -124,7 +124,7 @@ instance Core.AWSRequest DeleteSchemaVersions where
   type
     AWSResponse DeleteSchemaVersions =
       DeleteSchemaVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest DeleteSchemaVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSchemaVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSchemaVersions where
   hashWithSalt _salt DeleteSchemaVersions' {..} =

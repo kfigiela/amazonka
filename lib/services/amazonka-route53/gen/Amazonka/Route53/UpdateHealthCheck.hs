@@ -979,7 +979,7 @@ instance Core.AWSRequest UpdateHealthCheck where
   type
     AWSResponse UpdateHealthCheck =
       UpdateHealthCheckResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -987,6 +987,9 @@ instance Core.AWSRequest UpdateHealthCheck where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "HealthCheck")
       )
+
+instance Core.AWSService UpdateHealthCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHealthCheck where
   hashWithSalt _salt UpdateHealthCheck' {..} =

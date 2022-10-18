@@ -165,7 +165,7 @@ instance Core.AWSRequest CreateAccountCustomization where
   type
     AWSResponse CreateAccountCustomization =
       CreateAccountCustomizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest CreateAccountCustomization where
             Prelude.<*> (x Core..?> "AccountCustomization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAccountCustomization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccountCustomization where
   hashWithSalt _salt CreateAccountCustomization' {..} =

@@ -187,7 +187,7 @@ instance Core.AWSRequest CreateInstanceProfile where
   type
     AWSResponse CreateInstanceProfile =
       CreateInstanceProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateInstanceProfileResult"
@@ -196,6 +196,9 @@ instance Core.AWSRequest CreateInstanceProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "InstanceProfile")
       )
+
+instance Core.AWSService CreateInstanceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInstanceProfile where
   hashWithSalt _salt CreateInstanceProfile' {..} =

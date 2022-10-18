@@ -144,7 +144,7 @@ instance Core.AWSRequest ConfigureAccessPoint where
   type
     AWSResponse ConfigureAccessPoint =
       ConfigureAccessPointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ConfigureAccessPoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "accessPoint")
       )
+
+instance Core.AWSService ConfigureAccessPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfigureAccessPoint where
   hashWithSalt _salt ConfigureAccessPoint' {..} =

@@ -99,7 +99,7 @@ applySchema_directoryArn = Lens.lens (\ApplySchema' {directoryArn} -> directoryA
 
 instance Core.AWSRequest ApplySchema where
   type AWSResponse ApplySchema = ApplySchemaResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ApplySchema where
             Prelude.<*> (x Core..?> "AppliedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ApplySchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ApplySchema where
   hashWithSalt _salt ApplySchema' {..} =

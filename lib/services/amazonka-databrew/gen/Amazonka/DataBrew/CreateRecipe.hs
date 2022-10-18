@@ -116,7 +116,7 @@ createRecipe_steps = Lens.lens (\CreateRecipe' {steps} -> steps) (\s@CreateRecip
 
 instance Core.AWSRequest CreateRecipe where
   type AWSResponse CreateRecipe = CreateRecipeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest CreateRecipe where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService CreateRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRecipe where
   hashWithSalt _salt CreateRecipe' {..} =

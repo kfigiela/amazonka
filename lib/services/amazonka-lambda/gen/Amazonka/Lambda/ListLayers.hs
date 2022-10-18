@@ -138,7 +138,7 @@ instance Core.AWSPager ListLayers where
 
 instance Core.AWSRequest ListLayers where
   type AWSResponse ListLayers = ListLayersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListLayers where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLayers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLayers where
   hashWithSalt _salt ListLayers' {..} =

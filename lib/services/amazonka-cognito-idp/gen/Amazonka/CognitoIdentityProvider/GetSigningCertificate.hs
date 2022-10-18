@@ -79,7 +79,7 @@ instance Core.AWSRequest GetSigningCertificate where
   type
     AWSResponse GetSigningCertificate =
       GetSigningCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetSigningCertificate where
             Prelude.<$> (x Core..?> "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSigningCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSigningCertificate where
   hashWithSalt _salt GetSigningCertificate' {..} =

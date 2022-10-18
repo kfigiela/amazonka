@@ -109,7 +109,7 @@ instance
   type
     AWSResponse ListApplicationInstanceNodeInstances =
       ListApplicationInstanceNodeInstancesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,12 @@ instance
               Prelude.<*> (x Core..?> "NodeInstances" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListApplicationInstanceNodeInstances
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

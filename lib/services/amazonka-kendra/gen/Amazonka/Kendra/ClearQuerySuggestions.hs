@@ -82,9 +82,12 @@ instance Core.AWSRequest ClearQuerySuggestions where
   type
     AWSResponse ClearQuerySuggestions =
       ClearQuerySuggestionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ClearQuerySuggestionsResponse'
+
+instance Core.AWSService ClearQuerySuggestions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClearQuerySuggestions where
   hashWithSalt _salt ClearQuerySuggestions' {..} =

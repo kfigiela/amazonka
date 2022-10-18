@@ -146,7 +146,7 @@ updateSchema_schemaId = Lens.lens (\UpdateSchema' {schemaId} -> schemaId) (\s@Up
 
 instance Core.AWSRequest UpdateSchema where
   type AWSResponse UpdateSchema = UpdateSchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdateSchema where
             Prelude.<*> (x Core..?> "SchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSchema where
   hashWithSalt _salt UpdateSchema' {..} =

@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteAttributeGroup where
   type
     AWSResponse DeleteAttributeGroup =
       DeleteAttributeGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteAttributeGroup where
             Prelude.<$> (x Core..?> "attributeGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAttributeGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAttributeGroup where
   hashWithSalt _salt DeleteAttributeGroup' {..} =

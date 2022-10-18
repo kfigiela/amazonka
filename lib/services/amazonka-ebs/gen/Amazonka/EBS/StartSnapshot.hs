@@ -376,7 +376,7 @@ instance Core.AWSRequest StartSnapshot where
   type
     AWSResponse StartSnapshot =
       StartSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -393,6 +393,9 @@ instance Core.AWSRequest StartSnapshot where
             Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSnapshot where
   hashWithSalt _salt StartSnapshot' {..} =

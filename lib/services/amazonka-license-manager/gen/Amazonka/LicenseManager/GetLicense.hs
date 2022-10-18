@@ -87,7 +87,7 @@ getLicense_licenseArn = Lens.lens (\GetLicense' {licenseArn} -> licenseArn) (\s@
 
 instance Core.AWSRequest GetLicense where
   type AWSResponse GetLicense = GetLicenseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetLicense where
             Prelude.<$> (x Core..?> "License")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLicense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLicense where
   hashWithSalt _salt GetLicense' {..} =

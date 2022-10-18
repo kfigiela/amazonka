@@ -141,7 +141,7 @@ instance Core.AWSRequest ListTargetsByRule where
   type
     AWSResponse ListTargetsByRule =
       ListTargetsByRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListTargetsByRule where
             Prelude.<*> (x Core..?> "Targets")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTargetsByRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTargetsByRule where
   hashWithSalt _salt ListTargetsByRule' {..} =

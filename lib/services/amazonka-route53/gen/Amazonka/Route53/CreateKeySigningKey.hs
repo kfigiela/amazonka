@@ -244,7 +244,7 @@ instance Core.AWSRequest CreateKeySigningKey where
   type
     AWSResponse CreateKeySigningKey =
       CreateKeySigningKeyResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -254,6 +254,9 @@ instance Core.AWSRequest CreateKeySigningKey where
             Prelude.<*> (x Core..@ "KeySigningKey")
             Prelude.<*> (h Core..# "Location")
       )
+
+instance Core.AWSService CreateKeySigningKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateKeySigningKey where
   hashWithSalt _salt CreateKeySigningKey' {..} =

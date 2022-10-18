@@ -109,7 +109,7 @@ instance Core.AWSRequest RollbackApplication where
   type
     AWSResponse RollbackApplication =
       RollbackApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest RollbackApplication where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ApplicationDetail")
       )
+
+instance Core.AWSService RollbackApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RollbackApplication where
   hashWithSalt _salt RollbackApplication' {..} =

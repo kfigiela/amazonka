@@ -92,7 +92,7 @@ getCommit_commitId = Lens.lens (\GetCommit' {commitId} -> commitId) (\s@GetCommi
 
 instance Core.AWSRequest GetCommit where
   type AWSResponse GetCommit = GetCommitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetCommit where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "commit")
       )
+
+instance Core.AWSService GetCommit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCommit where
   hashWithSalt _salt GetCommit' {..} =

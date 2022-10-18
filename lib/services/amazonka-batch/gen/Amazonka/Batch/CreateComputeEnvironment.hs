@@ -425,7 +425,7 @@ instance Core.AWSRequest CreateComputeEnvironment where
   type
     AWSResponse CreateComputeEnvironment =
       CreateComputeEnvironmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -434,6 +434,9 @@ instance Core.AWSRequest CreateComputeEnvironment where
             Prelude.<*> (x Core..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateComputeEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateComputeEnvironment where
   hashWithSalt _salt CreateComputeEnvironment' {..} =

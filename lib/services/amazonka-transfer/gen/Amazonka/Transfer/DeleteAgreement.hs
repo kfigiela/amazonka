@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteAgreement where
   type
     AWSResponse DeleteAgreement =
       DeleteAgreementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAgreementResponse'
+
+instance Core.AWSService DeleteAgreement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAgreement where
   hashWithSalt _salt DeleteAgreement' {..} =

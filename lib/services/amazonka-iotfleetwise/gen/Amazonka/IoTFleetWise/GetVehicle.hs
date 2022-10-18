@@ -81,7 +81,7 @@ getVehicle_vehicleName = Lens.lens (\GetVehicle' {vehicleName} -> vehicleName) (
 
 instance Core.AWSRequest GetVehicle where
   type AWSResponse GetVehicle = GetVehicleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetVehicle where
             Prelude.<*> (x Core..?> "decoderManifestArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVehicle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVehicle where
   hashWithSalt _salt GetVehicle' {..} =

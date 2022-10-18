@@ -210,6 +210,7 @@ defaultService =
         "application-autoscaling",
       Core._serviceSigningName = "application-autoscaling",
       Core._serviceVersion = "2016-02-06",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

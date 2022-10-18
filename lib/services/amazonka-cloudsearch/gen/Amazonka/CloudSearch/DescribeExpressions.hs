@@ -118,7 +118,7 @@ instance Core.AWSRequest DescribeExpressions where
   type
     AWSResponse DescribeExpressions =
       DescribeExpressionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeExpressionsResult"
@@ -129,6 +129,9 @@ instance Core.AWSRequest DescribeExpressions where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeExpressions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExpressions where
   hashWithSalt _salt DescribeExpressions' {..} =

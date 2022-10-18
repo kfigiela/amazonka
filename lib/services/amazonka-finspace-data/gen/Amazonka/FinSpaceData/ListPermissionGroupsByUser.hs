@@ -104,7 +104,7 @@ instance Core.AWSRequest ListPermissionGroupsByUser where
   type
     AWSResponse ListPermissionGroupsByUser =
       ListPermissionGroupsByUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest ListPermissionGroupsByUser where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPermissionGroupsByUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPermissionGroupsByUser where
   hashWithSalt _salt ListPermissionGroupsByUser' {..} =

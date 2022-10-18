@@ -162,7 +162,7 @@ instance Core.AWSRequest DeleteFileSystem where
   type
     AWSResponse DeleteFileSystem =
       DeleteFileSystemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest DeleteFileSystem where
             Prelude.<*> (x Core..?> "LustreResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFileSystem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =

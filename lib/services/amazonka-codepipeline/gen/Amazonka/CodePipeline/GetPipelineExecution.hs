@@ -101,7 +101,7 @@ instance Core.AWSRequest GetPipelineExecution where
   type
     AWSResponse GetPipelineExecution =
       GetPipelineExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetPipelineExecution where
             Prelude.<$> (x Core..?> "pipelineExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPipelineExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPipelineExecution where
   hashWithSalt _salt GetPipelineExecution' {..} =

@@ -62,7 +62,7 @@ instance Core.AWSRequest GetSupportedResourceTypes where
   type
     AWSResponse GetSupportedResourceTypes =
       GetSupportedResourceTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetSupportedResourceTypes where
             Prelude.<$> (x Core..?> "ResourceTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSupportedResourceTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSupportedResourceTypes where
   hashWithSalt _salt _ =

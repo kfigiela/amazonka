@@ -102,7 +102,7 @@ instance Core.AWSRequest DescribeMailboxExportJob where
   type
     AWSResponse DescribeMailboxExportJob =
       DescribeMailboxExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DescribeMailboxExportJob where
             Prelude.<*> (x Core..?> "EstimatedProgress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMailboxExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMailboxExportJob where
   hashWithSalt _salt DescribeMailboxExportJob' {..} =

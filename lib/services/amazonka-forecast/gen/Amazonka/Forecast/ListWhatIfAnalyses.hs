@@ -196,7 +196,7 @@ instance Core.AWSRequest ListWhatIfAnalyses where
   type
     AWSResponse ListWhatIfAnalyses =
       ListWhatIfAnalysesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,6 +205,9 @@ instance Core.AWSRequest ListWhatIfAnalyses where
             Prelude.<*> (x Core..?> "WhatIfAnalyses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWhatIfAnalyses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWhatIfAnalyses where
   hashWithSalt _salt ListWhatIfAnalyses' {..} =

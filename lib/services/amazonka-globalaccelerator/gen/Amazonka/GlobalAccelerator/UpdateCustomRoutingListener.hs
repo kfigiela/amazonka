@@ -109,7 +109,7 @@ instance Core.AWSRequest UpdateCustomRoutingListener where
   type
     AWSResponse UpdateCustomRoutingListener =
       UpdateCustomRoutingListenerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateCustomRoutingListener where
             Prelude.<$> (x Core..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCustomRoutingListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCustomRoutingListener where
   hashWithSalt _salt UpdateCustomRoutingListener' {..} =

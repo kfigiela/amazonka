@@ -230,7 +230,7 @@ instance Core.AWSRequest CreateLicenseVersion where
   type
     AWSResponse CreateLicenseVersion =
       CreateLicenseVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -240,6 +240,9 @@ instance Core.AWSRequest CreateLicenseVersion where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLicenseVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLicenseVersion where
   hashWithSalt _salt CreateLicenseVersion' {..} =

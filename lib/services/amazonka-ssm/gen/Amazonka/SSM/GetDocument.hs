@@ -129,7 +129,7 @@ getDocument_name = Lens.lens (\GetDocument' {name} -> name) (\s@GetDocument' {} 
 
 instance Core.AWSRequest GetDocument where
   type AWSResponse GetDocument = GetDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetDocument where
             Prelude.<*> (x Core..?> "DocumentVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocument where
   hashWithSalt _salt GetDocument' {..} =

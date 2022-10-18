@@ -82,7 +82,7 @@ instance Core.AWSRequest BatchGetCustomEntityTypes where
   type
     AWSResponse BatchGetCustomEntityTypes =
       BatchGetCustomEntityTypesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest BatchGetCustomEntityTypes where
             Prelude.<*> (x Core..?> "CustomEntityTypesNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetCustomEntityTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetCustomEntityTypes where
   hashWithSalt _salt BatchGetCustomEntityTypes' {..} =

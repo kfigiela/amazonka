@@ -188,7 +188,7 @@ copyProduct_idempotencyToken = Lens.lens (\CopyProduct' {idempotencyToken} -> id
 
 instance Core.AWSRequest CopyProduct where
   type AWSResponse CopyProduct = CopyProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest CopyProduct where
             Prelude.<$> (x Core..?> "CopyProductToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyProduct where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyProduct where
   hashWithSalt _salt CopyProduct' {..} =

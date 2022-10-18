@@ -102,7 +102,7 @@ listExports_maxResults = Lens.lens (\ListExports' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListExports where
   type AWSResponse ListExports = ListExportsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListExports where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExports where
   hashWithSalt _salt ListExports' {..} =

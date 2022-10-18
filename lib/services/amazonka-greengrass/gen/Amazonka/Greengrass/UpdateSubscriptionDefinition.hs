@@ -91,13 +91,16 @@ instance Core.AWSRequest UpdateSubscriptionDefinition where
   type
     AWSResponse UpdateSubscriptionDefinition =
       UpdateSubscriptionDefinitionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSubscriptionDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSubscriptionDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

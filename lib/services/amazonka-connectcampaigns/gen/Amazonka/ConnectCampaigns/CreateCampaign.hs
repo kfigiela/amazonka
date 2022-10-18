@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateCampaign where
   type
     AWSResponse CreateCampaign =
       CreateCampaignResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest CreateCampaign where
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCampaign where
   hashWithSalt _salt CreateCampaign' {..} =

@@ -74,13 +74,16 @@ instance Core.AWSRequest DeleteSkillGroup where
   type
     AWSResponse DeleteSkillGroup =
       DeleteSkillGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSkillGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSkillGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSkillGroup where
   hashWithSalt _salt DeleteSkillGroup' {..} =

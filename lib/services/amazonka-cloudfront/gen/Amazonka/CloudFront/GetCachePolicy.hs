@@ -99,7 +99,7 @@ instance Core.AWSRequest GetCachePolicy where
   type
     AWSResponse GetCachePolicy =
       GetCachePolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetCachePolicy where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCachePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCachePolicy where
   hashWithSalt _salt GetCachePolicy' {..} =

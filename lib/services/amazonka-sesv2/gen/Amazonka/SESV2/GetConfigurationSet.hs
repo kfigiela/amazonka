@@ -96,7 +96,7 @@ instance Core.AWSRequest GetConfigurationSet where
   type
     AWSResponse GetConfigurationSet =
       GetConfigurationSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetConfigurationSet where
             Prelude.<*> (x Core..?> "SendingOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConfigurationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConfigurationSet where
   hashWithSalt _salt GetConfigurationSet' {..} =

@@ -141,7 +141,7 @@ instance Core.AWSRequest UpdateAccountSettings where
   type
     AWSResponse UpdateAccountSettings =
       UpdateAccountSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest UpdateAccountSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "accountSettings")
       )
+
+instance Core.AWSService UpdateAccountSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccountSettings where
   hashWithSalt _salt UpdateAccountSettings' {..} =

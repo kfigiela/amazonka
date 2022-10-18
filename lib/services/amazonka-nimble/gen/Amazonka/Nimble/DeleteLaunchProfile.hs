@@ -110,7 +110,7 @@ instance Core.AWSRequest DeleteLaunchProfile where
   type
     AWSResponse DeleteLaunchProfile =
       DeleteLaunchProfileResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DeleteLaunchProfile where
             Prelude.<$> (x Core..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLaunchProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLaunchProfile where
   hashWithSalt _salt DeleteLaunchProfile' {..} =

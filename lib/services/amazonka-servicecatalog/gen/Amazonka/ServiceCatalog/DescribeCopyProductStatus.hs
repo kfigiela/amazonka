@@ -113,7 +113,7 @@ instance Core.AWSRequest DescribeCopyProductStatus where
   type
     AWSResponse DescribeCopyProductStatus =
       DescribeCopyProductStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeCopyProductStatus where
             Prelude.<*> (x Core..?> "CopyProductStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCopyProductStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCopyProductStatus where
   hashWithSalt _salt DescribeCopyProductStatus' {..} =

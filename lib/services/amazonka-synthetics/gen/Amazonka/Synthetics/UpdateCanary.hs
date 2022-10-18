@@ -325,13 +325,16 @@ updateCanary_name = Lens.lens (\UpdateCanary' {name} -> name) (\s@UpdateCanary' 
 
 instance Core.AWSRequest UpdateCanary where
   type AWSResponse UpdateCanary = UpdateCanaryResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateCanaryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCanary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCanary where
   hashWithSalt _salt UpdateCanary' {..} =

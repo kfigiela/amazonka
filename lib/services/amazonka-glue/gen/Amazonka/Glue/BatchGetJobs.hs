@@ -81,7 +81,7 @@ batchGetJobs_jobNames = Lens.lens (\BatchGetJobs' {jobNames} -> jobNames) (\s@Ba
 
 instance Core.AWSRequest BatchGetJobs where
   type AWSResponse BatchGetJobs = BatchGetJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest BatchGetJobs where
             Prelude.<*> (x Core..?> "JobsNotFound" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetJobs where
   hashWithSalt _salt BatchGetJobs' {..} =

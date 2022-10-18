@@ -418,10 +418,13 @@ putIntegration_type = Lens.lens (\PutIntegration' {type'} -> type') (\s@PutInteg
 
 instance Core.AWSRequest PutIntegration where
   type AWSResponse PutIntegration = Integration
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =

@@ -109,7 +109,7 @@ instance Core.AWSRequest DeleteRemediationExceptions where
   type
     AWSResponse DeleteRemediationExceptions =
       DeleteRemediationExceptionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DeleteRemediationExceptions where
             Prelude.<$> (x Core..?> "FailedBatches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRemediationExceptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRemediationExceptions where
   hashWithSalt _salt DeleteRemediationExceptions' {..} =

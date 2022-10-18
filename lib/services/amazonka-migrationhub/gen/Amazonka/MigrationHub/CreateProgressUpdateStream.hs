@@ -102,13 +102,16 @@ instance Core.AWSRequest CreateProgressUpdateStream where
   type
     AWSResponse CreateProgressUpdateStream =
       CreateProgressUpdateStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateProgressUpdateStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProgressUpdateStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProgressUpdateStream where
   hashWithSalt _salt CreateProgressUpdateStream' {..} =

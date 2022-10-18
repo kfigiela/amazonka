@@ -119,13 +119,16 @@ instance Core.AWSRequest DeleteProgressUpdateStream where
   type
     AWSResponse DeleteProgressUpdateStream =
       DeleteProgressUpdateStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProgressUpdateStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProgressUpdateStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProgressUpdateStream where
   hashWithSalt _salt DeleteProgressUpdateStream' {..} =

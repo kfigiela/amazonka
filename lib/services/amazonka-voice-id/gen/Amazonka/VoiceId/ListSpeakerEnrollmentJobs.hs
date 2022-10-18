@@ -152,7 +152,7 @@ instance Core.AWSRequest ListSpeakerEnrollmentJobs where
   type
     AWSResponse ListSpeakerEnrollmentJobs =
       ListSpeakerEnrollmentJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListSpeakerEnrollmentJobs where
             Prelude.<*> (x Core..?> "JobSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSpeakerEnrollmentJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSpeakerEnrollmentJobs where
   hashWithSalt _salt ListSpeakerEnrollmentJobs' {..} =

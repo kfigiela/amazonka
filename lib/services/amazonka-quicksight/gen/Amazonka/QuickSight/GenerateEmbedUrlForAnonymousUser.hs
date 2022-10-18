@@ -254,7 +254,7 @@ instance
   type
     AWSResponse GenerateEmbedUrlForAnonymousUser =
       GenerateEmbedUrlForAnonymousUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -263,6 +263,12 @@ instance
             Prelude.<*> (x Core..:> "EmbedUrl")
             Prelude.<*> (x Core..:> "RequestId")
       )
+
+instance
+  Core.AWSService
+    GenerateEmbedUrlForAnonymousUser
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

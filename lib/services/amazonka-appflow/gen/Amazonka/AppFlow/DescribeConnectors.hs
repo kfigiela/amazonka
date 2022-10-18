@@ -107,7 +107,7 @@ instance Core.AWSRequest DescribeConnectors where
   type
     AWSResponse DescribeConnectors =
       DescribeConnectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeConnectors where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConnectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConnectors where
   hashWithSalt _salt DescribeConnectors' {..} =

@@ -92,13 +92,16 @@ instance Core.AWSRequest UpdateServerConfig where
   type
     AWSResponse UpdateServerConfig =
       UpdateServerConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateServerConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateServerConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServerConfig where
   hashWithSalt _salt UpdateServerConfig' {..} =

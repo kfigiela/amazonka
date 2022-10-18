@@ -115,7 +115,7 @@ listLenses_lensStatus = Lens.lens (\ListLenses' {lensStatus} -> lensStatus) (\s@
 
 instance Core.AWSRequest ListLenses where
   type AWSResponse ListLenses = ListLensesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListLenses where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLenses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLenses where
   hashWithSalt _salt ListLenses' {..} =

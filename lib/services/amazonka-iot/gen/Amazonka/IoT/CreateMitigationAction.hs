@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateMitigationAction where
   type
     AWSResponse CreateMitigationAction =
       CreateMitigationActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateMitigationAction where
             Prelude.<*> (x Core..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMitigationAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMitigationAction where
   hashWithSalt _salt CreateMitigationAction' {..} =

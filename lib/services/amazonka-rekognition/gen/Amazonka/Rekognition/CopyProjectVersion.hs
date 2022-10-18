@@ -242,7 +242,7 @@ instance Core.AWSRequest CopyProjectVersion where
   type
     AWSResponse CopyProjectVersion =
       CopyProjectVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest CopyProjectVersion where
             Prelude.<$> (x Core..?> "ProjectVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyProjectVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyProjectVersion where
   hashWithSalt _salt CopyProjectVersion' {..} =

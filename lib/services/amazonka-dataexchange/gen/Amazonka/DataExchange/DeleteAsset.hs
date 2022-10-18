@@ -97,8 +97,11 @@ deleteAsset_revisionId = Lens.lens (\DeleteAsset' {revisionId} -> revisionId) (\
 
 instance Core.AWSRequest DeleteAsset where
   type AWSResponse DeleteAsset = DeleteAssetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteAssetResponse'
+
+instance Core.AWSService DeleteAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAsset where
   hashWithSalt _salt DeleteAsset' {..} =

@@ -101,7 +101,7 @@ instance
     AWSResponse
       DeleteConfigurationSetTrackingOptions =
       DeleteConfigurationSetTrackingOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteConfigurationSetTrackingOptionsResult"
@@ -109,6 +109,12 @@ instance
           DeleteConfigurationSetTrackingOptionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteConfigurationSetTrackingOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

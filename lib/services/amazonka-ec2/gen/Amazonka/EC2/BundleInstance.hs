@@ -145,7 +145,7 @@ instance Core.AWSRequest BundleInstance where
   type
     AWSResponse BundleInstance =
       BundleInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest BundleInstance where
             Prelude.<$> (x Core..@? "bundleInstanceTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BundleInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BundleInstance where
   hashWithSalt _salt BundleInstance' {..} =

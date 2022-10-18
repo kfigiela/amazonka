@@ -129,10 +129,13 @@ instance Core.AWSRequest CreateBasePathMapping where
   type
     AWSResponse CreateBasePathMapping =
       BasePathMapping
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateBasePathMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBasePathMapping where
   hashWithSalt _salt CreateBasePathMapping' {..} =

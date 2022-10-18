@@ -94,13 +94,16 @@ instance Core.AWSRequest ExecuteCoreNetworkChangeSet where
   type
     AWSResponse ExecuteCoreNetworkChangeSet =
       ExecuteCoreNetworkChangeSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ExecuteCoreNetworkChangeSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExecuteCoreNetworkChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecuteCoreNetworkChangeSet where
   hashWithSalt _salt ExecuteCoreNetworkChangeSet' {..} =

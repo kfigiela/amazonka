@@ -175,7 +175,7 @@ instance Core.AWSRequest ListExplainabilityExports where
   type
     AWSResponse ListExplainabilityExports =
       ListExplainabilityExportsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest ListExplainabilityExports where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExplainabilityExports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExplainabilityExports where
   hashWithSalt _salt ListExplainabilityExports' {..} =

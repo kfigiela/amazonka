@@ -101,7 +101,7 @@ deleteGrant_version = Lens.lens (\DeleteGrant' {version} -> version) (\s@DeleteG
 
 instance Core.AWSRequest DeleteGrant where
   type AWSResponse DeleteGrant = DeleteGrantResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DeleteGrant where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGrant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGrant where
   hashWithSalt _salt DeleteGrant' {..} =

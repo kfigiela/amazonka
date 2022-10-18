@@ -91,7 +91,7 @@ instance Core.AWSRequest ListMetricStreams where
   type
     AWSResponse ListMetricStreams =
       ListMetricStreamsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListMetricStreamsResult"
@@ -103,6 +103,9 @@ instance Core.AWSRequest ListMetricStreams where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMetricStreams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMetricStreams where
   hashWithSalt _salt ListMetricStreams' {..} =

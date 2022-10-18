@@ -108,7 +108,7 @@ instance Core.AWSRequest VerifySMSSandboxPhoneNumber where
   type
     AWSResponse VerifySMSSandboxPhoneNumber =
       VerifySMSSandboxPhoneNumberResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "VerifySMSSandboxPhoneNumberResult"
@@ -116,6 +116,9 @@ instance Core.AWSRequest VerifySMSSandboxPhoneNumber where
           VerifySMSSandboxPhoneNumberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService VerifySMSSandboxPhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifySMSSandboxPhoneNumber where
   hashWithSalt _salt VerifySMSSandboxPhoneNumber' {..} =

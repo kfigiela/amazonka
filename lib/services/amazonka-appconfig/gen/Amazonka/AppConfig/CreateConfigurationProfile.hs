@@ -256,10 +256,13 @@ instance Core.AWSRequest CreateConfigurationProfile where
   type
     AWSResponse CreateConfigurationProfile =
       ConfigurationProfile
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateConfigurationProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConfigurationProfile where
   hashWithSalt _salt CreateConfigurationProfile' {..} =

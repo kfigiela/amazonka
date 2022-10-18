@@ -98,7 +98,7 @@ instance Core.AWSRequest DescribeMigrationTask where
   type
     AWSResponse DescribeMigrationTask =
       DescribeMigrationTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeMigrationTask where
             Prelude.<$> (x Core..?> "MigrationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMigrationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMigrationTask where
   hashWithSalt _salt DescribeMigrationTask' {..} =

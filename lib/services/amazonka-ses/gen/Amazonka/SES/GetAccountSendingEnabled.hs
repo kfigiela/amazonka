@@ -65,7 +65,7 @@ instance Core.AWSRequest GetAccountSendingEnabled where
   type
     AWSResponse GetAccountSendingEnabled =
       GetAccountSendingEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccountSendingEnabledResult"
@@ -74,6 +74,9 @@ instance Core.AWSRequest GetAccountSendingEnabled where
             Prelude.<$> (x Core..@? "Enabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountSendingEnabled where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountSendingEnabled where
   hashWithSalt _salt _ =

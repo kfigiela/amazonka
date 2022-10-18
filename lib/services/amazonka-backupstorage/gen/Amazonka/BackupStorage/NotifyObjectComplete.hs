@@ -177,7 +177,7 @@ instance Core.AWSRequest NotifyObjectComplete where
   type
     AWSResponse NotifyObjectComplete =
       NotifyObjectCompleteResponse
-  request = Request.putBody defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest NotifyObjectComplete where
             Prelude.<*> (x Core..:> "ObjectChecksum")
             Prelude.<*> (x Core..:> "ObjectChecksumAlgorithm")
       )
+
+instance Core.AWSService NotifyObjectComplete where
+  service _proxy = defaultService
 
 instance Core.ToBody NotifyObjectComplete where
   toBody NotifyObjectComplete' {..} =

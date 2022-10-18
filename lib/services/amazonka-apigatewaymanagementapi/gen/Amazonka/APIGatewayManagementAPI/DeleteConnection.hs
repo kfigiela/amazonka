@@ -72,9 +72,12 @@ instance Core.AWSRequest DeleteConnection where
   type
     AWSResponse DeleteConnection =
       DeleteConnectionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteConnectionResponse'
+
+instance Core.AWSService DeleteConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnection where
   hashWithSalt _salt DeleteConnection' {..} =

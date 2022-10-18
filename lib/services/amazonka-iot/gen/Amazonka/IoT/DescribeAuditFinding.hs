@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeAuditFinding where
   type
     AWSResponse DescribeAuditFinding =
       DescribeAuditFindingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest DescribeAuditFinding where
             Prelude.<$> (x Core..?> "finding")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAuditFinding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAuditFinding where
   hashWithSalt _salt DescribeAuditFinding' {..} =

@@ -215,7 +215,7 @@ instance Core.AWSRequest CreateAgreement where
   type
     AWSResponse CreateAgreement =
       CreateAgreementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest CreateAgreement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AgreementId")
       )
+
+instance Core.AWSService CreateAgreement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAgreement where
   hashWithSalt _salt CreateAgreement' {..} =

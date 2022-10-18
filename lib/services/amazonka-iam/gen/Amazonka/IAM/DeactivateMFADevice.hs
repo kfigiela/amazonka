@@ -126,9 +126,12 @@ instance Core.AWSRequest DeactivateMFADevice where
   type
     AWSResponse DeactivateMFADevice =
       DeactivateMFADeviceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeactivateMFADeviceResponse'
+
+instance Core.AWSService DeactivateMFADevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateMFADevice where
   hashWithSalt _salt DeactivateMFADevice' {..} =

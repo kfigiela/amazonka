@@ -141,7 +141,7 @@ instance Core.AWSPager ListTapes where
 
 instance Core.AWSRequest ListTapes where
   type AWSResponse ListTapes = ListTapesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListTapes where
             Prelude.<*> (x Core..?> "TapeInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTapes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTapes where
   hashWithSalt _salt ListTapes' {..} =

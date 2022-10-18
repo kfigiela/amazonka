@@ -94,9 +94,12 @@ instance Core.AWSRequest DetachTypedLink where
   type
     AWSResponse DetachTypedLink =
       DetachTypedLinkResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull DetachTypedLinkResponse'
+
+instance Core.AWSService DetachTypedLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachTypedLink where
   hashWithSalt _salt DetachTypedLink' {..} =

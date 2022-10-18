@@ -80,10 +80,13 @@ instance Core.AWSRequest DeleteVerifiedEmailAddress where
   type
     AWSResponse DeleteVerifiedEmailAddress =
       DeleteVerifiedEmailAddressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteVerifiedEmailAddressResponse'
+
+instance Core.AWSService DeleteVerifiedEmailAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVerifiedEmailAddress where
   hashWithSalt _salt DeleteVerifiedEmailAddress' {..} =

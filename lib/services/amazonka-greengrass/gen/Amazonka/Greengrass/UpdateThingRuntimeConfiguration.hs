@@ -92,13 +92,19 @@ instance
   type
     AWSResponse UpdateThingRuntimeConfiguration =
       UpdateThingRuntimeConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateThingRuntimeConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateThingRuntimeConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

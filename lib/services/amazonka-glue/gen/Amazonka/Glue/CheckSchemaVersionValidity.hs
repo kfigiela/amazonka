@@ -101,7 +101,7 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
   type
     AWSResponse CheckSchemaVersionValidity =
       CheckSchemaVersionValidityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CheckSchemaVersionValidity where
             Prelude.<*> (x Core..?> "Error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CheckSchemaVersionValidity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckSchemaVersionValidity where
   hashWithSalt _salt CheckSchemaVersionValidity' {..} =

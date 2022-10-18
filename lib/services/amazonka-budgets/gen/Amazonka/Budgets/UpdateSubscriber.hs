@@ -136,13 +136,16 @@ instance Core.AWSRequest UpdateSubscriber where
   type
     AWSResponse UpdateSubscriber =
       UpdateSubscriberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSubscriberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSubscriber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSubscriber where
   hashWithSalt _salt UpdateSubscriber' {..} =

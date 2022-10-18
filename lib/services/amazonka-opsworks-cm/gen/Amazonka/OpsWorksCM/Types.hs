@@ -149,6 +149,7 @@ defaultService =
       Core._serviceEndpointPrefix = "opsworks-cm",
       Core._serviceSigningName = "opsworks-cm",
       Core._serviceVersion = "2016-11-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

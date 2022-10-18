@@ -110,7 +110,7 @@ instance Core.AWSRequest ListLensReviews where
   type
     AWSResponse ListLensReviews =
       ListLensReviewsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ListLensReviews where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLensReviews where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLensReviews where
   hashWithSalt _salt ListLensReviews' {..} =

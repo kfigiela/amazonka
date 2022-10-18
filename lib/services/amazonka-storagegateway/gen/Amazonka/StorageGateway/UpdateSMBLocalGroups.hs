@@ -94,7 +94,7 @@ instance Core.AWSRequest UpdateSMBLocalGroups where
   type
     AWSResponse UpdateSMBLocalGroups =
       UpdateSMBLocalGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest UpdateSMBLocalGroups where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSMBLocalGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSMBLocalGroups where
   hashWithSalt _salt UpdateSMBLocalGroups' {..} =

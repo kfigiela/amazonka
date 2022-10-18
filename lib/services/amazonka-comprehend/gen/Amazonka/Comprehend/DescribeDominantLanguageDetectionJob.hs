@@ -87,7 +87,7 @@ instance
   type
     AWSResponse DescribeDominantLanguageDetectionJob =
       DescribeDominantLanguageDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
             Prelude.<$> (x Core..?> "DominantLanguageDetectionJobProperties")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeDominantLanguageDetectionJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

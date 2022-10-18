@@ -188,7 +188,7 @@ instance Core.AWSRequest GetGeoLocation where
   type
     AWSResponse GetGeoLocation =
       GetGeoLocationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest GetGeoLocation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "GeoLocationDetails")
       )
+
+instance Core.AWSService GetGeoLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGeoLocation where
   hashWithSalt _salt GetGeoLocation' {..} =

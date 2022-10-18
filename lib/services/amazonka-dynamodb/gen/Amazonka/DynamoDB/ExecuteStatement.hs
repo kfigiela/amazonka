@@ -178,7 +178,7 @@ instance Core.AWSRequest ExecuteStatement where
   type
     AWSResponse ExecuteStatement =
       ExecuteStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest ExecuteStatement where
             Prelude.<*> (x Core..?> "ConsumedCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExecuteStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecuteStatement where
   hashWithSalt _salt ExecuteStatement' {..} =

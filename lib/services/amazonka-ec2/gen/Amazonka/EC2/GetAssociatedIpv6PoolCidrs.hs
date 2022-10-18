@@ -151,7 +151,7 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
   type
     AWSResponse GetAssociatedIpv6PoolCidrs =
       GetAssociatedIpv6PoolCidrsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest GetAssociatedIpv6PoolCidrs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssociatedIpv6PoolCidrs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssociatedIpv6PoolCidrs where
   hashWithSalt _salt GetAssociatedIpv6PoolCidrs' {..} =

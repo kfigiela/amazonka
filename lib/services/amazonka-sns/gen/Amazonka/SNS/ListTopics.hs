@@ -100,7 +100,7 @@ instance Core.AWSPager ListTopics where
 
 instance Core.AWSRequest ListTopics where
   type AWSResponse ListTopics = ListTopicsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTopicsResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest ListTopics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTopics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTopics where
   hashWithSalt _salt ListTopics' {..} =

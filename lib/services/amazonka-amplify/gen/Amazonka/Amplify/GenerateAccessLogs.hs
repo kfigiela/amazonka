@@ -120,7 +120,7 @@ instance Core.AWSRequest GenerateAccessLogs where
   type
     AWSResponse GenerateAccessLogs =
       GenerateAccessLogsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest GenerateAccessLogs where
             Prelude.<$> (x Core..?> "logUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GenerateAccessLogs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateAccessLogs where
   hashWithSalt _salt GenerateAccessLogs' {..} =

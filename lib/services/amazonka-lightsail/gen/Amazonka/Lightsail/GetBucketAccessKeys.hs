@@ -85,7 +85,7 @@ instance Core.AWSRequest GetBucketAccessKeys where
   type
     AWSResponse GetBucketAccessKeys =
       GetBucketAccessKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetBucketAccessKeys where
             Prelude.<$> (x Core..?> "accessKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketAccessKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketAccessKeys where
   hashWithSalt _salt GetBucketAccessKeys' {..} =

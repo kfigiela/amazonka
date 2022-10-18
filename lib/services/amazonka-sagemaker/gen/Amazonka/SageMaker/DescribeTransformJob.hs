@@ -99,7 +99,7 @@ instance Core.AWSRequest DescribeTransformJob where
   type
     AWSResponse DescribeTransformJob =
       DescribeTransformJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DescribeTransformJob where
             Prelude.<*> (x Core..:> "TransformResources")
             Prelude.<*> (x Core..:> "CreationTime")
       )
+
+instance Core.AWSService DescribeTransformJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTransformJob where
   hashWithSalt _salt DescribeTransformJob' {..} =

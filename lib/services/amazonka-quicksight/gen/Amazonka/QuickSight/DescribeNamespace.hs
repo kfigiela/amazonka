@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeNamespace where
   type
     AWSResponse DescribeNamespace =
       DescribeNamespaceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeNamespace where
             Prelude.<*> (x Core..?> "Namespace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNamespace where
   hashWithSalt _salt DescribeNamespace' {..} =

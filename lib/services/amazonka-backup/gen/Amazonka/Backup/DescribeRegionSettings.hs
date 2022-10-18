@@ -66,7 +66,7 @@ instance Core.AWSRequest DescribeRegionSettings where
   type
     AWSResponse DescribeRegionSettings =
       DescribeRegionSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -79,6 +79,9 @@ instance Core.AWSRequest DescribeRegionSettings where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRegionSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRegionSettings where
   hashWithSalt _salt _ =

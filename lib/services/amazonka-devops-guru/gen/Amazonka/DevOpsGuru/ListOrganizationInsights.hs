@@ -160,7 +160,7 @@ instance Core.AWSRequest ListOrganizationInsights where
   type
     AWSResponse ListOrganizationInsights =
       ListOrganizationInsightsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest ListOrganizationInsights where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOrganizationInsights where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOrganizationInsights where
   hashWithSalt _salt ListOrganizationInsights' {..} =

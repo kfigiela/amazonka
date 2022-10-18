@@ -442,6 +442,7 @@ defaultService =
       Core._serviceEndpointPrefix = "wellarchitected",
       Core._serviceSigningName = "wellarchitected",
       Core._serviceVersion = "2020-03-31",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

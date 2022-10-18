@@ -327,7 +327,7 @@ instance Core.AWSRequest BatchUpdateFindings where
   type
     AWSResponse BatchUpdateFindings =
       BatchUpdateFindingsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -340,6 +340,9 @@ instance Core.AWSRequest BatchUpdateFindings where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService BatchUpdateFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdateFindings where
   hashWithSalt _salt BatchUpdateFindings' {..} =

@@ -259,7 +259,7 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
   type
     AWSResponse CreateQueryLoggingConfig =
       CreateQueryLoggingConfigResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -268,6 +268,9 @@ instance Core.AWSRequest CreateQueryLoggingConfig where
             Prelude.<*> (x Core..@ "QueryLoggingConfig")
             Prelude.<*> (h Core..# "Location")
       )
+
+instance Core.AWSService CreateQueryLoggingConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateQueryLoggingConfig where
   hashWithSalt _salt CreateQueryLoggingConfig' {..} =

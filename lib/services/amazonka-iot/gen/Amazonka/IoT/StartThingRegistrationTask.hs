@@ -130,7 +130,7 @@ instance Core.AWSRequest StartThingRegistrationTask where
   type
     AWSResponse StartThingRegistrationTask =
       StartThingRegistrationTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest StartThingRegistrationTask where
             Prelude.<$> (x Core..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartThingRegistrationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartThingRegistrationTask where
   hashWithSalt _salt StartThingRegistrationTask' {..} =

@@ -129,9 +129,9 @@ getVaultLock_vaultName = Lens.lens (\GetVaultLock' {vaultName} -> vaultName) (\s
 
 instance Core.AWSRequest GetVaultLock where
   type AWSResponse GetVaultLock = GetVaultLockResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest GetVaultLock where
             Prelude.<*> (x Core..?> "ExpirationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVaultLock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVaultLock where
   hashWithSalt _salt GetVaultLock' {..} =

@@ -95,7 +95,7 @@ updateCell_cells = Lens.lens (\UpdateCell' {cells} -> cells) (\s@UpdateCell' {} 
 
 instance Core.AWSRequest UpdateCell where
   type AWSResponse UpdateCell = UpdateCellResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateCell where
             Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCell where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCell where
   hashWithSalt _salt UpdateCell' {..} =

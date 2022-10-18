@@ -96,7 +96,7 @@ instance
   type
     AWSResponse DescribeModelBiasJobDefinition =
       DescribeModelBiasJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,12 @@ instance
             Prelude.<*> (x Core..:> "JobResources")
             Prelude.<*> (x Core..:> "RoleArn")
       )
+
+instance
+  Core.AWSService
+    DescribeModelBiasJobDefinition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

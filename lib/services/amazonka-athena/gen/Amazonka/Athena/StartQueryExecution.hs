@@ -190,7 +190,7 @@ instance Core.AWSRequest StartQueryExecution where
   type
     AWSResponse StartQueryExecution =
       StartQueryExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest StartQueryExecution where
             Prelude.<$> (x Core..?> "QueryExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartQueryExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartQueryExecution where
   hashWithSalt _salt StartQueryExecution' {..} =

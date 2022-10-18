@@ -104,7 +104,7 @@ instance Core.AWSRequest GetRoomSkillParameter where
   type
     AWSResponse GetRoomSkillParameter =
       GetRoomSkillParameterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetRoomSkillParameter where
             Prelude.<$> (x Core..?> "RoomSkillParameter")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRoomSkillParameter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRoomSkillParameter where
   hashWithSalt _salt GetRoomSkillParameter' {..} =

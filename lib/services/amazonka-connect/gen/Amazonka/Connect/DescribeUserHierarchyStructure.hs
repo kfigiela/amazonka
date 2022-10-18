@@ -87,7 +87,7 @@ instance
   type
     AWSResponse DescribeUserHierarchyStructure =
       DescribeUserHierarchyStructureResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
             Prelude.<$> (x Core..?> "HierarchyStructure")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeUserHierarchyStructure
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -117,7 +117,7 @@ instance
   type
     AWSResponse ListCrossAccountAuthorizations =
       ListCrossAccountAuthorizationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,12 @@ instance
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListCrossAccountAuthorizations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

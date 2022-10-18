@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeTrial where
   type
     AWSResponse DescribeTrial =
       DescribeTrialResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeTrial where
             Prelude.<*> (x Core..?> "ExperimentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTrial where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTrial where
   hashWithSalt _salt DescribeTrial' {..} =

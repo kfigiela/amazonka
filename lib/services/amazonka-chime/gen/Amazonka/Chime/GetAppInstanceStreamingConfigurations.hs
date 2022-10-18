@@ -85,7 +85,7 @@ instance
     AWSResponse
       GetAppInstanceStreamingConfigurations =
       GetAppInstanceStreamingConfigurationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,12 @@ instance
             Prelude.<$> (x Core..?> "AppInstanceStreamingConfigurations")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetAppInstanceStreamingConfigurations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

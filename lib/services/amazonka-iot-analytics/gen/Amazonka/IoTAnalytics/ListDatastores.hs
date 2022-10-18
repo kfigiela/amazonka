@@ -117,7 +117,7 @@ instance Core.AWSRequest ListDatastores where
   type
     AWSResponse ListDatastores =
       ListDatastoresResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListDatastores where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatastores where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatastores where
   hashWithSalt _salt ListDatastores' {..} =

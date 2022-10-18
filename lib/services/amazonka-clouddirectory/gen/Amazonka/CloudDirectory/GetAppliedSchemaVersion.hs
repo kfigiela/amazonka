@@ -78,7 +78,7 @@ instance Core.AWSRequest GetAppliedSchemaVersion where
   type
     AWSResponse GetAppliedSchemaVersion =
       GetAppliedSchemaVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetAppliedSchemaVersion where
             Prelude.<$> (x Core..?> "AppliedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAppliedSchemaVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAppliedSchemaVersion where
   hashWithSalt _salt GetAppliedSchemaVersion' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest DeleteMLTransform where
   type
     AWSResponse DeleteMLTransform =
       DeleteMLTransformResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteMLTransform where
             Prelude.<$> (x Core..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMLTransform where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMLTransform where
   hashWithSalt _salt DeleteMLTransform' {..} =

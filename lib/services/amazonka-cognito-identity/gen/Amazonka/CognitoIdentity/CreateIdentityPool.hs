@@ -226,10 +226,13 @@ createIdentityPool_allowUnauthenticatedIdentities = Lens.lens (\CreateIdentityPo
 
 instance Core.AWSRequest CreateIdentityPool where
   type AWSResponse CreateIdentityPool = IdentityPool
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateIdentityPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIdentityPool where
   hashWithSalt _salt CreateIdentityPool' {..} =

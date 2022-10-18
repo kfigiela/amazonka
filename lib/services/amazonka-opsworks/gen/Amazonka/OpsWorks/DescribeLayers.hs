@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeLayers where
   type
     AWSResponse DescribeLayers =
       DescribeLayersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeLayers where
             Prelude.<$> (x Core..?> "Layers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLayers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLayers where
   hashWithSalt _salt DescribeLayers' {..} =

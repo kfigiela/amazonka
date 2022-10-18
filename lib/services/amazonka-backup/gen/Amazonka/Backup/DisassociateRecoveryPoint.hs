@@ -99,10 +99,13 @@ instance Core.AWSRequest DisassociateRecoveryPoint where
   type
     AWSResponse DisassociateRecoveryPoint =
       DisassociateRecoveryPointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateRecoveryPointResponse'
+
+instance Core.AWSService DisassociateRecoveryPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateRecoveryPoint where
   hashWithSalt _salt DisassociateRecoveryPoint' {..} =

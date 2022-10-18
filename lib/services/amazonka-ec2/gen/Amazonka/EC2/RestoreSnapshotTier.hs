@@ -151,7 +151,7 @@ instance Core.AWSRequest RestoreSnapshotTier where
   type
     AWSResponse RestoreSnapshotTier =
       RestoreSnapshotTierResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest RestoreSnapshotTier where
             Prelude.<*> (x Core..@? "isPermanentRestore")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreSnapshotTier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreSnapshotTier where
   hashWithSalt _salt RestoreSnapshotTier' {..} =

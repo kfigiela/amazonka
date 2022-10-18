@@ -213,9 +213,12 @@ instance Core.AWSRequest UpdateDataSource where
   type
     AWSResponse UpdateDataSource =
       UpdateDataSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateDataSourceResponse'
+
+instance Core.AWSService UpdateDataSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =

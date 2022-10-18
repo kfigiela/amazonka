@@ -127,7 +127,7 @@ instance
   type
     AWSResponse ListEnvironmentProvisionedResources =
       ListEnvironmentProvisionedResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,12 @@ instance
                               Core..!@ Prelude.mempty
                           )
       )
+
+instance
+  Core.AWSService
+    ListEnvironmentProvisionedResources
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

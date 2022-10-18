@@ -81,7 +81,7 @@ instance Core.AWSRequest AssociateMember where
   type
     AWSResponse AssociateMember =
       AssociateMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest AssociateMember where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "accountId")
       )
+
+instance Core.AWSService AssociateMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateMember where
   hashWithSalt _salt AssociateMember' {..} =

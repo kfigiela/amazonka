@@ -97,10 +97,13 @@ instance Core.AWSRequest CreateDataflowEndpointGroup where
   type
     AWSResponse CreateDataflowEndpointGroup =
       DataflowEndpointGroupIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateDataflowEndpointGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataflowEndpointGroup where
   hashWithSalt _salt CreateDataflowEndpointGroup' {..} =

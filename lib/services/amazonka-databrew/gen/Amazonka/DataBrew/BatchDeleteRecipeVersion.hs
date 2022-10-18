@@ -126,7 +126,7 @@ instance Core.AWSRequest BatchDeleteRecipeVersion where
   type
     AWSResponse BatchDeleteRecipeVersion =
       BatchDeleteRecipeVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest BatchDeleteRecipeVersion where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService BatchDeleteRecipeVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteRecipeVersion where
   hashWithSalt _salt BatchDeleteRecipeVersion' {..} =

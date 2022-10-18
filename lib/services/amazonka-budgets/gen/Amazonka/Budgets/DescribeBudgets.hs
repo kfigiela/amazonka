@@ -139,7 +139,7 @@ instance Core.AWSRequest DescribeBudgets where
   type
     AWSResponse DescribeBudgets =
       DescribeBudgetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest DescribeBudgets where
             Prelude.<*> (x Core..?> "Budgets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBudgets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBudgets where
   hashWithSalt _salt DescribeBudgets' {..} =

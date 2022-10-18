@@ -164,7 +164,7 @@ instance Core.AWSRequest ChangeCidrCollection where
   type
     AWSResponse ChangeCidrCollection =
       ChangeCidrCollectionResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest ChangeCidrCollection where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Id")
       )
+
+instance Core.AWSService ChangeCidrCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChangeCidrCollection where
   hashWithSalt _salt ChangeCidrCollection' {..} =

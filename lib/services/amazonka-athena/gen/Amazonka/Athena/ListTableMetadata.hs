@@ -162,7 +162,7 @@ instance Core.AWSRequest ListTableMetadata where
   type
     AWSResponse ListTableMetadata =
       ListTableMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest ListTableMetadata where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTableMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTableMetadata where
   hashWithSalt _salt ListTableMetadata' {..} =

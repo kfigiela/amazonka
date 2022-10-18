@@ -152,7 +152,7 @@ exportApi_apiId = Lens.lens (\ExportApi' {apiId} -> apiId) (\s@ExportApi' {} a -
 
 instance Core.AWSRequest ExportApi where
   type AWSResponse ExportApi = ExportApiResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest ExportApi where
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportApi where
   hashWithSalt _salt ExportApi' {..} =

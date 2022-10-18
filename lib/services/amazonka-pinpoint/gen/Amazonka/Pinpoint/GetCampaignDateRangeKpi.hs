@@ -202,7 +202,7 @@ instance Core.AWSRequest GetCampaignDateRangeKpi where
   type
     AWSResponse GetCampaignDateRangeKpi =
       GetCampaignDateRangeKpiResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,6 +210,9 @@ instance Core.AWSRequest GetCampaignDateRangeKpi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetCampaignDateRangeKpi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCampaignDateRangeKpi where
   hashWithSalt _salt GetCampaignDateRangeKpi' {..} =

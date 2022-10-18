@@ -76,13 +76,16 @@ approveSkill_skillId = Lens.lens (\ApproveSkill' {skillId} -> skillId) (\s@Appro
 
 instance Core.AWSRequest ApproveSkill where
   type AWSResponse ApproveSkill = ApproveSkillResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ApproveSkillResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ApproveSkill where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ApproveSkill where
   hashWithSalt _salt ApproveSkill' {..} =

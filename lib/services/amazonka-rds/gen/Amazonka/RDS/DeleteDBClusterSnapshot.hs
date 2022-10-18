@@ -103,7 +103,7 @@ instance Core.AWSRequest DeleteDBClusterSnapshot where
   type
     AWSResponse DeleteDBClusterSnapshot =
       DeleteDBClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBClusterSnapshotResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest DeleteDBClusterSnapshot where
             Prelude.<$> (x Core..@? "DBClusterSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDBClusterSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBClusterSnapshot where
   hashWithSalt _salt DeleteDBClusterSnapshot' {..} =

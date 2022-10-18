@@ -321,7 +321,7 @@ instance Core.AWSRequest PutPlaybackConfiguration where
   type
     AWSResponse PutPlaybackConfiguration =
       PutPlaybackConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -349,6 +349,9 @@ instance Core.AWSRequest PutPlaybackConfiguration where
             Prelude.<*> (x Core..?> "PersonalizationThresholdSeconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutPlaybackConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPlaybackConfiguration where
   hashWithSalt _salt PutPlaybackConfiguration' {..} =

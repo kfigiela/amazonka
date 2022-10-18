@@ -121,7 +121,7 @@ instance
   type
     AWSResponse DisassociateGlobalReplicationGroup =
       DisassociateGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisassociateGlobalReplicationGroupResult"
@@ -130,6 +130,12 @@ instance
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateGlobalReplicationGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

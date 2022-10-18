@@ -87,7 +87,7 @@ instance Core.AWSRequest CancelInstanceRefresh where
   type
     AWSResponse CancelInstanceRefresh =
       CancelInstanceRefreshResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CancelInstanceRefreshResult"
@@ -96,6 +96,9 @@ instance Core.AWSRequest CancelInstanceRefresh where
             Prelude.<$> (x Core..@? "InstanceRefreshId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelInstanceRefresh where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelInstanceRefresh where
   hashWithSalt _salt CancelInstanceRefresh' {..} =

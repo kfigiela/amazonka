@@ -95,10 +95,13 @@ instance Core.AWSRequest CancelCertificateTransfer where
   type
     AWSResponse CancelCertificateTransfer =
       CancelCertificateTransferResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull
       CancelCertificateTransferResponse'
+
+instance Core.AWSService CancelCertificateTransfer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelCertificateTransfer where
   hashWithSalt _salt CancelCertificateTransfer' {..} =

@@ -126,7 +126,7 @@ instance Core.AWSRequest ListEffectiveDeployments where
   type
     AWSResponse ListEffectiveDeployments =
       ListEffectiveDeploymentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListEffectiveDeployments where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEffectiveDeployments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEffectiveDeployments where
   hashWithSalt _salt ListEffectiveDeployments' {..} =

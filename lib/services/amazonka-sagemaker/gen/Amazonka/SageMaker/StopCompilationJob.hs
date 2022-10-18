@@ -85,9 +85,12 @@ instance Core.AWSRequest StopCompilationJob where
   type
     AWSResponse StopCompilationJob =
       StopCompilationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopCompilationJobResponse'
+
+instance Core.AWSService StopCompilationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopCompilationJob where
   hashWithSalt _salt StopCompilationJob' {..} =

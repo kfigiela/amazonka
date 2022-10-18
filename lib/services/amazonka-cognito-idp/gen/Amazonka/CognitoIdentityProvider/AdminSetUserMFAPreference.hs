@@ -116,13 +116,16 @@ instance Core.AWSRequest AdminSetUserMFAPreference where
   type
     AWSResponse AdminSetUserMFAPreference =
       AdminSetUserMFAPreferenceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminSetUserMFAPreferenceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminSetUserMFAPreference where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminSetUserMFAPreference where
   hashWithSalt _salt AdminSetUserMFAPreference' {..} =

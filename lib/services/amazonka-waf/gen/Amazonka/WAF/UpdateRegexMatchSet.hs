@@ -165,7 +165,7 @@ instance Core.AWSRequest UpdateRegexMatchSet where
   type
     AWSResponse UpdateRegexMatchSet =
       UpdateRegexMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest UpdateRegexMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRegexMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRegexMatchSet where
   hashWithSalt _salt UpdateRegexMatchSet' {..} =

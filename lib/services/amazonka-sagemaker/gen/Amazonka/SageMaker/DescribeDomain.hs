@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeDomain where
   type
     AWSResponse DescribeDomain =
       DescribeDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeDomain where
             Prelude.<*> (x Core..?> "HomeEfsFileSystemId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDomain where
   hashWithSalt _salt DescribeDomain' {..} =

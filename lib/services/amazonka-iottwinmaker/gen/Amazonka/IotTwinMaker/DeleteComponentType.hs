@@ -94,7 +94,7 @@ instance Core.AWSRequest DeleteComponentType where
   type
     AWSResponse DeleteComponentType =
       DeleteComponentTypeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DeleteComponentType where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "state")
       )
+
+instance Core.AWSService DeleteComponentType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteComponentType where
   hashWithSalt _salt DeleteComponentType' {..} =

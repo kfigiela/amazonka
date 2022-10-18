@@ -162,7 +162,7 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
   type
     AWSResponse CreateDBClusterEndpoint =
       CreateDBClusterEndpointResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterEndpointResult"
@@ -184,6 +184,9 @@ instance Core.AWSRequest CreateDBClusterEndpoint where
             Prelude.<*> (x Core..@? "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBClusterEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBClusterEndpoint where
   hashWithSalt _salt CreateDBClusterEndpoint' {..} =

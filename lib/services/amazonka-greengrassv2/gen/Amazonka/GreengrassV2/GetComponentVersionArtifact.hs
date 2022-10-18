@@ -123,7 +123,7 @@ instance Core.AWSRequest GetComponentVersionArtifact where
   type
     AWSResponse GetComponentVersionArtifact =
       GetComponentVersionArtifactResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetComponentVersionArtifact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "preSignedUrl")
       )
+
+instance Core.AWSService GetComponentVersionArtifact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComponentVersionArtifact where
   hashWithSalt _salt GetComponentVersionArtifact' {..} =

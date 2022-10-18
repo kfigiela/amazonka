@@ -146,7 +146,7 @@ instance Core.AWSRequest CreateContactFlowModule where
   type
     AWSResponse CreateContactFlowModule =
       CreateContactFlowModuleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest CreateContactFlowModule where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateContactFlowModule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContactFlowModule where
   hashWithSalt _salt CreateContactFlowModule' {..} =

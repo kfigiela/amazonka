@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeArtifact where
   type
     AWSResponse DescribeArtifact =
       DescribeArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeArtifact where
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeArtifact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeArtifact where
   hashWithSalt _salt DescribeArtifact' {..} =

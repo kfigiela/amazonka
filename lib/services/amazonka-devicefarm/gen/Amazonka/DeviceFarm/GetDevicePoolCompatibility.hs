@@ -243,7 +243,7 @@ instance Core.AWSRequest GetDevicePoolCompatibility where
   type
     AWSResponse GetDevicePoolCompatibility =
       GetDevicePoolCompatibilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -256,6 +256,9 @@ instance Core.AWSRequest GetDevicePoolCompatibility where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDevicePoolCompatibility where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDevicePoolCompatibility where
   hashWithSalt _salt GetDevicePoolCompatibility' {..} =

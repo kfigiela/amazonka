@@ -121,7 +121,7 @@ instance
   type
     AWSResponse RegisterInstancesWithLoadBalancer =
       RegisterInstancesWithLoadBalancerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RegisterInstancesWithLoadBalancerResult"
@@ -132,6 +132,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RegisterInstancesWithLoadBalancer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

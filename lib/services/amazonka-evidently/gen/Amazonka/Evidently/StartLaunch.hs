@@ -90,7 +90,7 @@ startLaunch_project = Lens.lens (\StartLaunch' {project} -> project) (\s@StartLa
 
 instance Core.AWSRequest StartLaunch where
   type AWSResponse StartLaunch = StartLaunchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest StartLaunch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "launch")
       )
+
+instance Core.AWSService StartLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartLaunch where
   hashWithSalt _salt StartLaunch' {..} =

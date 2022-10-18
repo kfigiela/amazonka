@@ -198,7 +198,7 @@ instance Core.AWSRequest UpdateJobQueue where
   type
     AWSResponse UpdateJobQueue =
       UpdateJobQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest UpdateJobQueue where
             Prelude.<*> (x Core..?> "jobQueueName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateJobQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateJobQueue where
   hashWithSalt _salt UpdateJobQueue' {..} =

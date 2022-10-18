@@ -135,10 +135,16 @@ instance
   type
     AWSResponse RequestCancelWorkflowExecution =
       RequestCancelWorkflowExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RequestCancelWorkflowExecutionResponse'
+
+instance
+  Core.AWSService
+    RequestCancelWorkflowExecution
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

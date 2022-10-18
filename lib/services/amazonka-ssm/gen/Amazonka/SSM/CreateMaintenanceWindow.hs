@@ -340,7 +340,7 @@ instance Core.AWSRequest CreateMaintenanceWindow where
   type
     AWSResponse CreateMaintenanceWindow =
       CreateMaintenanceWindowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -348,6 +348,9 @@ instance Core.AWSRequest CreateMaintenanceWindow where
             Prelude.<$> (x Core..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMaintenanceWindow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMaintenanceWindow where
   hashWithSalt _salt CreateMaintenanceWindow' {..} =

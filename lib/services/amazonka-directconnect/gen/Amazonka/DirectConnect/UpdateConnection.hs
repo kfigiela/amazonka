@@ -135,10 +135,13 @@ updateConnection_connectionId = Lens.lens (\UpdateConnection' {connectionId} -> 
 
 instance Core.AWSRequest UpdateConnection where
   type AWSResponse UpdateConnection = Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConnection where
   hashWithSalt _salt UpdateConnection' {..} =

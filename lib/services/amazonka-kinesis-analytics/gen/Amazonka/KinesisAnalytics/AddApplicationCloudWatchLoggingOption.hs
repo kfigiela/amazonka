@@ -126,13 +126,19 @@ instance
     AWSResponse
       AddApplicationCloudWatchLoggingOption =
       AddApplicationCloudWatchLoggingOptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationCloudWatchLoggingOptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AddApplicationCloudWatchLoggingOption
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

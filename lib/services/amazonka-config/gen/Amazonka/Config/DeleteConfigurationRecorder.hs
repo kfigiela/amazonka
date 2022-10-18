@@ -95,10 +95,13 @@ instance Core.AWSRequest DeleteConfigurationRecorder where
   type
     AWSResponse DeleteConfigurationRecorder =
       DeleteConfigurationRecorderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteConfigurationRecorderResponse'
+
+instance Core.AWSService DeleteConfigurationRecorder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfigurationRecorder where
   hashWithSalt _salt DeleteConfigurationRecorder' {..} =

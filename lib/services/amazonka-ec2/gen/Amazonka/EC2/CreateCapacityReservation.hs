@@ -443,7 +443,7 @@ instance Core.AWSRequest CreateCapacityReservation where
   type
     AWSResponse CreateCapacityReservation =
       CreateCapacityReservationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -451,6 +451,9 @@ instance Core.AWSRequest CreateCapacityReservation where
             Prelude.<$> (x Core..@? "capacityReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCapacityReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCapacityReservation where
   hashWithSalt _salt CreateCapacityReservation' {..} =

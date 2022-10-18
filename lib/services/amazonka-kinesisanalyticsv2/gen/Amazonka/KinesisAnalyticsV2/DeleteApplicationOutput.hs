@@ -133,7 +133,7 @@ instance Core.AWSRequest DeleteApplicationOutput where
   type
     AWSResponse DeleteApplicationOutput =
       DeleteApplicationOutputResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest DeleteApplicationOutput where
             Prelude.<*> (x Core..?> "ApplicationVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteApplicationOutput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApplicationOutput where
   hashWithSalt _salt DeleteApplicationOutput' {..} =

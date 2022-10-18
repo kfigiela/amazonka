@@ -99,13 +99,16 @@ instance Core.AWSRequest UpdateGatewayGroup where
   type
     AWSResponse UpdateGatewayGroup =
       UpdateGatewayGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateGatewayGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGatewayGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGatewayGroup where
   hashWithSalt _salt UpdateGatewayGroup' {..} =

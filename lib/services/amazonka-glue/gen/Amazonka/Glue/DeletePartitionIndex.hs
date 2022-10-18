@@ -121,13 +121,16 @@ instance Core.AWSRequest DeletePartitionIndex where
   type
     AWSResponse DeletePartitionIndex =
       DeletePartitionIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePartitionIndexResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePartitionIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePartitionIndex where
   hashWithSalt _salt DeletePartitionIndex' {..} =

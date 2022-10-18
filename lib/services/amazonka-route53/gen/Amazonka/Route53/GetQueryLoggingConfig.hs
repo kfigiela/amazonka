@@ -85,7 +85,7 @@ instance Core.AWSRequest GetQueryLoggingConfig where
   type
     AWSResponse GetQueryLoggingConfig =
       GetQueryLoggingConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetQueryLoggingConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "QueryLoggingConfig")
       )
+
+instance Core.AWSService GetQueryLoggingConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueryLoggingConfig where
   hashWithSalt _salt GetQueryLoggingConfig' {..} =

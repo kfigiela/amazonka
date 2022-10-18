@@ -81,7 +81,7 @@ instance Core.AWSRequest GetRetentionSettings where
   type
     AWSResponse GetRetentionSettings =
       GetRetentionSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetRetentionSettings where
             Prelude.<*> (x Core..?> "RetentionSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRetentionSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRetentionSettings where
   hashWithSalt _salt GetRetentionSettings' {..} =

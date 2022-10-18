@@ -181,7 +181,7 @@ instance Core.AWSRequest DescribeSnapshotTierStatus where
   type
     AWSResponse DescribeSnapshotTierStatus =
       DescribeSnapshotTierStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest DescribeSnapshotTierStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSnapshotTierStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSnapshotTierStatus where
   hashWithSalt _salt DescribeSnapshotTierStatus' {..} =

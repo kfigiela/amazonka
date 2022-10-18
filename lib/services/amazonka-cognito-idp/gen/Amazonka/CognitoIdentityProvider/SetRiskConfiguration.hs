@@ -143,7 +143,7 @@ instance Core.AWSRequest SetRiskConfiguration where
   type
     AWSResponse SetRiskConfiguration =
       SetRiskConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest SetRiskConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "RiskConfiguration")
       )
+
+instance Core.AWSService SetRiskConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetRiskConfiguration where
   hashWithSalt _salt SetRiskConfiguration' {..} =

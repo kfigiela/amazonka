@@ -95,7 +95,7 @@ instance Core.AWSRequest ModifyAquaConfiguration where
   type
     AWSResponse ModifyAquaConfiguration =
       ModifyAquaConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyAquaConfigurationResult"
@@ -104,6 +104,9 @@ instance Core.AWSRequest ModifyAquaConfiguration where
             Prelude.<$> (x Core..@? "AquaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyAquaConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyAquaConfiguration where
   hashWithSalt _salt ModifyAquaConfiguration' {..} =

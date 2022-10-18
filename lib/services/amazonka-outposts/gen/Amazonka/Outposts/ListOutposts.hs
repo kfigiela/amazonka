@@ -120,7 +120,7 @@ listOutposts_availabilityZoneIdFilter = Lens.lens (\ListOutposts' {availabilityZ
 
 instance Core.AWSRequest ListOutposts where
   type AWSResponse ListOutposts = ListOutpostsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListOutposts where
             Prelude.<*> (x Core..?> "Outposts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOutposts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOutposts where
   hashWithSalt _salt ListOutposts' {..} =

@@ -115,13 +115,16 @@ instance Core.AWSRequest DeleteAllowList where
   type
     AWSResponse DeleteAllowList =
       DeleteAllowListResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAllowListResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAllowList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAllowList where
   hashWithSalt _salt DeleteAllowList' {..} =

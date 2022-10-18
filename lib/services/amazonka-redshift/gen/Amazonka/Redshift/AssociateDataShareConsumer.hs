@@ -131,11 +131,14 @@ instance Core.AWSRequest AssociateDataShareConsumer where
   type
     AWSResponse AssociateDataShareConsumer =
       DataShare
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AssociateDataShareConsumerResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService AssociateDataShareConsumer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateDataShareConsumer where
   hashWithSalt _salt AssociateDataShareConsumer' {..} =

@@ -143,7 +143,7 @@ instance
     AWSResponse
       DescribeEnvironmentManagedActionHistory =
       DescribeEnvironmentManagedActionHistoryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentManagedActionHistoryResult"
@@ -156,6 +156,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEnvironmentManagedActionHistory
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

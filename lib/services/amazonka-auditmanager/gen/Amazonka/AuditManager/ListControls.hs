@@ -101,7 +101,7 @@ listControls_controlType = Lens.lens (\ListControls' {controlType} -> controlTyp
 
 instance Core.AWSRequest ListControls where
   type AWSResponse ListControls = ListControlsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ListControls where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListControls where
   hashWithSalt _salt ListControls' {..} =

@@ -192,7 +192,7 @@ instance Core.AWSRequest DescribeMountTargets where
   type
     AWSResponse DescribeMountTargets =
       DescribeMountTargetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest DescribeMountTargets where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMountTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMountTargets where
   hashWithSalt _salt DescribeMountTargets' {..} =

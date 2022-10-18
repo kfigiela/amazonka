@@ -335,6 +335,7 @@ defaultService =
       Core._serviceEndpointPrefix = "sms-voice",
       Core._serviceSigningName = "sms-voice",
       Core._serviceVersion = "2022-03-31",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

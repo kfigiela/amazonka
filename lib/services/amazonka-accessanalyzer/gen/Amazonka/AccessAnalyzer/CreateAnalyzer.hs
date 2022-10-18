@@ -135,7 +135,7 @@ instance Core.AWSRequest CreateAnalyzer where
   type
     AWSResponse CreateAnalyzer =
       CreateAnalyzerResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateAnalyzer where
             Prelude.<$> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAnalyzer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAnalyzer where
   hashWithSalt _salt CreateAnalyzer' {..} =

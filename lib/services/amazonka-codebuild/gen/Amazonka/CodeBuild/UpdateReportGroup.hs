@@ -123,7 +123,7 @@ instance Core.AWSRequest UpdateReportGroup where
   type
     AWSResponse UpdateReportGroup =
       UpdateReportGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest UpdateReportGroup where
             Prelude.<$> (x Core..?> "reportGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReportGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReportGroup where
   hashWithSalt _salt UpdateReportGroup' {..} =

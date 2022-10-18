@@ -91,7 +91,7 @@ getBranch_branchName = Lens.lens (\GetBranch' {branchName} -> branchName) (\s@Ge
 
 instance Core.AWSRequest GetBranch where
   type AWSResponse GetBranch = GetBranchResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetBranch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "branch")
       )
+
+instance Core.AWSService GetBranch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBranch where
   hashWithSalt _salt GetBranch' {..} =

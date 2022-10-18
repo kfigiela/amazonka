@@ -84,7 +84,7 @@ instance Core.AWSRequest CreateWorkspaces where
   type
     AWSResponse CreateWorkspaces =
       CreateWorkspacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest CreateWorkspaces where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkspaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkspaces where
   hashWithSalt _salt CreateWorkspaces' {..} =

@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeICD10CMInferenceJob where
   type
     AWSResponse DescribeICD10CMInferenceJob =
       DescribeICD10CMInferenceJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DescribeICD10CMInferenceJob where
             Prelude.<$> (x Core..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeICD10CMInferenceJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeICD10CMInferenceJob where
   hashWithSalt _salt DescribeICD10CMInferenceJob' {..} =

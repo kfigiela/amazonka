@@ -124,7 +124,7 @@ instance Core.AWSRequest GetCampaignVersions where
   type
     AWSResponse GetCampaignVersions =
       GetCampaignVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GetCampaignVersions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetCampaignVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCampaignVersions where
   hashWithSalt _salt GetCampaignVersions' {..} =

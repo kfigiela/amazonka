@@ -102,9 +102,12 @@ instance Core.AWSRequest AssociateAlias where
   type
     AWSResponse AssociateAlias =
       AssociateAliasResponse
-  request = Request.put defaultService
+  request srv = Request.put srv
   response =
     Response.receiveNull AssociateAliasResponse'
+
+instance Core.AWSService AssociateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateAlias where
   hashWithSalt _salt AssociateAlias' {..} =

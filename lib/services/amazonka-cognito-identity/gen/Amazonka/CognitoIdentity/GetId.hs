@@ -147,7 +147,7 @@ getId_identityPoolId = Lens.lens (\GetId' {identityPoolId} -> identityPoolId) (\
 
 instance Core.AWSRequest GetId where
   type AWSResponse GetId = GetIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest GetId where
             Prelude.<$> (x Core..?> "IdentityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetId where
   hashWithSalt _salt GetId' {..} =

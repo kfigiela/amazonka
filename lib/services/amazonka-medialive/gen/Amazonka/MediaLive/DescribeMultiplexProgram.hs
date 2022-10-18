@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeMultiplexProgram where
   type
     AWSResponse DescribeMultiplexProgram =
       DescribeMultiplexProgramResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DescribeMultiplexProgram where
             Prelude.<*> (x Core..?> "channelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMultiplexProgram where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMultiplexProgram where
   hashWithSalt _salt DescribeMultiplexProgram' {..} =

@@ -121,7 +121,7 @@ instance Core.AWSRequest ImportHostKey where
   type
     AWSResponse ImportHostKey =
       ImportHostKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ImportHostKey where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..:> "HostKeyId")
       )
+
+instance Core.AWSService ImportHostKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportHostKey where
   hashWithSalt _salt ImportHostKey' {..} =

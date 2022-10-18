@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteLicenseConfiguration where
   type
     AWSResponse DeleteLicenseConfiguration =
       DeleteLicenseConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLicenseConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLicenseConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLicenseConfiguration where
   hashWithSalt _salt DeleteLicenseConfiguration' {..} =

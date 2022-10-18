@@ -118,10 +118,13 @@ instance Core.AWSRequest UndeprecateWorkflowType where
   type
     AWSResponse UndeprecateWorkflowType =
       UndeprecateWorkflowTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UndeprecateWorkflowTypeResponse'
+
+instance Core.AWSService UndeprecateWorkflowType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UndeprecateWorkflowType where
   hashWithSalt _salt UndeprecateWorkflowType' {..} =

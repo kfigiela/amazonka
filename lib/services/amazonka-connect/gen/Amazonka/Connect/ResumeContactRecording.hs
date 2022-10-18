@@ -114,13 +114,16 @@ instance Core.AWSRequest ResumeContactRecording where
   type
     AWSResponse ResumeContactRecording =
       ResumeContactRecordingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ResumeContactRecordingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResumeContactRecording where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeContactRecording where
   hashWithSalt _salt ResumeContactRecording' {..} =

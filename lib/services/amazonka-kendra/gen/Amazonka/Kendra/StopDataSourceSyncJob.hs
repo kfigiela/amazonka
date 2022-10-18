@@ -91,9 +91,12 @@ instance Core.AWSRequest StopDataSourceSyncJob where
   type
     AWSResponse StopDataSourceSyncJob =
       StopDataSourceSyncJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopDataSourceSyncJobResponse'
+
+instance Core.AWSService StopDataSourceSyncJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopDataSourceSyncJob where
   hashWithSalt _salt StopDataSourceSyncJob' {..} =

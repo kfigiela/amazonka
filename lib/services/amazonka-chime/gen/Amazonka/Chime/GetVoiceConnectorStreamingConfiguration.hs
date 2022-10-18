@@ -88,7 +88,7 @@ instance
     AWSResponse
       GetVoiceConnectorStreamingConfiguration =
       GetVoiceConnectorStreamingConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,12 @@ instance
             Prelude.<$> (x Core..?> "StreamingConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetVoiceConnectorStreamingConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

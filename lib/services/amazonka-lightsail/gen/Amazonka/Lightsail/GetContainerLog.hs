@@ -280,7 +280,7 @@ instance Core.AWSRequest GetContainerLog where
   type
     AWSResponse GetContainerLog =
       GetContainerLogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -289,6 +289,9 @@ instance Core.AWSRequest GetContainerLog where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContainerLog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContainerLog where
   hashWithSalt _salt GetContainerLog' {..} =

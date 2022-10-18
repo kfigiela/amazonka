@@ -83,10 +83,16 @@ instance
   type
     AWSResponse DeletePredictorBacktestExportJob =
       DeletePredictorBacktestExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeletePredictorBacktestExportJobResponse'
+
+instance
+  Core.AWSService
+    DeletePredictorBacktestExportJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

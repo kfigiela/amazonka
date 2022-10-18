@@ -204,7 +204,7 @@ instance Core.AWSRequest DescribeImageScanFindings where
   type
     AWSResponse DescribeImageScanFindings =
       DescribeImageScanFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest DescribeImageScanFindings where
             Prelude.<*> (x Core..?> "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImageScanFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImageScanFindings where
   hashWithSalt _salt DescribeImageScanFindings' {..} =

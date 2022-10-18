@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeProcessingJob where
   type
     AWSResponse DescribeProcessingJob =
       DescribeProcessingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DescribeProcessingJob where
             Prelude.<*> (x Core..:> "ProcessingJobStatus")
             Prelude.<*> (x Core..:> "CreationTime")
       )
+
+instance Core.AWSService DescribeProcessingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProcessingJob where
   hashWithSalt _salt DescribeProcessingJob' {..} =

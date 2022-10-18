@@ -89,7 +89,7 @@ instance Core.AWSRequest UpdateDomainName where
   type
     AWSResponse UpdateDomainName =
       UpdateDomainNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest UpdateDomainName where
             Prelude.<$> (x Core..?> "domainNameConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDomainName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainName where
   hashWithSalt _salt UpdateDomainName' {..} =

@@ -213,7 +213,7 @@ instance Core.AWSRequest ListPlatformBranches where
   type
     AWSResponse ListPlatformBranches =
       ListPlatformBranchesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPlatformBranchesResult"
@@ -226,6 +226,9 @@ instance Core.AWSRequest ListPlatformBranches where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPlatformBranches where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPlatformBranches where
   hashWithSalt _salt ListPlatformBranches' {..} =

@@ -101,7 +101,7 @@ predict_predictEndpoint = Lens.lens (\Predict' {predictEndpoint} -> predictEndpo
 
 instance Core.AWSRequest Predict where
   type AWSResponse Predict = PredictResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest Predict where
             Prelude.<$> (x Core..?> "Prediction")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Predict where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Predict where
   hashWithSalt _salt Predict' {..} =

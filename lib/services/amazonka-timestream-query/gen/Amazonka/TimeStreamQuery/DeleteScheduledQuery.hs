@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteScheduledQuery where
   type
     AWSResponse DeleteScheduledQuery =
       DeleteScheduledQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteScheduledQueryResponse'
+
+instance Core.AWSService DeleteScheduledQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteScheduledQuery where
   hashWithSalt _salt DeleteScheduledQuery' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest GetContainerRecipe where
   type
     AWSResponse GetContainerRecipe =
       GetContainerRecipeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetContainerRecipe where
             Prelude.<*> (x Core..?> "containerRecipe")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContainerRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContainerRecipe where
   hashWithSalt _salt GetContainerRecipe' {..} =

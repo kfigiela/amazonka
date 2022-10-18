@@ -99,13 +99,19 @@ instance
     AWSResponse
       AssociateAssessmentReportEvidenceFolder =
       AssociateAssessmentReportEvidenceFolderResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateAssessmentReportEvidenceFolderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateAssessmentReportEvidenceFolder
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -140,13 +140,19 @@ instance
   type
     AWSResponse CreateAdditionalAssignmentsForHIT =
       CreateAdditionalAssignmentsForHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateAdditionalAssignmentsForHITResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateAdditionalAssignmentsForHIT
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

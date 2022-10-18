@@ -167,7 +167,7 @@ updateLaunch_project = Lens.lens (\UpdateLaunch' {project} -> project) (\s@Updat
 
 instance Core.AWSRequest UpdateLaunch where
   type AWSResponse UpdateLaunch = UpdateLaunchResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest UpdateLaunch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "launch")
       )
+
+instance Core.AWSService UpdateLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLaunch where
   hashWithSalt _salt UpdateLaunch' {..} =

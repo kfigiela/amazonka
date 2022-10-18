@@ -120,7 +120,7 @@ instance
     AWSResponse
       DescribeGatewayCapabilityConfiguration =
       DescribeGatewayCapabilityConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,12 @@ instance
               Prelude.<*> (x Core..:> "capabilityConfiguration")
               Prelude.<*> (x Core..:> "capabilitySyncStatus")
       )
+
+instance
+  Core.AWSService
+    DescribeGatewayCapabilityConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

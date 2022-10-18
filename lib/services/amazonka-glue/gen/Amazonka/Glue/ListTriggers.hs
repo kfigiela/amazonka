@@ -120,7 +120,7 @@ listTriggers_dependentJobName = Lens.lens (\ListTriggers' {dependentJobName} -> 
 
 instance Core.AWSRequest ListTriggers where
   type AWSResponse ListTriggers = ListTriggersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListTriggers where
             Prelude.<*> (x Core..?> "TriggerNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTriggers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTriggers where
   hashWithSalt _salt ListTriggers' {..} =

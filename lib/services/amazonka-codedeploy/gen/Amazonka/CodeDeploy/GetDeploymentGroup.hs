@@ -99,7 +99,7 @@ instance Core.AWSRequest GetDeploymentGroup where
   type
     AWSResponse GetDeploymentGroup =
       GetDeploymentGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetDeploymentGroup where
             Prelude.<$> (x Core..?> "deploymentGroupInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeploymentGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeploymentGroup where
   hashWithSalt _salt GetDeploymentGroup' {..} =

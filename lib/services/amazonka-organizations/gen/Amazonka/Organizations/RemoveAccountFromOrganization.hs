@@ -128,10 +128,16 @@ instance
   type
     AWSResponse RemoveAccountFromOrganization =
       RemoveAccountFromOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RemoveAccountFromOrganizationResponse'
+
+instance
+  Core.AWSService
+    RemoveAccountFromOrganization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

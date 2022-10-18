@@ -118,7 +118,7 @@ instance Core.AWSRequest CreateAccessPreview where
   type
     AWSResponse CreateAccessPreview =
       CreateAccessPreviewResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateAccessPreview where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "id")
       )
+
+instance Core.AWSService CreateAccessPreview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccessPreview where
   hashWithSalt _salt CreateAccessPreview' {..} =

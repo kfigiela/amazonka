@@ -96,7 +96,7 @@ instance Core.AWSRequest DeregisterTransitGateway where
   type
     AWSResponse DeregisterTransitGateway =
       DeregisterTransitGatewayResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DeregisterTransitGateway where
             Prelude.<$> (x Core..?> "TransitGatewayRegistration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterTransitGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterTransitGateway where
   hashWithSalt _salt DeregisterTransitGateway' {..} =

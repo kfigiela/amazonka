@@ -67,7 +67,7 @@ instance Core.AWSRequest DescribeStorageConfiguration where
   type
     AWSResponse DescribeStorageConfiguration =
       DescribeStorageConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -80,6 +80,9 @@ instance Core.AWSRequest DescribeStorageConfiguration where
             Prelude.<*> (x Core..:> "storageType")
             Prelude.<*> (x Core..:> "configurationStatus")
       )
+
+instance Core.AWSService DescribeStorageConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

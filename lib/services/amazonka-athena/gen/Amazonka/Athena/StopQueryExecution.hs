@@ -84,13 +84,16 @@ instance Core.AWSRequest StopQueryExecution where
   type
     AWSResponse StopQueryExecution =
       StopQueryExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopQueryExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopQueryExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopQueryExecution where
   hashWithSalt _salt StopQueryExecution' {..} =

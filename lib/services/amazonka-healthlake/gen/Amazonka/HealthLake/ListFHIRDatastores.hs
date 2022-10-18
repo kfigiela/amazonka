@@ -102,7 +102,7 @@ instance Core.AWSRequest ListFHIRDatastores where
   type
     AWSResponse ListFHIRDatastores =
       ListFHIRDatastoresResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListFHIRDatastores where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListFHIRDatastores where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFHIRDatastores where
   hashWithSalt _salt ListFHIRDatastores' {..} =

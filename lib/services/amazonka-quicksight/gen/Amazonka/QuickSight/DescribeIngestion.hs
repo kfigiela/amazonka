@@ -107,7 +107,7 @@ instance Core.AWSRequest DescribeIngestion where
   type
     AWSResponse DescribeIngestion =
       DescribeIngestionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeIngestion where
             Prelude.<*> (x Core..?> "Ingestion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeIngestion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIngestion where
   hashWithSalt _salt DescribeIngestion' {..} =

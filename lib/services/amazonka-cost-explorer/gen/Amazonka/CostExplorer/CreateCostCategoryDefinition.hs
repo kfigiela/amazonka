@@ -235,7 +235,7 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
   type
     AWSResponse CreateCostCategoryDefinition =
       CreateCostCategoryDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -244,6 +244,9 @@ instance Core.AWSRequest CreateCostCategoryDefinition where
             Prelude.<*> (x Core..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCostCategoryDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

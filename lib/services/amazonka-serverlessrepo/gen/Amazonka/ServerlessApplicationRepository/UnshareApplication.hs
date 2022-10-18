@@ -93,9 +93,12 @@ instance Core.AWSRequest UnshareApplication where
   type
     AWSResponse UnshareApplication =
       UnshareApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnshareApplicationResponse'
+
+instance Core.AWSService UnshareApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnshareApplication where
   hashWithSalt _salt UnshareApplication' {..} =

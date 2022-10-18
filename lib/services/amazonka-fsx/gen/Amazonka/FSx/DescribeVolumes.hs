@@ -130,7 +130,7 @@ instance Core.AWSRequest DescribeVolumes where
   type
     AWSResponse DescribeVolumes =
       DescribeVolumesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest DescribeVolumes where
             Prelude.<*> (x Core..?> "Volumes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVolumes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVolumes where
   hashWithSalt _salt DescribeVolumes' {..} =

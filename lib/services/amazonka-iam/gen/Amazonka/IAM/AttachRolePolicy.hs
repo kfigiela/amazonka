@@ -131,9 +131,12 @@ instance Core.AWSRequest AttachRolePolicy where
   type
     AWSResponse AttachRolePolicy =
       AttachRolePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachRolePolicyResponse'
+
+instance Core.AWSService AttachRolePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachRolePolicy where
   hashWithSalt _salt AttachRolePolicy' {..} =

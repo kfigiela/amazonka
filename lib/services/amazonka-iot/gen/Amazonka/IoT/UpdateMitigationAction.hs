@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateMitigationAction where
   type
     AWSResponse UpdateMitigationAction =
       UpdateMitigationActionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdateMitigationAction where
             Prelude.<*> (x Core..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMitigationAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMitigationAction where
   hashWithSalt _salt UpdateMitigationAction' {..} =

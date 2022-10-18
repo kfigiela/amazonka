@@ -82,13 +82,16 @@ instance Core.AWSRequest DeregisterResource where
   type
     AWSResponse DeregisterResource =
       DeregisterResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterResource where
   hashWithSalt _salt DeregisterResource' {..} =

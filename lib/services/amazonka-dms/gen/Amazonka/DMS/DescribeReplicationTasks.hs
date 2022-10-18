@@ -177,7 +177,7 @@ instance Core.AWSRequest DescribeReplicationTasks where
   type
     AWSResponse DescribeReplicationTasks =
       DescribeReplicationTasksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest DescribeReplicationTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReplicationTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReplicationTasks where
   hashWithSalt _salt DescribeReplicationTasks' {..} =

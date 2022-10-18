@@ -77,7 +77,7 @@ getAnalyzer_analyzerName = Lens.lens (\GetAnalyzer' {analyzerName} -> analyzerNa
 
 instance Core.AWSRequest GetAnalyzer where
   type AWSResponse GetAnalyzer = GetAnalyzerResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetAnalyzer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "analyzer")
       )
+
+instance Core.AWSService GetAnalyzer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAnalyzer where
   hashWithSalt _salt GetAnalyzer' {..} =

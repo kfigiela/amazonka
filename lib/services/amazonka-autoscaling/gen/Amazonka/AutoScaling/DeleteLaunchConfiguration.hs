@@ -81,10 +81,13 @@ instance Core.AWSRequest DeleteLaunchConfiguration where
   type
     AWSResponse DeleteLaunchConfiguration =
       DeleteLaunchConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteLaunchConfigurationResponse'
+
+instance Core.AWSService DeleteLaunchConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLaunchConfiguration where
   hashWithSalt _salt DeleteLaunchConfiguration' {..} =

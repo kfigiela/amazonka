@@ -80,7 +80,7 @@ instance Core.AWSRequest GetPermissionGroup where
   type
     AWSResponse GetPermissionGroup =
       GetPermissionGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetPermissionGroup where
             Prelude.<$> (x Core..?> "permissionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPermissionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPermissionGroup where
   hashWithSalt _salt GetPermissionGroup' {..} =

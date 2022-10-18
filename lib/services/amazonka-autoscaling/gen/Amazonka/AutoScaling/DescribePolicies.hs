@@ -166,7 +166,7 @@ instance Core.AWSRequest DescribePolicies where
   type
     AWSResponse DescribePolicies =
       DescribePoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePoliciesResult"
@@ -178,6 +178,9 @@ instance Core.AWSRequest DescribePolicies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePolicies where
   hashWithSalt _salt DescribePolicies' {..} =

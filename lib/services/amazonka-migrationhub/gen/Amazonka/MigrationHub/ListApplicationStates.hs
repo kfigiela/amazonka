@@ -133,7 +133,7 @@ instance Core.AWSRequest ListApplicationStates where
   type
     AWSResponse ListApplicationStates =
       ListApplicationStatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest ListApplicationStates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListApplicationStates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApplicationStates where
   hashWithSalt _salt ListApplicationStates' {..} =

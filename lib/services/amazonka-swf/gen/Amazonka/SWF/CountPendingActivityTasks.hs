@@ -116,10 +116,13 @@ instance Core.AWSRequest CountPendingActivityTasks where
   type
     AWSResponse CountPendingActivityTasks =
       PendingTaskCount
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CountPendingActivityTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CountPendingActivityTasks where
   hashWithSalt _salt CountPendingActivityTasks' {..} =

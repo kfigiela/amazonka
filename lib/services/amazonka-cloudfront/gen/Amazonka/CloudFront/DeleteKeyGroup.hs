@@ -102,9 +102,12 @@ instance Core.AWSRequest DeleteKeyGroup where
   type
     AWSResponse DeleteKeyGroup =
       DeleteKeyGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteKeyGroupResponse'
+
+instance Core.AWSService DeleteKeyGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteKeyGroup where
   hashWithSalt _salt DeleteKeyGroup' {..} =

@@ -188,7 +188,7 @@ createBucket_bundleId = Lens.lens (\CreateBucket' {bundleId} -> bundleId) (\s@Cr
 
 instance Core.AWSRequest CreateBucket where
   type AWSResponse CreateBucket = CreateBucketResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest CreateBucket where
             Prelude.<*> (x Core..?> "bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBucket where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBucket where
   hashWithSalt _salt CreateBucket' {..} =

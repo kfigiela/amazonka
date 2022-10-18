@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeAnomaly where
   type
     AWSResponse DescribeAnomaly =
       DescribeAnomalyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeAnomaly where
             Prelude.<*> (x Core..?> "ProactiveAnomaly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAnomaly where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAnomaly where
   hashWithSalt _salt DescribeAnomaly' {..} =

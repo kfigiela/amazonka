@@ -130,13 +130,16 @@ instance Core.AWSRequest AddThingToThingGroup where
   type
     AWSResponse AddThingToThingGroup =
       AddThingToThingGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddThingToThingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddThingToThingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddThingToThingGroup where
   hashWithSalt _salt AddThingToThingGroup' {..} =

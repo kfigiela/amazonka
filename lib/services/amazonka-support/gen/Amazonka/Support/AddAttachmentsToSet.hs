@@ -133,7 +133,7 @@ instance Core.AWSRequest AddAttachmentsToSet where
   type
     AWSResponse AddAttachmentsToSet =
       AddAttachmentsToSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest AddAttachmentsToSet where
             Prelude.<*> (x Core..?> "attachmentSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddAttachmentsToSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddAttachmentsToSet where
   hashWithSalt _salt AddAttachmentsToSet' {..} =

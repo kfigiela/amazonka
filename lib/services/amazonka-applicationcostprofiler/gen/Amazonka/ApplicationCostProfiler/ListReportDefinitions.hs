@@ -115,7 +115,7 @@ instance Core.AWSRequest ListReportDefinitions where
   type
     AWSResponse ListReportDefinitions =
       ListReportDefinitionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListReportDefinitions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReportDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReportDefinitions where
   hashWithSalt _salt ListReportDefinitions' {..} =

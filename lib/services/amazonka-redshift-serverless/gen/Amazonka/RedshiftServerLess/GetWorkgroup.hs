@@ -75,7 +75,7 @@ getWorkgroup_workgroupName = Lens.lens (\GetWorkgroup' {workgroupName} -> workgr
 
 instance Core.AWSRequest GetWorkgroup where
   type AWSResponse GetWorkgroup = GetWorkgroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetWorkgroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "workgroup")
       )
+
+instance Core.AWSService GetWorkgroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkgroup where
   hashWithSalt _salt GetWorkgroup' {..} =

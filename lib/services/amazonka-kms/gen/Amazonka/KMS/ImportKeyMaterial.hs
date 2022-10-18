@@ -301,13 +301,16 @@ instance Core.AWSRequest ImportKeyMaterial where
   type
     AWSResponse ImportKeyMaterial =
       ImportKeyMaterialResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ImportKeyMaterialResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportKeyMaterial where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportKeyMaterial where
   hashWithSalt _salt ImportKeyMaterial' {..} =

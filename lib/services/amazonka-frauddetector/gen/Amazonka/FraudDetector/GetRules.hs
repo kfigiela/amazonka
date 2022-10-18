@@ -127,7 +127,7 @@ getRules_detectorId = Lens.lens (\GetRules' {detectorId} -> detectorId) (\s@GetR
 
 instance Core.AWSRequest GetRules where
   type AWSResponse GetRules = GetRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest GetRules where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRules where
   hashWithSalt _salt GetRules' {..} =

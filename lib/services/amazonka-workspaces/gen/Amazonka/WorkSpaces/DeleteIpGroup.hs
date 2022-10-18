@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteIpGroup where
   type
     AWSResponse DeleteIpGroup =
       DeleteIpGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteIpGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIpGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIpGroup where
   hashWithSalt _salt DeleteIpGroup' {..} =

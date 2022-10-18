@@ -93,13 +93,16 @@ instance Core.AWSRequest AssociateBudgetWithResource where
   type
     AWSResponse AssociateBudgetWithResource =
       AssociateBudgetWithResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateBudgetWithResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateBudgetWithResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateBudgetWithResource where
   hashWithSalt _salt AssociateBudgetWithResource' {..} =

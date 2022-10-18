@@ -109,13 +109,19 @@ instance
   type
     AWSResponse UpdateOrganizationConfiguration =
       UpdateOrganizationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateOrganizationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateOrganizationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

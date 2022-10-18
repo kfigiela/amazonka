@@ -317,7 +317,7 @@ instance Core.AWSRequest StartRestoreJob where
   type
     AWSResponse StartRestoreJob =
       StartRestoreJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -325,6 +325,9 @@ instance Core.AWSRequest StartRestoreJob where
             Prelude.<$> (x Core..?> "RestoreJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartRestoreJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartRestoreJob where
   hashWithSalt _salt StartRestoreJob' {..} =

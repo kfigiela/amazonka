@@ -144,7 +144,7 @@ instance Core.AWSRequest UpdateAllowList where
   type
     AWSResponse UpdateAllowList =
       UpdateAllowListResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest UpdateAllowList where
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAllowList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAllowList where
   hashWithSalt _salt UpdateAllowList' {..} =

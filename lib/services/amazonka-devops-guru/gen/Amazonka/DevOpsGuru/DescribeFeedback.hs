@@ -76,7 +76,7 @@ instance Core.AWSRequest DescribeFeedback where
   type
     AWSResponse DescribeFeedback =
       DescribeFeedbackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest DescribeFeedback where
             Prelude.<$> (x Core..?> "InsightFeedback")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFeedback where
   hashWithSalt _salt DescribeFeedback' {..} =

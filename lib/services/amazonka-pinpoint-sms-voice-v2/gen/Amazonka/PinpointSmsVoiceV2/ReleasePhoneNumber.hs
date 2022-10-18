@@ -103,7 +103,7 @@ instance Core.AWSRequest ReleasePhoneNumber where
   type
     AWSResponse ReleasePhoneNumber =
       ReleasePhoneNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ReleasePhoneNumber where
             Prelude.<*> (x Core..?> "MonthlyLeasingPrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReleasePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleasePhoneNumber where
   hashWithSalt _salt ReleasePhoneNumber' {..} =

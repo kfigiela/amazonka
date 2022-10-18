@@ -102,10 +102,13 @@ instance Core.AWSRequest DeleteChannelMembership where
   type
     AWSResponse DeleteChannelMembership =
       DeleteChannelMembershipResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteChannelMembershipResponse'
+
+instance Core.AWSService DeleteChannelMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChannelMembership where
   hashWithSalt _salt DeleteChannelMembership' {..} =

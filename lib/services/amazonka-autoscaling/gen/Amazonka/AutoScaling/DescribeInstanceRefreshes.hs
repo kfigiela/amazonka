@@ -147,7 +147,7 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
   type
     AWSResponse DescribeInstanceRefreshes =
       DescribeInstanceRefreshesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeInstanceRefreshesResult"
@@ -160,6 +160,9 @@ instance Core.AWSRequest DescribeInstanceRefreshes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceRefreshes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstanceRefreshes where
   hashWithSalt _salt DescribeInstanceRefreshes' {..} =

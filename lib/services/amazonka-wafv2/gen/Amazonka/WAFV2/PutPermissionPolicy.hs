@@ -166,13 +166,16 @@ instance Core.AWSRequest PutPermissionPolicy where
   type
     AWSResponse PutPermissionPolicy =
       PutPermissionPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutPermissionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutPermissionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPermissionPolicy where
   hashWithSalt _salt PutPermissionPolicy' {..} =

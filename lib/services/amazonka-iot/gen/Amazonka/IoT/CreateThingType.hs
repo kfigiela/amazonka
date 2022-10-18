@@ -113,7 +113,7 @@ instance Core.AWSRequest CreateThingType where
   type
     AWSResponse CreateThingType =
       CreateThingTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest CreateThingType where
             Prelude.<*> (x Core..?> "thingTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateThingType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateThingType where
   hashWithSalt _salt CreateThingType' {..} =

@@ -77,7 +77,7 @@ instance Core.AWSRequest StopPHIDetectionJob where
   type
     AWSResponse StopPHIDetectionJob =
       StopPHIDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest StopPHIDetectionJob where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopPHIDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopPHIDetectionJob where
   hashWithSalt _salt StopPHIDetectionJob' {..} =

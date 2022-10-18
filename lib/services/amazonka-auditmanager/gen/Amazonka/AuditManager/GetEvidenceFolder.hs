@@ -107,7 +107,7 @@ instance Core.AWSRequest GetEvidenceFolder where
   type
     AWSResponse GetEvidenceFolder =
       GetEvidenceFolderResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest GetEvidenceFolder where
             Prelude.<$> (x Core..?> "evidenceFolder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEvidenceFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEvidenceFolder where
   hashWithSalt _salt GetEvidenceFolder' {..} =

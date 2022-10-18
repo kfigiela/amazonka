@@ -97,7 +97,7 @@ instance Core.AWSRequest GetTimelineEvent where
   type
     AWSResponse GetTimelineEvent =
       GetTimelineEventResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetTimelineEvent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "event")
       )
+
+instance Core.AWSService GetTimelineEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTimelineEvent where
   hashWithSalt _salt GetTimelineEvent' {..} =

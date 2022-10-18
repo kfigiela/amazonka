@@ -81,7 +81,7 @@ getFuotaTask_id = Lens.lens (\GetFuotaTask' {id} -> id) (\s@GetFuotaTask' {} a -
 
 instance Core.AWSRequest GetFuotaTask where
   type AWSResponse GetFuotaTask = GetFuotaTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetFuotaTask where
             Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFuotaTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFuotaTask where
   hashWithSalt _salt GetFuotaTask' {..} =

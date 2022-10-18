@@ -98,7 +98,7 @@ instance Core.AWSRequest ListControlPanels where
   type
     AWSResponse ListControlPanels =
       ListControlPanelsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest ListControlPanels where
             Prelude.<*> (x Core..?> "ControlPanels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListControlPanels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListControlPanels where
   hashWithSalt _salt ListControlPanels' {..} =

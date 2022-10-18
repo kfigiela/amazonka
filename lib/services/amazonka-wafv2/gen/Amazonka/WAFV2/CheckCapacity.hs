@@ -135,7 +135,7 @@ instance Core.AWSRequest CheckCapacity where
   type
     AWSResponse CheckCapacity =
       CheckCapacityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CheckCapacity where
             Prelude.<$> (x Core..?> "Capacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CheckCapacity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckCapacity where
   hashWithSalt _salt CheckCapacity' {..} =

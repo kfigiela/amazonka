@@ -122,9 +122,12 @@ instance Core.AWSRequest SetIdentityPoolRoles where
   type
     AWSResponse SetIdentityPoolRoles =
       SetIdentityPoolRolesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetIdentityPoolRolesResponse'
+
+instance Core.AWSService SetIdentityPoolRoles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetIdentityPoolRoles where
   hashWithSalt _salt SetIdentityPoolRoles' {..} =

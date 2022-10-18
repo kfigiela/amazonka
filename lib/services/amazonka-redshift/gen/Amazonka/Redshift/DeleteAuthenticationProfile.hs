@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteAuthenticationProfile where
   type
     AWSResponse DeleteAuthenticationProfile =
       DeleteAuthenticationProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteAuthenticationProfileResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteAuthenticationProfile where
             Prelude.<$> (x Core..@? "AuthenticationProfileName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAuthenticationProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAuthenticationProfile where
   hashWithSalt _salt DeleteAuthenticationProfile' {..} =

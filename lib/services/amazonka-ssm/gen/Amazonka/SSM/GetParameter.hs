@@ -103,7 +103,7 @@ getParameter_name = Lens.lens (\GetParameter' {name} -> name) (\s@GetParameter' 
 
 instance Core.AWSRequest GetParameter where
   type AWSResponse GetParameter = GetParameterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest GetParameter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Parameter")
       )
+
+instance Core.AWSService GetParameter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetParameter where
   hashWithSalt _salt GetParameter' {..} =

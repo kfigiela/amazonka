@@ -131,7 +131,7 @@ instance
   type
     AWSResponse ResetServiceSpecificCredential =
       ResetServiceSpecificCredentialResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetServiceSpecificCredentialResult"
@@ -140,6 +140,12 @@ instance
             Prelude.<$> (x Core..@? "ServiceSpecificCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ResetServiceSpecificCredential
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

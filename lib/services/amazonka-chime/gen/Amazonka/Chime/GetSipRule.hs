@@ -76,7 +76,7 @@ getSipRule_sipRuleId = Lens.lens (\GetSipRule' {sipRuleId} -> sipRuleId) (\s@Get
 
 instance Core.AWSRequest GetSipRule where
   type AWSResponse GetSipRule = GetSipRuleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetSipRule where
             Prelude.<$> (x Core..?> "SipRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSipRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSipRule where
   hashWithSalt _salt GetSipRule' {..} =

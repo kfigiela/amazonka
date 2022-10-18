@@ -92,7 +92,7 @@ instance Core.AWSRequest GetProfileObjectTypeTemplate where
   type
     AWSResponse GetProfileObjectTypeTemplate =
       GetProfileObjectTypeTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetProfileObjectTypeTemplate where
             Prelude.<*> (x Core..?> "AllowProfileCreation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetProfileObjectTypeTemplate where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -128,7 +128,7 @@ instance Core.AWSRequest ListVodSources where
   type
     AWSResponse ListVodSources =
       ListVodSourcesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListVodSources where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVodSources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVodSources where
   hashWithSalt _salt ListVodSources' {..} =

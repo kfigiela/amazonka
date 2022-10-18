@@ -127,7 +127,7 @@ instance Core.AWSRequest DeleteAccountSetting where
   type
     AWSResponse DeleteAccountSetting =
       DeleteAccountSettingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DeleteAccountSetting where
             Prelude.<$> (x Core..?> "setting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccountSetting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccountSetting where
   hashWithSalt _salt DeleteAccountSetting' {..} =

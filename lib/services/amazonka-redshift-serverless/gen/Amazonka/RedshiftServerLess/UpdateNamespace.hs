@@ -154,7 +154,7 @@ instance Core.AWSRequest UpdateNamespace where
   type
     AWSResponse UpdateNamespace =
       UpdateNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest UpdateNamespace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "namespace")
       )
+
+instance Core.AWSService UpdateNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNamespace where
   hashWithSalt _salt UpdateNamespace' {..} =

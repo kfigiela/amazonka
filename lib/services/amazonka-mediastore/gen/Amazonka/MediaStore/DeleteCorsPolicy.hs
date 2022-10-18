@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteCorsPolicy where
   type
     AWSResponse DeleteCorsPolicy =
       DeleteCorsPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCorsPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCorsPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCorsPolicy where
   hashWithSalt _salt DeleteCorsPolicy' {..} =

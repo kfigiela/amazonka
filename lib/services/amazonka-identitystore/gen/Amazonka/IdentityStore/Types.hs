@@ -175,6 +175,7 @@ defaultService =
       Core._serviceEndpointPrefix = "identitystore",
       Core._serviceSigningName = "identitystore",
       Core._serviceVersion = "2020-06-15",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

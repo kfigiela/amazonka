@@ -420,7 +420,7 @@ instance Core.AWSRequest CreateClientVpnEndpoint where
   type
     AWSResponse CreateClientVpnEndpoint =
       CreateClientVpnEndpointResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -430,6 +430,9 @@ instance Core.AWSRequest CreateClientVpnEndpoint where
             Prelude.<*> (x Core..@? "dnsName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClientVpnEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClientVpnEndpoint where
   hashWithSalt _salt CreateClientVpnEndpoint' {..} =

@@ -170,7 +170,7 @@ createIPSet_activate = Lens.lens (\CreateIPSet' {activate} -> activate) (\s@Crea
 
 instance Core.AWSRequest CreateIPSet where
   type AWSResponse CreateIPSet = CreateIPSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest CreateIPSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ipSetId")
       )
+
+instance Core.AWSService CreateIPSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =

@@ -150,7 +150,7 @@ instance Core.AWSRequest CreatePermissionSet where
   type
     AWSResponse CreatePermissionSet =
       CreatePermissionSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest CreatePermissionSet where
             Prelude.<$> (x Core..?> "PermissionSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePermissionSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePermissionSet where
   hashWithSalt _salt CreatePermissionSet' {..} =

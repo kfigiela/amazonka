@@ -137,7 +137,7 @@ instance Core.AWSRequest GetBlueprints where
   type
     AWSResponse GetBlueprints =
       GetBlueprintsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest GetBlueprints where
             Prelude.<*> (x Core..?> "blueprints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBlueprints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBlueprints where
   hashWithSalt _salt GetBlueprints' {..} =

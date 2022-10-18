@@ -100,13 +100,16 @@ instance Core.AWSRequest UpdateTaskExecution where
   type
     AWSResponse UpdateTaskExecution =
       UpdateTaskExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateTaskExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTaskExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTaskExecution where
   hashWithSalt _salt UpdateTaskExecution' {..} =

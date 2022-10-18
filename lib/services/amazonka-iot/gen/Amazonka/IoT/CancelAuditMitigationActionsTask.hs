@@ -87,13 +87,19 @@ instance
   type
     AWSResponse CancelAuditMitigationActionsTask =
       CancelAuditMitigationActionsTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelAuditMitigationActionsTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CancelAuditMitigationActionsTask
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -93,13 +93,16 @@ instance Core.AWSRequest PutCaseEventConfiguration where
   type
     AWSResponse PutCaseEventConfiguration =
       PutCaseEventConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutCaseEventConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutCaseEventConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutCaseEventConfiguration where
   hashWithSalt _salt PutCaseEventConfiguration' {..} =

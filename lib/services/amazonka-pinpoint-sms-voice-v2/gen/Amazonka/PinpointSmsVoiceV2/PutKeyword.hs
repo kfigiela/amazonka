@@ -154,7 +154,7 @@ putKeyword_keywordMessage = Lens.lens (\PutKeyword' {keywordMessage} -> keywordM
 
 instance Core.AWSRequest PutKeyword where
   type AWSResponse PutKeyword = PutKeywordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest PutKeyword where
             Prelude.<*> (x Core..?> "KeywordMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutKeyword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutKeyword where
   hashWithSalt _salt PutKeyword' {..} =

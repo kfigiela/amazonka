@@ -223,7 +223,7 @@ instance Core.AWSRequest ModifyCapacityReservation where
   type
     AWSResponse ModifyCapacityReservation =
       ModifyCapacityReservationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -231,6 +231,9 @@ instance Core.AWSRequest ModifyCapacityReservation where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyCapacityReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCapacityReservation where
   hashWithSalt _salt ModifyCapacityReservation' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeEventTracker where
   type
     AWSResponse DescribeEventTracker =
       DescribeEventTrackerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeEventTracker where
             Prelude.<$> (x Core..?> "eventTracker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEventTracker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEventTracker where
   hashWithSalt _salt DescribeEventTracker' {..} =

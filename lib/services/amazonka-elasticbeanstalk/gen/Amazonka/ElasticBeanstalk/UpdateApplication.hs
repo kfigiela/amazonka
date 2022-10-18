@@ -105,11 +105,14 @@ instance Core.AWSRequest UpdateApplication where
   type
     AWSResponse UpdateApplication =
       ApplicationDescriptionMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateApplicationResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService UpdateApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApplication where
   hashWithSalt _salt UpdateApplication' {..} =

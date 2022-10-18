@@ -140,7 +140,7 @@ createStage_stageName = Lens.lens (\CreateStage' {stageName} -> stageName) (\s@C
 
 instance Core.AWSRequest CreateStage where
   type AWSResponse CreateStage = CreateStageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest CreateStage where
             Prelude.<$> (x Core..?> "Stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =

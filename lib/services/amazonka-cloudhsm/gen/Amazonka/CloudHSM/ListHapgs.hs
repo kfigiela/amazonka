@@ -114,7 +114,7 @@ instance Core.AWSPager ListHapgs where
 
 instance Core.AWSRequest ListHapgs where
   type AWSResponse ListHapgs = ListHapgsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ListHapgs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "HapgList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListHapgs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHapgs where
   hashWithSalt _salt ListHapgs' {..} =

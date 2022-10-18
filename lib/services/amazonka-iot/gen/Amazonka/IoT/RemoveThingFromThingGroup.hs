@@ -115,13 +115,16 @@ instance Core.AWSRequest RemoveThingFromThingGroup where
   type
     AWSResponse RemoveThingFromThingGroup =
       RemoveThingFromThingGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveThingFromThingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveThingFromThingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveThingFromThingGroup where
   hashWithSalt _salt RemoveThingFromThingGroup' {..} =

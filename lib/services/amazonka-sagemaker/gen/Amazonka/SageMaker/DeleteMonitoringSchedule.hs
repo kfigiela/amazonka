@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteMonitoringSchedule where
   type
     AWSResponse DeleteMonitoringSchedule =
       DeleteMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteMonitoringScheduleResponse'
+
+instance Core.AWSService DeleteMonitoringSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMonitoringSchedule where
   hashWithSalt _salt DeleteMonitoringSchedule' {..} =

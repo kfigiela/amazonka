@@ -112,7 +112,7 @@ instance Core.AWSRequest GetLatestConfiguration where
   type
     AWSResponse GetLatestConfiguration =
       GetLatestConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetLatestConfiguration where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLatestConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLatestConfiguration where
   hashWithSalt _salt GetLatestConfiguration' {..} =

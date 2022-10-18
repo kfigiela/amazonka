@@ -112,7 +112,7 @@ instance Core.AWSRequest RemoveProfilePermission where
   type
     AWSResponse RemoveProfilePermission =
       RemoveProfilePermissionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest RemoveProfilePermission where
             Prelude.<$> (x Core..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveProfilePermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveProfilePermission where
   hashWithSalt _salt RemoveProfilePermission' {..} =

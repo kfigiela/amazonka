@@ -125,7 +125,7 @@ instance Core.AWSRequest UpdateDataSetPermissions where
   type
     AWSResponse UpdateDataSetPermissions =
       UpdateDataSetPermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest UpdateDataSetPermissions where
             Prelude.<*> (x Core..?> "DataSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDataSetPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDataSetPermissions where
   hashWithSalt _salt UpdateDataSetPermissions' {..} =

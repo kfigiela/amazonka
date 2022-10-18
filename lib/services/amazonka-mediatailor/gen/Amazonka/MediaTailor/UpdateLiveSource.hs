@@ -113,7 +113,7 @@ instance Core.AWSRequest UpdateLiveSource where
   type
     AWSResponse UpdateLiveSource =
       UpdateLiveSourceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateLiveSource where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLiveSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLiveSource where
   hashWithSalt _salt UpdateLiveSource' {..} =

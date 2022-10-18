@@ -130,7 +130,7 @@ instance Core.AWSRequest RegisterDevice where
   type
     AWSResponse RegisterDevice =
       RegisterDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest RegisterDevice where
             Prelude.<$> (x Core..?> "DeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterDevice where
   hashWithSalt _salt RegisterDevice' {..} =

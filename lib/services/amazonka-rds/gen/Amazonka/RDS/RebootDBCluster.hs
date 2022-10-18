@@ -108,7 +108,7 @@ instance Core.AWSRequest RebootDBCluster where
   type
     AWSResponse RebootDBCluster =
       RebootDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebootDBClusterResult"
@@ -117,6 +117,9 @@ instance Core.AWSRequest RebootDBCluster where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootDBCluster where
   hashWithSalt _salt RebootDBCluster' {..} =

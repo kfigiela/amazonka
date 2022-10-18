@@ -154,7 +154,7 @@ deleteBucket_bucketName = Lens.lens (\DeleteBucket' {bucketName} -> bucketName) 
 
 instance Core.AWSRequest DeleteBucket where
   type AWSResponse DeleteBucket = DeleteBucketResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest DeleteBucket where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBucket where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBucket where
   hashWithSalt _salt DeleteBucket' {..} =

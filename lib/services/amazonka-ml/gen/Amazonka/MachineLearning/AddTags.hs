@@ -109,7 +109,7 @@ addTags_resourceType = Lens.lens (\AddTags' {resourceType} -> resourceType) (\s@
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest AddTags where
             Prelude.<*> (x Core..?> "ResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =

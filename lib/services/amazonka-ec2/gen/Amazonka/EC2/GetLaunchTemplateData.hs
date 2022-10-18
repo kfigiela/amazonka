@@ -106,7 +106,7 @@ instance Core.AWSRequest GetLaunchTemplateData where
   type
     AWSResponse GetLaunchTemplateData =
       GetLaunchTemplateDataResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest GetLaunchTemplateData where
             Prelude.<$> (x Core..@? "launchTemplateData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLaunchTemplateData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLaunchTemplateData where
   hashWithSalt _salt GetLaunchTemplateData' {..} =

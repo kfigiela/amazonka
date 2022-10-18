@@ -127,7 +127,7 @@ instance Core.AWSPager ListStreams where
 
 instance Core.AWSRequest ListStreams where
   type AWSResponse ListStreams = ListStreamsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListStreams where
             Prelude.<*> (x Core..?> "StreamNames" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "HasMoreStreams")
       )
+
+instance Core.AWSService ListStreams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStreams where
   hashWithSalt _salt ListStreams' {..} =

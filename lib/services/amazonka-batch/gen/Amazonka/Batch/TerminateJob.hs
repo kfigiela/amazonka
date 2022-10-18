@@ -96,13 +96,16 @@ terminateJob_reason = Lens.lens (\TerminateJob' {reason} -> reason) (\s@Terminat
 
 instance Core.AWSRequest TerminateJob where
   type AWSResponse TerminateJob = TerminateJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           TerminateJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateJob where
   hashWithSalt _salt TerminateJob' {..} =

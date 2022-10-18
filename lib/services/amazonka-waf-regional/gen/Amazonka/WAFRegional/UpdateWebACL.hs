@@ -233,7 +233,7 @@ updateWebACL_changeToken = Lens.lens (\UpdateWebACL' {changeToken} -> changeToke
 
 instance Core.AWSRequest UpdateWebACL where
   type AWSResponse UpdateWebACL = UpdateWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -241,6 +241,9 @@ instance Core.AWSRequest UpdateWebACL where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWebACL where
   hashWithSalt _salt UpdateWebACL' {..} =

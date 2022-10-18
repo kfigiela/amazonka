@@ -133,7 +133,7 @@ instance Core.AWSRequest ListThingTypes where
   type
     AWSResponse ListThingTypes =
       ListThingTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest ListThingTypes where
             Prelude.<*> (x Core..?> "thingTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListThingTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListThingTypes where
   hashWithSalt _salt ListThingTypes' {..} =

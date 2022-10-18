@@ -126,7 +126,7 @@ instance
   type
     AWSResponse AttachLoadBalancerTargetGroups =
       AttachLoadBalancerTargetGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AttachLoadBalancerTargetGroupsResult"
@@ -134,6 +134,12 @@ instance
           AttachLoadBalancerTargetGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AttachLoadBalancerTargetGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

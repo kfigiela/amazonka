@@ -114,7 +114,7 @@ instance Core.AWSRequest DeleteThemeAlias where
   type
     AWSResponse DeleteThemeAlias =
       DeleteThemeAliasResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DeleteThemeAlias where
             Prelude.<*> (x Core..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteThemeAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteThemeAlias where
   hashWithSalt _salt DeleteThemeAlias' {..} =

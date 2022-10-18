@@ -88,7 +88,7 @@ instance Core.AWSRequest DeleteDistribution where
   type
     AWSResponse DeleteDistribution =
       DeleteDistributionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DeleteDistribution where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDistribution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDistribution where
   hashWithSalt _salt DeleteDistribution' {..} =

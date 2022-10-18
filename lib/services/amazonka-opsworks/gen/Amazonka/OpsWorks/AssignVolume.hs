@@ -94,8 +94,11 @@ assignVolume_volumeId = Lens.lens (\AssignVolume' {volumeId} -> volumeId) (\s@As
 
 instance Core.AWSRequest AssignVolume where
   type AWSResponse AssignVolume = AssignVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull AssignVolumeResponse'
+
+instance Core.AWSService AssignVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssignVolume where
   hashWithSalt _salt AssignVolume' {..} =

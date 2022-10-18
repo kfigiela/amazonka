@@ -91,7 +91,7 @@ instance Core.AWSRequest UpdatePermissions where
   type
     AWSResponse UpdatePermissions =
       UpdatePermissionsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest UpdatePermissions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService UpdatePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePermissions where
   hashWithSalt _salt UpdatePermissions' {..} =

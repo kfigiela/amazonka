@@ -108,7 +108,7 @@ instance Core.AWSRequest UpdateJourney where
   type
     AWSResponse UpdateJourney =
       UpdateJourneyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest UpdateJourney where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateJourney where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateJourney where
   hashWithSalt _salt UpdateJourney' {..} =

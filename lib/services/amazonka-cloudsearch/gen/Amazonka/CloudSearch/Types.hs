@@ -356,6 +356,7 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudsearch",
       Core._serviceSigningName = "cloudsearch",
       Core._serviceVersion = "2013-01-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

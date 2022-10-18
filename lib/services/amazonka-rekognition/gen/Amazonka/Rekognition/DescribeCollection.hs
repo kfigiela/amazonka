@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeCollection where
   type
     AWSResponse DescribeCollection =
       DescribeCollectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeCollection where
             Prelude.<*> (x Core..?> "CollectionARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCollection where
   hashWithSalt _salt DescribeCollection' {..} =

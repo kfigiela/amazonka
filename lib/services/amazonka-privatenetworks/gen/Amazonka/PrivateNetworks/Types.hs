@@ -234,6 +234,7 @@ defaultService =
       Core._serviceEndpointPrefix = "private-networks",
       Core._serviceSigningName = "private-networks",
       Core._serviceVersion = "2021-12-03",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

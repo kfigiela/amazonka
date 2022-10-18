@@ -124,7 +124,7 @@ createPreset_name = Lens.lens (\CreatePreset' {name} -> name) (\s@CreatePreset' 
 
 instance Core.AWSRequest CreatePreset where
   type AWSResponse CreatePreset = CreatePresetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest CreatePreset where
             Prelude.<$> (x Core..?> "preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePreset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePreset where
   hashWithSalt _salt CreatePreset' {..} =

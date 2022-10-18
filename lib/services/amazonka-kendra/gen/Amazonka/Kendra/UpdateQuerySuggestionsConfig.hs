@@ -260,10 +260,13 @@ instance Core.AWSRequest UpdateQuerySuggestionsConfig where
   type
     AWSResponse UpdateQuerySuggestionsConfig =
       UpdateQuerySuggestionsConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQuerySuggestionsConfigResponse'
+
+instance Core.AWSService UpdateQuerySuggestionsConfig where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

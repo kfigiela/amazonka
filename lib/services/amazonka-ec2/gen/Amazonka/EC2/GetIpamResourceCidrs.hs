@@ -208,7 +208,7 @@ instance Core.AWSRequest GetIpamResourceCidrs where
   type
     AWSResponse GetIpamResourceCidrs =
       GetIpamResourceCidrsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -220,6 +220,9 @@ instance Core.AWSRequest GetIpamResourceCidrs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIpamResourceCidrs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIpamResourceCidrs where
   hashWithSalt _salt GetIpamResourceCidrs' {..} =

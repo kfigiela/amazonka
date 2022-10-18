@@ -77,7 +77,7 @@ instance Core.AWSRequest GetRecordingConfiguration where
   type
     AWSResponse GetRecordingConfiguration =
       GetRecordingConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetRecordingConfiguration where
             Prelude.<$> (x Core..?> "recordingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRecordingConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRecordingConfiguration where
   hashWithSalt _salt GetRecordingConfiguration' {..} =

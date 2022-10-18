@@ -95,13 +95,19 @@ instance
     AWSResponse
       DisassociateMulticastGroupFromFuotaTask =
       DisassociateMulticastGroupFromFuotaTaskResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateMulticastGroupFromFuotaTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateMulticastGroupFromFuotaTask
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

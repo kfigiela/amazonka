@@ -141,7 +141,7 @@ instance
     AWSResponse
       DescribeEffectiveInstanceAssociations =
       DescribeEffectiveInstanceAssociationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,12 @@ instance
               Prelude.<*> (x Core..?> "Associations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEffectiveInstanceAssociations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

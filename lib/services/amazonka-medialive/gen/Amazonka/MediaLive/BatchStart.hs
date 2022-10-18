@@ -88,7 +88,7 @@ batchStart'_channelIds = Lens.lens (\BatchStart'' {channelIds} -> channelIds) (\
 
 instance Core.AWSRequest BatchStart' where
   type AWSResponse BatchStart' = BatchStartResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest BatchStart' where
             Prelude.<*> (x Core..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchStart' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchStart' where
   hashWithSalt _salt BatchStart'' {..} =

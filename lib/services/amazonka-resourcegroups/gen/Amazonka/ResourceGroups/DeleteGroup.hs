@@ -93,7 +93,7 @@ deleteGroup_group = Lens.lens (\DeleteGroup' {group'} -> group') (\s@DeleteGroup
 
 instance Core.AWSRequest DeleteGroup where
   type AWSResponse DeleteGroup = DeleteGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteGroup where
             Prelude.<$> (x Core..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGroup where
   hashWithSalt _salt DeleteGroup' {..} =

@@ -131,7 +131,7 @@ instance Core.AWSRequest ImportDocumentationParts where
   type
     AWSResponse ImportDocumentationParts =
       ImportDocumentationPartsResponse
-  request = Request.putBody defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ImportDocumentationParts where
             Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportDocumentationParts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportDocumentationParts where
   hashWithSalt _salt ImportDocumentationParts' {..} =

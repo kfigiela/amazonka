@@ -84,13 +84,16 @@ instance Core.AWSRequest DeleteCallAnalyticsCategory where
   type
     AWSResponse DeleteCallAnalyticsCategory =
       DeleteCallAnalyticsCategoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCallAnalyticsCategoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCallAnalyticsCategory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCallAnalyticsCategory where
   hashWithSalt _salt DeleteCallAnalyticsCategory' {..} =

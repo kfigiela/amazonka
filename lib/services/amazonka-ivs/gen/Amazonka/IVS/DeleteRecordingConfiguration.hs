@@ -79,10 +79,13 @@ instance Core.AWSRequest DeleteRecordingConfiguration where
   type
     AWSResponse DeleteRecordingConfiguration =
       DeleteRecordingConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteRecordingConfigurationResponse'
+
+instance Core.AWSService DeleteRecordingConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

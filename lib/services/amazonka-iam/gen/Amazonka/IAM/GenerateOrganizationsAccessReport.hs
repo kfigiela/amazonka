@@ -251,7 +251,7 @@ instance
   type
     AWSResponse GenerateOrganizationsAccessReport =
       GenerateOrganizationsAccessReportResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GenerateOrganizationsAccessReportResult"
@@ -260,6 +260,12 @@ instance
             Prelude.<$> (x Core..@? "JobId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GenerateOrganizationsAccessReport
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

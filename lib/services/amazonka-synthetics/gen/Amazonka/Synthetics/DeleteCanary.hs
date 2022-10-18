@@ -126,13 +126,16 @@ deleteCanary_name = Lens.lens (\DeleteCanary' {name} -> name) (\s@DeleteCanary' 
 
 instance Core.AWSRequest DeleteCanary where
   type AWSResponse DeleteCanary = DeleteCanaryResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCanaryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCanary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCanary where
   hashWithSalt _salt DeleteCanary' {..} =

@@ -101,7 +101,7 @@ instance
   type
     AWSResponse DetachLoadBalancerFromSubnets =
       DetachLoadBalancerFromSubnetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DetachLoadBalancerFromSubnetsResult"
@@ -112,6 +112,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DetachLoadBalancerFromSubnets
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -85,7 +85,7 @@ instance
   type
     AWSResponse GetOrganizationCustomRulePolicy =
       GetOrganizationCustomRulePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,12 @@ instance
             Prelude.<$> (x Core..?> "PolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetOrganizationCustomRulePolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

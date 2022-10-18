@@ -149,7 +149,7 @@ pollForTask_workerGroup = Lens.lens (\PollForTask' {workerGroup} -> workerGroup)
 
 instance Core.AWSRequest PollForTask where
   type AWSResponse PollForTask = PollForTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest PollForTask where
             Prelude.<$> (x Core..?> "taskObject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PollForTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PollForTask where
   hashWithSalt _salt PollForTask' {..} =

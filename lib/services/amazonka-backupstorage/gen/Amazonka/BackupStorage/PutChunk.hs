@@ -157,7 +157,7 @@ putChunk_data = Lens.lens (\PutChunk' {data'} -> data') (\s@PutChunk' {} a -> s 
 
 instance Core.AWSRequest PutChunk where
   type AWSResponse PutChunk = PutChunkResponse
-  request = Request.putBody defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest PutChunk where
             Prelude.<*> (x Core..:> "ChunkChecksum")
             Prelude.<*> (x Core..:> "ChunkChecksumAlgorithm")
       )
+
+instance Core.AWSService PutChunk where
+  service _proxy = defaultService
 
 instance Core.ToBody PutChunk where
   toBody PutChunk' {..} = Core.toBody data'

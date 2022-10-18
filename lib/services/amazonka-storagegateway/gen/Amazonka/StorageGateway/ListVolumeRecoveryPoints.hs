@@ -87,7 +87,7 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
   type
     AWSResponse ListVolumeRecoveryPoints =
       ListVolumeRecoveryPointsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest ListVolumeRecoveryPoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVolumeRecoveryPoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVolumeRecoveryPoints where
   hashWithSalt _salt ListVolumeRecoveryPoints' {..} =

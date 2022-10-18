@@ -135,7 +135,7 @@ instance Core.AWSRequest UpdateReportDefinition where
   type
     AWSResponse UpdateReportDefinition =
       UpdateReportDefinitionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest UpdateReportDefinition where
             Prelude.<$> (x Core..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReportDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReportDefinition where
   hashWithSalt _salt UpdateReportDefinition' {..} =

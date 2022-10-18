@@ -101,7 +101,7 @@ getVariables_maxResults = Lens.lens (\GetVariables' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest GetVariables where
   type AWSResponse GetVariables = GetVariablesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetVariables where
             Prelude.<*> (x Core..?> "variables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVariables where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVariables where
   hashWithSalt _salt GetVariables' {..} =

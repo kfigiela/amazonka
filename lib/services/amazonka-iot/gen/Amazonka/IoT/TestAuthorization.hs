@@ -153,7 +153,7 @@ instance Core.AWSRequest TestAuthorization where
   type
     AWSResponse TestAuthorization =
       TestAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest TestAuthorization where
             Prelude.<$> (x Core..?> "authResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestAuthorization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestAuthorization where
   hashWithSalt _salt TestAuthorization' {..} =

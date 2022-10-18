@@ -265,7 +265,7 @@ instance Core.AWSRequest CreateVocabulary where
   type
     AWSResponse CreateVocabulary =
       CreateVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -277,6 +277,9 @@ instance Core.AWSRequest CreateVocabulary where
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =

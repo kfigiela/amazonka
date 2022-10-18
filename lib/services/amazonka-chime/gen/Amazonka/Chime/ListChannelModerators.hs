@@ -118,7 +118,7 @@ instance Core.AWSRequest ListChannelModerators where
   type
     AWSResponse ListChannelModerators =
       ListChannelModeratorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListChannelModerators where
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannelModerators where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannelModerators where
   hashWithSalt _salt ListChannelModerators' {..} =

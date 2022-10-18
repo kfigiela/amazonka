@@ -934,7 +934,7 @@ instance Core.AWSRequest ModifyCacheCluster where
   type
     AWSResponse ModifyCacheCluster =
       ModifyCacheClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCacheClusterResult"
@@ -943,6 +943,9 @@ instance Core.AWSRequest ModifyCacheCluster where
             Prelude.<$> (x Core..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyCacheCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCacheCluster where
   hashWithSalt _salt ModifyCacheCluster' {..} =

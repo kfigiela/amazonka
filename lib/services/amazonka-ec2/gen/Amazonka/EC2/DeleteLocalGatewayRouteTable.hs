@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteLocalGatewayRouteTable where
   type
     AWSResponse DeleteLocalGatewayRouteTable =
       DeleteLocalGatewayRouteTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteLocalGatewayRouteTable where
             Prelude.<$> (x Core..@? "localGatewayRouteTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLocalGatewayRouteTable where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

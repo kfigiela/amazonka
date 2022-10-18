@@ -122,7 +122,7 @@ createExport_fileFormat = Lens.lens (\CreateExport' {fileFormat} -> fileFormat) 
 
 instance Core.AWSRequest CreateExport where
   type AWSResponse CreateExport = CreateExportResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateExport where
             Prelude.<*> (x Core..?> "fileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExport where
   hashWithSalt _salt CreateExport' {..} =

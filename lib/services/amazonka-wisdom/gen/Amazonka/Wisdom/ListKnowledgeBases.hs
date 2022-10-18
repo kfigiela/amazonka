@@ -117,7 +117,7 @@ instance Core.AWSRequest ListKnowledgeBases where
   type
     AWSResponse ListKnowledgeBases =
       ListKnowledgeBasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListKnowledgeBases where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListKnowledgeBases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListKnowledgeBases where
   hashWithSalt _salt ListKnowledgeBases' {..} =

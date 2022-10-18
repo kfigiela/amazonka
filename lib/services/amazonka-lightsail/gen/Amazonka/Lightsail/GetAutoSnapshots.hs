@@ -84,7 +84,7 @@ instance Core.AWSRequest GetAutoSnapshots where
   type
     AWSResponse GetAutoSnapshots =
       GetAutoSnapshotsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetAutoSnapshots where
             Prelude.<*> (x Core..?> "autoSnapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAutoSnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAutoSnapshots where
   hashWithSalt _salt GetAutoSnapshots' {..} =

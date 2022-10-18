@@ -123,13 +123,16 @@ instance Core.AWSRequest DisconnectCustomKeyStore where
   type
     AWSResponse DisconnectCustomKeyStore =
       DisconnectCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisconnectCustomKeyStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisconnectCustomKeyStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisconnectCustomKeyStore where
   hashWithSalt _salt DisconnectCustomKeyStore' {..} =

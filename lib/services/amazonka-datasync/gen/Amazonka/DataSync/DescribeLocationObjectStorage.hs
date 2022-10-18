@@ -95,7 +95,7 @@ instance
   type
     AWSResponse DescribeLocationObjectStorage =
       DescribeLocationObjectStorageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,12 @@ instance
             Prelude.<*> (x Core..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeLocationObjectStorage
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

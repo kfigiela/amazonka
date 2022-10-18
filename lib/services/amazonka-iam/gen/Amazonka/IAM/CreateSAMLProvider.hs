@@ -192,7 +192,7 @@ instance Core.AWSRequest CreateSAMLProvider where
   type
     AWSResponse CreateSAMLProvider =
       CreateSAMLProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateSAMLProviderResult"
@@ -204,6 +204,9 @@ instance Core.AWSRequest CreateSAMLProvider where
             Prelude.<*> (x Core..@? "SAMLProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSAMLProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSAMLProvider where
   hashWithSalt _salt CreateSAMLProvider' {..} =

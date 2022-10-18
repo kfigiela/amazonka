@@ -95,7 +95,7 @@ instance Core.AWSRequest GetDeploymentStatus where
   type
     AWSResponse GetDeploymentStatus =
       GetDeploymentStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetDeploymentStatus where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeploymentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeploymentStatus where
   hashWithSalt _salt GetDeploymentStatus' {..} =

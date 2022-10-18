@@ -185,7 +185,7 @@ createPool_messageType = Lens.lens (\CreatePool' {messageType} -> messageType) (
 
 instance Core.AWSRequest CreatePool where
   type AWSResponse CreatePool = CreatePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest CreatePool where
             Prelude.<*> (x Core..?> "SharedRoutesEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePool where
   hashWithSalt _salt CreatePool' {..} =

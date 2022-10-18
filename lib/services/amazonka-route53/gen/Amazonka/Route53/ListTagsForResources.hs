@@ -114,7 +114,7 @@ instance Core.AWSRequest ListTagsForResources where
   type
     AWSResponse ListTagsForResources =
       ListTagsForResourcesResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListTagsForResources where
                             Prelude.>>= Core.parseXMLList "ResourceTagSet"
                         )
       )
+
+instance Core.AWSService ListTagsForResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForResources where
   hashWithSalt _salt ListTagsForResources' {..} =

@@ -77,13 +77,16 @@ instance Core.AWSRequest DeleteEventIntegration where
   type
     AWSResponse DeleteEventIntegration =
       DeleteEventIntegrationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEventIntegrationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEventIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventIntegration where
   hashWithSalt _salt DeleteEventIntegration' {..} =

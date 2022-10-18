@@ -81,7 +81,7 @@ deleteDomain_domainName = Lens.lens (\DeleteDomain' {domainName} -> domainName) 
 
 instance Core.AWSRequest DeleteDomain where
   type AWSResponse DeleteDomain = DeleteDomainResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDomainResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteDomain where
             Prelude.<$> (x Core..@? "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDomain where
   hashWithSalt _salt DeleteDomain' {..} =

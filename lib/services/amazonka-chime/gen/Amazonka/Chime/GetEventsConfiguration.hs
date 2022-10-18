@@ -92,7 +92,7 @@ instance Core.AWSRequest GetEventsConfiguration where
   type
     AWSResponse GetEventsConfiguration =
       GetEventsConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetEventsConfiguration where
             Prelude.<$> (x Core..?> "EventsConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEventsConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEventsConfiguration where
   hashWithSalt _salt GetEventsConfiguration' {..} =

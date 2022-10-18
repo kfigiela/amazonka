@@ -154,6 +154,7 @@ defaultService =
       Core._serviceEndpointPrefix = "runtime.lex",
       Core._serviceSigningName = "lex",
       Core._serviceVersion = "2016-11-28",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

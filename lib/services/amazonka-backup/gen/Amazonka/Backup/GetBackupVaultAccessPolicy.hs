@@ -92,7 +92,7 @@ instance Core.AWSRequest GetBackupVaultAccessPolicy where
   type
     AWSResponse GetBackupVaultAccessPolicy =
       GetBackupVaultAccessPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetBackupVaultAccessPolicy where
             Prelude.<*> (x Core..?> "BackupVaultArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackupVaultAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackupVaultAccessPolicy where
   hashWithSalt _salt GetBackupVaultAccessPolicy' {..} =

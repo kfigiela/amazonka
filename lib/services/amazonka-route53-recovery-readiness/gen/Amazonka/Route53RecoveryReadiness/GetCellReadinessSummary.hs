@@ -127,7 +127,7 @@ instance Core.AWSRequest GetCellReadinessSummary where
   type
     AWSResponse GetCellReadinessSummary =
       GetCellReadinessSummaryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetCellReadinessSummary where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCellReadinessSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCellReadinessSummary where
   hashWithSalt _salt GetCellReadinessSummary' {..} =

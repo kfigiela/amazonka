@@ -81,7 +81,7 @@ getCell_cellName = Lens.lens (\GetCell' {cellName} -> cellName) (\s@GetCell' {} 
 
 instance Core.AWSRequest GetCell where
   type AWSResponse GetCell = GetCellResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetCell where
             Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCell where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCell where
   hashWithSalt _salt GetCell' {..} =

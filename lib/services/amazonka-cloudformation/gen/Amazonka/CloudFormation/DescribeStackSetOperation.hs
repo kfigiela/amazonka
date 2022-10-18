@@ -152,7 +152,7 @@ instance Core.AWSRequest DescribeStackSetOperation where
   type
     AWSResponse DescribeStackSetOperation =
       DescribeStackSetOperationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackSetOperationResult"
@@ -161,6 +161,9 @@ instance Core.AWSRequest DescribeStackSetOperation where
             Prelude.<$> (x Core..@? "StackSetOperation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStackSetOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStackSetOperation where
   hashWithSalt _salt DescribeStackSetOperation' {..} =

@@ -133,7 +133,7 @@ instance Core.AWSRequest DescribeCustomDomains where
   type
     AWSResponse DescribeCustomDomains =
       DescribeCustomDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest DescribeCustomDomains where
             Prelude.<*> (x Core..:> "ServiceArn")
             Prelude.<*> (x Core..?> "CustomDomains" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeCustomDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCustomDomains where
   hashWithSalt _salt DescribeCustomDomains' {..} =

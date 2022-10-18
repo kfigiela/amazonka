@@ -107,7 +107,7 @@ createApiKey_apiId = Lens.lens (\CreateApiKey' {apiId} -> apiId) (\s@CreateApiKe
 
 instance Core.AWSRequest CreateApiKey where
   type AWSResponse CreateApiKey = CreateApiKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateApiKey where
             Prelude.<$> (x Core..?> "apiKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApiKey where
   hashWithSalt _salt CreateApiKey' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest UpdateConnectivity where
   type
     AWSResponse UpdateConnectivity =
       UpdateConnectivityResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateConnectivity where
             Prelude.<*> (x Core..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConnectivity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConnectivity where
   hashWithSalt _salt UpdateConnectivity' {..} =

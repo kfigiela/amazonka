@@ -140,7 +140,7 @@ instance Core.AWSPager ListStages where
 
 instance Core.AWSRequest ListStages where
   type AWSResponse ListStages = ListStagesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListStages where
             Prelude.<*> (x Core..?> "Stages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStages where
   hashWithSalt _salt ListStages' {..} =

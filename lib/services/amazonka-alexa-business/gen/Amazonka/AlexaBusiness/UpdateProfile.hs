@@ -212,13 +212,16 @@ instance Core.AWSRequest UpdateProfile where
   type
     AWSResponse UpdateProfile =
       UpdateProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =

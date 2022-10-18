@@ -73,13 +73,16 @@ stopCrawler_name = Lens.lens (\StopCrawler' {name} -> name) (\s@StopCrawler' {} 
 
 instance Core.AWSRequest StopCrawler where
   type AWSResponse StopCrawler = StopCrawlerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopCrawler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopCrawler where
   hashWithSalt _salt StopCrawler' {..} =

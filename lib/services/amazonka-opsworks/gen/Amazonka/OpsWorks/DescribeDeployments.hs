@@ -117,7 +117,7 @@ instance Core.AWSRequest DescribeDeployments where
   type
     AWSResponse DescribeDeployments =
       DescribeDeploymentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeDeployments where
             Prelude.<$> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDeployments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDeployments where
   hashWithSalt _salt DescribeDeployments' {..} =

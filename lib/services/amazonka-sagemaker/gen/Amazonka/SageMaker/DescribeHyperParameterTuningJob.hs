@@ -98,7 +98,7 @@ instance
   type
     AWSResponse DescribeHyperParameterTuningJob =
       DescribeHyperParameterTuningJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,12 @@ instance
             Prelude.<*> (x Core..:> "TrainingJobStatusCounters")
             Prelude.<*> (x Core..:> "ObjectiveStatusCounters")
       )
+
+instance
+  Core.AWSService
+    DescribeHyperParameterTuningJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

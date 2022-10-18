@@ -107,10 +107,16 @@ instance
   type
     AWSResponse ModifyMountTargetSecurityGroups =
       ModifyMountTargetSecurityGroupsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       ModifyMountTargetSecurityGroupsResponse'
+
+instance
+  Core.AWSService
+    ModifyMountTargetSecurityGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

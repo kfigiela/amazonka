@@ -120,13 +120,16 @@ instance Core.AWSRequest AdminUpdateDeviceStatus where
   type
     AWSResponse AdminUpdateDeviceStatus =
       AdminUpdateDeviceStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminUpdateDeviceStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminUpdateDeviceStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminUpdateDeviceStatus where
   hashWithSalt _salt AdminUpdateDeviceStatus' {..} =

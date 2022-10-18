@@ -79,7 +79,7 @@ getImage_imageBuildVersionArn = Lens.lens (\GetImage' {imageBuildVersionArn} -> 
 
 instance Core.AWSRequest GetImage where
   type AWSResponse GetImage = GetImageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetImage where
             Prelude.<*> (x Core..?> "image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImage where
   hashWithSalt _salt GetImage' {..} =

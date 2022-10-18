@@ -99,7 +99,7 @@ runStatement_code = Lens.lens (\RunStatement' {code} -> code) (\s@RunStatement' 
 
 instance Core.AWSRequest RunStatement where
   type AWSResponse RunStatement = RunStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest RunStatement where
             Prelude.<$> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RunStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RunStatement where
   hashWithSalt _salt RunStatement' {..} =

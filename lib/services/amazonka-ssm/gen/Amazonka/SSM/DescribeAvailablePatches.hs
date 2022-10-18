@@ -393,7 +393,7 @@ instance Core.AWSRequest DescribeAvailablePatches where
   type
     AWSResponse DescribeAvailablePatches =
       DescribeAvailablePatchesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -402,6 +402,9 @@ instance Core.AWSRequest DescribeAvailablePatches where
             Prelude.<*> (x Core..?> "Patches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAvailablePatches where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAvailablePatches where
   hashWithSalt _salt DescribeAvailablePatches' {..} =

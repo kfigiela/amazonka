@@ -99,7 +99,7 @@ createBot_accountId = Lens.lens (\CreateBot' {accountId} -> accountId) (\s@Creat
 
 instance Core.AWSRequest CreateBot where
   type AWSResponse CreateBot = CreateBotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest CreateBot where
             Prelude.<$> (x Core..?> "Bot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBot where
   hashWithSalt _salt CreateBot' {..} =

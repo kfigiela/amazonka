@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribePackage where
   type
     AWSResponse DescribePackage =
       DescribePackageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribePackage where
             Prelude.<*> (x Core..:> "StorageLocation")
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribePackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePackage where
   hashWithSalt _salt DescribePackage' {..} =

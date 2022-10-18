@@ -111,7 +111,7 @@ instance Core.AWSRequest ListManagedInsightRules where
   type
     AWSResponse ListManagedInsightRules =
       ListManagedInsightRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListManagedInsightRulesResult"
@@ -123,6 +123,9 @@ instance Core.AWSRequest ListManagedInsightRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListManagedInsightRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListManagedInsightRules where
   hashWithSalt _salt ListManagedInsightRules' {..} =

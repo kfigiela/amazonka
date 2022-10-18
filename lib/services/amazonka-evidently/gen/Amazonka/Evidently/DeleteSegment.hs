@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteSegment where
   type
     AWSResponse DeleteSegment =
       DeleteSegmentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSegmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSegment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSegment where
   hashWithSalt _salt DeleteSegment' {..} =

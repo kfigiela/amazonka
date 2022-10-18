@@ -81,7 +81,7 @@ instance Core.AWSRequest BatchGetReports where
   type
     AWSResponse BatchGetReports =
       BatchGetReportsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest BatchGetReports where
             Prelude.<*> (x Core..?> "reports")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetReports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetReports where
   hashWithSalt _salt BatchGetReports' {..} =

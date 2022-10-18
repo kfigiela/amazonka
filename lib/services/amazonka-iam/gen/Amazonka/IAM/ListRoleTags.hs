@@ -151,7 +151,7 @@ listRoleTags_roleName = Lens.lens (\ListRoleTags' {roleName} -> roleName) (\s@Li
 
 instance Core.AWSRequest ListRoleTags where
   type AWSResponse ListRoleTags = ListRoleTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListRoleTagsResult"
@@ -164,6 +164,9 @@ instance Core.AWSRequest ListRoleTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListRoleTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRoleTags where
   hashWithSalt _salt ListRoleTags' {..} =

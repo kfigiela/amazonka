@@ -99,7 +99,7 @@ instance Core.AWSRequest DeleteNetworkInsightsPath where
   type
     AWSResponse DeleteNetworkInsightsPath =
       DeleteNetworkInsightsPathResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteNetworkInsightsPath where
             Prelude.<$> (x Core..@? "networkInsightsPathId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNetworkInsightsPath where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNetworkInsightsPath where
   hashWithSalt _salt DeleteNetworkInsightsPath' {..} =

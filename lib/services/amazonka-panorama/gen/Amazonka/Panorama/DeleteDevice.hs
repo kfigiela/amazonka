@@ -75,7 +75,7 @@ deleteDevice_deviceId = Lens.lens (\DeleteDevice' {deviceId} -> deviceId) (\s@De
 
 instance Core.AWSRequest DeleteDevice where
   type AWSResponse DeleteDevice = DeleteDeviceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest DeleteDevice where
             Prelude.<$> (x Core..?> "DeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDevice where
   hashWithSalt _salt DeleteDevice' {..} =

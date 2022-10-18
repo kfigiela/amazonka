@@ -76,7 +76,7 @@ instance Core.AWSRequest StopBuildBatch where
   type
     AWSResponse StopBuildBatch =
       StopBuildBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest StopBuildBatch where
             Prelude.<$> (x Core..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopBuildBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopBuildBatch where
   hashWithSalt _salt StopBuildBatch' {..} =

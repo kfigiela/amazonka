@@ -152,7 +152,7 @@ instance Core.AWSRequest CreateCodeReview where
   type
     AWSResponse CreateCodeReview =
       CreateCodeReviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest CreateCodeReview where
             Prelude.<$> (x Core..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCodeReview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCodeReview where
   hashWithSalt _salt CreateCodeReview' {..} =

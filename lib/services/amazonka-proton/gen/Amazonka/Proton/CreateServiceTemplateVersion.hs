@@ -222,7 +222,7 @@ instance Core.AWSRequest CreateServiceTemplateVersion where
   type
     AWSResponse CreateServiceTemplateVersion =
       CreateServiceTemplateVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest CreateServiceTemplateVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "serviceTemplateVersion")
       )
+
+instance Core.AWSService CreateServiceTemplateVersion where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

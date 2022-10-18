@@ -263,7 +263,7 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
   type
     AWSResponse AssociateVpcCidrBlock =
       AssociateVpcCidrBlockResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -273,6 +273,9 @@ instance Core.AWSRequest AssociateVpcCidrBlock where
             Prelude.<*> (x Core..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateVpcCidrBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateVpcCidrBlock where
   hashWithSalt _salt AssociateVpcCidrBlock' {..} =

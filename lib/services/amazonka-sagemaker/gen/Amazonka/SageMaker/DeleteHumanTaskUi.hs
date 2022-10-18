@@ -87,13 +87,16 @@ instance Core.AWSRequest DeleteHumanTaskUi where
   type
     AWSResponse DeleteHumanTaskUi =
       DeleteHumanTaskUiResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHumanTaskUiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteHumanTaskUi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHumanTaskUi where
   hashWithSalt _salt DeleteHumanTaskUi' {..} =

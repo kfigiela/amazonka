@@ -134,7 +134,7 @@ instance Core.AWSRequest ListClusterOperations where
   type
     AWSResponse ListClusterOperations =
       ListClusterOperationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest ListClusterOperations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListClusterOperations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListClusterOperations where
   hashWithSalt _salt ListClusterOperations' {..} =

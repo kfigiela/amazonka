@@ -115,11 +115,14 @@ instance Core.AWSRequest RemoveTagsFromVault where
   type
     AWSResponse RemoveTagsFromVault =
       RemoveTagsFromVaultResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveNull RemoveTagsFromVaultResponse'
+
+instance Core.AWSService RemoveTagsFromVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTagsFromVault where
   hashWithSalt _salt RemoveTagsFromVault' {..} =

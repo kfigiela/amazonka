@@ -116,13 +116,16 @@ instance Core.AWSRequest UpdateNamedQuery where
   type
     AWSResponse UpdateNamedQuery =
       UpdateNamedQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNamedQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNamedQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNamedQuery where
   hashWithSalt _salt UpdateNamedQuery' {..} =

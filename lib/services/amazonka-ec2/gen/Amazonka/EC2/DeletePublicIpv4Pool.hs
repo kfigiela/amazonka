@@ -101,7 +101,7 @@ instance Core.AWSRequest DeletePublicIpv4Pool where
   type
     AWSResponse DeletePublicIpv4Pool =
       DeletePublicIpv4PoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeletePublicIpv4Pool where
             Prelude.<$> (x Core..@? "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePublicIpv4Pool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePublicIpv4Pool where
   hashWithSalt _salt DeletePublicIpv4Pool' {..} =

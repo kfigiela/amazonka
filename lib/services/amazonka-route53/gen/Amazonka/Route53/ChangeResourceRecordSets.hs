@@ -190,7 +190,7 @@ instance Core.AWSRequest ChangeResourceRecordSets where
   type
     AWSResponse ChangeResourceRecordSets =
       ChangeResourceRecordSetsResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest ChangeResourceRecordSets where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService ChangeResourceRecordSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChangeResourceRecordSets where
   hashWithSalt _salt ChangeResourceRecordSets' {..} =

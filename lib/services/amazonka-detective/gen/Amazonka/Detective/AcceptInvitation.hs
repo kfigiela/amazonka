@@ -88,9 +88,12 @@ instance Core.AWSRequest AcceptInvitation where
   type
     AWSResponse AcceptInvitation =
       AcceptInvitationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull AcceptInvitationResponse'
+
+instance Core.AWSService AcceptInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptInvitation where
   hashWithSalt _salt AcceptInvitation' {..} =

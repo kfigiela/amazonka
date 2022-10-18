@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeHostKey where
   type
     AWSResponse DescribeHostKey =
       DescribeHostKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeHostKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "HostKey")
       )
+
+instance Core.AWSService DescribeHostKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHostKey where
   hashWithSalt _salt DescribeHostKey' {..} =

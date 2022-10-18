@@ -80,7 +80,7 @@ getFleet_fleetId = Lens.lens (\GetFleet' {fleetId} -> fleetId) (\s@GetFleet' {} 
 
 instance Core.AWSRequest GetFleet where
   type AWSResponse GetFleet = GetFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetFleet where
             Prelude.<*> (x Core..:> "creationTime")
             Prelude.<*> (x Core..:> "lastModificationTime")
       )
+
+instance Core.AWSService GetFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFleet where
   hashWithSalt _salt GetFleet' {..} =

@@ -200,7 +200,7 @@ instance Core.AWSRequest DescribeStoreImageTasks where
   type
     AWSResponse DescribeStoreImageTasks =
       DescribeStoreImageTasksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest DescribeStoreImageTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStoreImageTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStoreImageTasks where
   hashWithSalt _salt DescribeStoreImageTasks' {..} =

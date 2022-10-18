@@ -138,13 +138,16 @@ instance Core.AWSRequest PutLaunchProfileMembers where
   type
     AWSResponse PutLaunchProfileMembers =
       PutLaunchProfileMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutLaunchProfileMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLaunchProfileMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLaunchProfileMembers where
   hashWithSalt _salt PutLaunchProfileMembers' {..} =

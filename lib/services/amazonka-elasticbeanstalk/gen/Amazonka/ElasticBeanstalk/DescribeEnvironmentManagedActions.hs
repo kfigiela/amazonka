@@ -104,7 +104,7 @@ instance
   type
     AWSResponse DescribeEnvironmentManagedActions =
       DescribeEnvironmentManagedActionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentManagedActionsResult"
@@ -115,6 +115,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEnvironmentManagedActions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -126,13 +126,19 @@ instance
   type
     AWSResponse DeleteVPCAssociationAuthorization =
       DeleteVPCAssociationAuthorizationResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVPCAssociationAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteVPCAssociationAuthorization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

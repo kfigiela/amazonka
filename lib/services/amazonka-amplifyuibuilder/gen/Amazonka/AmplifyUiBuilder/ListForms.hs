@@ -129,7 +129,7 @@ instance Core.AWSPager ListForms where
 
 instance Core.AWSRequest ListForms where
   type AWSResponse ListForms = ListFormsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListForms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListForms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListForms where
   hashWithSalt _salt ListForms' {..} =

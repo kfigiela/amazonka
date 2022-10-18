@@ -135,7 +135,7 @@ instance Core.AWSRequest ListLogSubscriptions where
   type
     AWSResponse ListLogSubscriptions =
       ListLogSubscriptionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListLogSubscriptions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLogSubscriptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLogSubscriptions where
   hashWithSalt _salt ListLogSubscriptions' {..} =

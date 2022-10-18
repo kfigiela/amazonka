@@ -87,6 +87,7 @@ defaultService =
       Core._serviceEndpointPrefix = "codestar-connections",
       Core._serviceSigningName = "codestar-connections",
       Core._serviceVersion = "2019-12-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

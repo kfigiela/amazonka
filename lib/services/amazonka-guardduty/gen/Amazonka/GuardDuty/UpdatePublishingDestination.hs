@@ -110,13 +110,16 @@ instance Core.AWSRequest UpdatePublishingDestination where
   type
     AWSResponse UpdatePublishingDestination =
       UpdatePublishingDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePublishingDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePublishingDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePublishingDestination where
   hashWithSalt _salt UpdatePublishingDestination' {..} =

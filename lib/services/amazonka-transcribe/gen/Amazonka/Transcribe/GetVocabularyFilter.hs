@@ -93,7 +93,7 @@ instance Core.AWSRequest GetVocabularyFilter where
   type
     AWSResponse GetVocabularyFilter =
       GetVocabularyFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetVocabularyFilter where
             Prelude.<*> (x Core..?> "VocabularyFilterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVocabularyFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVocabularyFilter where
   hashWithSalt _salt GetVocabularyFilter' {..} =

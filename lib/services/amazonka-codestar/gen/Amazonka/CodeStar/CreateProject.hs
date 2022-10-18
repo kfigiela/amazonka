@@ -165,7 +165,7 @@ instance Core.AWSRequest CreateProject where
   type
     AWSResponse CreateProject =
       CreateProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateProject where
             Prelude.<*> (x Core..:> "id")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =

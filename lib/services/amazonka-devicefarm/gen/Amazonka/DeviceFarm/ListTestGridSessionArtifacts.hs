@@ -111,7 +111,7 @@ instance Core.AWSRequest ListTestGridSessionArtifacts where
   type
     AWSResponse ListTestGridSessionArtifacts =
       ListTestGridSessionArtifactsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest ListTestGridSessionArtifacts where
             Prelude.<*> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTestGridSessionArtifacts where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

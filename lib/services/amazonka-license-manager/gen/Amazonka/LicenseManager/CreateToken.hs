@@ -138,7 +138,7 @@ createToken_clientToken = Lens.lens (\CreateToken' {clientToken} -> clientToken)
 
 instance Core.AWSRequest CreateToken where
   type AWSResponse CreateToken = CreateTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest CreateToken where
             Prelude.<*> (x Core..?> "Token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateToken where
   hashWithSalt _salt CreateToken' {..} =

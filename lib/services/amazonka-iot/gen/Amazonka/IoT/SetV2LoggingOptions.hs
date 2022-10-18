@@ -97,9 +97,12 @@ instance Core.AWSRequest SetV2LoggingOptions where
   type
     AWSResponse SetV2LoggingOptions =
       SetV2LoggingOptionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetV2LoggingOptionsResponse'
+
+instance Core.AWSService SetV2LoggingOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetV2LoggingOptions where
   hashWithSalt _salt SetV2LoggingOptions' {..} =

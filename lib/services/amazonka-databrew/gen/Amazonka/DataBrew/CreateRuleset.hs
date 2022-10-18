@@ -133,7 +133,7 @@ instance Core.AWSRequest CreateRuleset where
   type
     AWSResponse CreateRuleset =
       CreateRulesetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest CreateRuleset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService CreateRuleset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRuleset where
   hashWithSalt _salt CreateRuleset' {..} =

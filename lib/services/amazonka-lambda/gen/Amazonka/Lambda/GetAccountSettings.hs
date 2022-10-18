@@ -64,7 +64,7 @@ instance Core.AWSRequest GetAccountSettings where
   type
     AWSResponse GetAccountSettings =
       GetAccountSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest GetAccountSettings where
             Prelude.<*> (x Core..?> "AccountUsage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountSettings where
   hashWithSalt _salt _ =

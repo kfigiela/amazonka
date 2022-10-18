@@ -222,7 +222,7 @@ instance
   type
     AWSResponse ModifyCurrentDBClusterCapacity =
       ModifyCurrentDBClusterCapacityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCurrentDBClusterCapacityResult"
@@ -235,6 +235,12 @@ instance
             Prelude.<*> (x Core..@? "CurrentCapacity")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyCurrentDBClusterCapacity
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

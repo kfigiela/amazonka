@@ -69,7 +69,7 @@ instance Core.AWSRequest DescribeLimits where
   type
     AWSResponse DescribeLimits =
       DescribeLimitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -80,6 +80,9 @@ instance Core.AWSRequest DescribeLimits where
             Prelude.<*> (x Core..:> "OnDemandStreamCount")
             Prelude.<*> (x Core..:> "OnDemandStreamCountLimit")
       )
+
+instance Core.AWSService DescribeLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLimits where
   hashWithSalt _salt _ =

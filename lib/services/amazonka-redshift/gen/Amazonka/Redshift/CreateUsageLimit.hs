@@ -182,11 +182,14 @@ createUsageLimit_amount = Lens.lens (\CreateUsageLimit' {amount} -> amount) (\s@
 
 instance Core.AWSRequest CreateUsageLimit where
   type AWSResponse CreateUsageLimit = UsageLimit
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateUsageLimitResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateUsageLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUsageLimit where
   hashWithSalt _salt CreateUsageLimit' {..} =

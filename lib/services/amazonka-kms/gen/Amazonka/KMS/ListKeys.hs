@@ -147,7 +147,7 @@ instance Core.AWSPager ListKeys where
 
 instance Core.AWSRequest ListKeys where
   type AWSResponse ListKeys = ListKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListKeys where
             Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListKeys where
   hashWithSalt _salt ListKeys' {..} =

@@ -185,7 +185,7 @@ instance Core.AWSPager ListTrials where
 
 instance Core.AWSRequest ListTrials where
   type AWSResponse ListTrials = ListTrialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -194,6 +194,9 @@ instance Core.AWSRequest ListTrials where
             Prelude.<*> (x Core..?> "TrialSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTrials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTrials where
   hashWithSalt _salt ListTrials' {..} =

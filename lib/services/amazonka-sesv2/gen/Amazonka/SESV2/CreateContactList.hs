@@ -111,13 +111,16 @@ instance Core.AWSRequest CreateContactList where
   type
     AWSResponse CreateContactList =
       CreateContactListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateContactListResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateContactList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContactList where
   hashWithSalt _salt CreateContactList' {..} =

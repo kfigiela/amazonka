@@ -133,7 +133,7 @@ instance Core.AWSRequest ListSubscribedWorkteams where
   type
     AWSResponse ListSubscribedWorkteams =
       ListSubscribedWorkteamsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest ListSubscribedWorkteams where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListSubscribedWorkteams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSubscribedWorkteams where
   hashWithSalt _salt ListSubscribedWorkteams' {..} =

@@ -172,7 +172,7 @@ instance Core.AWSRequest ListVersionsByFunction where
   type
     AWSResponse ListVersionsByFunction =
       ListVersionsByFunctionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ListVersionsByFunction where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVersionsByFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVersionsByFunction where
   hashWithSalt _salt ListVersionsByFunction' {..} =

@@ -153,7 +153,7 @@ createHost_providerEndpoint = Lens.lens (\CreateHost' {providerEndpoint} -> prov
 
 instance Core.AWSRequest CreateHost where
   type AWSResponse CreateHost = CreateHostResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest CreateHost where
             Prelude.<*> (x Core..?> "HostArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHost where
   hashWithSalt _salt CreateHost' {..} =

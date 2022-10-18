@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateLoadBalancerPolicy where
   type
     AWSResponse CreateLoadBalancerPolicy =
       CreateLoadBalancerPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateLoadBalancerPolicyResult"
@@ -137,6 +137,9 @@ instance Core.AWSRequest CreateLoadBalancerPolicy where
           CreateLoadBalancerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLoadBalancerPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLoadBalancerPolicy where
   hashWithSalt _salt CreateLoadBalancerPolicy' {..} =

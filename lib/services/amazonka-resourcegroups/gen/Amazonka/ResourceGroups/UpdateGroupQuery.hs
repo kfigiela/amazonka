@@ -119,7 +119,7 @@ instance Core.AWSRequest UpdateGroupQuery where
   type
     AWSResponse UpdateGroupQuery =
       UpdateGroupQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateGroupQuery where
             Prelude.<$> (x Core..?> "GroupQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGroupQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGroupQuery where
   hashWithSalt _salt UpdateGroupQuery' {..} =

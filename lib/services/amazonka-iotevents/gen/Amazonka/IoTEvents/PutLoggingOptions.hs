@@ -82,9 +82,12 @@ instance Core.AWSRequest PutLoggingOptions where
   type
     AWSResponse PutLoggingOptions =
       PutLoggingOptionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull PutLoggingOptionsResponse'
+
+instance Core.AWSService PutLoggingOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLoggingOptions where
   hashWithSalt _salt PutLoggingOptions' {..} =

@@ -601,7 +601,7 @@ instance Core.AWSRequest CreateNFSFileShare where
   type
     AWSResponse CreateNFSFileShare =
       CreateNFSFileShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -609,6 +609,9 @@ instance Core.AWSRequest CreateNFSFileShare where
             Prelude.<$> (x Core..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNFSFileShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNFSFileShare where
   hashWithSalt _salt CreateNFSFileShare' {..} =

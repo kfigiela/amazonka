@@ -165,10 +165,13 @@ instance Core.AWSRequest DisableEnhancedMonitoring where
   type
     AWSResponse DisableEnhancedMonitoring =
       EnhancedMonitoringOutput
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DisableEnhancedMonitoring where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableEnhancedMonitoring where
   hashWithSalt _salt DisableEnhancedMonitoring' {..} =

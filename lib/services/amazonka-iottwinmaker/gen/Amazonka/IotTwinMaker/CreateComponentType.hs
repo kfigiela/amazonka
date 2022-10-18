@@ -164,7 +164,7 @@ instance Core.AWSRequest CreateComponentType where
   type
     AWSResponse CreateComponentType =
       CreateComponentTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest CreateComponentType where
             Prelude.<*> (x Core..:> "creationDateTime")
             Prelude.<*> (x Core..:> "state")
       )
+
+instance Core.AWSService CreateComponentType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateComponentType where
   hashWithSalt _salt CreateComponentType' {..} =

@@ -210,7 +210,7 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
   type
     AWSResponse AuthorizeSecurityGroupEgress =
       AuthorizeSecurityGroupEgressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -222,6 +222,9 @@ instance Core.AWSRequest AuthorizeSecurityGroupEgress where
             Prelude.<*> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AuthorizeSecurityGroupEgress where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

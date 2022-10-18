@@ -100,7 +100,7 @@ getRevision_revisionId = Lens.lens (\GetRevision' {revisionId} -> revisionId) (\
 
 instance Core.AWSRequest GetRevision where
   type AWSResponse GetRevision = GetRevisionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetRevision where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRevision where
   hashWithSalt _salt GetRevision' {..} =

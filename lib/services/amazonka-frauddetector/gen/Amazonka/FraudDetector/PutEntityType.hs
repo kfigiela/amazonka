@@ -102,13 +102,16 @@ instance Core.AWSRequest PutEntityType where
   type
     AWSResponse PutEntityType =
       PutEntityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutEntityTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutEntityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEntityType where
   hashWithSalt _salt PutEntityType' {..} =

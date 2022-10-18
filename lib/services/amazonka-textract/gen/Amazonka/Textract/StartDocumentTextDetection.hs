@@ -194,7 +194,7 @@ instance Core.AWSRequest StartDocumentTextDetection where
   type
     AWSResponse StartDocumentTextDetection =
       StartDocumentTextDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest StartDocumentTextDetection where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDocumentTextDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDocumentTextDetection where
   hashWithSalt _salt StartDocumentTextDetection' {..} =

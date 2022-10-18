@@ -128,13 +128,16 @@ instance Core.AWSRequest UpdateThreatIntelSet where
   type
     AWSResponse UpdateThreatIntelSet =
       UpdateThreatIntelSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateThreatIntelSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateThreatIntelSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThreatIntelSet where
   hashWithSalt _salt UpdateThreatIntelSet' {..} =

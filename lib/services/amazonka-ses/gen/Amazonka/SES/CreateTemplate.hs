@@ -88,7 +88,7 @@ instance Core.AWSRequest CreateTemplate where
   type
     AWSResponse CreateTemplate =
       CreateTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateTemplateResult"
@@ -96,6 +96,9 @@ instance Core.AWSRequest CreateTemplate where
           CreateTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTemplate where
   hashWithSalt _salt CreateTemplate' {..} =

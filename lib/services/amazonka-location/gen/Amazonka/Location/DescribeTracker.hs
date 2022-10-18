@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeTracker where
   type
     AWSResponse DescribeTracker =
       DescribeTrackerResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeTracker where
             Prelude.<*> (x Core..:> "TrackerName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService DescribeTracker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTracker where
   hashWithSalt _salt DescribeTracker' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest GetGatewayResponses where
   type
     AWSResponse GetGatewayResponses =
       GetGatewayResponsesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest GetGatewayResponses where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGatewayResponses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGatewayResponses where
   hashWithSalt _salt GetGatewayResponses' {..} =

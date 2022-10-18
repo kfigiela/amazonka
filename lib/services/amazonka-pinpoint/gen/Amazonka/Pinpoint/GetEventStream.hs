@@ -81,7 +81,7 @@ instance Core.AWSRequest GetEventStream where
   type
     AWSResponse GetEventStream =
       GetEventStreamResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetEventStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetEventStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEventStream where
   hashWithSalt _salt GetEventStream' {..} =

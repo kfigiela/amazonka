@@ -194,7 +194,7 @@ createCommit_branchName = Lens.lens (\CreateCommit' {branchName} -> branchName) 
 
 instance Core.AWSRequest CreateCommit where
   type AWSResponse CreateCommit = CreateCommitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest CreateCommit where
             Prelude.<*> (x Core..?> "filesDeleted" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCommit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCommit where
   hashWithSalt _salt CreateCommit' {..} =

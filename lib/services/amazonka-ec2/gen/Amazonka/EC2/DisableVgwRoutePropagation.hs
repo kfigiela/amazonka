@@ -112,10 +112,13 @@ instance Core.AWSRequest DisableVgwRoutePropagation where
   type
     AWSResponse DisableVgwRoutePropagation =
       DisableVgwRoutePropagationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DisableVgwRoutePropagationResponse'
+
+instance Core.AWSService DisableVgwRoutePropagation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableVgwRoutePropagation where
   hashWithSalt _salt DisableVgwRoutePropagation' {..} =

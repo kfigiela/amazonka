@@ -183,7 +183,7 @@ instance Core.AWSRequest CreateMedicalVocabulary where
   type
     AWSResponse CreateMedicalVocabulary =
       CreateMedicalVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest CreateMedicalVocabulary where
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMedicalVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMedicalVocabulary where
   hashWithSalt _salt CreateMedicalVocabulary' {..} =

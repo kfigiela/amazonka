@@ -95,7 +95,7 @@ getComponent_arn = Lens.lens (\GetComponent' {arn} -> arn) (\s@GetComponent' {} 
 
 instance Core.AWSRequest GetComponent where
   type AWSResponse GetComponent = GetComponentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetComponent where
             Prelude.<*> (x Core..:> "recipeOutputFormat")
             Prelude.<*> (x Core..:> "recipe")
       )
+
+instance Core.AWSService GetComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =

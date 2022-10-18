@@ -87,13 +87,16 @@ instance Core.AWSRequest DeleteReusableDelegationSet where
   type
     AWSResponse DeleteReusableDelegationSet =
       DeleteReusableDelegationSetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteReusableDelegationSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReusableDelegationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReusableDelegationSet where
   hashWithSalt _salt DeleteReusableDelegationSet' {..} =

@@ -317,7 +317,7 @@ getItem_key = Lens.lens (\GetItem' {key} -> key) (\s@GetItem' {} a -> s {key = a
 
 instance Core.AWSRequest GetItem where
   type AWSResponse GetItem = GetItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -326,6 +326,9 @@ instance Core.AWSRequest GetItem where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Item" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetItem where
   hashWithSalt _salt GetItem' {..} =

@@ -91,9 +91,12 @@ instance Core.AWSRequest SetV2LoggingLevel where
   type
     AWSResponse SetV2LoggingLevel =
       SetV2LoggingLevelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetV2LoggingLevelResponse'
+
+instance Core.AWSService SetV2LoggingLevel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetV2LoggingLevel where
   hashWithSalt _salt SetV2LoggingLevel' {..} =

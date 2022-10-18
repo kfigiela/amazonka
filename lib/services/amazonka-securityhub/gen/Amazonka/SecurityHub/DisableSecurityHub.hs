@@ -73,13 +73,16 @@ instance Core.AWSRequest DisableSecurityHub where
   type
     AWSResponse DisableSecurityHub =
       DisableSecurityHubResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableSecurityHubResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableSecurityHub where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableSecurityHub where
   hashWithSalt _salt _ =

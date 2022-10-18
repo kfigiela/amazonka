@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateCloudFormationTemplate where
   type
     AWSResponse CreateCloudFormationTemplate =
       CreateCloudFormationTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest CreateCloudFormationTemplate where
             Prelude.<*> (x Core..?> "templateUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCloudFormationTemplate where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

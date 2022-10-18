@@ -113,10 +113,13 @@ instance Core.AWSRequest ResetSnapshotAttribute where
   type
     AWSResponse ResetSnapshotAttribute =
       ResetSnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ResetSnapshotAttributeResponse'
+
+instance Core.AWSService ResetSnapshotAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetSnapshotAttribute where
   hashWithSalt _salt ResetSnapshotAttribute' {..} =

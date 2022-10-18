@@ -82,8 +82,11 @@ deleteRoute_routeId = Lens.lens (\DeleteRoute' {routeId} -> routeId) (\s@DeleteR
 
 instance Core.AWSRequest DeleteRoute where
   type AWSResponse DeleteRoute = DeleteRouteResponse'
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteRouteResponse''
+
+instance Core.AWSService DeleteRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRoute where
   hashWithSalt _salt DeleteRoute' {..} =

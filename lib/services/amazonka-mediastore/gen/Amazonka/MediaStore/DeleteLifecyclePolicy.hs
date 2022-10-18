@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteLifecyclePolicy where
   type
     AWSResponse DeleteLifecyclePolicy =
       DeleteLifecyclePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLifecyclePolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLifecyclePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLifecyclePolicy where
   hashWithSalt _salt DeleteLifecyclePolicy' {..} =

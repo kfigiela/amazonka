@@ -104,9 +104,12 @@ instance Core.AWSRequest UnlinkIdentity where
   type
     AWSResponse UnlinkIdentity =
       UnlinkIdentityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnlinkIdentityResponse'
+
+instance Core.AWSService UnlinkIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnlinkIdentity where
   hashWithSalt _salt UnlinkIdentity' {..} =

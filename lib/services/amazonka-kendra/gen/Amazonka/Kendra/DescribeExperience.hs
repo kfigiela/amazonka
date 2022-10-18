@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeExperience where
   type
     AWSResponse DescribeExperience =
       DescribeExperienceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeExperience where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeExperience where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExperience where
   hashWithSalt _salt DescribeExperience' {..} =

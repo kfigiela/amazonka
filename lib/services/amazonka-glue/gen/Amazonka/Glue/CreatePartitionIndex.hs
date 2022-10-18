@@ -124,13 +124,16 @@ instance Core.AWSRequest CreatePartitionIndex where
   type
     AWSResponse CreatePartitionIndex =
       CreatePartitionIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreatePartitionIndexResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePartitionIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePartitionIndex where
   hashWithSalt _salt CreatePartitionIndex' {..} =

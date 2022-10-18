@@ -63,7 +63,7 @@ instance Core.AWSRequest GetPhoneNumberSettings where
   type
     AWSResponse GetPhoneNumberSettings =
       GetPhoneNumberSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetPhoneNumberSettings where
             Prelude.<*> (x Core..?> "CallingName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPhoneNumberSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPhoneNumberSettings where
   hashWithSalt _salt _ =

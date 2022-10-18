@@ -195,7 +195,7 @@ instance
   type
     AWSResponse GetAccountAuthorizationDetails =
       GetAccountAuthorizationDetailsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccountAuthorizationDetailsResult"
@@ -217,6 +217,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetAccountAuthorizationDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

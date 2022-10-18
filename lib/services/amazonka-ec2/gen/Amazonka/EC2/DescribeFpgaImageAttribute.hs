@@ -114,7 +114,7 @@ instance Core.AWSRequest DescribeFpgaImageAttribute where
   type
     AWSResponse DescribeFpgaImageAttribute =
       DescribeFpgaImageAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeFpgaImageAttribute where
             Prelude.<$> (x Core..@? "fpgaImageAttribute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFpgaImageAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFpgaImageAttribute where
   hashWithSalt _salt DescribeFpgaImageAttribute' {..} =

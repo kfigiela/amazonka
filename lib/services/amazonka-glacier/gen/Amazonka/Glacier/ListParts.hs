@@ -207,9 +207,9 @@ instance Core.AWSPager ListParts where
 
 instance Core.AWSRequest ListParts where
   type AWSResponse ListParts = ListPartsResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest ListParts where
             Prelude.<*> (x Core..?> "PartSizeInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListParts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListParts where
   hashWithSalt _salt ListParts' {..} =

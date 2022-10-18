@@ -107,13 +107,16 @@ enableMacie_findingPublishingFrequency = Lens.lens (\EnableMacie' {findingPublis
 
 instance Core.AWSRequest EnableMacie where
   type AWSResponse EnableMacie = EnableMacieResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableMacieResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableMacie where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableMacie where
   hashWithSalt _salt EnableMacie' {..} =

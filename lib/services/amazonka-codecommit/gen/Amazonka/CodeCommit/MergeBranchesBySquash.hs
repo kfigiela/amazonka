@@ -234,7 +234,7 @@ instance Core.AWSRequest MergeBranchesBySquash where
   type
     AWSResponse MergeBranchesBySquash =
       MergeBranchesBySquashResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -243,6 +243,9 @@ instance Core.AWSRequest MergeBranchesBySquash where
             Prelude.<*> (x Core..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MergeBranchesBySquash where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MergeBranchesBySquash where
   hashWithSalt _salt MergeBranchesBySquash' {..} =

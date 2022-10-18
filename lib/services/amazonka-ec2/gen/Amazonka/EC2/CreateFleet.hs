@@ -348,7 +348,7 @@ createFleet_targetCapacitySpecification = Lens.lens (\CreateFleet' {targetCapaci
 
 instance Core.AWSRequest CreateFleet where
   type AWSResponse CreateFleet = CreateFleetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -363,6 +363,9 @@ instance Core.AWSRequest CreateFleet where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =

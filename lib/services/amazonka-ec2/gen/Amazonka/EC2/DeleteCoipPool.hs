@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteCoipPool where
   type
     AWSResponse DeleteCoipPool =
       DeleteCoipPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteCoipPool where
             Prelude.<$> (x Core..@? "coipPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCoipPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCoipPool where
   hashWithSalt _salt DeleteCoipPool' {..} =

@@ -229,7 +229,7 @@ instance Core.AWSRequest CreateNetwork where
   type
     AWSResponse CreateNetwork =
       CreateNetworkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -238,6 +238,9 @@ instance Core.AWSRequest CreateNetwork where
             Prelude.<*> (x Core..?> "NetworkId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNetwork where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNetwork where
   hashWithSalt _salt CreateNetwork' {..} =

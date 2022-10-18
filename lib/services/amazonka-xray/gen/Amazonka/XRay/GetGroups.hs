@@ -95,7 +95,7 @@ instance Core.AWSPager GetGroups where
 
 instance Core.AWSRequest GetGroups where
   type AWSResponse GetGroups = GetGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetGroups where
             Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroups where
   hashWithSalt _salt GetGroups' {..} =

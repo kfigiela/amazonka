@@ -146,7 +146,7 @@ instance Core.AWSRequest CreateProfilingGroup where
   type
     AWSResponse CreateProfilingGroup =
       CreateProfilingGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest CreateProfilingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateProfilingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProfilingGroup where
   hashWithSalt _salt CreateProfilingGroup' {..} =

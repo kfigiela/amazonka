@@ -125,7 +125,7 @@ instance Core.AWSRequest DeleteFolderMembership where
   type
     AWSResponse DeleteFolderMembership =
       DeleteFolderMembershipResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest DeleteFolderMembership where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFolderMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFolderMembership where
   hashWithSalt _salt DeleteFolderMembership' {..} =

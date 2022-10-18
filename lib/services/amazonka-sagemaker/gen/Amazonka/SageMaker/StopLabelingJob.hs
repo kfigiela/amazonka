@@ -78,9 +78,12 @@ instance Core.AWSRequest StopLabelingJob where
   type
     AWSResponse StopLabelingJob =
       StopLabelingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopLabelingJobResponse'
+
+instance Core.AWSService StopLabelingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopLabelingJob where
   hashWithSalt _salt StopLabelingJob' {..} =

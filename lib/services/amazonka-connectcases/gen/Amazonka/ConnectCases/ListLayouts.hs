@@ -105,7 +105,7 @@ listLayouts_domainId = Lens.lens (\ListLayouts' {domainId} -> domainId) (\s@List
 
 instance Core.AWSRequest ListLayouts where
   type AWSResponse ListLayouts = ListLayoutsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest ListLayouts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "layouts" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListLayouts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLayouts where
   hashWithSalt _salt ListLayouts' {..} =

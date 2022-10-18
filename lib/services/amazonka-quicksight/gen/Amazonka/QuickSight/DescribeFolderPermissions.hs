@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeFolderPermissions where
   type
     AWSResponse DescribeFolderPermissions =
       DescribeFolderPermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DescribeFolderPermissions where
             Prelude.<*> (x Core..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFolderPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFolderPermissions where
   hashWithSalt _salt DescribeFolderPermissions' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest CreateRealtimeLogConfig where
   type
     AWSResponse CreateRealtimeLogConfig =
       CreateRealtimeLogConfigResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest CreateRealtimeLogConfig where
             Prelude.<$> (x Core..@? "RealtimeLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRealtimeLogConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRealtimeLogConfig where
   hashWithSalt _salt CreateRealtimeLogConfig' {..} =

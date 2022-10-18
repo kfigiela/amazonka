@@ -116,7 +116,7 @@ instance Core.AWSRequest ListInstanceGroups where
   type
     AWSResponse ListInstanceGroups =
       ListInstanceGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListInstanceGroups where
             Prelude.<*> (x Core..?> "InstanceGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInstanceGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInstanceGroups where
   hashWithSalt _salt ListInstanceGroups' {..} =

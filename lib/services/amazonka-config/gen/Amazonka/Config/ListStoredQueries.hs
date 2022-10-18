@@ -92,7 +92,7 @@ instance Core.AWSRequest ListStoredQueries where
   type
     AWSResponse ListStoredQueries =
       ListStoredQueriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ListStoredQueries where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStoredQueries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStoredQueries where
   hashWithSalt _salt ListStoredQueries' {..} =

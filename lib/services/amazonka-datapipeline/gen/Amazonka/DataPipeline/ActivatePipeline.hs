@@ -110,13 +110,16 @@ instance Core.AWSRequest ActivatePipeline where
   type
     AWSResponse ActivatePipeline =
       ActivatePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ActivatePipelineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ActivatePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivatePipeline where
   hashWithSalt _salt ActivatePipeline' {..} =

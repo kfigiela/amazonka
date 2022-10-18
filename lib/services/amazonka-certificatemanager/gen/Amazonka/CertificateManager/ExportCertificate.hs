@@ -151,7 +151,7 @@ instance Core.AWSRequest ExportCertificate where
   type
     AWSResponse ExportCertificate =
       ExportCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ExportCertificate where
             Prelude.<*> (x Core..?> "CertificateChain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportCertificate where
   hashWithSalt _salt ExportCertificate' {..} =

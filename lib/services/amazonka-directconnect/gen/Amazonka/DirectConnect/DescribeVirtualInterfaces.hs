@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
   type
     AWSResponse DescribeVirtualInterfaces =
       DescribeVirtualInterfacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeVirtualInterfaces where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVirtualInterfaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVirtualInterfaces where
   hashWithSalt _salt DescribeVirtualInterfaces' {..} =

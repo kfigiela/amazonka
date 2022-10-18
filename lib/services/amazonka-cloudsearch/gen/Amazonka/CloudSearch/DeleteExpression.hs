@@ -97,7 +97,7 @@ instance Core.AWSRequest DeleteExpression where
   type
     AWSResponse DeleteExpression =
       DeleteExpressionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteExpressionResult"
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteExpression where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Expression")
       )
+
+instance Core.AWSService DeleteExpression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExpression where
   hashWithSalt _salt DeleteExpression' {..} =

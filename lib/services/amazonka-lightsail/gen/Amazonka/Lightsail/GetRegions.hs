@@ -100,7 +100,7 @@ getRegions_includeAvailabilityZones = Lens.lens (\GetRegions' {includeAvailabili
 
 instance Core.AWSRequest GetRegions where
   type AWSResponse GetRegions = GetRegionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetRegions where
             Prelude.<$> (x Core..?> "regions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRegions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRegions where
   hashWithSalt _salt GetRegions' {..} =

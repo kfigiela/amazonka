@@ -110,7 +110,7 @@ instance Core.AWSRequest DeleteFileShare where
   type
     AWSResponse DeleteFileShare =
       DeleteFileShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DeleteFileShare where
             Prelude.<$> (x Core..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFileShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFileShare where
   hashWithSalt _salt DeleteFileShare' {..} =

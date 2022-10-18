@@ -113,7 +113,7 @@ instance Core.AWSRequest ListUserProfiles where
   type
     AWSResponse ListUserProfiles =
       ListUserProfilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListUserProfiles where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "userProfiles" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListUserProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUserProfiles where
   hashWithSalt _salt ListUserProfiles' {..} =

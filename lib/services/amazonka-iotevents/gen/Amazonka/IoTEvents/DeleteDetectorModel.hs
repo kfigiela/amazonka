@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteDetectorModel where
   type
     AWSResponse DeleteDetectorModel =
       DeleteDetectorModelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDetectorModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDetectorModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDetectorModel where
   hashWithSalt _salt DeleteDetectorModel' {..} =

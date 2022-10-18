@@ -85,7 +85,7 @@ instance Core.AWSRequest GetSigningPlatform where
   type
     AWSResponse GetSigningPlatform =
       GetSigningPlatformResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetSigningPlatform where
             Prelude.<*> (x Core..?> "maxSizeInMB")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSigningPlatform where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSigningPlatform where
   hashWithSalt _salt GetSigningPlatform' {..} =

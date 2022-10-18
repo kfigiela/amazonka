@@ -124,7 +124,7 @@ instance
   type
     AWSResponse ImportResourcesToDraftAppVersion =
       ImportResourcesToDraftAppVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,12 @@ instance
             Prelude.<*> (x Core..:> "appVersion")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance
+  Core.AWSService
+    ImportResourcesToDraftAppVersion
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

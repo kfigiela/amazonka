@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteDirectoryConfig where
   type
     AWSResponse DeleteDirectoryConfig =
       DeleteDirectoryConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDirectoryConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDirectoryConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDirectoryConfig where
   hashWithSalt _salt DeleteDirectoryConfig' {..} =

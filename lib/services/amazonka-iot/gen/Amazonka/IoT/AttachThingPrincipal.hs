@@ -101,13 +101,16 @@ instance Core.AWSRequest AttachThingPrincipal where
   type
     AWSResponse AttachThingPrincipal =
       AttachThingPrincipalResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AttachThingPrincipalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachThingPrincipal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachThingPrincipal where
   hashWithSalt _salt AttachThingPrincipal' {..} =

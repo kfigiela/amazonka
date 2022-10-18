@@ -115,13 +115,16 @@ instance Core.AWSRequest StartDeviceSync where
   type
     AWSResponse StartDeviceSync =
       StartDeviceSyncResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartDeviceSyncResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDeviceSync where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDeviceSync where
   hashWithSalt _salt StartDeviceSync' {..} =

@@ -132,7 +132,7 @@ instance Core.AWSRequest CreateEndpointAccess where
   type
     AWSResponse CreateEndpointAccess =
       CreateEndpointAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateEndpointAccess where
             Prelude.<$> (x Core..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =

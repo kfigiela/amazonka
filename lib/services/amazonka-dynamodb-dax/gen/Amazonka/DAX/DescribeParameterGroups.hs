@@ -146,7 +146,7 @@ instance Core.AWSRequest DescribeParameterGroups where
   type
     AWSResponse DescribeParameterGroups =
       DescribeParameterGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest DescribeParameterGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeParameterGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeParameterGroups where
   hashWithSalt _salt DescribeParameterGroups' {..} =

@@ -92,7 +92,7 @@ instance Core.AWSRequest CancelQuantumTask where
   type
     AWSResponse CancelQuantumTask =
       CancelQuantumTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest CancelQuantumTask where
             Prelude.<*> (x Core..:> "cancellationStatus")
             Prelude.<*> (x Core..:> "quantumTaskArn")
       )
+
+instance Core.AWSService CancelQuantumTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelQuantumTask where
   hashWithSalt _salt CancelQuantumTask' {..} =

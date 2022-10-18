@@ -163,7 +163,7 @@ instance Core.AWSRequest DeleteGameServerGroup where
   type
     AWSResponse DeleteGameServerGroup =
       DeleteGameServerGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest DeleteGameServerGroup where
             Prelude.<$> (x Core..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGameServerGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGameServerGroup where
   hashWithSalt _salt DeleteGameServerGroup' {..} =

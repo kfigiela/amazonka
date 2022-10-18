@@ -123,7 +123,7 @@ getExport_exportType = Lens.lens (\GetExport' {exportType} -> exportType) (\s@Ge
 
 instance Core.AWSRequest GetExport where
   type AWSResponse GetExport = GetExportResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest GetExport where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExport where
   hashWithSalt _salt GetExport' {..} =

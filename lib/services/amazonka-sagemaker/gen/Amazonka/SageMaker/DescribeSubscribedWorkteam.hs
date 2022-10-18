@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeSubscribedWorkteam where
   type
     AWSResponse DescribeSubscribedWorkteam =
       DescribeSubscribedWorkteamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeSubscribedWorkteam where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "SubscribedWorkteam")
       )
+
+instance Core.AWSService DescribeSubscribedWorkteam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSubscribedWorkteam where
   hashWithSalt _salt DescribeSubscribedWorkteam' {..} =

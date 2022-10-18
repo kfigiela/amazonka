@@ -169,7 +169,7 @@ instance Core.AWSRequest UpdateAnalysis where
   type
     AWSResponse UpdateAnalysis =
       UpdateAnalysisResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest UpdateAnalysis where
             Prelude.<*> (x Core..?> "UpdateStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAnalysis where
   hashWithSalt _salt UpdateAnalysis' {..} =

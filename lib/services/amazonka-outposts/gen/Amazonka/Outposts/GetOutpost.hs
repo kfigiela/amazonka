@@ -75,7 +75,7 @@ getOutpost_outpostId = Lens.lens (\GetOutpost' {outpostId} -> outpostId) (\s@Get
 
 instance Core.AWSRequest GetOutpost where
   type AWSResponse GetOutpost = GetOutpostResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetOutpost where
             Prelude.<$> (x Core..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOutpost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOutpost where
   hashWithSalt _salt GetOutpost' {..} =

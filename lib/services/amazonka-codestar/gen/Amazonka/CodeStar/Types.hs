@@ -143,6 +143,7 @@ defaultService =
       Core._serviceEndpointPrefix = "codestar",
       Core._serviceSigningName = "codestar",
       Core._serviceVersion = "2017-04-19",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -93,7 +93,7 @@ getLayout_layoutId = Lens.lens (\GetLayout' {layoutId} -> layoutId) (\s@GetLayou
 
 instance Core.AWSRequest GetLayout where
   type AWSResponse GetLayout = GetLayoutResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetLayout where
             Prelude.<*> (x Core..:> "layoutId")
             Prelude.<*> (x Core..:> "name")
       )
+
+instance Core.AWSService GetLayout where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLayout where
   hashWithSalt _salt GetLayout' {..} =

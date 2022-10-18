@@ -93,11 +93,14 @@ cancelExportTask_exportTaskIdentifier = Lens.lens (\CancelExportTask' {exportTas
 
 instance Core.AWSRequest CancelExportTask where
   type AWSResponse CancelExportTask = ExportTask
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CancelExportTaskResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CancelExportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelExportTask where
   hashWithSalt _salt CancelExportTask' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest CreateAttributeGroup where
   type
     AWSResponse CreateAttributeGroup =
       CreateAttributeGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest CreateAttributeGroup where
             Prelude.<$> (x Core..?> "attributeGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAttributeGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAttributeGroup where
   hashWithSalt _salt CreateAttributeGroup' {..} =

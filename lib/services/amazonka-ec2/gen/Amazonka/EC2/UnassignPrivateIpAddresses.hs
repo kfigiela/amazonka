@@ -105,10 +105,13 @@ instance Core.AWSRequest UnassignPrivateIpAddresses where
   type
     AWSResponse UnassignPrivateIpAddresses =
       UnassignPrivateIpAddressesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UnassignPrivateIpAddressesResponse'
+
+instance Core.AWSService UnassignPrivateIpAddresses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnassignPrivateIpAddresses where
   hashWithSalt _salt UnassignPrivateIpAddresses' {..} =

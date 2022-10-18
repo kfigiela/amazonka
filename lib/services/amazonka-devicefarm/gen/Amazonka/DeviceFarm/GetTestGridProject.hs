@@ -80,7 +80,7 @@ instance Core.AWSRequest GetTestGridProject where
   type
     AWSResponse GetTestGridProject =
       GetTestGridProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetTestGridProject where
             Prelude.<$> (x Core..?> "testGridProject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTestGridProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTestGridProject where
   hashWithSalt _salt GetTestGridProject' {..} =

@@ -126,13 +126,16 @@ instance Core.AWSRequest DeregisterPackageVersion where
   type
     AWSResponse DeregisterPackageVersion =
       DeregisterPackageVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterPackageVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterPackageVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterPackageVersion where
   hashWithSalt _salt DeregisterPackageVersion' {..} =

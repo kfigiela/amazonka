@@ -93,7 +93,7 @@ instance Core.AWSRequest GetServiceQuota where
   type
     AWSResponse GetServiceQuota =
       GetServiceQuotaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetServiceQuota where
             Prelude.<$> (x Core..?> "Quota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServiceQuota where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServiceQuota where
   hashWithSalt _salt GetServiceQuota' {..} =

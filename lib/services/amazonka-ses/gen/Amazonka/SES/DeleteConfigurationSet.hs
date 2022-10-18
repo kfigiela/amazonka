@@ -89,7 +89,7 @@ instance Core.AWSRequest DeleteConfigurationSet where
   type
     AWSResponse DeleteConfigurationSet =
       DeleteConfigurationSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteConfigurationSetResult"
@@ -97,6 +97,9 @@ instance Core.AWSRequest DeleteConfigurationSet where
           DeleteConfigurationSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConfigurationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfigurationSet where
   hashWithSalt _salt DeleteConfigurationSet' {..} =

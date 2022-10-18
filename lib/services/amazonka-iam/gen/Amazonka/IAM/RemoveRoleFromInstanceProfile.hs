@@ -133,10 +133,16 @@ instance
   type
     AWSResponse RemoveRoleFromInstanceProfile =
       RemoveRoleFromInstanceProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveRoleFromInstanceProfileResponse'
+
+instance
+  Core.AWSService
+    RemoveRoleFromInstanceProfile
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

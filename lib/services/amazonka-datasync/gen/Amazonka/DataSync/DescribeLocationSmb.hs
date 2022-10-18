@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeLocationSmb where
   type
     AWSResponse DescribeLocationSmb =
       DescribeLocationSmbResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DescribeLocationSmb where
             Prelude.<*> (x Core..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocationSmb where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocationSmb where
   hashWithSalt _salt DescribeLocationSmb' {..} =

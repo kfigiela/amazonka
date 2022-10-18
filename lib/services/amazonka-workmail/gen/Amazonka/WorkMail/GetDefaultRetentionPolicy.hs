@@ -84,7 +84,7 @@ instance Core.AWSRequest GetDefaultRetentionPolicy where
   type
     AWSResponse GetDefaultRetentionPolicy =
       GetDefaultRetentionPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetDefaultRetentionPolicy where
             Prelude.<*> (x Core..?> "Description")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDefaultRetentionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDefaultRetentionPolicy where
   hashWithSalt _salt GetDefaultRetentionPolicy' {..} =

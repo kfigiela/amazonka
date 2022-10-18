@@ -130,7 +130,7 @@ instance Core.AWSRequest UpdateFleetPortSettings where
   type
     AWSResponse UpdateFleetPortSettings =
       UpdateFleetPortSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest UpdateFleetPortSettings where
             Prelude.<$> (x Core..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFleetPortSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFleetPortSettings where
   hashWithSalt _salt UpdateFleetPortSettings' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetInsightsByAssessment where
   type
     AWSResponse GetInsightsByAssessment =
       GetInsightsByAssessmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetInsightsByAssessment where
             Prelude.<$> (x Core..?> "insights")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInsightsByAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInsightsByAssessment where
   hashWithSalt _salt GetInsightsByAssessment' {..} =

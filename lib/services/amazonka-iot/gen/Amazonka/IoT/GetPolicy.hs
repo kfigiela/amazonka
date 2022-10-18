@@ -88,7 +88,7 @@ getPolicy_policyName = Lens.lens (\GetPolicy' {policyName} -> policyName) (\s@Ge
 
 instance Core.AWSRequest GetPolicy where
   type AWSResponse GetPolicy = GetPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetPolicy where
             Prelude.<*> (x Core..?> "generationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPolicy where
   hashWithSalt _salt GetPolicy' {..} =

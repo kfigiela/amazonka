@@ -59,13 +59,16 @@ newDisableMacie = DisableMacie'
 
 instance Core.AWSRequest DisableMacie where
   type AWSResponse DisableMacie = DisableMacieResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableMacieResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableMacie where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableMacie where
   hashWithSalt _salt _ =

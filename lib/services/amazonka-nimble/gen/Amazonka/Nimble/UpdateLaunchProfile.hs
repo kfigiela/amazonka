@@ -167,7 +167,7 @@ instance Core.AWSRequest UpdateLaunchProfile where
   type
     AWSResponse UpdateLaunchProfile =
       UpdateLaunchProfileResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest UpdateLaunchProfile where
             Prelude.<$> (x Core..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLaunchProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLaunchProfile where
   hashWithSalt _salt UpdateLaunchProfile' {..} =

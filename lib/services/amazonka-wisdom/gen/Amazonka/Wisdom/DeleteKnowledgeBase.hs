@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteKnowledgeBase where
   type
     AWSResponse DeleteKnowledgeBase =
       DeleteKnowledgeBaseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteKnowledgeBaseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteKnowledgeBase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteKnowledgeBase where
   hashWithSalt _salt DeleteKnowledgeBase' {..} =

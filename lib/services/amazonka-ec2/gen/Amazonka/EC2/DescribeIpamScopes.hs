@@ -157,7 +157,7 @@ instance Core.AWSRequest DescribeIpamScopes where
   type
     AWSResponse DescribeIpamScopes =
       DescribeIpamScopesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest DescribeIpamScopes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeIpamScopes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIpamScopes where
   hashWithSalt _salt DescribeIpamScopes' {..} =

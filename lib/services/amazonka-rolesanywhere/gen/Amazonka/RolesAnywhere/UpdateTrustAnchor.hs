@@ -107,10 +107,13 @@ instance Core.AWSRequest UpdateTrustAnchor where
   type
     AWSResponse UpdateTrustAnchor =
       TrustAnchorDetailResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateTrustAnchor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTrustAnchor where
   hashWithSalt _salt UpdateTrustAnchor' {..} =

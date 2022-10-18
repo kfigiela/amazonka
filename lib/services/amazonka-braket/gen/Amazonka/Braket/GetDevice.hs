@@ -90,7 +90,7 @@ getDevice_deviceArn = Lens.lens (\GetDevice' {deviceArn} -> deviceArn) (\s@GetDe
 
 instance Core.AWSRequest GetDevice where
   type AWSResponse GetDevice = GetDeviceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetDevice where
             Prelude.<*> (x Core..:> "deviceType")
             Prelude.<*> (x Core..:> "providerName")
       )
+
+instance Core.AWSService GetDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDevice where
   hashWithSalt _salt GetDevice' {..} =

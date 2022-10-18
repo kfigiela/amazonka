@@ -83,7 +83,7 @@ instance Core.AWSRequest DeleteGlobalCluster where
   type
     AWSResponse DeleteGlobalCluster =
       DeleteGlobalClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteGlobalClusterResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteGlobalCluster where
             Prelude.<$> (x Core..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGlobalCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGlobalCluster where
   hashWithSalt _salt DeleteGlobalCluster' {..} =

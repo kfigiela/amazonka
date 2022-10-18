@@ -143,6 +143,7 @@ defaultService =
       Core._serviceEndpointPrefix = "pi",
       Core._serviceSigningName = "pi",
       Core._serviceVersion = "2018-02-27",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -146,7 +146,7 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
   type
     AWSResponse DescribeSubscriptionFilters =
       DescribeSubscriptionFiltersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest DescribeSubscriptionFilters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSubscriptionFilters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSubscriptionFilters where
   hashWithSalt _salt DescribeSubscriptionFilters' {..} =

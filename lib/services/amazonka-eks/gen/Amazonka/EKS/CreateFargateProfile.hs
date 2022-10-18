@@ -232,7 +232,7 @@ instance Core.AWSRequest CreateFargateProfile where
   type
     AWSResponse CreateFargateProfile =
       CreateFargateProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -240,6 +240,9 @@ instance Core.AWSRequest CreateFargateProfile where
             Prelude.<$> (x Core..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFargateProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFargateProfile where
   hashWithSalt _salt CreateFargateProfile' {..} =

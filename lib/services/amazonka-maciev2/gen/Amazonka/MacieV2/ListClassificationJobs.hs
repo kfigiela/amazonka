@@ -136,7 +136,7 @@ instance Core.AWSRequest ListClassificationJobs where
   type
     AWSResponse ListClassificationJobs =
       ListClassificationJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest ListClassificationJobs where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListClassificationJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListClassificationJobs where
   hashWithSalt _salt ListClassificationJobs' {..} =

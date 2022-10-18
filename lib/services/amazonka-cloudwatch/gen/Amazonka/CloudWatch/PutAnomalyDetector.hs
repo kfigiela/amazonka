@@ -256,7 +256,7 @@ instance Core.AWSRequest PutAnomalyDetector where
   type
     AWSResponse PutAnomalyDetector =
       PutAnomalyDetectorResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutAnomalyDetectorResult"
@@ -264,6 +264,9 @@ instance Core.AWSRequest PutAnomalyDetector where
           PutAnomalyDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAnomalyDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAnomalyDetector where
   hashWithSalt _salt PutAnomalyDetector' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest AssociateSubnetCidrBlock where
   type
     AWSResponse AssociateSubnetCidrBlock =
       AssociateSubnetCidrBlockResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest AssociateSubnetCidrBlock where
             Prelude.<*> (x Core..@? "ipv6CidrBlockAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateSubnetCidrBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateSubnetCidrBlock where
   hashWithSalt _salt AssociateSubnetCidrBlock' {..} =

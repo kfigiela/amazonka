@@ -138,7 +138,7 @@ instance Core.AWSRequest ListLocations where
   type
     AWSResponse ListLocations =
       ListLocationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListLocations where
             Prelude.<*> (x Core..?> "Locations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLocations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLocations where
   hashWithSalt _salt ListLocations' {..} =

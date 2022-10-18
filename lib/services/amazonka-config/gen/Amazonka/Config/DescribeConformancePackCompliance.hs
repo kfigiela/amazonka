@@ -125,7 +125,7 @@ instance
   type
     AWSResponse DescribeConformancePackCompliance =
       DescribeConformancePackComplianceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,12 @@ instance
                               Core..!@ Prelude.mempty
                           )
       )
+
+instance
+  Core.AWSService
+    DescribeConformancePackCompliance
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteAlertManagerDefinition where
   type
     AWSResponse DeleteAlertManagerDefinition =
       DeleteAlertManagerDefinitionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteAlertManagerDefinitionResponse'
+
+instance Core.AWSService DeleteAlertManagerDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

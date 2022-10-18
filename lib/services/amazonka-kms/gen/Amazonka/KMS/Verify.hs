@@ -333,7 +333,7 @@ verify_signingAlgorithm = Lens.lens (\Verify' {signingAlgorithm} -> signingAlgor
 
 instance Core.AWSRequest Verify where
   type AWSResponse Verify = VerifyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -343,6 +343,9 @@ instance Core.AWSRequest Verify where
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Verify where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Verify where
   hashWithSalt _salt Verify' {..} =

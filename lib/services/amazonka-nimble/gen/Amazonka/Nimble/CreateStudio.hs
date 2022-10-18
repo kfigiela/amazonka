@@ -197,7 +197,7 @@ createStudio_userRoleArn = Lens.lens (\CreateStudio' {userRoleArn} -> userRoleAr
 
 instance Core.AWSRequest CreateStudio where
   type AWSResponse CreateStudio = CreateStudioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,6 +205,9 @@ instance Core.AWSRequest CreateStudio where
             Prelude.<$> (x Core..?> "studio")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStudio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =

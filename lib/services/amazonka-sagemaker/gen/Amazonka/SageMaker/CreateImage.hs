@@ -128,7 +128,7 @@ createImage_roleArn = Lens.lens (\CreateImage' {roleArn} -> roleArn) (\s@CreateI
 
 instance Core.AWSRequest CreateImage where
   type AWSResponse CreateImage = CreateImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateImage where
             Prelude.<$> (x Core..?> "ImageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =

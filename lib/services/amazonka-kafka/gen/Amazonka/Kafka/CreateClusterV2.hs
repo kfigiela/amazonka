@@ -112,7 +112,7 @@ instance Core.AWSRequest CreateClusterV2 where
   type
     AWSResponse CreateClusterV2 =
       CreateClusterV2Response
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest CreateClusterV2 where
             Prelude.<*> (x Core..?> "clusterName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClusterV2 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClusterV2 where
   hashWithSalt _salt CreateClusterV2' {..} =

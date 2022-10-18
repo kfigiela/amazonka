@@ -161,7 +161,7 @@ instance Core.AWSRequest ListExtensionVersions where
   type
     AWSResponse ListExtensionVersions =
       ListExtensionVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest ListExtensionVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExtensionVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExtensionVersions where
   hashWithSalt _salt ListExtensionVersions' {..} =

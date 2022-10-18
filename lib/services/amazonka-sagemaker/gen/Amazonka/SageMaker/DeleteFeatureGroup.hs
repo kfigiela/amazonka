@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteFeatureGroup where
   type
     AWSResponse DeleteFeatureGroup =
       DeleteFeatureGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteFeatureGroupResponse'
+
+instance Core.AWSService DeleteFeatureGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFeatureGroup where
   hashWithSalt _salt DeleteFeatureGroup' {..} =

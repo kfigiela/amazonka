@@ -119,10 +119,13 @@ instance Core.AWSRequest DeleteCustomActionType where
   type
     AWSResponse DeleteCustomActionType =
       DeleteCustomActionTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCustomActionTypeResponse'
+
+instance Core.AWSService DeleteCustomActionType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomActionType where
   hashWithSalt _salt DeleteCustomActionType' {..} =

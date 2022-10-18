@@ -95,7 +95,7 @@ instance Core.AWSRequest GetResourceRequestStatus where
   type
     AWSResponse GetResourceRequestStatus =
       GetResourceRequestStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetResourceRequestStatus where
             Prelude.<$> (x Core..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceRequestStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceRequestStatus where
   hashWithSalt _salt GetResourceRequestStatus' {..} =

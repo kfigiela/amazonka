@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteChannelPolicy where
   type
     AWSResponse DeleteChannelPolicy =
       DeleteChannelPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteChannelPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteChannelPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChannelPolicy where
   hashWithSalt _salt DeleteChannelPolicy' {..} =

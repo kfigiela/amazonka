@@ -118,13 +118,16 @@ instance Core.AWSRequest UpdateResourceDataSync where
   type
     AWSResponse UpdateResourceDataSync =
       UpdateResourceDataSyncResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDataSyncResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResourceDataSync where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResourceDataSync where
   hashWithSalt _salt UpdateResourceDataSync' {..} =

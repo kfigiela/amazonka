@@ -79,7 +79,7 @@ instance Core.AWSRequest StopRemoteAccessSession where
   type
     AWSResponse StopRemoteAccessSession =
       StopRemoteAccessSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest StopRemoteAccessSession where
             Prelude.<$> (x Core..?> "remoteAccessSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopRemoteAccessSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopRemoteAccessSession where
   hashWithSalt _salt StopRemoteAccessSession' {..} =

@@ -138,7 +138,7 @@ instance Core.AWSRequest CreateSchedulingPolicy where
   type
     AWSResponse CreateSchedulingPolicy =
       CreateSchedulingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest CreateSchedulingPolicy where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateSchedulingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSchedulingPolicy where
   hashWithSalt _salt CreateSchedulingPolicy' {..} =

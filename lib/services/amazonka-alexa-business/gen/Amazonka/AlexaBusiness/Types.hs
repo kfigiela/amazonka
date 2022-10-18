@@ -716,6 +716,7 @@ defaultService =
       Core._serviceEndpointPrefix = "a4b",
       Core._serviceSigningName = "a4b",
       Core._serviceVersion = "2017-11-09",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

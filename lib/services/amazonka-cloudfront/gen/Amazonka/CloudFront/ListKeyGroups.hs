@@ -106,7 +106,7 @@ instance Core.AWSRequest ListKeyGroups where
   type
     AWSResponse ListKeyGroups =
       ListKeyGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest ListKeyGroups where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListKeyGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListKeyGroups where
   hashWithSalt _salt ListKeyGroups' {..} =

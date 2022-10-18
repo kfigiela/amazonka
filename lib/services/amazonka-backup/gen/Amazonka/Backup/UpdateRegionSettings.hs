@@ -105,9 +105,12 @@ instance Core.AWSRequest UpdateRegionSettings where
   type
     AWSResponse UpdateRegionSettings =
       UpdateRegionSettingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateRegionSettingsResponse'
+
+instance Core.AWSService UpdateRegionSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRegionSettings where
   hashWithSalt _salt UpdateRegionSettings' {..} =

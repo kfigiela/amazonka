@@ -127,7 +127,7 @@ instance Core.AWSRequest ListGroupVersions where
   type
     AWSResponse ListGroupVersions =
       ListGroupVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListGroupVersions where
             Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGroupVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGroupVersions where
   hashWithSalt _salt ListGroupVersions' {..} =

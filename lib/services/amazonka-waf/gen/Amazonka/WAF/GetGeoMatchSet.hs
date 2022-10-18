@@ -92,7 +92,7 @@ instance Core.AWSRequest GetGeoMatchSet where
   type
     AWSResponse GetGeoMatchSet =
       GetGeoMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetGeoMatchSet where
             Prelude.<$> (x Core..?> "GeoMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGeoMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGeoMatchSet where
   hashWithSalt _salt GetGeoMatchSet' {..} =

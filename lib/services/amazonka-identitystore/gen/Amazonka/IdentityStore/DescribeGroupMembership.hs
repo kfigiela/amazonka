@@ -98,7 +98,7 @@ instance Core.AWSRequest DescribeGroupMembership where
   type
     AWSResponse DescribeGroupMembership =
       DescribeGroupMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeGroupMembership where
             Prelude.<*> (x Core..:> "GroupId")
             Prelude.<*> (x Core..:> "MemberId")
       )
+
+instance Core.AWSService DescribeGroupMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGroupMembership where
   hashWithSalt _salt DescribeGroupMembership' {..} =

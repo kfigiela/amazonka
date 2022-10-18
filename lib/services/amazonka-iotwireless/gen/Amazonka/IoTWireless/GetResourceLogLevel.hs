@@ -98,7 +98,7 @@ instance Core.AWSRequest GetResourceLogLevel where
   type
     AWSResponse GetResourceLogLevel =
       GetResourceLogLevelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetResourceLogLevel where
             Prelude.<$> (x Core..?> "LogLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceLogLevel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceLogLevel where
   hashWithSalt _salt GetResourceLogLevel' {..} =

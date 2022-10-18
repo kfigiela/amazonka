@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeUploadBuffer where
   type
     AWSResponse DescribeUploadBuffer =
       DescribeUploadBufferResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeUploadBuffer where
             Prelude.<*> (x Core..?> "UploadBufferUsedInBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUploadBuffer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUploadBuffer where
   hashWithSalt _salt DescribeUploadBuffer' {..} =

@@ -149,7 +149,7 @@ instance Core.AWSRequest CreateUsageLimit where
   type
     AWSResponse CreateUsageLimit =
       CreateUsageLimitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest CreateUsageLimit where
             Prelude.<$> (x Core..?> "usageLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUsageLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUsageLimit where
   hashWithSalt _salt CreateUsageLimit' {..} =

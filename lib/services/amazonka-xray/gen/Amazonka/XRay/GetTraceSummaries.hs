@@ -199,7 +199,7 @@ instance Core.AWSRequest GetTraceSummaries where
   type
     AWSResponse GetTraceSummaries =
       GetTraceSummariesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,6 +210,9 @@ instance Core.AWSRequest GetTraceSummaries where
             Prelude.<*> (x Core..?> "ApproximateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTraceSummaries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTraceSummaries where
   hashWithSalt _salt GetTraceSummaries' {..} =

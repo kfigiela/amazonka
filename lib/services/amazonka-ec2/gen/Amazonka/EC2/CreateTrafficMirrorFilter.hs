@@ -134,7 +134,7 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
   type
     AWSResponse CreateTrafficMirrorFilter =
       CreateTrafficMirrorFilterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateTrafficMirrorFilter where
             Prelude.<*> (x Core..@? "clientToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTrafficMirrorFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrafficMirrorFilter where
   hashWithSalt _salt CreateTrafficMirrorFilter' {..} =

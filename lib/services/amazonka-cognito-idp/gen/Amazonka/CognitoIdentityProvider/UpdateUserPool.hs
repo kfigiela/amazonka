@@ -409,13 +409,16 @@ instance Core.AWSRequest UpdateUserPool where
   type
     AWSResponse UpdateUserPool =
       UpdateUserPoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateUserPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUserPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserPool where
   hashWithSalt _salt UpdateUserPool' {..} =

@@ -208,10 +208,13 @@ instance Core.AWSRequest ListRetirableGrants where
   type
     AWSResponse ListRetirableGrants =
       ListGrantsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ListRetirableGrants where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRetirableGrants where
   hashWithSalt _salt ListRetirableGrants' {..} =

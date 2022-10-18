@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeInstanceAttribute where
   type
     AWSResponse DescribeInstanceAttribute =
       DescribeInstanceAttributeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<$> (x Core..?> "Attribute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstanceAttribute where
   hashWithSalt _salt DescribeInstanceAttribute' {..} =

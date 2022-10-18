@@ -106,10 +106,16 @@ instance
   type
     AWSResponse UpdateConfigurationSetSendingEnabled =
       UpdateConfigurationSetSendingEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateConfigurationSetSendingEnabledResponse'
+
+instance
+  Core.AWSService
+    UpdateConfigurationSetSendingEnabled
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

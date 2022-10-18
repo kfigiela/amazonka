@@ -221,9 +221,12 @@ instance Core.AWSRequest PutAlternateContact where
   type
     AWSResponse PutAlternateContact =
       PutAlternateContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutAlternateContactResponse'
+
+instance Core.AWSService PutAlternateContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAlternateContact where
   hashWithSalt _salt PutAlternateContact' {..} =

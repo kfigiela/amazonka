@@ -87,7 +87,7 @@ instance
   type
     AWSResponse GetDataCatalogEncryptionSettings =
       GetDataCatalogEncryptionSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
             Prelude.<$> (x Core..?> "DataCatalogEncryptionSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetDataCatalogEncryptionSettings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

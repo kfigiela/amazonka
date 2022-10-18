@@ -202,7 +202,7 @@ updatePortal_roleArn = Lens.lens (\UpdatePortal' {roleArn} -> roleArn) (\s@Updat
 
 instance Core.AWSRequest UpdatePortal where
   type AWSResponse UpdatePortal = UpdatePortalResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,6 +210,9 @@ instance Core.AWSRequest UpdatePortal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "portalStatus")
       )
+
+instance Core.AWSService UpdatePortal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePortal where
   hashWithSalt _salt UpdatePortal' {..} =

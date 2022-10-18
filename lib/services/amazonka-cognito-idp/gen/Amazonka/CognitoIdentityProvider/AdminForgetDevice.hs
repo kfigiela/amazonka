@@ -106,9 +106,12 @@ instance Core.AWSRequest AdminForgetDevice where
   type
     AWSResponse AdminForgetDevice =
       AdminForgetDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AdminForgetDeviceResponse'
+
+instance Core.AWSService AdminForgetDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminForgetDevice where
   hashWithSalt _salt AdminForgetDevice' {..} =

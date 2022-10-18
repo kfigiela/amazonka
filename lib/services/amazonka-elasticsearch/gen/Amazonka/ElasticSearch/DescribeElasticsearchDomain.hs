@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeElasticsearchDomain where
   type
     AWSResponse DescribeElasticsearchDomain =
       DescribeElasticsearchDomainResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribeElasticsearchDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainStatus")
       )
+
+instance Core.AWSService DescribeElasticsearchDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeElasticsearchDomain where
   hashWithSalt _salt DescribeElasticsearchDomain' {..} =

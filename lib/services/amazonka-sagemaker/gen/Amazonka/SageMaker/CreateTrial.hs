@@ -141,7 +141,7 @@ createTrial_experimentName = Lens.lens (\CreateTrial' {experimentName} -> experi
 
 instance Core.AWSRequest CreateTrial where
   type AWSResponse CreateTrial = CreateTrialResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest CreateTrial where
             Prelude.<$> (x Core..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTrial where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrial where
   hashWithSalt _salt CreateTrial' {..} =

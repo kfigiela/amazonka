@@ -222,7 +222,7 @@ instance Core.AWSRequest UpdateWorkload where
   type
     AWSResponse UpdateWorkload =
       UpdateWorkloadResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest UpdateWorkload where
             Prelude.<$> (x Core..?> "Workload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWorkload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkload where
   hashWithSalt _salt UpdateWorkload' {..} =

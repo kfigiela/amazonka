@@ -155,7 +155,7 @@ instance Core.AWSRequest CreateIpamScope where
   type
     AWSResponse CreateIpamScope =
       CreateIpamScopeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest CreateIpamScope where
             Prelude.<$> (x Core..@? "ipamScope")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIpamScope where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIpamScope where
   hashWithSalt _salt CreateIpamScope' {..} =

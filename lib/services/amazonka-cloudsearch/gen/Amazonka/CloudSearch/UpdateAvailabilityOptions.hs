@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateAvailabilityOptions where
   type
     AWSResponse UpdateAvailabilityOptions =
       UpdateAvailabilityOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateAvailabilityOptionsResult"
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdateAvailabilityOptions where
             Prelude.<$> (x Core..@? "AvailabilityOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAvailabilityOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAvailabilityOptions where
   hashWithSalt _salt UpdateAvailabilityOptions' {..} =

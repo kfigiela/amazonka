@@ -85,9 +85,12 @@ instance Core.AWSRequest UpdateDevices where
   type
     AWSResponse UpdateDevices =
       UpdateDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateDevicesResponse'
+
+instance Core.AWSService UpdateDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDevices where
   hashWithSalt _salt UpdateDevices' {..} =

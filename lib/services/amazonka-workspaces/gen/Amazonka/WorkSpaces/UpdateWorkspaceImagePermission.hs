@@ -149,13 +149,19 @@ instance
   type
     AWSResponse UpdateWorkspaceImagePermission =
       UpdateWorkspaceImagePermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateWorkspaceImagePermissionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateWorkspaceImagePermission
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

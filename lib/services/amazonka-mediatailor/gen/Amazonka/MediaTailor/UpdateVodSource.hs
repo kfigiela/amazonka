@@ -113,7 +113,7 @@ instance Core.AWSRequest UpdateVodSource where
   type
     AWSResponse UpdateVodSource =
       UpdateVodSourceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateVodSource where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVodSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVodSource where
   hashWithSalt _salt UpdateVodSource' {..} =

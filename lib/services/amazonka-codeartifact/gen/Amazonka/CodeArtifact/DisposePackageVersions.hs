@@ -221,7 +221,7 @@ instance Core.AWSRequest DisposePackageVersions where
   type
     AWSResponse DisposePackageVersions =
       DisposePackageVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -232,6 +232,9 @@ instance Core.AWSRequest DisposePackageVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisposePackageVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisposePackageVersions where
   hashWithSalt _salt DisposePackageVersions' {..} =

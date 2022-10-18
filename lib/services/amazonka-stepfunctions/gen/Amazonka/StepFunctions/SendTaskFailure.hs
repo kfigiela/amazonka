@@ -112,13 +112,16 @@ instance Core.AWSRequest SendTaskFailure where
   type
     AWSResponse SendTaskFailure =
       SendTaskFailureResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendTaskFailureResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendTaskFailure where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendTaskFailure where
   hashWithSalt _salt SendTaskFailure' {..} =

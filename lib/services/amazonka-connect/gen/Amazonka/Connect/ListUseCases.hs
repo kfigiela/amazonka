@@ -147,7 +147,7 @@ instance Core.AWSPager ListUseCases where
 
 instance Core.AWSRequest ListUseCases where
   type AWSResponse ListUseCases = ListUseCasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest ListUseCases where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUseCases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUseCases where
   hashWithSalt _salt ListUseCases' {..} =

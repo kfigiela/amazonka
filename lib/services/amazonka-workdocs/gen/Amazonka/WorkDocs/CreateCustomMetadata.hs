@@ -116,13 +116,16 @@ instance Core.AWSRequest CreateCustomMetadata where
   type
     AWSResponse CreateCustomMetadata =
       CreateCustomMetadataResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateCustomMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCustomMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomMetadata where
   hashWithSalt _salt CreateCustomMetadata' {..} =

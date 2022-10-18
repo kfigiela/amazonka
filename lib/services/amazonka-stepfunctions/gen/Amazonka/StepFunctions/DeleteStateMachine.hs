@@ -84,13 +84,16 @@ instance Core.AWSRequest DeleteStateMachine where
   type
     AWSResponse DeleteStateMachine =
       DeleteStateMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStateMachineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStateMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStateMachine where
   hashWithSalt _salt DeleteStateMachine' {..} =

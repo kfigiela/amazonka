@@ -93,7 +93,7 @@ instance
     AWSResponse
       StartElasticsearchServiceSoftwareUpdate =
       StartElasticsearchServiceSoftwareUpdateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,12 @@ instance
             Prelude.<$> (x Core..?> "ServiceSoftwareOptions")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartElasticsearchServiceSoftwareUpdate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

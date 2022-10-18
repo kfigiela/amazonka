@@ -99,7 +99,7 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
   type
     AWSResponse RemoveFlowVpcInterface =
       RemoveFlowVpcInterfaceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest RemoveFlowVpcInterface where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveFlowVpcInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveFlowVpcInterface where
   hashWithSalt _salt RemoveFlowVpcInterface' {..} =

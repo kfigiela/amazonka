@@ -108,7 +108,7 @@ instance Core.AWSRequest UpdateDiscoverer where
   type
     AWSResponse UpdateDiscoverer =
       UpdateDiscovererResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest UpdateDiscoverer where
             Prelude.<*> (x Core..?> "DiscovererArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDiscoverer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDiscoverer where
   hashWithSalt _salt UpdateDiscoverer' {..} =

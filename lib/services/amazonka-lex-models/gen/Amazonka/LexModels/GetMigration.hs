@@ -89,7 +89,7 @@ getMigration_migrationId = Lens.lens (\GetMigration' {migrationId} -> migrationI
 
 instance Core.AWSRequest GetMigration where
   type AWSResponse GetMigration = GetMigrationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetMigration where
             Prelude.<*> (x Core..?> "migrationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMigration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMigration where
   hashWithSalt _salt GetMigration' {..} =

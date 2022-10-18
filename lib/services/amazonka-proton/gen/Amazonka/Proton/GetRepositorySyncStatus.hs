@@ -130,7 +130,7 @@ instance Core.AWSRequest GetRepositorySyncStatus where
   type
     AWSResponse GetRepositorySyncStatus =
       GetRepositorySyncStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetRepositorySyncStatus where
             Prelude.<$> (x Core..?> "latestSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRepositorySyncStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRepositorySyncStatus where
   hashWithSalt _salt GetRepositorySyncStatus' {..} =

@@ -106,9 +106,12 @@ instance Core.AWSRequest DeleteDBSubnetGroup where
   type
     AWSResponse DeleteDBSubnetGroup =
       DeleteDBSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteDBSubnetGroupResponse'
+
+instance Core.AWSService DeleteDBSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBSubnetGroup where
   hashWithSalt _salt DeleteDBSubnetGroup' {..} =

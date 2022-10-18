@@ -74,7 +74,7 @@ instance Core.AWSRequest GetSMSSandboxAccountStatus where
   type
     AWSResponse GetSMSSandboxAccountStatus =
       GetSMSSandboxAccountStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSMSSandboxAccountStatusResult"
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetSMSSandboxAccountStatus where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "IsInSandbox")
       )
+
+instance Core.AWSService GetSMSSandboxAccountStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSMSSandboxAccountStatus where
   hashWithSalt _salt _ =

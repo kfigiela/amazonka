@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteEventAction where
   type
     AWSResponse DeleteEventAction =
       DeleteEventActionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteEventActionResponse'
+
+instance Core.AWSService DeleteEventAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventAction where
   hashWithSalt _salt DeleteEventAction' {..} =

@@ -215,7 +215,7 @@ instance Core.AWSRequest UpdateRecipeJob where
   type
     AWSResponse UpdateRecipeJob =
       UpdateRecipeJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest UpdateRecipeJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService UpdateRecipeJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRecipeJob where
   hashWithSalt _salt UpdateRecipeJob' {..} =

@@ -107,13 +107,16 @@ createLFTag_tagValues = Lens.lens (\CreateLFTag' {tagValues} -> tagValues) (\s@C
 
 instance Core.AWSRequest CreateLFTag where
   type AWSResponse CreateLFTag = CreateLFTagResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateLFTagResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLFTag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLFTag where
   hashWithSalt _salt CreateLFTag' {..} =

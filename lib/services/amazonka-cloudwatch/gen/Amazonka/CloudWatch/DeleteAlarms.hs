@@ -90,8 +90,11 @@ deleteAlarms_alarmNames = Lens.lens (\DeleteAlarms' {alarmNames} -> alarmNames) 
 
 instance Core.AWSRequest DeleteAlarms where
   type AWSResponse DeleteAlarms = DeleteAlarmsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteAlarmsResponse'
+
+instance Core.AWSService DeleteAlarms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlarms where
   hashWithSalt _salt DeleteAlarms' {..} =

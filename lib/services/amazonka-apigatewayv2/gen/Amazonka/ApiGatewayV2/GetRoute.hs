@@ -98,7 +98,7 @@ getRoute_routeId = Lens.lens (\GetRoute' {routeId} -> routeId) (\s@GetRoute' {} 
 
 instance Core.AWSRequest GetRoute where
   type AWSResponse GetRoute = GetRouteResponse'
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest GetRoute where
             Prelude.<*> (x Core..?> "authorizerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRoute where
   hashWithSalt _salt GetRoute' {..} =

@@ -130,7 +130,7 @@ instance Core.AWSRequest GetFunctionUrlConfig where
   type
     AWSResponse GetFunctionUrlConfig =
       GetFunctionUrlConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest GetFunctionUrlConfig where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
+
+instance Core.AWSService GetFunctionUrlConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFunctionUrlConfig where
   hashWithSalt _salt GetFunctionUrlConfig' {..} =

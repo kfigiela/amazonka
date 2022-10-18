@@ -136,7 +136,7 @@ instance Core.AWSRequest GetSchemaVersion where
   type
     AWSResponse GetSchemaVersion =
       GetSchemaVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest GetSchemaVersion where
             Prelude.<*> (x Core..?> "SchemaDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSchemaVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSchemaVersion where
   hashWithSalt _salt GetSchemaVersion' {..} =

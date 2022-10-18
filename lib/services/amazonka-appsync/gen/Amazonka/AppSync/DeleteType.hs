@@ -85,13 +85,16 @@ deleteType_typeName = Lens.lens (\DeleteType' {typeName} -> typeName) (\s@Delete
 
 instance Core.AWSRequest DeleteType where
   type AWSResponse DeleteType = DeleteTypeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteType where
   hashWithSalt _salt DeleteType' {..} =

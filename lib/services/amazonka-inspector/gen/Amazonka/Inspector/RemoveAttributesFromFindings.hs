@@ -98,7 +98,7 @@ instance Core.AWSRequest RemoveAttributesFromFindings where
   type
     AWSResponse RemoveAttributesFromFindings =
       RemoveAttributesFromFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest RemoveAttributesFromFindings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService RemoveAttributesFromFindings where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

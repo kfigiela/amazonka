@@ -192,7 +192,7 @@ instance Core.AWSRequest UpdateTaskTemplate where
   type
     AWSResponse UpdateTaskTemplate =
       UpdateTaskTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest UpdateTaskTemplate where
             Prelude.<*> (x Core..?> "ContactFlowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTaskTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTaskTemplate where
   hashWithSalt _salt UpdateTaskTemplate' {..} =

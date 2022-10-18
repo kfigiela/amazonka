@@ -84,13 +84,16 @@ instance Core.AWSRequest DeleteDomainConfiguration where
   type
     AWSResponse DeleteDomainConfiguration =
       DeleteDomainConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDomainConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDomainConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDomainConfiguration where
   hashWithSalt _salt DeleteDomainConfiguration' {..} =

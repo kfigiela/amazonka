@@ -156,7 +156,7 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
   type
     AWSResponse ListPrincipalsForPortfolio =
       ListPrincipalsForPortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest ListPrincipalsForPortfolio where
             Prelude.<*> (x Core..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPrincipalsForPortfolio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPrincipalsForPortfolio where
   hashWithSalt _salt ListPrincipalsForPortfolio' {..} =

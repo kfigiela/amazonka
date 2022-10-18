@@ -97,7 +97,7 @@ addTags_tags = Lens.lens (\AddTags' {tags} -> tags) (\s@AddTags' {} a -> s {tags
 
 instance Core.AWSRequest AddTags where
   type AWSResponse AddTags = AddTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddTagsResult"
@@ -105,6 +105,9 @@ instance Core.AWSRequest AddTags where
           AddTagsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTags where
   hashWithSalt _salt AddTags' {..} =

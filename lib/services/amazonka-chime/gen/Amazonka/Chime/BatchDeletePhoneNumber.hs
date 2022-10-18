@@ -85,7 +85,7 @@ instance Core.AWSRequest BatchDeletePhoneNumber where
   type
     AWSResponse BatchDeletePhoneNumber =
       BatchDeletePhoneNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest BatchDeletePhoneNumber where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeletePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeletePhoneNumber where
   hashWithSalt _salt BatchDeletePhoneNumber' {..} =

@@ -112,9 +112,12 @@ instance Core.AWSRequest DeleteLensShare where
   type
     AWSResponse DeleteLensShare =
       DeleteLensShareResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteLensShareResponse'
+
+instance Core.AWSService DeleteLensShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLensShare where
   hashWithSalt _salt DeleteLensShare' {..} =

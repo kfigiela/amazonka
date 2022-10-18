@@ -141,10 +141,13 @@ reserveContact_startTime = Lens.lens (\ReserveContact' {startTime} -> startTime)
 
 instance Core.AWSRequest ReserveContact where
   type AWSResponse ReserveContact = ContactIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ReserveContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReserveContact where
   hashWithSalt _salt ReserveContact' {..} =

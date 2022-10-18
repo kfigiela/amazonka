@@ -113,7 +113,7 @@ instance Core.AWSRequest UpdateRoleAlias where
   type
     AWSResponse UpdateRoleAlias =
       UpdateRoleAliasResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest UpdateRoleAlias where
             Prelude.<*> (x Core..?> "roleAliasArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoleAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoleAlias where
   hashWithSalt _salt UpdateRoleAlias' {..} =

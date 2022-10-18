@@ -151,7 +151,7 @@ instance Core.AWSRequest ListDataSourceSyncJobs where
   type
     AWSResponse ListDataSourceSyncJobs =
       ListDataSourceSyncJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest ListDataSourceSyncJobs where
             Prelude.<*> (x Core..?> "History" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataSourceSyncJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataSourceSyncJobs where
   hashWithSalt _salt ListDataSourceSyncJobs' {..} =

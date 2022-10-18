@@ -108,7 +108,7 @@ instance Core.AWSRequest ListEntitiesDetectionV2Jobs where
   type
     AWSResponse ListEntitiesDetectionV2Jobs =
       ListEntitiesDetectionV2JobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListEntitiesDetectionV2Jobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEntitiesDetectionV2Jobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEntitiesDetectionV2Jobs where
   hashWithSalt _salt ListEntitiesDetectionV2Jobs' {..} =

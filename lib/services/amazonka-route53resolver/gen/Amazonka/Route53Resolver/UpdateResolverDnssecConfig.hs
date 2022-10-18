@@ -104,7 +104,7 @@ instance Core.AWSRequest UpdateResolverDnssecConfig where
   type
     AWSResponse UpdateResolverDnssecConfig =
       UpdateResolverDnssecConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest UpdateResolverDnssecConfig where
             Prelude.<$> (x Core..?> "ResolverDNSSECConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResolverDnssecConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResolverDnssecConfig where
   hashWithSalt _salt UpdateResolverDnssecConfig' {..} =

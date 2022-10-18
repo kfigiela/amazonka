@@ -118,7 +118,7 @@ enterStandby_shouldDecrementDesiredCapacity = Lens.lens (\EnterStandby' {shouldD
 
 instance Core.AWSRequest EnterStandby where
   type AWSResponse EnterStandby = EnterStandbyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "EnterStandbyResult"
@@ -129,6 +129,9 @@ instance Core.AWSRequest EnterStandby where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnterStandby where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnterStandby where
   hashWithSalt _salt EnterStandby' {..} =

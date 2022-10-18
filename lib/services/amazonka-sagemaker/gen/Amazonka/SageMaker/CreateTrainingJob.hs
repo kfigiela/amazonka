@@ -641,7 +641,7 @@ instance Core.AWSRequest CreateTrainingJob where
   type
     AWSResponse CreateTrainingJob =
       CreateTrainingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -649,6 +649,9 @@ instance Core.AWSRequest CreateTrainingJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "TrainingJobArn")
       )
+
+instance Core.AWSService CreateTrainingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrainingJob where
   hashWithSalt _salt CreateTrainingJob' {..} =

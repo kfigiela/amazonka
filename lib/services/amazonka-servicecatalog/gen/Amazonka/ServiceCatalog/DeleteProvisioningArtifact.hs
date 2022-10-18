@@ -128,13 +128,16 @@ instance Core.AWSRequest DeleteProvisioningArtifact where
   type
     AWSResponse DeleteProvisioningArtifact =
       DeleteProvisioningArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisioningArtifactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProvisioningArtifact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProvisioningArtifact where
   hashWithSalt _salt DeleteProvisioningArtifact' {..} =

@@ -269,7 +269,7 @@ instance Core.AWSRequest ListApplicationRevisions where
   type
     AWSResponse ListApplicationRevisions =
       ListApplicationRevisionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,9 @@ instance Core.AWSRequest ListApplicationRevisions where
             Prelude.<*> (x Core..?> "revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListApplicationRevisions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApplicationRevisions where
   hashWithSalt _salt ListApplicationRevisions' {..} =

@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteDatabase where
   type
     AWSResponse DeleteDatabase =
       DeleteDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteDatabaseResponse'
+
+instance Core.AWSService DeleteDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDatabase where
   hashWithSalt _salt DeleteDatabase' {..} =

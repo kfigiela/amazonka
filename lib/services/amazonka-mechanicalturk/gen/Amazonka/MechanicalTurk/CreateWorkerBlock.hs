@@ -98,13 +98,16 @@ instance Core.AWSRequest CreateWorkerBlock where
   type
     AWSResponse CreateWorkerBlock =
       CreateWorkerBlockResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateWorkerBlockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkerBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkerBlock where
   hashWithSalt _salt CreateWorkerBlock' {..} =

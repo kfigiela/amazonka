@@ -156,7 +156,7 @@ instance Core.AWSRequest ListEventPredictions where
   type
     AWSResponse ListEventPredictions =
       ListEventPredictionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest ListEventPredictions where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEventPredictions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEventPredictions where
   hashWithSalt _salt ListEventPredictions' {..} =

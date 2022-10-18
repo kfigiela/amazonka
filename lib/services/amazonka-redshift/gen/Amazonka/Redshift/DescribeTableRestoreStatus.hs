@@ -168,7 +168,7 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
   type
     AWSResponse DescribeTableRestoreStatus =
       DescribeTableRestoreStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTableRestoreStatusResult"
@@ -181,6 +181,9 @@ instance Core.AWSRequest DescribeTableRestoreStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTableRestoreStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTableRestoreStatus where
   hashWithSalt _salt DescribeTableRestoreStatus' {..} =

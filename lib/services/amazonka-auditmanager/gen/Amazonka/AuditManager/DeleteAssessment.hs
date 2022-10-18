@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteAssessment where
   type
     AWSResponse DeleteAssessment =
       DeleteAssessmentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAssessmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAssessment where
   hashWithSalt _salt DeleteAssessment' {..} =

@@ -129,7 +129,7 @@ instance
   type
     AWSResponse DeleteResourcePolicyStatement =
       DeleteResourcePolicyStatementResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,12 @@ instance
             Prelude.<*> (x Core..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteResourcePolicyStatement
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

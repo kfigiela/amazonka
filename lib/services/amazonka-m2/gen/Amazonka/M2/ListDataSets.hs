@@ -144,7 +144,7 @@ instance Core.AWSPager ListDataSets where
 
 instance Core.AWSRequest ListDataSets where
   type AWSResponse ListDataSets = ListDataSetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListDataSets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "dataSets" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListDataSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataSets where
   hashWithSalt _salt ListDataSets' {..} =

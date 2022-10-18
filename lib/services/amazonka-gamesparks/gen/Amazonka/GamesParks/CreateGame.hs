@@ -112,7 +112,7 @@ createGame_gameName = Lens.lens (\CreateGame' {gameName} -> gameName) (\s@Create
 
 instance Core.AWSRequest CreateGame where
   type AWSResponse CreateGame = CreateGameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateGame where
             Prelude.<$> (x Core..?> "Game")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGame where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGame where
   hashWithSalt _salt CreateGame' {..} =

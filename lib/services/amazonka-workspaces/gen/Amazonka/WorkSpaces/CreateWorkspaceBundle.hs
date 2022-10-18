@@ -163,7 +163,7 @@ instance Core.AWSRequest CreateWorkspaceBundle where
   type
     AWSResponse CreateWorkspaceBundle =
       CreateWorkspaceBundleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest CreateWorkspaceBundle where
             Prelude.<$> (x Core..?> "WorkspaceBundle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkspaceBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkspaceBundle where
   hashWithSalt _salt CreateWorkspaceBundle' {..} =

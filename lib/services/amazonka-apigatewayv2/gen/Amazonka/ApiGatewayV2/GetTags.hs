@@ -75,7 +75,7 @@ getTags_resourceArn = Lens.lens (\GetTags' {resourceArn} -> resourceArn) (\s@Get
 
 instance Core.AWSRequest GetTags where
   type AWSResponse GetTags = GetTagsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetTags where
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTags where
   hashWithSalt _salt GetTags' {..} =

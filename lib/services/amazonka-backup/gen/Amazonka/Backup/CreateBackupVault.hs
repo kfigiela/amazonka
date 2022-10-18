@@ -150,7 +150,7 @@ instance Core.AWSRequest CreateBackupVault where
   type
     AWSResponse CreateBackupVault =
       CreateBackupVaultResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest CreateBackupVault where
             Prelude.<*> (x Core..?> "BackupVaultArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBackupVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBackupVault where
   hashWithSalt _salt CreateBackupVault' {..} =

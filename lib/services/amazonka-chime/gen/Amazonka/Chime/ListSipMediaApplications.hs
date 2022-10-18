@@ -92,7 +92,7 @@ instance Core.AWSRequest ListSipMediaApplications where
   type
     AWSResponse ListSipMediaApplications =
       ListSipMediaApplicationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ListSipMediaApplications where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSipMediaApplications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSipMediaApplications where
   hashWithSalt _salt ListSipMediaApplications' {..} =

@@ -81,7 +81,7 @@ getDetector_detectorId = Lens.lens (\GetDetector' {detectorId} -> detectorId) (\
 
 instance Core.AWSRequest GetDetector where
   type AWSResponse GetDetector = GetDetectorResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetDetector where
             Prelude.<*> (x Core..:> "serviceRole")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDetector where
   hashWithSalt _salt GetDetector' {..} =

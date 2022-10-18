@@ -228,7 +228,7 @@ instance Core.AWSRequest StartDocumentAnalysis where
   type
     AWSResponse StartDocumentAnalysis =
       StartDocumentAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -236,6 +236,9 @@ instance Core.AWSRequest StartDocumentAnalysis where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDocumentAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDocumentAnalysis where
   hashWithSalt _salt StartDocumentAnalysis' {..} =

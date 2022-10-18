@@ -158,7 +158,7 @@ instance Core.AWSRequest GetServiceGraph where
   type
     AWSResponse GetServiceGraph =
       GetServiceGraphResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest GetServiceGraph where
             Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServiceGraph where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServiceGraph where
   hashWithSalt _salt GetServiceGraph' {..} =

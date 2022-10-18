@@ -141,7 +141,7 @@ instance Core.AWSRequest ListHoursOfOperations where
   type
     AWSResponse ListHoursOfOperations =
       ListHoursOfOperationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListHoursOfOperations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListHoursOfOperations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHoursOfOperations where
   hashWithSalt _salt ListHoursOfOperations' {..} =

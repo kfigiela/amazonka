@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteRoutingControl where
   type
     AWSResponse DeleteRoutingControl =
       DeleteRoutingControlResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRoutingControlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRoutingControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRoutingControl where
   hashWithSalt _salt DeleteRoutingControl' {..} =

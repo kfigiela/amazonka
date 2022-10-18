@@ -384,7 +384,7 @@ instance Core.AWSRequest CreateConstraint where
   type
     AWSResponse CreateConstraint =
       CreateConstraintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -394,6 +394,9 @@ instance Core.AWSRequest CreateConstraint where
             Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConstraint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConstraint where
   hashWithSalt _salt CreateConstraint' {..} =

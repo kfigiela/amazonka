@@ -137,13 +137,16 @@ instance Core.AWSRequest UpdatePermissionSet where
   type
     AWSResponse UpdatePermissionSet =
       UpdatePermissionSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePermissionSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePermissionSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePermissionSet where
   hashWithSalt _salt UpdatePermissionSet' {..} =

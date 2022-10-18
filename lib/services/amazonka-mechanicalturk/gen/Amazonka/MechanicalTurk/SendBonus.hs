@@ -159,13 +159,16 @@ sendBonus_reason = Lens.lens (\SendBonus' {reason} -> reason) (\s@SendBonus' {} 
 
 instance Core.AWSRequest SendBonus where
   type AWSResponse SendBonus = SendBonusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendBonusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendBonus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendBonus where
   hashWithSalt _salt SendBonus' {..} =

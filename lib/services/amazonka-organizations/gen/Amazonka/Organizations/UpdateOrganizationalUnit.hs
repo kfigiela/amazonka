@@ -127,7 +127,7 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
   type
     AWSResponse UpdateOrganizationalUnit =
       UpdateOrganizationalUnitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest UpdateOrganizationalUnit where
             Prelude.<$> (x Core..?> "OrganizationalUnit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOrganizationalUnit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOrganizationalUnit where
   hashWithSalt _salt UpdateOrganizationalUnit' {..} =

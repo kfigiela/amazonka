@@ -119,7 +119,7 @@ instance Core.AWSRequest ListBusinessReportSchedules where
   type
     AWSResponse ListBusinessReportSchedules =
       ListBusinessReportSchedulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListBusinessReportSchedules where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBusinessReportSchedules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBusinessReportSchedules where
   hashWithSalt _salt ListBusinessReportSchedules' {..} =

@@ -63,7 +63,7 @@ newGetSendQuota = GetSendQuota'
 
 instance Core.AWSRequest GetSendQuota where
   type AWSResponse GetSendQuota = GetSendQuotaResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSendQuotaResult"
@@ -74,6 +74,9 @@ instance Core.AWSRequest GetSendQuota where
             Prelude.<*> (x Core..@? "MaxSendRate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSendQuota where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSendQuota where
   hashWithSalt _salt _ =

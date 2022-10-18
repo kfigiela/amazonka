@@ -111,7 +111,7 @@ instance Core.AWSRequest RetryBuildBatch where
   type
     AWSResponse RetryBuildBatch =
       RetryBuildBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest RetryBuildBatch where
             Prelude.<$> (x Core..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RetryBuildBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetryBuildBatch where
   hashWithSalt _salt RetryBuildBatch' {..} =

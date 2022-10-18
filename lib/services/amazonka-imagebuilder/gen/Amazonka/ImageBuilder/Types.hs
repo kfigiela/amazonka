@@ -603,6 +603,7 @@ defaultService =
       Core._serviceEndpointPrefix = "imagebuilder",
       Core._serviceSigningName = "imagebuilder",
       Core._serviceVersion = "2019-12-02",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

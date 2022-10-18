@@ -82,7 +82,7 @@ instance Core.AWSRequest GetSensitiveDataOccurrences where
   type
     AWSResponse GetSensitiveDataOccurrences =
       GetSensitiveDataOccurrencesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetSensitiveDataOccurrences where
             Prelude.<*> (x Core..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSensitiveDataOccurrences where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSensitiveDataOccurrences where
   hashWithSalt _salt GetSensitiveDataOccurrences' {..} =

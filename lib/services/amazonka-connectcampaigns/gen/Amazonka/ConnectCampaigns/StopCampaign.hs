@@ -71,8 +71,11 @@ stopCampaign_id = Lens.lens (\StopCampaign' {id} -> id) (\s@StopCampaign' {} a -
 
 instance Core.AWSRequest StopCampaign where
   type AWSResponse StopCampaign = StopCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StopCampaignResponse'
+
+instance Core.AWSService StopCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopCampaign where
   hashWithSalt _salt StopCampaign' {..} =

@@ -145,7 +145,7 @@ instance Core.AWSRequest ListBatchJobDefinitions where
   type
     AWSResponse ListBatchJobDefinitions =
       ListBatchJobDefinitionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListBatchJobDefinitions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListBatchJobDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBatchJobDefinitions where
   hashWithSalt _salt ListBatchJobDefinitions' {..} =

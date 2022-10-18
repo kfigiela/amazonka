@@ -93,7 +93,7 @@ instance Core.AWSRequest StartImageBuilder where
   type
     AWSResponse StartImageBuilder =
       StartImageBuilderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest StartImageBuilder where
             Prelude.<$> (x Core..?> "ImageBuilder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartImageBuilder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartImageBuilder where
   hashWithSalt _salt StartImageBuilder' {..} =

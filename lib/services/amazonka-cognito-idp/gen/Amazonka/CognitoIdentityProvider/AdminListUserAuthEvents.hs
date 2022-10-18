@@ -138,7 +138,7 @@ instance Core.AWSRequest AdminListUserAuthEvents where
   type
     AWSResponse AdminListUserAuthEvents =
       AdminListUserAuthEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest AdminListUserAuthEvents where
             Prelude.<*> (x Core..?> "AuthEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminListUserAuthEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminListUserAuthEvents where
   hashWithSalt _salt AdminListUserAuthEvents' {..} =

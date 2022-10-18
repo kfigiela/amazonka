@@ -240,7 +240,7 @@ copySnapshot_targetSnapshotName = Lens.lens (\CopySnapshot' {targetSnapshotName}
 
 instance Core.AWSRequest CopySnapshot where
   type AWSResponse CopySnapshot = CopySnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopySnapshotResult"
@@ -249,6 +249,9 @@ instance Core.AWSRequest CopySnapshot where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopySnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopySnapshot where
   hashWithSalt _salt CopySnapshot' {..} =

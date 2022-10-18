@@ -83,7 +83,7 @@ instance
   type
     AWSResponse ListSupportedPhoneNumberCountries =
       ListSupportedPhoneNumberCountriesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListSupportedPhoneNumberCountries
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

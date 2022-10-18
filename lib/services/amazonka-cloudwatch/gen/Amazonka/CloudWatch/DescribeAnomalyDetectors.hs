@@ -198,7 +198,7 @@ instance Core.AWSRequest DescribeAnomalyDetectors where
   type
     AWSResponse DescribeAnomalyDetectors =
       DescribeAnomalyDetectorsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAnomalyDetectorsResult"
@@ -211,6 +211,9 @@ instance Core.AWSRequest DescribeAnomalyDetectors where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAnomalyDetectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAnomalyDetectors where
   hashWithSalt _salt DescribeAnomalyDetectors' {..} =

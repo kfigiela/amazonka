@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateLensReview where
   type
     AWSResponse UpdateLensReview =
       UpdateLensReviewResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdateLensReview where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLensReview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLensReview where
   hashWithSalt _salt UpdateLensReview' {..} =

@@ -94,7 +94,7 @@ instance Core.AWSRequest DeleteManagedEndpoint where
   type
     AWSResponse DeleteManagedEndpoint =
       DeleteManagedEndpointResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DeleteManagedEndpoint where
             Prelude.<*> (x Core..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteManagedEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteManagedEndpoint where
   hashWithSalt _salt DeleteManagedEndpoint' {..} =

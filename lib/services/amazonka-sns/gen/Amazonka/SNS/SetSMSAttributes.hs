@@ -317,7 +317,7 @@ instance Core.AWSRequest SetSMSAttributes where
   type
     AWSResponse SetSMSAttributes =
       SetSMSAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetSMSAttributesResult"
@@ -325,6 +325,9 @@ instance Core.AWSRequest SetSMSAttributes where
           SetSMSAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetSMSAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetSMSAttributes where
   hashWithSalt _salt SetSMSAttributes' {..} =

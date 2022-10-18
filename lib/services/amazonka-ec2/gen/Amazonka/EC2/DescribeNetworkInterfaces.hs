@@ -514,7 +514,7 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
   type
     AWSResponse DescribeNetworkInterfaces =
       DescribeNetworkInterfacesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -526,6 +526,9 @@ instance Core.AWSRequest DescribeNetworkInterfaces where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeNetworkInterfaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNetworkInterfaces where
   hashWithSalt _salt DescribeNetworkInterfaces' {..} =

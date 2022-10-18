@@ -187,7 +187,7 @@ exportImage_s3ExportLocation = Lens.lens (\ExportImage' {s3ExportLocation} -> s3
 
 instance Core.AWSRequest ExportImage where
   type AWSResponse ExportImage = ExportImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest ExportImage where
             Prelude.<*> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportImage where
   hashWithSalt _salt ExportImage' {..} =

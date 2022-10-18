@@ -165,7 +165,7 @@ instance
   type
     AWSResponse ListOpenIDConnectProviderTags =
       ListOpenIDConnectProviderTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListOpenIDConnectProviderTagsResult"
@@ -178,6 +178,12 @@ instance
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance
+  Core.AWSService
+    ListOpenIDConnectProviderTags
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

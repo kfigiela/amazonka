@@ -143,7 +143,7 @@ instance Core.AWSPager GetIntents where
 
 instance Core.AWSRequest GetIntents where
   type AWSResponse GetIntents = GetIntentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetIntents where
             Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIntents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIntents where
   hashWithSalt _salt GetIntents' {..} =

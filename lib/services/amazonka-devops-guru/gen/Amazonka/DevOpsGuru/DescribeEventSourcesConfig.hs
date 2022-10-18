@@ -66,7 +66,7 @@ instance Core.AWSRequest DescribeEventSourcesConfig where
   type
     AWSResponse DescribeEventSourcesConfig =
       DescribeEventSourcesConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest DescribeEventSourcesConfig where
             Prelude.<$> (x Core..?> "EventSources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEventSourcesConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEventSourcesConfig where
   hashWithSalt _salt _ =

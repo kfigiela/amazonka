@@ -260,7 +260,7 @@ instance Core.AWSRequest DeleteDBInstance where
   type
     AWSResponse DeleteDBInstance =
       DeleteDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBInstanceResult"
@@ -269,6 +269,9 @@ instance Core.AWSRequest DeleteDBInstance where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBInstance where
   hashWithSalt _salt DeleteDBInstance' {..} =

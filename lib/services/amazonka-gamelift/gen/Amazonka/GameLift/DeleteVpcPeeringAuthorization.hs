@@ -128,13 +128,19 @@ instance
   type
     AWSResponse DeleteVpcPeeringAuthorization =
       DeleteVpcPeeringAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVpcPeeringAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteVpcPeeringAuthorization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

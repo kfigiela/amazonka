@@ -109,10 +109,16 @@ instance
     AWSResponse
       UpdateConfigurationSetReputationMetricsEnabled =
       UpdateConfigurationSetReputationMetricsEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateConfigurationSetReputationMetricsEnabledResponse'
+
+instance
+  Core.AWSService
+    UpdateConfigurationSetReputationMetricsEnabled
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

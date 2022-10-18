@@ -299,7 +299,7 @@ instance Core.AWSPager DescribeVpcs where
 
 instance Core.AWSRequest DescribeVpcs where
   type AWSResponse DescribeVpcs = DescribeVpcsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -310,6 +310,9 @@ instance Core.AWSRequest DescribeVpcs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVpcs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVpcs where
   hashWithSalt _salt DescribeVpcs' {..} =

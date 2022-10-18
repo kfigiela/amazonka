@@ -142,7 +142,7 @@ instance Core.AWSRequest ListProjectPolicies where
   type
     AWSResponse ListProjectPolicies =
       ListProjectPoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListProjectPolicies where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProjectPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProjectPolicies where
   hashWithSalt _salt ListProjectPolicies' {..} =

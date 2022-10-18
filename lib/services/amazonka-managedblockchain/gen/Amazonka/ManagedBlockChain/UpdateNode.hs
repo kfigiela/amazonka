@@ -116,13 +116,16 @@ updateNode_nodeId = Lens.lens (\UpdateNode' {nodeId} -> nodeId) (\s@UpdateNode' 
 
 instance Core.AWSRequest UpdateNode where
   type AWSResponse UpdateNode = UpdateNodeResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNode where
   hashWithSalt _salt UpdateNode' {..} =

@@ -108,13 +108,16 @@ instance Core.AWSRequest UpdateJobShipmentState where
   type
     AWSResponse UpdateJobShipmentState =
       UpdateJobShipmentStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateJobShipmentStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateJobShipmentState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateJobShipmentState where
   hashWithSalt _salt UpdateJobShipmentState' {..} =

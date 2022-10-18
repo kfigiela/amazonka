@@ -120,7 +120,7 @@ updateBuild_buildId = Lens.lens (\UpdateBuild' {buildId} -> buildId) (\s@UpdateB
 
 instance Core.AWSRequest UpdateBuild where
   type AWSResponse UpdateBuild = UpdateBuildResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest UpdateBuild where
             Prelude.<$> (x Core..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBuild where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBuild where
   hashWithSalt _salt UpdateBuild' {..} =

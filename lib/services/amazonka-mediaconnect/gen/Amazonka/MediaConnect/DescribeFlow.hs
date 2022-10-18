@@ -78,7 +78,7 @@ describeFlow_flowArn = Lens.lens (\DescribeFlow' {flowArn} -> flowArn) (\s@Descr
 
 instance Core.AWSRequest DescribeFlow where
   type AWSResponse DescribeFlow = DescribeFlowResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (x Core..?> "messages")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFlow where
   hashWithSalt _salt DescribeFlow' {..} =

@@ -573,7 +573,7 @@ reEncrypt_destinationKeyId = Lens.lens (\ReEncrypt' {destinationKeyId} -> destin
 
 instance Core.AWSRequest ReEncrypt where
   type AWSResponse ReEncrypt = ReEncryptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -585,6 +585,9 @@ instance Core.AWSRequest ReEncrypt where
             Prelude.<*> (x Core..?> "DestinationEncryptionAlgorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReEncrypt where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReEncrypt where
   hashWithSalt _salt ReEncrypt' {..} =

@@ -41,6 +41,7 @@ defaultService =
       Core._serviceEndpointPrefix = "runtime.sagemaker",
       Core._serviceSigningName = "sagemaker",
       Core._serviceVersion = "2017-05-13",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

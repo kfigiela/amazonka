@@ -136,9 +136,12 @@ instance Core.AWSRequest SendHeartbeat where
   type
     AWSResponse SendHeartbeat =
       SendHeartbeatResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SendHeartbeatResponse'
+
+instance Core.AWSService SendHeartbeat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendHeartbeat where
   hashWithSalt _salt SendHeartbeat' {..} =

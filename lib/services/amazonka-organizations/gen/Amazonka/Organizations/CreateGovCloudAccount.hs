@@ -485,7 +485,7 @@ instance Core.AWSRequest CreateGovCloudAccount where
   type
     AWSResponse CreateGovCloudAccount =
       CreateGovCloudAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -493,6 +493,9 @@ instance Core.AWSRequest CreateGovCloudAccount where
             Prelude.<$> (x Core..?> "CreateAccountStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGovCloudAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGovCloudAccount where
   hashWithSalt _salt CreateGovCloudAccount' {..} =

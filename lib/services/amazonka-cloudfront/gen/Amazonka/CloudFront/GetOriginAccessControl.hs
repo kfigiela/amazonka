@@ -79,7 +79,7 @@ instance Core.AWSRequest GetOriginAccessControl where
   type
     AWSResponse GetOriginAccessControl =
       GetOriginAccessControlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetOriginAccessControl where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOriginAccessControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOriginAccessControl where
   hashWithSalt _salt GetOriginAccessControl' {..} =

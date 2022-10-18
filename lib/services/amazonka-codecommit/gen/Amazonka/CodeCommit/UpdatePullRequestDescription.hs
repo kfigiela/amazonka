@@ -100,7 +100,7 @@ instance Core.AWSRequest UpdatePullRequestDescription where
   type
     AWSResponse UpdatePullRequestDescription =
       UpdatePullRequestDescriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest UpdatePullRequestDescription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "pullRequest")
       )
+
+instance Core.AWSService UpdatePullRequestDescription where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

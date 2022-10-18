@@ -96,7 +96,7 @@ getContact_emailAddress = Lens.lens (\GetContact' {emailAddress} -> emailAddress
 
 instance Core.AWSRequest GetContact where
   type AWSResponse GetContact = GetContactResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Core..?> "ContactListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContact where
   hashWithSalt _salt GetContact' {..} =

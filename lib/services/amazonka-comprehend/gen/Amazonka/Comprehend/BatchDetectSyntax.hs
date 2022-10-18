@@ -113,7 +113,7 @@ instance Core.AWSRequest BatchDetectSyntax where
   type
     AWSResponse BatchDetectSyntax =
       BatchDetectSyntaxResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest BatchDetectSyntax where
             Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchDetectSyntax where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDetectSyntax where
   hashWithSalt _salt BatchDetectSyntax' {..} =

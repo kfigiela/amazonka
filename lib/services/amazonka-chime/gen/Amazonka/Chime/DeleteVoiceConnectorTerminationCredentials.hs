@@ -96,10 +96,16 @@ instance
     AWSResponse
       DeleteVoiceConnectorTerminationCredentials =
       DeleteVoiceConnectorTerminationCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteVoiceConnectorTerminationCredentialsResponse'
+
+instance
+  Core.AWSService
+    DeleteVoiceConnectorTerminationCredentials
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

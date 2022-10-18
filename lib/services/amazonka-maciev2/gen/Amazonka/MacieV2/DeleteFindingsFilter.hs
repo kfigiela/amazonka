@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteFindingsFilter where
   type
     AWSResponse DeleteFindingsFilter =
       DeleteFindingsFilterResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFindingsFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFindingsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFindingsFilter where
   hashWithSalt _salt DeleteFindingsFilter' {..} =

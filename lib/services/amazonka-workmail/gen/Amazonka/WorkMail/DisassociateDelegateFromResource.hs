@@ -115,13 +115,19 @@ instance
   type
     AWSResponse DisassociateDelegateFromResource =
       DisassociateDelegateFromResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDelegateFromResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateDelegateFromResource
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

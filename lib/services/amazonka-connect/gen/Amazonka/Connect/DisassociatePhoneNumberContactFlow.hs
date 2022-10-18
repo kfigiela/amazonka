@@ -97,10 +97,16 @@ instance
   type
     AWSResponse DisassociatePhoneNumberContactFlow =
       DisassociatePhoneNumberContactFlowResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociatePhoneNumberContactFlowResponse'
+
+instance
+  Core.AWSService
+    DisassociatePhoneNumberContactFlow
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

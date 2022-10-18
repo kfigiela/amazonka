@@ -333,7 +333,7 @@ instance
   type
     AWSResponse GenerateDataKeyPairWithoutPlaintext =
       GenerateDataKeyPairWithoutPlaintextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -344,6 +344,12 @@ instance
               Prelude.<*> (x Core..?> "KeyId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GenerateDataKeyPairWithoutPlaintext
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

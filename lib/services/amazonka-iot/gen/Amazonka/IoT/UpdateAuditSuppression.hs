@@ -124,13 +124,16 @@ instance Core.AWSRequest UpdateAuditSuppression where
   type
     AWSResponse UpdateAuditSuppression =
       UpdateAuditSuppressionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAuditSuppressionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAuditSuppression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAuditSuppression where
   hashWithSalt _salt UpdateAuditSuppression' {..} =

@@ -139,13 +139,16 @@ instance Core.AWSRequest DisassociateCreatedArtifact where
   type
     AWSResponse DisassociateCreatedArtifact =
       DisassociateCreatedArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateCreatedArtifactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateCreatedArtifact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateCreatedArtifact where
   hashWithSalt _salt DisassociateCreatedArtifact' {..} =

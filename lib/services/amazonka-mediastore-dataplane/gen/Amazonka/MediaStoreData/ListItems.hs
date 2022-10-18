@@ -163,7 +163,7 @@ instance Core.AWSPager ListItems where
 
 instance Core.AWSRequest ListItems where
   type AWSResponse ListItems = ListItemsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest ListItems where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListItems where
   hashWithSalt _salt ListItems' {..} =

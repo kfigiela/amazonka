@@ -104,9 +104,12 @@ instance Core.AWSRequest DeleteIntegration where
   type
     AWSResponse DeleteIntegration =
       DeleteIntegrationResponse'
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteIntegrationResponse''
+
+instance Core.AWSService DeleteIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIntegration where
   hashWithSalt _salt DeleteIntegration' {..} =

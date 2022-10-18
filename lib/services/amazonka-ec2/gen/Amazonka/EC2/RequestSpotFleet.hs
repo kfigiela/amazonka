@@ -134,7 +134,7 @@ instance Core.AWSRequest RequestSpotFleet where
   type
     AWSResponse RequestSpotFleet =
       RequestSpotFleetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest RequestSpotFleet where
             Prelude.<$> (x Core..@? "spotFleetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RequestSpotFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RequestSpotFleet where
   hashWithSalt _salt RequestSpotFleet' {..} =

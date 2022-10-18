@@ -135,7 +135,7 @@ instance Core.AWSRequest CreateSafetyRule where
   type
     AWSResponse CreateSafetyRule =
       CreateSafetyRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest CreateSafetyRule where
             Prelude.<*> (x Core..?> "AssertionRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSafetyRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSafetyRule where
   hashWithSalt _salt CreateSafetyRule' {..} =

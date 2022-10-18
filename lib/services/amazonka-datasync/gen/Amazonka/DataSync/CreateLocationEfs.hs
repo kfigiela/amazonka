@@ -199,7 +199,7 @@ instance Core.AWSRequest CreateLocationEfs where
   type
     AWSResponse CreateLocationEfs =
       CreateLocationEfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest CreateLocationEfs where
             Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocationEfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocationEfs where
   hashWithSalt _salt CreateLocationEfs' {..} =

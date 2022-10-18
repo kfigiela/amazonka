@@ -111,13 +111,16 @@ instance Core.AWSRequest AcceptInvitation where
   type
     AWSResponse AcceptInvitation =
       AcceptInvitationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptInvitationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptInvitation where
   hashWithSalt _salt AcceptInvitation' {..} =

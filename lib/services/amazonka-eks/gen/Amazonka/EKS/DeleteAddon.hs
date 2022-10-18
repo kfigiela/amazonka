@@ -115,7 +115,7 @@ deleteAddon_addonName = Lens.lens (\DeleteAddon' {addonName} -> addonName) (\s@D
 
 instance Core.AWSRequest DeleteAddon where
   type AWSResponse DeleteAddon = DeleteAddonResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DeleteAddon where
             Prelude.<$> (x Core..?> "addon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAddon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAddon where
   hashWithSalt _salt DeleteAddon' {..} =

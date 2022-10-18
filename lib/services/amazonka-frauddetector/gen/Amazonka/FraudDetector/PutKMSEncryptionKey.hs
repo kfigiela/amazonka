@@ -80,13 +80,16 @@ instance Core.AWSRequest PutKMSEncryptionKey where
   type
     AWSResponse PutKMSEncryptionKey =
       PutKMSEncryptionKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutKMSEncryptionKeyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutKMSEncryptionKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutKMSEncryptionKey where
   hashWithSalt _salt PutKMSEncryptionKey' {..} =

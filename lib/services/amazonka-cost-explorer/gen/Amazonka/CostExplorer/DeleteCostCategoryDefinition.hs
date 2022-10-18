@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteCostCategoryDefinition where
   type
     AWSResponse DeleteCostCategoryDefinition =
       DeleteCostCategoryDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteCostCategoryDefinition where
             Prelude.<*> (x Core..?> "CostCategoryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCostCategoryDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

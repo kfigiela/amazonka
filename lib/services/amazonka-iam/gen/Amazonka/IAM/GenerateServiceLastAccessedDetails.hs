@@ -172,7 +172,7 @@ instance
   type
     AWSResponse GenerateServiceLastAccessedDetails =
       GenerateServiceLastAccessedDetailsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GenerateServiceLastAccessedDetailsResult"
@@ -181,6 +181,12 @@ instance
             Prelude.<$> (x Core..@? "JobId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GenerateServiceLastAccessedDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

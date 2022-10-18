@@ -65,7 +65,7 @@ instance Core.AWSRequest GetInvitationConfiguration where
   type
     AWSResponse GetInvitationConfiguration =
       GetInvitationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -77,6 +77,9 @@ instance Core.AWSRequest GetInvitationConfiguration where
             Prelude.<*> (x Core..?> "ContactEmail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInvitationConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInvitationConfiguration where
   hashWithSalt _salt _ =

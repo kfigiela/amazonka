@@ -130,7 +130,7 @@ instance Core.AWSPager ListFleets where
 
 instance Core.AWSRequest ListFleets where
   type AWSResponse ListFleets = ListFleetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListFleets where
             Prelude.<*> (x Core..?> "fleetSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFleets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFleets where
   hashWithSalt _salt ListFleets' {..} =

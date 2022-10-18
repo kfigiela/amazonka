@@ -107,7 +107,7 @@ sendEvent_roomIdentifier = Lens.lens (\SendEvent' {roomIdentifier} -> roomIdenti
 
 instance Core.AWSRequest SendEvent where
   type AWSResponse SendEvent = SendEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest SendEvent where
             Prelude.<$> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendEvent where
   hashWithSalt _salt SendEvent' {..} =

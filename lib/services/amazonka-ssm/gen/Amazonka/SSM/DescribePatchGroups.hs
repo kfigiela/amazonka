@@ -155,7 +155,7 @@ instance Core.AWSRequest DescribePatchGroups where
   type
     AWSResponse DescribePatchGroups =
       DescribePatchGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest DescribePatchGroups where
             Prelude.<*> (x Core..?> "Mappings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePatchGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePatchGroups where
   hashWithSalt _salt DescribePatchGroups' {..} =

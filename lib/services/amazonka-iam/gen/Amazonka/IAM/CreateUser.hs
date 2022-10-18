@@ -190,7 +190,7 @@ createUser_userName = Lens.lens (\CreateUser' {userName} -> userName) (\s@Create
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateUserResult"
@@ -199,6 +199,9 @@ instance Core.AWSRequest CreateUser where
             Prelude.<$> (x Core..@? "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

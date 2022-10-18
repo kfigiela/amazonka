@@ -133,7 +133,7 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
   type
     AWSResponse CreateTransitGatewayConnect =
       CreateTransitGatewayConnectResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest CreateTransitGatewayConnect where
             Prelude.<$> (x Core..@? "transitGatewayConnect")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTransitGatewayConnect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTransitGatewayConnect where
   hashWithSalt _salt CreateTransitGatewayConnect' {..} =

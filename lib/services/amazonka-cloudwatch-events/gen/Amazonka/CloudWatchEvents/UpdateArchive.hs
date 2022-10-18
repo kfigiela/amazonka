@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateArchive where
   type
     AWSResponse UpdateArchive =
       UpdateArchiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest UpdateArchive where
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateArchive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateArchive where
   hashWithSalt _salt UpdateArchive' {..} =

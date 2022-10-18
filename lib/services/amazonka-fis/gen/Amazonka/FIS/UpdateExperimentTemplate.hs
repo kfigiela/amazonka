@@ -143,7 +143,7 @@ instance Core.AWSRequest UpdateExperimentTemplate where
   type
     AWSResponse UpdateExperimentTemplate =
       UpdateExperimentTemplateResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest UpdateExperimentTemplate where
             Prelude.<$> (x Core..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateExperimentTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateExperimentTemplate where
   hashWithSalt _salt UpdateExperimentTemplate' {..} =

@@ -145,7 +145,7 @@ tagResources_tags = Lens.lens (\TagResources' {tags} -> tags) (\s@TagResources' 
 
 instance Core.AWSRequest TagResources where
   type AWSResponse TagResources = TagResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest TagResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TagResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagResources where
   hashWithSalt _salt TagResources' {..} =

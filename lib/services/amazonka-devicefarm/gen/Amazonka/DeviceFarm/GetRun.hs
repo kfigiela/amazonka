@@ -76,7 +76,7 @@ getRun_arn = Lens.lens (\GetRun' {arn} -> arn) (\s@GetRun' {} a -> s {arn = a} :
 
 instance Core.AWSRequest GetRun where
   type AWSResponse GetRun = GetRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetRun where
             Prelude.<$> (x Core..?> "run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRun where
   hashWithSalt _salt GetRun' {..} =

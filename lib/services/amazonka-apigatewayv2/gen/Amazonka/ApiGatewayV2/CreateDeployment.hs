@@ -106,7 +106,7 @@ instance Core.AWSRequest CreateDeployment where
   type
     AWSResponse CreateDeployment =
       CreateDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

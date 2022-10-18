@@ -81,10 +81,16 @@ instance
   type
     AWSResponse DeleteCustomRoutingEndpointGroup =
       DeleteCustomRoutingEndpointGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCustomRoutingEndpointGroupResponse'
+
+instance
+  Core.AWSService
+    DeleteCustomRoutingEndpointGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -282,7 +282,7 @@ instance
   type
     AWSResponse UpdateElasticsearchDomainConfig =
       UpdateElasticsearchDomainConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -291,6 +291,12 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainConfig")
       )
+
+instance
+  Core.AWSService
+    UpdateElasticsearchDomainConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

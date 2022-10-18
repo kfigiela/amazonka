@@ -112,7 +112,7 @@ instance Core.AWSRequest DeleteTemplate where
   type
     AWSResponse DeleteTemplate =
       DeleteTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DeleteTemplate where
             Prelude.<*> (x Core..?> "TemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTemplate where
   hashWithSalt _salt DeleteTemplate' {..} =

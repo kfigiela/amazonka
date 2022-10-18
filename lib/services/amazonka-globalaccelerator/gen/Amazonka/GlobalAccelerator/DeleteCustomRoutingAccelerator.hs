@@ -99,10 +99,16 @@ instance
   type
     AWSResponse DeleteCustomRoutingAccelerator =
       DeleteCustomRoutingAcceleratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCustomRoutingAcceleratorResponse'
+
+instance
+  Core.AWSService
+    DeleteCustomRoutingAccelerator
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

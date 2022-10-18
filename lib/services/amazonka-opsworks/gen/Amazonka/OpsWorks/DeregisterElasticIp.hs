@@ -81,9 +81,12 @@ instance Core.AWSRequest DeregisterElasticIp where
   type
     AWSResponse DeregisterElasticIp =
       DeregisterElasticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterElasticIpResponse'
+
+instance Core.AWSService DeregisterElasticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterElasticIp where
   hashWithSalt _salt DeregisterElasticIp' {..} =

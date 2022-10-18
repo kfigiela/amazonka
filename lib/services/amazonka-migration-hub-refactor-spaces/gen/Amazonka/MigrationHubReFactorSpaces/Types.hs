@@ -283,6 +283,7 @@ defaultService =
       Core._serviceEndpointPrefix = "refactor-spaces",
       Core._serviceSigningName = "refactor-spaces",
       Core._serviceVersion = "2021-10-26",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -134,9 +134,12 @@ instance Core.AWSRequest UpdateCACertificate where
   type
     AWSResponse UpdateCACertificate =
       UpdateCACertificateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateCACertificateResponse'
+
+instance Core.AWSService UpdateCACertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCACertificate where
   hashWithSalt _salt UpdateCACertificate' {..} =

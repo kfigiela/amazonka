@@ -141,7 +141,7 @@ instance Core.AWSPager ListDevices where
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListDevices where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =

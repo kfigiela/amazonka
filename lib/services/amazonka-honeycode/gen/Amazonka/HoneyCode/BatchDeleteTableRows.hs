@@ -177,7 +177,7 @@ instance Core.AWSRequest BatchDeleteTableRows where
   type
     AWSResponse BatchDeleteTableRows =
       BatchDeleteTableRowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest BatchDeleteTableRows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "workbookCursor")
       )
+
+instance Core.AWSService BatchDeleteTableRows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteTableRows where
   hashWithSalt _salt BatchDeleteTableRows' {..} =

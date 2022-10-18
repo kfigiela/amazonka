@@ -190,7 +190,7 @@ instance Core.AWSRequest ListModelBiasJobDefinitions where
   type
     AWSResponse ListModelBiasJobDefinitions =
       ListModelBiasJobDefinitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest ListModelBiasJobDefinitions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListModelBiasJobDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListModelBiasJobDefinitions where
   hashWithSalt _salt ListModelBiasJobDefinitions' {..} =

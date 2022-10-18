@@ -163,7 +163,7 @@ instance Core.AWSRequest StartSigningJob where
   type
     AWSResponse StartSigningJob =
       StartSigningJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest StartSigningJob where
             Prelude.<*> (x Core..?> "jobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSigningJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSigningJob where
   hashWithSalt _salt StartSigningJob' {..} =

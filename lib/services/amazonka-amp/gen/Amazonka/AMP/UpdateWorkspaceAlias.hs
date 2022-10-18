@@ -100,9 +100,12 @@ instance Core.AWSRequest UpdateWorkspaceAlias where
   type
     AWSResponse UpdateWorkspaceAlias =
       UpdateWorkspaceAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateWorkspaceAliasResponse'
+
+instance Core.AWSService UpdateWorkspaceAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkspaceAlias where
   hashWithSalt _salt UpdateWorkspaceAlias' {..} =

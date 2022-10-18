@@ -100,7 +100,7 @@ instance Core.AWSRequest BatchRevokePermissions where
   type
     AWSResponse BatchRevokePermissions =
       BatchRevokePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest BatchRevokePermissions where
             Prelude.<$> (x Core..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchRevokePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchRevokePermissions where
   hashWithSalt _salt BatchRevokePermissions' {..} =

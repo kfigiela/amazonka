@@ -97,7 +97,7 @@ instance Core.AWSRequest AssociateTrialComponent where
   type
     AWSResponse AssociateTrialComponent =
       AssociateTrialComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest AssociateTrialComponent where
             Prelude.<*> (x Core..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateTrialComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateTrialComponent where
   hashWithSalt _salt AssociateTrialComponent' {..} =

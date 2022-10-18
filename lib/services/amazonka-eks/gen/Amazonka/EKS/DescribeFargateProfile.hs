@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeFargateProfile where
   type
     AWSResponse DescribeFargateProfile =
       DescribeFargateProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeFargateProfile where
             Prelude.<$> (x Core..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFargateProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFargateProfile where
   hashWithSalt _salt DescribeFargateProfile' {..} =

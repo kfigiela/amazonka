@@ -215,7 +215,7 @@ createMap_mapName = Lens.lens (\CreateMap' {mapName} -> mapName) (\s@CreateMap' 
 
 instance Core.AWSRequest CreateMap where
   type AWSResponse CreateMap = CreateMapResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -225,6 +225,9 @@ instance Core.AWSRequest CreateMap where
             Prelude.<*> (x Core..:> "MapArn")
             Prelude.<*> (x Core..:> "MapName")
       )
+
+instance Core.AWSService CreateMap where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMap where
   hashWithSalt _salt CreateMap' {..} =

@@ -101,7 +101,7 @@ instance Core.AWSRequest UpdateSnapshot where
   type
     AWSResponse UpdateSnapshot =
       UpdateSnapshotResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateSnapshot where
             Prelude.<$> (x Core..?> "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSnapshot where
   hashWithSalt _salt UpdateSnapshot' {..} =

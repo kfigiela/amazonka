@@ -91,7 +91,7 @@ cancelJobRun_virtualClusterId = Lens.lens (\CancelJobRun' {virtualClusterId} -> 
 
 instance Core.AWSRequest CancelJobRun where
   type AWSResponse CancelJobRun = CancelJobRunResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest CancelJobRun where
             Prelude.<*> (x Core..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJobRun where
   hashWithSalt _salt CancelJobRun' {..} =

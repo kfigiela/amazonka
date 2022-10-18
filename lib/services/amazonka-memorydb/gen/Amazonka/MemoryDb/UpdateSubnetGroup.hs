@@ -100,7 +100,7 @@ instance Core.AWSRequest UpdateSubnetGroup where
   type
     AWSResponse UpdateSubnetGroup =
       UpdateSubnetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest UpdateSubnetGroup where
             Prelude.<$> (x Core..?> "SubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSubnetGroup where
   hashWithSalt _salt UpdateSubnetGroup' {..} =

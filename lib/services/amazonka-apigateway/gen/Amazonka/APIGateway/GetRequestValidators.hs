@@ -129,7 +129,7 @@ instance Core.AWSRequest GetRequestValidators where
   type
     AWSResponse GetRequestValidators =
       GetRequestValidatorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetRequestValidators where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRequestValidators where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRequestValidators where
   hashWithSalt _salt GetRequestValidators' {..} =

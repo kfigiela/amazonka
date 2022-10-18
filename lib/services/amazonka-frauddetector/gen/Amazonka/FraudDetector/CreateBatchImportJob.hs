@@ -150,13 +150,16 @@ instance Core.AWSRequest CreateBatchImportJob where
   type
     AWSResponse CreateBatchImportJob =
       CreateBatchImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateBatchImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBatchImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBatchImportJob where
   hashWithSalt _salt CreateBatchImportJob' {..} =

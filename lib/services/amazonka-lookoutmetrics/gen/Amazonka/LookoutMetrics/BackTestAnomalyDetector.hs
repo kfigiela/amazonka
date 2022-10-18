@@ -79,13 +79,16 @@ instance Core.AWSRequest BackTestAnomalyDetector where
   type
     AWSResponse BackTestAnomalyDetector =
       BackTestAnomalyDetectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           BackTestAnomalyDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BackTestAnomalyDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BackTestAnomalyDetector where
   hashWithSalt _salt BackTestAnomalyDetector' {..} =

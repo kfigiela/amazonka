@@ -96,7 +96,7 @@ instance Core.AWSRequest GetMailDomain where
   type
     AWSResponse GetMailDomain =
       GetMailDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetMailDomain where
             Prelude.<*> (x Core..?> "OwnershipVerificationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMailDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMailDomain where
   hashWithSalt _salt GetMailDomain' {..} =

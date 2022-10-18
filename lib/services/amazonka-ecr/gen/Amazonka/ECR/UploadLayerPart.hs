@@ -177,7 +177,7 @@ instance Core.AWSRequest UploadLayerPart where
   type
     AWSResponse UploadLayerPart =
       UploadLayerPartResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest UploadLayerPart where
             Prelude.<*> (x Core..?> "lastByteReceived")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadLayerPart where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UploadLayerPart where
   hashWithSalt _salt UploadLayerPart' {..} =

@@ -76,7 +76,7 @@ instance Core.AWSRequest GetSampleData where
   type
     AWSResponse GetSampleData =
       GetSampleDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetSampleData where
             Prelude.<*> (x Core..?> "HeaderValues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSampleData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSampleData where
   hashWithSalt _salt GetSampleData' {..} =

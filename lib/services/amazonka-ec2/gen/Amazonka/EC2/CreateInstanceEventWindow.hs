@@ -220,7 +220,7 @@ instance Core.AWSRequest CreateInstanceEventWindow where
   type
     AWSResponse CreateInstanceEventWindow =
       CreateInstanceEventWindowResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -228,6 +228,9 @@ instance Core.AWSRequest CreateInstanceEventWindow where
             Prelude.<$> (x Core..@? "instanceEventWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInstanceEventWindow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInstanceEventWindow where
   hashWithSalt _salt CreateInstanceEventWindow' {..} =

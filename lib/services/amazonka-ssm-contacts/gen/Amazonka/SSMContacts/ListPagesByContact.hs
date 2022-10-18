@@ -127,7 +127,7 @@ instance Core.AWSRequest ListPagesByContact where
   type
     AWSResponse ListPagesByContact =
       ListPagesByContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListPagesByContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Pages" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListPagesByContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPagesByContact where
   hashWithSalt _salt ListPagesByContact' {..} =

@@ -87,8 +87,11 @@ deleteGroup_groupName = Lens.lens (\DeleteGroup' {groupName} -> groupName) (\s@D
 
 instance Core.AWSRequest DeleteGroup where
   type AWSResponse DeleteGroup = DeleteGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteGroupResponse'
+
+instance Core.AWSService DeleteGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGroup where
   hashWithSalt _salt DeleteGroup' {..} =

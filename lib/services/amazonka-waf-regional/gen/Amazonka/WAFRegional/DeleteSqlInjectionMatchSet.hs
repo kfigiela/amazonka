@@ -127,7 +127,7 @@ instance Core.AWSRequest DeleteSqlInjectionMatchSet where
   type
     AWSResponse DeleteSqlInjectionMatchSet =
       DeleteSqlInjectionMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DeleteSqlInjectionMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSqlInjectionMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSqlInjectionMatchSet where
   hashWithSalt _salt DeleteSqlInjectionMatchSet' {..} =

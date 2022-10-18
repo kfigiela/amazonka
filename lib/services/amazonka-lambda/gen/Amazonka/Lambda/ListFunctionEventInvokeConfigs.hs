@@ -171,7 +171,7 @@ instance
   type
     AWSResponse ListFunctionEventInvokeConfigs =
       ListFunctionEventInvokeConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,12 @@ instance
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListFunctionEventInvokeConfigs
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

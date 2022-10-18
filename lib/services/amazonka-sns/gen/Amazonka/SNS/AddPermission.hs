@@ -120,9 +120,12 @@ instance Core.AWSRequest AddPermission where
   type
     AWSResponse AddPermission =
       AddPermissionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AddPermissionResponse'
+
+instance Core.AWSService AddPermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddPermission where
   hashWithSalt _salt AddPermission' {..} =

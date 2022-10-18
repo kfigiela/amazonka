@@ -200,7 +200,7 @@ instance Core.AWSRequest BatchExecuteStatement where
   type
     AWSResponse BatchExecuteStatement =
       BatchExecuteStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -214,6 +214,9 @@ instance Core.AWSRequest BatchExecuteStatement where
             Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchExecuteStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchExecuteStatement where
   hashWithSalt _salt BatchExecuteStatement' {..} =

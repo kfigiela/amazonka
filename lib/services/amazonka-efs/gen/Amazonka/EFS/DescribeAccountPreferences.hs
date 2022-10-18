@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeAccountPreferences where
   type
     AWSResponse DescribeAccountPreferences =
       DescribeAccountPreferencesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeAccountPreferences where
             Prelude.<*> (x Core..?> "ResourceIdPreference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccountPreferences where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountPreferences where
   hashWithSalt _salt DescribeAccountPreferences' {..} =

@@ -94,13 +94,16 @@ deleteModel_modelType = Lens.lens (\DeleteModel' {modelType} -> modelType) (\s@D
 
 instance Core.AWSRequest DeleteModel where
   type AWSResponse DeleteModel = DeleteModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteModel where
   hashWithSalt _salt DeleteModel' {..} =

@@ -103,7 +103,7 @@ instance Core.AWSRequest UpdateUsageLimit where
   type
     AWSResponse UpdateUsageLimit =
       UpdateUsageLimitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest UpdateUsageLimit where
             Prelude.<$> (x Core..?> "usageLimit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUsageLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUsageLimit where
   hashWithSalt _salt UpdateUsageLimit' {..} =

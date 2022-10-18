@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeTopicsDetectionJob where
   type
     AWSResponse DescribeTopicsDetectionJob =
       DescribeTopicsDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeTopicsDetectionJob where
             Prelude.<$> (x Core..?> "TopicsDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTopicsDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTopicsDetectionJob where
   hashWithSalt _salt DescribeTopicsDetectionJob' {..} =

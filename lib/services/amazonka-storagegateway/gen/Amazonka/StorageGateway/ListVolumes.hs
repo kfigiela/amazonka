@@ -143,7 +143,7 @@ instance Core.AWSPager ListVolumes where
 
 instance Core.AWSRequest ListVolumes where
   type AWSResponse ListVolumes = ListVolumesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListVolumes where
             Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVolumes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVolumes where
   hashWithSalt _salt ListVolumes' {..} =

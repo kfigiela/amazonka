@@ -97,7 +97,7 @@ instance Core.AWSRequest GetTrafficPolicy where
   type
     AWSResponse GetTrafficPolicy =
       GetTrafficPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetTrafficPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "TrafficPolicy")
       )
+
+instance Core.AWSService GetTrafficPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTrafficPolicy where
   hashWithSalt _salt GetTrafficPolicy' {..} =

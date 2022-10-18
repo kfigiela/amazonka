@@ -172,9 +172,12 @@ instance Core.AWSRequest StopStreamEncryption where
   type
     AWSResponse StopStreamEncryption =
       StopStreamEncryptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopStreamEncryptionResponse'
+
+instance Core.AWSService StopStreamEncryption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopStreamEncryption where
   hashWithSalt _salt StopStreamEncryption' {..} =

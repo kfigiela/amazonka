@@ -91,7 +91,7 @@ instance
   type
     AWSResponse RejectEnvironmentAccountConnection =
       RejectEnvironmentAccountConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "environmentAccountConnection")
       )
+
+instance
+  Core.AWSService
+    RejectEnvironmentAccountConnection
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

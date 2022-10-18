@@ -118,7 +118,7 @@ instance Core.AWSRequest DetectStackDrift where
   type
     AWSResponse DetectStackDrift =
       DetectStackDriftResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DetectStackDriftResult"
@@ -127,6 +127,9 @@ instance Core.AWSRequest DetectStackDrift where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "StackDriftDetectionId")
       )
+
+instance Core.AWSService DetectStackDrift where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectStackDrift where
   hashWithSalt _salt DetectStackDrift' {..} =

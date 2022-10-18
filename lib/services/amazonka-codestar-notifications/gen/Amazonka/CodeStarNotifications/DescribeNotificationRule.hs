@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeNotificationRule where
   type
     AWSResponse DescribeNotificationRule =
       DescribeNotificationRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeNotificationRule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Arn")
       )
+
+instance Core.AWSService DescribeNotificationRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNotificationRule where
   hashWithSalt _salt DescribeNotificationRule' {..} =

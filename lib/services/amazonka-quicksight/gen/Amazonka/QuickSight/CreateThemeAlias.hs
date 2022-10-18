@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateThemeAlias where
   type
     AWSResponse CreateThemeAlias =
       CreateThemeAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateThemeAlias where
             Prelude.<*> (x Core..?> "ThemeAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateThemeAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateThemeAlias where
   hashWithSalt _salt CreateThemeAlias' {..} =

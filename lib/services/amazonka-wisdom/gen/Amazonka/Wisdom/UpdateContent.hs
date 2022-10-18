@@ -187,7 +187,7 @@ instance Core.AWSRequest UpdateContent where
   type
     AWSResponse UpdateContent =
       UpdateContentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest UpdateContent where
             Prelude.<$> (x Core..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContent where
   hashWithSalt _salt UpdateContent' {..} =

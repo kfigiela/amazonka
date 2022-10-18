@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteAppInstanceAdmin where
   type
     AWSResponse DeleteAppInstanceAdmin =
       DeleteAppInstanceAdminResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteAppInstanceAdminResponse'
+
+instance Core.AWSService DeleteAppInstanceAdmin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppInstanceAdmin where
   hashWithSalt _salt DeleteAppInstanceAdmin' {..} =

@@ -117,7 +117,7 @@ updateAsset_assetName = Lens.lens (\UpdateAsset' {assetName} -> assetName) (\s@U
 
 instance Core.AWSRequest UpdateAsset where
   type AWSResponse UpdateAsset = UpdateAssetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdateAsset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "assetStatus")
       )
+
+instance Core.AWSService UpdateAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =

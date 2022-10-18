@@ -187,7 +187,7 @@ instance Core.AWSRequest ListSSHPublicKeys where
   type
     AWSResponse ListSSHPublicKeys =
       ListSSHPublicKeysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSSHPublicKeysResult"
@@ -200,6 +200,9 @@ instance Core.AWSRequest ListSSHPublicKeys where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSSHPublicKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSSHPublicKeys where
   hashWithSalt _salt ListSSHPublicKeys' {..} =

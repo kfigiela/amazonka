@@ -356,13 +356,16 @@ instance Core.AWSRequest UpdateNotebookInstance where
   type
     AWSResponse UpdateNotebookInstance =
       UpdateNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotebookInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNotebookInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNotebookInstance where
   hashWithSalt _salt UpdateNotebookInstance' {..} =

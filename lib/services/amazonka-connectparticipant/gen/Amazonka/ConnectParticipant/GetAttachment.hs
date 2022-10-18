@@ -96,7 +96,7 @@ instance Core.AWSRequest GetAttachment where
   type
     AWSResponse GetAttachment =
       GetAttachmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetAttachment where
             Prelude.<*> (x Core..?> "UrlExpiry")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAttachment where
   hashWithSalt _salt GetAttachment' {..} =

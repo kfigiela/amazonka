@@ -127,7 +127,7 @@ instance Core.AWSRequest DescribeRoute where
   type
     AWSResponse DescribeRoute =
       DescribeRouteResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DescribeRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DescribeRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRoute where
   hashWithSalt _salt DescribeRoute' {..} =

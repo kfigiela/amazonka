@@ -445,7 +445,7 @@ importImage_architecture = Lens.lens (\ImportImage' {architecture} -> architectu
 
 instance Core.AWSRequest ImportImage where
   type AWSResponse ImportImage = ImportImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -476,6 +476,9 @@ instance Core.AWSRequest ImportImage where
             Prelude.<*> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportImage where
   hashWithSalt _salt ImportImage' {..} =

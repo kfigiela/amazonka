@@ -153,7 +153,7 @@ instance Core.AWSRequest SetIdentityNotificationTopic where
   type
     AWSResponse SetIdentityNotificationTopic =
       SetIdentityNotificationTopicResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIdentityNotificationTopicResult"
@@ -161,6 +161,9 @@ instance Core.AWSRequest SetIdentityNotificationTopic where
           SetIdentityNotificationTopicResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetIdentityNotificationTopic where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

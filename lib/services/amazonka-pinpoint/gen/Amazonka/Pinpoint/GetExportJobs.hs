@@ -112,7 +112,7 @@ instance Core.AWSRequest GetExportJobs where
   type
     AWSResponse GetExportJobs =
       GetExportJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetExportJobs where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetExportJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExportJobs where
   hashWithSalt _salt GetExportJobs' {..} =

@@ -169,7 +169,7 @@ instance Core.AWSPager ListPrices where
 
 instance Core.AWSRequest ListPrices where
   type AWSResponse ListPrices = ListPricesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest ListPrices where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Prices" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListPrices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPrices where
   hashWithSalt _salt ListPrices' {..} =

@@ -101,13 +101,16 @@ instance Core.AWSRequest UpdateResourceCollection where
   type
     AWSResponse UpdateResourceCollection =
       UpdateResourceCollectionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResourceCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResourceCollection where
   hashWithSalt _salt UpdateResourceCollection' {..} =

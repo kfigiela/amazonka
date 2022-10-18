@@ -96,7 +96,7 @@ instance Core.AWSRequest AssociatePackage where
   type
     AWSResponse AssociatePackage =
       AssociatePackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest AssociatePackage where
             Prelude.<$> (x Core..?> "DomainPackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociatePackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociatePackage where
   hashWithSalt _salt AssociatePackage' {..} =

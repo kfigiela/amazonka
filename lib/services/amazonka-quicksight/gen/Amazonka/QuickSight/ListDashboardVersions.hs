@@ -144,7 +144,7 @@ instance Core.AWSRequest ListDashboardVersions where
   type
     AWSResponse ListDashboardVersions =
       ListDashboardVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListDashboardVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDashboardVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDashboardVersions where
   hashWithSalt _salt ListDashboardVersions' {..} =

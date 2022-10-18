@@ -100,13 +100,16 @@ instance Core.AWSRequest StopMatchmaking where
   type
     AWSResponse StopMatchmaking =
       StopMatchmakingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopMatchmakingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopMatchmaking where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopMatchmaking where
   hashWithSalt _salt StopMatchmaking' {..} =

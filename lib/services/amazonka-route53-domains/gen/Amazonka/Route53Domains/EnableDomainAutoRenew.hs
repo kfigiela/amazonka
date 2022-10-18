@@ -86,13 +86,16 @@ instance Core.AWSRequest EnableDomainAutoRenew where
   type
     AWSResponse EnableDomainAutoRenew =
       EnableDomainAutoRenewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableDomainAutoRenewResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableDomainAutoRenew where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableDomainAutoRenew where
   hashWithSalt _salt EnableDomainAutoRenew' {..} =

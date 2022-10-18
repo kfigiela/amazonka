@@ -72,8 +72,11 @@ deleteCell_cellName = Lens.lens (\DeleteCell' {cellName} -> cellName) (\s@Delete
 
 instance Core.AWSRequest DeleteCell where
   type AWSResponse DeleteCell = DeleteCellResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteCellResponse'
+
+instance Core.AWSService DeleteCell where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCell where
   hashWithSalt _salt DeleteCell' {..} =

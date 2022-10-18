@@ -97,13 +97,16 @@ cancelJob_reason = Lens.lens (\CancelJob' {reason} -> reason) (\s@CancelJob' {} 
 
 instance Core.AWSRequest CancelJob where
   type AWSResponse CancelJob = CancelJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =

@@ -702,6 +702,7 @@ defaultService =
       Core._serviceEndpointPrefix = "frauddetector",
       Core._serviceSigningName = "frauddetector",
       Core._serviceVersion = "2019-11-15",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

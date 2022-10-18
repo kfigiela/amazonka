@@ -112,7 +112,7 @@ instance
   type
     AWSResponse SendPipelineExecutionStepFailure =
       SendPipelineExecutionStepFailureResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,12 @@ instance
             Prelude.<$> (x Core..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    SendPipelineExecutionStepFailure
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

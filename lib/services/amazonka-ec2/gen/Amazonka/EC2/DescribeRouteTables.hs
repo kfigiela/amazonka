@@ -376,7 +376,7 @@ instance Core.AWSRequest DescribeRouteTables where
   type
     AWSResponse DescribeRouteTables =
       DescribeRouteTablesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -387,6 +387,9 @@ instance Core.AWSRequest DescribeRouteTables where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRouteTables where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRouteTables where
   hashWithSalt _salt DescribeRouteTables' {..} =

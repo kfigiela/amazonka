@@ -131,7 +131,7 @@ instance Core.AWSRequest ListDatabases where
   type
     AWSResponse ListDatabases =
       ListDatabasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListDatabases where
             Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatabases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatabases where
   hashWithSalt _salt ListDatabases' {..} =

@@ -122,13 +122,16 @@ instance Core.AWSRequest VoteOnProposal where
   type
     AWSResponse VoteOnProposal =
       VoteOnProposalResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           VoteOnProposalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService VoteOnProposal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VoteOnProposal where
   hashWithSalt _salt VoteOnProposal' {..} =

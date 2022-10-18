@@ -78,7 +78,7 @@ getMember_accountId = Lens.lens (\GetMember' {accountId} -> accountId) (\s@GetMe
 
 instance Core.AWSRequest GetMember where
   type AWSResponse GetMember = GetMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetMember where
             Prelude.<$> (x Core..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMember where
   hashWithSalt _salt GetMember' {..} =

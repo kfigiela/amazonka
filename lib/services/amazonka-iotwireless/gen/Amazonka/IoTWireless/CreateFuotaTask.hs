@@ -137,7 +137,7 @@ instance Core.AWSRequest CreateFuotaTask where
   type
     AWSResponse CreateFuotaTask =
       CreateFuotaTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest CreateFuotaTask where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFuotaTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFuotaTask where
   hashWithSalt _salt CreateFuotaTask' {..} =

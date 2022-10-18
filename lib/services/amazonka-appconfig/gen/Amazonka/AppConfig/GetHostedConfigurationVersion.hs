@@ -115,7 +115,7 @@ instance
   type
     AWSResponse GetHostedConfigurationVersion =
       HostedConfigurationVersion
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -127,6 +127,12 @@ instance
             Prelude.<*> (h Core..#? "Configuration-Profile-Id")
             Prelude.<*> (h Core..#? "Content-Type")
       )
+
+instance
+  Core.AWSService
+    GetHostedConfigurationVersion
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

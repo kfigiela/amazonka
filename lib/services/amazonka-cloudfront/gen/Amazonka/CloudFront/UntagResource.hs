@@ -89,9 +89,12 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveNull UntagResourceResponse'
+
+instance Core.AWSService UntagResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =

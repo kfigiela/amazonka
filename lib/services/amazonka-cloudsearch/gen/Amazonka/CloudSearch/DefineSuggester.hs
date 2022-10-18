@@ -99,7 +99,7 @@ instance Core.AWSRequest DefineSuggester where
   type
     AWSResponse DefineSuggester =
       DefineSuggesterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DefineSuggesterResult"
@@ -108,6 +108,9 @@ instance Core.AWSRequest DefineSuggester where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Suggester")
       )
+
+instance Core.AWSService DefineSuggester where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DefineSuggester where
   hashWithSalt _salt DefineSuggester' {..} =

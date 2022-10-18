@@ -201,7 +201,7 @@ describeType_versionId = Lens.lens (\DescribeType' {versionId} -> versionId) (\s
 
 instance Core.AWSRequest DescribeType where
   type AWSResponse DescribeType = DescribeTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTypeResult"
@@ -239,6 +239,9 @@ instance Core.AWSRequest DescribeType where
             Prelude.<*> (x Core..@? "LoggingConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeType where
   hashWithSalt _salt DescribeType' {..} =

@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeAssetModel where
   type
     AWSResponse DescribeAssetModel =
       DescribeAssetModelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeAssetModel where
             Prelude.<*> (x Core..:> "assetModelLastUpdateDate")
             Prelude.<*> (x Core..:> "assetModelStatus")
       )
+
+instance Core.AWSService DescribeAssetModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAssetModel where
   hashWithSalt _salt DescribeAssetModel' {..} =

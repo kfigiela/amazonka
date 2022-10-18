@@ -109,7 +109,7 @@ instance Core.AWSRequest BatchDetectTargetedSentiment where
   type
     AWSResponse BatchDetectTargetedSentiment =
       BatchDetectTargetedSentimentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest BatchDetectTargetedSentiment where
             Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchDetectTargetedSentiment where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

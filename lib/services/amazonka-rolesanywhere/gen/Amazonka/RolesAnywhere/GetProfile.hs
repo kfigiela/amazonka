@@ -76,10 +76,13 @@ getProfile_profileId = Lens.lens (\GetProfile' {profileId} -> profileId) (\s@Get
 
 instance Core.AWSRequest GetProfile where
   type AWSResponse GetProfile = ProfileDetailResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =

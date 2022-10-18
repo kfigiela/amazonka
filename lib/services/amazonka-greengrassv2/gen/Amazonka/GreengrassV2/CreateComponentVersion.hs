@@ -219,7 +219,7 @@ instance Core.AWSRequest CreateComponentVersion where
   type
     AWSResponse CreateComponentVersion =
       CreateComponentVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -231,6 +231,9 @@ instance Core.AWSRequest CreateComponentVersion where
             Prelude.<*> (x Core..:> "creationTimestamp")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService CreateComponentVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateComponentVersion where
   hashWithSalt _salt CreateComponentVersion' {..} =

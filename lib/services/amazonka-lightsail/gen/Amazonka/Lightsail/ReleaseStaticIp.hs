@@ -77,7 +77,7 @@ instance Core.AWSRequest ReleaseStaticIp where
   type
     AWSResponse ReleaseStaticIp =
       ReleaseStaticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest ReleaseStaticIp where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReleaseStaticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleaseStaticIp where
   hashWithSalt _salt ReleaseStaticIp' {..} =

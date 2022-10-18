@@ -290,7 +290,7 @@ instance Core.AWSRequest GetComplianceSummary where
   type
     AWSResponse GetComplianceSummary =
       GetComplianceSummaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -299,6 +299,9 @@ instance Core.AWSRequest GetComplianceSummary where
             Prelude.<*> (x Core..?> "SummaryList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetComplianceSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComplianceSummary where
   hashWithSalt _salt GetComplianceSummary' {..} =

@@ -63,7 +63,7 @@ instance Core.AWSRequest GetDelegatedAdminAccount where
   type
     AWSResponse GetDelegatedAdminAccount =
       GetDelegatedAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest GetDelegatedAdminAccount where
             Prelude.<$> (x Core..?> "delegatedAdmin")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDelegatedAdminAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDelegatedAdminAccount where
   hashWithSalt _salt _ =

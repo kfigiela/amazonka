@@ -131,7 +131,7 @@ instance Core.AWSRequest StartDataIngestionJob where
   type
     AWSResponse StartDataIngestionJob =
       StartDataIngestionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest StartDataIngestionJob where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDataIngestionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDataIngestionJob where
   hashWithSalt _salt StartDataIngestionJob' {..} =

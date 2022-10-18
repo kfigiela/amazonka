@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteWarmPool where
   type
     AWSResponse DeleteWarmPool =
       DeleteWarmPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteWarmPoolResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteWarmPool where
           DeleteWarmPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWarmPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWarmPool where
   hashWithSalt _salt DeleteWarmPool' {..} =

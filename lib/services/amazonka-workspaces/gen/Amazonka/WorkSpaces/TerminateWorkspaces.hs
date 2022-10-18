@@ -108,7 +108,7 @@ instance Core.AWSRequest TerminateWorkspaces where
   type
     AWSResponse TerminateWorkspaces =
       TerminateWorkspacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest TerminateWorkspaces where
             Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateWorkspaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateWorkspaces where
   hashWithSalt _salt TerminateWorkspaces' {..} =

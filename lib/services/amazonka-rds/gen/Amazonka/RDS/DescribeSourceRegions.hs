@@ -188,7 +188,7 @@ instance Core.AWSRequest DescribeSourceRegions where
   type
     AWSResponse DescribeSourceRegions =
       DescribeSourceRegionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSourceRegionsResult"
@@ -200,6 +200,9 @@ instance Core.AWSRequest DescribeSourceRegions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSourceRegions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSourceRegions where
   hashWithSalt _salt DescribeSourceRegions' {..} =

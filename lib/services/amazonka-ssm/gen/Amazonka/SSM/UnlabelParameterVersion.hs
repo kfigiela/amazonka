@@ -113,7 +113,7 @@ instance Core.AWSRequest UnlabelParameterVersion where
   type
     AWSResponse UnlabelParameterVersion =
       UnlabelParameterVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest UnlabelParameterVersion where
             Prelude.<*> (x Core..?> "RemovedLabels")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UnlabelParameterVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnlabelParameterVersion where
   hashWithSalt _salt UnlabelParameterVersion' {..} =

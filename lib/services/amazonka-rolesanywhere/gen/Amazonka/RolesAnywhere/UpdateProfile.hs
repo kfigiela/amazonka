@@ -145,10 +145,13 @@ instance Core.AWSRequest UpdateProfile where
   type
     AWSResponse UpdateProfile =
       ProfileDetailResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProfile where
   hashWithSalt _salt UpdateProfile' {..} =

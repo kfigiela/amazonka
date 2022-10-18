@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteVcenterClient where
   type
     AWSResponse DeleteVcenterClient =
       DeleteVcenterClientResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteVcenterClientResponse'
+
+instance Core.AWSService DeleteVcenterClient where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVcenterClient where
   hashWithSalt _salt DeleteVcenterClient' {..} =

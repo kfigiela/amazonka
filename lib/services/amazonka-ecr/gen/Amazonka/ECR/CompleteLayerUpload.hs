@@ -138,7 +138,7 @@ instance Core.AWSRequest CompleteLayerUpload where
   type
     AWSResponse CompleteLayerUpload =
       CompleteLayerUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest CompleteLayerUpload where
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompleteLayerUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteLayerUpload where
   hashWithSalt _salt CompleteLayerUpload' {..} =

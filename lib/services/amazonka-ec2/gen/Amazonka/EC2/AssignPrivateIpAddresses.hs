@@ -200,7 +200,7 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
   type
     AWSResponse AssignPrivateIpAddresses =
       AssignPrivateIpAddressesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -216,6 +216,9 @@ instance Core.AWSRequest AssignPrivateIpAddresses where
             Prelude.<*> (x Core..@? "networkInterfaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssignPrivateIpAddresses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssignPrivateIpAddresses where
   hashWithSalt _salt AssignPrivateIpAddresses' {..} =

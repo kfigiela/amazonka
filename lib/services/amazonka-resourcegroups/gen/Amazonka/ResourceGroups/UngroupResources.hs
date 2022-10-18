@@ -102,7 +102,7 @@ instance Core.AWSRequest UngroupResources where
   type
     AWSResponse UngroupResources =
       UngroupResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest UngroupResources where
             Prelude.<*> (x Core..?> "Pending" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UngroupResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UngroupResources where
   hashWithSalt _salt UngroupResources' {..} =

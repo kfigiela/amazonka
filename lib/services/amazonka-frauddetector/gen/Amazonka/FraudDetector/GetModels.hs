@@ -116,7 +116,7 @@ getModels_modelId = Lens.lens (\GetModels' {modelId} -> modelId) (\s@GetModels' 
 
 instance Core.AWSRequest GetModels where
   type AWSResponse GetModels = GetModelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetModels where
             Prelude.<*> (x Core..?> "models" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetModels where
   hashWithSalt _salt GetModels' {..} =

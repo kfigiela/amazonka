@@ -320,7 +320,7 @@ instance Core.AWSRequest UpdateRuleGroup where
   type
     AWSResponse UpdateRuleGroup =
       UpdateRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -329,6 +329,9 @@ instance Core.AWSRequest UpdateRuleGroup where
             Prelude.<*> (x Core..:> "UpdateToken")
             Prelude.<*> (x Core..:> "RuleGroupResponse")
       )
+
+instance Core.AWSService UpdateRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRuleGroup where
   hashWithSalt _salt UpdateRuleGroup' {..} =

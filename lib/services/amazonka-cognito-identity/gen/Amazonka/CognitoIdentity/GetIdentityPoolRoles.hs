@@ -86,7 +86,7 @@ instance Core.AWSRequest GetIdentityPoolRoles where
   type
     AWSResponse GetIdentityPoolRoles =
       GetIdentityPoolRolesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetIdentityPoolRoles where
             Prelude.<*> (x Core..?> "Roles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIdentityPoolRoles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIdentityPoolRoles where
   hashWithSalt _salt GetIdentityPoolRoles' {..} =

@@ -102,7 +102,7 @@ modifyRule_ruleArn = Lens.lens (\ModifyRule' {ruleArn} -> ruleArn) (\s@ModifyRul
 
 instance Core.AWSRequest ModifyRule where
   type AWSResponse ModifyRule = ModifyRuleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyRuleResult"
@@ -113,6 +113,9 @@ instance Core.AWSRequest ModifyRule where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyRule where
   hashWithSalt _salt ModifyRule' {..} =

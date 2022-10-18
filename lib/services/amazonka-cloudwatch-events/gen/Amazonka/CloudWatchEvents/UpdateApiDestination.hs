@@ -136,7 +136,7 @@ instance Core.AWSRequest UpdateApiDestination where
   type
     AWSResponse UpdateApiDestination =
       UpdateApiDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest UpdateApiDestination where
             Prelude.<*> (x Core..?> "ApiDestinationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateApiDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApiDestination where
   hashWithSalt _salt UpdateApiDestination' {..} =

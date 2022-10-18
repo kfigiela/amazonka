@@ -168,7 +168,7 @@ instance Core.AWSRequest UpdateReportPlan where
   type
     AWSResponse UpdateReportPlan =
       UpdateReportPlanResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest UpdateReportPlan where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReportPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReportPlan where
   hashWithSalt _salt UpdateReportPlan' {..} =

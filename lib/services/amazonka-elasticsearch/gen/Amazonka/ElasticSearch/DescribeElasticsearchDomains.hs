@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeElasticsearchDomains where
   type
     AWSResponse DescribeElasticsearchDomains =
       DescribeElasticsearchDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest DescribeElasticsearchDomains where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DescribeElasticsearchDomains where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -150,13 +150,16 @@ putEventType_entityTypes = Lens.lens (\PutEventType' {entityTypes} -> entityType
 
 instance Core.AWSRequest PutEventType where
   type AWSResponse PutEventType = PutEventTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutEventTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutEventType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEventType where
   hashWithSalt _salt PutEventType' {..} =

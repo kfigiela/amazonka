@@ -328,7 +328,7 @@ instance Core.AWSRequest CreatePatchBaseline where
   type
     AWSResponse CreatePatchBaseline =
       CreatePatchBaselineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -336,6 +336,9 @@ instance Core.AWSRequest CreatePatchBaseline where
             Prelude.<$> (x Core..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePatchBaseline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePatchBaseline where
   hashWithSalt _salt CreatePatchBaseline' {..} =

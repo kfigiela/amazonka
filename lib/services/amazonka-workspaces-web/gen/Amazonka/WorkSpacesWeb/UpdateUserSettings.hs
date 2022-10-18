@@ -201,7 +201,7 @@ instance Core.AWSRequest UpdateUserSettings where
   type
     AWSResponse UpdateUserSettings =
       UpdateUserSettingsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest UpdateUserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userSettings")
       )
+
+instance Core.AWSService UpdateUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserSettings where
   hashWithSalt _salt UpdateUserSettings' {..} =

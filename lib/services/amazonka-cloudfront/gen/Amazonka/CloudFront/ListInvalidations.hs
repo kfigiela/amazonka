@@ -148,7 +148,7 @@ instance Core.AWSRequest ListInvalidations where
   type
     AWSResponse ListInvalidations =
       ListInvalidationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListInvalidations where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.parseXML x)
       )
+
+instance Core.AWSService ListInvalidations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInvalidations where
   hashWithSalt _salt ListInvalidations' {..} =

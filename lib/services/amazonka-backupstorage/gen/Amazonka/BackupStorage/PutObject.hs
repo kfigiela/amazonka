@@ -178,7 +178,7 @@ putObject_inlineChunk = Lens.lens (\PutObject' {inlineChunk} -> inlineChunk) (\s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  request = Request.putBody defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest PutObject where
             Prelude.<*> (x Core..:> "ObjectChecksum")
             Prelude.<*> (x Core..:> "ObjectChecksumAlgorithm")
       )
+
+instance Core.AWSService PutObject where
+  service _proxy = defaultService
 
 instance Core.ToBody PutObject where
   toBody PutObject' {..} = Core.toBody inlineChunk

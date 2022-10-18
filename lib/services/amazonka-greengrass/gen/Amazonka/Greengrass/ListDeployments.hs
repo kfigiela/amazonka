@@ -127,7 +127,7 @@ instance Core.AWSRequest ListDeployments where
   type
     AWSResponse ListDeployments =
       ListDeploymentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListDeployments where
             Prelude.<*> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDeployments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDeployments where
   hashWithSalt _salt ListDeployments' {..} =

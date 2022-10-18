@@ -86,13 +86,16 @@ instance Core.AWSRequest StartFuotaTask where
   type
     AWSResponse StartFuotaTask =
       StartFuotaTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartFuotaTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartFuotaTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFuotaTask where
   hashWithSalt _salt StartFuotaTask' {..} =

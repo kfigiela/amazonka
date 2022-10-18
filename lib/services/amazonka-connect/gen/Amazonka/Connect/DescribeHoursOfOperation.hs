@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeHoursOfOperation where
   type
     AWSResponse DescribeHoursOfOperation =
       DescribeHoursOfOperationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DescribeHoursOfOperation where
             Prelude.<$> (x Core..?> "HoursOfOperation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHoursOfOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHoursOfOperation where
   hashWithSalt _salt DescribeHoursOfOperation' {..} =

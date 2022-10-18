@@ -137,7 +137,7 @@ instance
   type
     AWSResponse ListAllowedNodeTypeModifications =
       ListAllowedNodeTypeModificationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListAllowedNodeTypeModificationsResult"
@@ -153,6 +153,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListAllowedNodeTypeModifications
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

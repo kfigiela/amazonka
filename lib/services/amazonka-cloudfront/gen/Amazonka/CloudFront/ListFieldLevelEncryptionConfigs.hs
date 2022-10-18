@@ -107,7 +107,7 @@ instance
   type
     AWSResponse ListFieldLevelEncryptionConfigs =
       ListFieldLevelEncryptionConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -115,6 +115,12 @@ instance
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListFieldLevelEncryptionConfigs
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

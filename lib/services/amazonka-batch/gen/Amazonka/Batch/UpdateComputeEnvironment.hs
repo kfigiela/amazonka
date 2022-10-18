@@ -279,7 +279,7 @@ instance Core.AWSRequest UpdateComputeEnvironment where
   type
     AWSResponse UpdateComputeEnvironment =
       UpdateComputeEnvironmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -288,6 +288,9 @@ instance Core.AWSRequest UpdateComputeEnvironment where
             Prelude.<*> (x Core..?> "computeEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateComputeEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateComputeEnvironment where
   hashWithSalt _salt UpdateComputeEnvironment' {..} =

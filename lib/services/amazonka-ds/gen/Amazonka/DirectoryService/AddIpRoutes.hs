@@ -261,13 +261,16 @@ addIpRoutes_ipRoutes = Lens.lens (\AddIpRoutes' {ipRoutes} -> ipRoutes) (\s@AddI
 
 instance Core.AWSRequest AddIpRoutes where
   type AWSResponse AddIpRoutes = AddIpRoutesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddIpRoutesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddIpRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddIpRoutes where
   hashWithSalt _salt AddIpRoutes' {..} =

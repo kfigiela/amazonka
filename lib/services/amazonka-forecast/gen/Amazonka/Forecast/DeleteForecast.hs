@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteForecast where
   type
     AWSResponse DeleteForecast =
       DeleteForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteForecastResponse'
+
+instance Core.AWSService DeleteForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteForecast where
   hashWithSalt _salt DeleteForecast' {..} =

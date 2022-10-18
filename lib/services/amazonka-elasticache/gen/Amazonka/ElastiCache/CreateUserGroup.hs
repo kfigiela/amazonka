@@ -120,11 +120,14 @@ createUserGroup_engine = Lens.lens (\CreateUserGroup' {engine} -> engine) (\s@Cr
 
 instance Core.AWSRequest CreateUserGroup where
   type AWSResponse CreateUserGroup = UserGroup
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateUserGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateUserGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUserGroup where
   hashWithSalt _salt CreateUserGroup' {..} =

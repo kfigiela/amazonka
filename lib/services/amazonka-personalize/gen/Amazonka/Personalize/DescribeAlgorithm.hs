@@ -77,7 +77,7 @@ instance Core.AWSRequest DescribeAlgorithm where
   type
     AWSResponse DescribeAlgorithm =
       DescribeAlgorithmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeAlgorithm where
             Prelude.<$> (x Core..?> "algorithm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAlgorithm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAlgorithm where
   hashWithSalt _salt DescribeAlgorithm' {..} =

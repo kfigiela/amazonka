@@ -559,6 +559,7 @@ defaultService =
       Core._serviceEndpointPrefix = "databrew",
       Core._serviceSigningName = "databrew",
       Core._serviceVersion = "2017-07-25",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

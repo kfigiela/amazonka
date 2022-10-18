@@ -124,10 +124,13 @@ instance Core.AWSRequest DeregisterStreamConsumer where
   type
     AWSResponse DeregisterStreamConsumer =
       DeregisterStreamConsumerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeregisterStreamConsumerResponse'
+
+instance Core.AWSService DeregisterStreamConsumer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterStreamConsumer where
   hashWithSalt _salt DeregisterStreamConsumer' {..} =

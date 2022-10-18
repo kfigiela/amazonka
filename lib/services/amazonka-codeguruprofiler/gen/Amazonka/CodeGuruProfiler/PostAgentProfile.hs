@@ -141,13 +141,16 @@ instance Core.AWSRequest PostAgentProfile where
   type
     AWSResponse PostAgentProfile =
       PostAgentProfileResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PostAgentProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PostAgentProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PostAgentProfile where
   hashWithSalt _salt PostAgentProfile' {..} =

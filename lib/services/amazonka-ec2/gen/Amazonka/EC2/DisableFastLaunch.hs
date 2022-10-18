@@ -130,7 +130,7 @@ instance Core.AWSRequest DisableFastLaunch where
   type
     AWSResponse DisableFastLaunch =
       DisableFastLaunchResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest DisableFastLaunch where
             Prelude.<*> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableFastLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableFastLaunch where
   hashWithSalt _salt DisableFastLaunch' {..} =

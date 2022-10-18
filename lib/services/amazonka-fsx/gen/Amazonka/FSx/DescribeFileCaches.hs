@@ -121,7 +121,7 @@ instance Core.AWSRequest DescribeFileCaches where
   type
     AWSResponse DescribeFileCaches =
       DescribeFileCachesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest DescribeFileCaches where
             Prelude.<*> (x Core..?> "FileCaches" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFileCaches where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFileCaches where
   hashWithSalt _salt DescribeFileCaches' {..} =

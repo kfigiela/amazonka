@@ -114,7 +114,7 @@ instance Core.AWSRequest ListMultiplexes where
   type
     AWSResponse ListMultiplexes =
       ListMultiplexesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ListMultiplexes where
             Prelude.<*> (x Core..?> "multiplexes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMultiplexes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMultiplexes where
   hashWithSalt _salt ListMultiplexes' {..} =

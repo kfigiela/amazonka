@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribeSpeakerEnrollmentJob where
   type
     AWSResponse DescribeSpeakerEnrollmentJob =
       DescribeSpeakerEnrollmentJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DescribeSpeakerEnrollmentJob where
             Prelude.<$> (x Core..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSpeakerEnrollmentJob where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

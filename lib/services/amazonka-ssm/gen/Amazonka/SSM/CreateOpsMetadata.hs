@@ -128,7 +128,7 @@ instance Core.AWSRequest CreateOpsMetadata where
   type
     AWSResponse CreateOpsMetadata =
       CreateOpsMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateOpsMetadata where
             Prelude.<$> (x Core..?> "OpsMetadataArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOpsMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOpsMetadata where
   hashWithSalt _salt CreateOpsMetadata' {..} =

@@ -137,7 +137,7 @@ instance Core.AWSRequest StartTaskExecution where
   type
     AWSResponse StartTaskExecution =
       StartTaskExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest StartTaskExecution where
             Prelude.<$> (x Core..?> "TaskExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartTaskExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartTaskExecution where
   hashWithSalt _salt StartTaskExecution' {..} =

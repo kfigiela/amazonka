@@ -191,7 +191,7 @@ instance Core.AWSRequest GetRandomPassword where
   type
     AWSResponse GetRandomPassword =
       GetRandomPasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest GetRandomPassword where
             Prelude.<$> (x Core..?> "RandomPassword")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRandomPassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRandomPassword where
   hashWithSalt _salt GetRandomPassword' {..} =

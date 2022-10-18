@@ -191,7 +191,7 @@ instance Core.AWSRequest UpdateFleetAttributes where
   type
     AWSResponse UpdateFleetAttributes =
       UpdateFleetAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest UpdateFleetAttributes where
             Prelude.<$> (x Core..?> "FleetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFleetAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFleetAttributes where
   hashWithSalt _salt UpdateFleetAttributes' {..} =

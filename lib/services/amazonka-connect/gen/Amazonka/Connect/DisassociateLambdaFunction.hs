@@ -100,10 +100,13 @@ instance Core.AWSRequest DisassociateLambdaFunction where
   type
     AWSResponse DisassociateLambdaFunction =
       DisassociateLambdaFunctionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateLambdaFunctionResponse'
+
+instance Core.AWSService DisassociateLambdaFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateLambdaFunction where
   hashWithSalt _salt DisassociateLambdaFunction' {..} =

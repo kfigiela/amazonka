@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteWorkGroup where
   type
     AWSResponse DeleteWorkGroup =
       DeleteWorkGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkGroup where
   hashWithSalt _salt DeleteWorkGroup' {..} =

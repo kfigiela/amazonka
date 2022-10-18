@@ -116,7 +116,7 @@ instance Core.AWSRequest RebootCacheCluster where
   type
     AWSResponse RebootCacheCluster =
       RebootCacheClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebootCacheClusterResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest RebootCacheCluster where
             Prelude.<$> (x Core..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootCacheCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootCacheCluster where
   hashWithSalt _salt RebootCacheCluster' {..} =

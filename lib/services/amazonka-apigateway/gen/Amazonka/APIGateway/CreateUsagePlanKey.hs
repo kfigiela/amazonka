@@ -109,10 +109,13 @@ createUsagePlanKey_keyType = Lens.lens (\CreateUsagePlanKey' {keyType} -> keyTyp
 
 instance Core.AWSRequest CreateUsagePlanKey where
   type AWSResponse CreateUsagePlanKey = UsagePlanKey
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateUsagePlanKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUsagePlanKey where
   hashWithSalt _salt CreateUsagePlanKey' {..} =

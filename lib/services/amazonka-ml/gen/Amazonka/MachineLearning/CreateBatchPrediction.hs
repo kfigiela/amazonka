@@ -175,7 +175,7 @@ instance Core.AWSRequest CreateBatchPrediction where
   type
     AWSResponse CreateBatchPrediction =
       CreateBatchPredictionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest CreateBatchPrediction where
             Prelude.<$> (x Core..?> "BatchPredictionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBatchPrediction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBatchPrediction where
   hashWithSalt _salt CreateBatchPrediction' {..} =

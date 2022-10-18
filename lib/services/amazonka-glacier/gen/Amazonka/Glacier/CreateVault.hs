@@ -130,9 +130,9 @@ createVault_vaultName = Lens.lens (\CreateVault' {vaultName} -> vaultName) (\s@C
 
 instance Core.AWSRequest CreateVault where
   type AWSResponse CreateVault = CreateVaultResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putJSON defaultService
+      Prelude.. Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateVault where
             Prelude.<$> (h Core..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVault where
   hashWithSalt _salt CreateVault' {..} =

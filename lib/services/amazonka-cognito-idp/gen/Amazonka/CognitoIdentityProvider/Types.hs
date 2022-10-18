@@ -833,6 +833,7 @@ defaultService =
       Core._serviceEndpointPrefix = "cognito-idp",
       Core._serviceSigningName = "cognito-idp",
       Core._serviceVersion = "2016-04-18",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

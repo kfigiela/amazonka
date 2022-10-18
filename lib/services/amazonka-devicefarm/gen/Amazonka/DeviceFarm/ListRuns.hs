@@ -117,7 +117,7 @@ instance Core.AWSPager ListRuns where
 
 instance Core.AWSRequest ListRuns where
   type AWSResponse ListRuns = ListRunsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListRuns where
             Prelude.<*> (x Core..?> "runs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRuns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRuns where
   hashWithSalt _salt ListRuns' {..} =

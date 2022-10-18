@@ -110,7 +110,7 @@ deleteRoute_routeIdentifier = Lens.lens (\DeleteRoute' {routeIdentifier} -> rout
 
 instance Core.AWSRequest DeleteRoute where
   type AWSResponse DeleteRoute = DeleteRouteResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DeleteRoute where
             Prelude.<*> (x Core..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRoute where
   hashWithSalt _salt DeleteRoute' {..} =

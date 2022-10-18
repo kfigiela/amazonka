@@ -118,7 +118,7 @@ instance Core.AWSRequest DescribeSecret where
   type
     AWSResponse DescribeSecret =
       DescribeSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest DescribeSecret where
             Prelude.<*> (x Core..?> "OwningService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSecret where
   hashWithSalt _salt DescribeSecret' {..} =

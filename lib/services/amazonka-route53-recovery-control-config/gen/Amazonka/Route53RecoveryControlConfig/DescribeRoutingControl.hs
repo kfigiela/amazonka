@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeRoutingControl where
   type
     AWSResponse DescribeRoutingControl =
       DescribeRoutingControlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeRoutingControl where
             Prelude.<$> (x Core..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRoutingControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRoutingControl where
   hashWithSalt _salt DescribeRoutingControl' {..} =

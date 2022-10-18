@@ -109,7 +109,7 @@ instance Core.AWSRequest GetTemplateSyncStatus where
   type
     AWSResponse GetTemplateSyncStatus =
       GetTemplateSyncStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetTemplateSyncStatus where
             Prelude.<*> (x Core..?> "latestSuccessfulSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTemplateSyncStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTemplateSyncStatus where
   hashWithSalt _salt GetTemplateSyncStatus' {..} =

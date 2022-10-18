@@ -133,7 +133,7 @@ instance Core.AWSRequest GetObjectAttributes where
   type
     AWSResponse GetObjectAttributes =
       GetObjectAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest GetObjectAttributes where
             Prelude.<$> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectAttributes where
   hashWithSalt _salt GetObjectAttributes' {..} =

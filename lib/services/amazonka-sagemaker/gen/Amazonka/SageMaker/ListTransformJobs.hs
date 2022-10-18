@@ -215,7 +215,7 @@ instance Core.AWSRequest ListTransformJobs where
   type
     AWSResponse ListTransformJobs =
       ListTransformJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest ListTransformJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListTransformJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTransformJobs where
   hashWithSalt _salt ListTransformJobs' {..} =

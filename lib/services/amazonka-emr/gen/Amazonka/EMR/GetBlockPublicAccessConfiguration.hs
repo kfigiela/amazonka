@@ -69,7 +69,7 @@ instance
   type
     AWSResponse GetBlockPublicAccessConfiguration =
       GetBlockPublicAccessConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -80,6 +80,12 @@ instance
                               Core..:> "BlockPublicAccessConfigurationMetadata"
                           )
       )
+
+instance
+  Core.AWSService
+    GetBlockPublicAccessConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

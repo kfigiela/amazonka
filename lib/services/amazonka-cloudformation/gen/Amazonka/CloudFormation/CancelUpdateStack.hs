@@ -104,9 +104,12 @@ instance Core.AWSRequest CancelUpdateStack where
   type
     AWSResponse CancelUpdateStack =
       CancelUpdateStackResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CancelUpdateStackResponse'
+
+instance Core.AWSService CancelUpdateStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelUpdateStack where
   hashWithSalt _salt CancelUpdateStack' {..} =

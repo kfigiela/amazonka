@@ -86,7 +86,7 @@ releaseHosts_hostIds = Lens.lens (\ReleaseHosts' {hostIds} -> hostIds) (\s@Relea
 
 instance Core.AWSRequest ReleaseHosts where
   type AWSResponse ReleaseHosts = ReleaseHostsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest ReleaseHosts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReleaseHosts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleaseHosts where
   hashWithSalt _salt ReleaseHosts' {..} =

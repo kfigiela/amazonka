@@ -90,13 +90,16 @@ instance Core.AWSRequest DeleteWorkflowStepGroup where
   type
     AWSResponse DeleteWorkflowStepGroup =
       DeleteWorkflowStepGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkflowStepGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkflowStepGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkflowStepGroup where
   hashWithSalt _salt DeleteWorkflowStepGroup' {..} =

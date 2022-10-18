@@ -90,7 +90,7 @@ instance
   type
     AWSResponse DescribeValidDBInstanceModifications =
       DescribeValidDBInstanceModificationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeValidDBInstanceModificationsResult"
@@ -99,6 +99,12 @@ instance
             Prelude.<$> (x Core..@? "ValidDBInstanceModificationsMessage")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeValidDBInstanceModifications
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

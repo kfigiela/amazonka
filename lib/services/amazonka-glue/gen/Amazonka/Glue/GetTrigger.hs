@@ -74,7 +74,7 @@ getTrigger_name = Lens.lens (\GetTrigger' {name} -> name) (\s@GetTrigger' {} a -
 
 instance Core.AWSRequest GetTrigger where
   type AWSResponse GetTrigger = GetTriggerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetTrigger where
             Prelude.<$> (x Core..?> "Trigger")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTrigger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTrigger where
   hashWithSalt _salt GetTrigger' {..} =

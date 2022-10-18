@@ -76,13 +76,16 @@ instance Core.AWSRequest StopHumanLoop where
   type
     AWSResponse StopHumanLoop =
       StopHumanLoopResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopHumanLoopResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopHumanLoop where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopHumanLoop where
   hashWithSalt _salt StopHumanLoop' {..} =

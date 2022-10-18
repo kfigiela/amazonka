@@ -297,7 +297,7 @@ instance Core.AWSRequest CreateRouteCalculator where
   type
     AWSResponse CreateRouteCalculator =
       CreateRouteCalculatorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -307,6 +307,9 @@ instance Core.AWSRequest CreateRouteCalculator where
             Prelude.<*> (x Core..:> "CalculatorName")
             Prelude.<*> (x Core..:> "CreateTime")
       )
+
+instance Core.AWSService CreateRouteCalculator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRouteCalculator where
   hashWithSalt _salt CreateRouteCalculator' {..} =

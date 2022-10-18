@@ -105,13 +105,16 @@ instance Core.AWSRequest UpdateDocumentMetadata where
   type
     AWSResponse UpdateDocumentMetadata =
       UpdateDocumentMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDocumentMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDocumentMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDocumentMetadata where
   hashWithSalt _salt UpdateDocumentMetadata' {..} =

@@ -96,9 +96,12 @@ instance Core.AWSRequest ReplaceTopicRule where
   type
     AWSResponse ReplaceTopicRule =
       ReplaceTopicRuleResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull ReplaceTopicRuleResponse'
+
+instance Core.AWSService ReplaceTopicRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReplaceTopicRule where
   hashWithSalt _salt ReplaceTopicRule' {..} =

@@ -170,7 +170,7 @@ instance Core.AWSRequest PurchaseHostReservation where
   type
     AWSResponse PurchaseHostReservation =
       PurchaseHostReservationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest PurchaseHostReservation where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PurchaseHostReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PurchaseHostReservation where
   hashWithSalt _salt PurchaseHostReservation' {..} =

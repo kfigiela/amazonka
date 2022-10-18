@@ -131,7 +131,7 @@ instance Core.AWSRequest PutDestination where
   type
     AWSResponse PutDestination =
       PutDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest PutDestination where
             Prelude.<$> (x Core..?> "destination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDestination where
   hashWithSalt _salt PutDestination' {..} =

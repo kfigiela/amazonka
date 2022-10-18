@@ -119,7 +119,7 @@ instance Core.AWSRequest SetDefaultSenderId where
   type
     AWSResponse SetDefaultSenderId =
       SetDefaultSenderIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest SetDefaultSenderId where
             Prelude.<*> (x Core..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetDefaultSenderId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetDefaultSenderId where
   hashWithSalt _salt SetDefaultSenderId' {..} =

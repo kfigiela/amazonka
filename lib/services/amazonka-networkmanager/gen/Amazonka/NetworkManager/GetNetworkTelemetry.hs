@@ -281,7 +281,7 @@ instance Core.AWSRequest GetNetworkTelemetry where
   type
     AWSResponse GetNetworkTelemetry =
       GetNetworkTelemetryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -292,6 +292,9 @@ instance Core.AWSRequest GetNetworkTelemetry where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNetworkTelemetry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetworkTelemetry where
   hashWithSalt _salt GetNetworkTelemetry' {..} =

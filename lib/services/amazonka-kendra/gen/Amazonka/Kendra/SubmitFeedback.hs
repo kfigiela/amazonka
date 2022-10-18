@@ -121,9 +121,12 @@ instance Core.AWSRequest SubmitFeedback where
   type
     AWSResponse SubmitFeedback =
       SubmitFeedbackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SubmitFeedbackResponse'
+
+instance Core.AWSService SubmitFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SubmitFeedback where
   hashWithSalt _salt SubmitFeedback' {..} =

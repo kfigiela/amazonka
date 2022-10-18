@@ -108,10 +108,13 @@ instance Core.AWSRequest PutRolePermissionsBoundary where
   type
     AWSResponse PutRolePermissionsBoundary =
       PutRolePermissionsBoundaryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       PutRolePermissionsBoundaryResponse'
+
+instance Core.AWSService PutRolePermissionsBoundary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRolePermissionsBoundary where
   hashWithSalt _salt PutRolePermissionsBoundary' {..} =

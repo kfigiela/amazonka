@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeAutoMLJob where
   type
     AWSResponse DescribeAutoMLJob =
       DescribeAutoMLJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeAutoMLJob where
             Prelude.<*> (x Core..:> "AutoMLJobStatus")
             Prelude.<*> (x Core..:> "AutoMLJobSecondaryStatus")
       )
+
+instance Core.AWSService DescribeAutoMLJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAutoMLJob where
   hashWithSalt _salt DescribeAutoMLJob' {..} =

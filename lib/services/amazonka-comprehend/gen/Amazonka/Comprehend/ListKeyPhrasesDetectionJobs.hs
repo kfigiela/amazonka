@@ -132,7 +132,7 @@ instance Core.AWSRequest ListKeyPhrasesDetectionJobs where
   type
     AWSResponse ListKeyPhrasesDetectionJobs =
       ListKeyPhrasesDetectionJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ListKeyPhrasesDetectionJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListKeyPhrasesDetectionJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListKeyPhrasesDetectionJobs where
   hashWithSalt _salt ListKeyPhrasesDetectionJobs' {..} =

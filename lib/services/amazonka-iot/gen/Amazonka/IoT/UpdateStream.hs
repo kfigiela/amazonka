@@ -118,7 +118,7 @@ updateStream_streamId = Lens.lens (\UpdateStream' {streamId} -> streamId) (\s@Up
 
 instance Core.AWSRequest UpdateStream where
   type AWSResponse UpdateStream = UpdateStreamResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateStream where
             Prelude.<*> (x Core..?> "streamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStream where
   hashWithSalt _salt UpdateStream' {..} =

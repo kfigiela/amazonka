@@ -139,7 +139,7 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
   type
     AWSResponse UpdateLaunchProfileMember =
       UpdateLaunchProfileMemberResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest UpdateLaunchProfileMember where
             Prelude.<$> (x Core..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLaunchProfileMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLaunchProfileMember where
   hashWithSalt _salt UpdateLaunchProfileMember' {..} =

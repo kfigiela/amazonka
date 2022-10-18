@@ -270,7 +270,7 @@ instance Core.AWSRequest DeleteStackInstances where
   type
     AWSResponse DeleteStackInstances =
       DeleteStackInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteStackInstancesResult"
@@ -279,6 +279,9 @@ instance Core.AWSRequest DeleteStackInstances where
             Prelude.<$> (x Core..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStackInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStackInstances where
   hashWithSalt _salt DeleteStackInstances' {..} =

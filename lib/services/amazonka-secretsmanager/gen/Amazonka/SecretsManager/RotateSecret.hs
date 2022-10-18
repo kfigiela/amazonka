@@ -264,7 +264,7 @@ rotateSecret_secretId = Lens.lens (\RotateSecret' {secretId} -> secretId) (\s@Ro
 
 instance Core.AWSRequest RotateSecret where
   type AWSResponse RotateSecret = RotateSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -274,6 +274,9 @@ instance Core.AWSRequest RotateSecret where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RotateSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RotateSecret where
   hashWithSalt _salt RotateSecret' {..} =

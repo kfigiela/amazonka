@@ -147,7 +147,7 @@ instance Core.AWSRequest GetStatementResult where
   type
     AWSResponse GetStatementResult =
       GetStatementResultResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest GetStatementResult where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Records" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetStatementResult where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStatementResult where
   hashWithSalt _salt GetStatementResult' {..} =

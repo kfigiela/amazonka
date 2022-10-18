@@ -158,7 +158,7 @@ instance
   type
     AWSResponse GetFindingsReportAccountSummary =
       GetFindingsReportAccountSummaryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,12 @@ instance
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance
+  Core.AWSService
+    GetFindingsReportAccountSummary
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

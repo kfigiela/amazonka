@@ -207,7 +207,7 @@ instance Core.AWSRequest ScheduleKeyDeletion where
   type
     AWSResponse ScheduleKeyDeletion =
       ScheduleKeyDeletionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest ScheduleKeyDeletion where
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ScheduleKeyDeletion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ScheduleKeyDeletion where
   hashWithSalt _salt ScheduleKeyDeletion' {..} =

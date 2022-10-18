@@ -94,9 +94,12 @@ instance Core.AWSRequest AssociateAdminAccount where
   type
     AWSResponse AssociateAdminAccount =
       AssociateAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssociateAdminAccountResponse'
+
+instance Core.AWSService AssociateAdminAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateAdminAccount where
   hashWithSalt _salt AssociateAdminAccount' {..} =

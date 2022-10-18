@@ -128,13 +128,16 @@ deleteTable_name = Lens.lens (\DeleteTable' {name} -> name) (\s@DeleteTable' {} 
 
 instance Core.AWSRequest DeleteTable where
   type AWSResponse DeleteTable = DeleteTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTable where
   hashWithSalt _salt DeleteTable' {..} =

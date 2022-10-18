@@ -183,7 +183,7 @@ instance Core.AWSRequest UpdateIAMPolicyAssignment where
   type
     AWSResponse UpdateIAMPolicyAssignment =
       UpdateIAMPolicyAssignmentResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest UpdateIAMPolicyAssignment where
             Prelude.<*> (x Core..?> "AssignmentStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIAMPolicyAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIAMPolicyAssignment where
   hashWithSalt _salt UpdateIAMPolicyAssignment' {..} =

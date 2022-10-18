@@ -94,7 +94,7 @@ instance Core.AWSRequest AddFlowMediaStreams where
   type
     AWSResponse AddFlowMediaStreams =
       AddFlowMediaStreamsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest AddFlowMediaStreams where
             Prelude.<*> (x Core..?> "mediaStreams" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddFlowMediaStreams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddFlowMediaStreams where
   hashWithSalt _salt AddFlowMediaStreams' {..} =

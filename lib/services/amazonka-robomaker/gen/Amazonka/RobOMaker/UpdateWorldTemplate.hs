@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateWorldTemplate where
   type
     AWSResponse UpdateWorldTemplate =
       UpdateWorldTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest UpdateWorldTemplate where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWorldTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorldTemplate where
   hashWithSalt _salt UpdateWorldTemplate' {..} =

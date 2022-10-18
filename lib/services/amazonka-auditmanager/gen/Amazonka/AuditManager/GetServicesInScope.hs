@@ -62,7 +62,7 @@ instance Core.AWSRequest GetServicesInScope where
   type
     AWSResponse GetServicesInScope =
       GetServicesInScopeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetServicesInScope where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServicesInScope where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServicesInScope where
   hashWithSalt _salt _ =

@@ -124,7 +124,7 @@ instance Core.AWSRequest ListTopicRuleDestinations where
   type
     AWSResponse ListTopicRuleDestinations =
       ListTopicRuleDestinationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListTopicRuleDestinations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTopicRuleDestinations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTopicRuleDestinations where
   hashWithSalt _salt ListTopicRuleDestinations' {..} =

@@ -161,7 +161,7 @@ instance Core.AWSRequest GetMergeCommit where
   type
     AWSResponse GetMergeCommit =
       GetMergeCommitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest GetMergeCommit where
             Prelude.<*> (x Core..?> "destinationCommitId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMergeCommit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMergeCommit where
   hashWithSalt _salt GetMergeCommit' {..} =

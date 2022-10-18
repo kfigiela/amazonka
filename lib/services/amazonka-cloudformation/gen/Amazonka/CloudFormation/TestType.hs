@@ -231,7 +231,7 @@ testType_versionId = Lens.lens (\TestType' {versionId} -> versionId) (\s@TestTyp
 
 instance Core.AWSRequest TestType where
   type AWSResponse TestType = TestTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TestTypeResult"
@@ -240,6 +240,9 @@ instance Core.AWSRequest TestType where
             Prelude.<$> (x Core..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestType where
   hashWithSalt _salt TestType' {..} =

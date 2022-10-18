@@ -93,7 +93,7 @@ instance Core.AWSRequest PutRegistryPolicy where
   type
     AWSResponse PutRegistryPolicy =
       PutRegistryPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest PutRegistryPolicy where
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRegistryPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRegistryPolicy where
   hashWithSalt _salt PutRegistryPolicy' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest DeleteCertificate where
   type
     AWSResponse DeleteCertificate =
       DeleteCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DeleteCertificate where
             Prelude.<$> (x Core..?> "Certificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCertificate where
   hashWithSalt _salt DeleteCertificate' {..} =

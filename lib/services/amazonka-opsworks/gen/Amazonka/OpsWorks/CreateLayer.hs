@@ -381,7 +381,7 @@ createLayer_shortname = Lens.lens (\CreateLayer' {shortname} -> shortname) (\s@C
 
 instance Core.AWSRequest CreateLayer where
   type AWSResponse CreateLayer = CreateLayerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -389,6 +389,9 @@ instance Core.AWSRequest CreateLayer where
             Prelude.<$> (x Core..?> "LayerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLayer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLayer where
   hashWithSalt _salt CreateLayer' {..} =

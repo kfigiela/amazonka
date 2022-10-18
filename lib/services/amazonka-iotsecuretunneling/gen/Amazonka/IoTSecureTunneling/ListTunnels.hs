@@ -105,7 +105,7 @@ listTunnels_maxResults = Lens.lens (\ListTunnels' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListTunnels where
   type AWSResponse ListTunnels = ListTunnelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListTunnels where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTunnels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTunnels where
   hashWithSalt _salt ListTunnels' {..} =

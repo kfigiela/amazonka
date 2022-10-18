@@ -110,10 +110,16 @@ instance
   type
     AWSResponse AssociatePhoneNumberContactFlow =
       AssociatePhoneNumberContactFlowResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       AssociatePhoneNumberContactFlowResponse'
+
+instance
+  Core.AWSService
+    AssociatePhoneNumberContactFlow
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

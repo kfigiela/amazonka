@@ -144,7 +144,7 @@ instance Core.AWSRequest ListDeliveryStreams where
   type
     AWSResponse ListDeliveryStreams =
       ListDeliveryStreamsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ListDeliveryStreams where
                         )
             Prelude.<*> (x Core..:> "HasMoreDeliveryStreams")
       )
+
+instance Core.AWSService ListDeliveryStreams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDeliveryStreams where
   hashWithSalt _salt ListDeliveryStreams' {..} =

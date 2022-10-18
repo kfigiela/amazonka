@@ -65,7 +65,7 @@ instance Core.AWSRequest DescribeGlobalSettings where
   type
     AWSResponse DescribeGlobalSettings =
       DescribeGlobalSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest DescribeGlobalSettings where
             Prelude.<*> (x Core..?> "LastUpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeGlobalSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGlobalSettings where
   hashWithSalt _salt _ =

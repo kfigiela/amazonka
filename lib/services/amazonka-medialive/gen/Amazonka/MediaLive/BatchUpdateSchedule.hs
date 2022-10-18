@@ -102,7 +102,7 @@ instance Core.AWSRequest BatchUpdateSchedule where
   type
     AWSResponse BatchUpdateSchedule =
       BatchUpdateScheduleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest BatchUpdateSchedule where
             Prelude.<*> (x Core..?> "deletes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchUpdateSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdateSchedule where
   hashWithSalt _salt BatchUpdateSchedule' {..} =

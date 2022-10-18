@@ -677,7 +677,7 @@ instance Core.AWSRequest StartBuildBatch where
   type
     AWSResponse StartBuildBatch =
       StartBuildBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -685,6 +685,9 @@ instance Core.AWSRequest StartBuildBatch where
             Prelude.<$> (x Core..?> "buildBatch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartBuildBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBuildBatch where
   hashWithSalt _salt StartBuildBatch' {..} =

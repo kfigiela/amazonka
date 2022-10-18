@@ -169,7 +169,7 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
   type
     AWSResponse DescribePublicIpv4Pools =
       DescribePublicIpv4PoolsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest DescribePublicIpv4Pools where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePublicIpv4Pools where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePublicIpv4Pools where
   hashWithSalt _salt DescribePublicIpv4Pools' {..} =

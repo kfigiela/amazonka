@@ -87,7 +87,7 @@ getUser_accessToken = Lens.lens (\GetUser' {accessToken} -> accessToken) (\s@Get
 
 instance Core.AWSRequest GetUser where
   type AWSResponse GetUser = GetUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetUser where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUser where
   hashWithSalt _salt GetUser' {..} =

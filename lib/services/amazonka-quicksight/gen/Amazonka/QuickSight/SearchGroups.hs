@@ -133,7 +133,7 @@ searchGroups_filters = Lens.lens (\SearchGroups' {filters} -> filters) (\s@Searc
 
 instance Core.AWSRequest SearchGroups where
   type AWSResponse SearchGroups = SearchGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest SearchGroups where
             Prelude.<*> (x Core..?> "GroupList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchGroups where
   hashWithSalt _salt SearchGroups' {..} =

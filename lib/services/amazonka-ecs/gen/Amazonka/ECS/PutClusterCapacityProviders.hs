@@ -213,7 +213,7 @@ instance Core.AWSRequest PutClusterCapacityProviders where
   type
     AWSResponse PutClusterCapacityProviders =
       PutClusterCapacityProvidersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,6 +221,9 @@ instance Core.AWSRequest PutClusterCapacityProviders where
             Prelude.<$> (x Core..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutClusterCapacityProviders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutClusterCapacityProviders where
   hashWithSalt _salt PutClusterCapacityProviders' {..} =

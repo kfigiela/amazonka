@@ -89,7 +89,7 @@ instance Core.AWSRequest UpdateResolverEndpoint where
   type
     AWSResponse UpdateResolverEndpoint =
       UpdateResolverEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest UpdateResolverEndpoint where
             Prelude.<$> (x Core..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResolverEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResolverEndpoint where
   hashWithSalt _salt UpdateResolverEndpoint' {..} =

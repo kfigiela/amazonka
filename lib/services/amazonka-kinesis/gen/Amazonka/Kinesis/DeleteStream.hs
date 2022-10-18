@@ -111,8 +111,11 @@ deleteStream_streamName = Lens.lens (\DeleteStream' {streamName} -> streamName) 
 
 instance Core.AWSRequest DeleteStream where
   type AWSResponse DeleteStream = DeleteStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteStreamResponse'
+
+instance Core.AWSService DeleteStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStream where
   hashWithSalt _salt DeleteStream' {..} =

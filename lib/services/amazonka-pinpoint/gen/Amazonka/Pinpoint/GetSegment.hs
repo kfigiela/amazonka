@@ -93,7 +93,7 @@ getSegment_applicationId = Lens.lens (\GetSegment' {applicationId} -> applicatio
 
 instance Core.AWSRequest GetSegment where
   type AWSResponse GetSegment = GetSegmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetSegment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetSegment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSegment where
   hashWithSalt _salt GetSegment' {..} =

@@ -152,7 +152,7 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
   type
     AWSResponse ListDeadLetterSourceQueues =
       ListDeadLetterSourceQueuesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListDeadLetterSourceQueuesResult"
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListDeadLetterSourceQueues where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.parseXMLList "QueueUrl" x)
       )
+
+instance Core.AWSService ListDeadLetterSourceQueues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDeadLetterSourceQueues where
   hashWithSalt _salt ListDeadLetterSourceQueues' {..} =

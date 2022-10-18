@@ -95,7 +95,7 @@ instance Core.AWSRequest AssociateBrowserSettings where
   type
     AWSResponse AssociateBrowserSettings =
       AssociateBrowserSettingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest AssociateBrowserSettings where
             Prelude.<*> (x Core..:> "browserSettingsArn")
             Prelude.<*> (x Core..:> "portalArn")
       )
+
+instance Core.AWSService AssociateBrowserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateBrowserSettings where
   hashWithSalt _salt AssociateBrowserSettings' {..} =

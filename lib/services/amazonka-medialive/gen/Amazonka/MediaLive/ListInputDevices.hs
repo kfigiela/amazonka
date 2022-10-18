@@ -112,7 +112,7 @@ instance Core.AWSRequest ListInputDevices where
   type
     AWSResponse ListInputDevices =
       ListInputDevicesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest ListInputDevices where
             Prelude.<*> (x Core..?> "inputDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInputDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInputDevices where
   hashWithSalt _salt ListInputDevices' {..} =

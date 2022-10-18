@@ -94,7 +94,7 @@ listOrders_maxResults = Lens.lens (\ListOrders' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListOrders where
   type AWSResponse ListOrders = ListOrdersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ListOrders where
             Prelude.<*> (x Core..?> "Orders" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOrders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOrders where
   hashWithSalt _salt ListOrders' {..} =

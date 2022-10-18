@@ -90,13 +90,16 @@ instance Core.AWSRequest DeleteFeature where
   type
     AWSResponse DeleteFeature =
       DeleteFeatureResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFeatureResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFeature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFeature where
   hashWithSalt _salt DeleteFeature' {..} =

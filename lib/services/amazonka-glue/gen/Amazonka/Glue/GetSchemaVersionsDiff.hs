@@ -146,7 +146,7 @@ instance Core.AWSRequest GetSchemaVersionsDiff where
   type
     AWSResponse GetSchemaVersionsDiff =
       GetSchemaVersionsDiffResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest GetSchemaVersionsDiff where
             Prelude.<$> (x Core..?> "Diff")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSchemaVersionsDiff where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSchemaVersionsDiff where
   hashWithSalt _salt GetSchemaVersionsDiff' {..} =

@@ -183,7 +183,7 @@ instance Core.AWSRequest ResizeCluster where
   type
     AWSResponse ResizeCluster =
       ResizeClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResizeClusterResult"
@@ -192,6 +192,9 @@ instance Core.AWSRequest ResizeCluster where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResizeCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResizeCluster where
   hashWithSalt _salt ResizeCluster' {..} =

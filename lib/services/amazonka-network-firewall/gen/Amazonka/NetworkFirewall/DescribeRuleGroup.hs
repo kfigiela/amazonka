@@ -129,7 +129,7 @@ instance Core.AWSRequest DescribeRuleGroup where
   type
     AWSResponse DescribeRuleGroup =
       DescribeRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest DescribeRuleGroup where
             Prelude.<*> (x Core..:> "UpdateToken")
             Prelude.<*> (x Core..:> "RuleGroupResponse")
       )
+
+instance Core.AWSService DescribeRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRuleGroup where
   hashWithSalt _salt DescribeRuleGroup' {..} =

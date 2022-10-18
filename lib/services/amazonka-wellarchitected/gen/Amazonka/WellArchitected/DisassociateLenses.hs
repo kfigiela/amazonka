@@ -93,9 +93,12 @@ instance Core.AWSRequest DisassociateLenses where
   type
     AWSResponse DisassociateLenses =
       DisassociateLensesResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull DisassociateLensesResponse'
+
+instance Core.AWSService DisassociateLenses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateLenses where
   hashWithSalt _salt DisassociateLenses' {..} =

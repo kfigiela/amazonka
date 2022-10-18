@@ -59,10 +59,13 @@ instance Core.AWSRequest DeleteAccountPasswordPolicy where
   type
     AWSResponse DeleteAccountPasswordPolicy =
       DeleteAccountPasswordPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteAccountPasswordPolicyResponse'
+
+instance Core.AWSService DeleteAccountPasswordPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccountPasswordPolicy where
   hashWithSalt _salt _ =

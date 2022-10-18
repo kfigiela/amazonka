@@ -102,11 +102,14 @@ instance Core.AWSRequest BatchApplyUpdateAction where
   type
     AWSResponse BatchApplyUpdateAction =
       UpdateActionResultsMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchApplyUpdateActionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService BatchApplyUpdateAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchApplyUpdateAction where
   hashWithSalt _salt BatchApplyUpdateAction' {..} =

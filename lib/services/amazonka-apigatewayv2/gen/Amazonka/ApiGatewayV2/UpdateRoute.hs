@@ -240,7 +240,7 @@ updateRoute_routeId = Lens.lens (\UpdateRoute' {routeId} -> routeId) (\s@UpdateR
 
 instance Core.AWSRequest UpdateRoute where
   type AWSResponse UpdateRoute = UpdateRouteResponse'
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -264,6 +264,9 @@ instance Core.AWSRequest UpdateRoute where
             Prelude.<*> (x Core..?> "authorizerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoute where
   hashWithSalt _salt UpdateRoute' {..} =

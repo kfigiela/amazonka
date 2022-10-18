@@ -108,13 +108,16 @@ instance Core.AWSRequest UpdateLongTermPricing where
   type
     AWSResponse UpdateLongTermPricing =
       UpdateLongTermPricingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLongTermPricingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLongTermPricing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLongTermPricing where
   hashWithSalt _salt UpdateLongTermPricing' {..} =

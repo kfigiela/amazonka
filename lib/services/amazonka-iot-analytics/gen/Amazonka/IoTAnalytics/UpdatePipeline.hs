@@ -120,9 +120,12 @@ instance Core.AWSRequest UpdatePipeline where
   type
     AWSResponse UpdatePipeline =
       UpdatePipelineResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdatePipelineResponse'
+
+instance Core.AWSService UpdatePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePipeline where
   hashWithSalt _salt UpdatePipeline' {..} =

@@ -143,7 +143,7 @@ instance Core.AWSRequest ListCostAllocationTags where
   type
     AWSResponse ListCostAllocationTags =
       ListCostAllocationTagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListCostAllocationTags where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCostAllocationTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCostAllocationTags where
   hashWithSalt _salt ListCostAllocationTags' {..} =

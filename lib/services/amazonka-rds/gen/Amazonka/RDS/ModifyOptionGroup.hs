@@ -139,7 +139,7 @@ instance Core.AWSRequest ModifyOptionGroup where
   type
     AWSResponse ModifyOptionGroup =
       ModifyOptionGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyOptionGroupResult"
@@ -148,6 +148,9 @@ instance Core.AWSRequest ModifyOptionGroup where
             Prelude.<$> (x Core..@? "OptionGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyOptionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyOptionGroup where
   hashWithSalt _salt ModifyOptionGroup' {..} =

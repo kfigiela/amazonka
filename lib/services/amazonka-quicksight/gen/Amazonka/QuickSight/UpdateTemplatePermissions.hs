@@ -117,7 +117,7 @@ instance Core.AWSRequest UpdateTemplatePermissions where
   type
     AWSResponse UpdateTemplatePermissions =
       UpdateTemplatePermissionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest UpdateTemplatePermissions where
             Prelude.<*> (x Core..?> "TemplateArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTemplatePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTemplatePermissions where
   hashWithSalt _salt UpdateTemplatePermissions' {..} =

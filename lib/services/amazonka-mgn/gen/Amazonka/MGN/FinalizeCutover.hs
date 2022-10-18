@@ -94,10 +94,13 @@ finalizeCutover_sourceServerID = Lens.lens (\FinalizeCutover' {sourceServerID} -
 
 instance Core.AWSRequest FinalizeCutover where
   type AWSResponse FinalizeCutover = SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService FinalizeCutover where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FinalizeCutover where
   hashWithSalt _salt FinalizeCutover' {..} =

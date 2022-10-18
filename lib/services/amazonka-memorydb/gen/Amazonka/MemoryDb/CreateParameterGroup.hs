@@ -120,7 +120,7 @@ instance Core.AWSRequest CreateParameterGroup where
   type
     AWSResponse CreateParameterGroup =
       CreateParameterGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest CreateParameterGroup where
             Prelude.<$> (x Core..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateParameterGroup where
   hashWithSalt _salt CreateParameterGroup' {..} =

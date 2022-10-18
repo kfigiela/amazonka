@@ -158,7 +158,7 @@ instance Core.AWSRequest CreateSipRule where
   type
     AWSResponse CreateSipRule =
       CreateSipRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest CreateSipRule where
             Prelude.<$> (x Core..?> "SipRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSipRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSipRule where
   hashWithSalt _salt CreateSipRule' {..} =

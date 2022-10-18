@@ -127,7 +127,7 @@ instance Core.AWSRequest DescribeElasticIps where
   type
     AWSResponse DescribeElasticIps =
       DescribeElasticIpsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DescribeElasticIps where
             Prelude.<$> (x Core..?> "ElasticIps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeElasticIps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeElasticIps where
   hashWithSalt _salt DescribeElasticIps' {..} =

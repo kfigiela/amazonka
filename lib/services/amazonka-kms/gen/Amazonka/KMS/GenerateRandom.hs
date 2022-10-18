@@ -124,7 +124,7 @@ instance Core.AWSRequest GenerateRandom where
   type
     AWSResponse GenerateRandom =
       GenerateRandomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GenerateRandom where
             Prelude.<$> (x Core..?> "Plaintext")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GenerateRandom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateRandom where
   hashWithSalt _salt GenerateRandom' {..} =

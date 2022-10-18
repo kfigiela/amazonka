@@ -81,7 +81,7 @@ instance Core.AWSRequest GetApnsChannel where
   type
     AWSResponse GetApnsChannel =
       GetApnsChannelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetApnsChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetApnsChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApnsChannel where
   hashWithSalt _salt GetApnsChannel' {..} =

@@ -199,7 +199,7 @@ updateScript_scriptId = Lens.lens (\UpdateScript' {scriptId} -> scriptId) (\s@Up
 
 instance Core.AWSRequest UpdateScript where
   type AWSResponse UpdateScript = UpdateScriptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest UpdateScript where
             Prelude.<$> (x Core..?> "Script")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateScript where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateScript where
   hashWithSalt _salt UpdateScript' {..} =

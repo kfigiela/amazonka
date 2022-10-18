@@ -82,9 +82,12 @@ instance Core.AWSRequest TerminateJobFlows where
   type
     AWSResponse TerminateJobFlows =
       TerminateJobFlowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull TerminateJobFlowsResponse'
+
+instance Core.AWSService TerminateJobFlows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateJobFlows where
   hashWithSalt _salt TerminateJobFlows' {..} =

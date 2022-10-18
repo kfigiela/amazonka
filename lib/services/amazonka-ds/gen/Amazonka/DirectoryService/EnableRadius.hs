@@ -95,13 +95,16 @@ enableRadius_radiusSettings = Lens.lens (\EnableRadius' {radiusSettings} -> radi
 
 instance Core.AWSRequest EnableRadius where
   type AWSResponse EnableRadius = EnableRadiusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableRadiusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableRadius where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableRadius where
   hashWithSalt _salt EnableRadius' {..} =

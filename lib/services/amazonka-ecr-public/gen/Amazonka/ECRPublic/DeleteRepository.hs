@@ -108,7 +108,7 @@ instance Core.AWSRequest DeleteRepository where
   type
     AWSResponse DeleteRepository =
       DeleteRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DeleteRepository where
             Prelude.<$> (x Core..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRepository where
   hashWithSalt _salt DeleteRepository' {..} =

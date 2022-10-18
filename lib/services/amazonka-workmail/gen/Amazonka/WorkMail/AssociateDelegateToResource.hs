@@ -106,13 +106,16 @@ instance Core.AWSRequest AssociateDelegateToResource where
   type
     AWSResponse AssociateDelegateToResource =
       AssociateDelegateToResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDelegateToResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateDelegateToResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateDelegateToResource where
   hashWithSalt _salt AssociateDelegateToResource' {..} =

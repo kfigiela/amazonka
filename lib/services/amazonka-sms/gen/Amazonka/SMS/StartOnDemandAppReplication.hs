@@ -89,13 +89,16 @@ instance Core.AWSRequest StartOnDemandAppReplication where
   type
     AWSResponse StartOnDemandAppReplication =
       StartOnDemandAppReplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartOnDemandAppReplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartOnDemandAppReplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartOnDemandAppReplication where
   hashWithSalt _salt StartOnDemandAppReplication' {..} =

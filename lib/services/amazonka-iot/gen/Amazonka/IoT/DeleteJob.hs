@@ -166,8 +166,11 @@ deleteJob_jobId = Lens.lens (\DeleteJob' {jobId} -> jobId) (\s@DeleteJob' {} a -
 
 instance Core.AWSRequest DeleteJob where
   type AWSResponse DeleteJob = DeleteJobResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteJobResponse'
+
+instance Core.AWSService DeleteJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteJob where
   hashWithSalt _salt DeleteJob' {..} =

@@ -201,7 +201,7 @@ instance Core.AWSRequest CreateCapacityProvider where
   type
     AWSResponse CreateCapacityProvider =
       CreateCapacityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest CreateCapacityProvider where
             Prelude.<$> (x Core..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCapacityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCapacityProvider where
   hashWithSalt _salt CreateCapacityProvider' {..} =

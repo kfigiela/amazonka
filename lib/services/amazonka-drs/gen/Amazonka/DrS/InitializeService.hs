@@ -60,13 +60,16 @@ instance Core.AWSRequest InitializeService where
   type
     AWSResponse InitializeService =
       InitializeServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           InitializeServiceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InitializeService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitializeService where
   hashWithSalt _salt _ =

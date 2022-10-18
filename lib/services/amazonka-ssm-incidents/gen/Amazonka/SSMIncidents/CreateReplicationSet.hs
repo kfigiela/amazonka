@@ -95,7 +95,7 @@ instance Core.AWSRequest CreateReplicationSet where
   type
     AWSResponse CreateReplicationSet =
       CreateReplicationSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest CreateReplicationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateReplicationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReplicationSet where
   hashWithSalt _salt CreateReplicationSet' {..} =

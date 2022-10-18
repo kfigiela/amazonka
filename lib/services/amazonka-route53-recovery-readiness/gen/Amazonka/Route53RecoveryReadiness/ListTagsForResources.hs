@@ -77,7 +77,7 @@ instance Core.AWSRequest ListTagsForResources where
   type
     AWSResponse ListTagsForResources =
       ListTagsForResourcesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest ListTagsForResources where
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTagsForResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForResources where
   hashWithSalt _salt ListTagsForResources' {..} =

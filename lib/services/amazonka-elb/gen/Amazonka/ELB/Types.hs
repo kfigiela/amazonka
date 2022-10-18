@@ -271,6 +271,7 @@ defaultService =
       Core._serviceEndpointPrefix = "elasticloadbalancing",
       Core._serviceSigningName = "elasticloadbalancing",
       Core._serviceVersion = "2012-06-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

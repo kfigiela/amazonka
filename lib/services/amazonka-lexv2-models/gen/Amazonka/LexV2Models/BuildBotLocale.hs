@@ -133,7 +133,7 @@ instance Core.AWSRequest BuildBotLocale where
   type
     AWSResponse BuildBotLocale =
       BuildBotLocaleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest BuildBotLocale where
             Prelude.<*> (x Core..?> "botLocaleStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BuildBotLocale where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BuildBotLocale where
   hashWithSalt _salt BuildBotLocale' {..} =

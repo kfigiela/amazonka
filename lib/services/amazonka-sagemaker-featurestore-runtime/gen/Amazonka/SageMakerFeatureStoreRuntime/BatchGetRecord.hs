@@ -88,7 +88,7 @@ instance Core.AWSRequest BatchGetRecord where
   type
     AWSResponse BatchGetRecord =
       BatchGetRecordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest BatchGetRecord where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService BatchGetRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetRecord where
   hashWithSalt _salt BatchGetRecord' {..} =

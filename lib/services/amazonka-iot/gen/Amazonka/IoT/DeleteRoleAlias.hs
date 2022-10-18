@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteRoleAlias where
   type
     AWSResponse DeleteRoleAlias =
       DeleteRoleAliasResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRoleAliasResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRoleAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRoleAlias where
   hashWithSalt _salt DeleteRoleAlias' {..} =

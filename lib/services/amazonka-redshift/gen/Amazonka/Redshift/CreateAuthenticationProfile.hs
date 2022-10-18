@@ -99,7 +99,7 @@ instance Core.AWSRequest CreateAuthenticationProfile where
   type
     AWSResponse CreateAuthenticationProfile =
       CreateAuthenticationProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateAuthenticationProfileResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest CreateAuthenticationProfile where
             Prelude.<*> (x Core..@? "AuthenticationProfileContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAuthenticationProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAuthenticationProfile where
   hashWithSalt _salt CreateAuthenticationProfile' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeTimeToLive where
   type
     AWSResponse DescribeTimeToLive =
       DescribeTimeToLiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeTimeToLive where
             Prelude.<$> (x Core..?> "TimeToLiveDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTimeToLive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTimeToLive where
   hashWithSalt _salt DescribeTimeToLive' {..} =

@@ -123,7 +123,7 @@ instance Core.AWSRequest UpdateThemeAlias where
   type
     AWSResponse UpdateThemeAlias =
       UpdateThemeAliasResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest UpdateThemeAlias where
             Prelude.<*> (x Core..?> "ThemeAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateThemeAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThemeAlias where
   hashWithSalt _salt UpdateThemeAlias' {..} =

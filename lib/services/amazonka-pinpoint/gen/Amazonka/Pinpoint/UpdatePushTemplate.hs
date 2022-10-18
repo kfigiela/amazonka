@@ -211,7 +211,7 @@ instance Core.AWSRequest UpdatePushTemplate where
   type
     AWSResponse UpdatePushTemplate =
       UpdatePushTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,6 +219,9 @@ instance Core.AWSRequest UpdatePushTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdatePushTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePushTemplate where
   hashWithSalt _salt UpdatePushTemplate' {..} =

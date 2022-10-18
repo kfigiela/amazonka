@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteInputSecurityGroup where
   type
     AWSResponse DeleteInputSecurityGroup =
       DeleteInputSecurityGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteInputSecurityGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInputSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInputSecurityGroup where
   hashWithSalt _salt DeleteInputSecurityGroup' {..} =

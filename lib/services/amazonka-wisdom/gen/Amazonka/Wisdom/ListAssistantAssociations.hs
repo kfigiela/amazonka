@@ -133,7 +133,7 @@ instance Core.AWSRequest ListAssistantAssociations where
   type
     AWSResponse ListAssistantAssociations =
       ListAssistantAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest ListAssistantAssociations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAssistantAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssistantAssociations where
   hashWithSalt _salt ListAssistantAssociations' {..} =

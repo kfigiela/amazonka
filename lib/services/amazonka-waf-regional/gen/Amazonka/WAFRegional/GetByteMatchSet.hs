@@ -92,7 +92,7 @@ instance Core.AWSRequest GetByteMatchSet where
   type
     AWSResponse GetByteMatchSet =
       GetByteMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetByteMatchSet where
             Prelude.<$> (x Core..?> "ByteMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetByteMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetByteMatchSet where
   hashWithSalt _salt GetByteMatchSet' {..} =

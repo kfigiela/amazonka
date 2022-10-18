@@ -91,7 +91,7 @@ instance Core.AWSRequest DeleteIntegration where
   type
     AWSResponse DeleteIntegration =
       DeleteIntegrationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteIntegration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Message")
       )
+
+instance Core.AWSService DeleteIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIntegration where
   hashWithSalt _salt DeleteIntegration' {..} =

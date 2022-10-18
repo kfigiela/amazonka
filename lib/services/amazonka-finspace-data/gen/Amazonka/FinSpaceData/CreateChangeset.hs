@@ -268,7 +268,7 @@ instance Core.AWSRequest CreateChangeset where
   type
     AWSResponse CreateChangeset =
       CreateChangesetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -277,6 +277,9 @@ instance Core.AWSRequest CreateChangeset where
             Prelude.<*> (x Core..?> "datasetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChangeset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChangeset where
   hashWithSalt _salt CreateChangeset' {..} =

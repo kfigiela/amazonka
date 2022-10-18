@@ -97,10 +97,13 @@ instance Core.AWSRequest AssociateLambdaFunction where
   type
     AWSResponse AssociateLambdaFunction =
       AssociateLambdaFunctionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       AssociateLambdaFunctionResponse'
+
+instance Core.AWSService AssociateLambdaFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateLambdaFunction where
   hashWithSalt _salt AssociateLambdaFunction' {..} =

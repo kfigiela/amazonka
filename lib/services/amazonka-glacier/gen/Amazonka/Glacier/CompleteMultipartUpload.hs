@@ -212,9 +212,9 @@ instance Core.AWSRequest CompleteMultipartUpload where
   type
     AWSResponse CompleteMultipartUpload =
       ArchiveCreationOutput
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest CompleteMultipartUpload where
             Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Core..#? "Location")
       )
+
+instance Core.AWSService CompleteMultipartUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteMultipartUpload where
   hashWithSalt _salt CompleteMultipartUpload' {..} =

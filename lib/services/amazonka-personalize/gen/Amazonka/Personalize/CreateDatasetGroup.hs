@@ -198,7 +198,7 @@ instance Core.AWSRequest CreateDatasetGroup where
   type
     AWSResponse CreateDatasetGroup =
       CreateDatasetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest CreateDatasetGroup where
             Prelude.<*> (x Core..?> "datasetGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDatasetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDatasetGroup where
   hashWithSalt _salt CreateDatasetGroup' {..} =

@@ -107,7 +107,7 @@ instance Core.AWSRequest AdminGetDevice where
   type
     AWSResponse AdminGetDevice =
       AdminGetDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest AdminGetDevice where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Device")
       )
+
+instance Core.AWSService AdminGetDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminGetDevice where
   hashWithSalt _salt AdminGetDevice' {..} =

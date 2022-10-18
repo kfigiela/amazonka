@@ -131,9 +131,12 @@ instance Core.AWSRequest DeleteAttributes where
   type
     AWSResponse DeleteAttributes =
       DeleteAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteAttributesResponse'
+
+instance Core.AWSService DeleteAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAttributes where
   hashWithSalt _salt DeleteAttributes' {..} =

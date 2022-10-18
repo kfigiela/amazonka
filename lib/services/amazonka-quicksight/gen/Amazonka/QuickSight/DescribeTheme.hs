@@ -133,7 +133,7 @@ instance Core.AWSRequest DescribeTheme where
   type
     AWSResponse DescribeTheme =
       DescribeThemeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest DescribeTheme where
             Prelude.<*> (x Core..?> "Theme")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTheme where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTheme where
   hashWithSalt _salt DescribeTheme' {..} =

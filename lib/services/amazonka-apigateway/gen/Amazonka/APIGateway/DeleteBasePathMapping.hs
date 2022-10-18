@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteBasePathMapping where
   type
     AWSResponse DeleteBasePathMapping =
       DeleteBasePathMappingResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBasePathMappingResponse'
+
+instance Core.AWSService DeleteBasePathMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBasePathMapping where
   hashWithSalt _salt DeleteBasePathMapping' {..} =

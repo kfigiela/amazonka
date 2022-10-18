@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteEndpoint where
   type
     AWSResponse DeleteEndpoint =
       DeleteEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteEndpointResponse'
+
+instance Core.AWSService DeleteEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEndpoint where
   hashWithSalt _salt DeleteEndpoint' {..} =

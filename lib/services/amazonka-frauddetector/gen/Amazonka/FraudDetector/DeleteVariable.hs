@@ -86,13 +86,16 @@ instance Core.AWSRequest DeleteVariable where
   type
     AWSResponse DeleteVariable =
       DeleteVariableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVariableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVariable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVariable where
   hashWithSalt _salt DeleteVariable' {..} =

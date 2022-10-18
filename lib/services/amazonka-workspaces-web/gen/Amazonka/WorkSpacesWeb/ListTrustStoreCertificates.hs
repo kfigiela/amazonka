@@ -105,7 +105,7 @@ instance Core.AWSRequest ListTrustStoreCertificates where
   type
     AWSResponse ListTrustStoreCertificates =
       ListTrustStoreCertificatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest ListTrustStoreCertificates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTrustStoreCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTrustStoreCertificates where
   hashWithSalt _salt ListTrustStoreCertificates' {..} =

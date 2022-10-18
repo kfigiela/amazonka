@@ -133,7 +133,7 @@ instance Core.AWSRequest UploadDocuments where
   type
     AWSResponse UploadDocuments =
       UploadDocumentsResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UploadDocuments where
             Prelude.<*> (x Core..?> "deletes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadDocuments where
+  service _proxy = defaultService
 
 instance Core.ToBody UploadDocuments where
   toBody UploadDocuments' {..} = Core.toBody documents

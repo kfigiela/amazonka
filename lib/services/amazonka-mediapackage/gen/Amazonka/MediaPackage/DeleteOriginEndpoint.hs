@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteOriginEndpoint where
   type
     AWSResponse DeleteOriginEndpoint =
       DeleteOriginEndpointResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOriginEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOriginEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOriginEndpoint where
   hashWithSalt _salt DeleteOriginEndpoint' {..} =

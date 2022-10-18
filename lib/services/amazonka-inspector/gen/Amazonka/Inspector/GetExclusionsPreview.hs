@@ -151,7 +151,7 @@ instance Core.AWSRequest GetExclusionsPreview where
   type
     AWSResponse GetExclusionsPreview =
       GetExclusionsPreviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest GetExclusionsPreview where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "previewStatus")
       )
+
+instance Core.AWSService GetExclusionsPreview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExclusionsPreview where
   hashWithSalt _salt GetExclusionsPreview' {..} =

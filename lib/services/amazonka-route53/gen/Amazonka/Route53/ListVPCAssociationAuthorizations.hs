@@ -161,7 +161,7 @@ instance
   type
     AWSResponse ListVPCAssociationAuthorizations =
       ListVPCAssociationAuthorizationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -173,6 +173,12 @@ instance
                             Prelude.>>= Core.parseXMLList1 "VPC"
                         )
       )
+
+instance
+  Core.AWSService
+    ListVPCAssociationAuthorizations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

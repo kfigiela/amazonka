@@ -104,7 +104,7 @@ listFields_domainId = Lens.lens (\ListFields' {domainId} -> domainId) (\s@ListFi
 
 instance Core.AWSRequest ListFields where
   type AWSResponse ListFields = ListFieldsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListFields where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "fields" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListFields where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFields where
   hashWithSalt _salt ListFields' {..} =

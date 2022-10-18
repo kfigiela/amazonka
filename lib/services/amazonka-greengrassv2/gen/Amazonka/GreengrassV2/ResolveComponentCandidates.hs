@@ -107,7 +107,7 @@ instance Core.AWSRequest ResolveComponentCandidates where
   type
     AWSResponse ResolveComponentCandidates =
       ResolveComponentCandidatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest ResolveComponentCandidates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResolveComponentCandidates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResolveComponentCandidates where
   hashWithSalt _salt ResolveComponentCandidates' {..} =

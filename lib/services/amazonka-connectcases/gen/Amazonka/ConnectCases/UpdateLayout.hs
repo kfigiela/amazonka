@@ -120,13 +120,16 @@ updateLayout_layoutId = Lens.lens (\UpdateLayout' {layoutId} -> layoutId) (\s@Up
 
 instance Core.AWSRequest UpdateLayout where
   type AWSResponse UpdateLayout = UpdateLayoutResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLayoutResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLayout where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLayout where
   hashWithSalt _salt UpdateLayout' {..} =

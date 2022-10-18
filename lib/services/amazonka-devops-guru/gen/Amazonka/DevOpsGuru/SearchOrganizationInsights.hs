@@ -187,7 +187,7 @@ instance Core.AWSRequest SearchOrganizationInsights where
   type
     AWSResponse SearchOrganizationInsights =
       SearchOrganizationInsightsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest SearchOrganizationInsights where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchOrganizationInsights where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchOrganizationInsights where
   hashWithSalt _salt SearchOrganizationInsights' {..} =

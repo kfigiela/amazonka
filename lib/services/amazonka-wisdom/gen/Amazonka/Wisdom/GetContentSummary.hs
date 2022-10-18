@@ -97,7 +97,7 @@ instance Core.AWSRequest GetContentSummary where
   type
     AWSResponse GetContentSummary =
       GetContentSummaryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetContentSummary where
             Prelude.<$> (x Core..?> "contentSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContentSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContentSummary where
   hashWithSalt _salt GetContentSummary' {..} =

@@ -107,10 +107,13 @@ instance Core.AWSRequest UpdateAssessmentTarget where
   type
     AWSResponse UpdateAssessmentTarget =
       UpdateAssessmentTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateAssessmentTargetResponse'
+
+instance Core.AWSService UpdateAssessmentTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssessmentTarget where
   hashWithSalt _salt UpdateAssessmentTarget' {..} =

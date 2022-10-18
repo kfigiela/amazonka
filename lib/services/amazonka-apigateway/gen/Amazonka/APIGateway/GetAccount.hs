@@ -64,10 +64,13 @@ newGetAccount = GetAccount'
 
 instance Core.AWSRequest GetAccount where
   type AWSResponse GetAccount = Account
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccount where
   hashWithSalt _salt _ =

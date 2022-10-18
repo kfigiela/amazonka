@@ -158,7 +158,7 @@ instance Core.AWSRequest ListTimeSeries where
   type
     AWSResponse ListTimeSeries =
       ListTimeSeriesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest ListTimeSeries where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListTimeSeries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTimeSeries where
   hashWithSalt _salt ListTimeSeries' {..} =

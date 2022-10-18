@@ -104,7 +104,7 @@ instance Core.AWSRequest DisableVpcClassicLink where
   type
     AWSResponse DisableVpcClassicLink =
       DisableVpcClassicLinkResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DisableVpcClassicLink where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableVpcClassicLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableVpcClassicLink where
   hashWithSalt _salt DisableVpcClassicLink' {..} =

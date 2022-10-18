@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteEventTracker where
   type
     AWSResponse DeleteEventTracker =
       DeleteEventTrackerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteEventTrackerResponse'
+
+instance Core.AWSService DeleteEventTracker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventTracker where
   hashWithSalt _salt DeleteEventTracker' {..} =

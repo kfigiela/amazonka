@@ -152,7 +152,7 @@ instance Core.AWSRequest CreateCacheParameterGroup where
   type
     AWSResponse CreateCacheParameterGroup =
       CreateCacheParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCacheParameterGroupResult"
@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateCacheParameterGroup where
             Prelude.<$> (x Core..@? "CacheParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCacheParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCacheParameterGroup where
   hashWithSalt _salt CreateCacheParameterGroup' {..} =

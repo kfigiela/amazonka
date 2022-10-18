@@ -119,7 +119,7 @@ instance Core.AWSRequest CreateLiveSource where
   type
     AWSResponse CreateLiveSource =
       CreateLiveSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest CreateLiveSource where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLiveSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLiveSource where
   hashWithSalt _salt CreateLiveSource' {..} =

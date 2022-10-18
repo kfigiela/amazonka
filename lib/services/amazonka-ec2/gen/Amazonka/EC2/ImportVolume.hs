@@ -144,7 +144,7 @@ importVolume_volume = Lens.lens (\ImportVolume' {volume} -> volume) (\s@ImportVo
 
 instance Core.AWSRequest ImportVolume where
   type AWSResponse ImportVolume = ImportVolumeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ImportVolume where
             Prelude.<$> (x Core..@? "conversionTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportVolume where
   hashWithSalt _salt ImportVolume' {..} =

@@ -175,7 +175,7 @@ updatePool_poolId = Lens.lens (\UpdatePool' {poolId} -> poolId) (\s@UpdatePool' 
 
 instance Core.AWSRequest UpdatePool where
   type AWSResponse UpdatePool = UpdatePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest UpdatePool where
             Prelude.<*> (x Core..?> "SharedRoutesEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePool where
   hashWithSalt _salt UpdatePool' {..} =

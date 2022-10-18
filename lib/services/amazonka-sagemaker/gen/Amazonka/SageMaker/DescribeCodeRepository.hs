@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeCodeRepository where
   type
     AWSResponse DescribeCodeRepository =
       DescribeCodeRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeCodeRepository where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
+
+instance Core.AWSService DescribeCodeRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCodeRepository where
   hashWithSalt _salt DescribeCodeRepository' {..} =

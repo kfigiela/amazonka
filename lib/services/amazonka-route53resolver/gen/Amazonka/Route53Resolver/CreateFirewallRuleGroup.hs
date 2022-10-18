@@ -112,7 +112,7 @@ instance Core.AWSRequest CreateFirewallRuleGroup where
   type
     AWSResponse CreateFirewallRuleGroup =
       CreateFirewallRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateFirewallRuleGroup where
             Prelude.<$> (x Core..?> "FirewallRuleGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFirewallRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFirewallRuleGroup where
   hashWithSalt _salt CreateFirewallRuleGroup' {..} =

@@ -133,13 +133,16 @@ instance Core.AWSRequest UpdateBusinessReportSchedule where
   type
     AWSResponse UpdateBusinessReportSchedule =
       UpdateBusinessReportScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateBusinessReportScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBusinessReportSchedule where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -135,8 +135,11 @@ deleteSlot_intentId = Lens.lens (\DeleteSlot' {intentId} -> intentId) (\s@Delete
 
 instance Core.AWSRequest DeleteSlot where
   type AWSResponse DeleteSlot = DeleteSlotResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteSlotResponse'
+
+instance Core.AWSService DeleteSlot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSlot where
   hashWithSalt _salt DeleteSlot' {..} =

@@ -110,10 +110,13 @@ instance Core.AWSRequest RestoreCertificateAuthority where
   type
     AWSResponse RestoreCertificateAuthority =
       RestoreCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RestoreCertificateAuthorityResponse'
+
+instance Core.AWSService RestoreCertificateAuthority where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreCertificateAuthority where
   hashWithSalt _salt RestoreCertificateAuthority' {..} =

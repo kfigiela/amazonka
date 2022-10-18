@@ -107,10 +107,16 @@ instance
   type
     AWSResponse UpdateRoutingProfileConcurrency =
       UpdateRoutingProfileConcurrencyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateRoutingProfileConcurrencyResponse'
+
+instance
+  Core.AWSService
+    UpdateRoutingProfileConcurrency
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

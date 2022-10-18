@@ -85,7 +85,7 @@ instance Core.AWSRequest ResumeSession where
   type
     AWSResponse ResumeSession =
       ResumeSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest ResumeSession where
             Prelude.<*> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResumeSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeSession where
   hashWithSalt _salt ResumeSession' {..} =

@@ -97,7 +97,7 @@ instance Core.AWSRequest DefineAnalysisScheme where
   type
     AWSResponse DefineAnalysisScheme =
       DefineAnalysisSchemeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DefineAnalysisSchemeResult"
@@ -106,6 +106,9 @@ instance Core.AWSRequest DefineAnalysisScheme where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "AnalysisScheme")
       )
+
+instance Core.AWSService DefineAnalysisScheme where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DefineAnalysisScheme where
   hashWithSalt _salt DefineAnalysisScheme' {..} =

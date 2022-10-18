@@ -97,7 +97,7 @@ instance Core.AWSRequest DeleteReservation where
   type
     AWSResponse DeleteReservation =
       DeleteReservationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DeleteReservation where
             Prelude.<*> (x Core..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReservation where
   hashWithSalt _salt DeleteReservation' {..} =

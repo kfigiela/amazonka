@@ -90,7 +90,7 @@ instance
   type
     AWSResponse GetIdentityMailFromDomainAttributes =
       GetIdentityMailFromDomainAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetIdentityMailFromDomainAttributesResult"
@@ -102,6 +102,12 @@ instance
                               Prelude.>>= Core.parseXMLMap "entry" "key" "value"
                           )
       )
+
+instance
+  Core.AWSService
+    GetIdentityMailFromDomainAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

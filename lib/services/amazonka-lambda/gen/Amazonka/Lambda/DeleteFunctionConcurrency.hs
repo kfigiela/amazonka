@@ -112,10 +112,13 @@ instance Core.AWSRequest DeleteFunctionConcurrency where
   type
     AWSResponse DeleteFunctionConcurrency =
       DeleteFunctionConcurrencyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFunctionConcurrencyResponse'
+
+instance Core.AWSService DeleteFunctionConcurrency where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFunctionConcurrency where
   hashWithSalt _salt DeleteFunctionConcurrency' {..} =

@@ -90,7 +90,7 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
   type
     AWSResponse DeleteSnapshotSchedule =
       DeleteSnapshotScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
             Prelude.<$> (x Core..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSnapshotSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSnapshotSchedule where
   hashWithSalt _salt DeleteSnapshotSchedule' {..} =

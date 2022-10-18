@@ -86,10 +86,13 @@ startReplication_sourceServerID = Lens.lens (\StartReplication' {sourceServerID}
 
 instance Core.AWSRequest StartReplication where
   type AWSResponse StartReplication = SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService StartReplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartReplication where
   hashWithSalt _salt StartReplication' {..} =

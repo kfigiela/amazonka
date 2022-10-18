@@ -120,7 +120,7 @@ instance
   type
     AWSResponse AcceptReservedInstancesExchangeQuote =
       AcceptReservedInstancesExchangeQuoteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -128,6 +128,12 @@ instance
             Prelude.<$> (x Core..@? "exchangeId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AcceptReservedInstancesExchangeQuote
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

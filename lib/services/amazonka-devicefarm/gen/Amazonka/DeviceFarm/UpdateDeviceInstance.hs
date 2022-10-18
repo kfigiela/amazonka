@@ -102,7 +102,7 @@ instance Core.AWSRequest UpdateDeviceInstance where
   type
     AWSResponse UpdateDeviceInstance =
       UpdateDeviceInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest UpdateDeviceInstance where
             Prelude.<$> (x Core..?> "deviceInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDeviceInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeviceInstance where
   hashWithSalt _salt UpdateDeviceInstance' {..} =

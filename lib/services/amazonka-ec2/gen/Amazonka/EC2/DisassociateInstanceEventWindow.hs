@@ -121,7 +121,7 @@ instance
   type
     AWSResponse DisassociateInstanceEventWindow =
       DisassociateInstanceEventWindowResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -129,6 +129,12 @@ instance
             Prelude.<$> (x Core..@? "instanceEventWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateInstanceEventWindow
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

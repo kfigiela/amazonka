@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteContainerPolicy where
   type
     AWSResponse DeleteContainerPolicy =
       DeleteContainerPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteContainerPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteContainerPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContainerPolicy where
   hashWithSalt _salt DeleteContainerPolicy' {..} =

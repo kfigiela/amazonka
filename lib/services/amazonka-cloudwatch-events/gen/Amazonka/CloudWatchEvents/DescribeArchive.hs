@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeArchive where
   type
     AWSResponse DescribeArchive =
       DescribeArchiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeArchive where
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeArchive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeArchive where
   hashWithSalt _salt DescribeArchive' {..} =

@@ -132,10 +132,16 @@ instance
   type
     AWSResponse SetSecurityTokenServicePreferences =
       SetSecurityTokenServicePreferencesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SetSecurityTokenServicePreferencesResponse'
+
+instance
+  Core.AWSService
+    SetSecurityTokenServicePreferences
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

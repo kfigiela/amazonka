@@ -101,7 +101,7 @@ instance Core.AWSRequest ListLabelGroups where
   type
     AWSResponse ListLabelGroups =
       ListLabelGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ListLabelGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLabelGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLabelGroups where
   hashWithSalt _salt ListLabelGroups' {..} =

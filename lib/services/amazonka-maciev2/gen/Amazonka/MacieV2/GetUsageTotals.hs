@@ -88,7 +88,7 @@ instance Core.AWSRequest GetUsageTotals where
   type
     AWSResponse GetUsageTotals =
       GetUsageTotalsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetUsageTotals where
             Prelude.<*> (x Core..?> "usageTotals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUsageTotals where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUsageTotals where
   hashWithSalt _salt GetUsageTotals' {..} =

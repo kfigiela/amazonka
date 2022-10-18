@@ -121,7 +121,7 @@ instance Core.AWSRequest ListPlaybackConfigurations where
   type
     AWSResponse ListPlaybackConfigurations =
       ListPlaybackConfigurationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListPlaybackConfigurations where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPlaybackConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPlaybackConfigurations where
   hashWithSalt _salt ListPlaybackConfigurations' {..} =

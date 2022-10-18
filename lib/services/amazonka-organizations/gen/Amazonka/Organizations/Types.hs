@@ -324,6 +324,7 @@ defaultService =
       Core._serviceEndpointPrefix = "organizations",
       Core._serviceSigningName = "organizations",
       Core._serviceVersion = "2016-11-28",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

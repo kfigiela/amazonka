@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteSchedule where
   type
     AWSResponse DeleteSchedule =
       DeleteScheduleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSchedule where
   hashWithSalt _salt DeleteSchedule' {..} =

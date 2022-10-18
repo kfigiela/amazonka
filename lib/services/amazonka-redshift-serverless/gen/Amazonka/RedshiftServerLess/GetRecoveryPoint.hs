@@ -80,7 +80,7 @@ instance Core.AWSRequest GetRecoveryPoint where
   type
     AWSResponse GetRecoveryPoint =
       GetRecoveryPointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetRecoveryPoint where
             Prelude.<$> (x Core..?> "recoveryPoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRecoveryPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRecoveryPoint where
   hashWithSalt _salt GetRecoveryPoint' {..} =

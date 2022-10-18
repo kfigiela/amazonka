@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateSmsTemplate where
   type
     AWSResponse CreateSmsTemplate =
       CreateSmsTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateSmsTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateSmsTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSmsTemplate where
   hashWithSalt _salt CreateSmsTemplate' {..} =

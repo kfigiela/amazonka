@@ -95,7 +95,7 @@ getAppsList_listId = Lens.lens (\GetAppsList' {listId} -> listId) (\s@GetAppsLis
 
 instance Core.AWSRequest GetAppsList where
   type AWSResponse GetAppsList = GetAppsListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetAppsList where
             Prelude.<*> (x Core..?> "AppsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAppsList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAppsList where
   hashWithSalt _salt GetAppsList' {..} =

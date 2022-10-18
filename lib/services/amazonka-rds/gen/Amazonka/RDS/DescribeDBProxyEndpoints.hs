@@ -181,7 +181,7 @@ instance Core.AWSRequest DescribeDBProxyEndpoints where
   type
     AWSResponse DescribeDBProxyEndpoints =
       DescribeDBProxyEndpointsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBProxyEndpointsResult"
@@ -194,6 +194,9 @@ instance Core.AWSRequest DescribeDBProxyEndpoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBProxyEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBProxyEndpoints where
   hashWithSalt _salt DescribeDBProxyEndpoints' {..} =

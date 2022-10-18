@@ -111,7 +111,7 @@ updateType_format = Lens.lens (\UpdateType' {format} -> format) (\s@UpdateType' 
 
 instance Core.AWSRequest UpdateType where
   type AWSResponse UpdateType = UpdateTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdateType where
             Prelude.<$> (x Core..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateType where
   hashWithSalt _salt UpdateType' {..} =

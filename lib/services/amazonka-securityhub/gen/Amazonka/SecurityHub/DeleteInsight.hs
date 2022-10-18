@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteInsight where
   type
     AWSResponse DeleteInsight =
       DeleteInsightResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteInsight where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "InsightArn")
       )
+
+instance Core.AWSService DeleteInsight where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInsight where
   hashWithSalt _salt DeleteInsight' {..} =

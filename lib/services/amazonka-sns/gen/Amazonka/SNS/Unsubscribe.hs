@@ -81,8 +81,11 @@ unsubscribe_subscriptionArn = Lens.lens (\Unsubscribe' {subscriptionArn} -> subs
 
 instance Core.AWSRequest Unsubscribe where
   type AWSResponse Unsubscribe = UnsubscribeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UnsubscribeResponse'
+
+instance Core.AWSService Unsubscribe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Unsubscribe where
   hashWithSalt _salt Unsubscribe' {..} =

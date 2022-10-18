@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteAppsList where
   type
     AWSResponse DeleteAppsList =
       DeleteAppsListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAppsListResponse'
+
+instance Core.AWSService DeleteAppsList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppsList where
   hashWithSalt _salt DeleteAppsList' {..} =

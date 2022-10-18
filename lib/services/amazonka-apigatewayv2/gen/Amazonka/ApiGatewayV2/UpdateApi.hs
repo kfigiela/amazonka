@@ -282,7 +282,7 @@ updateApi_apiId = Lens.lens (\UpdateApi' {apiId} -> apiId) (\s@UpdateApi' {} a -
 
 instance Core.AWSRequest UpdateApi where
   type AWSResponse UpdateApi = UpdateApiResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -305,6 +305,9 @@ instance Core.AWSRequest UpdateApi where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApi where
   hashWithSalt _salt UpdateApi' {..} =

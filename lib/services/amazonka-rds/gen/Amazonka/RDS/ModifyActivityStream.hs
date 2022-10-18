@@ -111,7 +111,7 @@ instance Core.AWSRequest ModifyActivityStream where
   type
     AWSResponse ModifyActivityStream =
       ModifyActivityStreamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyActivityStreamResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest ModifyActivityStream where
             Prelude.<*> (x Core..@? "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyActivityStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyActivityStream where
   hashWithSalt _salt ModifyActivityStream' {..} =

@@ -338,7 +338,7 @@ instance Core.AWSRequest CreateEntityRecognizer where
   type
     AWSResponse CreateEntityRecognizer =
       CreateEntityRecognizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -346,6 +346,9 @@ instance Core.AWSRequest CreateEntityRecognizer where
             Prelude.<$> (x Core..?> "EntityRecognizerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEntityRecognizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEntityRecognizer where
   hashWithSalt _salt CreateEntityRecognizer' {..} =

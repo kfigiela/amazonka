@@ -94,10 +94,16 @@ instance
   type
     AWSResponse DeleteCloudFrontOriginAccessIdentity =
       DeleteCloudFrontOriginAccessIdentityResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteCloudFrontOriginAccessIdentityResponse'
+
+instance
+  Core.AWSService
+    DeleteCloudFrontOriginAccessIdentity
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

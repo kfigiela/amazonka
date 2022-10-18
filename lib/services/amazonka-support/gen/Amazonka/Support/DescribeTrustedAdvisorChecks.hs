@@ -107,7 +107,7 @@ instance Core.AWSRequest DescribeTrustedAdvisorChecks where
   type
     AWSResponse DescribeTrustedAdvisorChecks =
       DescribeTrustedAdvisorChecksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeTrustedAdvisorChecks where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "checks" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeTrustedAdvisorChecks where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

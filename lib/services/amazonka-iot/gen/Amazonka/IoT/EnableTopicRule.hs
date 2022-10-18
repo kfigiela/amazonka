@@ -79,9 +79,12 @@ instance Core.AWSRequest EnableTopicRule where
   type
     AWSResponse EnableTopicRule =
       EnableTopicRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull EnableTopicRuleResponse'
+
+instance Core.AWSService EnableTopicRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableTopicRule where
   hashWithSalt _salt EnableTopicRule' {..} =

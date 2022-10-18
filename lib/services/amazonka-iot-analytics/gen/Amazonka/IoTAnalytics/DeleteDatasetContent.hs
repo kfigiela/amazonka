@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteDatasetContent where
   type
     AWSResponse DeleteDatasetContent =
       DeleteDatasetContentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDatasetContentResponse'
+
+instance Core.AWSService DeleteDatasetContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDatasetContent where
   hashWithSalt _salt DeleteDatasetContent' {..} =

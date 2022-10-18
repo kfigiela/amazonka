@@ -249,7 +249,7 @@ instance
   type
     AWSResponse CreateUnreferencedMergeCommit =
       CreateUnreferencedMergeCommitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -258,6 +258,12 @@ instance
             Prelude.<*> (x Core..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateUnreferencedMergeCommit
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

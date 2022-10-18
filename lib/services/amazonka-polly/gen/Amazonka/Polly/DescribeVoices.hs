@@ -176,7 +176,7 @@ instance Core.AWSRequest DescribeVoices where
   type
     AWSResponse DescribeVoices =
       DescribeVoicesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest DescribeVoices where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVoices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVoices where
   hashWithSalt _salt DescribeVoices' {..} =

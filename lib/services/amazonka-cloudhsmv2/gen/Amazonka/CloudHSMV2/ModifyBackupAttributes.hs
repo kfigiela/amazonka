@@ -103,7 +103,7 @@ instance Core.AWSRequest ModifyBackupAttributes where
   type
     AWSResponse ModifyBackupAttributes =
       ModifyBackupAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest ModifyBackupAttributes where
             Prelude.<$> (x Core..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyBackupAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyBackupAttributes where
   hashWithSalt _salt ModifyBackupAttributes' {..} =

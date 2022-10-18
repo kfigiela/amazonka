@@ -89,7 +89,7 @@ instance Core.AWSRequest StopMultiplex where
   type
     AWSResponse StopMultiplex =
       StopMultiplexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest StopMultiplex where
             Prelude.<*> (x Core..?> "programCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopMultiplex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopMultiplex where
   hashWithSalt _salt StopMultiplex' {..} =

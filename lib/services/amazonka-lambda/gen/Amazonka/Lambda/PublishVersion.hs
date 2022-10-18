@@ -206,10 +206,13 @@ instance Core.AWSRequest PublishVersion where
   type
     AWSResponse PublishVersion =
       FunctionConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PublishVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishVersion where
   hashWithSalt _salt PublishVersion' {..} =

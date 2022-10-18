@@ -305,7 +305,7 @@ instance Core.AWSRequest CreateDashboard where
   type
     AWSResponse CreateDashboard =
       CreateDashboardResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -317,6 +317,9 @@ instance Core.AWSRequest CreateDashboard where
             Prelude.<*> (x Core..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDashboard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDashboard where
   hashWithSalt _salt CreateDashboard' {..} =

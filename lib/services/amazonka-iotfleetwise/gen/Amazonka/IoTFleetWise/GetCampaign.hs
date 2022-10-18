@@ -91,7 +91,7 @@ getCampaign_name = Lens.lens (\GetCampaign' {name} -> name) (\s@GetCampaign' {} 
 
 instance Core.AWSRequest GetCampaign where
   type AWSResponse GetCampaign = GetCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetCampaign where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCampaign where
   hashWithSalt _salt GetCampaign' {..} =

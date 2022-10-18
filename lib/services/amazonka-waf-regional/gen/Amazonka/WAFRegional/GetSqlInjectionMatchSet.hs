@@ -98,7 +98,7 @@ instance Core.AWSRequest GetSqlInjectionMatchSet where
   type
     AWSResponse GetSqlInjectionMatchSet =
       GetSqlInjectionMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetSqlInjectionMatchSet where
             Prelude.<$> (x Core..?> "SqlInjectionMatchSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSqlInjectionMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSqlInjectionMatchSet where
   hashWithSalt _salt GetSqlInjectionMatchSet' {..} =

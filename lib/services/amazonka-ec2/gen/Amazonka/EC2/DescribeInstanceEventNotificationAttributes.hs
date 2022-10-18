@@ -92,7 +92,7 @@ instance
     AWSResponse
       DescribeInstanceEventNotificationAttributes =
       DescribeInstanceEventNotificationAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -100,6 +100,12 @@ instance
             Prelude.<$> (x Core..@? "instanceTagAttribute")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeInstanceEventNotificationAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

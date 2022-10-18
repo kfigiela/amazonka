@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteBrowserSettings where
   type
     AWSResponse DeleteBrowserSettings =
       DeleteBrowserSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBrowserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBrowserSettings where
   hashWithSalt _salt DeleteBrowserSettings' {..} =

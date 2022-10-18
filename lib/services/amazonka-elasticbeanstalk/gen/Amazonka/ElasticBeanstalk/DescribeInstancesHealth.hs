@@ -120,7 +120,7 @@ instance Core.AWSRequest DescribeInstancesHealth where
   type
     AWSResponse DescribeInstancesHealth =
       DescribeInstancesHealthResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeInstancesHealthResult"
@@ -134,6 +134,9 @@ instance Core.AWSRequest DescribeInstancesHealth where
             Prelude.<*> (x Core..@? "RefreshedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstancesHealth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstancesHealth where
   hashWithSalt _salt DescribeInstancesHealth' {..} =

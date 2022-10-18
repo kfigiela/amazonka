@@ -102,7 +102,7 @@ instance Core.AWSRequest DeleteFlowLogs where
   type
     AWSResponse DeleteFlowLogs =
       DeleteFlowLogsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DeleteFlowLogs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFlowLogs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFlowLogs where
   hashWithSalt _salt DeleteFlowLogs' {..} =

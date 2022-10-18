@@ -165,7 +165,7 @@ instance Core.AWSRequest UpdateEventDestination where
   type
     AWSResponse UpdateEventDestination =
       UpdateEventDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest UpdateEventDestination where
             Prelude.<*> (x Core..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEventDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEventDestination where
   hashWithSalt _salt UpdateEventDestination' {..} =

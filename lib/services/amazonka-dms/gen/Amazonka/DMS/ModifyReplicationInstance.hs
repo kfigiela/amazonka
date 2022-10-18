@@ -328,7 +328,7 @@ instance Core.AWSRequest ModifyReplicationInstance where
   type
     AWSResponse ModifyReplicationInstance =
       ModifyReplicationInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -336,6 +336,9 @@ instance Core.AWSRequest ModifyReplicationInstance where
             Prelude.<$> (x Core..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyReplicationInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyReplicationInstance where
   hashWithSalt _salt ModifyReplicationInstance' {..} =

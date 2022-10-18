@@ -109,7 +109,7 @@ instance Core.AWSPager ListHITs where
 
 instance Core.AWSRequest ListHITs where
   type AWSResponse ListHITs = ListHITsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListHITs where
             Prelude.<*> (x Core..?> "HITs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListHITs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHITs where
   hashWithSalt _salt ListHITs' {..} =

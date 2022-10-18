@@ -80,7 +80,7 @@ getSatellite_satelliteId = Lens.lens (\GetSatellite' {satelliteId} -> satelliteI
 
 instance Core.AWSRequest GetSatellite where
   type AWSResponse GetSatellite = GetSatelliteResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetSatellite where
             Prelude.<*> (x Core..?> "groundStations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSatellite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSatellite where
   hashWithSalt _salt GetSatellite' {..} =

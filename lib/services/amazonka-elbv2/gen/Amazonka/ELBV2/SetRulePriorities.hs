@@ -79,7 +79,7 @@ instance Core.AWSRequest SetRulePriorities where
   type
     AWSResponse SetRulePriorities =
       SetRulePrioritiesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetRulePrioritiesResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest SetRulePriorities where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetRulePriorities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetRulePriorities where
   hashWithSalt _salt SetRulePriorities' {..} =

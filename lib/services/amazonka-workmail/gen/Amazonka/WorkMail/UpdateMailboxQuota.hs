@@ -110,13 +110,16 @@ instance Core.AWSRequest UpdateMailboxQuota where
   type
     AWSResponse UpdateMailboxQuota =
       UpdateMailboxQuotaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateMailboxQuotaResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMailboxQuota where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMailboxQuota where
   hashWithSalt _salt UpdateMailboxQuota' {..} =

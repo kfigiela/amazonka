@@ -94,10 +94,13 @@ instance Core.AWSRequest DisassociateApprovedOrigin where
   type
     AWSResponse DisassociateApprovedOrigin =
       DisassociateApprovedOriginResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateApprovedOriginResponse'
+
+instance Core.AWSService DisassociateApprovedOrigin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateApprovedOrigin where
   hashWithSalt _salt DisassociateApprovedOrigin' {..} =

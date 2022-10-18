@@ -149,11 +149,14 @@ instance Core.AWSRequest UpdatePartnerStatus where
   type
     AWSResponse UpdatePartnerStatus =
       PartnerIntegrationOutputMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdatePartnerStatusResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService UpdatePartnerStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePartnerStatus where
   hashWithSalt _salt UpdatePartnerStatus' {..} =

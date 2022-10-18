@@ -198,13 +198,16 @@ deleteWebACL_lockToken = Lens.lens (\DeleteWebACL' {lockToken} -> lockToken) (\s
 
 instance Core.AWSRequest DeleteWebACL where
   type AWSResponse DeleteWebACL = DeleteWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWebACLResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWebACL where
   hashWithSalt _salt DeleteWebACL' {..} =

@@ -88,7 +88,7 @@ instance Core.AWSRequest GetPipelineState where
   type
     AWSResponse GetPipelineState =
       GetPipelineStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetPipelineState where
             Prelude.<*> (x Core..?> "pipelineName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPipelineState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPipelineState where
   hashWithSalt _salt GetPipelineState' {..} =

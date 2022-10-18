@@ -76,10 +76,13 @@ instance Core.AWSRequest DeleteSnapshotSchedule where
   type
     AWSResponse DeleteSnapshotSchedule =
       DeleteSnapshotScheduleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteSnapshotScheduleResponse'
+
+instance Core.AWSService DeleteSnapshotSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSnapshotSchedule where
   hashWithSalt _salt DeleteSnapshotSchedule' {..} =

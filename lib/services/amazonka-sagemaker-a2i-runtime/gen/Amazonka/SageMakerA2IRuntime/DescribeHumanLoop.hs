@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeHumanLoop where
   type
     AWSResponse DescribeHumanLoop =
       DescribeHumanLoopResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeHumanLoop where
             Prelude.<*> (x Core..:> "HumanLoopArn")
             Prelude.<*> (x Core..:> "FlowDefinitionArn")
       )
+
+instance Core.AWSService DescribeHumanLoop where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHumanLoop where
   hashWithSalt _salt DescribeHumanLoop' {..} =

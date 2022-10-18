@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeRoutingProfile where
   type
     AWSResponse DescribeRoutingProfile =
       DescribeRoutingProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeRoutingProfile where
             Prelude.<$> (x Core..?> "RoutingProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRoutingProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRoutingProfile where
   hashWithSalt _salt DescribeRoutingProfile' {..} =

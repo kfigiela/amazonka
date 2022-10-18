@@ -176,7 +176,7 @@ instance Core.AWSRequest ListHostedZones where
   type
     AWSResponse ListHostedZones =
       ListHostedZonesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest ListHostedZones where
             Prelude.<*> (x Core..@ "IsTruncated")
             Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance Core.AWSService ListHostedZones where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHostedZones where
   hashWithSalt _salt ListHostedZones' {..} =

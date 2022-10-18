@@ -89,7 +89,7 @@ instance
   type
     AWSResponse DescribeElasticsearchDomainConfig =
       DescribeElasticsearchDomainConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "DomainConfig")
       )
+
+instance
+  Core.AWSService
+    DescribeElasticsearchDomainConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

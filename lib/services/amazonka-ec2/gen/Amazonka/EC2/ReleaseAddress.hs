@@ -163,9 +163,12 @@ instance Core.AWSRequest ReleaseAddress where
   type
     AWSResponse ReleaseAddress =
       ReleaseAddressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ReleaseAddressResponse'
+
+instance Core.AWSService ReleaseAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleaseAddress where
   hashWithSalt _salt ReleaseAddress' {..} =

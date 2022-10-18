@@ -152,7 +152,7 @@ instance Core.AWSRequest SearchDashboards where
   type
     AWSResponse SearchDashboards =
       SearchDashboardsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest SearchDashboards where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchDashboards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchDashboards where
   hashWithSalt _salt SearchDashboards' {..} =

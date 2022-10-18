@@ -108,10 +108,16 @@ instance
   type
     AWSResponse DeleteHostedConfigurationVersion =
       DeleteHostedConfigurationVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteHostedConfigurationVersionResponse'
+
+instance
+  Core.AWSService
+    DeleteHostedConfigurationVersion
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

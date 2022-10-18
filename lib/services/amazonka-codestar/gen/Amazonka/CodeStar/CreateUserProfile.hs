@@ -140,7 +140,7 @@ instance Core.AWSRequest CreateUserProfile where
   type
     AWSResponse CreateUserProfile =
       CreateUserProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateUserProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userArn")
       )
+
+instance Core.AWSService CreateUserProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUserProfile where
   hashWithSalt _salt CreateUserProfile' {..} =

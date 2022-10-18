@@ -135,7 +135,7 @@ instance Core.AWSRequest CreateGlobalTable where
   type
     AWSResponse CreateGlobalTable =
       CreateGlobalTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateGlobalTable where
             Prelude.<$> (x Core..?> "GlobalTableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGlobalTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGlobalTable where
   hashWithSalt _salt CreateGlobalTable' {..} =

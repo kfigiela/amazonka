@@ -859,7 +859,7 @@ instance Core.AWSPager Scan where
 
 instance Core.AWSRequest Scan where
   type AWSResponse Scan = ScanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -873,6 +873,9 @@ instance Core.AWSRequest Scan where
             Prelude.<*> (x Core..?> "ScannedCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Scan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Scan where
   hashWithSalt _salt Scan' {..} =

@@ -75,7 +75,7 @@ getOrder_orderId = Lens.lens (\GetOrder' {orderId} -> orderId) (\s@GetOrder' {} 
 
 instance Core.AWSRequest GetOrder where
   type AWSResponse GetOrder = GetOrderResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetOrder where
             Prelude.<$> (x Core..?> "Order")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOrder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOrder where
   hashWithSalt _salt GetOrder' {..} =

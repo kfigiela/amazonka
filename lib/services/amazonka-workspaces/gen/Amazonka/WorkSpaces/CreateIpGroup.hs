@@ -122,7 +122,7 @@ instance Core.AWSRequest CreateIpGroup where
   type
     AWSResponse CreateIpGroup =
       CreateIpGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest CreateIpGroup where
             Prelude.<$> (x Core..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIpGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIpGroup where
   hashWithSalt _salt CreateIpGroup' {..} =

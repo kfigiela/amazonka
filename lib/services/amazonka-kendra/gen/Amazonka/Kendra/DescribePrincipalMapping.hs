@@ -122,7 +122,7 @@ instance Core.AWSRequest DescribePrincipalMapping where
   type
     AWSResponse DescribePrincipalMapping =
       DescribePrincipalMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DescribePrincipalMapping where
             Prelude.<*> (x Core..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePrincipalMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePrincipalMapping where
   hashWithSalt _salt DescribePrincipalMapping' {..} =

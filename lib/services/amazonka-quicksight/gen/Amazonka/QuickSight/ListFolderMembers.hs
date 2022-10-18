@@ -116,7 +116,7 @@ instance Core.AWSRequest ListFolderMembers where
   type
     AWSResponse ListFolderMembers =
       ListFolderMembersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListFolderMembers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFolderMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFolderMembers where
   hashWithSalt _salt ListFolderMembers' {..} =

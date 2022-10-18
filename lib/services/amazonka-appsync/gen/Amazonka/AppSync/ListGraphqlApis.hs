@@ -118,7 +118,7 @@ instance Core.AWSRequest ListGraphqlApis where
   type
     AWSResponse ListGraphqlApis =
       ListGraphqlApisResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListGraphqlApis where
             Prelude.<*> (x Core..?> "graphqlApis" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGraphqlApis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGraphqlApis where
   hashWithSalt _salt ListGraphqlApis' {..} =

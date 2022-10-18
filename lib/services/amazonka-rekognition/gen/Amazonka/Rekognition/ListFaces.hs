@@ -136,7 +136,7 @@ instance Core.AWSPager ListFaces where
 
 instance Core.AWSRequest ListFaces where
   type AWSResponse ListFaces = ListFacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListFaces where
             Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFaces where
   hashWithSalt _salt ListFaces' {..} =

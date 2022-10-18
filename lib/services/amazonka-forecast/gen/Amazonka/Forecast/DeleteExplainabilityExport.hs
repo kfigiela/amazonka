@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteExplainabilityExport where
   type
     AWSResponse DeleteExplainabilityExport =
       DeleteExplainabilityExportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteExplainabilityExportResponse'
+
+instance Core.AWSService DeleteExplainabilityExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExplainabilityExport where
   hashWithSalt _salt DeleteExplainabilityExport' {..} =

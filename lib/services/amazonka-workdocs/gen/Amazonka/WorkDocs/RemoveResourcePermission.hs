@@ -114,10 +114,13 @@ instance Core.AWSRequest RemoveResourcePermission where
   type
     AWSResponse RemoveResourcePermission =
       RemoveResourcePermissionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       RemoveResourcePermissionResponse'
+
+instance Core.AWSService RemoveResourcePermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveResourcePermission where
   hashWithSalt _salt RemoveResourcePermission' {..} =

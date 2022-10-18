@@ -77,7 +77,7 @@ getProject_project = Lens.lens (\GetProject' {project} -> project) (\s@GetProjec
 
 instance Core.AWSRequest GetProject where
   type AWSResponse GetProject = GetProjectResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetProject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "project")
       )
+
+instance Core.AWSService GetProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProject where
   hashWithSalt _salt GetProject' {..} =

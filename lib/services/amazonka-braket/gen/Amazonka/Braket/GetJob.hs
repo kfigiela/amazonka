@@ -92,7 +92,7 @@ getJob_jobArn = Lens.lens (\GetJob' {jobArn} -> jobArn) (\s@GetJob' {} a -> s {j
 
 instance Core.AWSRequest GetJob where
   type AWSResponse GetJob = GetJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest GetJob where
             Prelude.<*> (x Core..:> "roleArn")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetJob where
   hashWithSalt _salt GetJob' {..} =

@@ -106,7 +106,7 @@ instance Core.AWSRequest UpdateExperiment where
   type
     AWSResponse UpdateExperiment =
       UpdateExperimentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest UpdateExperiment where
             Prelude.<$> (x Core..?> "ExperimentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateExperiment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateExperiment where
   hashWithSalt _salt UpdateExperiment' {..} =

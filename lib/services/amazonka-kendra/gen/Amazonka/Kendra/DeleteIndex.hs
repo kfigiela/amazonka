@@ -73,8 +73,11 @@ deleteIndex_id = Lens.lens (\DeleteIndex' {id} -> id) (\s@DeleteIndex' {} a -> s
 
 instance Core.AWSRequest DeleteIndex where
   type AWSResponse DeleteIndex = DeleteIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteIndexResponse'
+
+instance Core.AWSService DeleteIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIndex where
   hashWithSalt _salt DeleteIndex' {..} =

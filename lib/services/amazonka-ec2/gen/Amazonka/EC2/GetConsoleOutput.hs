@@ -134,7 +134,7 @@ instance Core.AWSRequest GetConsoleOutput where
   type
     AWSResponse GetConsoleOutput =
       GetConsoleOutputResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest GetConsoleOutput where
             Prelude.<*> (x Core..@? "output")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConsoleOutput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConsoleOutput where
   hashWithSalt _salt GetConsoleOutput' {..} =

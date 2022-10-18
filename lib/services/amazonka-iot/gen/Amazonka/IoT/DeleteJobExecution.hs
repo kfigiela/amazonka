@@ -192,9 +192,12 @@ instance Core.AWSRequest DeleteJobExecution where
   type
     AWSResponse DeleteJobExecution =
       DeleteJobExecutionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteJobExecutionResponse'
+
+instance Core.AWSService DeleteJobExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteJobExecution where
   hashWithSalt _salt DeleteJobExecution' {..} =

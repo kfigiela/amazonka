@@ -210,7 +210,7 @@ instance Core.AWSRequest UpdateSmsTemplate where
   type
     AWSResponse UpdateSmsTemplate =
       UpdateSmsTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest UpdateSmsTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateSmsTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSmsTemplate where
   hashWithSalt _salt UpdateSmsTemplate' {..} =

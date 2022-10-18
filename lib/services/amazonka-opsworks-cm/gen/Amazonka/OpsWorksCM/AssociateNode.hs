@@ -163,7 +163,7 @@ instance Core.AWSRequest AssociateNode where
   type
     AWSResponse AssociateNode =
       AssociateNodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest AssociateNode where
             Prelude.<$> (x Core..?> "NodeAssociationStatusToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateNode where
   hashWithSalt _salt AssociateNode' {..} =

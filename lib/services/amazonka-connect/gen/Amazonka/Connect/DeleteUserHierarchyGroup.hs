@@ -94,10 +94,13 @@ instance Core.AWSRequest DeleteUserHierarchyGroup where
   type
     AWSResponse DeleteUserHierarchyGroup =
       DeleteUserHierarchyGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteUserHierarchyGroupResponse'
+
+instance Core.AWSService DeleteUserHierarchyGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserHierarchyGroup where
   hashWithSalt _salt DeleteUserHierarchyGroup' {..} =

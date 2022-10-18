@@ -250,7 +250,7 @@ instance Core.AWSRequest ModifyIpamPool where
   type
     AWSResponse ModifyIpamPool =
       ModifyIpamPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -258,6 +258,9 @@ instance Core.AWSRequest ModifyIpamPool where
             Prelude.<$> (x Core..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyIpamPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyIpamPool where
   hashWithSalt _salt ModifyIpamPool' {..} =

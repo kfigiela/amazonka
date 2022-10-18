@@ -112,7 +112,7 @@ instance
   type
     AWSResponse GetReusableDelegationSetLimit =
       GetReusableDelegationSetLimitResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -121,6 +121,12 @@ instance
             Prelude.<*> (x Core..@ "Limit")
             Prelude.<*> (x Core..@ "Count")
       )
+
+instance
+  Core.AWSService
+    GetReusableDelegationSetLimit
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

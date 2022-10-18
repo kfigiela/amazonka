@@ -93,7 +93,7 @@ getIPSet_ipSetId = Lens.lens (\GetIPSet' {ipSetId} -> ipSetId) (\s@GetIPSet' {} 
 
 instance Core.AWSRequest GetIPSet where
   type AWSResponse GetIPSet = GetIPSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetIPSet where
             Prelude.<*> (x Core..:> "location")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetIPSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIPSet where
   hashWithSalt _salt GetIPSet' {..} =

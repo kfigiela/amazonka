@@ -189,7 +189,7 @@ instance Core.AWSRequest DescribeFastLaunchImages where
   type
     AWSResponse DescribeFastLaunchImages =
       DescribeFastLaunchImagesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest DescribeFastLaunchImages where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFastLaunchImages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFastLaunchImages where
   hashWithSalt _salt DescribeFastLaunchImages' {..} =

@@ -203,7 +203,7 @@ instance Core.AWSRequest DescribePatchProperties where
   type
     AWSResponse DescribePatchProperties =
       DescribePatchPropertiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest DescribePatchProperties where
             Prelude.<*> (x Core..?> "Properties" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePatchProperties where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePatchProperties where
   hashWithSalt _salt DescribePatchProperties' {..} =

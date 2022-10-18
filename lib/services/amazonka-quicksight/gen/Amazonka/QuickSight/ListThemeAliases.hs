@@ -119,7 +119,7 @@ instance Core.AWSRequest ListThemeAliases where
   type
     AWSResponse ListThemeAliases =
       ListThemeAliasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListThemeAliases where
             Prelude.<*> (x Core..?> "ThemeAliasList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListThemeAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListThemeAliases where
   hashWithSalt _salt ListThemeAliases' {..} =

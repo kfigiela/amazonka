@@ -571,7 +571,7 @@ instance Core.AWSRequest CopyDBSnapshot where
   type
     AWSResponse CopyDBSnapshot =
       CopyDBSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyDBSnapshotResult"
@@ -580,6 +580,9 @@ instance Core.AWSRequest CopyDBSnapshot where
             Prelude.<$> (x Core..@? "DBSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyDBSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyDBSnapshot where
   hashWithSalt _salt CopyDBSnapshot' {..} =

@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribePortfolioShareStatus where
   type
     AWSResponse DescribePortfolioShareStatus =
       DescribePortfolioShareStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribePortfolioShareStatus where
             Prelude.<*> (x Core..?> "OrganizationNodeValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePortfolioShareStatus where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

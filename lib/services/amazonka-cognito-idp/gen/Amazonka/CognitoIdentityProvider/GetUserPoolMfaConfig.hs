@@ -79,7 +79,7 @@ instance Core.AWSRequest GetUserPoolMfaConfig where
   type
     AWSResponse GetUserPoolMfaConfig =
       GetUserPoolMfaConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetUserPoolMfaConfig where
             Prelude.<*> (x Core..?> "SmsMfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUserPoolMfaConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUserPoolMfaConfig where
   hashWithSalt _salt GetUserPoolMfaConfig' {..} =

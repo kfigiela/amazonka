@@ -79,7 +79,7 @@ getOperation_operationId = Lens.lens (\GetOperation' {operationId} -> operationI
 
 instance Core.AWSRequest GetOperation where
   type AWSResponse GetOperation = GetOperationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetOperation where
             Prelude.<$> (x Core..?> "Operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOperation where
   hashWithSalt _salt GetOperation' {..} =

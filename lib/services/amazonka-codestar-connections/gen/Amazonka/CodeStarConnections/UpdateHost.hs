@@ -102,13 +102,16 @@ updateHost_hostArn = Lens.lens (\UpdateHost' {hostArn} -> hostArn) (\s@UpdateHos
 
 instance Core.AWSRequest UpdateHost where
   type AWSResponse UpdateHost = UpdateHostResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateHostResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateHost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHost where
   hashWithSalt _salt UpdateHost' {..} =

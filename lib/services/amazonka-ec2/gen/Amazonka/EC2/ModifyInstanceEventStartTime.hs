@@ -126,7 +126,7 @@ instance Core.AWSRequest ModifyInstanceEventStartTime where
   type
     AWSResponse ModifyInstanceEventStartTime =
       ModifyInstanceEventStartTimeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ModifyInstanceEventStartTime where
             Prelude.<$> (x Core..@? "event")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyInstanceEventStartTime where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

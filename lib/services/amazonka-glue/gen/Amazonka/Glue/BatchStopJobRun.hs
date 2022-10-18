@@ -95,7 +95,7 @@ instance Core.AWSRequest BatchStopJobRun where
   type
     AWSResponse BatchStopJobRun =
       BatchStopJobRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest BatchStopJobRun where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchStopJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchStopJobRun where
   hashWithSalt _salt BatchStopJobRun' {..} =

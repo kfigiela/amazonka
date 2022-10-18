@@ -1573,7 +1573,7 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
   type
     AWSResponse CreateDBInstanceReadReplica =
       CreateDBInstanceReadReplicaResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBInstanceReadReplicaResult"
@@ -1582,6 +1582,9 @@ instance Core.AWSRequest CreateDBInstanceReadReplica where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBInstanceReadReplica where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBInstanceReadReplica where
   hashWithSalt _salt CreateDBInstanceReadReplica' {..} =

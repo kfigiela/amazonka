@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteReplicationSubnetGroup where
   type
     AWSResponse DeleteReplicationSubnetGroup =
       DeleteReplicationSubnetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteReplicationSubnetGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReplicationSubnetGroup where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

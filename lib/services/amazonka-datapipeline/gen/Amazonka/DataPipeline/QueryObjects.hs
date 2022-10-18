@@ -170,7 +170,7 @@ instance Core.AWSPager QueryObjects where
 
 instance Core.AWSRequest QueryObjects where
   type AWSResponse QueryObjects = QueryObjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest QueryObjects where
             Prelude.<*> (x Core..?> "hasMoreResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService QueryObjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable QueryObjects where
   hashWithSalt _salt QueryObjects' {..} =

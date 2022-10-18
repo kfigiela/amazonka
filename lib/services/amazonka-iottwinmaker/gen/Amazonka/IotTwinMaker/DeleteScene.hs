@@ -88,13 +88,16 @@ deleteScene_workspaceId = Lens.lens (\DeleteScene' {workspaceId} -> workspaceId)
 
 instance Core.AWSRequest DeleteScene where
   type AWSResponse DeleteScene = DeleteSceneResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSceneResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteScene where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteScene where
   hashWithSalt _salt DeleteScene' {..} =

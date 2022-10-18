@@ -95,7 +95,7 @@ instance Core.AWSRequest SendUsersMessages where
   type
     AWSResponse SendUsersMessages =
       SendUsersMessagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest SendUsersMessages where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService SendUsersMessages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendUsersMessages where
   hashWithSalt _salt SendUsersMessages' {..} =

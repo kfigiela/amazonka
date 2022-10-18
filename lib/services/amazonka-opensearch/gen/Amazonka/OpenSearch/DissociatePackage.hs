@@ -97,7 +97,7 @@ instance Core.AWSRequest DissociatePackage where
   type
     AWSResponse DissociatePackage =
       DissociatePackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DissociatePackage where
             Prelude.<$> (x Core..?> "DomainPackageDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DissociatePackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DissociatePackage where
   hashWithSalt _salt DissociatePackage' {..} =

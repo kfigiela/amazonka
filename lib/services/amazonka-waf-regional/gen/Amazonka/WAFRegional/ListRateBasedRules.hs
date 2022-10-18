@@ -121,7 +121,7 @@ instance Core.AWSRequest ListRateBasedRules where
   type
     AWSResponse ListRateBasedRules =
       ListRateBasedRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListRateBasedRules where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRateBasedRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRateBasedRules where
   hashWithSalt _salt ListRateBasedRules' {..} =

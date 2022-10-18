@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteEndpointConfig where
   type
     AWSResponse DeleteEndpointConfig =
       DeleteEndpointConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteEndpointConfigResponse'
+
+instance Core.AWSService DeleteEndpointConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEndpointConfig where
   hashWithSalt _salt DeleteEndpointConfig' {..} =

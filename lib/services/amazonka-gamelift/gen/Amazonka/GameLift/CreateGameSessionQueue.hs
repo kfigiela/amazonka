@@ -300,7 +300,7 @@ instance Core.AWSRequest CreateGameSessionQueue where
   type
     AWSResponse CreateGameSessionQueue =
       CreateGameSessionQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -308,6 +308,9 @@ instance Core.AWSRequest CreateGameSessionQueue where
             Prelude.<$> (x Core..?> "GameSessionQueue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGameSessionQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGameSessionQueue where
   hashWithSalt _salt CreateGameSessionQueue' {..} =

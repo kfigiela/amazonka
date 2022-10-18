@@ -91,7 +91,7 @@ deleteFolder_folderId = Lens.lens (\DeleteFolder' {folderId} -> folderId) (\s@De
 
 instance Core.AWSRequest DeleteFolder where
   type AWSResponse DeleteFolder = DeleteFolderResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteFolder where
             Prelude.<*> (x Core..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFolder where
   hashWithSalt _salt DeleteFolder' {..} =

@@ -122,7 +122,7 @@ instance Core.AWSPager GetModels where
 
 instance Core.AWSRequest GetModels where
   type AWSResponse GetModels = GetModelsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetModels where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetModels where
   hashWithSalt _salt GetModels' {..} =

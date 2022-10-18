@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
   type
     AWSResponse DescribeInputDeviceThumbnail =
       DescribeInputDeviceThumbnailResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeInputDeviceThumbnail where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService DescribeInputDeviceThumbnail where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

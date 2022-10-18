@@ -86,7 +86,7 @@ instance Core.AWSRequest StopMetricStreams where
   type
     AWSResponse StopMetricStreams =
       StopMetricStreamsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopMetricStreamsResult"
@@ -94,6 +94,9 @@ instance Core.AWSRequest StopMetricStreams where
           StopMetricStreamsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopMetricStreams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopMetricStreams where
   hashWithSalt _salt StopMetricStreams' {..} =

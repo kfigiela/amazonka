@@ -90,10 +90,13 @@ instance Core.AWSRequest DeleteSubscriptionFilter where
   type
     AWSResponse DeleteSubscriptionFilter =
       DeleteSubscriptionFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteSubscriptionFilterResponse'
+
+instance Core.AWSService DeleteSubscriptionFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSubscriptionFilter where
   hashWithSalt _salt DeleteSubscriptionFilter' {..} =

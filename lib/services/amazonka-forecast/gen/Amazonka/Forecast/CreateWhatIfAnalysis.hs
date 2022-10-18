@@ -174,7 +174,7 @@ instance Core.AWSRequest CreateWhatIfAnalysis where
   type
     AWSResponse CreateWhatIfAnalysis =
       CreateWhatIfAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest CreateWhatIfAnalysis where
             Prelude.<$> (x Core..?> "WhatIfAnalysisArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWhatIfAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWhatIfAnalysis where
   hashWithSalt _salt CreateWhatIfAnalysis' {..} =

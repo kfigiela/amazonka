@@ -95,6 +95,7 @@ defaultService =
       Core._serviceEndpointPrefix = "projects.iot1click",
       Core._serviceSigningName = "iot1click",
       Core._serviceVersion = "2018-05-14",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

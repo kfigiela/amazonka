@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteEvaluation where
   type
     AWSResponse DeleteEvaluation =
       DeleteEvaluationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteEvaluation where
             Prelude.<$> (x Core..?> "EvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEvaluation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEvaluation where
   hashWithSalt _salt DeleteEvaluation' {..} =

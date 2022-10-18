@@ -97,7 +97,7 @@ instance Core.AWSRequest ExtendLicenseConsumption where
   type
     AWSResponse ExtendLicenseConsumption =
       ExtendLicenseConsumptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest ExtendLicenseConsumption where
             Prelude.<*> (x Core..?> "LicenseConsumptionToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExtendLicenseConsumption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExtendLicenseConsumption where
   hashWithSalt _salt ExtendLicenseConsumption' {..} =

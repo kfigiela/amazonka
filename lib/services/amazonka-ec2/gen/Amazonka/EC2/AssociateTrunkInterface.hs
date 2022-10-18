@@ -159,7 +159,7 @@ instance Core.AWSRequest AssociateTrunkInterface where
   type
     AWSResponse AssociateTrunkInterface =
       AssociateTrunkInterfaceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest AssociateTrunkInterface where
             Prelude.<*> (x Core..@? "interfaceAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateTrunkInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateTrunkInterface where
   hashWithSalt _salt AssociateTrunkInterface' {..} =

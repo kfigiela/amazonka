@@ -126,13 +126,16 @@ instance Core.AWSRequest RegisterPackageVersion where
   type
     AWSResponse RegisterPackageVersion =
       RegisterPackageVersionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterPackageVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterPackageVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterPackageVersion where
   hashWithSalt _salt RegisterPackageVersion' {..} =

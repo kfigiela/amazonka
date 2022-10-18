@@ -141,7 +141,7 @@ instance Core.AWSRequest GetLifecyclePolicies where
   type
     AWSResponse GetLifecyclePolicies =
       GetLifecyclePoliciesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest GetLifecyclePolicies where
             Prelude.<$> (x Core..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLifecyclePolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLifecyclePolicies where
   hashWithSalt _salt GetLifecyclePolicies' {..} =

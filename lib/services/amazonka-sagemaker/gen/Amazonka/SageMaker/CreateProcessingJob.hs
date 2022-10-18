@@ -221,7 +221,7 @@ instance Core.AWSRequest CreateProcessingJob where
   type
     AWSResponse CreateProcessingJob =
       CreateProcessingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -229,6 +229,9 @@ instance Core.AWSRequest CreateProcessingJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProcessingJobArn")
       )
+
+instance Core.AWSService CreateProcessingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProcessingJob where
   hashWithSalt _salt CreateProcessingJob' {..} =

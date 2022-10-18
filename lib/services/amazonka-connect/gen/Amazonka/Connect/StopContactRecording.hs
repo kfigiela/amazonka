@@ -119,13 +119,16 @@ instance Core.AWSRequest StopContactRecording where
   type
     AWSResponse StopContactRecording =
       StopContactRecordingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopContactRecordingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopContactRecording where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopContactRecording where
   hashWithSalt _salt StopContactRecording' {..} =

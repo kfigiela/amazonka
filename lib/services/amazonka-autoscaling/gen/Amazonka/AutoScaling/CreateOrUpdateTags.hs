@@ -79,9 +79,12 @@ instance Core.AWSRequest CreateOrUpdateTags where
   type
     AWSResponse CreateOrUpdateTags =
       CreateOrUpdateTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CreateOrUpdateTagsResponse'
+
+instance Core.AWSService CreateOrUpdateTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOrUpdateTags where
   hashWithSalt _salt CreateOrUpdateTags' {..} =

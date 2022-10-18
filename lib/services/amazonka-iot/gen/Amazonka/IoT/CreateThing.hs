@@ -143,7 +143,7 @@ createThing_thingName = Lens.lens (\CreateThing' {thingName} -> thingName) (\s@C
 
 instance Core.AWSRequest CreateThing where
   type AWSResponse CreateThing = CreateThingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateThing where
             Prelude.<*> (x Core..?> "thingArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateThing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateThing where
   hashWithSalt _salt CreateThing' {..} =

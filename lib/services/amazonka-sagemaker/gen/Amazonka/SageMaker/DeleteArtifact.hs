@@ -87,7 +87,7 @@ instance Core.AWSRequest DeleteArtifact where
   type
     AWSResponse DeleteArtifact =
       DeleteArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DeleteArtifact where
             Prelude.<$> (x Core..?> "ArtifactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteArtifact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteArtifact where
   hashWithSalt _salt DeleteArtifact' {..} =

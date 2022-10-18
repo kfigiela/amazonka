@@ -364,7 +364,7 @@ indexFaces_image = Lens.lens (\IndexFaces' {image} -> image) (\s@IndexFaces' {} 
 
 instance Core.AWSRequest IndexFaces where
   type AWSResponse IndexFaces = IndexFacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -375,6 +375,9 @@ instance Core.AWSRequest IndexFaces where
             Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService IndexFaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable IndexFaces where
   hashWithSalt _salt IndexFaces' {..} =

@@ -159,7 +159,7 @@ instance Core.AWSRequest SearchSecurityProfiles where
   type
     AWSResponse SearchSecurityProfiles =
       SearchSecurityProfilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest SearchSecurityProfiles where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchSecurityProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchSecurityProfiles where
   hashWithSalt _salt SearchSecurityProfiles' {..} =

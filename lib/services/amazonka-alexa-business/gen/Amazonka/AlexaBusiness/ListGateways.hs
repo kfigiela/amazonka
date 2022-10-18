@@ -99,7 +99,7 @@ listGateways_maxResults = Lens.lens (\ListGateways' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ListGateways where
             Prelude.<*> (x Core..?> "Gateways" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =

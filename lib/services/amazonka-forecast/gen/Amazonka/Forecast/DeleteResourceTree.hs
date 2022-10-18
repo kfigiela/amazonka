@@ -97,9 +97,12 @@ instance Core.AWSRequest DeleteResourceTree where
   type
     AWSResponse DeleteResourceTree =
       DeleteResourceTreeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteResourceTreeResponse'
+
+instance Core.AWSService DeleteResourceTree where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourceTree where
   hashWithSalt _salt DeleteResourceTree' {..} =

@@ -102,7 +102,7 @@ instance Core.AWSRequest GetWorkingLocation where
   type
     AWSResponse GetWorkingLocation =
       GetWorkingLocationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetWorkingLocation where
             Prelude.<*> (x Core..?> "s3Uri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorkingLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkingLocation where
   hashWithSalt _salt GetWorkingLocation' {..} =

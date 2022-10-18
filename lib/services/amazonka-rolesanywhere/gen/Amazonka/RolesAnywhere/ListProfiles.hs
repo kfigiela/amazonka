@@ -116,7 +116,7 @@ instance Core.AWSPager ListProfiles where
 
 instance Core.AWSRequest ListProfiles where
   type AWSResponse ListProfiles = ListProfilesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListProfiles where
             Prelude.<*> (x Core..?> "profiles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProfiles where
   hashWithSalt _salt ListProfiles' {..} =

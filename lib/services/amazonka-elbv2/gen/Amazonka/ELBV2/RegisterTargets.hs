@@ -102,7 +102,7 @@ instance Core.AWSRequest RegisterTargets where
   type
     AWSResponse RegisterTargets =
       RegisterTargetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RegisterTargetsResult"
@@ -110,6 +110,9 @@ instance Core.AWSRequest RegisterTargets where
           RegisterTargetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterTargets where
   hashWithSalt _salt RegisterTargets' {..} =

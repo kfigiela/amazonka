@@ -453,7 +453,7 @@ instance Core.AWSRequest CreateAutoPredictor where
   type
     AWSResponse CreateAutoPredictor =
       CreateAutoPredictorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -461,6 +461,9 @@ instance Core.AWSRequest CreateAutoPredictor where
             Prelude.<$> (x Core..?> "PredictorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAutoPredictor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAutoPredictor where
   hashWithSalt _salt CreateAutoPredictor' {..} =

@@ -200,7 +200,7 @@ getResource_identifier = Lens.lens (\GetResource' {identifier} -> identifier) (\
 
 instance Core.AWSRequest GetResource where
   type AWSResponse GetResource = GetResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest GetResource where
             Prelude.<*> (x Core..?> "ResourceDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResource where
   hashWithSalt _salt GetResource' {..} =

@@ -113,13 +113,16 @@ tagStream_tags = Lens.lens (\TagStream' {tags} -> tags) (\s@TagStream' {} a -> s
 
 instance Core.AWSRequest TagStream where
   type AWSResponse TagStream = TagStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           TagStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TagStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagStream where
   hashWithSalt _salt TagStream' {..} =

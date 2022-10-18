@@ -127,11 +127,14 @@ instance Core.AWSRequest ResetCacheParameterGroup where
   type
     AWSResponse ResetCacheParameterGroup =
       CacheParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetCacheParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ResetCacheParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetCacheParameterGroup where
   hashWithSalt _salt ResetCacheParameterGroup' {..} =

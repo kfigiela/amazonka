@@ -126,9 +126,12 @@ instance Core.AWSRequest AttachGroupPolicy where
   type
     AWSResponse AttachGroupPolicy =
       AttachGroupPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachGroupPolicyResponse'
+
+instance Core.AWSService AttachGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachGroupPolicy where
   hashWithSalt _salt AttachGroupPolicy' {..} =

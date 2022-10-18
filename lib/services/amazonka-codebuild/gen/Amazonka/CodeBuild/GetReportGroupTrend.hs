@@ -227,7 +227,7 @@ instance Core.AWSRequest GetReportGroupTrend where
   type
     AWSResponse GetReportGroupTrend =
       GetReportGroupTrendResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -236,6 +236,9 @@ instance Core.AWSRequest GetReportGroupTrend where
             Prelude.<*> (x Core..?> "rawData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetReportGroupTrend where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReportGroupTrend where
   hashWithSalt _salt GetReportGroupTrend' {..} =

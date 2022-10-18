@@ -97,7 +97,7 @@ instance Core.AWSRequest DefineExpression where
   type
     AWSResponse DefineExpression =
       DefineExpressionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DefineExpressionResult"
@@ -106,6 +106,9 @@ instance Core.AWSRequest DefineExpression where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Expression")
       )
+
+instance Core.AWSService DefineExpression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DefineExpression where
   hashWithSalt _salt DefineExpression' {..} =

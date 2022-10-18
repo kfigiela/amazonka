@@ -120,7 +120,7 @@ instance Core.AWSRequest ListChannelBans where
   type
     AWSResponse ListChannelBans =
       ListChannelBansResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListChannelBans where
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannelBans where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannelBans where
   hashWithSalt _salt ListChannelBans' {..} =

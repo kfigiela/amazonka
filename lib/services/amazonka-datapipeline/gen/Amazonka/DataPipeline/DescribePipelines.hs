@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribePipelines where
   type
     AWSResponse DescribePipelines =
       DescribePipelinesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribePipelines where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DescribePipelines where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePipelines where
   hashWithSalt _salt DescribePipelines' {..} =

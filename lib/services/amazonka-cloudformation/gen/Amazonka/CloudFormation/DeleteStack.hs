@@ -203,8 +203,11 @@ deleteStack_stackName = Lens.lens (\DeleteStack' {stackName} -> stackName) (\s@D
 
 instance Core.AWSRequest DeleteStack where
   type AWSResponse DeleteStack = DeleteStackResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteStackResponse'
+
+instance Core.AWSService DeleteStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStack where
   hashWithSalt _salt DeleteStack' {..} =

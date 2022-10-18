@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribePipeline where
   type
     AWSResponse DescribePipeline =
       DescribePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribePipeline where
             Prelude.<*> (x Core..?> "PipelineStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePipeline where
   hashWithSalt _salt DescribePipeline' {..} =

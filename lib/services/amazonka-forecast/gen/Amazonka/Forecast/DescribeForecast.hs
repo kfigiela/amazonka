@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeForecast where
   type
     AWSResponse DescribeForecast =
       DescribeForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeForecast where
             Prelude.<*> (x Core..?> "ForecastName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeForecast where
   hashWithSalt _salt DescribeForecast' {..} =

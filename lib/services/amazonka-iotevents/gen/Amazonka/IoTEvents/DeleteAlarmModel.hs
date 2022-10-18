@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteAlarmModel where
   type
     AWSResponse DeleteAlarmModel =
       DeleteAlarmModelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAlarmModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAlarmModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlarmModel where
   hashWithSalt _salt DeleteAlarmModel' {..} =

@@ -85,7 +85,7 @@ instance Core.AWSRequest DeleteIdentities where
   type
     AWSResponse DeleteIdentities =
       DeleteIdentitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DeleteIdentities where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIdentities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIdentities where
   hashWithSalt _salt DeleteIdentities' {..} =

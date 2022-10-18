@@ -88,7 +88,7 @@ instance Core.AWSRequest DisableDomainTransferLock where
   type
     AWSResponse DisableDomainTransferLock =
       DisableDomainTransferLockResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DisableDomainTransferLock where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OperationId")
       )
+
+instance Core.AWSService DisableDomainTransferLock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableDomainTransferLock where
   hashWithSalt _salt DisableDomainTransferLock' {..} =

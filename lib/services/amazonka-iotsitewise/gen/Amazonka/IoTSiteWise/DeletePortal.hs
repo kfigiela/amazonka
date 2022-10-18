@@ -93,7 +93,7 @@ deletePortal_portalId = Lens.lens (\DeletePortal' {portalId} -> portalId) (\s@De
 
 instance Core.AWSRequest DeletePortal where
   type AWSResponse DeletePortal = DeletePortalResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeletePortal where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "portalStatus")
       )
+
+instance Core.AWSService DeletePortal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePortal where
   hashWithSalt _salt DeletePortal' {..} =

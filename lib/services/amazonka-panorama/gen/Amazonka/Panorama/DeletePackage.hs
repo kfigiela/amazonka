@@ -94,13 +94,16 @@ instance Core.AWSRequest DeletePackage where
   type
     AWSResponse DeletePackage =
       DeletePackageResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePackageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePackage where
   hashWithSalt _salt DeletePackage' {..} =

@@ -102,7 +102,7 @@ instance Core.AWSRequest GetSAMLProvider where
   type
     AWSResponse GetSAMLProvider =
       GetSAMLProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSAMLProviderResult"
@@ -116,6 +116,9 @@ instance Core.AWSRequest GetSAMLProvider where
             Prelude.<*> (x Core..@? "ValidUntil")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSAMLProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSAMLProvider where
   hashWithSalt _salt GetSAMLProvider' {..} =

@@ -95,13 +95,19 @@ instance
   type
     AWSResponse UpdateSecurityHubConfiguration =
       UpdateSecurityHubConfigurationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSecurityHubConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateSecurityHubConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

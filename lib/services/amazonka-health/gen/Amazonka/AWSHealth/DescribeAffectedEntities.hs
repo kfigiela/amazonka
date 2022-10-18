@@ -173,7 +173,7 @@ instance Core.AWSRequest DescribeAffectedEntities where
   type
     AWSResponse DescribeAffectedEntities =
       DescribeAffectedEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest DescribeAffectedEntities where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAffectedEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAffectedEntities where
   hashWithSalt _salt DescribeAffectedEntities' {..} =

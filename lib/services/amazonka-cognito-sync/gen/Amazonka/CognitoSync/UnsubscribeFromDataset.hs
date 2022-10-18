@@ -131,13 +131,16 @@ instance Core.AWSRequest UnsubscribeFromDataset where
   type
     AWSResponse UnsubscribeFromDataset =
       UnsubscribeFromDatasetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UnsubscribeFromDatasetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UnsubscribeFromDataset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnsubscribeFromDataset where
   hashWithSalt _salt UnsubscribeFromDataset' {..} =

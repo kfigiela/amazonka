@@ -149,7 +149,7 @@ instance Core.AWSPager GetDatabases where
 
 instance Core.AWSRequest GetDatabases where
   type AWSResponse GetDatabases = GetDatabasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest GetDatabases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "DatabaseList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetDatabases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDatabases where
   hashWithSalt _salt GetDatabases' {..} =

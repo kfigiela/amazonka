@@ -145,7 +145,7 @@ instance Core.AWSRequest ListIntegrationAssociations where
   type
     AWSResponse ListIntegrationAssociations =
       ListIntegrationAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListIntegrationAssociations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIntegrationAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIntegrationAssociations where
   hashWithSalt _salt ListIntegrationAssociations' {..} =

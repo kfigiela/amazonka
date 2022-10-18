@@ -119,7 +119,7 @@ instance Core.AWSRequest UpdateDomainContact where
   type
     AWSResponse UpdateDomainContact =
       UpdateDomainContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateDomainContact where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OperationId")
       )
+
+instance Core.AWSService UpdateDomainContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainContact where
   hashWithSalt _salt UpdateDomainContact' {..} =

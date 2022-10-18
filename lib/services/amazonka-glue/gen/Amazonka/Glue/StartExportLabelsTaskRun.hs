@@ -103,7 +103,7 @@ instance Core.AWSRequest StartExportLabelsTaskRun where
   type
     AWSResponse StartExportLabelsTaskRun =
       StartExportLabelsTaskRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest StartExportLabelsTaskRun where
             Prelude.<$> (x Core..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartExportLabelsTaskRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartExportLabelsTaskRun where
   hashWithSalt _salt StartExportLabelsTaskRun' {..} =

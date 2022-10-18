@@ -191,7 +191,7 @@ instance Core.AWSRequest CreateStorageVirtualMachine where
   type
     AWSResponse CreateStorageVirtualMachine =
       CreateStorageVirtualMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest CreateStorageVirtualMachine where
             Prelude.<$> (x Core..?> "StorageVirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStorageVirtualMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStorageVirtualMachine where
   hashWithSalt _salt CreateStorageVirtualMachine' {..} =

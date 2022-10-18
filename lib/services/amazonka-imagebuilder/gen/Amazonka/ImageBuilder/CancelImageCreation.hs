@@ -109,7 +109,7 @@ instance Core.AWSRequest CancelImageCreation where
   type
     AWSResponse CancelImageCreation =
       CancelImageCreationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest CancelImageCreation where
             Prelude.<*> (x Core..?> "imageBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelImageCreation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelImageCreation where
   hashWithSalt _salt CancelImageCreation' {..} =

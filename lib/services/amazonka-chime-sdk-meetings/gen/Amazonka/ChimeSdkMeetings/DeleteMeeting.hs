@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteMeeting where
   type
     AWSResponse DeleteMeeting =
       DeleteMeetingResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMeetingResponse'
+
+instance Core.AWSService DeleteMeeting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMeeting where
   hashWithSalt _salt DeleteMeeting' {..} =

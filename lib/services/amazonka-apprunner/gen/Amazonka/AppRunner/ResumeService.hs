@@ -86,7 +86,7 @@ instance Core.AWSRequest ResumeService where
   type
     AWSResponse ResumeService =
       ResumeServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest ResumeService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Service")
       )
+
+instance Core.AWSService ResumeService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeService where
   hashWithSalt _salt ResumeService' {..} =

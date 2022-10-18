@@ -117,13 +117,16 @@ instance Core.AWSRequest PutRecommendationFeedback where
   type
     AWSResponse PutRecommendationFeedback =
       PutRecommendationFeedbackResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutRecommendationFeedbackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRecommendationFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRecommendationFeedback where
   hashWithSalt _salt PutRecommendationFeedback' {..} =

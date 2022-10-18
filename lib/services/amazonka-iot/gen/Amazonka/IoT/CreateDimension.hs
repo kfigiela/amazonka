@@ -156,7 +156,7 @@ instance Core.AWSRequest CreateDimension where
   type
     AWSResponse CreateDimension =
       CreateDimensionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest CreateDimension where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDimension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDimension where
   hashWithSalt _salt CreateDimension' {..} =

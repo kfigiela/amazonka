@@ -140,10 +140,13 @@ instance Core.AWSRequest UpdateSigningCertificate where
   type
     AWSResponse UpdateSigningCertificate =
       UpdateSigningCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateSigningCertificateResponse'
+
+instance Core.AWSService UpdateSigningCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSigningCertificate where
   hashWithSalt _salt UpdateSigningCertificate' {..} =

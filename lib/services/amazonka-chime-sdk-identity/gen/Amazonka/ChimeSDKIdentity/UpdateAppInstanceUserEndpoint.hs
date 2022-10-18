@@ -128,7 +128,7 @@ instance
   type
     AWSResponse UpdateAppInstanceUserEndpoint =
       UpdateAppInstanceUserEndpointResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,12 @@ instance
             Prelude.<*> (x Core..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateAppInstanceUserEndpoint
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

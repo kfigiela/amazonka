@@ -170,7 +170,7 @@ instance Core.AWSRequest ListVirtualClusters where
   type
     AWSResponse ListVirtualClusters =
       ListVirtualClustersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ListVirtualClusters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVirtualClusters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVirtualClusters where
   hashWithSalt _salt ListVirtualClusters' {..} =

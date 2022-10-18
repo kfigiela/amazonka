@@ -290,7 +290,7 @@ instance Core.AWSRequest CreateResourceShare where
   type
     AWSResponse CreateResourceShare =
       CreateResourceShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -299,6 +299,9 @@ instance Core.AWSRequest CreateResourceShare where
             Prelude.<*> (x Core..?> "resourceShare")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResourceShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResourceShare where
   hashWithSalt _salt CreateResourceShare' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest RestoreServer where
   type
     AWSResponse RestoreServer =
       RestoreServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest RestoreServer where
             Prelude.<$> (x Core..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreServer where
   hashWithSalt _salt RestoreServer' {..} =

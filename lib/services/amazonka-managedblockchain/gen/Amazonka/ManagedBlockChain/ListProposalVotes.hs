@@ -115,7 +115,7 @@ instance Core.AWSRequest ListProposalVotes where
   type
     AWSResponse ListProposalVotes =
       ListProposalVotesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListProposalVotes where
             Prelude.<*> (x Core..?> "ProposalVotes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProposalVotes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProposalVotes where
   hashWithSalt _salt ListProposalVotes' {..} =

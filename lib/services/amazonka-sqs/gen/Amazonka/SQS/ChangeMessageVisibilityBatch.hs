@@ -118,7 +118,7 @@ instance Core.AWSRequest ChangeMessageVisibilityBatch where
   type
     AWSResponse ChangeMessageVisibilityBatch =
       ChangeMessageVisibilityBatchResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ChangeMessageVisibilityBatchResult"
@@ -131,6 +131,9 @@ instance Core.AWSRequest ChangeMessageVisibilityBatch where
                         )
             Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
+
+instance Core.AWSService ChangeMessageVisibilityBatch where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

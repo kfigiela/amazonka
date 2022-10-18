@@ -167,7 +167,7 @@ instance Core.AWSRequest ListBuildBatchesForProject where
   type
     AWSResponse ListBuildBatchesForProject =
       ListBuildBatchesForProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest ListBuildBatchesForProject where
             Prelude.<*> (x Core..?> "ids" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBuildBatchesForProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBuildBatchesForProject where
   hashWithSalt _salt ListBuildBatchesForProject' {..} =

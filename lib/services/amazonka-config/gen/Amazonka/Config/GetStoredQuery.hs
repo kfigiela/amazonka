@@ -77,7 +77,7 @@ instance Core.AWSRequest GetStoredQuery where
   type
     AWSResponse GetStoredQuery =
       GetStoredQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetStoredQuery where
             Prelude.<$> (x Core..?> "StoredQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStoredQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStoredQuery where
   hashWithSalt _salt GetStoredQuery' {..} =

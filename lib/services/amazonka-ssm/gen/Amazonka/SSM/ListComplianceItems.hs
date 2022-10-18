@@ -163,7 +163,7 @@ instance Core.AWSRequest ListComplianceItems where
   type
     AWSResponse ListComplianceItems =
       ListComplianceItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest ListComplianceItems where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListComplianceItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListComplianceItems where
   hashWithSalt _salt ListComplianceItems' {..} =

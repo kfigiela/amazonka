@@ -271,7 +271,7 @@ instance Core.AWSRequest DescribeInstanceEventWindows where
   type
     AWSResponse DescribeInstanceEventWindows =
       DescribeInstanceEventWindowsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -283,6 +283,9 @@ instance Core.AWSRequest DescribeInstanceEventWindows where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceEventWindows where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

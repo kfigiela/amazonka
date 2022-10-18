@@ -99,7 +99,7 @@ listSipRules_sipMediaApplicationId = Lens.lens (\ListSipRules' {sipMediaApplicat
 
 instance Core.AWSRequest ListSipRules where
   type AWSResponse ListSipRules = ListSipRulesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ListSipRules where
             Prelude.<*> (x Core..?> "SipRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSipRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSipRules where
   hashWithSalt _salt ListSipRules' {..} =

@@ -782,7 +782,7 @@ updateStack_stackName = Lens.lens (\UpdateStack' {stackName} -> stackName) (\s@U
 
 instance Core.AWSRequest UpdateStack where
   type AWSResponse UpdateStack = UpdateStackResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateStackResult"
@@ -791,6 +791,9 @@ instance Core.AWSRequest UpdateStack where
             Prelude.<$> (x Core..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStack where
   hashWithSalt _salt UpdateStack' {..} =

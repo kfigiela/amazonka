@@ -123,10 +123,16 @@ instance
     AWSResponse
       RemoveClientIDFromOpenIDConnectProvider =
       RemoveClientIDFromOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveClientIDFromOpenIDConnectProviderResponse'
+
+instance
+  Core.AWSService
+    RemoveClientIDFromOpenIDConnectProvider
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

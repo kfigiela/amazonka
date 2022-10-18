@@ -80,9 +80,12 @@ instance Core.AWSRequest DeleteSolution where
   type
     AWSResponse DeleteSolution =
       DeleteSolutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteSolutionResponse'
+
+instance Core.AWSService DeleteSolution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSolution where
   hashWithSalt _salt DeleteSolution' {..} =

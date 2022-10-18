@@ -93,13 +93,16 @@ stopSuiteRun_suiteRunId = Lens.lens (\StopSuiteRun' {suiteRunId} -> suiteRunId) 
 
 instance Core.AWSRequest StopSuiteRun where
   type AWSResponse StopSuiteRun = StopSuiteRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopSuiteRunResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopSuiteRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopSuiteRun where
   hashWithSalt _salt StopSuiteRun' {..} =

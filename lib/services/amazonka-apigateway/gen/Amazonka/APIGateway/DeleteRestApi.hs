@@ -75,9 +75,12 @@ instance Core.AWSRequest DeleteRestApi where
   type
     AWSResponse DeleteRestApi =
       DeleteRestApiResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRestApiResponse'
+
+instance Core.AWSService DeleteRestApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRestApi where
   hashWithSalt _salt DeleteRestApi' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest GetComponentPolicy where
   type
     AWSResponse GetComponentPolicy =
       GetComponentPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetComponentPolicy where
             Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetComponentPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComponentPolicy where
   hashWithSalt _salt GetComponentPolicy' {..} =

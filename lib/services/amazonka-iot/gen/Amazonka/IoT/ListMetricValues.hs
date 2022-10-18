@@ -189,7 +189,7 @@ instance Core.AWSRequest ListMetricValues where
   type
     AWSResponse ListMetricValues =
       ListMetricValuesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest ListMetricValues where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMetricValues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMetricValues where
   hashWithSalt _salt ListMetricValues' {..} =

@@ -131,7 +131,7 @@ instance Core.AWSRequest ListEnvironmentVpcs where
   type
     AWSResponse ListEnvironmentVpcs =
       ListEnvironmentVpcsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest ListEnvironmentVpcs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEnvironmentVpcs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEnvironmentVpcs where
   hashWithSalt _salt ListEnvironmentVpcs' {..} =

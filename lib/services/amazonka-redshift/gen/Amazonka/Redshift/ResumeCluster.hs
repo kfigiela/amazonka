@@ -83,7 +83,7 @@ instance Core.AWSRequest ResumeCluster where
   type
     AWSResponse ResumeCluster =
       ResumeClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResumeClusterResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest ResumeCluster where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResumeCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeCluster where
   hashWithSalt _salt ResumeCluster' {..} =

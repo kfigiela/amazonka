@@ -222,10 +222,13 @@ instance Core.AWSRequest PutFunctionEventInvokeConfig where
   type
     AWSResponse PutFunctionEventInvokeConfig =
       FunctionEventInvokeConfig
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutFunctionEventInvokeConfig where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

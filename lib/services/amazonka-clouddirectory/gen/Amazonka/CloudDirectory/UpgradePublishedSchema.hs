@@ -132,7 +132,7 @@ instance Core.AWSRequest UpgradePublishedSchema where
   type
     AWSResponse UpgradePublishedSchema =
       UpgradePublishedSchemaResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest UpgradePublishedSchema where
             Prelude.<$> (x Core..?> "UpgradedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpgradePublishedSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpgradePublishedSchema where
   hashWithSalt _salt UpgradePublishedSchema' {..} =

@@ -363,7 +363,7 @@ instance Core.AWSRequest ListResolverQueryLogConfigs where
   type
     AWSResponse ListResolverQueryLogConfigs =
       ListResolverQueryLogConfigsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -376,6 +376,9 @@ instance Core.AWSRequest ListResolverQueryLogConfigs where
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResolverQueryLogConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResolverQueryLogConfigs where
   hashWithSalt _salt ListResolverQueryLogConfigs' {..} =

@@ -737,7 +737,7 @@ instance Core.AWSRequest UpdateUserPoolClient where
   type
     AWSResponse UpdateUserPoolClient =
       UpdateUserPoolClientResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -745,6 +745,9 @@ instance Core.AWSRequest UpdateUserPoolClient where
             Prelude.<$> (x Core..?> "UserPoolClient")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUserPoolClient where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserPoolClient where
   hashWithSalt _salt UpdateUserPoolClient' {..} =

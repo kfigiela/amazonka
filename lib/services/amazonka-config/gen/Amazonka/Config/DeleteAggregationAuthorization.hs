@@ -94,10 +94,16 @@ instance
   type
     AWSResponse DeleteAggregationAuthorization =
       DeleteAggregationAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteAggregationAuthorizationResponse'
+
+instance
+  Core.AWSService
+    DeleteAggregationAuthorization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

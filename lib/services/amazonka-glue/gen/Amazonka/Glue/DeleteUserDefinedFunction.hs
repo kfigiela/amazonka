@@ -109,13 +109,16 @@ instance Core.AWSRequest DeleteUserDefinedFunction where
   type
     AWSResponse DeleteUserDefinedFunction =
       DeleteUserDefinedFunctionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserDefinedFunctionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteUserDefinedFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserDefinedFunction where
   hashWithSalt _salt DeleteUserDefinedFunction' {..} =

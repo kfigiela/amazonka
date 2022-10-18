@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeScalingParameters where
   type
     AWSResponse DescribeScalingParameters =
       DescribeScalingParametersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScalingParametersResult"
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeScalingParameters where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ScalingParameters")
       )
+
+instance Core.AWSService DescribeScalingParameters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScalingParameters where
   hashWithSalt _salt DescribeScalingParameters' {..} =

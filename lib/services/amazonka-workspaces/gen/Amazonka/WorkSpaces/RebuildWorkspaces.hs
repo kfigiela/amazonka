@@ -90,7 +90,7 @@ instance Core.AWSRequest RebuildWorkspaces where
   type
     AWSResponse RebuildWorkspaces =
       RebuildWorkspacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest RebuildWorkspaces where
             Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebuildWorkspaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebuildWorkspaces where
   hashWithSalt _salt RebuildWorkspaces' {..} =

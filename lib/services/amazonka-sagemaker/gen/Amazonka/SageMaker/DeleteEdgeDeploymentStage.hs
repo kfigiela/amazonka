@@ -94,10 +94,13 @@ instance Core.AWSRequest DeleteEdgeDeploymentStage where
   type
     AWSResponse DeleteEdgeDeploymentStage =
       DeleteEdgeDeploymentStageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteEdgeDeploymentStageResponse'
+
+instance Core.AWSService DeleteEdgeDeploymentStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEdgeDeploymentStage where
   hashWithSalt _salt DeleteEdgeDeploymentStage' {..} =

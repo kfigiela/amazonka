@@ -225,7 +225,7 @@ instance Core.AWSRequest MergePullRequestBySquash where
   type
     AWSResponse MergePullRequestBySquash =
       MergePullRequestBySquashResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -233,6 +233,9 @@ instance Core.AWSRequest MergePullRequestBySquash where
             Prelude.<$> (x Core..?> "pullRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MergePullRequestBySquash where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MergePullRequestBySquash where
   hashWithSalt _salt MergePullRequestBySquash' {..} =

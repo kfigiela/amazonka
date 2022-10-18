@@ -107,10 +107,13 @@ instance Core.AWSRequest PutAccountConfiguration where
   type
     AWSResponse PutAccountConfiguration =
       PutAccountConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       PutAccountConfigurationResponse'
+
+instance Core.AWSService PutAccountConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAccountConfiguration where
   hashWithSalt _salt PutAccountConfiguration' {..} =

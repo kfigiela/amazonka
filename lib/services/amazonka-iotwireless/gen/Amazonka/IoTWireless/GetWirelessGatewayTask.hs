@@ -81,7 +81,7 @@ instance Core.AWSRequest GetWirelessGatewayTask where
   type
     AWSResponse GetWirelessGatewayTask =
       GetWirelessGatewayTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetWirelessGatewayTask where
             Prelude.<*> (x Core..?> "WirelessGatewayTaskDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWirelessGatewayTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWirelessGatewayTask where
   hashWithSalt _salt GetWirelessGatewayTask' {..} =

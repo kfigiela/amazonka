@@ -98,7 +98,7 @@ instance Core.AWSRequest UpdateRecoveryGroup where
   type
     AWSResponse UpdateRecoveryGroup =
       UpdateRecoveryGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateRecoveryGroup where
             Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRecoveryGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRecoveryGroup where
   hashWithSalt _salt UpdateRecoveryGroup' {..} =

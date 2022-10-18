@@ -180,7 +180,7 @@ instance Core.AWSRequest CreateNatGateway where
   type
     AWSResponse CreateNatGateway =
       CreateNatGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest CreateNatGateway where
             Prelude.<*> (x Core..@? "natGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNatGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNatGateway where
   hashWithSalt _salt CreateNatGateway' {..} =

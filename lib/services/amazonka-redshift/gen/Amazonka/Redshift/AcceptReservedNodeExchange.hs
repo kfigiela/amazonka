@@ -106,7 +106,7 @@ instance Core.AWSRequest AcceptReservedNodeExchange where
   type
     AWSResponse AcceptReservedNodeExchange =
       AcceptReservedNodeExchangeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AcceptReservedNodeExchangeResult"
@@ -115,6 +115,9 @@ instance Core.AWSRequest AcceptReservedNodeExchange where
             Prelude.<$> (x Core..@? "ExchangedReservedNode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptReservedNodeExchange where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptReservedNodeExchange where
   hashWithSalt _salt AcceptReservedNodeExchange' {..} =

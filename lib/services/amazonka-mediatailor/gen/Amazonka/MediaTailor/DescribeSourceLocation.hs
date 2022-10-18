@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeSourceLocation where
   type
     AWSResponse DescribeSourceLocation =
       DescribeSourceLocationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeSourceLocation where
             Prelude.<*> (x Core..?> "HttpConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSourceLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSourceLocation where
   hashWithSalt _salt DescribeSourceLocation' {..} =

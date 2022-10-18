@@ -145,7 +145,7 @@ instance
   type
     AWSResponse ListCustomVerificationEmailTemplates =
       ListCustomVerificationEmailTemplatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListCustomVerificationEmailTemplatesResult"
@@ -158,6 +158,12 @@ instance
               Prelude.<*> (x Core..@? "NextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListCustomVerificationEmailTemplates
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

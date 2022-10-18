@@ -136,7 +136,7 @@ instance
   type
     AWSResponse DescribeProvisionedProductPlan =
       DescribeProvisionedProductPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeProvisionedProductPlan
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

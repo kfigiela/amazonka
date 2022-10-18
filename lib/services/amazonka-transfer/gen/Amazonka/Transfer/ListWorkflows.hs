@@ -113,7 +113,7 @@ instance Core.AWSRequest ListWorkflows where
   type
     AWSResponse ListWorkflows =
       ListWorkflowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListWorkflows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Workflows" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListWorkflows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorkflows where
   hashWithSalt _salt ListWorkflows' {..} =

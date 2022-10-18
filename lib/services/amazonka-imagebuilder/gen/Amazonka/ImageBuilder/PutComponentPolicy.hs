@@ -101,7 +101,7 @@ instance Core.AWSRequest PutComponentPolicy where
   type
     AWSResponse PutComponentPolicy =
       PutComponentPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest PutComponentPolicy where
             Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutComponentPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutComponentPolicy where
   hashWithSalt _salt PutComponentPolicy' {..} =

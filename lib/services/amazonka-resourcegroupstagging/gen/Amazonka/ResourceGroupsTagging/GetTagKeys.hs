@@ -112,7 +112,7 @@ instance Core.AWSPager GetTagKeys where
 
 instance Core.AWSRequest GetTagKeys where
   type AWSResponse GetTagKeys = GetTagKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetTagKeys where
             Prelude.<*> (x Core..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTagKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTagKeys where
   hashWithSalt _salt GetTagKeys' {..} =

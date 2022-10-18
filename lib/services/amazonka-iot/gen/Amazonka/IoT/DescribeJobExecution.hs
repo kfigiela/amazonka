@@ -109,7 +109,7 @@ instance Core.AWSRequest DescribeJobExecution where
   type
     AWSResponse DescribeJobExecution =
       DescribeJobExecutionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeJobExecution where
             Prelude.<$> (x Core..?> "execution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJobExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJobExecution where
   hashWithSalt _salt DescribeJobExecution' {..} =

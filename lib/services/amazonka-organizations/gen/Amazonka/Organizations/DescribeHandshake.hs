@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeHandshake where
   type
     AWSResponse DescribeHandshake =
       DescribeHandshakeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DescribeHandshake where
             Prelude.<$> (x Core..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHandshake where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHandshake where
   hashWithSalt _salt DescribeHandshake' {..} =

@@ -116,7 +116,7 @@ instance Core.AWSRequest CreateResourceDefinition where
   type
     AWSResponse CreateResourceDefinition =
       CreateResourceDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest CreateResourceDefinition where
             Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResourceDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResourceDefinition where
   hashWithSalt _salt CreateResourceDefinition' {..} =

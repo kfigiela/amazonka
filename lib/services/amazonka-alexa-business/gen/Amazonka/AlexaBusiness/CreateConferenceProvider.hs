@@ -149,7 +149,7 @@ instance Core.AWSRequest CreateConferenceProvider where
   type
     AWSResponse CreateConferenceProvider =
       CreateConferenceProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest CreateConferenceProvider where
             Prelude.<$> (x Core..?> "ConferenceProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConferenceProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConferenceProvider where
   hashWithSalt _salt CreateConferenceProvider' {..} =

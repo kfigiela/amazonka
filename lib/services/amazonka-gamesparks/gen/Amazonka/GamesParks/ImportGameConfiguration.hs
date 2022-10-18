@@ -96,7 +96,7 @@ instance Core.AWSRequest ImportGameConfiguration where
   type
     AWSResponse ImportGameConfiguration =
       ImportGameConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest ImportGameConfiguration where
             Prelude.<$> (x Core..?> "GameConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportGameConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportGameConfiguration where
   hashWithSalt _salt ImportGameConfiguration' {..} =

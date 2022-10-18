@@ -110,7 +110,7 @@ instance Core.AWSRequest DescribeThemeAlias where
   type
     AWSResponse DescribeThemeAlias =
       DescribeThemeAliasResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeThemeAlias where
             Prelude.<*> (x Core..?> "ThemeAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeThemeAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeThemeAlias where
   hashWithSalt _salt DescribeThemeAlias' {..} =

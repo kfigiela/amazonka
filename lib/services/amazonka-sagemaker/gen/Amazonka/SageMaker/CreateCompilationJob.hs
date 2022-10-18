@@ -280,7 +280,7 @@ instance Core.AWSRequest CreateCompilationJob where
   type
     AWSResponse CreateCompilationJob =
       CreateCompilationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -288,6 +288,9 @@ instance Core.AWSRequest CreateCompilationJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CompilationJobArn")
       )
+
+instance Core.AWSService CreateCompilationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCompilationJob where
   hashWithSalt _salt CreateCompilationJob' {..} =

@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteTagOption where
   type
     AWSResponse DeleteTagOption =
       DeleteTagOptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTagOptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTagOption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTagOption where
   hashWithSalt _salt DeleteTagOption' {..} =

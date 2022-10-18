@@ -96,13 +96,16 @@ instance Core.AWSRequest DisconnectParticipant where
   type
     AWSResponse DisconnectParticipant =
       DisconnectParticipantResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisconnectParticipantResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisconnectParticipant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisconnectParticipant where
   hashWithSalt _salt DisconnectParticipant' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeBotVersion where
   type
     AWSResponse DescribeBotVersion =
       DescribeBotVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeBotVersion where
             Prelude.<*> (x Core..?> "botStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBotVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBotVersion where
   hashWithSalt _salt DescribeBotVersion' {..} =

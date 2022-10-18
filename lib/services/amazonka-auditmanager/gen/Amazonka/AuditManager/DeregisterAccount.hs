@@ -98,7 +98,7 @@ instance Core.AWSRequest DeregisterAccount where
   type
     AWSResponse DeregisterAccount =
       DeregisterAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeregisterAccount where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterAccount where
   hashWithSalt _salt _ =

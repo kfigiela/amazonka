@@ -184,9 +184,12 @@ instance Core.AWSRequest UpdateAssetProperty where
   type
     AWSResponse UpdateAssetProperty =
       UpdateAssetPropertyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateAssetPropertyResponse'
+
+instance Core.AWSService UpdateAssetProperty where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssetProperty where
   hashWithSalt _salt UpdateAssetProperty' {..} =

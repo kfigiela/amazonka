@@ -166,7 +166,7 @@ instance Core.AWSRequest ModifyGlobalReplicationGroup where
   type
     AWSResponse ModifyGlobalReplicationGroup =
       ModifyGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyGlobalReplicationGroupResult"
@@ -175,6 +175,9 @@ instance Core.AWSRequest ModifyGlobalReplicationGroup where
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyGlobalReplicationGroup where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

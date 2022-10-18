@@ -127,7 +127,7 @@ instance Core.AWSRequest GetLoggerDefinitionVersion where
   type
     AWSResponse GetLoggerDefinitionVersion =
       GetLoggerDefinitionVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetLoggerDefinitionVersion where
             Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLoggerDefinitionVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLoggerDefinitionVersion where
   hashWithSalt _salt GetLoggerDefinitionVersion' {..} =

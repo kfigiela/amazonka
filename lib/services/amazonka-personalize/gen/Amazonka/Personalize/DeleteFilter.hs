@@ -71,8 +71,11 @@ deleteFilter_filterArn = Lens.lens (\DeleteFilter' {filterArn} -> filterArn) (\s
 
 instance Core.AWSRequest DeleteFilter where
   type AWSResponse DeleteFilter = DeleteFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteFilterResponse'
+
+instance Core.AWSService DeleteFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFilter where
   hashWithSalt _salt DeleteFilter' {..} =

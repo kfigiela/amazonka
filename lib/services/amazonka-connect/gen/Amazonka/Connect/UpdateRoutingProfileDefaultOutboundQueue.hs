@@ -112,10 +112,16 @@ instance
     AWSResponse
       UpdateRoutingProfileDefaultOutboundQueue =
       UpdateRoutingProfileDefaultOutboundQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateRoutingProfileDefaultOutboundQueueResponse'
+
+instance
+  Core.AWSService
+    UpdateRoutingProfileDefaultOutboundQueue
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

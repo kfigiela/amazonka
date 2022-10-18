@@ -88,7 +88,7 @@ instance
   type
     AWSResponse GetNetworkAnalyzerConfiguration =
       GetNetworkAnalyzerConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,12 @@ instance
             Prelude.<*> (x Core..?> "TraceContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetNetworkAnalyzerConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

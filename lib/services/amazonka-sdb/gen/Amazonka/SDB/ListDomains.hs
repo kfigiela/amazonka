@@ -119,7 +119,7 @@ instance Core.AWSPager ListDomains where
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListDomainsResult"
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (Core.may (Core.parseXMLList "DomainName") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =

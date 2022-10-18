@@ -82,13 +82,16 @@ instance Core.AWSRequest EnableAWSOrganizationsAccess where
   type
     AWSResponse EnableAWSOrganizationsAccess =
       EnableAWSOrganizationsAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableAWSOrganizationsAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableAWSOrganizationsAccess where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

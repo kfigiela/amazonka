@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteFleetAdvisorCollector where
   type
     AWSResponse DeleteFleetAdvisorCollector =
       DeleteFleetAdvisorCollectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteFleetAdvisorCollectorResponse'
+
+instance Core.AWSService DeleteFleetAdvisorCollector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFleetAdvisorCollector where
   hashWithSalt _salt DeleteFleetAdvisorCollector' {..} =

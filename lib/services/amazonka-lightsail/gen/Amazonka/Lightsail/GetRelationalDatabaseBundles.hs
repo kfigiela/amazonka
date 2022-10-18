@@ -135,7 +135,7 @@ instance Core.AWSRequest GetRelationalDatabaseBundles where
   type
     AWSResponse GetRelationalDatabaseBundles =
       GetRelationalDatabaseBundlesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest GetRelationalDatabaseBundles where
             Prelude.<*> (x Core..?> "bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRelationalDatabaseBundles where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

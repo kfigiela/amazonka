@@ -132,7 +132,7 @@ instance Core.AWSRequest StartConnection where
   type
     AWSResponse StartConnection =
       StartConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest StartConnection where
             Prelude.<*> (x Core..?> "UnderlayIpAddress")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartConnection where
   hashWithSalt _salt StartConnection' {..} =

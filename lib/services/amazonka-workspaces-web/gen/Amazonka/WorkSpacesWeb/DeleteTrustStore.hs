@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteTrustStore where
   type
     AWSResponse DeleteTrustStore =
       DeleteTrustStoreResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTrustStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTrustStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrustStore where
   hashWithSalt _salt DeleteTrustStore' {..} =

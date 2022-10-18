@@ -106,13 +106,16 @@ instance Core.AWSRequest RegisterEventTopic where
   type
     AWSResponse RegisterEventTopic =
       RegisterEventTopicResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterEventTopicResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterEventTopic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterEventTopic where
   hashWithSalt _salt RegisterEventTopic' {..} =

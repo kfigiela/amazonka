@@ -88,13 +88,16 @@ instance Core.AWSRequest UpdateFunctionDefinition where
   type
     AWSResponse UpdateFunctionDefinition =
       UpdateFunctionDefinitionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFunctionDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFunctionDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFunctionDefinition where
   hashWithSalt _salt UpdateFunctionDefinition' {..} =

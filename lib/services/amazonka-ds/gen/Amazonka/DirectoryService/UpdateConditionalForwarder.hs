@@ -115,13 +115,16 @@ instance Core.AWSRequest UpdateConditionalForwarder where
   type
     AWSResponse UpdateConditionalForwarder =
       UpdateConditionalForwarderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateConditionalForwarderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConditionalForwarder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConditionalForwarder where
   hashWithSalt _salt UpdateConditionalForwarder' {..} =

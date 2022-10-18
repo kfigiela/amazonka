@@ -163,7 +163,7 @@ instance Core.AWSRequest CreateAnomalyMonitor where
   type
     AWSResponse CreateAnomalyMonitor =
       CreateAnomalyMonitorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest CreateAnomalyMonitor where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "MonitorArn")
       )
+
+instance Core.AWSService CreateAnomalyMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAnomalyMonitor where
   hashWithSalt _salt CreateAnomalyMonitor' {..} =

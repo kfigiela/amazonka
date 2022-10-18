@@ -102,7 +102,7 @@ syncResource_resource = Lens.lens (\SyncResource' {resource} -> resource) (\s@Sy
 
 instance Core.AWSRequest SyncResource where
   type AWSResponse SyncResource = SyncResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest SyncResource where
             Prelude.<*> (x Core..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SyncResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SyncResource where
   hashWithSalt _salt SyncResource' {..} =

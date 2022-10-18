@@ -162,7 +162,7 @@ instance Core.AWSRequest GetUsageStatistics where
   type
     AWSResponse GetUsageStatistics =
       GetUsageStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest GetUsageStatistics where
             Prelude.<*> (x Core..?> "timeRange")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUsageStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUsageStatistics where
   hashWithSalt _salt GetUsageStatistics' {..} =

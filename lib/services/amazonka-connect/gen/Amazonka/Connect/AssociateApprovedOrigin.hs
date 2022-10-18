@@ -93,10 +93,13 @@ instance Core.AWSRequest AssociateApprovedOrigin where
   type
     AWSResponse AssociateApprovedOrigin =
       AssociateApprovedOriginResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       AssociateApprovedOriginResponse'
+
+instance Core.AWSService AssociateApprovedOrigin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateApprovedOrigin where
   hashWithSalt _salt AssociateApprovedOrigin' {..} =

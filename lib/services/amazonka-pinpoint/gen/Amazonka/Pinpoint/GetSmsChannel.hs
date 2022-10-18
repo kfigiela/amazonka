@@ -81,7 +81,7 @@ instance Core.AWSRequest GetSmsChannel where
   type
     AWSResponse GetSmsChannel =
       GetSmsChannelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetSmsChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetSmsChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSmsChannel where
   hashWithSalt _salt GetSmsChannel' {..} =

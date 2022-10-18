@@ -100,10 +100,13 @@ instance Core.AWSRequest GetLayerVersion where
   type
     AWSResponse GetLayerVersion =
       GetLayerVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetLayerVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLayerVersion where
   hashWithSalt _salt GetLayerVersion' {..} =

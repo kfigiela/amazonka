@@ -76,10 +76,13 @@ instance Core.AWSRequest DeleteSipMediaApplication where
   type
     AWSResponse DeleteSipMediaApplication =
       DeleteSipMediaApplicationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteSipMediaApplicationResponse'
+
+instance Core.AWSService DeleteSipMediaApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSipMediaApplication where
   hashWithSalt _salt DeleteSipMediaApplication' {..} =

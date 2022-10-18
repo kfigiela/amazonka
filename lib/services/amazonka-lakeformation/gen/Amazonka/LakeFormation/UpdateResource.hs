@@ -91,13 +91,16 @@ instance Core.AWSRequest UpdateResource where
   type
     AWSResponse UpdateResource =
       UpdateResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =

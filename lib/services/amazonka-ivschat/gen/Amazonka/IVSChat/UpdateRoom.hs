@@ -140,7 +140,7 @@ updateRoom_identifier = Lens.lens (\UpdateRoom' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest UpdateRoom where
   type AWSResponse UpdateRoom = UpdateRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdateRoom where
             Prelude.<*> (x Core..?> "createTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoom where
   hashWithSalt _salt UpdateRoom' {..} =

@@ -115,7 +115,7 @@ instance Core.AWSRequest DescribeInstanceTypeLimits where
   type
     AWSResponse DescribeInstanceTypeLimits =
       DescribeInstanceTypeLimitsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeInstanceTypeLimits where
             Prelude.<$> (x Core..?> "LimitsByRole" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceTypeLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstanceTypeLimits where
   hashWithSalt _salt DescribeInstanceTypeLimits' {..} =

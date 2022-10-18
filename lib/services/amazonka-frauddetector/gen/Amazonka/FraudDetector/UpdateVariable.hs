@@ -111,13 +111,16 @@ instance Core.AWSRequest UpdateVariable where
   type
     AWSResponse UpdateVariable =
       UpdateVariableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateVariableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVariable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVariable where
   hashWithSalt _salt UpdateVariable' {..} =

@@ -190,7 +190,7 @@ putBotAlias_botName = Lens.lens (\PutBotAlias' {botName} -> botName) (\s@PutBotA
 
 instance Core.AWSRequest PutBotAlias where
   type AWSResponse PutBotAlias = PutBotAliasResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest PutBotAlias where
             Prelude.<*> (x Core..?> "createdDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutBotAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBotAlias where
   hashWithSalt _salt PutBotAlias' {..} =

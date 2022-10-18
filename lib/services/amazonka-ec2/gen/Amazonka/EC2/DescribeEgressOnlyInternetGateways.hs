@@ -195,7 +195,7 @@ instance
   type
     AWSResponse DescribeEgressOnlyInternetGateways =
       DescribeEgressOnlyInternetGatewaysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -207,6 +207,12 @@ instance
               Prelude.<*> (x Core..@? "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEgressOnlyInternetGateways
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

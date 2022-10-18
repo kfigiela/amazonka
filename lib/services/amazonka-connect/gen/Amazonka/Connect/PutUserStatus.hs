@@ -116,13 +116,16 @@ instance Core.AWSRequest PutUserStatus where
   type
     AWSResponse PutUserStatus =
       PutUserStatusResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutUserStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutUserStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutUserStatus where
   hashWithSalt _salt PutUserStatus' {..} =

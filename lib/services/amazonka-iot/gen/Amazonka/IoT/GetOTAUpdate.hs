@@ -79,7 +79,7 @@ getOTAUpdate_otaUpdateId = Lens.lens (\GetOTAUpdate' {otaUpdateId} -> otaUpdateI
 
 instance Core.AWSRequest GetOTAUpdate where
   type AWSResponse GetOTAUpdate = GetOTAUpdateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetOTAUpdate where
             Prelude.<$> (x Core..?> "otaUpdateInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOTAUpdate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOTAUpdate where
   hashWithSalt _salt GetOTAUpdate' {..} =

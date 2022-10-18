@@ -129,7 +129,7 @@ instance Core.AWSRequest ListUniqueProblems where
   type
     AWSResponse ListUniqueProblems =
       ListUniqueProblemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListUniqueProblems where
             Prelude.<*> (x Core..?> "uniqueProblems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUniqueProblems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUniqueProblems where
   hashWithSalt _salt ListUniqueProblems' {..} =

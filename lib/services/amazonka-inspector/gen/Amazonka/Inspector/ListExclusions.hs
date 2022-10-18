@@ -141,7 +141,7 @@ instance Core.AWSRequest ListExclusions where
   type
     AWSResponse ListExclusions =
       ListExclusionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListExclusions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "exclusionArns" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListExclusions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExclusions where
   hashWithSalt _salt ListExclusions' {..} =

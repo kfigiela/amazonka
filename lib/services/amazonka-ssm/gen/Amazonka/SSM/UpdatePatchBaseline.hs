@@ -294,7 +294,7 @@ instance Core.AWSRequest UpdatePatchBaseline where
   type
     AWSResponse UpdatePatchBaseline =
       UpdatePatchBaselineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -319,6 +319,9 @@ instance Core.AWSRequest UpdatePatchBaseline where
             Prelude.<*> (x Core..?> "ModifiedDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePatchBaseline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePatchBaseline where
   hashWithSalt _salt UpdatePatchBaseline' {..} =

@@ -102,7 +102,7 @@ instance
     AWSResponse
       PutVoiceConnectorEmergencyCallingConfiguration =
       PutVoiceConnectorEmergencyCallingConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,12 @@ instance
             Prelude.<$> (x Core..?> "EmergencyCallingConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutVoiceConnectorEmergencyCallingConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -131,7 +131,7 @@ instance Core.AWSRequest CreateHttpNamespace where
   type
     AWSResponse CreateHttpNamespace =
       CreateHttpNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest CreateHttpNamespace where
             Prelude.<$> (x Core..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHttpNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHttpNamespace where
   hashWithSalt _salt CreateHttpNamespace' {..} =

@@ -185,7 +185,7 @@ instance Core.AWSRequest PutAccountSetting where
   type
     AWSResponse PutAccountSetting =
       PutAccountSettingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest PutAccountSetting where
             Prelude.<$> (x Core..?> "setting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAccountSetting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAccountSetting where
   hashWithSalt _salt PutAccountSetting' {..} =

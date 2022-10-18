@@ -79,13 +79,19 @@ instance
   type
     AWSResponse DeleteAppValidationConfiguration =
       DeleteAppValidationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAppValidationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteAppValidationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

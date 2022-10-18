@@ -122,10 +122,13 @@ instance Core.AWSRequest UpdateContactFlowMetadata where
   type
     AWSResponse UpdateContactFlowMetadata =
       UpdateContactFlowMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateContactFlowMetadataResponse'
+
+instance Core.AWSService UpdateContactFlowMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContactFlowMetadata where
   hashWithSalt _salt UpdateContactFlowMetadata' {..} =

@@ -179,7 +179,7 @@ instance Core.AWSRequest GetProtectionStatus where
   type
     AWSResponse GetProtectionStatus =
       GetProtectionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest GetProtectionStatus where
             Prelude.<*> (x Core..?> "Data")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetProtectionStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProtectionStatus where
   hashWithSalt _salt GetProtectionStatus' {..} =

@@ -287,6 +287,7 @@ defaultService =
       Core._serviceEndpointPrefix = "finspace-api",
       Core._serviceSigningName = "finspace-api",
       Core._serviceVersion = "2020-07-13",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

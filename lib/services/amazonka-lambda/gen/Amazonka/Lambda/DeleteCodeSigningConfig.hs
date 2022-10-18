@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteCodeSigningConfig where
   type
     AWSResponse DeleteCodeSigningConfig =
       DeleteCodeSigningConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCodeSigningConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCodeSigningConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCodeSigningConfig where
   hashWithSalt _salt DeleteCodeSigningConfig' {..} =

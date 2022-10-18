@@ -110,7 +110,7 @@ instance
     AWSResponse
       BatchAssociateApprovalRuleTemplateWithRepositories =
       BatchAssociateApprovalRuleTemplateWithRepositoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,12 @@ instance
                           )
               Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
       )
+
+instance
+  Core.AWSService
+    BatchAssociateApprovalRuleTemplateWithRepositories
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

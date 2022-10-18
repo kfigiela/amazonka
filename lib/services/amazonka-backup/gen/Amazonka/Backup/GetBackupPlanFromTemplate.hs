@@ -80,7 +80,7 @@ instance Core.AWSRequest GetBackupPlanFromTemplate where
   type
     AWSResponse GetBackupPlanFromTemplate =
       GetBackupPlanFromTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetBackupPlanFromTemplate where
             Prelude.<$> (x Core..?> "BackupPlanDocument")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackupPlanFromTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackupPlanFromTemplate where
   hashWithSalt _salt GetBackupPlanFromTemplate' {..} =

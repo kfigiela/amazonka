@@ -86,10 +86,13 @@ instance Core.AWSRequest DeleteClusterSecurityGroup where
   type
     AWSResponse DeleteClusterSecurityGroup =
       DeleteClusterSecurityGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteClusterSecurityGroupResponse'
+
+instance Core.AWSService DeleteClusterSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteClusterSecurityGroup where
   hashWithSalt _salt DeleteClusterSecurityGroup' {..} =

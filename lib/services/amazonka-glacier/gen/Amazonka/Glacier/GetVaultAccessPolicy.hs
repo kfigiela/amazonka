@@ -111,9 +111,9 @@ instance Core.AWSRequest GetVaultAccessPolicy where
   type
     AWSResponse GetVaultAccessPolicy =
       GetVaultAccessPolicyResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetVaultAccessPolicy where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVaultAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVaultAccessPolicy where
   hashWithSalt _salt GetVaultAccessPolicy' {..} =

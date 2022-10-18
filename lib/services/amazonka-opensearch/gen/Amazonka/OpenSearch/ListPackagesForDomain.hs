@@ -109,7 +109,7 @@ instance Core.AWSRequest ListPackagesForDomain where
   type
     AWSResponse ListPackagesForDomain =
       ListPackagesForDomainResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest ListPackagesForDomain where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPackagesForDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPackagesForDomain where
   hashWithSalt _salt ListPackagesForDomain' {..} =

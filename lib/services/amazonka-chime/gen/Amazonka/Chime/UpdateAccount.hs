@@ -104,7 +104,7 @@ instance Core.AWSRequest UpdateAccount where
   type
     AWSResponse UpdateAccount =
       UpdateAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest UpdateAccount where
             Prelude.<$> (x Core..?> "Account")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccount where
   hashWithSalt _salt UpdateAccount' {..} =

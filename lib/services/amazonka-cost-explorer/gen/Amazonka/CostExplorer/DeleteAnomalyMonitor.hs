@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteAnomalyMonitor where
   type
     AWSResponse DeleteAnomalyMonitor =
       DeleteAnomalyMonitorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAnomalyMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAnomalyMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAnomalyMonitor where
   hashWithSalt _salt DeleteAnomalyMonitor' {..} =

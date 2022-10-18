@@ -87,7 +87,7 @@ stopSession_id = Lens.lens (\StopSession' {id} -> id) (\s@StopSession' {} a -> s
 
 instance Core.AWSRequest StopSession where
   type AWSResponse StopSession = StopSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest StopSession where
             Prelude.<$> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopSession where
   hashWithSalt _salt StopSession' {..} =

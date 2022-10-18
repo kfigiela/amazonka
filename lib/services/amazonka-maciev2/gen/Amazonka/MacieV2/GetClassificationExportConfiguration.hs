@@ -66,7 +66,7 @@ instance
   type
     AWSResponse GetClassificationExportConfiguration =
       GetClassificationExportConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,12 @@ instance
             Prelude.<$> (x Core..?> "configuration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetClassificationExportConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

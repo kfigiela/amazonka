@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteAppInstance where
   type
     AWSResponse DeleteAppInstance =
       DeleteAppInstanceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAppInstanceResponse'
+
+instance Core.AWSService DeleteAppInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppInstance where
   hashWithSalt _salt DeleteAppInstance' {..} =

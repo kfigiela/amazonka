@@ -172,7 +172,7 @@ instance Core.AWSRequest ListVirtualGateways where
   type
     AWSResponse ListVirtualGateways =
       ListVirtualGatewaysResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest ListVirtualGateways where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListVirtualGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVirtualGateways where
   hashWithSalt _salt ListVirtualGateways' {..} =

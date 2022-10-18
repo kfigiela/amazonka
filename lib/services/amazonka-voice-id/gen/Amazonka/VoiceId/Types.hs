@@ -334,6 +334,7 @@ defaultService =
       Core._serviceEndpointPrefix = "voiceid",
       Core._serviceSigningName = "voiceid",
       Core._serviceVersion = "2021-09-27",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -86,10 +86,13 @@ instance Core.AWSRequest StartConfigurationRecorder where
   type
     AWSResponse StartConfigurationRecorder =
       StartConfigurationRecorderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StartConfigurationRecorderResponse'
+
+instance Core.AWSService StartConfigurationRecorder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartConfigurationRecorder where
   hashWithSalt _salt StartConfigurationRecorder' {..} =

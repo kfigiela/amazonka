@@ -166,7 +166,7 @@ instance Core.AWSRequest ListNetworkResources where
   type
     AWSResponse ListNetworkResources =
       ListNetworkResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest ListNetworkResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNetworkResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNetworkResources where
   hashWithSalt _salt ListNetworkResources' {..} =

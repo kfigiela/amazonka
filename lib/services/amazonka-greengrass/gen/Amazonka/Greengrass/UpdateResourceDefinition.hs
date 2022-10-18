@@ -88,13 +88,16 @@ instance Core.AWSRequest UpdateResourceDefinition where
   type
     AWSResponse UpdateResourceDefinition =
       UpdateResourceDefinitionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateResourceDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResourceDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResourceDefinition where
   hashWithSalt _salt UpdateResourceDefinition' {..} =

@@ -140,10 +140,16 @@ instance
     AWSResponse
       BatchUpdateAttendeeCapabilitiesExcept =
       BatchUpdateAttendeeCapabilitiesExceptResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       BatchUpdateAttendeeCapabilitiesExceptResponse'
+
+instance
+  Core.AWSService
+    BatchUpdateAttendeeCapabilitiesExcept
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

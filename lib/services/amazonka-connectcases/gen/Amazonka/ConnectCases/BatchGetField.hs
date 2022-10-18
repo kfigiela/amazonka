@@ -93,7 +93,7 @@ instance Core.AWSRequest BatchGetField where
   type
     AWSResponse BatchGetField =
       BatchGetFieldResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest BatchGetField where
             Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "fields" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchGetField where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetField where
   hashWithSalt _salt BatchGetField' {..} =

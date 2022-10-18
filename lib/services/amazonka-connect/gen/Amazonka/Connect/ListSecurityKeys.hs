@@ -137,7 +137,7 @@ instance Core.AWSRequest ListSecurityKeys where
   type
     AWSResponse ListSecurityKeys =
       ListSecurityKeysResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListSecurityKeys where
             Prelude.<*> (x Core..?> "SecurityKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSecurityKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSecurityKeys where
   hashWithSalt _salt ListSecurityKeys' {..} =

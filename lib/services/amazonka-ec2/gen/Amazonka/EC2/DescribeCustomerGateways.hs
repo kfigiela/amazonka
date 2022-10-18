@@ -191,7 +191,7 @@ instance Core.AWSRequest DescribeCustomerGateways where
   type
     AWSResponse DescribeCustomerGateways =
       DescribeCustomerGatewaysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest DescribeCustomerGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCustomerGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCustomerGateways where
   hashWithSalt _salt DescribeCustomerGateways' {..} =

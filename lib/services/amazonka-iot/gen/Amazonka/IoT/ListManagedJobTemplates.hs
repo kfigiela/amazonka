@@ -105,7 +105,7 @@ instance Core.AWSRequest ListManagedJobTemplates where
   type
     AWSResponse ListManagedJobTemplates =
       ListManagedJobTemplatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListManagedJobTemplates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListManagedJobTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListManagedJobTemplates where
   hashWithSalt _salt ListManagedJobTemplates' {..} =

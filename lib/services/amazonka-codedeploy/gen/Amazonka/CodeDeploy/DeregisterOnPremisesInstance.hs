@@ -78,10 +78,13 @@ instance Core.AWSRequest DeregisterOnPremisesInstance where
   type
     AWSResponse DeregisterOnPremisesInstance =
       DeregisterOnPremisesInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeregisterOnPremisesInstanceResponse'
+
+instance Core.AWSService DeregisterOnPremisesInstance where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

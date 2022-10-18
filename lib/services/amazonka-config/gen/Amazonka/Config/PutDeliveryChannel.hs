@@ -97,9 +97,12 @@ instance Core.AWSRequest PutDeliveryChannel where
   type
     AWSResponse PutDeliveryChannel =
       PutDeliveryChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutDeliveryChannelResponse'
+
+instance Core.AWSService PutDeliveryChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDeliveryChannel where
   hashWithSalt _salt PutDeliveryChannel' {..} =

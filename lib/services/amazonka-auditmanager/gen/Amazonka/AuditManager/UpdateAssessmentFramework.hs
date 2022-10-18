@@ -130,7 +130,7 @@ instance Core.AWSRequest UpdateAssessmentFramework where
   type
     AWSResponse UpdateAssessmentFramework =
       UpdateAssessmentFrameworkResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest UpdateAssessmentFramework where
             Prelude.<$> (x Core..?> "framework")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAssessmentFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssessmentFramework where
   hashWithSalt _salt UpdateAssessmentFramework' {..} =

@@ -198,7 +198,7 @@ instance Core.AWSRequest CreateBotAlias where
   type
     AWSResponse CreateBotAlias =
       CreateBotAliasResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest CreateBotAlias where
             Prelude.<*> (x Core..?> "botAliasName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBotAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBotAlias where
   hashWithSalt _salt CreateBotAlias' {..} =

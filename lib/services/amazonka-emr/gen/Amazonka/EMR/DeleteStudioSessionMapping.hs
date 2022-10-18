@@ -149,10 +149,13 @@ instance Core.AWSRequest DeleteStudioSessionMapping where
   type
     AWSResponse DeleteStudioSessionMapping =
       DeleteStudioSessionMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteStudioSessionMappingResponse'
+
+instance Core.AWSService DeleteStudioSessionMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStudioSessionMapping where
   hashWithSalt _salt DeleteStudioSessionMapping' {..} =

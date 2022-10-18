@@ -276,7 +276,7 @@ instance
   type
     AWSResponse ListTrafficPolicyInstancesByPolicy =
       ListTrafficPolicyInstancesByPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -292,6 +292,12 @@ instance
               Prelude.<*> (x Core..@ "IsTruncated")
               Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance
+  Core.AWSService
+    ListTrafficPolicyInstancesByPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

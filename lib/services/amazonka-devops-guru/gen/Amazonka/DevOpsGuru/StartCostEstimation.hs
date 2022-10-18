@@ -92,13 +92,16 @@ instance Core.AWSRequest StartCostEstimation where
   type
     AWSResponse StartCostEstimation =
       StartCostEstimationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartCostEstimationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartCostEstimation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCostEstimation where
   hashWithSalt _salt StartCostEstimation' {..} =

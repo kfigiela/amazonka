@@ -115,7 +115,7 @@ instance Core.AWSRequest ListLongTermPricing where
   type
     AWSResponse ListLongTermPricing =
       ListLongTermPricingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListLongTermPricing where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLongTermPricing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLongTermPricing where
   hashWithSalt _salt ListLongTermPricing' {..} =

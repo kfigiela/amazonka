@@ -84,7 +84,7 @@ analyzeID_documentPages = Lens.lens (\AnalyzeID' {documentPages} -> documentPage
 
 instance Core.AWSRequest AnalyzeID where
   type AWSResponse AnalyzeID = AnalyzeIDResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest AnalyzeID where
             Prelude.<*> (x Core..?> "AnalyzeIDModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AnalyzeID where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AnalyzeID where
   hashWithSalt _salt AnalyzeID' {..} =

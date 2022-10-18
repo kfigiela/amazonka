@@ -115,7 +115,7 @@ instance Core.AWSRequest PutAlertManagerDefinition where
   type
     AWSResponse PutAlertManagerDefinition =
       PutAlertManagerDefinitionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest PutAlertManagerDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService PutAlertManagerDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAlertManagerDefinition where
   hashWithSalt _salt PutAlertManagerDefinition' {..} =

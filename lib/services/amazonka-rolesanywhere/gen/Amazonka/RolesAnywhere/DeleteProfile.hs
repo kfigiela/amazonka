@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteProfile where
   type
     AWSResponse DeleteProfile =
       ProfileDetailResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProfile where
   hashWithSalt _salt DeleteProfile' {..} =

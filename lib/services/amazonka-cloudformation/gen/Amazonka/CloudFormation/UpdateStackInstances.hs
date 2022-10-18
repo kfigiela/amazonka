@@ -391,7 +391,7 @@ instance Core.AWSRequest UpdateStackInstances where
   type
     AWSResponse UpdateStackInstances =
       UpdateStackInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateStackInstancesResult"
@@ -400,6 +400,9 @@ instance Core.AWSRequest UpdateStackInstances where
             Prelude.<$> (x Core..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStackInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStackInstances where
   hashWithSalt _salt UpdateStackInstances' {..} =

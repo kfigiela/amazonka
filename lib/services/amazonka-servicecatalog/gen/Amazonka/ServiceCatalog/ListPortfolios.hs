@@ -143,7 +143,7 @@ instance Core.AWSRequest ListPortfolios where
   type
     AWSResponse ListPortfolios =
       ListPortfoliosResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListPortfolios where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPortfolios where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPortfolios where
   hashWithSalt _salt ListPortfolios' {..} =

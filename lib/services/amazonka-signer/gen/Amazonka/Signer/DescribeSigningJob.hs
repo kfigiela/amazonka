@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeSigningJob where
   type
     AWSResponse DescribeSigningJob =
       DescribeSigningJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeSigningJob where
             Prelude.<*> (x Core..?> "overrides")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSigningJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSigningJob where
   hashWithSalt _salt DescribeSigningJob' {..} =

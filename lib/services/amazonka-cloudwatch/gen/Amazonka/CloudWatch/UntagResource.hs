@@ -118,7 +118,7 @@ instance Core.AWSRequest UntagResource where
   type
     AWSResponse UntagResource =
       UntagResourceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UntagResourceResult"
@@ -126,6 +126,9 @@ instance Core.AWSRequest UntagResource where
           UntagResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UntagResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagResource where
   hashWithSalt _salt UntagResource' {..} =

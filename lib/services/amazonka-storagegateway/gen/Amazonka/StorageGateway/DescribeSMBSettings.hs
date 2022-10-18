@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeSMBSettings where
   type
     AWSResponse DescribeSMBSettings =
       DescribeSMBSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest DescribeSMBSettings where
             Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSMBSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSMBSettings where
   hashWithSalt _salt DescribeSMBSettings' {..} =

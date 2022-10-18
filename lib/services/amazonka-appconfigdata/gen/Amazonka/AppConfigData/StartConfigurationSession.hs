@@ -129,7 +129,7 @@ instance Core.AWSRequest StartConfigurationSession where
   type
     AWSResponse StartConfigurationSession =
       StartConfigurationSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest StartConfigurationSession where
             Prelude.<$> (x Core..?> "InitialConfigurationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartConfigurationSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartConfigurationSession where
   hashWithSalt _salt StartConfigurationSession' {..} =

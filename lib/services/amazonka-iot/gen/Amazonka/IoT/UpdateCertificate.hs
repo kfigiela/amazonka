@@ -129,9 +129,12 @@ instance Core.AWSRequest UpdateCertificate where
   type
     AWSResponse UpdateCertificate =
       UpdateCertificateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateCertificateResponse'
+
+instance Core.AWSService UpdateCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCertificate where
   hashWithSalt _salt UpdateCertificate' {..} =

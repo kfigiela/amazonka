@@ -118,13 +118,19 @@ instance
   type
     AWSResponse UpdateImageGenerationConfiguration =
       UpdateImageGenerationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateImageGenerationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateImageGenerationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

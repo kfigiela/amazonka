@@ -203,7 +203,7 @@ instance Core.AWSRequest StartExecution where
   type
     AWSResponse StartExecution =
       StartExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest StartExecution where
             Prelude.<*> (x Core..:> "executionArn")
             Prelude.<*> (x Core..:> "startDate")
       )
+
+instance Core.AWSService StartExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartExecution where
   hashWithSalt _salt StartExecution' {..} =

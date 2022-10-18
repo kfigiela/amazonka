@@ -81,10 +81,16 @@ instance
   type
     AWSResponse DeleteConfigurationAggregator =
       DeleteConfigurationAggregatorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteConfigurationAggregatorResponse'
+
+instance
+  Core.AWSService
+    DeleteConfigurationAggregator
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

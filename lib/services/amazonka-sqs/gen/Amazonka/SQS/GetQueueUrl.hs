@@ -113,7 +113,7 @@ getQueueUrl_queueName = Lens.lens (\GetQueueUrl' {queueName} -> queueName) (\s@G
 
 instance Core.AWSRequest GetQueueUrl where
   type AWSResponse GetQueueUrl = GetQueueUrlResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetQueueUrlResult"
@@ -122,6 +122,9 @@ instance Core.AWSRequest GetQueueUrl where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "QueueUrl")
       )
+
+instance Core.AWSService GetQueueUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueueUrl where
   hashWithSalt _salt GetQueueUrl' {..} =

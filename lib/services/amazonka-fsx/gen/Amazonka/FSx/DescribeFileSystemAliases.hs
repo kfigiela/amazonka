@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeFileSystemAliases where
   type
     AWSResponse DescribeFileSystemAliases =
       DescribeFileSystemAliasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest DescribeFileSystemAliases where
             Prelude.<*> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFileSystemAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFileSystemAliases where
   hashWithSalt _salt DescribeFileSystemAliases' {..} =

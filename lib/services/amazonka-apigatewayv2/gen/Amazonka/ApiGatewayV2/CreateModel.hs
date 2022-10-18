@@ -130,7 +130,7 @@ createModel_name = Lens.lens (\CreateModel' {name} -> name) (\s@CreateModel' {} 
 
 instance Core.AWSRequest CreateModel where
   type AWSResponse CreateModel = CreateModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (x Core..?> "contentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =

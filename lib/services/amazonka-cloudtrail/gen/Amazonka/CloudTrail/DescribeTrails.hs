@@ -159,7 +159,7 @@ instance Core.AWSRequest DescribeTrails where
   type
     AWSResponse DescribeTrails =
       DescribeTrailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeTrails where
             Prelude.<$> (x Core..?> "trailList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTrails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTrails where
   hashWithSalt _salt DescribeTrails' {..} =

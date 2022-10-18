@@ -113,7 +113,7 @@ instance Core.AWSRequest DescribePortfolio where
   type
     AWSResponse DescribePortfolio =
       DescribePortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DescribePortfolio where
             Prelude.<*> (x Core..?> "TagOptions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePortfolio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePortfolio where
   hashWithSalt _salt DescribePortfolio' {..} =

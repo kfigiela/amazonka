@@ -81,7 +81,7 @@ instance Core.AWSRequest GetMonitoringSubscription where
   type
     AWSResponse GetMonitoringSubscription =
       GetMonitoringSubscriptionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetMonitoringSubscription where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMonitoringSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMonitoringSubscription where
   hashWithSalt _salt GetMonitoringSubscription' {..} =

@@ -79,13 +79,16 @@ instance Core.AWSRequest DeactivateAnomalyDetector where
   type
     AWSResponse DeactivateAnomalyDetector =
       DeactivateAnomalyDetectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeactivateAnomalyDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeactivateAnomalyDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateAnomalyDetector where
   hashWithSalt _salt DeactivateAnomalyDetector' {..} =

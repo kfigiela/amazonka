@@ -152,7 +152,7 @@ instance Core.AWSRequest ListQueueQuickConnects where
   type
     AWSResponse ListQueueQuickConnects =
       ListQueueQuickConnectsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest ListQueueQuickConnects where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListQueueQuickConnects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListQueueQuickConnects where
   hashWithSalt _salt ListQueueQuickConnects' {..} =

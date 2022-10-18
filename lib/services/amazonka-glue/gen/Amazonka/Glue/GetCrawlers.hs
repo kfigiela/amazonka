@@ -107,7 +107,7 @@ instance Core.AWSPager GetCrawlers where
 
 instance Core.AWSRequest GetCrawlers where
   type AWSResponse GetCrawlers = GetCrawlersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest GetCrawlers where
             Prelude.<*> (x Core..?> "Crawlers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCrawlers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCrawlers where
   hashWithSalt _salt GetCrawlers' {..} =

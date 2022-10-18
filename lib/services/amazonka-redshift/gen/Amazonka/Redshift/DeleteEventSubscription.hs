@@ -81,10 +81,13 @@ instance Core.AWSRequest DeleteEventSubscription where
   type
     AWSResponse DeleteEventSubscription =
       DeleteEventSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteEventSubscriptionResponse'
+
+instance Core.AWSService DeleteEventSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventSubscription where
   hashWithSalt _salt DeleteEventSubscription' {..} =

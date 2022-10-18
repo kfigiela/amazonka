@@ -161,7 +161,7 @@ startReplay_destination = Lens.lens (\StartReplay' {destination} -> destination)
 
 instance Core.AWSRequest StartReplay where
   type AWSResponse StartReplay = StartReplayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest StartReplay where
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartReplay where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartReplay where
   hashWithSalt _salt StartReplay' {..} =

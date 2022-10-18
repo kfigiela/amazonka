@@ -196,7 +196,7 @@ instance Core.AWSRequest UpdateSizeConstraintSet where
   type
     AWSResponse UpdateSizeConstraintSet =
       UpdateSizeConstraintSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest UpdateSizeConstraintSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSizeConstraintSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSizeConstraintSet where
   hashWithSalt _salt UpdateSizeConstraintSet' {..} =

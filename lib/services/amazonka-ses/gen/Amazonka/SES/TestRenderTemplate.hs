@@ -100,7 +100,7 @@ instance Core.AWSRequest TestRenderTemplate where
   type
     AWSResponse TestRenderTemplate =
       TestRenderTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TestRenderTemplateResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest TestRenderTemplate where
             Prelude.<$> (x Core..@? "RenderedTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestRenderTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestRenderTemplate where
   hashWithSalt _salt TestRenderTemplate' {..} =

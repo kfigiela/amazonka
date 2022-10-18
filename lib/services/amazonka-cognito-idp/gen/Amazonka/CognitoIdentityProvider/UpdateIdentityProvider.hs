@@ -122,7 +122,7 @@ instance Core.AWSRequest UpdateIdentityProvider where
   type
     AWSResponse UpdateIdentityProvider =
       UpdateIdentityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest UpdateIdentityProvider where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "IdentityProvider")
       )
+
+instance Core.AWSService UpdateIdentityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIdentityProvider where
   hashWithSalt _salt UpdateIdentityProvider' {..} =

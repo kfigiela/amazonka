@@ -94,7 +94,7 @@ instance Core.AWSRequest DisassociateCustomerGateway where
   type
     AWSResponse DisassociateCustomerGateway =
       DisassociateCustomerGatewayResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DisassociateCustomerGateway where
             Prelude.<$> (x Core..?> "CustomerGatewayAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateCustomerGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateCustomerGateway where
   hashWithSalt _salt DisassociateCustomerGateway' {..} =

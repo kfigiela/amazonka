@@ -76,7 +76,7 @@ instance Core.AWSRequest DeleteMetricStream where
   type
     AWSResponse DeleteMetricStream =
       DeleteMetricStreamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteMetricStreamResult"
@@ -84,6 +84,9 @@ instance Core.AWSRequest DeleteMetricStream where
           DeleteMetricStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMetricStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMetricStream where
   hashWithSalt _salt DeleteMetricStream' {..} =

@@ -84,13 +84,16 @@ deleteTrail_name = Lens.lens (\DeleteTrail' {name} -> name) (\s@DeleteTrail' {} 
 
 instance Core.AWSRequest DeleteTrail where
   type AWSResponse DeleteTrail = DeleteTrailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTrailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTrail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrail where
   hashWithSalt _salt DeleteTrail' {..} =

@@ -79,7 +79,7 @@ instance Core.AWSRequest DeleteTapePool where
   type
     AWSResponse DeleteTapePool =
       DeleteTapePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest DeleteTapePool where
             Prelude.<$> (x Core..?> "PoolARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTapePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTapePool where
   hashWithSalt _salt DeleteTapePool' {..} =

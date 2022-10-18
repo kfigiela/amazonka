@@ -123,7 +123,7 @@ instance Core.AWSRequest CreateLensVersion where
   type
     AWSResponse CreateLensVersion =
       CreateLensVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest CreateLensVersion where
             Prelude.<*> (x Core..?> "LensVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLensVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLensVersion where
   hashWithSalt _salt CreateLensVersion' {..} =

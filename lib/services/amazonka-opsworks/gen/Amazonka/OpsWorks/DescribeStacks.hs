@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeStacks where
   type
     AWSResponse DescribeStacks =
       DescribeStacksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeStacks where
             Prelude.<$> (x Core..?> "Stacks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStacks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStacks where
   hashWithSalt _salt DescribeStacks' {..} =

@@ -61,7 +61,7 @@ instance Core.AWSRequest GetSubscriptionState where
   type
     AWSResponse GetSubscriptionState =
       GetSubscriptionStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest GetSubscriptionState where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "SubscriptionState")
       )
+
+instance Core.AWSService GetSubscriptionState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSubscriptionState where
   hashWithSalt _salt _ =

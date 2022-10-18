@@ -78,7 +78,7 @@ getMeeting_meetingId = Lens.lens (\GetMeeting' {meetingId} -> meetingId) (\s@Get
 
 instance Core.AWSRequest GetMeeting where
   type AWSResponse GetMeeting = GetMeetingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetMeeting where
             Prelude.<$> (x Core..?> "Meeting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMeeting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMeeting where
   hashWithSalt _salt GetMeeting' {..} =

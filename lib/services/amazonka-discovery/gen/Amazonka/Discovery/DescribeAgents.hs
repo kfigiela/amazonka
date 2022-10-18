@@ -166,7 +166,7 @@ instance Core.AWSRequest DescribeAgents where
   type
     AWSResponse DescribeAgents =
       DescribeAgentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest DescribeAgents where
             Prelude.<*> (x Core..?> "agentsInfo" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAgents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAgents where
   hashWithSalt _salt DescribeAgents' {..} =

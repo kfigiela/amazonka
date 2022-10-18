@@ -111,7 +111,7 @@ instance Core.AWSRequest UpdateSiteAddress where
   type
     AWSResponse UpdateSiteAddress =
       UpdateSiteAddressResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateSiteAddress where
             Prelude.<*> (x Core..?> "Address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSiteAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSiteAddress where
   hashWithSalt _salt UpdateSiteAddress' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest ListThemeVersions where
   type
     AWSResponse ListThemeVersions =
       ListThemeVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListThemeVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListThemeVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListThemeVersions where
   hashWithSalt _salt ListThemeVersions' {..} =

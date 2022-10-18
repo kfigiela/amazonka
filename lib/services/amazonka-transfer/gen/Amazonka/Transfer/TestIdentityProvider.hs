@@ -178,7 +178,7 @@ instance Core.AWSRequest TestIdentityProvider where
   type
     AWSResponse TestIdentityProvider =
       TestIdentityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest TestIdentityProvider where
             Prelude.<*> (x Core..:> "StatusCode")
             Prelude.<*> (x Core..:> "Url")
       )
+
+instance Core.AWSService TestIdentityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestIdentityProvider where
   hashWithSalt _salt TestIdentityProvider' {..} =

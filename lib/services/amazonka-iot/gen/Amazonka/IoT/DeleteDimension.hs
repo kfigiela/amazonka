@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteDimension where
   type
     AWSResponse DeleteDimension =
       DeleteDimensionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDimensionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDimension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDimension where
   hashWithSalt _salt DeleteDimension' {..} =

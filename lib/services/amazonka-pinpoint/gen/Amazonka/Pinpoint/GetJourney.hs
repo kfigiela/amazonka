@@ -93,7 +93,7 @@ getJourney_applicationId = Lens.lens (\GetJourney' {applicationId} -> applicatio
 
 instance Core.AWSRequest GetJourney where
   type AWSResponse GetJourney = GetJourneyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetJourney where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetJourney where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetJourney where
   hashWithSalt _salt GetJourney' {..} =

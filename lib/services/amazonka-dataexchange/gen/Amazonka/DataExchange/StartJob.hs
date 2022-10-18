@@ -73,13 +73,16 @@ startJob_jobId = Lens.lens (\StartJob' {jobId} -> jobId) (\s@StartJob' {} a -> s
 
 instance Core.AWSRequest StartJob where
   type AWSResponse StartJob = StartJobResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartJob where
   hashWithSalt _salt StartJob' {..} =

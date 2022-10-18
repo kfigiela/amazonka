@@ -234,7 +234,7 @@ instance Core.AWSRequest CreateConnector where
   type
     AWSResponse CreateConnector =
       CreateConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -244,6 +244,9 @@ instance Core.AWSRequest CreateConnector where
             Prelude.<*> (x Core..?> "connectorState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConnector where
   hashWithSalt _salt CreateConnector' {..} =

@@ -123,7 +123,7 @@ instance Core.AWSRequest BatchGetDocumentStatus where
   type
     AWSResponse BatchGetDocumentStatus =
       BatchGetDocumentStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest BatchGetDocumentStatus where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetDocumentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetDocumentStatus where
   hashWithSalt _salt BatchGetDocumentStatus' {..} =

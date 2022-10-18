@@ -99,13 +99,16 @@ instance Core.AWSRequest UpdateActionTarget where
   type
     AWSResponse UpdateActionTarget =
       UpdateActionTargetResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateActionTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateActionTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateActionTarget where
   hashWithSalt _salt UpdateActionTarget' {..} =

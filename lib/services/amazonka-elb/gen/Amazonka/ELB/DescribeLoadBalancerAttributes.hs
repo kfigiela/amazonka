@@ -85,7 +85,7 @@ instance
   type
     AWSResponse DescribeLoadBalancerAttributes =
       DescribeLoadBalancerAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLoadBalancerAttributesResult"
@@ -94,6 +94,12 @@ instance
             Prelude.<$> (x Core..@? "LoadBalancerAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeLoadBalancerAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

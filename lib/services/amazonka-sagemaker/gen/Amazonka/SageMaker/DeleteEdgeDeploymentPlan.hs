@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteEdgeDeploymentPlan where
   type
     AWSResponse DeleteEdgeDeploymentPlan =
       DeleteEdgeDeploymentPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteEdgeDeploymentPlanResponse'
+
+instance Core.AWSService DeleteEdgeDeploymentPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEdgeDeploymentPlan where
   hashWithSalt _salt DeleteEdgeDeploymentPlan' {..} =

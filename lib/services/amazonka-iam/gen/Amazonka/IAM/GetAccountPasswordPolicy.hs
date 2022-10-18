@@ -66,7 +66,7 @@ instance Core.AWSRequest GetAccountPasswordPolicy where
   type
     AWSResponse GetAccountPasswordPolicy =
       GetAccountPasswordPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccountPasswordPolicyResult"
@@ -75,6 +75,9 @@ instance Core.AWSRequest GetAccountPasswordPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "PasswordPolicy")
       )
+
+instance Core.AWSService GetAccountPasswordPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountPasswordPolicy where
   hashWithSalt _salt _ =

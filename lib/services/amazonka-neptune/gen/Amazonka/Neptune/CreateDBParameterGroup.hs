@@ -176,7 +176,7 @@ instance Core.AWSRequest CreateDBParameterGroup where
   type
     AWSResponse CreateDBParameterGroup =
       CreateDBParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBParameterGroupResult"
@@ -185,6 +185,9 @@ instance Core.AWSRequest CreateDBParameterGroup where
             Prelude.<$> (x Core..@? "DBParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBParameterGroup where
   hashWithSalt _salt CreateDBParameterGroup' {..} =

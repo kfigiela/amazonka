@@ -116,7 +116,7 @@ instance Core.AWSPager ListClusters where
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListClusters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListClusters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListClusters where
   hashWithSalt _salt ListClusters' {..} =

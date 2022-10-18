@@ -122,7 +122,7 @@ instance Core.AWSRequest VerifySoftwareToken where
   type
     AWSResponse VerifySoftwareToken =
       VerifySoftwareTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest VerifySoftwareToken where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService VerifySoftwareToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifySoftwareToken where
   hashWithSalt _salt VerifySoftwareToken' {..} =

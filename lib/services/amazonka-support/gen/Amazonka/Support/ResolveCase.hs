@@ -90,7 +90,7 @@ resolveCase_caseId = Lens.lens (\ResolveCase' {caseId} -> caseId) (\s@ResolveCas
 
 instance Core.AWSRequest ResolveCase where
   type AWSResponse ResolveCase = ResolveCaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest ResolveCase where
             Prelude.<*> (x Core..?> "initialCaseStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResolveCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResolveCase where
   hashWithSalt _salt ResolveCase' {..} =

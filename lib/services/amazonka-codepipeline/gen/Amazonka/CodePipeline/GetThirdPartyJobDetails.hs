@@ -105,7 +105,7 @@ instance Core.AWSRequest GetThirdPartyJobDetails where
   type
     AWSResponse GetThirdPartyJobDetails =
       GetThirdPartyJobDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetThirdPartyJobDetails where
             Prelude.<$> (x Core..?> "jobDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetThirdPartyJobDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetThirdPartyJobDetails where
   hashWithSalt _salt GetThirdPartyJobDetails' {..} =

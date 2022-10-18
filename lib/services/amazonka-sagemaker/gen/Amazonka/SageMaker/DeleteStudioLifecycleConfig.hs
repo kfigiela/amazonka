@@ -80,10 +80,13 @@ instance Core.AWSRequest DeleteStudioLifecycleConfig where
   type
     AWSResponse DeleteStudioLifecycleConfig =
       DeleteStudioLifecycleConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteStudioLifecycleConfigResponse'
+
+instance Core.AWSService DeleteStudioLifecycleConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStudioLifecycleConfig where
   hashWithSalt _salt DeleteStudioLifecycleConfig' {..} =

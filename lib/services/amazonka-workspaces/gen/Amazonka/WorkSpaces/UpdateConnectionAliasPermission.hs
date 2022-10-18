@@ -121,13 +121,19 @@ instance
   type
     AWSResponse UpdateConnectionAliasPermission =
       UpdateConnectionAliasPermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateConnectionAliasPermissionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateConnectionAliasPermission
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

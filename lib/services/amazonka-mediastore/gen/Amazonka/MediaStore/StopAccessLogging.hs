@@ -79,13 +79,16 @@ instance Core.AWSRequest StopAccessLogging where
   type
     AWSResponse StopAccessLogging =
       StopAccessLoggingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopAccessLoggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopAccessLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopAccessLogging where
   hashWithSalt _salt StopAccessLogging' {..} =

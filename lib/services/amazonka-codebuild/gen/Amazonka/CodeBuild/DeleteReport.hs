@@ -73,13 +73,16 @@ deleteReport_arn = Lens.lens (\DeleteReport' {arn} -> arn) (\s@DeleteReport' {} 
 
 instance Core.AWSRequest DeleteReport where
   type AWSResponse DeleteReport = DeleteReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteReportResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReport where
   hashWithSalt _salt DeleteReport' {..} =

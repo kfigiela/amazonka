@@ -172,7 +172,7 @@ instance Core.AWSPager SearchCases where
 
 instance Core.AWSRequest SearchCases where
   type AWSResponse SearchCases = SearchCasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest SearchCases where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "cases" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService SearchCases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchCases where
   hashWithSalt _salt SearchCases' {..} =

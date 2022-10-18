@@ -123,13 +123,16 @@ instance Core.AWSRequest AssociateDiscoveredResource where
   type
     AWSResponse AssociateDiscoveredResource =
       AssociateDiscoveredResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDiscoveredResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateDiscoveredResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateDiscoveredResource where
   hashWithSalt _salt AssociateDiscoveredResource' {..} =

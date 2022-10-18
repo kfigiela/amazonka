@@ -136,7 +136,7 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
   type
     AWSResponse UpdateRuntimeConfiguration =
       UpdateRuntimeConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UpdateRuntimeConfiguration where
             Prelude.<$> (x Core..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRuntimeConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRuntimeConfiguration where
   hashWithSalt _salt UpdateRuntimeConfiguration' {..} =

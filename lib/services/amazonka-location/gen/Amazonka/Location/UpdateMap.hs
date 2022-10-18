@@ -102,7 +102,7 @@ updateMap_mapName = Lens.lens (\UpdateMap' {mapName} -> mapName) (\s@UpdateMap' 
 
 instance Core.AWSRequest UpdateMap where
   type AWSResponse UpdateMap = UpdateMapResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest UpdateMap where
             Prelude.<*> (x Core..:> "MapName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService UpdateMap where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMap where
   hashWithSalt _salt UpdateMap' {..} =

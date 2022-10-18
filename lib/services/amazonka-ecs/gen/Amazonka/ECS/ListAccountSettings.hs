@@ -224,7 +224,7 @@ instance Core.AWSRequest ListAccountSettings where
   type
     AWSResponse ListAccountSettings =
       ListAccountSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -233,6 +233,9 @@ instance Core.AWSRequest ListAccountSettings where
             Prelude.<*> (x Core..?> "settings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccountSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountSettings where
   hashWithSalt _salt ListAccountSettings' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest UpdateGatewayInformation where
   type
     AWSResponse UpdateGatewayInformation =
       UpdateGatewayInformationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest UpdateGatewayInformation where
             Prelude.<$> (x Core..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGatewayInformation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGatewayInformation where
   hashWithSalt _salt UpdateGatewayInformation' {..} =

@@ -183,7 +183,7 @@ instance Core.AWSRequest ListGatewayRoutes where
   type
     AWSResponse ListGatewayRoutes =
       ListGatewayRoutesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest ListGatewayRoutes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "gatewayRoutes" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListGatewayRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGatewayRoutes where
   hashWithSalt _salt ListGatewayRoutes' {..} =

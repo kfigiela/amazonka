@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeSolutionVersion where
   type
     AWSResponse DescribeSolutionVersion =
       DescribeSolutionVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeSolutionVersion where
             Prelude.<$> (x Core..?> "solutionVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSolutionVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSolutionVersion where
   hashWithSalt _salt DescribeSolutionVersion' {..} =

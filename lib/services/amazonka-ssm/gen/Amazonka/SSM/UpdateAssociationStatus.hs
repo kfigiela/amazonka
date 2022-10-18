@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateAssociationStatus where
   type
     AWSResponse UpdateAssociationStatus =
       UpdateAssociationStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateAssociationStatus where
             Prelude.<$> (x Core..?> "AssociationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAssociationStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssociationStatus where
   hashWithSalt _salt UpdateAssociationStatus' {..} =

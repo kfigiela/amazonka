@@ -96,7 +96,7 @@ instance Core.AWSRequest BatchGetPreparedStatement where
   type
     AWSResponse BatchGetPreparedStatement =
       BatchGetPreparedStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest BatchGetPreparedStatement where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetPreparedStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetPreparedStatement where
   hashWithSalt _salt BatchGetPreparedStatement' {..} =

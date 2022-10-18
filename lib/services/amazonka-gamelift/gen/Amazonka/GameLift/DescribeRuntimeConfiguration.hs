@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeRuntimeConfiguration where
   type
     AWSResponse DescribeRuntimeConfiguration =
       DescribeRuntimeConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DescribeRuntimeConfiguration where
             Prelude.<$> (x Core..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRuntimeConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

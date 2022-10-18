@@ -104,8 +104,11 @@ untagUser_tagKeys = Lens.lens (\UntagUser' {tagKeys} -> tagKeys) (\s@UntagUser' 
 
 instance Core.AWSRequest UntagUser where
   type AWSResponse UntagUser = UntagUserResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UntagUserResponse'
+
+instance Core.AWSService UntagUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagUser where
   hashWithSalt _salt UntagUser' {..} =

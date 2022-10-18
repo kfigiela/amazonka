@@ -128,7 +128,7 @@ instance Core.AWSRequest ListPageReceipts where
   type
     AWSResponse ListPageReceipts =
       ListPageReceiptsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListPageReceipts where
             Prelude.<*> (x Core..?> "Receipts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPageReceipts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPageReceipts where
   hashWithSalt _salt ListPageReceipts' {..} =

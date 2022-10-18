@@ -143,13 +143,16 @@ instance Core.AWSRequest UpdateScalingPlan where
   type
     AWSResponse UpdateScalingPlan =
       UpdateScalingPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateScalingPlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateScalingPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateScalingPlan where
   hashWithSalt _salt UpdateScalingPlan' {..} =

@@ -95,7 +95,7 @@ instance Core.AWSRequest UpdateConnectivityInfo where
   type
     AWSResponse UpdateConnectivityInfo =
       UpdateConnectivityInfoResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest UpdateConnectivityInfo where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConnectivityInfo where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConnectivityInfo where
   hashWithSalt _salt UpdateConnectivityInfo' {..} =

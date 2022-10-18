@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateReadinessCheck where
   type
     AWSResponse UpdateReadinessCheck =
       UpdateReadinessCheckResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest UpdateReadinessCheck where
             Prelude.<*> (x Core..?> "readinessCheckArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReadinessCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReadinessCheck where
   hashWithSalt _salt UpdateReadinessCheck' {..} =

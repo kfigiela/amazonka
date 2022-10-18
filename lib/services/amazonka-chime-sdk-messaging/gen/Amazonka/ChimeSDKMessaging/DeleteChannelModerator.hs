@@ -106,10 +106,13 @@ instance Core.AWSRequest DeleteChannelModerator where
   type
     AWSResponse DeleteChannelModerator =
       DeleteChannelModeratorResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteChannelModeratorResponse'
+
+instance Core.AWSService DeleteChannelModerator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChannelModerator where
   hashWithSalt _salt DeleteChannelModerator' {..} =

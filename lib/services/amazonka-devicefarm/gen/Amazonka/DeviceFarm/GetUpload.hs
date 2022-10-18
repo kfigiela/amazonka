@@ -76,7 +76,7 @@ getUpload_arn = Lens.lens (\GetUpload' {arn} -> arn) (\s@GetUpload' {} a -> s {a
 
 instance Core.AWSRequest GetUpload where
   type AWSResponse GetUpload = GetUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetUpload where
             Prelude.<$> (x Core..?> "upload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUpload where
   hashWithSalt _salt GetUpload' {..} =

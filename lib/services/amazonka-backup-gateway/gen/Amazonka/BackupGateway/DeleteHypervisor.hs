@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteHypervisor where
   type
     AWSResponse DeleteHypervisor =
       DeleteHypervisorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteHypervisor where
             Prelude.<$> (x Core..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteHypervisor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHypervisor where
   hashWithSalt _salt DeleteHypervisor' {..} =

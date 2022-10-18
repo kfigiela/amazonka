@@ -243,7 +243,7 @@ instance Core.AWSRequest CreateDirectory where
   type
     AWSResponse CreateDirectory =
       CreateDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -251,6 +251,9 @@ instance Core.AWSRequest CreateDirectory where
             Prelude.<$> (x Core..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDirectory where
   hashWithSalt _salt CreateDirectory' {..} =

@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeConnectorProfiles where
   type
     AWSResponse DescribeConnectorProfiles =
       DescribeConnectorProfilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeConnectorProfiles where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConnectorProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConnectorProfiles where
   hashWithSalt _salt DescribeConnectorProfiles' {..} =

@@ -90,7 +90,7 @@ cancelJobRun_jobRunId = Lens.lens (\CancelJobRun' {jobRunId} -> jobRunId) (\s@Ca
 
 instance Core.AWSRequest CancelJobRun where
   type AWSResponse CancelJobRun = CancelJobRunResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest CancelJobRun where
             Prelude.<*> (x Core..:> "applicationId")
             Prelude.<*> (x Core..:> "jobRunId")
       )
+
+instance Core.AWSService CancelJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJobRun where
   hashWithSalt _salt CancelJobRun' {..} =

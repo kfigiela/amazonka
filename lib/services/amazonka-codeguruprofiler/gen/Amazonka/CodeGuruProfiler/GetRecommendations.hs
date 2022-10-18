@@ -215,7 +215,7 @@ instance Core.AWSRequest GetRecommendations where
   type
     AWSResponse GetRecommendations =
       GetRecommendationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -229,6 +229,9 @@ instance Core.AWSRequest GetRecommendations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetRecommendations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRecommendations where
   hashWithSalt _salt GetRecommendations' {..} =

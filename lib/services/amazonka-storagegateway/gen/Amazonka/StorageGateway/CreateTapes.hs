@@ -278,7 +278,7 @@ createTapes_tapeBarcodePrefix = Lens.lens (\CreateTapes' {tapeBarcodePrefix} -> 
 
 instance Core.AWSRequest CreateTapes where
   type AWSResponse CreateTapes = CreateTapesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -286,6 +286,9 @@ instance Core.AWSRequest CreateTapes where
             Prelude.<$> (x Core..?> "TapeARNs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTapes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTapes where
   hashWithSalt _salt CreateTapes' {..} =

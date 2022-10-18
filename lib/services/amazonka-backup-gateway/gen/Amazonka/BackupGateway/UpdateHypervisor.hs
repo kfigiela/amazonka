@@ -124,7 +124,7 @@ instance Core.AWSRequest UpdateHypervisor where
   type
     AWSResponse UpdateHypervisor =
       UpdateHypervisorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest UpdateHypervisor where
             Prelude.<$> (x Core..?> "HypervisorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateHypervisor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHypervisor where
   hashWithSalt _salt UpdateHypervisor' {..} =

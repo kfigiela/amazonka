@@ -109,13 +109,16 @@ instance Core.AWSRequest UpdateInsight where
   type
     AWSResponse UpdateInsight =
       UpdateInsightResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateInsightResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateInsight where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInsight where
   hashWithSalt _salt UpdateInsight' {..} =

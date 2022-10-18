@@ -145,7 +145,7 @@ instance Core.AWSRequest ImportFirewallDomains where
   type
     AWSResponse ImportFirewallDomains =
       ImportFirewallDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ImportFirewallDomains where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportFirewallDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportFirewallDomains where
   hashWithSalt _salt ImportFirewallDomains' {..} =

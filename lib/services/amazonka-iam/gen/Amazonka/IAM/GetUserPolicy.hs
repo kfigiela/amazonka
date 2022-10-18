@@ -140,7 +140,7 @@ instance Core.AWSRequest GetUserPolicy where
   type
     AWSResponse GetUserPolicy =
       GetUserPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetUserPolicyResult"
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetUserPolicy where
             Prelude.<*> (x Core..@ "PolicyName")
             Prelude.<*> (x Core..@ "PolicyDocument")
       )
+
+instance Core.AWSService GetUserPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUserPolicy where
   hashWithSalt _salt GetUserPolicy' {..} =

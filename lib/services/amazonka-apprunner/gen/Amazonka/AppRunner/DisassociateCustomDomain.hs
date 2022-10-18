@@ -107,7 +107,7 @@ instance Core.AWSRequest DisassociateCustomDomain where
   type
     AWSResponse DisassociateCustomDomain =
       DisassociateCustomDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DisassociateCustomDomain where
             Prelude.<*> (x Core..:> "ServiceArn")
             Prelude.<*> (x Core..:> "CustomDomain")
       )
+
+instance Core.AWSService DisassociateCustomDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateCustomDomain where
   hashWithSalt _salt DisassociateCustomDomain' {..} =

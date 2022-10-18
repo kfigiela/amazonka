@@ -427,7 +427,7 @@ instance Core.AWSRequest DescribeSubnets where
   type
     AWSResponse DescribeSubnets =
       DescribeSubnetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -438,6 +438,9 @@ instance Core.AWSRequest DescribeSubnets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSubnets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSubnets where
   hashWithSalt _salt DescribeSubnets' {..} =

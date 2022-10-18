@@ -75,7 +75,7 @@ describeJobs_jobs = Lens.lens (\DescribeJobs' {jobs} -> jobs) (\s@DescribeJobs' 
 
 instance Core.AWSRequest DescribeJobs where
   type AWSResponse DescribeJobs = DescribeJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest DescribeJobs where
             Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJobs where
   hashWithSalt _salt DescribeJobs' {..} =

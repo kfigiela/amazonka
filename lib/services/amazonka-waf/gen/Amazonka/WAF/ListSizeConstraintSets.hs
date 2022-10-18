@@ -151,7 +151,7 @@ instance Core.AWSRequest ListSizeConstraintSets where
   type
     AWSResponse ListSizeConstraintSets =
       ListSizeConstraintSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListSizeConstraintSets where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSizeConstraintSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSizeConstraintSets where
   hashWithSalt _salt ListSizeConstraintSets' {..} =

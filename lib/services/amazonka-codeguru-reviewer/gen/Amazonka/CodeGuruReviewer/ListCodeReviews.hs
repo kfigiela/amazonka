@@ -188,7 +188,7 @@ instance Core.AWSRequest ListCodeReviews where
   type
     AWSResponse ListCodeReviews =
       ListCodeReviewsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest ListCodeReviews where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCodeReviews where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCodeReviews where
   hashWithSalt _salt ListCodeReviews' {..} =

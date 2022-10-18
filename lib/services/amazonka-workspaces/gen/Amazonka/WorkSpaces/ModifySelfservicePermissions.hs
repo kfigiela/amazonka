@@ -96,13 +96,16 @@ instance Core.AWSRequest ModifySelfservicePermissions where
   type
     AWSResponse ModifySelfservicePermissions =
       ModifySelfservicePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifySelfservicePermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifySelfservicePermissions where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

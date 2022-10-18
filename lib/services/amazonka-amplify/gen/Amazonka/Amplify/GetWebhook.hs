@@ -78,7 +78,7 @@ getWebhook_webhookId = Lens.lens (\GetWebhook' {webhookId} -> webhookId) (\s@Get
 
 instance Core.AWSRequest GetWebhook where
   type AWSResponse GetWebhook = GetWebhookResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetWebhook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "webhook")
       )
+
+instance Core.AWSService GetWebhook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWebhook where
   hashWithSalt _salt GetWebhook' {..} =

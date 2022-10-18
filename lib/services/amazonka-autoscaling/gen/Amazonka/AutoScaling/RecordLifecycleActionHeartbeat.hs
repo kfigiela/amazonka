@@ -157,7 +157,7 @@ instance
   type
     AWSResponse RecordLifecycleActionHeartbeat =
       RecordLifecycleActionHeartbeatResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RecordLifecycleActionHeartbeatResult"
@@ -165,6 +165,12 @@ instance
           RecordLifecycleActionHeartbeatResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RecordLifecycleActionHeartbeat
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -139,9 +139,12 @@ instance Core.AWSRequest PutMetricFilter where
   type
     AWSResponse PutMetricFilter =
       PutMetricFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutMetricFilterResponse'
+
+instance Core.AWSService PutMetricFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMetricFilter where
   hashWithSalt _salt PutMetricFilter' {..} =

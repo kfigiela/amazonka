@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteRecoveryGroup where
   type
     AWSResponse DeleteRecoveryGroup =
       DeleteRecoveryGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRecoveryGroupResponse'
+
+instance Core.AWSService DeleteRecoveryGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRecoveryGroup where
   hashWithSalt _salt DeleteRecoveryGroup' {..} =

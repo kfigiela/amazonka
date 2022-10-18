@@ -181,7 +181,7 @@ instance Core.AWSRequest CreateDatasetExportJob where
   type
     AWSResponse CreateDatasetExportJob =
       CreateDatasetExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest CreateDatasetExportJob where
             Prelude.<$> (x Core..?> "datasetExportJobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDatasetExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDatasetExportJob where
   hashWithSalt _salt CreateDatasetExportJob' {..} =

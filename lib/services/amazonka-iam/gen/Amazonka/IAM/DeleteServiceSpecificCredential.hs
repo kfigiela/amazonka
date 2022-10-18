@@ -127,10 +127,16 @@ instance
   type
     AWSResponse DeleteServiceSpecificCredential =
       DeleteServiceSpecificCredentialResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteServiceSpecificCredentialResponse'
+
+instance
+  Core.AWSService
+    DeleteServiceSpecificCredential
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

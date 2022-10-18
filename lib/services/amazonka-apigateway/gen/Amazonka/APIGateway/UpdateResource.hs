@@ -107,10 +107,13 @@ updateResource_resourceId = Lens.lens (\UpdateResource' {resourceId} -> resource
 
 instance Core.AWSRequest UpdateResource where
   type AWSResponse UpdateResource = Resource
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResource where
   hashWithSalt _salt UpdateResource' {..} =

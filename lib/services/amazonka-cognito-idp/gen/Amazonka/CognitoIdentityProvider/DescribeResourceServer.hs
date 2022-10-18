@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeResourceServer where
   type
     AWSResponse DescribeResourceServer =
       DescribeResourceServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeResourceServer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ResourceServer")
       )
+
+instance Core.AWSService DescribeResourceServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeResourceServer where
   hashWithSalt _salt DescribeResourceServer' {..} =

@@ -88,9 +88,12 @@ instance Core.AWSRequest UpdateScheduledQuery where
   type
     AWSResponse UpdateScheduledQuery =
       UpdateScheduledQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateScheduledQueryResponse'
+
+instance Core.AWSService UpdateScheduledQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateScheduledQuery where
   hashWithSalt _salt UpdateScheduledQuery' {..} =

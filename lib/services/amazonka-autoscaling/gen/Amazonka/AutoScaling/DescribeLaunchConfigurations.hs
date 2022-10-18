@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeLaunchConfigurations where
   type
     AWSResponse DescribeLaunchConfigurations =
       DescribeLaunchConfigurationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLaunchConfigurationsResult"
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeLaunchConfigurations where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeLaunchConfigurations where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

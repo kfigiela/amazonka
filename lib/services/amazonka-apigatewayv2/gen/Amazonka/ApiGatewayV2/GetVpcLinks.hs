@@ -89,7 +89,7 @@ getVpcLinks_maxResults = Lens.lens (\GetVpcLinks' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest GetVpcLinks where
   type AWSResponse GetVpcLinks = GetVpcLinksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetVpcLinks where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVpcLinks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVpcLinks where
   hashWithSalt _salt GetVpcLinks' {..} =

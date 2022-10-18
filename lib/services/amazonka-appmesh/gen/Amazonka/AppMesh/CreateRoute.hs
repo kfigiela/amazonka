@@ -191,7 +191,7 @@ createRoute_virtualRouterName = Lens.lens (\CreateRoute' {virtualRouterName} -> 
 
 instance Core.AWSRequest CreateRoute where
   type AWSResponse CreateRoute = CreateRouteResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =

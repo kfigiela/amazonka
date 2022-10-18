@@ -86,13 +86,19 @@ instance
   type
     AWSResponse CancelDetectMitigationActionsTask =
       CancelDetectMitigationActionsTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelDetectMitigationActionsTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CancelDetectMitigationActionsTask
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

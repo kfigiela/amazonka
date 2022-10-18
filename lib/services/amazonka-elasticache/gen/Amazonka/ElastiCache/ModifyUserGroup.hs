@@ -103,11 +103,14 @@ modifyUserGroup_userGroupId = Lens.lens (\ModifyUserGroup' {userGroupId} -> user
 
 instance Core.AWSRequest ModifyUserGroup where
   type AWSResponse ModifyUserGroup = UserGroup
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyUserGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyUserGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyUserGroup where
   hashWithSalt _salt ModifyUserGroup' {..} =

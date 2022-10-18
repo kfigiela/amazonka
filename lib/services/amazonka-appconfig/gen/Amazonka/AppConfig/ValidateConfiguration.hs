@@ -104,9 +104,12 @@ instance Core.AWSRequest ValidateConfiguration where
   type
     AWSResponse ValidateConfiguration =
       ValidateConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ValidateConfigurationResponse'
+
+instance Core.AWSService ValidateConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ValidateConfiguration where
   hashWithSalt _salt ValidateConfiguration' {..} =

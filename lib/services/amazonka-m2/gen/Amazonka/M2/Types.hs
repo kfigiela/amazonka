@@ -383,6 +383,7 @@ defaultService =
       Core._serviceEndpointPrefix = "m2",
       Core._serviceSigningName = "m2",
       Core._serviceVersion = "2021-04-28",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -95,13 +95,16 @@ instance Core.AWSRequest DeleteImagePermissions where
   type
     AWSResponse DeleteImagePermissions =
       DeleteImagePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteImagePermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImagePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImagePermissions where
   hashWithSalt _salt DeleteImagePermissions' {..} =

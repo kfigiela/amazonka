@@ -89,9 +89,12 @@ instance Core.AWSRequest ReleasePhoneNumber where
   type
     AWSResponse ReleasePhoneNumber =
       ReleasePhoneNumberResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull ReleasePhoneNumberResponse'
+
+instance Core.AWSService ReleasePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleasePhoneNumber where
   hashWithSalt _salt ReleasePhoneNumber' {..} =

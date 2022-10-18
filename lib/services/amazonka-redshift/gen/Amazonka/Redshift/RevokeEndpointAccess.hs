@@ -124,11 +124,14 @@ instance Core.AWSRequest RevokeEndpointAccess where
   type
     AWSResponse RevokeEndpointAccess =
       EndpointAuthorization
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RevokeEndpointAccessResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService RevokeEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeEndpointAccess where
   hashWithSalt _salt RevokeEndpointAccess' {..} =

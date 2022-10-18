@@ -129,7 +129,7 @@ instance Core.AWSRequest ListEventTrackers where
   type
     AWSResponse ListEventTrackers =
       ListEventTrackersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListEventTrackers where
             Prelude.<*> (x Core..?> "eventTrackers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEventTrackers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEventTrackers where
   hashWithSalt _salt ListEventTrackers' {..} =

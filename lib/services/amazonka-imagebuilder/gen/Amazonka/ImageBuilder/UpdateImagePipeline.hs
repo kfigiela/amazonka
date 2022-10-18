@@ -219,7 +219,7 @@ instance Core.AWSRequest UpdateImagePipeline where
   type
     AWSResponse UpdateImagePipeline =
       UpdateImagePipelineResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -229,6 +229,9 @@ instance Core.AWSRequest UpdateImagePipeline where
             Prelude.<*> (x Core..?> "imagePipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateImagePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateImagePipeline where
   hashWithSalt _salt UpdateImagePipeline' {..} =

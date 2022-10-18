@@ -130,10 +130,13 @@ getAlias_name = Lens.lens (\GetAlias' {name} -> name) (\s@GetAlias' {} a -> s {n
 
 instance Core.AWSRequest GetAlias where
   type AWSResponse GetAlias = AliasConfiguration
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAlias where
   hashWithSalt _salt GetAlias' {..} =

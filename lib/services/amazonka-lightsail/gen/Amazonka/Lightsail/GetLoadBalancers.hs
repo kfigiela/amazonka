@@ -112,7 +112,7 @@ instance Core.AWSRequest GetLoadBalancers where
   type
     AWSResponse GetLoadBalancers =
       GetLoadBalancersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetLoadBalancers where
             Prelude.<*> (x Core..?> "loadBalancers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLoadBalancers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLoadBalancers where
   hashWithSalt _salt GetLoadBalancers' {..} =

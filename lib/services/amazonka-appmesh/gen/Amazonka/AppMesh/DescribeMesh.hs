@@ -98,7 +98,7 @@ describeMesh_meshName = Lens.lens (\DescribeMesh' {meshName} -> meshName) (\s@De
 
 instance Core.AWSRequest DescribeMesh where
   type AWSResponse DescribeMesh = DescribeMeshResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeMesh where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DescribeMesh where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMesh where
   hashWithSalt _salt DescribeMesh' {..} =

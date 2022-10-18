@@ -137,7 +137,7 @@ instance Core.AWSRequest DescribeClusterTracks where
   type
     AWSResponse DescribeClusterTracks =
       DescribeClusterTracksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterTracksResult"
@@ -150,6 +150,9 @@ instance Core.AWSRequest DescribeClusterTracks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClusterTracks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClusterTracks where
   hashWithSalt _salt DescribeClusterTracks' {..} =

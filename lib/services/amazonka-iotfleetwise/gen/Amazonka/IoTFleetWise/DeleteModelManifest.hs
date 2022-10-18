@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteModelManifest where
   type
     AWSResponse DeleteModelManifest =
       DeleteModelManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteModelManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService DeleteModelManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteModelManifest where
   hashWithSalt _salt DeleteModelManifest' {..} =

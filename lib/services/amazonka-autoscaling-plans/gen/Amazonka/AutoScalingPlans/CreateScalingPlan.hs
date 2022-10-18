@@ -134,7 +134,7 @@ instance Core.AWSRequest CreateScalingPlan where
   type
     AWSResponse CreateScalingPlan =
       CreateScalingPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateScalingPlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ScalingPlanVersion")
       )
+
+instance Core.AWSService CreateScalingPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateScalingPlan where
   hashWithSalt _salt CreateScalingPlan' {..} =

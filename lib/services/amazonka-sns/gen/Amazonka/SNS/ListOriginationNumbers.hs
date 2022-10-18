@@ -117,7 +117,7 @@ instance Core.AWSRequest ListOriginationNumbers where
   type
     AWSResponse ListOriginationNumbers =
       ListOriginationNumbersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListOriginationNumbersResult"
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListOriginationNumbers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOriginationNumbers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOriginationNumbers where
   hashWithSalt _salt ListOriginationNumbers' {..} =

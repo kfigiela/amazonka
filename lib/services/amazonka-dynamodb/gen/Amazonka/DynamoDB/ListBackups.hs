@@ -205,7 +205,7 @@ instance Core.AWSPager ListBackups where
 
 instance Core.AWSRequest ListBackups where
   type AWSResponse ListBackups = ListBackupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -216,6 +216,9 @@ instance Core.AWSRequest ListBackups where
             Prelude.<*> (x Core..?> "LastEvaluatedBackupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBackups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBackups where
   hashWithSalt _salt ListBackups' {..} =

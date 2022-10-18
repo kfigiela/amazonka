@@ -82,7 +82,7 @@ instance Core.AWSRequest TerminateRecoveryInstances where
   type
     AWSResponse TerminateRecoveryInstances =
       TerminateRecoveryInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest TerminateRecoveryInstances where
             Prelude.<$> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateRecoveryInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateRecoveryInstances where
   hashWithSalt _salt TerminateRecoveryInstances' {..} =

@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteDocumentationPart where
   type
     AWSResponse DeleteDocumentationPart =
       DeleteDocumentationPartResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteDocumentationPartResponse'
+
+instance Core.AWSService DeleteDocumentationPart where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDocumentationPart where
   hashWithSalt _salt DeleteDocumentationPart' {..} =

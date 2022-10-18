@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteTopicRule where
   type
     AWSResponse DeleteTopicRule =
       DeleteTopicRuleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteTopicRuleResponse'
+
+instance Core.AWSService DeleteTopicRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTopicRule where
   hashWithSalt _salt DeleteTopicRule' {..} =

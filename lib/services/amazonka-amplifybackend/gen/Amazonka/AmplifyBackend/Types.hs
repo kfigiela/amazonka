@@ -386,6 +386,7 @@ defaultService =
       Core._serviceEndpointPrefix = "amplifybackend",
       Core._serviceSigningName = "amplifybackend",
       Core._serviceVersion = "2020-08-11",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -121,10 +121,13 @@ instance Core.AWSRequest RemoveRoleFromDBCluster where
   type
     AWSResponse RemoveRoleFromDBCluster =
       RemoveRoleFromDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveRoleFromDBClusterResponse'
+
+instance Core.AWSService RemoveRoleFromDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveRoleFromDBCluster where
   hashWithSalt _salt RemoveRoleFromDBCluster' {..} =

@@ -86,7 +86,7 @@ instance Core.AWSRequest GetFindingAggregator where
   type
     AWSResponse GetFindingAggregator =
       GetFindingAggregatorResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetFindingAggregator where
             Prelude.<*> (x Core..?> "FindingAggregationRegion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFindingAggregator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFindingAggregator where
   hashWithSalt _salt GetFindingAggregator' {..} =

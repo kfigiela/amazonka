@@ -196,7 +196,7 @@ instance Core.AWSRequest UpdateDocument where
   type
     AWSResponse UpdateDocument =
       UpdateDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest UpdateDocument where
             Prelude.<$> (x Core..?> "DocumentDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDocument where
   hashWithSalt _salt UpdateDocument' {..} =

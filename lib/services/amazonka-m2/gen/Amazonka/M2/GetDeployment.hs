@@ -98,7 +98,7 @@ instance Core.AWSRequest GetDeployment where
   type
     AWSResponse GetDeployment =
       GetDeploymentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetDeployment where
             Prelude.<*> (x Core..:> "environmentId")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeployment where
   hashWithSalt _salt GetDeployment' {..} =

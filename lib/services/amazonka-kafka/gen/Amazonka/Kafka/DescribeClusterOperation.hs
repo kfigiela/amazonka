@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeClusterOperation where
   type
     AWSResponse DescribeClusterOperation =
       DescribeClusterOperationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeClusterOperation where
             Prelude.<$> (x Core..?> "clusterOperationInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClusterOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClusterOperation where
   hashWithSalt _salt DescribeClusterOperation' {..} =

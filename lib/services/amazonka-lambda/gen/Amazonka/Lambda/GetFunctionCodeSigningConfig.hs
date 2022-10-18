@@ -117,7 +117,7 @@ instance Core.AWSRequest GetFunctionCodeSigningConfig where
   type
     AWSResponse GetFunctionCodeSigningConfig =
       GetFunctionCodeSigningConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest GetFunctionCodeSigningConfig where
             Prelude.<*> (x Core..:> "CodeSigningConfigArn")
             Prelude.<*> (x Core..:> "FunctionName")
       )
+
+instance Core.AWSService GetFunctionCodeSigningConfig where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

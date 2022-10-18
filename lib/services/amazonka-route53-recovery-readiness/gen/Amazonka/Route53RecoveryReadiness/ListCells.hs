@@ -107,7 +107,7 @@ instance Core.AWSPager ListCells where
 
 instance Core.AWSRequest ListCells where
   type AWSResponse ListCells = ListCellsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListCells where
             Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCells where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCells where
   hashWithSalt _salt ListCells' {..} =

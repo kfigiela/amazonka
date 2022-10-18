@@ -149,7 +149,7 @@ instance Core.AWSRequest RetrieveEnvironmentInfo where
   type
     AWSResponse RetrieveEnvironmentInfo =
       RetrieveEnvironmentInfoResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RetrieveEnvironmentInfoResult"
@@ -160,6 +160,9 @@ instance Core.AWSRequest RetrieveEnvironmentInfo where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RetrieveEnvironmentInfo where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetrieveEnvironmentInfo where
   hashWithSalt _salt RetrieveEnvironmentInfo' {..} =

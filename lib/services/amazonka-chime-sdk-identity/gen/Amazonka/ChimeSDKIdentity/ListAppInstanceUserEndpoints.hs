@@ -106,7 +106,7 @@ instance Core.AWSRequest ListAppInstanceUserEndpoints where
   type
     AWSResponse ListAppInstanceUserEndpoints =
       ListAppInstanceUserEndpointsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest ListAppInstanceUserEndpoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAppInstanceUserEndpoints where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

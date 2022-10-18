@@ -117,7 +117,7 @@ instance Core.AWSRequest DescribeModelPackage where
   type
     AWSResponse DescribeModelPackage =
       DescribeModelPackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeModelPackage where
             Prelude.<*> (x Core..:> "ModelPackageStatus")
             Prelude.<*> (x Core..:> "ModelPackageStatusDetails")
       )
+
+instance Core.AWSService DescribeModelPackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeModelPackage where
   hashWithSalt _salt DescribeModelPackage' {..} =

@@ -123,11 +123,14 @@ instance Core.AWSRequest DeletePartner where
   type
     AWSResponse DeletePartner =
       PartnerIntegrationOutputMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeletePartnerResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DeletePartner where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePartner where
   hashWithSalt _salt DeletePartner' {..} =

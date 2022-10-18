@@ -108,13 +108,16 @@ instance Core.AWSRequest UpdateDetectorVersionStatus where
   type
     AWSResponse UpdateDetectorVersionStatus =
       UpdateDetectorVersionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDetectorVersionStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDetectorVersionStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDetectorVersionStatus where
   hashWithSalt _salt UpdateDetectorVersionStatus' {..} =

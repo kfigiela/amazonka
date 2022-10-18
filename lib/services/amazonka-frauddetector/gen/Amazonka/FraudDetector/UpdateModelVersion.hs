@@ -150,7 +150,7 @@ instance Core.AWSRequest UpdateModelVersion where
   type
     AWSResponse UpdateModelVersion =
       UpdateModelVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest UpdateModelVersion where
             Prelude.<*> (x Core..?> "modelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateModelVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModelVersion where
   hashWithSalt _salt UpdateModelVersion' {..} =

@@ -162,7 +162,7 @@ instance Core.AWSRequest GetInAppTemplate where
   type
     AWSResponse GetInAppTemplate =
       GetInAppTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest GetInAppTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetInAppTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInAppTemplate where
   hashWithSalt _salt GetInAppTemplate' {..} =

@@ -149,7 +149,7 @@ instance Core.AWSRequest ListStateMachines where
   type
     AWSResponse ListStateMachines =
       ListStateMachinesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest ListStateMachines where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "stateMachines" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListStateMachines where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStateMachines where
   hashWithSalt _salt ListStateMachines' {..} =

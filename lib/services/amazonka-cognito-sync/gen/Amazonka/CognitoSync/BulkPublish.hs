@@ -91,7 +91,7 @@ bulkPublish_identityPoolId = Lens.lens (\BulkPublish' {identityPoolId} -> identi
 
 instance Core.AWSRequest BulkPublish where
   type AWSResponse BulkPublish = BulkPublishResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest BulkPublish where
             Prelude.<$> (x Core..?> "IdentityPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BulkPublish where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BulkPublish where
   hashWithSalt _salt BulkPublish' {..} =

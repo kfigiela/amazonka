@@ -248,13 +248,16 @@ instance Core.AWSRequest UpdateCrawler where
   type
     AWSResponse UpdateCrawler =
       UpdateCrawlerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCrawler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCrawler where
   hashWithSalt _salt UpdateCrawler' {..} =

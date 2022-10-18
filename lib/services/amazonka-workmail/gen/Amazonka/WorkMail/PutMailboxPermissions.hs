@@ -144,13 +144,16 @@ instance Core.AWSRequest PutMailboxPermissions where
   type
     AWSResponse PutMailboxPermissions =
       PutMailboxPermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutMailboxPermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutMailboxPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMailboxPermissions where
   hashWithSalt _salt PutMailboxPermissions' {..} =

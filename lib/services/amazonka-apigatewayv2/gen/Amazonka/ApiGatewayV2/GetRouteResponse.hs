@@ -111,7 +111,7 @@ instance Core.AWSRequest GetRouteResponse where
   type
     AWSResponse GetRouteResponse =
       GetRouteResponseResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetRouteResponse where
             Prelude.<*> (x Core..?> "routeResponseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRouteResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRouteResponse where
   hashWithSalt _salt GetRouteResponse' {..} =

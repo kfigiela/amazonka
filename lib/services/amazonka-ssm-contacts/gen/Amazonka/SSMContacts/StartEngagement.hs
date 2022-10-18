@@ -175,7 +175,7 @@ instance Core.AWSRequest StartEngagement where
   type
     AWSResponse StartEngagement =
       StartEngagementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest StartEngagement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EngagementArn")
       )
+
+instance Core.AWSService StartEngagement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartEngagement where
   hashWithSalt _salt StartEngagement' {..} =

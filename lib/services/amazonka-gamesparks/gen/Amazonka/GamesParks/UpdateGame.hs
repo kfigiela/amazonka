@@ -87,7 +87,7 @@ updateGame_gameName = Lens.lens (\UpdateGame' {gameName} -> gameName) (\s@Update
 
 instance Core.AWSRequest UpdateGame where
   type AWSResponse UpdateGame = UpdateGameResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest UpdateGame where
             Prelude.<$> (x Core..?> "Game")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGame where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGame where
   hashWithSalt _salt UpdateGame' {..} =

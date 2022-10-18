@@ -637,7 +637,7 @@ instance Core.AWSRequest StartMedicalTranscriptionJob where
   type
     AWSResponse StartMedicalTranscriptionJob =
       StartMedicalTranscriptionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -645,6 +645,9 @@ instance Core.AWSRequest StartMedicalTranscriptionJob where
             Prelude.<$> (x Core..?> "MedicalTranscriptionJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMedicalTranscriptionJob where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

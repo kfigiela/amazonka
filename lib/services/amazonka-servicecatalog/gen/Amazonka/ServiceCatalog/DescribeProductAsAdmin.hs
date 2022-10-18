@@ -151,7 +151,7 @@ instance Core.AWSRequest DescribeProductAsAdmin where
   type
     AWSResponse DescribeProductAsAdmin =
       DescribeProductAsAdminResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest DescribeProductAsAdmin where
             Prelude.<*> (x Core..?> "ProductViewDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProductAsAdmin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProductAsAdmin where
   hashWithSalt _salt DescribeProductAsAdmin' {..} =

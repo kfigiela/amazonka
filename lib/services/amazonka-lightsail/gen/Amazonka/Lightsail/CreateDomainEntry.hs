@@ -105,7 +105,7 @@ instance Core.AWSRequest CreateDomainEntry where
   type
     AWSResponse CreateDomainEntry =
       CreateDomainEntryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest CreateDomainEntry where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDomainEntry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDomainEntry where
   hashWithSalt _salt CreateDomainEntry' {..} =

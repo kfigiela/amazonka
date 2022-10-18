@@ -176,7 +176,7 @@ listRecords_datasetName = Lens.lens (\ListRecords' {datasetName} -> datasetName)
 
 instance Core.AWSRequest ListRecords where
   type AWSResponse ListRecords = ListRecordsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -194,6 +194,9 @@ instance Core.AWSRequest ListRecords where
             Prelude.<*> (x Core..?> "DatasetDeletedAfterRequestedSyncCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRecords where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRecords where
   hashWithSalt _salt ListRecords' {..} =

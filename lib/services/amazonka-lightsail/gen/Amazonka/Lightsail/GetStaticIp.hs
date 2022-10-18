@@ -75,7 +75,7 @@ getStaticIp_staticIpName = Lens.lens (\GetStaticIp' {staticIpName} -> staticIpNa
 
 instance Core.AWSRequest GetStaticIp where
   type AWSResponse GetStaticIp = GetStaticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetStaticIp where
             Prelude.<$> (x Core..?> "staticIp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStaticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStaticIp where
   hashWithSalt _salt GetStaticIp' {..} =

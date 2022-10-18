@@ -253,7 +253,7 @@ instance Core.AWSRequest AllocateHosts where
   type
     AWSResponse AllocateHosts =
       AllocateHostsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -263,6 +263,9 @@ instance Core.AWSRequest AllocateHosts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AllocateHosts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AllocateHosts where
   hashWithSalt _salt AllocateHosts' {..} =

@@ -76,7 +76,7 @@ stopFlow_flowArn = Lens.lens (\StopFlow' {flowArn} -> flowArn) (\s@StopFlow' {} 
 
 instance Core.AWSRequest StopFlow where
   type AWSResponse StopFlow = StopFlowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest StopFlow where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopFlow where
   hashWithSalt _salt StopFlow' {..} =

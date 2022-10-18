@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
   type
     AWSResponse DescribeAvailabilityOptions =
       DescribeAvailabilityOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAvailabilityOptionsResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeAvailabilityOptions where
             Prelude.<$> (x Core..@? "AvailabilityOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAvailabilityOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAvailabilityOptions where
   hashWithSalt _salt DescribeAvailabilityOptions' {..} =

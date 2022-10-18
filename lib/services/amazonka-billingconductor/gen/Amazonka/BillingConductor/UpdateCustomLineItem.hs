@@ -128,7 +128,7 @@ instance Core.AWSRequest UpdateCustomLineItem where
   type
     AWSResponse UpdateCustomLineItem =
       UpdateCustomLineItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest UpdateCustomLineItem where
             Prelude.<*> (x Core..?> "LastModifiedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCustomLineItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCustomLineItem where
   hashWithSalt _salt UpdateCustomLineItem' {..} =

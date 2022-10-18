@@ -158,7 +158,7 @@ instance Core.AWSRequest BatchPutMessage where
   type
     AWSResponse BatchPutMessage =
       BatchPutMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest BatchPutMessage where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchPutMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchPutMessage where
   hashWithSalt _salt BatchPutMessage' {..} =

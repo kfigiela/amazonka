@@ -191,13 +191,16 @@ instance Core.AWSRequest RegisterWorkspaceDirectory where
   type
     AWSResponse RegisterWorkspaceDirectory =
       RegisterWorkspaceDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterWorkspaceDirectoryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterWorkspaceDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterWorkspaceDirectory where
   hashWithSalt _salt RegisterWorkspaceDirectory' {..} =

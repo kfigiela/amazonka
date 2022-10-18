@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteBatchPredictionJob where
   type
     AWSResponse DeleteBatchPredictionJob =
       DeleteBatchPredictionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteBatchPredictionJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBatchPredictionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBatchPredictionJob where
   hashWithSalt _salt DeleteBatchPredictionJob' {..} =

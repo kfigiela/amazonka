@@ -125,13 +125,16 @@ instance Core.AWSRequest PutPositionConfiguration where
   type
     AWSResponse PutPositionConfiguration =
       PutPositionConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutPositionConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutPositionConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPositionConfiguration where
   hashWithSalt _salt PutPositionConfiguration' {..} =

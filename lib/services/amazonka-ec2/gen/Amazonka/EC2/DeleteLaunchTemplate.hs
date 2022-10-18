@@ -125,7 +125,7 @@ instance Core.AWSRequest DeleteLaunchTemplate where
   type
     AWSResponse DeleteLaunchTemplate =
       DeleteLaunchTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DeleteLaunchTemplate where
             Prelude.<$> (x Core..@? "launchTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLaunchTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLaunchTemplate where
   hashWithSalt _salt DeleteLaunchTemplate' {..} =

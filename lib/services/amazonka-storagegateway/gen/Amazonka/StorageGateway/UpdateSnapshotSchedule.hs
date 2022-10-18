@@ -177,7 +177,7 @@ instance Core.AWSRequest UpdateSnapshotSchedule where
   type
     AWSResponse UpdateSnapshotSchedule =
       UpdateSnapshotScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest UpdateSnapshotSchedule where
             Prelude.<$> (x Core..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSnapshotSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSnapshotSchedule where
   hashWithSalt _salt UpdateSnapshotSchedule' {..} =

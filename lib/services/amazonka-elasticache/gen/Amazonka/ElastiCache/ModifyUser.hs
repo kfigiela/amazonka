@@ -124,11 +124,14 @@ modifyUser_userId = Lens.lens (\ModifyUser' {userId} -> userId) (\s@ModifyUser' 
 
 instance Core.AWSRequest ModifyUser where
   type AWSResponse ModifyUser = User
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyUserResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyUser where
   hashWithSalt _salt ModifyUser' {..} =

@@ -171,7 +171,7 @@ instance Core.AWSRequest CreateFunctionUrlConfig where
   type
     AWSResponse CreateFunctionUrlConfig =
       CreateFunctionUrlConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest CreateFunctionUrlConfig where
             Prelude.<*> (x Core..:> "AuthType")
             Prelude.<*> (x Core..:> "CreationTime")
       )
+
+instance Core.AWSService CreateFunctionUrlConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFunctionUrlConfig where
   hashWithSalt _salt CreateFunctionUrlConfig' {..} =

@@ -88,10 +88,16 @@ instance
   type
     AWSResponse DeleteBackupVaultLockConfiguration =
       DeleteBackupVaultLockConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteBackupVaultLockConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteBackupVaultLockConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

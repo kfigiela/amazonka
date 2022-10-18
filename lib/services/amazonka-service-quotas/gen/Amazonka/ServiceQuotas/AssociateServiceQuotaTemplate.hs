@@ -67,13 +67,19 @@ instance
   type
     AWSResponse AssociateServiceQuotaTemplate =
       AssociateServiceQuotaTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateServiceQuotaTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateServiceQuotaTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

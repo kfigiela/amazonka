@@ -118,7 +118,7 @@ instance
   type
     AWSResponse DisassociateFileSystemAliases =
       DisassociateFileSystemAliasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,12 @@ instance
             Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateFileSystemAliases
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -111,7 +111,7 @@ instance Core.AWSRequest DescribeReservedInstances where
   type
     AWSResponse DescribeReservedInstances =
       DescribeReservedInstancesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeReservedInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReservedInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReservedInstances where
   hashWithSalt _salt DescribeReservedInstances' {..} =

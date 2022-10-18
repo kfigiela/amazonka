@@ -167,7 +167,7 @@ instance Core.AWSRequest DeregisterContainerInstance where
   type
     AWSResponse DeregisterContainerInstance =
       DeregisterContainerInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest DeregisterContainerInstance where
             Prelude.<$> (x Core..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterContainerInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterContainerInstance where
   hashWithSalt _salt DeregisterContainerInstance' {..} =

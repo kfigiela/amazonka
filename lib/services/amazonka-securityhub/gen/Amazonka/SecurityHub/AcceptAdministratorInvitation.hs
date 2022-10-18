@@ -110,13 +110,19 @@ instance
   type
     AWSResponse AcceptAdministratorInvitation =
       AcceptAdministratorInvitationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptAdministratorInvitationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AcceptAdministratorInvitation
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -262,7 +262,7 @@ createAddon_addonName = Lens.lens (\CreateAddon' {addonName} -> addonName) (\s@C
 
 instance Core.AWSRequest CreateAddon where
   type AWSResponse CreateAddon = CreateAddonResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -270,6 +270,9 @@ instance Core.AWSRequest CreateAddon where
             Prelude.<$> (x Core..?> "addon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAddon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAddon where
   hashWithSalt _salt CreateAddon' {..} =

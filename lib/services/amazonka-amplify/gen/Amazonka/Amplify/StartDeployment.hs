@@ -123,7 +123,7 @@ instance Core.AWSRequest StartDeployment where
   type
     AWSResponse StartDeployment =
       StartDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest StartDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "jobSummary")
       )
+
+instance Core.AWSService StartDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =

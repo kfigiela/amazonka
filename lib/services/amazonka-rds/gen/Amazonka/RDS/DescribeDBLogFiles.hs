@@ -208,7 +208,7 @@ instance Core.AWSRequest DescribeDBLogFiles where
   type
     AWSResponse DescribeDBLogFiles =
       DescribeDBLogFilesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBLogFilesResult"
@@ -222,6 +222,9 @@ instance Core.AWSRequest DescribeDBLogFiles where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBLogFiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBLogFiles where
   hashWithSalt _salt DescribeDBLogFiles' {..} =

@@ -88,7 +88,7 @@ instance Core.AWSRequest ListLocalDisks where
   type
     AWSResponse ListLocalDisks =
       ListLocalDisksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest ListLocalDisks where
             Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLocalDisks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLocalDisks where
   hashWithSalt _salt ListLocalDisks' {..} =

@@ -76,13 +76,16 @@ claimDevice_id = Lens.lens (\ClaimDevice' {id} -> id) (\s@ClaimDevice' {} a -> s
 
 instance Core.AWSRequest ClaimDevice where
   type AWSResponse ClaimDevice = ClaimDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ClaimDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ClaimDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClaimDevice where
   hashWithSalt _salt ClaimDevice' {..} =

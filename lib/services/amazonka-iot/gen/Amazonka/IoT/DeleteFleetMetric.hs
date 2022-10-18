@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteFleetMetric where
   type
     AWSResponse DeleteFleetMetric =
       DeleteFleetMetricResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFleetMetricResponse'
+
+instance Core.AWSService DeleteFleetMetric where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFleetMetric where
   hashWithSalt _salt DeleteFleetMetric' {..} =

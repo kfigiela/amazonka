@@ -75,9 +75,12 @@ instance Core.AWSRequest UpdateGlobalSettings where
   type
     AWSResponse UpdateGlobalSettings =
       UpdateGlobalSettingsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull UpdateGlobalSettingsResponse'
+
+instance Core.AWSService UpdateGlobalSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGlobalSettings where
   hashWithSalt _salt UpdateGlobalSettings' {..} =

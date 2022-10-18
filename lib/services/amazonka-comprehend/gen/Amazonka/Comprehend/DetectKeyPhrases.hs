@@ -101,7 +101,7 @@ instance Core.AWSRequest DetectKeyPhrases where
   type
     AWSResponse DetectKeyPhrases =
       DetectKeyPhrasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DetectKeyPhrases where
             Prelude.<$> (x Core..?> "KeyPhrases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectKeyPhrases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectKeyPhrases where
   hashWithSalt _salt DetectKeyPhrases' {..} =

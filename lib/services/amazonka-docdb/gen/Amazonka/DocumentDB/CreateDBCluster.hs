@@ -543,7 +543,7 @@ instance Core.AWSRequest CreateDBCluster where
   type
     AWSResponse CreateDBCluster =
       CreateDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterResult"
@@ -552,6 +552,9 @@ instance Core.AWSRequest CreateDBCluster where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBCluster where
   hashWithSalt _salt CreateDBCluster' {..} =

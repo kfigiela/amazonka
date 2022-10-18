@@ -139,7 +139,7 @@ instance Core.AWSRequest LabelParameterVersion where
   type
     AWSResponse LabelParameterVersion =
       LabelParameterVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest LabelParameterVersion where
             Prelude.<*> (x Core..?> "ParameterVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService LabelParameterVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable LabelParameterVersion where
   hashWithSalt _salt LabelParameterVersion' {..} =

@@ -112,13 +112,16 @@ instance Core.AWSRequest DeleteModelVersion where
   type
     AWSResponse DeleteModelVersion =
       DeleteModelVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteModelVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteModelVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteModelVersion where
   hashWithSalt _salt DeleteModelVersion' {..} =

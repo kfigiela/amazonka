@@ -126,7 +126,7 @@ instance Core.AWSRequest UpdateAccountCustomization where
   type
     AWSResponse UpdateAccountCustomization =
       UpdateAccountCustomizationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest UpdateAccountCustomization where
             Prelude.<*> (x Core..?> "AccountCustomization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAccountCustomization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccountCustomization where
   hashWithSalt _salt UpdateAccountCustomization' {..} =

@@ -148,7 +148,7 @@ instance Core.AWSRequest PutPermission where
   type
     AWSResponse PutPermission =
       PutPermissionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest PutPermission where
             Prelude.<*> (x Core..:> "policy")
             Prelude.<*> (x Core..:> "revisionId")
       )
+
+instance Core.AWSService PutPermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =

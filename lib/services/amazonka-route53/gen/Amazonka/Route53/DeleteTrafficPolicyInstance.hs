@@ -94,13 +94,16 @@ instance Core.AWSRequest DeleteTrafficPolicyInstance where
   type
     AWSResponse DeleteTrafficPolicyInstance =
       DeleteTrafficPolicyInstanceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTrafficPolicyInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTrafficPolicyInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrafficPolicyInstance where
   hashWithSalt _salt DeleteTrafficPolicyInstance' {..} =

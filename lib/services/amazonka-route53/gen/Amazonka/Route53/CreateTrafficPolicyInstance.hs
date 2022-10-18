@@ -164,7 +164,7 @@ instance Core.AWSRequest CreateTrafficPolicyInstance where
   type
     AWSResponse CreateTrafficPolicyInstance =
       CreateTrafficPolicyInstanceResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest CreateTrafficPolicyInstance where
             Prelude.<*> (x Core..@ "TrafficPolicyInstance")
             Prelude.<*> (h Core..# "Location")
       )
+
+instance Core.AWSService CreateTrafficPolicyInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrafficPolicyInstance where
   hashWithSalt _salt CreateTrafficPolicyInstance' {..} =

@@ -280,7 +280,7 @@ instance Core.AWSRequest CreateSolution where
   type
     AWSResponse CreateSolution =
       CreateSolutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -288,6 +288,9 @@ instance Core.AWSRequest CreateSolution where
             Prelude.<$> (x Core..?> "solutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSolution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSolution where
   hashWithSalt _salt CreateSolution' {..} =

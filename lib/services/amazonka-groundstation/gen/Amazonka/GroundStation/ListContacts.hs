@@ -180,7 +180,7 @@ instance Core.AWSPager ListContacts where
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest ListContacts where
             Prelude.<*> (x Core..?> "contactList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListContacts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListContacts where
   hashWithSalt _salt ListContacts' {..} =

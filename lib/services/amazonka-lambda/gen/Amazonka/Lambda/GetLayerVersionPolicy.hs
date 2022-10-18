@@ -94,7 +94,7 @@ instance Core.AWSRequest GetLayerVersionPolicy where
   type
     AWSResponse GetLayerVersionPolicy =
       GetLayerVersionPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetLayerVersionPolicy where
             Prelude.<*> (x Core..?> "RevisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLayerVersionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLayerVersionPolicy where
   hashWithSalt _salt GetLayerVersionPolicy' {..} =

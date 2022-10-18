@@ -126,7 +126,7 @@ instance Core.AWSRequest StartHumanLoop where
   type
     AWSResponse StartHumanLoop =
       StartHumanLoopResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest StartHumanLoop where
             Prelude.<$> (x Core..?> "HumanLoopArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartHumanLoop where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartHumanLoop where
   hashWithSalt _salt StartHumanLoop' {..} =

@@ -85,8 +85,11 @@ deleteIntent_name = Lens.lens (\DeleteIntent' {name} -> name) (\s@DeleteIntent' 
 
 instance Core.AWSRequest DeleteIntent where
   type AWSResponse DeleteIntent = DeleteIntentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteIntentResponse'
+
+instance Core.AWSService DeleteIntent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIntent where
   hashWithSalt _salt DeleteIntent' {..} =

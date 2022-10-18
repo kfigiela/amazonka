@@ -166,7 +166,7 @@ instance Core.AWSRequest UpdatePipelineNotifications where
   type
     AWSResponse UpdatePipelineNotifications =
       UpdatePipelineNotificationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest UpdatePipelineNotifications where
             Prelude.<$> (x Core..?> "Pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePipelineNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePipelineNotifications where
   hashWithSalt _salt UpdatePipelineNotifications' {..} =

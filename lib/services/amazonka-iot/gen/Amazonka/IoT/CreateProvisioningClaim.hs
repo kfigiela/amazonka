@@ -87,7 +87,7 @@ instance Core.AWSRequest CreateProvisioningClaim where
   type
     AWSResponse CreateProvisioningClaim =
       CreateProvisioningClaimResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest CreateProvisioningClaim where
             Prelude.<*> (x Core..?> "certificatePem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProvisioningClaim where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProvisioningClaim where
   hashWithSalt _salt CreateProvisioningClaim' {..} =

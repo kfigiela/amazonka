@@ -201,7 +201,7 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
   type
     AWSResponse ListEdgeDeploymentPlans =
       ListEdgeDeploymentPlansResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest ListEdgeDeploymentPlans where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListEdgeDeploymentPlans where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEdgeDeploymentPlans where
   hashWithSalt _salt ListEdgeDeploymentPlans' {..} =

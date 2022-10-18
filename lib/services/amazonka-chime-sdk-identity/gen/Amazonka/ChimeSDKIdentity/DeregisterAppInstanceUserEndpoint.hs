@@ -95,10 +95,16 @@ instance
   type
     AWSResponse DeregisterAppInstanceUserEndpoint =
       DeregisterAppInstanceUserEndpointResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeregisterAppInstanceUserEndpointResponse'
+
+instance
+  Core.AWSService
+    DeregisterAppInstanceUserEndpoint
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

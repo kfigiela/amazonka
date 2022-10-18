@@ -132,7 +132,7 @@ instance Core.AWSRequest CreateUserPoolDomain where
   type
     AWSResponse CreateUserPoolDomain =
       CreateUserPoolDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateUserPoolDomain where
             Prelude.<$> (x Core..?> "CloudFrontDomain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUserPoolDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUserPoolDomain where
   hashWithSalt _salt CreateUserPoolDomain' {..} =

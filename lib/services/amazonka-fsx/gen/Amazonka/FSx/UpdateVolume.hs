@@ -129,7 +129,7 @@ updateVolume_volumeId = Lens.lens (\UpdateVolume' {volumeId} -> volumeId) (\s@Up
 
 instance Core.AWSRequest UpdateVolume where
   type AWSResponse UpdateVolume = UpdateVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest UpdateVolume where
             Prelude.<$> (x Core..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVolume where
   hashWithSalt _salt UpdateVolume' {..} =

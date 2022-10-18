@@ -169,9 +169,12 @@ instance Core.AWSRequest UpdateLoginProfile where
   type
     AWSResponse UpdateLoginProfile =
       UpdateLoginProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UpdateLoginProfileResponse'
+
+instance Core.AWSService UpdateLoginProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLoginProfile where
   hashWithSalt _salt UpdateLoginProfile' {..} =

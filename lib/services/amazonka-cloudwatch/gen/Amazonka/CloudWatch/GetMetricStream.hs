@@ -87,7 +87,7 @@ instance Core.AWSRequest GetMetricStream where
   type
     AWSResponse GetMetricStream =
       GetMetricStreamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetMetricStreamResult"
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetMetricStream where
             Prelude.<*> (x Core..@? "FirehoseArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMetricStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetricStream where
   hashWithSalt _salt GetMetricStream' {..} =

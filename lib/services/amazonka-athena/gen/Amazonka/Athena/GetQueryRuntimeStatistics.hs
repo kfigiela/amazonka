@@ -83,7 +83,7 @@ instance Core.AWSRequest GetQueryRuntimeStatistics where
   type
     AWSResponse GetQueryRuntimeStatistics =
       GetQueryRuntimeStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetQueryRuntimeStatistics where
             Prelude.<$> (x Core..?> "QueryRuntimeStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetQueryRuntimeStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueryRuntimeStatistics where
   hashWithSalt _salt GetQueryRuntimeStatistics' {..} =

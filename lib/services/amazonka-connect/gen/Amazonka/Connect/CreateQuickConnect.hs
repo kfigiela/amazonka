@@ -133,7 +133,7 @@ instance Core.AWSRequest CreateQuickConnect where
   type
     AWSResponse CreateQuickConnect =
       CreateQuickConnectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateQuickConnect where
             Prelude.<*> (x Core..?> "QuickConnectId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateQuickConnect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateQuickConnect where
   hashWithSalt _salt CreateQuickConnect' {..} =

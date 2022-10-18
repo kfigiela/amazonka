@@ -362,6 +362,7 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudtrail",
       Core._serviceSigningName = "cloudtrail",
       Core._serviceVersion = "2013-11-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

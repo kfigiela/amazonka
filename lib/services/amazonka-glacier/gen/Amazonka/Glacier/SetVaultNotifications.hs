@@ -148,11 +148,14 @@ instance Core.AWSRequest SetVaultNotifications where
   type
     AWSResponse SetVaultNotifications =
       SetVaultNotificationsResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putJSON defaultService
+      Prelude.. Request.putJSON srv
   response =
     Response.receiveNull SetVaultNotificationsResponse'
+
+instance Core.AWSService SetVaultNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetVaultNotifications where
   hashWithSalt _salt SetVaultNotifications' {..} =

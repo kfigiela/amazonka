@@ -217,7 +217,7 @@ instance Core.AWSRequest CreateTrialComponent where
   type
     AWSResponse CreateTrialComponent =
       CreateTrialComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -225,6 +225,9 @@ instance Core.AWSRequest CreateTrialComponent where
             Prelude.<$> (x Core..?> "TrialComponentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTrialComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrialComponent where
   hashWithSalt _salt CreateTrialComponent' {..} =

@@ -92,7 +92,7 @@ instance
   type
     AWSResponse DescribeAuditMitigationActionsTask =
       DescribeAuditMitigationActionsTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,12 @@ instance
               Prelude.<*> (x Core..?> "startTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAuditMitigationActionsTask
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

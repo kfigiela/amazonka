@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteRemoteAccessSession where
   type
     AWSResponse DeleteRemoteAccessSession =
       DeleteRemoteAccessSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRemoteAccessSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRemoteAccessSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRemoteAccessSession where
   hashWithSalt _salt DeleteRemoteAccessSession' {..} =

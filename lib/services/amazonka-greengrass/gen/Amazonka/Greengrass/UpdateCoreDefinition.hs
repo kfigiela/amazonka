@@ -88,13 +88,16 @@ instance Core.AWSRequest UpdateCoreDefinition where
   type
     AWSResponse UpdateCoreDefinition =
       UpdateCoreDefinitionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateCoreDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCoreDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCoreDefinition where
   hashWithSalt _salt UpdateCoreDefinition' {..} =

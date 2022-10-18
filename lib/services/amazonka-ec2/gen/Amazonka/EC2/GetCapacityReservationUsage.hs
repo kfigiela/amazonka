@@ -146,7 +146,7 @@ instance Core.AWSRequest GetCapacityReservationUsage where
   type
     AWSResponse GetCapacityReservationUsage =
       GetCapacityReservationUsageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest GetCapacityReservationUsage where
             Prelude.<*> (x Core..@? "availableInstanceCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCapacityReservationUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCapacityReservationUsage where
   hashWithSalt _salt GetCapacityReservationUsage' {..} =

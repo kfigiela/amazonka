@@ -83,7 +83,7 @@ instance Core.AWSRequest GetReusableDelegationSet where
   type
     AWSResponse GetReusableDelegationSet =
       GetReusableDelegationSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetReusableDelegationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "DelegationSet")
       )
+
+instance Core.AWSService GetReusableDelegationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReusableDelegationSet where
   hashWithSalt _salt GetReusableDelegationSet' {..} =

@@ -99,10 +99,13 @@ instance Core.AWSRequest UpdateExtensionAssociation where
   type
     AWSResponse UpdateExtensionAssociation =
       ExtensionAssociation
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateExtensionAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateExtensionAssociation where
   hashWithSalt _salt UpdateExtensionAssociation' {..} =

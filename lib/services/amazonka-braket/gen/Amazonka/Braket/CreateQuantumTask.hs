@@ -181,7 +181,7 @@ instance Core.AWSRequest CreateQuantumTask where
   type
     AWSResponse CreateQuantumTask =
       CreateQuantumTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest CreateQuantumTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "quantumTaskArn")
       )
+
+instance Core.AWSService CreateQuantumTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateQuantumTask where
   hashWithSalt _salt CreateQuantumTask' {..} =

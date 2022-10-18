@@ -107,7 +107,7 @@ instance Core.AWSRequest ListDatasourcePackages where
   type
     AWSResponse ListDatasourcePackages =
       ListDatasourcePackagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ListDatasourcePackages where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatasourcePackages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatasourcePackages where
   hashWithSalt _salt ListDatasourcePackages' {..} =

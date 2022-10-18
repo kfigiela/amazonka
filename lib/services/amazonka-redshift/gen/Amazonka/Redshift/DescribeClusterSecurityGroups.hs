@@ -257,7 +257,7 @@ instance
   type
     AWSResponse DescribeClusterSecurityGroups =
       DescribeClusterSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterSecurityGroupsResult"
@@ -270,6 +270,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeClusterSecurityGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

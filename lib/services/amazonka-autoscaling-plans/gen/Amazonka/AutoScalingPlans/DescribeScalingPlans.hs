@@ -163,7 +163,7 @@ instance Core.AWSRequest DescribeScalingPlans where
   type
     AWSResponse DescribeScalingPlans =
       DescribeScalingPlansResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest DescribeScalingPlans where
             Prelude.<*> (x Core..?> "ScalingPlans" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeScalingPlans where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScalingPlans where
   hashWithSalt _salt DescribeScalingPlans' {..} =

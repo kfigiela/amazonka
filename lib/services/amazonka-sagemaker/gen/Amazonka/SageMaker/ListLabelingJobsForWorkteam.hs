@@ -195,7 +195,7 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
   type
     AWSResponse ListLabelingJobsForWorkteam =
       ListLabelingJobsForWorkteamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest ListLabelingJobsForWorkteam where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListLabelingJobsForWorkteam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLabelingJobsForWorkteam where
   hashWithSalt _salt ListLabelingJobsForWorkteam' {..} =

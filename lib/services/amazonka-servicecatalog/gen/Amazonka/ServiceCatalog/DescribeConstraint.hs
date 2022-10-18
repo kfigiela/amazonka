@@ -110,7 +110,7 @@ instance Core.AWSRequest DescribeConstraint where
   type
     AWSResponse DescribeConstraint =
       DescribeConstraintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DescribeConstraint where
             Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConstraint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConstraint where
   hashWithSalt _salt DescribeConstraint' {..} =

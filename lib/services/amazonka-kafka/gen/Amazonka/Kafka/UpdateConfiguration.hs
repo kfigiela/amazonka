@@ -120,7 +120,7 @@ instance Core.AWSRequest UpdateConfiguration where
   type
     AWSResponse UpdateConfiguration =
       UpdateConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateConfiguration where
             Prelude.<*> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConfiguration where
   hashWithSalt _salt UpdateConfiguration' {..} =

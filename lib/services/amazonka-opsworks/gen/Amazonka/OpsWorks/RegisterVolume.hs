@@ -99,7 +99,7 @@ instance Core.AWSRequest RegisterVolume where
   type
     AWSResponse RegisterVolume =
       RegisterVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest RegisterVolume where
             Prelude.<$> (x Core..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterVolume where
   hashWithSalt _salt RegisterVolume' {..} =

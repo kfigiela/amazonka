@@ -187,7 +187,7 @@ instance
   type
     AWSResponse DescribeMatchmakingConfigurations =
       DescribeMatchmakingConfigurationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,12 @@ instance
               Prelude.<*> (x Core..?> "Configurations" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeMatchmakingConfigurations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

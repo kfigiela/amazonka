@@ -94,7 +94,7 @@ instance Core.AWSRequest StartOnDemandAuditTask where
   type
     AWSResponse StartOnDemandAuditTask =
       StartOnDemandAuditTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest StartOnDemandAuditTask where
             Prelude.<$> (x Core..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartOnDemandAuditTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartOnDemandAuditTask where
   hashWithSalt _salt StartOnDemandAuditTask' {..} =

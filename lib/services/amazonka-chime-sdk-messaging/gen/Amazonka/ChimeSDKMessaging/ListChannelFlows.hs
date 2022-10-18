@@ -104,7 +104,7 @@ instance Core.AWSRequest ListChannelFlows where
   type
     AWSResponse ListChannelFlows =
       ListChannelFlowsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListChannelFlows where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannelFlows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannelFlows where
   hashWithSalt _salt ListChannelFlows' {..} =

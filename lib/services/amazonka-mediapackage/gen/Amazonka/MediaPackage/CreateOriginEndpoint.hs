@@ -258,7 +258,7 @@ instance Core.AWSRequest CreateOriginEndpoint where
   type
     AWSResponse CreateOriginEndpoint =
       CreateOriginEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -281,6 +281,9 @@ instance Core.AWSRequest CreateOriginEndpoint where
             Prelude.<*> (x Core..?> "origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOriginEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOriginEndpoint where
   hashWithSalt _salt CreateOriginEndpoint' {..} =

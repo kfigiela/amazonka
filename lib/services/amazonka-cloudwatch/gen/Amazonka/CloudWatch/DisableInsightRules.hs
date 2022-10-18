@@ -82,7 +82,7 @@ instance Core.AWSRequest DisableInsightRules where
   type
     AWSResponse DisableInsightRules =
       DisableInsightRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisableInsightRulesResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest DisableInsightRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableInsightRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableInsightRules where
   hashWithSalt _salt DisableInsightRules' {..} =

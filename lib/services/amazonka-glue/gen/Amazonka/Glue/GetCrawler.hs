@@ -74,7 +74,7 @@ getCrawler_name = Lens.lens (\GetCrawler' {name} -> name) (\s@GetCrawler' {} a -
 
 instance Core.AWSRequest GetCrawler where
   type AWSResponse GetCrawler = GetCrawlerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetCrawler where
             Prelude.<$> (x Core..?> "Crawler")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCrawler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCrawler where
   hashWithSalt _salt GetCrawler' {..} =

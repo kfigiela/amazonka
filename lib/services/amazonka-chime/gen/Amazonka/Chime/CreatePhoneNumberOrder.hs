@@ -93,7 +93,7 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
   type
     AWSResponse CreatePhoneNumberOrder =
       CreatePhoneNumberOrderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest CreatePhoneNumberOrder where
             Prelude.<$> (x Core..?> "PhoneNumberOrder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePhoneNumberOrder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePhoneNumberOrder where
   hashWithSalt _salt CreatePhoneNumberOrder' {..} =

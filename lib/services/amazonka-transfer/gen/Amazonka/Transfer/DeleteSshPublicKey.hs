@@ -108,9 +108,12 @@ instance Core.AWSRequest DeleteSshPublicKey where
   type
     AWSResponse DeleteSshPublicKey =
       DeleteSshPublicKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteSshPublicKeyResponse'
+
+instance Core.AWSService DeleteSshPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSshPublicKey where
   hashWithSalt _salt DeleteSshPublicKey' {..} =

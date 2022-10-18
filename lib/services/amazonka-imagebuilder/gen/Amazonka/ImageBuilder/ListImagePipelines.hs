@@ -138,7 +138,7 @@ instance Core.AWSRequest ListImagePipelines where
   type
     AWSResponse ListImagePipelines =
       ListImagePipelinesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListImagePipelines where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListImagePipelines where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListImagePipelines where
   hashWithSalt _salt ListImagePipelines' {..} =

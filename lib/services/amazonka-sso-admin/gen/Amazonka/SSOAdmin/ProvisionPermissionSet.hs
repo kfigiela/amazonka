@@ -129,7 +129,7 @@ instance Core.AWSRequest ProvisionPermissionSet where
   type
     AWSResponse ProvisionPermissionSet =
       ProvisionPermissionSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ProvisionPermissionSet where
             Prelude.<$> (x Core..?> "PermissionSetProvisioningStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ProvisionPermissionSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ProvisionPermissionSet where
   hashWithSalt _salt ProvisionPermissionSet' {..} =

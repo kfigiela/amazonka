@@ -150,7 +150,7 @@ instance Core.AWSRequest ListOpsItemRelatedItems where
   type
     AWSResponse ListOpsItemRelatedItems =
       ListOpsItemRelatedItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListOpsItemRelatedItems where
             Prelude.<*> (x Core..?> "Summaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOpsItemRelatedItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOpsItemRelatedItems where
   hashWithSalt _salt ListOpsItemRelatedItems' {..} =

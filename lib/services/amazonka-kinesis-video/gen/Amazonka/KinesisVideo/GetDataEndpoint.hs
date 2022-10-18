@@ -117,7 +117,7 @@ instance Core.AWSRequest GetDataEndpoint where
   type
     AWSResponse GetDataEndpoint =
       GetDataEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetDataEndpoint where
             Prelude.<$> (x Core..?> "DataEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataEndpoint where
   hashWithSalt _salt GetDataEndpoint' {..} =

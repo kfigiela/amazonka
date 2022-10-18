@@ -205,7 +205,7 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
   type
     AWSResponse SearchAssociatedTranscripts =
       SearchAssociatedTranscriptsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,6 +221,9 @@ instance Core.AWSRequest SearchAssociatedTranscripts where
             Prelude.<*> (x Core..?> "totalResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchAssociatedTranscripts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchAssociatedTranscripts where
   hashWithSalt _salt SearchAssociatedTranscripts' {..} =

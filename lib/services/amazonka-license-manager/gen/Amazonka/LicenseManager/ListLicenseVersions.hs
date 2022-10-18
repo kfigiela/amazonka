@@ -100,7 +100,7 @@ instance Core.AWSRequest ListLicenseVersions where
   type
     AWSResponse ListLicenseVersions =
       ListLicenseVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ListLicenseVersions where
             Prelude.<*> (x Core..?> "Licenses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLicenseVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLicenseVersions where
   hashWithSalt _salt ListLicenseVersions' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest StopPiiEntitiesDetectionJob where
   type
     AWSResponse StopPiiEntitiesDetectionJob =
       StopPiiEntitiesDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest StopPiiEntitiesDetectionJob where
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopPiiEntitiesDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopPiiEntitiesDetectionJob where
   hashWithSalt _salt StopPiiEntitiesDetectionJob' {..} =

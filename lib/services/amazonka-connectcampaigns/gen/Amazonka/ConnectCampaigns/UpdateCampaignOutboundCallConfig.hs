@@ -108,10 +108,16 @@ instance
   type
     AWSResponse UpdateCampaignOutboundCallConfig =
       UpdateCampaignOutboundCallConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateCampaignOutboundCallConfigResponse'
+
+instance
+  Core.AWSService
+    UpdateCampaignOutboundCallConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

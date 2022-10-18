@@ -97,7 +97,7 @@ instance Core.AWSRequest DeleteLifecycleHook where
   type
     AWSResponse DeleteLifecycleHook =
       DeleteLifecycleHookResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteLifecycleHookResult"
@@ -105,6 +105,9 @@ instance Core.AWSRequest DeleteLifecycleHook where
           DeleteLifecycleHookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLifecycleHook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLifecycleHook where
   hashWithSalt _salt DeleteLifecycleHook' {..} =

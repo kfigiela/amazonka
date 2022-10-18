@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteAdmChannel where
   type
     AWSResponse DeleteAdmChannel =
       DeleteAdmChannelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteAdmChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteAdmChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAdmChannel where
   hashWithSalt _salt DeleteAdmChannel' {..} =

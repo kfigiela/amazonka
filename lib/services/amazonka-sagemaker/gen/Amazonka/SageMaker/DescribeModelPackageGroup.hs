@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeModelPackageGroup where
   type
     AWSResponse DescribeModelPackageGroup =
       DescribeModelPackageGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DescribeModelPackageGroup where
             Prelude.<*> (x Core..:> "CreatedBy")
             Prelude.<*> (x Core..:> "ModelPackageGroupStatus")
       )
+
+instance Core.AWSService DescribeModelPackageGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeModelPackageGroup where
   hashWithSalt _salt DescribeModelPackageGroup' {..} =

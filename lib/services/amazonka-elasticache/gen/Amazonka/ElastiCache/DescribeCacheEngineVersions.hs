@@ -230,7 +230,7 @@ instance Core.AWSRequest DescribeCacheEngineVersions where
   type
     AWSResponse DescribeCacheEngineVersions =
       DescribeCacheEngineVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheEngineVersionsResult"
@@ -243,6 +243,9 @@ instance Core.AWSRequest DescribeCacheEngineVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCacheEngineVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCacheEngineVersions where
   hashWithSalt _salt DescribeCacheEngineVersions' {..} =

@@ -483,7 +483,7 @@ publish_message = Lens.lens (\Publish' {message} -> message) (\s@Publish' {} a -
 
 instance Core.AWSRequest Publish where
   type AWSResponse Publish = PublishResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PublishResult"
@@ -493,6 +493,9 @@ instance Core.AWSRequest Publish where
             Prelude.<*> (x Core..@? "SequenceNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Publish where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Publish where
   hashWithSalt _salt Publish' {..} =

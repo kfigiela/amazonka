@@ -123,7 +123,7 @@ instance Core.AWSRequest DeleteTemplateAlias where
   type
     AWSResponse DeleteTemplateAlias =
       DeleteTemplateAliasResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest DeleteTemplateAlias where
             Prelude.<*> (x Core..?> "AliasName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTemplateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTemplateAlias where
   hashWithSalt _salt DeleteTemplateAlias' {..} =

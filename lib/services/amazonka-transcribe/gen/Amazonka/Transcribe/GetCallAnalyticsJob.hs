@@ -98,7 +98,7 @@ instance Core.AWSRequest GetCallAnalyticsJob where
   type
     AWSResponse GetCallAnalyticsJob =
       GetCallAnalyticsJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetCallAnalyticsJob where
             Prelude.<$> (x Core..?> "CallAnalyticsJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCallAnalyticsJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCallAnalyticsJob where
   hashWithSalt _salt GetCallAnalyticsJob' {..} =

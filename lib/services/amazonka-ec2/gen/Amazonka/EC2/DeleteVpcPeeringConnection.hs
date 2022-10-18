@@ -105,7 +105,7 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
   type
     AWSResponse DeleteVpcPeeringConnection =
       DeleteVpcPeeringConnectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DeleteVpcPeeringConnection where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVpcPeeringConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVpcPeeringConnection where
   hashWithSalt _salt DeleteVpcPeeringConnection' {..} =

@@ -102,7 +102,7 @@ instance Core.AWSRequest DeregisterTaskDefinition where
   type
     AWSResponse DeregisterTaskDefinition =
       DeregisterTaskDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DeregisterTaskDefinition where
             Prelude.<$> (x Core..?> "taskDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterTaskDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterTaskDefinition where
   hashWithSalt _salt DeregisterTaskDefinition' {..} =

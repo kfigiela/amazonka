@@ -118,13 +118,16 @@ instance Core.AWSRequest DeleteOTAUpdate where
   type
     AWSResponse DeleteOTAUpdate =
       DeleteOTAUpdateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOTAUpdateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOTAUpdate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOTAUpdate where
   hashWithSalt _salt DeleteOTAUpdate' {..} =

@@ -127,13 +127,16 @@ instance Core.AWSRequest DeleteCustomMetadata where
   type
     AWSResponse DeleteCustomMetadata =
       DeleteCustomMetadataResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomMetadata where
   hashWithSalt _salt DeleteCustomMetadata' {..} =

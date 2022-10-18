@@ -146,7 +146,7 @@ instance Core.AWSRequest GetContactInformation where
   type
     AWSResponse GetContactInformation =
       GetContactInformationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest GetContactInformation where
             Prelude.<$> (x Core..?> "ContactInformation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContactInformation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContactInformation where
   hashWithSalt _salt GetContactInformation' {..} =

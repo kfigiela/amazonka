@@ -92,10 +92,13 @@ instance Core.AWSRequest DeleteDocumentationVersion where
   type
     AWSResponse DeleteDocumentationVersion =
       DeleteDocumentationVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteDocumentationVersionResponse'
+
+instance Core.AWSService DeleteDocumentationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDocumentationVersion where
   hashWithSalt _salt DeleteDocumentationVersion' {..} =

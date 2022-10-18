@@ -156,7 +156,7 @@ instance Core.AWSRequest StartBotRecommendation where
   type
     AWSResponse StartBotRecommendation =
       StartBotRecommendationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest StartBotRecommendation where
             Prelude.<*> (x Core..?> "transcriptSourceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartBotRecommendation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBotRecommendation where
   hashWithSalt _salt StartBotRecommendation' {..} =

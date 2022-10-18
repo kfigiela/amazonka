@@ -101,7 +101,7 @@ instance Core.AWSRequest GetApplication where
   type
     AWSResponse GetApplication =
       GetApplicationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetApplication where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =

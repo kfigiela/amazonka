@@ -246,7 +246,7 @@ putTargets_targets = Lens.lens (\PutTargets' {targets} -> targets) (\s@PutTarget
 
 instance Core.AWSRequest PutTargets where
   type AWSResponse PutTargets = PutTargetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -255,6 +255,9 @@ instance Core.AWSRequest PutTargets where
             Prelude.<*> (x Core..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutTargets where
   hashWithSalt _salt PutTargets' {..} =

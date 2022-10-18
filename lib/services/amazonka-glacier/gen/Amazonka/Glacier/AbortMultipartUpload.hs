@@ -143,11 +143,14 @@ instance Core.AWSRequest AbortMultipartUpload where
   type
     AWSResponse AbortMultipartUpload =
       AbortMultipartUploadResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response =
     Response.receiveNull AbortMultipartUploadResponse'
+
+instance Core.AWSService AbortMultipartUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AbortMultipartUpload where
   hashWithSalt _salt AbortMultipartUpload' {..} =

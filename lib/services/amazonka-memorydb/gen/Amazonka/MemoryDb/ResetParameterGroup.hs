@@ -115,7 +115,7 @@ instance Core.AWSRequest ResetParameterGroup where
   type
     AWSResponse ResetParameterGroup =
       ResetParameterGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ResetParameterGroup where
             Prelude.<$> (x Core..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetParameterGroup where
   hashWithSalt _salt ResetParameterGroup' {..} =

@@ -96,13 +96,16 @@ instance Core.AWSRequest PublishMetrics where
   type
     AWSResponse PublishMetrics =
       PublishMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PublishMetricsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PublishMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishMetrics where
   hashWithSalt _salt PublishMetrics' {..} =

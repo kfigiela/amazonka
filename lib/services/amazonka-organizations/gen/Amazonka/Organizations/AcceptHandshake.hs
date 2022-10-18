@@ -118,7 +118,7 @@ instance Core.AWSRequest AcceptHandshake where
   type
     AWSResponse AcceptHandshake =
       AcceptHandshakeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest AcceptHandshake where
             Prelude.<$> (x Core..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptHandshake where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptHandshake where
   hashWithSalt _salt AcceptHandshake' {..} =

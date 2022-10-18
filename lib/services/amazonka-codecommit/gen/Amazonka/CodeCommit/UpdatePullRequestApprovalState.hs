@@ -107,10 +107,16 @@ instance
   type
     AWSResponse UpdatePullRequestApprovalState =
       UpdatePullRequestApprovalStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdatePullRequestApprovalStateResponse'
+
+instance
+  Core.AWSService
+    UpdatePullRequestApprovalState
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

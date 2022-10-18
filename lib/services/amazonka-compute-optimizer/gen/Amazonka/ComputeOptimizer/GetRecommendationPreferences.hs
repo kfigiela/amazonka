@@ -178,7 +178,7 @@ instance Core.AWSRequest GetRecommendationPreferences where
   type
     AWSResponse GetRecommendationPreferences =
       GetRecommendationPreferencesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest GetRecommendationPreferences where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRecommendationPreferences where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

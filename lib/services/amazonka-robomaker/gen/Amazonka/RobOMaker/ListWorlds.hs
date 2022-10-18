@@ -148,7 +148,7 @@ instance Core.AWSPager ListWorlds where
 
 instance Core.AWSRequest ListWorlds where
   type AWSResponse ListWorlds = ListWorldsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListWorlds where
             Prelude.<*> (x Core..?> "worldSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWorlds where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorlds where
   hashWithSalt _salt ListWorlds' {..} =

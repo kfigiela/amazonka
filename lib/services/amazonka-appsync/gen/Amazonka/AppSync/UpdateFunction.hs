@@ -187,7 +187,7 @@ instance Core.AWSRequest UpdateFunction where
   type
     AWSResponse UpdateFunction =
       UpdateFunctionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest UpdateFunction where
             Prelude.<$> (x Core..?> "functionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFunction where
   hashWithSalt _salt UpdateFunction' {..} =

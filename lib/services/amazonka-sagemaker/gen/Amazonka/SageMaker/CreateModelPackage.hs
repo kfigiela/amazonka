@@ -413,7 +413,7 @@ instance Core.AWSRequest CreateModelPackage where
   type
     AWSResponse CreateModelPackage =
       CreateModelPackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -421,6 +421,9 @@ instance Core.AWSRequest CreateModelPackage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ModelPackageArn")
       )
+
+instance Core.AWSService CreateModelPackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateModelPackage where
   hashWithSalt _salt CreateModelPackage' {..} =

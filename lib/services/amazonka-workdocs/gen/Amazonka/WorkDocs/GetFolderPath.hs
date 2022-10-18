@@ -131,7 +131,7 @@ instance Core.AWSRequest GetFolderPath where
   type
     AWSResponse GetFolderPath =
       GetFolderPathResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetFolderPath where
             Prelude.<$> (x Core..?> "Path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFolderPath where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFolderPath where
   hashWithSalt _salt GetFolderPath' {..} =

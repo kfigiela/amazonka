@@ -133,7 +133,7 @@ instance Core.AWSRequest GetClusterCredentialsWithIAM where
   type
     AWSResponse GetClusterCredentialsWithIAM =
       GetClusterCredentialsWithIAMResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetClusterCredentialsWithIAMResult"
@@ -145,6 +145,9 @@ instance Core.AWSRequest GetClusterCredentialsWithIAM where
             Prelude.<*> (x Core..@? "DbUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetClusterCredentialsWithIAM where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

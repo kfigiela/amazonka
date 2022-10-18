@@ -235,7 +235,7 @@ instance Core.AWSRequest ListStatements where
   type
     AWSResponse ListStatements =
       ListStatementsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -244,6 +244,9 @@ instance Core.AWSRequest ListStatements where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Statements" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListStatements where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStatements where
   hashWithSalt _salt ListStatements' {..} =

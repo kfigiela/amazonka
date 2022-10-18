@@ -182,7 +182,7 @@ instance Core.AWSRequest UpdateDecoderManifest where
   type
     AWSResponse UpdateDecoderManifest =
       UpdateDecoderManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest UpdateDecoderManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService UpdateDecoderManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDecoderManifest where
   hashWithSalt _salt UpdateDecoderManifest' {..} =

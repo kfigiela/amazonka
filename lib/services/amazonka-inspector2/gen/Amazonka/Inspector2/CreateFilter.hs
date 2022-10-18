@@ -140,7 +140,7 @@ createFilter_name = Lens.lens (\CreateFilter' {name} -> name) (\s@CreateFilter' 
 
 instance Core.AWSRequest CreateFilter where
   type AWSResponse CreateFilter = CreateFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest CreateFilter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFilter where
   hashWithSalt _salt CreateFilter' {..} =

@@ -82,7 +82,7 @@ instance Core.AWSRequest StartDetectorModelAnalysis where
   type
     AWSResponse StartDetectorModelAnalysis =
       StartDetectorModelAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest StartDetectorModelAnalysis where
             Prelude.<$> (x Core..?> "analysisId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDetectorModelAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDetectorModelAnalysis where
   hashWithSalt _salt StartDetectorModelAnalysis' {..} =

@@ -123,7 +123,7 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
   type
     AWSResponse ModifyDBProxyTargetGroup =
       ModifyDBProxyTargetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBProxyTargetGroupResult"
@@ -132,6 +132,9 @@ instance Core.AWSRequest ModifyDBProxyTargetGroup where
             Prelude.<$> (x Core..@? "DBProxyTargetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBProxyTargetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBProxyTargetGroup where
   hashWithSalt _salt ModifyDBProxyTargetGroup' {..} =

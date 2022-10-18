@@ -88,7 +88,7 @@ putAppsList_appsList = Lens.lens (\PutAppsList' {appsList} -> appsList) (\s@PutA
 
 instance Core.AWSRequest PutAppsList where
   type AWSResponse PutAppsList = PutAppsListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest PutAppsList where
             Prelude.<*> (x Core..?> "AppsListArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAppsList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAppsList where
   hashWithSalt _salt PutAppsList' {..} =

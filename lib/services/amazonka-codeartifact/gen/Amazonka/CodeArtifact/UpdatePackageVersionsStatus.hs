@@ -245,7 +245,7 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
   type
     AWSResponse UpdatePackageVersionsStatus =
       UpdatePackageVersionsStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -256,6 +256,9 @@ instance Core.AWSRequest UpdatePackageVersionsStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePackageVersionsStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePackageVersionsStatus where
   hashWithSalt _salt UpdatePackageVersionsStatus' {..} =

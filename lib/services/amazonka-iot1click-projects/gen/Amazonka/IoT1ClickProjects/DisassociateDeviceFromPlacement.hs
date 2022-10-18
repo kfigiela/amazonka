@@ -109,13 +109,19 @@ instance
   type
     AWSResponse DisassociateDeviceFromPlacement =
       DisassociateDeviceFromPlacementResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDeviceFromPlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateDeviceFromPlacement
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

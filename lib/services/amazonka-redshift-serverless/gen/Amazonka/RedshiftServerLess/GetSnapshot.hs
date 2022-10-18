@@ -98,7 +98,7 @@ getSnapshot_ownerAccount = Lens.lens (\GetSnapshot' {ownerAccount} -> ownerAccou
 
 instance Core.AWSRequest GetSnapshot where
   type AWSResponse GetSnapshot = GetSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetSnapshot where
             Prelude.<$> (x Core..?> "snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSnapshot where
   hashWithSalt _salt GetSnapshot' {..} =

@@ -96,13 +96,16 @@ instance Core.AWSRequest CancelPipelineReprocessing where
   type
     AWSResponse CancelPipelineReprocessing =
       CancelPipelineReprocessingResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelPipelineReprocessingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelPipelineReprocessing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelPipelineReprocessing where
   hashWithSalt _salt CancelPipelineReprocessing' {..} =

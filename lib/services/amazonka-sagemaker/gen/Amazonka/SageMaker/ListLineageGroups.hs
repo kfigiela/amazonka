@@ -170,7 +170,7 @@ instance Core.AWSRequest ListLineageGroups where
   type
     AWSResponse ListLineageGroups =
       ListLineageGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ListLineageGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLineageGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLineageGroups where
   hashWithSalt _salt ListLineageGroups' {..} =

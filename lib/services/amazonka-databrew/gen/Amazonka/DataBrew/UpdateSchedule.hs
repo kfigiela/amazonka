@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateSchedule where
   type
     AWSResponse UpdateSchedule =
       UpdateScheduleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest UpdateSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService UpdateSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSchedule where
   hashWithSalt _salt UpdateSchedule' {..} =

@@ -99,13 +99,16 @@ instance Core.AWSRequest DeleteAssistantAssociation where
   type
     AWSResponse DeleteAssistantAssociation =
       DeleteAssistantAssociationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAssistantAssociationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAssistantAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAssistantAssociation where
   hashWithSalt _salt DeleteAssistantAssociation' {..} =

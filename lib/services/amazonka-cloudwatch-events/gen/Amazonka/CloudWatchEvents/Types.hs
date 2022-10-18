@@ -664,6 +664,7 @@ defaultService =
       Core._serviceEndpointPrefix = "events",
       Core._serviceSigningName = "events",
       Core._serviceVersion = "2015-10-07",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

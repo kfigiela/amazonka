@@ -177,7 +177,7 @@ instance Core.AWSRequest GetCommentsForPullRequest where
   type
     AWSResponse GetCommentsForPullRequest =
       GetCommentsForPullRequestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest GetCommentsForPullRequest where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCommentsForPullRequest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCommentsForPullRequest where
   hashWithSalt _salt GetCommentsForPullRequest' {..} =

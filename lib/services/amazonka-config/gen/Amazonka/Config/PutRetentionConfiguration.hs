@@ -94,7 +94,7 @@ instance Core.AWSRequest PutRetentionConfiguration where
   type
     AWSResponse PutRetentionConfiguration =
       PutRetentionConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest PutRetentionConfiguration where
             Prelude.<$> (x Core..?> "RetentionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRetentionConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRetentionConfiguration where
   hashWithSalt _salt PutRetentionConfiguration' {..} =

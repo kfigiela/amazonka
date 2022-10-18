@@ -185,7 +185,7 @@ instance Core.AWSRequest GetContentModeration where
   type
     AWSResponse GetContentModeration =
       GetContentModerationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest GetContentModeration where
             Prelude.<*> (x Core..?> "ModerationModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContentModeration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContentModeration where
   hashWithSalt _salt GetContentModeration' {..} =

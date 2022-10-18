@@ -75,13 +75,16 @@ instance Core.AWSRequest CancelMulticastGroupSession where
   type
     AWSResponse CancelMulticastGroupSession =
       CancelMulticastGroupSessionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelMulticastGroupSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelMulticastGroupSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelMulticastGroupSession where
   hashWithSalt _salt CancelMulticastGroupSession' {..} =

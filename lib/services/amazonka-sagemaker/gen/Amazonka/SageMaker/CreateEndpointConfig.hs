@@ -303,7 +303,7 @@ instance Core.AWSRequest CreateEndpointConfig where
   type
     AWSResponse CreateEndpointConfig =
       CreateEndpointConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -311,6 +311,9 @@ instance Core.AWSRequest CreateEndpointConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EndpointConfigArn")
       )
+
+instance Core.AWSService CreateEndpointConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEndpointConfig where
   hashWithSalt _salt CreateEndpointConfig' {..} =

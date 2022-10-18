@@ -113,13 +113,16 @@ instance Core.AWSRequest DisassociateTrackerConsumer where
   type
     AWSResponse DisassociateTrackerConsumer =
       DisassociateTrackerConsumerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateTrackerConsumerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateTrackerConsumer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateTrackerConsumer where
   hashWithSalt _salt DisassociateTrackerConsumer' {..} =

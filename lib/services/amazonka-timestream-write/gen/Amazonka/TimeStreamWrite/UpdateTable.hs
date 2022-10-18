@@ -123,7 +123,7 @@ updateTable_tableName = Lens.lens (\UpdateTable' {tableName} -> tableName) (\s@U
 
 instance Core.AWSRequest UpdateTable where
   type AWSResponse UpdateTable = UpdateTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest UpdateTable where
             Prelude.<$> (x Core..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTable where
   hashWithSalt _salt UpdateTable' {..} =

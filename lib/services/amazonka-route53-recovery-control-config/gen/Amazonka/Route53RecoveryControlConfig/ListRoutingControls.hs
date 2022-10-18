@@ -104,7 +104,7 @@ instance Core.AWSRequest ListRoutingControls where
   type
     AWSResponse ListRoutingControls =
       ListRoutingControlsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest ListRoutingControls where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRoutingControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRoutingControls where
   hashWithSalt _salt ListRoutingControls' {..} =

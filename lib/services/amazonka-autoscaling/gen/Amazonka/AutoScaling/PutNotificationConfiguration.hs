@@ -117,10 +117,13 @@ instance Core.AWSRequest PutNotificationConfiguration where
   type
     AWSResponse PutNotificationConfiguration =
       PutNotificationConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       PutNotificationConfigurationResponse'
+
+instance Core.AWSService PutNotificationConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

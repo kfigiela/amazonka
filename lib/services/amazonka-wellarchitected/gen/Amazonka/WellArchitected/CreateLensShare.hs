@@ -116,7 +116,7 @@ instance Core.AWSRequest CreateLensShare where
   type
     AWSResponse CreateLensShare =
       CreateLensShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest CreateLensShare where
             Prelude.<$> (x Core..?> "ShareId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLensShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLensShare where
   hashWithSalt _salt CreateLensShare' {..} =

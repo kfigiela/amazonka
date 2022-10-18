@@ -97,7 +97,7 @@ instance Core.AWSRequest BatchGetAssetPropertyValue where
   type
     AWSResponse BatchGetAssetPropertyValue =
       BatchGetAssetPropertyValueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest BatchGetAssetPropertyValue where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService BatchGetAssetPropertyValue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetAssetPropertyValue where
   hashWithSalt _salt BatchGetAssetPropertyValue' {..} =

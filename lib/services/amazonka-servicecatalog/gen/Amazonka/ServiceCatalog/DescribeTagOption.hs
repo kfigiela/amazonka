@@ -77,7 +77,7 @@ instance Core.AWSRequest DescribeTagOption where
   type
     AWSResponse DescribeTagOption =
       DescribeTagOptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeTagOption where
             Prelude.<$> (x Core..?> "TagOptionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTagOption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTagOption where
   hashWithSalt _salt DescribeTagOption' {..} =

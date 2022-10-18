@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeLoggingConfiguration where
   type
     AWSResponse DescribeLoggingConfiguration =
       DescribeLoggingConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeLoggingConfiguration where
             Prelude.<*> (x Core..?> "LoggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLoggingConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

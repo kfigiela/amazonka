@@ -75,7 +75,7 @@ getDisk_diskName = Lens.lens (\GetDisk' {diskName} -> diskName) (\s@GetDisk' {} 
 
 instance Core.AWSRequest GetDisk where
   type AWSResponse GetDisk = GetDiskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetDisk where
             Prelude.<$> (x Core..?> "disk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDisk where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDisk where
   hashWithSalt _salt GetDisk' {..} =

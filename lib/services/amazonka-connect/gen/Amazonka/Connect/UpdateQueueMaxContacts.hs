@@ -108,10 +108,13 @@ instance Core.AWSRequest UpdateQueueMaxContacts where
   type
     AWSResponse UpdateQueueMaxContacts =
       UpdateQueueMaxContactsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQueueMaxContactsResponse'
+
+instance Core.AWSService UpdateQueueMaxContacts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateQueueMaxContacts where
   hashWithSalt _salt UpdateQueueMaxContacts' {..} =

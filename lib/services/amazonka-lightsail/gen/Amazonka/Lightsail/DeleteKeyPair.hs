@@ -115,7 +115,7 @@ instance Core.AWSRequest DeleteKeyPair where
   type
     AWSResponse DeleteKeyPair =
       DeleteKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DeleteKeyPair where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteKeyPair where
   hashWithSalt _salt DeleteKeyPair' {..} =

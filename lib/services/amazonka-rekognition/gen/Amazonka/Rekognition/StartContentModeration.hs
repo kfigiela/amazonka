@@ -193,7 +193,7 @@ instance Core.AWSRequest StartContentModeration where
   type
     AWSResponse StartContentModeration =
       StartContentModerationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest StartContentModeration where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartContentModeration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartContentModeration where
   hashWithSalt _salt StartContentModeration' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeLanguageModel where
   type
     AWSResponse DescribeLanguageModel =
       DescribeLanguageModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeLanguageModel where
             Prelude.<$> (x Core..?> "LanguageModel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLanguageModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLanguageModel where
   hashWithSalt _salt DescribeLanguageModel' {..} =

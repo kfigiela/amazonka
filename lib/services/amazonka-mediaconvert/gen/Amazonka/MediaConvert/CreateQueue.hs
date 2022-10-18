@@ -153,7 +153,7 @@ createQueue_name = Lens.lens (\CreateQueue' {name} -> name) (\s@CreateQueue' {} 
 
 instance Core.AWSRequest CreateQueue where
   type AWSResponse CreateQueue = CreateQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateQueue where
             Prelude.<$> (x Core..?> "queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =

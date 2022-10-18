@@ -111,13 +111,16 @@ instance Core.AWSRequest UpdateConnectClientAddIn where
   type
     AWSResponse UpdateConnectClientAddIn =
       UpdateConnectClientAddInResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateConnectClientAddInResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConnectClientAddIn where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConnectClientAddIn where
   hashWithSalt _salt UpdateConnectClientAddIn' {..} =

@@ -99,13 +99,19 @@ instance
   type
     AWSResponse ModifyWorkspaceAccessProperties =
       ModifyWorkspaceAccessPropertiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyWorkspaceAccessPropertiesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyWorkspaceAccessProperties
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

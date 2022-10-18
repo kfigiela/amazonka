@@ -112,7 +112,7 @@ instance Core.AWSPager GetSdkTypes where
 
 instance Core.AWSRequest GetSdkTypes where
   type AWSResponse GetSdkTypes = GetSdkTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetSdkTypes where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSdkTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSdkTypes where
   hashWithSalt _salt GetSdkTypes' {..} =

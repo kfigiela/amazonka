@@ -90,7 +90,7 @@ instance Core.AWSRequest DeletePermissionGroup where
   type
     AWSResponse DeletePermissionGroup =
       DeletePermissionGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DeletePermissionGroup where
             Prelude.<$> (x Core..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePermissionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePermissionGroup where
   hashWithSalt _salt DeletePermissionGroup' {..} =

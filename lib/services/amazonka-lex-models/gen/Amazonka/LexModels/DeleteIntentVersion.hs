@@ -97,9 +97,12 @@ instance Core.AWSRequest DeleteIntentVersion where
   type
     AWSResponse DeleteIntentVersion =
       DeleteIntentVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteIntentVersionResponse'
+
+instance Core.AWSService DeleteIntentVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIntentVersion where
   hashWithSalt _salt DeleteIntentVersion' {..} =

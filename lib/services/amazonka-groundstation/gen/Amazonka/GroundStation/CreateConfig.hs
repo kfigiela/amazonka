@@ -104,10 +104,13 @@ createConfig_name = Lens.lens (\CreateConfig' {name} -> name) (\s@CreateConfig' 
 
 instance Core.AWSRequest CreateConfig where
   type AWSResponse CreateConfig = ConfigIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConfig where
   hashWithSalt _salt CreateConfig' {..} =

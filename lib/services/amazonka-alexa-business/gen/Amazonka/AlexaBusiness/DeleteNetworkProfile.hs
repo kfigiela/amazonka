@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteNetworkProfile where
   type
     AWSResponse DeleteNetworkProfile =
       DeleteNetworkProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNetworkProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNetworkProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNetworkProfile where
   hashWithSalt _salt DeleteNetworkProfile' {..} =

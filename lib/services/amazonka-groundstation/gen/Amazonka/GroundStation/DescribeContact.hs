@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribeContact where
   type
     AWSResponse DescribeContact =
       DescribeContactResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeContact where
             Prelude.<*> (x Core..?> "maximumElevation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeContact where
   hashWithSalt _salt DescribeContact' {..} =

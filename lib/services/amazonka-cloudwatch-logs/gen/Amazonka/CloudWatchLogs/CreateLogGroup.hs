@@ -150,9 +150,12 @@ instance Core.AWSRequest CreateLogGroup where
   type
     AWSResponse CreateLogGroup =
       CreateLogGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreateLogGroupResponse'
+
+instance Core.AWSService CreateLogGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLogGroup where
   hashWithSalt _salt CreateLogGroup' {..} =

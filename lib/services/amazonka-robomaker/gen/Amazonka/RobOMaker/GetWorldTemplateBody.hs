@@ -88,7 +88,7 @@ instance Core.AWSRequest GetWorldTemplateBody where
   type
     AWSResponse GetWorldTemplateBody =
       GetWorldTemplateBodyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetWorldTemplateBody where
             Prelude.<$> (x Core..?> "templateBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorldTemplateBody where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorldTemplateBody where
   hashWithSalt _salt GetWorldTemplateBody' {..} =

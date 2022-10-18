@@ -125,7 +125,7 @@ instance Core.AWSPager GetKeyPairs where
 
 instance Core.AWSRequest GetKeyPairs where
   type AWSResponse GetKeyPairs = GetKeyPairsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest GetKeyPairs where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKeyPairs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKeyPairs where
   hashWithSalt _salt GetKeyPairs' {..} =

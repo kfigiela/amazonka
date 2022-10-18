@@ -103,7 +103,7 @@ instance Core.AWSRequest PutInsightSelectors where
   type
     AWSResponse PutInsightSelectors =
       PutInsightSelectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest PutInsightSelectors where
             Prelude.<*> (x Core..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutInsightSelectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutInsightSelectors where
   hashWithSalt _salt PutInsightSelectors' {..} =

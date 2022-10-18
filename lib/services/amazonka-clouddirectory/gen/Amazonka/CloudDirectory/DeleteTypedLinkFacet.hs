@@ -94,13 +94,16 @@ instance Core.AWSRequest DeleteTypedLinkFacet where
   type
     AWSResponse DeleteTypedLinkFacet =
       DeleteTypedLinkFacetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTypedLinkFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTypedLinkFacet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTypedLinkFacet where
   hashWithSalt _salt DeleteTypedLinkFacet' {..} =

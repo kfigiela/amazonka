@@ -98,7 +98,7 @@ instance Core.AWSRequest CreateLoadBalancerListeners where
   type
     AWSResponse CreateLoadBalancerListeners =
       CreateLoadBalancerListenersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateLoadBalancerListenersResult"
@@ -106,6 +106,9 @@ instance Core.AWSRequest CreateLoadBalancerListeners where
           CreateLoadBalancerListenersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLoadBalancerListeners where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLoadBalancerListeners where
   hashWithSalt _salt CreateLoadBalancerListeners' {..} =

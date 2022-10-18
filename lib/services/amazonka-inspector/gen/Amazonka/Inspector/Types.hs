@@ -422,6 +422,7 @@ defaultService =
       Core._serviceEndpointPrefix = "inspector",
       Core._serviceSigningName = "inspector",
       Core._serviceVersion = "2016-02-16",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

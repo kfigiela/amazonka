@@ -139,7 +139,7 @@ instance Core.AWSPager GetDevices where
 
 instance Core.AWSRequest GetDevices where
   type AWSResponse GetDevices = GetDevicesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest GetDevices where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDevices where
   hashWithSalt _salt GetDevices' {..} =

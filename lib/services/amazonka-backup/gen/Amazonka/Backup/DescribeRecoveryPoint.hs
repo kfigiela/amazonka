@@ -128,7 +128,7 @@ instance Core.AWSRequest DescribeRecoveryPoint where
   type
     AWSResponse DescribeRecoveryPoint =
       DescribeRecoveryPointResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest DescribeRecoveryPoint where
             Prelude.<*> (x Core..?> "CalculatedLifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRecoveryPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRecoveryPoint where
   hashWithSalt _salt DescribeRecoveryPoint' {..} =

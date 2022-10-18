@@ -170,7 +170,7 @@ instance Core.AWSRequest StartRxNormInferenceJob where
   type
     AWSResponse StartRxNormInferenceJob =
       StartRxNormInferenceJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest StartRxNormInferenceJob where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartRxNormInferenceJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartRxNormInferenceJob where
   hashWithSalt _salt StartRxNormInferenceJob' {..} =

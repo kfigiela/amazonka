@@ -177,7 +177,7 @@ publishType_typeName = Lens.lens (\PublishType' {typeName} -> typeName) (\s@Publ
 
 instance Core.AWSRequest PublishType where
   type AWSResponse PublishType = PublishTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PublishTypeResult"
@@ -186,6 +186,9 @@ instance Core.AWSRequest PublishType where
             Prelude.<$> (x Core..@? "PublicTypeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PublishType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishType where
   hashWithSalt _salt PublishType' {..} =

@@ -89,13 +89,16 @@ instance Core.AWSRequest StopTrainingEntityRecognizer where
   type
     AWSResponse StopTrainingEntityRecognizer =
       StopTrainingEntityRecognizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopTrainingEntityRecognizerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopTrainingEntityRecognizer where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

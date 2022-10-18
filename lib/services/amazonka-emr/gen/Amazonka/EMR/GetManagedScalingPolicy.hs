@@ -80,7 +80,7 @@ instance Core.AWSRequest GetManagedScalingPolicy where
   type
     AWSResponse GetManagedScalingPolicy =
       GetManagedScalingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetManagedScalingPolicy where
             Prelude.<$> (x Core..?> "ManagedScalingPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetManagedScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetManagedScalingPolicy where
   hashWithSalt _salt GetManagedScalingPolicy' {..} =

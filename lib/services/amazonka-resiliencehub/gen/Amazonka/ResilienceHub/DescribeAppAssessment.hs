@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeAppAssessment where
   type
     AWSResponse DescribeAppAssessment =
       DescribeAppAssessmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeAppAssessment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "assessment")
       )
+
+instance Core.AWSService DescribeAppAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAppAssessment where
   hashWithSalt _salt DescribeAppAssessment' {..} =

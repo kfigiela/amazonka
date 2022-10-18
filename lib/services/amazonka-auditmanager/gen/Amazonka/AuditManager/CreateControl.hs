@@ -142,7 +142,7 @@ instance Core.AWSRequest CreateControl where
   type
     AWSResponse CreateControl =
       CreateControlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest CreateControl where
             Prelude.<$> (x Core..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateControl where
   hashWithSalt _salt CreateControl' {..} =

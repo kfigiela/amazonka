@@ -146,7 +146,7 @@ instance Core.AWSRequest ListModelManifests where
   type
     AWSResponse ListModelManifests =
       ListModelManifestsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ListModelManifests where
             Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListModelManifests where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListModelManifests where
   hashWithSalt _salt ListModelManifests' {..} =

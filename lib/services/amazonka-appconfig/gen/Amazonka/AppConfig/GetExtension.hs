@@ -95,10 +95,13 @@ getExtension_extensionIdentifier = Lens.lens (\GetExtension' {extensionIdentifie
 
 instance Core.AWSRequest GetExtension where
   type AWSResponse GetExtension = Extension
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetExtension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExtension where
   hashWithSalt _salt GetExtension' {..} =

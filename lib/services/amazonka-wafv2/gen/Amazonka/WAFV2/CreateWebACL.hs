@@ -277,7 +277,7 @@ createWebACL_visibilityConfig = Lens.lens (\CreateWebACL' {visibilityConfig} -> 
 
 instance Core.AWSRequest CreateWebACL where
   type AWSResponse CreateWebACL = CreateWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -285,6 +285,9 @@ instance Core.AWSRequest CreateWebACL where
             Prelude.<$> (x Core..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWebACL where
   hashWithSalt _salt CreateWebACL' {..} =

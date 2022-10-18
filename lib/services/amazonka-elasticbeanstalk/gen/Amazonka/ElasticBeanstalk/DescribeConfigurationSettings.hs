@@ -151,7 +151,7 @@ instance
   type
     AWSResponse DescribeConfigurationSettings =
       DescribeConfigurationSettingsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeConfigurationSettingsResult"
@@ -163,6 +163,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeConfigurationSettings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

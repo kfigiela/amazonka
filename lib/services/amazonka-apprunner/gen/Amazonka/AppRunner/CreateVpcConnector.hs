@@ -138,7 +138,7 @@ instance Core.AWSRequest CreateVpcConnector where
   type
     AWSResponse CreateVpcConnector =
       CreateVpcConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest CreateVpcConnector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "VpcConnector")
       )
+
+instance Core.AWSService CreateVpcConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpcConnector where
   hashWithSalt _salt CreateVpcConnector' {..} =

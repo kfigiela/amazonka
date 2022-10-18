@@ -98,7 +98,7 @@ updateExport_exportId = Lens.lens (\UpdateExport' {exportId} -> exportId) (\s@Up
 
 instance Core.AWSRequest UpdateExport where
   type AWSResponse UpdateExport = UpdateExportResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest UpdateExport where
             Prelude.<*> (x Core..?> "fileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateExport where
   hashWithSalt _salt UpdateExport' {..} =

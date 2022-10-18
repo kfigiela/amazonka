@@ -123,7 +123,7 @@ instance Core.AWSRequest FailoverDBCluster where
   type
     AWSResponse FailoverDBCluster =
       FailoverDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "FailoverDBClusterResult"
@@ -132,6 +132,9 @@ instance Core.AWSRequest FailoverDBCluster where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService FailoverDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FailoverDBCluster where
   hashWithSalt _salt FailoverDBCluster' {..} =

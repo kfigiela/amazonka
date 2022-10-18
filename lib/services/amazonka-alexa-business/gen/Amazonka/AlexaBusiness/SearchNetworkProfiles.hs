@@ -132,7 +132,7 @@ instance Core.AWSRequest SearchNetworkProfiles where
   type
     AWSResponse SearchNetworkProfiles =
       SearchNetworkProfilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest SearchNetworkProfiles where
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchNetworkProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchNetworkProfiles where
   hashWithSalt _salt SearchNetworkProfiles' {..} =

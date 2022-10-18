@@ -83,13 +83,16 @@ instance Core.AWSRequest DeregisterJobDefinition where
   type
     AWSResponse DeregisterJobDefinition =
       DeregisterJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterJobDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterJobDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterJobDefinition where
   hashWithSalt _salt DeregisterJobDefinition' {..} =

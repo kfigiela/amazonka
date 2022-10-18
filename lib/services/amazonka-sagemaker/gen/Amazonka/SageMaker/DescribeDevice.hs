@@ -111,7 +111,7 @@ instance Core.AWSRequest DescribeDevice where
   type
     AWSResponse DescribeDevice =
       DescribeDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<*> (x Core..:> "DeviceFleetName")
             Prelude.<*> (x Core..:> "RegistrationTime")
       )
+
+instance Core.AWSService DescribeDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDevice where
   hashWithSalt _salt DescribeDevice' {..} =

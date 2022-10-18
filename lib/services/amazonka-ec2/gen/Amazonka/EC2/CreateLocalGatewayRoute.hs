@@ -142,7 +142,7 @@ instance Core.AWSRequest CreateLocalGatewayRoute where
   type
     AWSResponse CreateLocalGatewayRoute =
       CreateLocalGatewayRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest CreateLocalGatewayRoute where
             Prelude.<$> (x Core..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocalGatewayRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocalGatewayRoute where
   hashWithSalt _salt CreateLocalGatewayRoute' {..} =

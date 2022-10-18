@@ -141,10 +141,13 @@ instance Core.AWSRequest RespondActivityTaskFailed where
   type
     AWSResponse RespondActivityTaskFailed =
       RespondActivityTaskFailedResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RespondActivityTaskFailedResponse'
+
+instance Core.AWSService RespondActivityTaskFailed where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RespondActivityTaskFailed where
   hashWithSalt _salt RespondActivityTaskFailed' {..} =

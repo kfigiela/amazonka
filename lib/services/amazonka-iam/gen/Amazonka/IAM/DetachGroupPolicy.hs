@@ -123,9 +123,12 @@ instance Core.AWSRequest DetachGroupPolicy where
   type
     AWSResponse DetachGroupPolicy =
       DetachGroupPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DetachGroupPolicyResponse'
+
+instance Core.AWSService DetachGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachGroupPolicy where
   hashWithSalt _salt DetachGroupPolicy' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribePipelineExecution where
   type
     AWSResponse DescribePipelineExecution =
       DescribePipelineExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribePipelineExecution where
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePipelineExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePipelineExecution where
   hashWithSalt _salt DescribePipelineExecution' {..} =

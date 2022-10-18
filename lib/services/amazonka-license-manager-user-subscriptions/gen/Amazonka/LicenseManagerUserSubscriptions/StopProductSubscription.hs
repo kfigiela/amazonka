@@ -117,7 +117,7 @@ instance Core.AWSRequest StopProductSubscription where
   type
     AWSResponse StopProductSubscription =
       StopProductSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest StopProductSubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ProductUserSummary")
       )
+
+instance Core.AWSService StopProductSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopProductSubscription where
   hashWithSalt _salt StopProductSubscription' {..} =

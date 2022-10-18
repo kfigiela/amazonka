@@ -162,7 +162,7 @@ instance Core.AWSRequest CreateNetworkSettings where
   type
     AWSResponse CreateNetworkSettings =
       CreateNetworkSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest CreateNetworkSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "networkSettingsArn")
       )
+
+instance Core.AWSService CreateNetworkSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNetworkSettings where
   hashWithSalt _salt CreateNetworkSettings' {..} =

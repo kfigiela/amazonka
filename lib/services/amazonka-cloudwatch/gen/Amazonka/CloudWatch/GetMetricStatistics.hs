@@ -449,7 +449,7 @@ instance Core.AWSRequest GetMetricStatistics where
   type
     AWSResponse GetMetricStatistics =
       GetMetricStatisticsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetMetricStatisticsResult"
@@ -461,6 +461,9 @@ instance Core.AWSRequest GetMetricStatistics where
             Prelude.<*> (x Core..@? "Label")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMetricStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetricStatistics where
   hashWithSalt _salt GetMetricStatistics' {..} =

@@ -245,7 +245,7 @@ instance Core.AWSRequest DescribeClusters where
   type
     AWSResponse DescribeClusters =
       DescribeClustersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClustersResult"
@@ -257,6 +257,9 @@ instance Core.AWSRequest DescribeClusters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClusters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClusters where
   hashWithSalt _salt DescribeClusters' {..} =

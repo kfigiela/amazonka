@@ -117,7 +117,7 @@ instance Core.AWSRequest UpdateKeyGroup where
   type
     AWSResponse UpdateKeyGroup =
       UpdateKeyGroupResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest UpdateKeyGroup where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateKeyGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateKeyGroup where
   hashWithSalt _salt UpdateKeyGroup' {..} =

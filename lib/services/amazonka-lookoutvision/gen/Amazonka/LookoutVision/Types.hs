@@ -307,6 +307,7 @@ defaultService =
       Core._serviceEndpointPrefix = "lookoutvision",
       Core._serviceSigningName = "lookoutvision",
       Core._serviceVersion = "2020-11-20",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

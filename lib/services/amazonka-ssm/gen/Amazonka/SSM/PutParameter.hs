@@ -750,7 +750,7 @@ putParameter_value = Lens.lens (\PutParameter' {value} -> value) (\s@PutParamete
 
 instance Core.AWSRequest PutParameter where
   type AWSResponse PutParameter = PutParameterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -759,6 +759,9 @@ instance Core.AWSRequest PutParameter where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Version")
       )
+
+instance Core.AWSService PutParameter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutParameter where
   hashWithSalt _salt PutParameter' {..} =

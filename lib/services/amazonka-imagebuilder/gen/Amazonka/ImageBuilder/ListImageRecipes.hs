@@ -142,7 +142,7 @@ instance Core.AWSRequest ListImageRecipes where
   type
     AWSResponse ListImageRecipes =
       ListImageRecipesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListImageRecipes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListImageRecipes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListImageRecipes where
   hashWithSalt _salt ListImageRecipes' {..} =

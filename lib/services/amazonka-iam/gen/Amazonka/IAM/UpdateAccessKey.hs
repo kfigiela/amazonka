@@ -145,9 +145,12 @@ instance Core.AWSRequest UpdateAccessKey where
   type
     AWSResponse UpdateAccessKey =
       UpdateAccessKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UpdateAccessKeyResponse'
+
+instance Core.AWSService UpdateAccessKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccessKey where
   hashWithSalt _salt UpdateAccessKey' {..} =

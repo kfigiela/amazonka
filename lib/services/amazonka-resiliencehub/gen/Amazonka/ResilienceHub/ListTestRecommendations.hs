@@ -122,7 +122,7 @@ instance Core.AWSRequest ListTestRecommendations where
   type
     AWSResponse ListTestRecommendations =
       ListTestRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListTestRecommendations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListTestRecommendations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTestRecommendations where
   hashWithSalt _salt ListTestRecommendations' {..} =

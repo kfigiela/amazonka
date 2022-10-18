@@ -164,7 +164,7 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
   type
     AWSResponse CreateEnvironmentTemplate =
       CreateEnvironmentTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest CreateEnvironmentTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "environmentTemplate")
       )
+
+instance Core.AWSService CreateEnvironmentTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEnvironmentTemplate where
   hashWithSalt _salt CreateEnvironmentTemplate' {..} =

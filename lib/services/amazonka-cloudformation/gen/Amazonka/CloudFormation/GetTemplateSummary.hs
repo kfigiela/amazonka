@@ -255,7 +255,7 @@ instance Core.AWSRequest GetTemplateSummary where
   type
     AWSResponse GetTemplateSummary =
       GetTemplateSummaryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTemplateSummaryResult"
@@ -284,6 +284,9 @@ instance Core.AWSRequest GetTemplateSummary where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTemplateSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTemplateSummary where
   hashWithSalt _salt GetTemplateSummary' {..} =

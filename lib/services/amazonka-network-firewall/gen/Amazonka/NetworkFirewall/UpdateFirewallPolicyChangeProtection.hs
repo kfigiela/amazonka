@@ -196,7 +196,7 @@ instance
   type
     AWSResponse UpdateFirewallPolicyChangeProtection =
       UpdateFirewallPolicyChangeProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,12 @@ instance
               Prelude.<*> (x Core..?> "FirewallName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateFirewallPolicyChangeProtection
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

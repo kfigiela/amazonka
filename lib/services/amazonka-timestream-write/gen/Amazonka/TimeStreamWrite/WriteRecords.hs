@@ -177,7 +177,7 @@ writeRecords_records = Lens.lens (\WriteRecords' {records} -> records) (\s@Write
 
 instance Core.AWSRequest WriteRecords where
   type AWSResponse WriteRecords = WriteRecordsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest WriteRecords where
             Prelude.<$> (x Core..?> "RecordsIngested")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService WriteRecords where
+  service _proxy = defaultService
 
 instance Prelude.Hashable WriteRecords where
   hashWithSalt _salt WriteRecords' {..} =

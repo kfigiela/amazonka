@@ -93,7 +93,7 @@ instance Core.AWSRequest GetUICustomization where
   type
     AWSResponse GetUICustomization =
       GetUICustomizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetUICustomization where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "UICustomization")
       )
+
+instance Core.AWSService GetUICustomization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUICustomization where
   hashWithSalt _salt GetUICustomization' {..} =

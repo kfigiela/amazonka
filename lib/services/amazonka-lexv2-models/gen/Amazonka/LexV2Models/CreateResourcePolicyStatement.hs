@@ -222,7 +222,7 @@ instance
   type
     AWSResponse CreateResourcePolicyStatement =
       CreateResourcePolicyStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -231,6 +231,12 @@ instance
             Prelude.<*> (x Core..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateResourcePolicyStatement
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

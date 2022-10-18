@@ -103,7 +103,7 @@ instance Core.AWSRequest ListMailDomains where
   type
     AWSResponse ListMailDomains =
       ListMailDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ListMailDomains where
             Prelude.<*> (x Core..?> "MailDomains" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMailDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMailDomains where
   hashWithSalt _salt ListMailDomains' {..} =

@@ -178,7 +178,7 @@ instance Core.AWSRequest CreateVirtualRouter where
   type
     AWSResponse CreateVirtualRouter =
       CreateVirtualRouterResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest CreateVirtualRouter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateVirtualRouter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVirtualRouter where
   hashWithSalt _salt CreateVirtualRouter' {..} =

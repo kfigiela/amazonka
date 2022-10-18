@@ -153,7 +153,7 @@ instance Core.AWSRequest ListPolicyTags where
   type
     AWSResponse ListPolicyTags =
       ListPolicyTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPolicyTagsResult"
@@ -166,6 +166,9 @@ instance Core.AWSRequest ListPolicyTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListPolicyTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPolicyTags where
   hashWithSalt _salt ListPolicyTags' {..} =

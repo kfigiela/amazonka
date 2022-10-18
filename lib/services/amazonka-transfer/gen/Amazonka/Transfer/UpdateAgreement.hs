@@ -210,7 +210,7 @@ instance Core.AWSRequest UpdateAgreement where
   type
     AWSResponse UpdateAgreement =
       UpdateAgreementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest UpdateAgreement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AgreementId")
       )
+
+instance Core.AWSService UpdateAgreement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAgreement where
   hashWithSalt _salt UpdateAgreement' {..} =

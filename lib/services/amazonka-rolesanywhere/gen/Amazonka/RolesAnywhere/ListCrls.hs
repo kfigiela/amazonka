@@ -116,7 +116,7 @@ instance Core.AWSPager ListCrls where
 
 instance Core.AWSRequest ListCrls where
   type AWSResponse ListCrls = ListCrlsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListCrls where
             Prelude.<*> (x Core..?> "crls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCrls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCrls where
   hashWithSalt _salt ListCrls' {..} =

@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
   type
     AWSResponse DescribeRuleGroupsNamespace =
       DescribeRuleGroupsNamespaceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeRuleGroupsNamespace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ruleGroupsNamespace")
       )
+
+instance Core.AWSService DescribeRuleGroupsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRuleGroupsNamespace where
   hashWithSalt _salt DescribeRuleGroupsNamespace' {..} =

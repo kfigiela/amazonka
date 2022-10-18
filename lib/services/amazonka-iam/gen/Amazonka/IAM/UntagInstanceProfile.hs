@@ -107,9 +107,12 @@ instance Core.AWSRequest UntagInstanceProfile where
   type
     AWSResponse UntagInstanceProfile =
       UntagInstanceProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UntagInstanceProfileResponse'
+
+instance Core.AWSService UntagInstanceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagInstanceProfile where
   hashWithSalt _salt UntagInstanceProfile' {..} =

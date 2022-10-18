@@ -159,7 +159,7 @@ instance Core.AWSRequest DescribeAddonVersions where
   type
     AWSResponse DescribeAddonVersions =
       DescribeAddonVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest DescribeAddonVersions where
             Prelude.<*> (x Core..?> "addons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAddonVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAddonVersions where
   hashWithSalt _salt DescribeAddonVersions' {..} =

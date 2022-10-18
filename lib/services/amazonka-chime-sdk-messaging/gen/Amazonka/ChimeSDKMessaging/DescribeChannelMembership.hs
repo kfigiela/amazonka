@@ -130,7 +130,7 @@ instance Core.AWSRequest DescribeChannelMembership where
   type
     AWSResponse DescribeChannelMembership =
       DescribeChannelMembershipResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest DescribeChannelMembership where
             Prelude.<$> (x Core..?> "ChannelMembership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeChannelMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChannelMembership where
   hashWithSalt _salt DescribeChannelMembership' {..} =

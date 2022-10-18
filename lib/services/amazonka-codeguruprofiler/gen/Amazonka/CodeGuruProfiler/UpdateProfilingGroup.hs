@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateProfilingGroup where
   type
     AWSResponse UpdateProfilingGroup =
       UpdateProfilingGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateProfilingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateProfilingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProfilingGroup where
   hashWithSalt _salt UpdateProfilingGroup' {..} =

@@ -92,13 +92,16 @@ startLogging_name = Lens.lens (\StartLogging' {name} -> name) (\s@StartLogging' 
 
 instance Core.AWSRequest StartLogging where
   type AWSResponse StartLogging = StartLoggingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartLoggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartLogging where
   hashWithSalt _salt StartLogging' {..} =

@@ -100,10 +100,13 @@ instance Core.AWSRequest DisconnectSourceServer where
   type
     AWSResponse DisconnectSourceServer =
       SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DisconnectSourceServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisconnectSourceServer where
   hashWithSalt _salt DisconnectSourceServer' {..} =

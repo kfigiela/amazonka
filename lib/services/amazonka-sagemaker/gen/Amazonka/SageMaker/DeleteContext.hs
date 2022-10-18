@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteContext where
   type
     AWSResponse DeleteContext =
       DeleteContextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteContext where
             Prelude.<$> (x Core..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteContext where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContext where
   hashWithSalt _salt DeleteContext' {..} =

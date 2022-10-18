@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeAttachment where
   type
     AWSResponse DescribeAttachment =
       DescribeAttachmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeAttachment where
             Prelude.<$> (x Core..?> "attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAttachment where
   hashWithSalt _salt DescribeAttachment' {..} =

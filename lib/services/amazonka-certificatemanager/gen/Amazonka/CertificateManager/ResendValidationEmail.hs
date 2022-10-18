@@ -183,9 +183,12 @@ instance Core.AWSRequest ResendValidationEmail where
   type
     AWSResponse ResendValidationEmail =
       ResendValidationEmailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ResendValidationEmailResponse'
+
+instance Core.AWSService ResendValidationEmail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResendValidationEmail where
   hashWithSalt _salt ResendValidationEmail' {..} =

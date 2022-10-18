@@ -96,10 +96,13 @@ instance Core.AWSRequest DeleteIntegrationAssociation where
   type
     AWSResponse DeleteIntegrationAssociation =
       DeleteIntegrationAssociationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteIntegrationAssociationResponse'
+
+instance Core.AWSService DeleteIntegrationAssociation where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

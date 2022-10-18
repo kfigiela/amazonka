@@ -166,7 +166,7 @@ instance Core.AWSRequest CreateGlobalCluster where
   type
     AWSResponse CreateGlobalCluster =
       CreateGlobalClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateGlobalClusterResult"
@@ -175,6 +175,9 @@ instance Core.AWSRequest CreateGlobalCluster where
             Prelude.<$> (x Core..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGlobalCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGlobalCluster where
   hashWithSalt _salt CreateGlobalCluster' {..} =

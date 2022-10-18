@@ -575,7 +575,7 @@ instance
   type
     AWSResponse DescribeReservedCacheNodesOfferings =
       DescribeReservedCacheNodesOfferingsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedCacheNodesOfferingsResult"
@@ -589,6 +589,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeReservedCacheNodesOfferings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -110,7 +110,7 @@ instance Core.AWSRequest CreateCoipCidr where
   type
     AWSResponse CreateCoipCidr =
       CreateCoipCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateCoipCidr where
             Prelude.<$> (x Core..@? "coipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCoipCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCoipCidr where
   hashWithSalt _salt CreateCoipCidr' {..} =

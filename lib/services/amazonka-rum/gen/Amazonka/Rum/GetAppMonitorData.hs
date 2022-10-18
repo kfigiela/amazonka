@@ -160,7 +160,7 @@ instance Core.AWSRequest GetAppMonitorData where
   type
     AWSResponse GetAppMonitorData =
       GetAppMonitorDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest GetAppMonitorData where
             Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAppMonitorData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAppMonitorData where
   hashWithSalt _salt GetAppMonitorData' {..} =

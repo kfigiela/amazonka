@@ -153,11 +153,14 @@ instance Core.AWSRequest CreateEndpointAccess where
   type
     AWSResponse CreateEndpointAccess =
       EndpointAccess
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateEndpointAccessResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEndpointAccess where
   hashWithSalt _salt CreateEndpointAccess' {..} =

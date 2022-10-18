@@ -111,7 +111,7 @@ instance Core.AWSRequest DescribeWarmPool where
   type
     AWSResponse DescribeWarmPool =
       DescribeWarmPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeWarmPoolResult"
@@ -124,6 +124,9 @@ instance Core.AWSRequest DescribeWarmPool where
             Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWarmPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWarmPool where
   hashWithSalt _salt DescribeWarmPool' {..} =

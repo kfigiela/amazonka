@@ -123,7 +123,7 @@ instance Core.AWSRequest GetWorkflowStep where
   type
     AWSResponse GetWorkflowStep =
       GetWorkflowStepResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetWorkflowStep where
             Prelude.<*> (x Core..?> "totalNoOfSrv")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorkflowStep where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkflowStep where
   hashWithSalt _salt GetWorkflowStep' {..} =

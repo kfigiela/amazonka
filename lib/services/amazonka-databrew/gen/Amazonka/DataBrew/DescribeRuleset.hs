@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeRuleset where
   type
     AWSResponse DescribeRuleset =
       DescribeRulesetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeRuleset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService DescribeRuleset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRuleset where
   hashWithSalt _salt DescribeRuleset' {..} =

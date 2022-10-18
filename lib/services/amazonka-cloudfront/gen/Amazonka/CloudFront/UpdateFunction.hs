@@ -149,7 +149,7 @@ instance Core.AWSRequest UpdateFunction where
   type
     AWSResponse UpdateFunction =
       UpdateFunctionResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest UpdateFunction where
             Prelude.<*> (h Core..#? "ETtag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFunction where
   hashWithSalt _salt UpdateFunction' {..} =

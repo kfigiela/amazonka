@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteClusterSubnetGroup where
   type
     AWSResponse DeleteClusterSubnetGroup =
       DeleteClusterSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteClusterSubnetGroupResponse'
+
+instance Core.AWSService DeleteClusterSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteClusterSubnetGroup where
   hashWithSalt _salt DeleteClusterSubnetGroup' {..} =

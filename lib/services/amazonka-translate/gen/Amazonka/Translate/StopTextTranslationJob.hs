@@ -88,7 +88,7 @@ instance Core.AWSRequest StopTextTranslationJob where
   type
     AWSResponse StopTextTranslationJob =
       StopTextTranslationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest StopTextTranslationJob where
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopTextTranslationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopTextTranslationJob where
   hashWithSalt _salt StopTextTranslationJob' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeClientBranding where
   type
     AWSResponse DescribeClientBranding =
       DescribeClientBrandingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeClientBranding where
             Prelude.<*> (x Core..?> "DeviceTypeIos")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClientBranding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClientBranding where
   hashWithSalt _salt DescribeClientBranding' {..} =

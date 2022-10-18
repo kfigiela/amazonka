@@ -102,7 +102,7 @@ instance Core.AWSRequest RestoreSecret where
   type
     AWSResponse RestoreSecret =
       RestoreSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest RestoreSecret where
             Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreSecret where
   hashWithSalt _salt RestoreSecret' {..} =

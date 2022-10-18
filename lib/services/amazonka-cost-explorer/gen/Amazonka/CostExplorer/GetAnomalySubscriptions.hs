@@ -117,7 +117,7 @@ instance Core.AWSRequest GetAnomalySubscriptions where
   type
     AWSResponse GetAnomalySubscriptions =
       GetAnomalySubscriptionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest GetAnomalySubscriptions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetAnomalySubscriptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAnomalySubscriptions where
   hashWithSalt _salt GetAnomalySubscriptions' {..} =

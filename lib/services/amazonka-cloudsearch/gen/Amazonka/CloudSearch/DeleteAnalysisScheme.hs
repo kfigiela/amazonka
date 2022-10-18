@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteAnalysisScheme where
   type
     AWSResponse DeleteAnalysisScheme =
       DeleteAnalysisSchemeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteAnalysisSchemeResult"
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteAnalysisScheme where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "AnalysisScheme")
       )
+
+instance Core.AWSService DeleteAnalysisScheme where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAnalysisScheme where
   hashWithSalt _salt DeleteAnalysisScheme' {..} =

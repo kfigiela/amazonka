@@ -93,7 +93,7 @@ getEndpoint_endpointId = Lens.lens (\GetEndpoint' {endpointId} -> endpointId) (\
 
 instance Core.AWSRequest GetEndpoint where
   type AWSResponse GetEndpoint = GetEndpointResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetEndpoint where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEndpoint where
   hashWithSalt _salt GetEndpoint' {..} =

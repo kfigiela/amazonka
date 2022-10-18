@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeObservation where
   type
     AWSResponse DescribeObservation =
       DescribeObservationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeObservation where
             Prelude.<$> (x Core..?> "Observation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeObservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeObservation where
   hashWithSalt _salt DescribeObservation' {..} =

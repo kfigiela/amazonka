@@ -283,7 +283,7 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
   type
     AWSResponse StartSpeechSynthesisTask =
       StartSpeechSynthesisTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -291,6 +291,9 @@ instance Core.AWSRequest StartSpeechSynthesisTask where
             Prelude.<$> (x Core..?> "SynthesisTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSpeechSynthesisTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSpeechSynthesisTask where
   hashWithSalt _salt StartSpeechSynthesisTask' {..} =

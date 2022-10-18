@@ -147,7 +147,7 @@ instance Core.AWSRequest ImportSourceCredentials where
   type
     AWSResponse ImportSourceCredentials =
       ImportSourceCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ImportSourceCredentials where
             Prelude.<$> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportSourceCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportSourceCredentials where
   hashWithSalt _salt ImportSourceCredentials' {..} =

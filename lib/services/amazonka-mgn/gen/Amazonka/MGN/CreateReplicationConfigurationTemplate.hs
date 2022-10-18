@@ -287,10 +287,16 @@ instance
     AWSResponse
       CreateReplicationConfigurationTemplate =
       ReplicationConfigurationTemplate
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    CreateReplicationConfigurationTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

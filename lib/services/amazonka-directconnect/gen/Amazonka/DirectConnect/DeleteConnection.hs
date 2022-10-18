@@ -100,10 +100,13 @@ deleteConnection_connectionId = Lens.lens (\DeleteConnection' {connectionId} -> 
 
 instance Core.AWSRequest DeleteConnection where
   type AWSResponse DeleteConnection = Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnection where
   hashWithSalt _salt DeleteConnection' {..} =

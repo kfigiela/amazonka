@@ -254,7 +254,7 @@ instance Core.AWSRequest DescribeUsageLimits where
   type
     AWSResponse DescribeUsageLimits =
       DescribeUsageLimitsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeUsageLimitsResult"
@@ -266,6 +266,9 @@ instance Core.AWSRequest DescribeUsageLimits where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUsageLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUsageLimits where
   hashWithSalt _salt DescribeUsageLimits' {..} =

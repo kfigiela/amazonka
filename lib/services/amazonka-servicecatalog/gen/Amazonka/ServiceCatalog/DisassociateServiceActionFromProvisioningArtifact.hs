@@ -144,13 +144,19 @@ instance
     AWSResponse
       DisassociateServiceActionFromProvisioningArtifact =
       DisassociateServiceActionFromProvisioningArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateServiceActionFromProvisioningArtifactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateServiceActionFromProvisioningArtifact
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

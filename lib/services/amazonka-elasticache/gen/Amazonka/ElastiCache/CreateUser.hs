@@ -162,11 +162,14 @@ createUser_accessString = Lens.lens (\CreateUser' {accessString} -> accessString
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = User
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateUserResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

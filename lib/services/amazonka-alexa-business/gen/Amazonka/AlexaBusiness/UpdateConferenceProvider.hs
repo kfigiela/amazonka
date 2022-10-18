@@ -126,13 +126,16 @@ instance Core.AWSRequest UpdateConferenceProvider where
   type
     AWSResponse UpdateConferenceProvider =
       UpdateConferenceProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateConferenceProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConferenceProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConferenceProvider where
   hashWithSalt _salt UpdateConferenceProvider' {..} =

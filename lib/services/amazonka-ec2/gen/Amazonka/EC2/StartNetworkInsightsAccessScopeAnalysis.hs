@@ -135,7 +135,7 @@ instance
     AWSResponse
       StartNetworkInsightsAccessScopeAnalysis =
       StartNetworkInsightsAccessScopeAnalysisResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -143,6 +143,12 @@ instance
             Prelude.<$> (x Core..@? "networkInsightsAccessScopeAnalysis")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartNetworkInsightsAccessScopeAnalysis
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

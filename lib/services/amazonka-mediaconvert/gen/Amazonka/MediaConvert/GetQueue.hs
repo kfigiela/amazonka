@@ -74,7 +74,7 @@ getQueue_name = Lens.lens (\GetQueue' {name} -> name) (\s@GetQueue' {} a -> s {n
 
 instance Core.AWSRequest GetQueue where
   type AWSResponse GetQueue = GetQueueResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetQueue where
             Prelude.<$> (x Core..?> "queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueue where
   hashWithSalt _salt GetQueue' {..} =

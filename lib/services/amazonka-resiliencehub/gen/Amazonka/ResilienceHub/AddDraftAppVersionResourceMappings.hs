@@ -119,7 +119,7 @@ instance
   type
     AWSResponse AddDraftAppVersionResourceMappings =
       AddDraftAppVersionResourceMappingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,12 @@ instance
                               Core..!@ Prelude.mempty
                           )
       )
+
+instance
+  Core.AWSService
+    AddDraftAppVersionResourceMappings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -104,7 +104,7 @@ instance Core.AWSRequest DiscoverPollEndpoint where
   type
     AWSResponse DiscoverPollEndpoint =
       DiscoverPollEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DiscoverPollEndpoint where
             Prelude.<*> (x Core..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DiscoverPollEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DiscoverPollEndpoint where
   hashWithSalt _salt DiscoverPollEndpoint' {..} =

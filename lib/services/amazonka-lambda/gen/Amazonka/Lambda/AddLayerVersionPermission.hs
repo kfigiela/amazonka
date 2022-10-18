@@ -188,7 +188,7 @@ instance Core.AWSRequest AddLayerVersionPermission where
   type
     AWSResponse AddLayerVersionPermission =
       AddLayerVersionPermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest AddLayerVersionPermission where
             Prelude.<*> (x Core..?> "Statement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddLayerVersionPermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddLayerVersionPermission where
   hashWithSalt _salt AddLayerVersionPermission' {..} =

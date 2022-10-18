@@ -127,7 +127,7 @@ instance Core.AWSRequest DescribeActivityType where
   type
     AWSResponse DescribeActivityType =
       DescribeActivityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest DescribeActivityType where
             Prelude.<*> (x Core..:> "typeInfo")
             Prelude.<*> (x Core..:> "configuration")
       )
+
+instance Core.AWSService DescribeActivityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeActivityType where
   hashWithSalt _salt DescribeActivityType' {..} =

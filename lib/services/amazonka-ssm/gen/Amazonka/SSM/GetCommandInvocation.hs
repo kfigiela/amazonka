@@ -165,7 +165,7 @@ instance Core.AWSRequest GetCommandInvocation where
   type
     AWSResponse GetCommandInvocation =
       GetCommandInvocationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest GetCommandInvocation where
             Prelude.<*> (x Core..?> "StandardOutputUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCommandInvocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCommandInvocation where
   hashWithSalt _salt GetCommandInvocation' {..} =

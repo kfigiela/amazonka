@@ -125,10 +125,13 @@ updateMethod_httpMethod = Lens.lens (\UpdateMethod' {httpMethod} -> httpMethod) 
 
 instance Core.AWSRequest UpdateMethod where
   type AWSResponse UpdateMethod = Method
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMethod where
   hashWithSalt _salt UpdateMethod' {..} =

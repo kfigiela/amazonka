@@ -80,7 +80,7 @@ instance Core.AWSRequest CheckDNSAvailability where
   type
     AWSResponse CheckDNSAvailability =
       CheckDNSAvailabilityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CheckDNSAvailabilityResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest CheckDNSAvailability where
             Prelude.<*> (x Core..@? "FullyQualifiedCNAME")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CheckDNSAvailability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckDNSAvailability where
   hashWithSalt _salt CheckDNSAvailability' {..} =

@@ -121,13 +121,16 @@ instance Core.AWSRequest AdminUpdateAuthEventFeedback where
   type
     AWSResponse AdminUpdateAuthEventFeedback =
       AdminUpdateAuthEventFeedbackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminUpdateAuthEventFeedbackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminUpdateAuthEventFeedback where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

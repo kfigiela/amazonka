@@ -145,7 +145,7 @@ createEntity_workspaceId = Lens.lens (\CreateEntity' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest CreateEntity where
   type AWSResponse CreateEntity = CreateEntityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest CreateEntity where
             Prelude.<*> (x Core..:> "entityId")
             Prelude.<*> (x Core..:> "state")
       )
+
+instance Core.AWSService CreateEntity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEntity where
   hashWithSalt _salt CreateEntity' {..} =

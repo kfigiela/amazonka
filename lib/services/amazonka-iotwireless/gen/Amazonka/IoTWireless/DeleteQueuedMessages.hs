@@ -110,13 +110,16 @@ instance Core.AWSRequest DeleteQueuedMessages where
   type
     AWSResponse DeleteQueuedMessages =
       DeleteQueuedMessagesResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueuedMessagesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteQueuedMessages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQueuedMessages where
   hashWithSalt _salt DeleteQueuedMessages' {..} =

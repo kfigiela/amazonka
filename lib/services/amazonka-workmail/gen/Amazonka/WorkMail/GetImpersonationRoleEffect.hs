@@ -134,7 +134,7 @@ instance Core.AWSRequest GetImpersonationRoleEffect where
   type
     AWSResponse GetImpersonationRoleEffect =
       GetImpersonationRoleEffectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest GetImpersonationRoleEffect where
             Prelude.<*> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImpersonationRoleEffect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImpersonationRoleEffect where
   hashWithSalt _salt GetImpersonationRoleEffect' {..} =

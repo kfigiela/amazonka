@@ -71,8 +71,11 @@ deleteDomain_domainId = Lens.lens (\DeleteDomain' {domainId} -> domainId) (\s@De
 
 instance Core.AWSRequest DeleteDomain where
   type AWSResponse DeleteDomain = DeleteDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteDomainResponse'
+
+instance Core.AWSService DeleteDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDomain where
   hashWithSalt _salt DeleteDomain' {..} =

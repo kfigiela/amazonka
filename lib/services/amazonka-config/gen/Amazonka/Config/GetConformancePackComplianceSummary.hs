@@ -139,7 +139,7 @@ instance
   type
     AWSResponse GetConformancePackComplianceSummary =
       GetConformancePackComplianceSummaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,12 @@ instance
               Prelude.<*> (x Core..?> "ConformancePackComplianceSummaryList")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetConformancePackComplianceSummary
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

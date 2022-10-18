@@ -119,7 +119,7 @@ pollForJobs_actionTypeId = Lens.lens (\PollForJobs' {actionTypeId} -> actionType
 
 instance Core.AWSRequest PollForJobs where
   type AWSResponse PollForJobs = PollForJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest PollForJobs where
             Prelude.<$> (x Core..?> "jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PollForJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PollForJobs where
   hashWithSalt _salt PollForJobs' {..} =

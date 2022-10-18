@@ -66,7 +66,7 @@ instance Core.AWSRequest GetContainerServicePowers where
   type
     AWSResponse GetContainerServicePowers =
       GetContainerServicePowersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest GetContainerServicePowers where
             Prelude.<$> (x Core..?> "powers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContainerServicePowers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContainerServicePowers where
   hashWithSalt _salt _ =

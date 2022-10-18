@@ -65,7 +65,7 @@ instance Core.AWSRequest GetDistributionBundles where
   type
     AWSResponse GetDistributionBundles =
       GetDistributionBundlesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest GetDistributionBundles where
             Prelude.<$> (x Core..?> "bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDistributionBundles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDistributionBundles where
   hashWithSalt _salt _ =

@@ -498,6 +498,7 @@ defaultService =
       Core._serviceEndpointPrefix = "network-firewall",
       Core._serviceSigningName = "network-firewall",
       Core._serviceVersion = "2020-11-12",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

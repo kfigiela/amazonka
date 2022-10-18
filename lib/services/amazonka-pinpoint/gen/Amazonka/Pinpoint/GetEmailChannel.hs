@@ -81,7 +81,7 @@ instance Core.AWSRequest GetEmailChannel where
   type
     AWSResponse GetEmailChannel =
       GetEmailChannelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetEmailChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetEmailChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEmailChannel where
   hashWithSalt _salt GetEmailChannel' {..} =

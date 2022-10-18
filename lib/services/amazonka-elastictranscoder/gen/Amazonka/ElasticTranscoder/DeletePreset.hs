@@ -82,13 +82,16 @@ deletePreset_id = Lens.lens (\DeletePreset' {id} -> id) (\s@DeletePreset' {} a -
 
 instance Core.AWSRequest DeletePreset where
   type AWSResponse DeletePreset = DeletePresetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePresetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePreset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePreset where
   hashWithSalt _salt DeletePreset' {..} =

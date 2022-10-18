@@ -99,7 +99,7 @@ instance
     AWSResponse
       DisassociateTransitGatewayConnectPeer =
       DisassociateTransitGatewayConnectPeerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,12 @@ instance
             Prelude.<$> (x Core..?> "TransitGatewayConnectPeerAssociation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateTransitGatewayConnectPeer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -162,7 +162,7 @@ instance
     AWSResponse
       CreateVpcEndpointConnectionNotification =
       CreateVpcEndpointConnectionNotificationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -171,6 +171,12 @@ instance
               Prelude.<*> (x Core..@? "clientToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateVpcEndpointConnectionNotification
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

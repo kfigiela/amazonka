@@ -82,7 +82,7 @@ instance Core.AWSRequest GetEventAction where
   type
     AWSResponse GetEventAction =
       GetEventActionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetEventAction where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEventAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEventAction where
   hashWithSalt _salt GetEventAction' {..} =

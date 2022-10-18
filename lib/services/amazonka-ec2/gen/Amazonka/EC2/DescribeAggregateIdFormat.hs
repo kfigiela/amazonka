@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeAggregateIdFormat where
   type
     AWSResponse DescribeAggregateIdFormat =
       DescribeAggregateIdFormatResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeAggregateIdFormat where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAggregateIdFormat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAggregateIdFormat where
   hashWithSalt _salt DescribeAggregateIdFormat' {..} =

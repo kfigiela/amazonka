@@ -167,7 +167,7 @@ instance Core.AWSRequest CreateBusinessReportSchedule where
   type
     AWSResponse CreateBusinessReportSchedule =
       CreateBusinessReportScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest CreateBusinessReportSchedule where
             Prelude.<$> (x Core..?> "ScheduleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBusinessReportSchedule where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

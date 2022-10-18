@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeWhatIfForecast where
   type
     AWSResponse DescribeWhatIfForecast =
       DescribeWhatIfForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DescribeWhatIfForecast where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWhatIfForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWhatIfForecast where
   hashWithSalt _salt DescribeWhatIfForecast' {..} =

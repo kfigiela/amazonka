@@ -168,7 +168,7 @@ instance Core.AWSRequest UpdateFunctionUrlConfig where
   type
     AWSResponse UpdateFunctionUrlConfig =
       UpdateFunctionUrlConfigResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest UpdateFunctionUrlConfig where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
+
+instance Core.AWSService UpdateFunctionUrlConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFunctionUrlConfig where
   hashWithSalt _salt UpdateFunctionUrlConfig' {..} =

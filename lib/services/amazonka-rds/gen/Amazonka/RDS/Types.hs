@@ -1387,6 +1387,7 @@ defaultService =
       Core._serviceEndpointPrefix = "rds",
       Core._serviceSigningName = "rds",
       Core._serviceVersion = "2014-10-31",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

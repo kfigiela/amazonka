@@ -94,7 +94,7 @@ instance
   type
     AWSResponse DescribeTargetGroupAttributes =
       DescribeTargetGroupAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTargetGroupAttributesResult"
@@ -105,6 +105,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeTargetGroupAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

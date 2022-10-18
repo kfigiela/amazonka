@@ -121,7 +121,7 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
   type
     AWSResponse RemoveSchemaVersionMetadata =
       RemoveSchemaVersionMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest RemoveSchemaVersionMetadata where
             Prelude.<*> (x Core..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveSchemaVersionMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveSchemaVersionMetadata where
   hashWithSalt _salt RemoveSchemaVersionMetadata' {..} =

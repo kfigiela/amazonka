@@ -107,7 +107,7 @@ instance Core.AWSRequest ResumeWorkflowRun where
   type
     AWSResponse ResumeWorkflowRun =
       ResumeWorkflowRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ResumeWorkflowRun where
             Prelude.<*> (x Core..?> "RunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResumeWorkflowRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeWorkflowRun where
   hashWithSalt _salt ResumeWorkflowRun' {..} =

@@ -220,7 +220,7 @@ instance Core.AWSRequest CreateUserSettings where
   type
     AWSResponse CreateUserSettings =
       CreateUserSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -228,6 +228,9 @@ instance Core.AWSRequest CreateUserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userSettingsArn")
       )
+
+instance Core.AWSService CreateUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUserSettings where
   hashWithSalt _salt CreateUserSettings' {..} =

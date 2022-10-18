@@ -82,7 +82,7 @@ instance Core.AWSRequest ConfirmConnection where
   type
     AWSResponse ConfirmConnection =
       ConfirmConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest ConfirmConnection where
             Prelude.<$> (x Core..?> "connectionState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmConnection where
   hashWithSalt _salt ConfirmConnection' {..} =

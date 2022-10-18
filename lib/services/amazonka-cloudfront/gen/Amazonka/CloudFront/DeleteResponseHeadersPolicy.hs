@@ -113,10 +113,13 @@ instance Core.AWSRequest DeleteResponseHeadersPolicy where
   type
     AWSResponse DeleteResponseHeadersPolicy =
       DeleteResponseHeadersPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteResponseHeadersPolicyResponse'
+
+instance Core.AWSService DeleteResponseHeadersPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResponseHeadersPolicy where
   hashWithSalt _salt DeleteResponseHeadersPolicy' {..} =

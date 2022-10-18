@@ -86,7 +86,7 @@ getLens_lensAlias = Lens.lens (\GetLens' {lensAlias} -> lensAlias) (\s@GetLens' 
 
 instance Core.AWSRequest GetLens where
   type AWSResponse GetLens = GetLensResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetLens where
             Prelude.<$> (x Core..?> "Lens")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLens where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLens where
   hashWithSalt _salt GetLens' {..} =

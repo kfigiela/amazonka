@@ -107,7 +107,7 @@ instance Core.AWSRequest ListInstanceTypeDetails where
   type
     AWSResponse ListInstanceTypeDetails =
       ListInstanceTypeDetailsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ListInstanceTypeDetails where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInstanceTypeDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInstanceTypeDetails where
   hashWithSalt _salt ListInstanceTypeDetails' {..} =

@@ -268,7 +268,7 @@ instance Core.AWSRequest UpdateDashboard where
   type
     AWSResponse UpdateDashboard =
       UpdateDashboardResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -281,6 +281,9 @@ instance Core.AWSRequest UpdateDashboard where
             Prelude.<*> (x Core..?> "VersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDashboard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDashboard where
   hashWithSalt _salt UpdateDashboard' {..} =

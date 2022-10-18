@@ -100,7 +100,7 @@ instance
     AWSResponse
       RebalanceSlotsInGlobalReplicationGroup =
       RebalanceSlotsInGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebalanceSlotsInGlobalReplicationGroupResult"
@@ -109,6 +109,12 @@ instance
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RebalanceSlotsInGlobalReplicationGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

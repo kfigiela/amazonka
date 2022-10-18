@@ -65,7 +65,7 @@ instance Core.AWSRequest DescribeVirtualGateways where
   type
     AWSResponse DescribeVirtualGateways =
       DescribeVirtualGatewaysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -75,6 +75,9 @@ instance Core.AWSRequest DescribeVirtualGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVirtualGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVirtualGateways where
   hashWithSalt _salt _ =

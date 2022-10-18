@@ -110,7 +110,7 @@ getRecord_recordIdentifierValueAsString = Lens.lens (\GetRecord' {recordIdentifi
 
 instance Core.AWSRequest GetRecord where
   type AWSResponse GetRecord = GetRecordResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetRecord where
             Prelude.<$> (x Core..?> "Record")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRecord where
   hashWithSalt _salt GetRecord' {..} =

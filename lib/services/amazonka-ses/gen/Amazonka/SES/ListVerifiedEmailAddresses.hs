@@ -63,7 +63,7 @@ instance Core.AWSRequest ListVerifiedEmailAddresses where
   type
     AWSResponse ListVerifiedEmailAddresses =
       ListVerifiedEmailAddressesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListVerifiedEmailAddressesResult"
@@ -75,6 +75,9 @@ instance Core.AWSRequest ListVerifiedEmailAddresses where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVerifiedEmailAddresses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVerifiedEmailAddresses where
   hashWithSalt _salt _ =

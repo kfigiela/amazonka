@@ -89,7 +89,7 @@ instance Core.AWSRequest CancelDataRepositoryTask where
   type
     AWSResponse CancelDataRepositoryTask =
       CancelDataRepositoryTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest CancelDataRepositoryTask where
             Prelude.<*> (x Core..?> "TaskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelDataRepositoryTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelDataRepositoryTask where
   hashWithSalt _salt CancelDataRepositoryTask' {..} =

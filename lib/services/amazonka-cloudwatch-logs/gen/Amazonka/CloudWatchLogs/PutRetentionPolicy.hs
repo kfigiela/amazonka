@@ -90,9 +90,12 @@ instance Core.AWSRequest PutRetentionPolicy where
   type
     AWSResponse PutRetentionPolicy =
       PutRetentionPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutRetentionPolicyResponse'
+
+instance Core.AWSService PutRetentionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRetentionPolicy where
   hashWithSalt _salt PutRetentionPolicy' {..} =

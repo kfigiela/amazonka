@@ -97,9 +97,9 @@ instance Core.AWSRequest GetDataRetrievalPolicy where
   type
     AWSResponse GetDataRetrievalPolicy =
       GetDataRetrievalPolicyResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetDataRetrievalPolicy where
             Prelude.<$> (x Core..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataRetrievalPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataRetrievalPolicy where
   hashWithSalt _salt GetDataRetrievalPolicy' {..} =

@@ -91,13 +91,16 @@ instance Core.AWSRequest UpdateSchedulingPolicy where
   type
     AWSResponse UpdateSchedulingPolicy =
       UpdateSchedulingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSchedulingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSchedulingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSchedulingPolicy where
   hashWithSalt _salt UpdateSchedulingPolicy' {..} =

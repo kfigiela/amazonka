@@ -158,7 +158,7 @@ instance Core.AWSRequest UpdateBotRecommendation where
   type
     AWSResponse UpdateBotRecommendation =
       UpdateBotRecommendationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest UpdateBotRecommendation where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBotRecommendation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBotRecommendation where
   hashWithSalt _salt UpdateBotRecommendation' {..} =

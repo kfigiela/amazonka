@@ -126,7 +126,7 @@ instance Core.AWSRequest ListInputDeviceTransfers where
   type
     AWSResponse ListInputDeviceTransfers =
       ListInputDeviceTransfersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListInputDeviceTransfers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInputDeviceTransfers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInputDeviceTransfers where
   hashWithSalt _salt ListInputDeviceTransfers' {..} =

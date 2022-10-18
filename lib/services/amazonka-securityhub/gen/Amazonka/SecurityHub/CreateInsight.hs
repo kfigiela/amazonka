@@ -123,7 +123,7 @@ instance Core.AWSRequest CreateInsight where
   type
     AWSResponse CreateInsight =
       CreateInsightResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest CreateInsight where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "InsightArn")
       )
+
+instance Core.AWSService CreateInsight where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInsight where
   hashWithSalt _salt CreateInsight' {..} =

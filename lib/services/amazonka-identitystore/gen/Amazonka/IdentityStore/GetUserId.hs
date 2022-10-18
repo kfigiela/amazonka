@@ -99,7 +99,7 @@ getUserId_alternateIdentifier = Lens.lens (\GetUserId' {alternateIdentifier} -> 
 
 instance Core.AWSRequest GetUserId where
   type AWSResponse GetUserId = GetUserIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetUserId where
             Prelude.<*> (x Core..:> "UserId")
             Prelude.<*> (x Core..:> "IdentityStoreId")
       )
+
+instance Core.AWSService GetUserId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUserId where
   hashWithSalt _salt GetUserId' {..} =

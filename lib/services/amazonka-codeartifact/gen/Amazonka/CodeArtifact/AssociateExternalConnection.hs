@@ -163,7 +163,7 @@ instance Core.AWSRequest AssociateExternalConnection where
   type
     AWSResponse AssociateExternalConnection =
       AssociateExternalConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest AssociateExternalConnection where
             Prelude.<$> (x Core..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateExternalConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateExternalConnection where
   hashWithSalt _salt AssociateExternalConnection' {..} =

@@ -165,7 +165,7 @@ instance Core.AWSRequest ListRecommendationTemplates where
   type
     AWSResponse ListRecommendationTemplates =
       ListRecommendationTemplatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest ListRecommendationTemplates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRecommendationTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRecommendationTemplates where
   hashWithSalt _salt ListRecommendationTemplates' {..} =

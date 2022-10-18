@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteSourceLocation where
   type
     AWSResponse DeleteSourceLocation =
       DeleteSourceLocationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSourceLocationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSourceLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSourceLocation where
   hashWithSalt _salt DeleteSourceLocation' {..} =

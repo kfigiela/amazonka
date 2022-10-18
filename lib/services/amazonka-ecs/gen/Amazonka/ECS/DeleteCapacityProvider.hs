@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteCapacityProvider where
   type
     AWSResponse DeleteCapacityProvider =
       DeleteCapacityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteCapacityProvider where
             Prelude.<$> (x Core..?> "capacityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCapacityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCapacityProvider where
   hashWithSalt _salt DeleteCapacityProvider' {..} =

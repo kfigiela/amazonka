@@ -260,9 +260,12 @@ instance Core.AWSRequest CreateNetworkAclEntry where
   type
     AWSResponse CreateNetworkAclEntry =
       CreateNetworkAclEntryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CreateNetworkAclEntryResponse'
+
+instance Core.AWSService CreateNetworkAclEntry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNetworkAclEntry where
   hashWithSalt _salt CreateNetworkAclEntry' {..} =

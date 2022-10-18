@@ -112,7 +112,7 @@ instance Core.AWSRequest CreateAssessmentTarget where
   type
     AWSResponse CreateAssessmentTarget =
       CreateAssessmentTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateAssessmentTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "assessmentTargetArn")
       )
+
+instance Core.AWSService CreateAssessmentTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAssessmentTarget where
   hashWithSalt _salt CreateAssessmentTarget' {..} =

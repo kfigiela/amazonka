@@ -143,7 +143,7 @@ instance Core.AWSRequest GetChannelSchedule where
   type
     AWSResponse GetChannelSchedule =
       GetChannelScheduleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetChannelSchedule where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChannelSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChannelSchedule where
   hashWithSalt _salt GetChannelSchedule' {..} =

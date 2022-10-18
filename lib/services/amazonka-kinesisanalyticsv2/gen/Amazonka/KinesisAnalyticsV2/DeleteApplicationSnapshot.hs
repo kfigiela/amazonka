@@ -110,13 +110,16 @@ instance Core.AWSRequest DeleteApplicationSnapshot where
   type
     AWSResponse DeleteApplicationSnapshot =
       DeleteApplicationSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApplicationSnapshotResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteApplicationSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApplicationSnapshot where
   hashWithSalt _salt DeleteApplicationSnapshot' {..} =

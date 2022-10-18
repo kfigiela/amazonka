@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeRestoreJob where
   type
     AWSResponse DescribeRestoreJob =
       DescribeRestoreJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribeRestoreJob where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRestoreJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRestoreJob where
   hashWithSalt _salt DescribeRestoreJob' {..} =

@@ -254,7 +254,7 @@ instance
   type
     AWSResponse ExportLambdaFunctionRecommendations =
       ExportLambdaFunctionRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -263,6 +263,12 @@ instance
               Prelude.<*> (x Core..?> "s3Destination")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ExportLambdaFunctionRecommendations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

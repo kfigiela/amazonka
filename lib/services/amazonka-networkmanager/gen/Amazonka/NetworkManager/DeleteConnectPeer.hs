@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteConnectPeer where
   type
     AWSResponse DeleteConnectPeer =
       DeleteConnectPeerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteConnectPeer where
             Prelude.<$> (x Core..?> "ConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConnectPeer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnectPeer where
   hashWithSalt _salt DeleteConnectPeer' {..} =

@@ -111,9 +111,12 @@ instance Core.AWSRequest RestartAppServer where
   type
     AWSResponse RestartAppServer =
       RestartAppServerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RestartAppServerResponse'
+
+instance Core.AWSService RestartAppServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestartAppServer where
   hashWithSalt _salt RestartAppServer' {..} =

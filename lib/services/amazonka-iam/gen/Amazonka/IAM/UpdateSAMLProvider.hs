@@ -125,7 +125,7 @@ instance Core.AWSRequest UpdateSAMLProvider where
   type
     AWSResponse UpdateSAMLProvider =
       UpdateSAMLProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateSAMLProviderResult"
@@ -134,6 +134,9 @@ instance Core.AWSRequest UpdateSAMLProvider where
             Prelude.<$> (x Core..@? "SAMLProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSAMLProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSAMLProvider where
   hashWithSalt _salt UpdateSAMLProvider' {..} =

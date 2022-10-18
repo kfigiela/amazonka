@@ -78,10 +78,13 @@ getSdkType_id = Lens.lens (\GetSdkType' {id} -> id) (\s@GetSdkType' {} a -> s {i
 
 instance Core.AWSRequest GetSdkType where
   type AWSResponse GetSdkType = SdkType
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetSdkType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSdkType where
   hashWithSalt _salt GetSdkType' {..} =

@@ -126,10 +126,13 @@ instance Core.AWSRequest CreatePublicVirtualInterface where
   type
     AWSResponse CreatePublicVirtualInterface =
       VirtualInterface
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreatePublicVirtualInterface where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -187,7 +187,7 @@ instance Core.AWSRequest ListSecretVersionIds where
   type
     AWSResponse ListSecretVersionIds =
       ListSecretVersionIdsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest ListSecretVersionIds where
             Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSecretVersionIds where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSecretVersionIds where
   hashWithSalt _salt ListSecretVersionIds' {..} =

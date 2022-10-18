@@ -155,7 +155,7 @@ instance
   type
     AWSResponse ListReviewPolicyResultsForHIT =
       ListReviewPolicyResultsForHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,12 @@ instance
             Prelude.<*> (x Core..?> "AssignmentReviewPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListReviewPolicyResultsForHIT
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

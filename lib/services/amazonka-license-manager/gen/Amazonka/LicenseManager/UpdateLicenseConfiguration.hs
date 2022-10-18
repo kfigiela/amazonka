@@ -163,13 +163,16 @@ instance Core.AWSRequest UpdateLicenseConfiguration where
   type
     AWSResponse UpdateLicenseConfiguration =
       UpdateLicenseConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLicenseConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLicenseConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLicenseConfiguration where
   hashWithSalt _salt UpdateLicenseConfiguration' {..} =

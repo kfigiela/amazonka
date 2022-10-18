@@ -220,7 +220,7 @@ instance Core.AWSRequest CreateAlarmModel where
   type
     AWSResponse CreateAlarmModel =
       CreateAlarmModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -232,6 +232,9 @@ instance Core.AWSRequest CreateAlarmModel where
             Prelude.<*> (x Core..?> "lastUpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAlarmModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAlarmModel where
   hashWithSalt _salt CreateAlarmModel' {..} =

@@ -106,10 +106,13 @@ instance Core.AWSRequest DeleteEventSourceMapping where
   type
     AWSResponse DeleteEventSourceMapping =
       EventSourceMappingConfiguration
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteEventSourceMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventSourceMapping where
   hashWithSalt _salt DeleteEventSourceMapping' {..} =

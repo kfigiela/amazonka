@@ -83,7 +83,7 @@ instance Core.AWSRequest StartWorkspaces where
   type
     AWSResponse StartWorkspaces =
       StartWorkspacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest StartWorkspaces where
             Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartWorkspaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartWorkspaces where
   hashWithSalt _salt StartWorkspaces' {..} =

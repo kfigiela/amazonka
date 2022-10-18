@@ -94,7 +94,7 @@ instance Core.AWSRequest DeleteJourney where
   type
     AWSResponse DeleteJourney =
       DeleteJourneyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DeleteJourney where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteJourney where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteJourney where
   hashWithSalt _salt DeleteJourney' {..} =

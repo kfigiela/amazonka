@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteGateway where
   type
     AWSResponse DeleteGateway =
       DeleteGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteGateway where
             Prelude.<$> (x Core..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGateway where
   hashWithSalt _salt DeleteGateway' {..} =

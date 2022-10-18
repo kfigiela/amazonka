@@ -93,7 +93,7 @@ instance Core.AWSRequest SendOTPMessage where
   type
     AWSResponse SendOTPMessage =
       SendOTPMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest SendOTPMessage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService SendOTPMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendOTPMessage where
   hashWithSalt _salt SendOTPMessage' {..} =

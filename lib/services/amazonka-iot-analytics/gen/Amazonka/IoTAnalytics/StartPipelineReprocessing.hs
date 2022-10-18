@@ -140,7 +140,7 @@ instance Core.AWSRequest StartPipelineReprocessing where
   type
     AWSResponse StartPipelineReprocessing =
       StartPipelineReprocessingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest StartPipelineReprocessing where
             Prelude.<$> (x Core..?> "reprocessingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartPipelineReprocessing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartPipelineReprocessing where
   hashWithSalt _salt StartPipelineReprocessing' {..} =

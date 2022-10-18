@@ -87,9 +87,12 @@ instance Core.AWSRequest PostToConnection where
   type
     AWSResponse PostToConnection =
       PostToConnectionResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveNull PostToConnectionResponse'
+
+instance Core.AWSService PostToConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PostToConnection where
   hashWithSalt _salt PostToConnection' {..} =

@@ -180,7 +180,7 @@ instance Core.AWSPager ListContexts where
 
 instance Core.AWSRequest ListContexts where
   type AWSResponse ListContexts = ListContextsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest ListContexts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListContexts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListContexts where
   hashWithSalt _salt ListContexts' {..} =

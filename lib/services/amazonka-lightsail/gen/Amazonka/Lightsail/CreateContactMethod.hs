@@ -201,7 +201,7 @@ instance Core.AWSRequest CreateContactMethod where
   type
     AWSResponse CreateContactMethod =
       CreateContactMethodResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest CreateContactMethod where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateContactMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContactMethod where
   hashWithSalt _salt CreateContactMethod' {..} =

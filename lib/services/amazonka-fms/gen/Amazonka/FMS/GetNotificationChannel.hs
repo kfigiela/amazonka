@@ -63,7 +63,7 @@ instance Core.AWSRequest GetNotificationChannel where
   type
     AWSResponse GetNotificationChannel =
       GetNotificationChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetNotificationChannel where
             Prelude.<*> (x Core..?> "SnsTopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNotificationChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNotificationChannel where
   hashWithSalt _salt _ =

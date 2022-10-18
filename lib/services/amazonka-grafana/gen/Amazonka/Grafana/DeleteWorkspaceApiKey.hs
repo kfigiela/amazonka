@@ -92,7 +92,7 @@ instance Core.AWSRequest DeleteWorkspaceApiKey where
   type
     AWSResponse DeleteWorkspaceApiKey =
       DeleteWorkspaceApiKeyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteWorkspaceApiKey where
             Prelude.<*> (x Core..:> "keyName")
             Prelude.<*> (x Core..:> "workspaceId")
       )
+
+instance Core.AWSService DeleteWorkspaceApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkspaceApiKey where
   hashWithSalt _salt DeleteWorkspaceApiKey' {..} =

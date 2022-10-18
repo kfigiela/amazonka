@@ -103,7 +103,7 @@ instance Core.AWSRequest CreatePushTemplate where
   type
     AWSResponse CreatePushTemplate =
       CreatePushTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest CreatePushTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreatePushTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePushTemplate where
   hashWithSalt _salt CreatePushTemplate' {..} =

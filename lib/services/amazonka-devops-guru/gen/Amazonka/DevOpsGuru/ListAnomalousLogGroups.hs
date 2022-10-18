@@ -134,7 +134,7 @@ instance Core.AWSRequest ListAnomalousLogGroups where
   type
     AWSResponse ListAnomalousLogGroups =
       ListAnomalousLogGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListAnomalousLogGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAnomalousLogGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnomalousLogGroups where
   hashWithSalt _salt ListAnomalousLogGroups' {..} =

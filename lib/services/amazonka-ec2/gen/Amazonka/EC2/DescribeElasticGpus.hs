@@ -181,7 +181,7 @@ instance Core.AWSRequest DescribeElasticGpus where
   type
     AWSResponse DescribeElasticGpus =
       DescribeElasticGpusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest DescribeElasticGpus where
             Prelude.<*> (x Core..@? "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeElasticGpus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeElasticGpus where
   hashWithSalt _salt DescribeElasticGpus' {..} =

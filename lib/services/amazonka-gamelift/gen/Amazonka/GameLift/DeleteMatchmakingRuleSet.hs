@@ -98,13 +98,16 @@ instance Core.AWSRequest DeleteMatchmakingRuleSet where
   type
     AWSResponse DeleteMatchmakingRuleSet =
       DeleteMatchmakingRuleSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMatchmakingRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMatchmakingRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMatchmakingRuleSet where
   hashWithSalt _salt DeleteMatchmakingRuleSet' {..} =

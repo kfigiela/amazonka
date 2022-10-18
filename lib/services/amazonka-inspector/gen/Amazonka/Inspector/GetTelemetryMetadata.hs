@@ -84,7 +84,7 @@ instance Core.AWSRequest GetTelemetryMetadata where
   type
     AWSResponse GetTelemetryMetadata =
       GetTelemetryMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetTelemetryMetadata where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetTelemetryMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTelemetryMetadata where
   hashWithSalt _salt GetTelemetryMetadata' {..} =

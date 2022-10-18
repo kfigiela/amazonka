@@ -105,9 +105,12 @@ instance Core.AWSRequest UpdateQueueStatus where
   type
     AWSResponse UpdateQueueStatus =
       UpdateQueueStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateQueueStatusResponse'
+
+instance Core.AWSService UpdateQueueStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateQueueStatus where
   hashWithSalt _salt UpdateQueueStatus' {..} =

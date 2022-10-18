@@ -446,10 +446,13 @@ instance Core.AWSRequest UpdateEventSourceMapping where
   type
     AWSResponse UpdateEventSourceMapping =
       EventSourceMappingConfiguration
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateEventSourceMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEventSourceMapping where
   hashWithSalt _salt UpdateEventSourceMapping' {..} =

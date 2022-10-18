@@ -93,13 +93,16 @@ deleteHIT_hITId = Lens.lens (\DeleteHIT' {hITId} -> hITId) (\s@DeleteHIT' {} a -
 
 instance Core.AWSRequest DeleteHIT where
   type AWSResponse DeleteHIT = DeleteHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHITResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteHIT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHIT where
   hashWithSalt _salt DeleteHIT' {..} =

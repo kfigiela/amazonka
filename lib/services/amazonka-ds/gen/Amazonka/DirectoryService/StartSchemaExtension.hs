@@ -135,7 +135,7 @@ instance Core.AWSRequest StartSchemaExtension where
   type
     AWSResponse StartSchemaExtension =
       StartSchemaExtensionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest StartSchemaExtension where
             Prelude.<$> (x Core..?> "SchemaExtensionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSchemaExtension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSchemaExtension where
   hashWithSalt _salt StartSchemaExtension' {..} =

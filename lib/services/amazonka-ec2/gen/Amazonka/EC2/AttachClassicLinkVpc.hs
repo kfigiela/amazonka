@@ -143,7 +143,7 @@ instance Core.AWSRequest AttachClassicLinkVpc where
   type
     AWSResponse AttachClassicLinkVpc =
       AttachClassicLinkVpcResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest AttachClassicLinkVpc where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachClassicLinkVpc where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachClassicLinkVpc where
   hashWithSalt _salt AttachClassicLinkVpc' {..} =

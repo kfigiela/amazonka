@@ -202,7 +202,7 @@ createLabel_clientToken = Lens.lens (\CreateLabel' {clientToken} -> clientToken)
 
 instance Core.AWSRequest CreateLabel where
   type AWSResponse CreateLabel = CreateLabelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,6 +210,9 @@ instance Core.AWSRequest CreateLabel where
             Prelude.<$> (x Core..?> "LabelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLabel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLabel where
   hashWithSalt _salt CreateLabel' {..} =

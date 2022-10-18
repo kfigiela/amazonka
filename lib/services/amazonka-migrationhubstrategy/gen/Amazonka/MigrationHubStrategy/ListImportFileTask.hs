@@ -124,7 +124,7 @@ instance Core.AWSRequest ListImportFileTask where
   type
     AWSResponse ListImportFileTask =
       ListImportFileTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListImportFileTask where
             Prelude.<*> (x Core..?> "taskInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListImportFileTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListImportFileTask where
   hashWithSalt _salt ListImportFileTask' {..} =

@@ -205,7 +205,7 @@ instance Core.AWSRequest ListServerCertificates where
   type
     AWSResponse ListServerCertificates =
       ListServerCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListServerCertificatesResult"
@@ -219,6 +219,9 @@ instance Core.AWSRequest ListServerCertificates where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListServerCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServerCertificates where
   hashWithSalt _salt ListServerCertificates' {..} =

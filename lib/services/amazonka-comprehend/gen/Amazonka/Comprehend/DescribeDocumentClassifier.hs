@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeDocumentClassifier where
   type
     AWSResponse DescribeDocumentClassifier =
       DescribeDocumentClassifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeDocumentClassifier where
             Prelude.<$> (x Core..?> "DocumentClassifierProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDocumentClassifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDocumentClassifier where
   hashWithSalt _salt DescribeDocumentClassifier' {..} =

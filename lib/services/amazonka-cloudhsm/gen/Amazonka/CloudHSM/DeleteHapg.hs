@@ -91,7 +91,7 @@ deleteHapg_hapgArn = Lens.lens (\DeleteHapg' {hapgArn} -> hapgArn) (\s@DeleteHap
 
 instance Core.AWSRequest DeleteHapg where
   type AWSResponse DeleteHapg = DeleteHapgResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteHapg where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Status")
       )
+
+instance Core.AWSService DeleteHapg where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHapg where
   hashWithSalt _salt DeleteHapg' {..} =

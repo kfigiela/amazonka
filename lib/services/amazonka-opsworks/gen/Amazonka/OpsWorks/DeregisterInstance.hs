@@ -82,9 +82,12 @@ instance Core.AWSRequest DeregisterInstance where
   type
     AWSResponse DeregisterInstance =
       DeregisterInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterInstanceResponse'
+
+instance Core.AWSService DeregisterInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterInstance where
   hashWithSalt _salt DeregisterInstance' {..} =

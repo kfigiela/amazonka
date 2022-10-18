@@ -94,7 +94,7 @@ instance Core.AWSRequest DisassociateAccounts where
   type
     AWSResponse DisassociateAccounts =
       DisassociateAccountsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DisassociateAccounts where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateAccounts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateAccounts where
   hashWithSalt _salt DisassociateAccounts' {..} =

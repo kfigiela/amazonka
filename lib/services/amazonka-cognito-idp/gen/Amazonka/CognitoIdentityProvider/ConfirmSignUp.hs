@@ -274,13 +274,16 @@ instance Core.AWSRequest ConfirmSignUp where
   type
     AWSResponse ConfirmSignUp =
       ConfirmSignUpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConfirmSignUpResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmSignUp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmSignUp where
   hashWithSalt _salt ConfirmSignUp' {..} =

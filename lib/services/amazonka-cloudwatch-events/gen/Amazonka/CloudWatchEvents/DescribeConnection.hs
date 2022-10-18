@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeConnection where
   type
     AWSResponse DescribeConnection =
       DescribeConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeConnection where
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConnection where
   hashWithSalt _salt DescribeConnection' {..} =

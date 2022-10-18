@@ -170,7 +170,7 @@ instance Core.AWSPager ListUpdates where
 
 instance Core.AWSRequest ListUpdates where
   type AWSResponse ListUpdates = ListUpdatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListUpdates where
             Prelude.<*> (x Core..?> "updateIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUpdates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUpdates where
   hashWithSalt _salt ListUpdates' {..} =

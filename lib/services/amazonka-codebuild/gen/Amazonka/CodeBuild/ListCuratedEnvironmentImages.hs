@@ -62,7 +62,7 @@ instance Core.AWSRequest ListCuratedEnvironmentImages where
   type
     AWSResponse ListCuratedEnvironmentImages =
       ListCuratedEnvironmentImagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest ListCuratedEnvironmentImages where
             Prelude.<$> (x Core..?> "platforms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCuratedEnvironmentImages where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

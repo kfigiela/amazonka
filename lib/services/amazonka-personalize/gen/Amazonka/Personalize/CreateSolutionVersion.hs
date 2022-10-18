@@ -189,7 +189,7 @@ instance Core.AWSRequest CreateSolutionVersion where
   type
     AWSResponse CreateSolutionVersion =
       CreateSolutionVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest CreateSolutionVersion where
             Prelude.<$> (x Core..?> "solutionVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSolutionVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSolutionVersion where
   hashWithSalt _salt CreateSolutionVersion' {..} =

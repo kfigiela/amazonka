@@ -113,7 +113,7 @@ stopInstance_instanceName = Lens.lens (\StopInstance' {instanceName} -> instance
 
 instance Core.AWSRequest StopInstance where
   type AWSResponse StopInstance = StopInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest StopInstance where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopInstance where
   hashWithSalt _salt StopInstance' {..} =

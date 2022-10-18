@@ -146,7 +146,7 @@ instance Core.AWSRequest GetUsagePlanKeys where
   type
     AWSResponse GetUsagePlanKeys =
       GetUsagePlanKeysResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest GetUsagePlanKeys where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUsagePlanKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUsagePlanKeys where
   hashWithSalt _salt GetUsagePlanKeys' {..} =

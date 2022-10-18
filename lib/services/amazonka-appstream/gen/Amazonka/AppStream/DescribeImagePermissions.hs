@@ -122,7 +122,7 @@ instance Core.AWSRequest DescribeImagePermissions where
   type
     AWSResponse DescribeImagePermissions =
       DescribeImagePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest DescribeImagePermissions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImagePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImagePermissions where
   hashWithSalt _salt DescribeImagePermissions' {..} =

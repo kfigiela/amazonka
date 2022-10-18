@@ -130,7 +130,7 @@ instance Core.AWSRequest CreateSlotTypeVersion where
   type
     AWSResponse CreateSlotTypeVersion =
       CreateSlotTypeVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest CreateSlotTypeVersion where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSlotTypeVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSlotTypeVersion where
   hashWithSalt _salt CreateSlotTypeVersion' {..} =

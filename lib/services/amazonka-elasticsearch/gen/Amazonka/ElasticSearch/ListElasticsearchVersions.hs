@@ -125,7 +125,7 @@ instance Core.AWSRequest ListElasticsearchVersions where
   type
     AWSResponse ListElasticsearchVersions =
       ListElasticsearchVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListElasticsearchVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListElasticsearchVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListElasticsearchVersions where
   hashWithSalt _salt ListElasticsearchVersions' {..} =

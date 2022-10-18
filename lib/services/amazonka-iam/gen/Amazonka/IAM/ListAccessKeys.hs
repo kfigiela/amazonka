@@ -186,7 +186,7 @@ instance Core.AWSRequest ListAccessKeys where
   type
     AWSResponse ListAccessKeys =
       ListAccessKeysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListAccessKeysResult"
@@ -200,6 +200,9 @@ instance Core.AWSRequest ListAccessKeys where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListAccessKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccessKeys where
   hashWithSalt _salt ListAccessKeys' {..} =

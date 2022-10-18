@@ -139,7 +139,7 @@ instance Core.AWSRequest UpdateSourceLocation where
   type
     AWSResponse UpdateSourceLocation =
       UpdateSourceLocationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest UpdateSourceLocation where
             Prelude.<*> (x Core..?> "HttpConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSourceLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSourceLocation where
   hashWithSalt _salt UpdateSourceLocation' {..} =

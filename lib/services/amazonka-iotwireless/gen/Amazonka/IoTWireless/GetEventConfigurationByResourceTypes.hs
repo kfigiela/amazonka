@@ -69,7 +69,7 @@ instance
   type
     AWSResponse GetEventConfigurationByResourceTypes =
       GetEventConfigurationByResourceTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -81,6 +81,12 @@ instance
               Prelude.<*> (x Core..?> "Proximity")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetEventConfigurationByResourceTypes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

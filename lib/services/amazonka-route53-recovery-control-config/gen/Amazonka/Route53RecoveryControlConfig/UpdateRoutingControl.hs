@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateRoutingControl where
   type
     AWSResponse UpdateRoutingControl =
       UpdateRoutingControlResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateRoutingControl where
             Prelude.<$> (x Core..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoutingControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoutingControl where
   hashWithSalt _salt UpdateRoutingControl' {..} =

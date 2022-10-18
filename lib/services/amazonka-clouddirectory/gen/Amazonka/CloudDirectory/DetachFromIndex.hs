@@ -109,7 +109,7 @@ instance Core.AWSRequest DetachFromIndex where
   type
     AWSResponse DetachFromIndex =
       DetachFromIndexResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DetachFromIndex where
             Prelude.<$> (x Core..?> "DetachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachFromIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachFromIndex where
   hashWithSalt _salt DetachFromIndex' {..} =

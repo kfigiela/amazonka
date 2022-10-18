@@ -120,7 +120,7 @@ instance Core.AWSRequest CreateDiscoverer where
   type
     AWSResponse CreateDiscoverer =
       CreateDiscovererResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateDiscoverer where
             Prelude.<*> (x Core..?> "DiscovererArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDiscoverer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDiscoverer where
   hashWithSalt _salt CreateDiscoverer' {..} =

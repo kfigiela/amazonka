@@ -109,10 +109,13 @@ instance Core.AWSRequest UpdateQueueHoursOfOperation where
   type
     AWSResponse UpdateQueueHoursOfOperation =
       UpdateQueueHoursOfOperationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQueueHoursOfOperationResponse'
+
+instance Core.AWSService UpdateQueueHoursOfOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateQueueHoursOfOperation where
   hashWithSalt _salt UpdateQueueHoursOfOperation' {..} =

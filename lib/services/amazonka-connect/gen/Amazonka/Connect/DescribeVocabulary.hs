@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeVocabulary where
   type
     AWSResponse DescribeVocabulary =
       DescribeVocabularyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeVocabulary where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Vocabulary")
       )
+
+instance Core.AWSService DescribeVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVocabulary where
   hashWithSalt _salt DescribeVocabulary' {..} =

@@ -77,7 +77,7 @@ instance Core.AWSRequest GetChannelPolicy where
   type
     AWSResponse GetChannelPolicy =
       GetChannelPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetChannelPolicy where
             Prelude.<$> (x Core..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChannelPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChannelPolicy where
   hashWithSalt _salt GetChannelPolicy' {..} =

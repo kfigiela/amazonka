@@ -91,13 +91,16 @@ instance Core.AWSRequest RemoveIpRoutes where
   type
     AWSResponse RemoveIpRoutes =
       RemoveIpRoutesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveIpRoutesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveIpRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveIpRoutes where
   hashWithSalt _salt RemoveIpRoutes' {..} =

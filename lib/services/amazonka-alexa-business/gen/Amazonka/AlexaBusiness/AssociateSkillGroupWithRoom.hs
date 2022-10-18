@@ -88,13 +88,16 @@ instance Core.AWSRequest AssociateSkillGroupWithRoom where
   type
     AWSResponse AssociateSkillGroupWithRoom =
       AssociateSkillGroupWithRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateSkillGroupWithRoomResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateSkillGroupWithRoom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateSkillGroupWithRoom where
   hashWithSalt _salt AssociateSkillGroupWithRoom' {..} =

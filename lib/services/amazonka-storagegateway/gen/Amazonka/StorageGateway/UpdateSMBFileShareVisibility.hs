@@ -95,7 +95,7 @@ instance Core.AWSRequest UpdateSMBFileShareVisibility where
   type
     AWSResponse UpdateSMBFileShareVisibility =
       UpdateSMBFileShareVisibilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest UpdateSMBFileShareVisibility where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSMBFileShareVisibility where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

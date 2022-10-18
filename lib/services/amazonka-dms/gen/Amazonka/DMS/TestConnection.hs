@@ -99,7 +99,7 @@ instance Core.AWSRequest TestConnection where
   type
     AWSResponse TestConnection =
       TestConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest TestConnection where
             Prelude.<$> (x Core..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestConnection where
   hashWithSalt _salt TestConnection' {..} =

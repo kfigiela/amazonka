@@ -118,7 +118,7 @@ instance Core.AWSRequest ListComponentOutputs where
   type
     AWSResponse ListComponentOutputs =
       ListComponentOutputsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListComponentOutputs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "outputs" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListComponentOutputs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListComponentOutputs where
   hashWithSalt _salt ListComponentOutputs' {..} =

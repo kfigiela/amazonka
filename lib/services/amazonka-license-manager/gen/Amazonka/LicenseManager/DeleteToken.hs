@@ -74,13 +74,16 @@ deleteToken_tokenId = Lens.lens (\DeleteToken' {tokenId} -> tokenId) (\s@DeleteT
 
 instance Core.AWSRequest DeleteToken where
   type AWSResponse DeleteToken = DeleteTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTokenResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteToken where
   hashWithSalt _salt DeleteToken' {..} =

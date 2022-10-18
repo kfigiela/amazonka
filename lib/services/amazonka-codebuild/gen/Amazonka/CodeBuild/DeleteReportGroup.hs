@@ -113,13 +113,16 @@ instance Core.AWSRequest DeleteReportGroup where
   type
     AWSResponse DeleteReportGroup =
       DeleteReportGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteReportGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReportGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReportGroup where
   hashWithSalt _salt DeleteReportGroup' {..} =

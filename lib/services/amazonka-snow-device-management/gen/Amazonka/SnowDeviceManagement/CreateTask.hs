@@ -133,7 +133,7 @@ createTask_targets = Lens.lens (\CreateTask' {targets} -> targets) (\s@CreateTas
 
 instance Core.AWSRequest CreateTask where
   type AWSResponse CreateTask = CreateTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateTask where
             Prelude.<*> (x Core..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTask where
   hashWithSalt _salt CreateTask' {..} =

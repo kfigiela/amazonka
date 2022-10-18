@@ -77,7 +77,7 @@ instance Core.AWSRequest GetVpcAttachment where
   type
     AWSResponse GetVpcAttachment =
       GetVpcAttachmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetVpcAttachment where
             Prelude.<$> (x Core..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVpcAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVpcAttachment where
   hashWithSalt _salt GetVpcAttachment' {..} =

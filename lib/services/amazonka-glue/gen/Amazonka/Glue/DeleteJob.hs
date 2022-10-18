@@ -76,7 +76,7 @@ deleteJob_jobName = Lens.lens (\DeleteJob' {jobName} -> jobName) (\s@DeleteJob' 
 
 instance Core.AWSRequest DeleteJob where
   type AWSResponse DeleteJob = DeleteJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest DeleteJob where
             Prelude.<$> (x Core..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteJob where
   hashWithSalt _salt DeleteJob' {..} =

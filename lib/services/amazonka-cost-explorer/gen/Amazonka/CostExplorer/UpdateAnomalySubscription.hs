@@ -133,7 +133,7 @@ instance Core.AWSRequest UpdateAnomalySubscription where
   type
     AWSResponse UpdateAnomalySubscription =
       UpdateAnomalySubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest UpdateAnomalySubscription where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "SubscriptionArn")
       )
+
+instance Core.AWSService UpdateAnomalySubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAnomalySubscription where
   hashWithSalt _salt UpdateAnomalySubscription' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest CancelJournalKinesisStream where
   type
     AWSResponse CancelJournalKinesisStream =
       CancelJournalKinesisStreamResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest CancelJournalKinesisStream where
             Prelude.<$> (x Core..?> "StreamId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelJournalKinesisStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJournalKinesisStream where
   hashWithSalt _salt CancelJournalKinesisStream' {..} =

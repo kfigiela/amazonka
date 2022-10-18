@@ -132,7 +132,7 @@ instance Core.AWSRequest ListBillingGroups where
   type
     AWSResponse ListBillingGroups =
       ListBillingGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListBillingGroups where
             Prelude.<*> (x Core..?> "billingGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBillingGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBillingGroups where
   hashWithSalt _salt ListBillingGroups' {..} =

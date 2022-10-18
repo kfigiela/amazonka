@@ -172,7 +172,7 @@ instance
   type
     AWSResponse DescribeAutomationStepExecutions =
       DescribeAutomationStepExecutionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,12 @@ instance
             Prelude.<*> (x Core..?> "StepExecutions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAutomationStepExecutions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

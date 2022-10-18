@@ -127,7 +127,7 @@ instance Core.AWSRequest ListEngineVersions where
   type
     AWSResponse ListEngineVersions =
       ListEngineVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListEngineVersions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListEngineVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEngineVersions where
   hashWithSalt _salt ListEngineVersions' {..} =

@@ -137,13 +137,19 @@ instance
     AWSResponse
       UpdateEventConfigurationByResourceTypes =
       UpdateEventConfigurationByResourceTypesResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEventConfigurationByResourceTypesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateEventConfigurationByResourceTypes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

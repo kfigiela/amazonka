@@ -368,7 +368,7 @@ updateUser_role = Lens.lens (\UpdateUser' {role'} -> role') (\s@UpdateUser' {} a
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -377,6 +377,9 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =

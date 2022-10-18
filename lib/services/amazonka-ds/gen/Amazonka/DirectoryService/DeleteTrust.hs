@@ -92,7 +92,7 @@ deleteTrust_trustId = Lens.lens (\DeleteTrust' {trustId} -> trustId) (\s@DeleteT
 
 instance Core.AWSRequest DeleteTrust where
   type AWSResponse DeleteTrust = DeleteTrustResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DeleteTrust where
             Prelude.<$> (x Core..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTrust where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrust where
   hashWithSalt _salt DeleteTrust' {..} =

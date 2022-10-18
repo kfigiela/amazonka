@@ -182,10 +182,13 @@ updateAlias_name = Lens.lens (\UpdateAlias' {name} -> name) (\s@UpdateAlias' {} 
 
 instance Core.AWSRequest UpdateAlias where
   type AWSResponse UpdateAlias = AliasConfiguration
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =

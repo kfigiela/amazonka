@@ -61,7 +61,7 @@ instance Core.AWSRequest GetAccountStatus where
   type
     AWSResponse GetAccountStatus =
       GetAccountStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest GetAccountStatus where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountStatus where
   hashWithSalt _salt _ =

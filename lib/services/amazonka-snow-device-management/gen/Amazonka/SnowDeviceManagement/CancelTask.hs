@@ -83,7 +83,7 @@ cancelTask_taskId = Lens.lens (\CancelTask' {taskId} -> taskId) (\s@CancelTask' 
 
 instance Core.AWSRequest CancelTask where
   type AWSResponse CancelTask = CancelTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest CancelTask where
             Prelude.<$> (x Core..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelTask where
   hashWithSalt _salt CancelTask' {..} =

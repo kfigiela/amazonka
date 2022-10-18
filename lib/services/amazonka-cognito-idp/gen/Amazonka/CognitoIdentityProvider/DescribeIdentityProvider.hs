@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeIdentityProvider where
   type
     AWSResponse DescribeIdentityProvider =
       DescribeIdentityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeIdentityProvider where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "IdentityProvider")
       )
+
+instance Core.AWSService DescribeIdentityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIdentityProvider where
   hashWithSalt _salt DescribeIdentityProvider' {..} =

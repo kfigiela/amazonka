@@ -301,7 +301,7 @@ updateIntent_localeId = Lens.lens (\UpdateIntent' {localeId} -> localeId) (\s@Up
 
 instance Core.AWSRequest UpdateIntent where
   type AWSResponse UpdateIntent = UpdateIntentResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -329,6 +329,9 @@ instance Core.AWSRequest UpdateIntent where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIntent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIntent where
   hashWithSalt _salt UpdateIntent' {..} =

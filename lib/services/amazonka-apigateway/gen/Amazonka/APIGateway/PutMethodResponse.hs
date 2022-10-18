@@ -183,10 +183,13 @@ putMethodResponse_statusCode = Lens.lens (\PutMethodResponse' {statusCode} -> st
 
 instance Core.AWSRequest PutMethodResponse where
   type AWSResponse PutMethodResponse = MethodResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutMethodResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMethodResponse where
   hashWithSalt _salt PutMethodResponse' {..} =

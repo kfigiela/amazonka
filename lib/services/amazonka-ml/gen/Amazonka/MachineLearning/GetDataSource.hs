@@ -128,7 +128,7 @@ instance Core.AWSRequest GetDataSource where
   type
     AWSResponse GetDataSource =
       GetDataSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest GetDataSource where
             Prelude.<*> (x Core..?> "CreatedByIamUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataSource where
   hashWithSalt _salt GetDataSource' {..} =

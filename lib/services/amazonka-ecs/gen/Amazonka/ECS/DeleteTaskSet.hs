@@ -129,7 +129,7 @@ instance Core.AWSRequest DeleteTaskSet where
   type
     AWSResponse DeleteTaskSet =
       DeleteTaskSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest DeleteTaskSet where
             Prelude.<$> (x Core..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTaskSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTaskSet where
   hashWithSalt _salt DeleteTaskSet' {..} =

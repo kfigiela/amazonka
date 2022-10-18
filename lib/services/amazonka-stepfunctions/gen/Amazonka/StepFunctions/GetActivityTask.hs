@@ -114,7 +114,7 @@ instance Core.AWSRequest GetActivityTask where
   type
     AWSResponse GetActivityTask =
       GetActivityTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetActivityTask where
             Prelude.<*> (x Core..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetActivityTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetActivityTask where
   hashWithSalt _salt GetActivityTask' {..} =

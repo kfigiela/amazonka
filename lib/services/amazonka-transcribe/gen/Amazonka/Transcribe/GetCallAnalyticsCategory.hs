@@ -85,7 +85,7 @@ instance Core.AWSRequest GetCallAnalyticsCategory where
   type
     AWSResponse GetCallAnalyticsCategory =
       GetCallAnalyticsCategoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetCallAnalyticsCategory where
             Prelude.<$> (x Core..?> "CategoryProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCallAnalyticsCategory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCallAnalyticsCategory where
   hashWithSalt _salt GetCallAnalyticsCategory' {..} =

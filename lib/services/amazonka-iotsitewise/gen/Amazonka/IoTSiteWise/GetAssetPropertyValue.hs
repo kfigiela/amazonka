@@ -124,7 +124,7 @@ instance Core.AWSRequest GetAssetPropertyValue where
   type
     AWSResponse GetAssetPropertyValue =
       GetAssetPropertyValueResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GetAssetPropertyValue where
             Prelude.<$> (x Core..?> "propertyValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssetPropertyValue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssetPropertyValue where
   hashWithSalt _salt GetAssetPropertyValue' {..} =

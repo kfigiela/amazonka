@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
   type
     AWSResponse UpdateCodeSigningConfig =
       UpdateCodeSigningConfigResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateCodeSigningConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
+
+instance Core.AWSService UpdateCodeSigningConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCodeSigningConfig where
   hashWithSalt _salt UpdateCodeSigningConfig' {..} =

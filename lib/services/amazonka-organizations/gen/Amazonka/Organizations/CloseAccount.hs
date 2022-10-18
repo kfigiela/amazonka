@@ -114,8 +114,11 @@ closeAccount_accountId = Lens.lens (\CloseAccount' {accountId} -> accountId) (\s
 
 instance Core.AWSRequest CloseAccount where
   type AWSResponse CloseAccount = CloseAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull CloseAccountResponse'
+
+instance Core.AWSService CloseAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CloseAccount where
   hashWithSalt _salt CloseAccount' {..} =

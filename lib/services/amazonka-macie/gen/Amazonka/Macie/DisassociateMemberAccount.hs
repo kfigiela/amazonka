@@ -80,10 +80,13 @@ instance Core.AWSRequest DisassociateMemberAccount where
   type
     AWSResponse DisassociateMemberAccount =
       DisassociateMemberAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateMemberAccountResponse'
+
+instance Core.AWSService DisassociateMemberAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateMemberAccount where
   hashWithSalt _salt DisassociateMemberAccount' {..} =

@@ -76,7 +76,7 @@ getSuite_arn = Lens.lens (\GetSuite' {arn} -> arn) (\s@GetSuite' {} a -> s {arn 
 
 instance Core.AWSRequest GetSuite where
   type AWSResponse GetSuite = GetSuiteResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetSuite where
             Prelude.<$> (x Core..?> "suite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSuite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSuite where
   hashWithSalt _salt GetSuite' {..} =

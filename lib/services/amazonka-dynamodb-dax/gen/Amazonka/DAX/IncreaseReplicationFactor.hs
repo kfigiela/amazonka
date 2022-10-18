@@ -113,7 +113,7 @@ instance Core.AWSRequest IncreaseReplicationFactor where
   type
     AWSResponse IncreaseReplicationFactor =
       IncreaseReplicationFactorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest IncreaseReplicationFactor where
             Prelude.<$> (x Core..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService IncreaseReplicationFactor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable IncreaseReplicationFactor where
   hashWithSalt _salt IncreaseReplicationFactor' {..} =

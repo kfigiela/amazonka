@@ -153,7 +153,7 @@ instance Core.AWSPager ListSkills where
 
 instance Core.AWSRequest ListSkills where
   type AWSResponse ListSkills = ListSkillsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListSkills where
             Prelude.<*> (x Core..?> "SkillSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSkills where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSkills where
   hashWithSalt _salt ListSkills' {..} =

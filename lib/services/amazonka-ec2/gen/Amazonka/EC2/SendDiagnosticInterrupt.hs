@@ -113,10 +113,13 @@ instance Core.AWSRequest SendDiagnosticInterrupt where
   type
     AWSResponse SendDiagnosticInterrupt =
       SendDiagnosticInterruptResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SendDiagnosticInterruptResponse'
+
+instance Core.AWSService SendDiagnosticInterrupt where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendDiagnosticInterrupt where
   hashWithSalt _salt SendDiagnosticInterrupt' {..} =

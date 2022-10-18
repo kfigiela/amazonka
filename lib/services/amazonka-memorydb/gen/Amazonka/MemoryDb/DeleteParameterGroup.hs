@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteParameterGroup where
   type
     AWSResponse DeleteParameterGroup =
       DeleteParameterGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteParameterGroup where
             Prelude.<$> (x Core..?> "ParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteParameterGroup where
   hashWithSalt _salt DeleteParameterGroup' {..} =

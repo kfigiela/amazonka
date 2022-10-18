@@ -108,7 +108,7 @@ instance Core.AWSRequest DeleteIpamPool where
   type
     AWSResponse DeleteIpamPool =
       DeleteIpamPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DeleteIpamPool where
             Prelude.<$> (x Core..@? "ipamPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIpamPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIpamPool where
   hashWithSalt _salt DeleteIpamPool' {..} =

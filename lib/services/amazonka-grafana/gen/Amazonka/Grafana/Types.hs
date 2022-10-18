@@ -221,6 +221,7 @@ defaultService =
       Core._serviceEndpointPrefix = "grafana",
       Core._serviceSigningName = "grafana",
       Core._serviceVersion = "2020-08-18",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

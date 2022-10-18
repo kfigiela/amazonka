@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeContributorInsights where
   type
     AWSResponse DescribeContributorInsights =
       DescribeContributorInsightsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DescribeContributorInsights where
             Prelude.<*> (x Core..?> "IndexName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeContributorInsights where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeContributorInsights where
   hashWithSalt _salt DescribeContributorInsights' {..} =

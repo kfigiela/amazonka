@@ -100,13 +100,16 @@ instance Core.AWSRequest PutSuppressedDestination where
   type
     AWSResponse PutSuppressedDestination =
       PutSuppressedDestinationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutSuppressedDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSuppressedDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSuppressedDestination where
   hashWithSalt _salt PutSuppressedDestination' {..} =

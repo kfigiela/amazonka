@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateClusterConfiguration where
   type
     AWSResponse UpdateClusterConfiguration =
       UpdateClusterConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest UpdateClusterConfiguration where
             Prelude.<*> (x Core..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateClusterConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateClusterConfiguration where
   hashWithSalt _salt UpdateClusterConfiguration' {..} =

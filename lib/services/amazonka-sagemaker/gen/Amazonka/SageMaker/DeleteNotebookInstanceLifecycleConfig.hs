@@ -81,10 +81,16 @@ instance
     AWSResponse
       DeleteNotebookInstanceLifecycleConfig =
       DeleteNotebookInstanceLifecycleConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteNotebookInstanceLifecycleConfigResponse'
+
+instance
+  Core.AWSService
+    DeleteNotebookInstanceLifecycleConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -448,7 +448,7 @@ createIntent_localeId = Lens.lens (\CreateIntent' {localeId} -> localeId) (\s@Cr
 
 instance Core.AWSRequest CreateIntent where
   type AWSResponse CreateIntent = CreateIntentResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -474,6 +474,9 @@ instance Core.AWSRequest CreateIntent where
             Prelude.<*> (x Core..?> "inputContexts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIntent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIntent where
   hashWithSalt _salt CreateIntent' {..} =

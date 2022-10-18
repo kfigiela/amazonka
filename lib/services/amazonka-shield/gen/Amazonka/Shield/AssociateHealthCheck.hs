@@ -107,13 +107,16 @@ instance Core.AWSRequest AssociateHealthCheck where
   type
     AWSResponse AssociateHealthCheck =
       AssociateHealthCheckResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateHealthCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateHealthCheck where
   hashWithSalt _salt AssociateHealthCheck' {..} =

@@ -78,11 +78,14 @@ rejectDataShare_dataShareArn = Lens.lens (\RejectDataShare' {dataShareArn} -> da
 
 instance Core.AWSRequest RejectDataShare where
   type AWSResponse RejectDataShare = DataShare
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RejectDataShareResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService RejectDataShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectDataShare where
   hashWithSalt _salt RejectDataShare' {..} =

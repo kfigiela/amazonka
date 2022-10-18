@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteBillingGroup where
   type
     AWSResponse DeleteBillingGroup =
       DeleteBillingGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteBillingGroup where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBillingGroup where
   hashWithSalt _salt DeleteBillingGroup' {..} =

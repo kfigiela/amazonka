@@ -118,10 +118,13 @@ instance Core.AWSRequest CreateDocumentationPart where
   type
     AWSResponse CreateDocumentationPart =
       DocumentationPart
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateDocumentationPart where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDocumentationPart where
   hashWithSalt _salt CreateDocumentationPart' {..} =

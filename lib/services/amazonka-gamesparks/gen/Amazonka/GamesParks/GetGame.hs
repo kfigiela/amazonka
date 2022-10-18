@@ -75,7 +75,7 @@ getGame_gameName = Lens.lens (\GetGame' {gameName} -> gameName) (\s@GetGame' {} 
 
 instance Core.AWSRequest GetGame where
   type AWSResponse GetGame = GetGameResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetGame where
             Prelude.<$> (x Core..?> "Game")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGame where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGame where
   hashWithSalt _salt GetGame' {..} =

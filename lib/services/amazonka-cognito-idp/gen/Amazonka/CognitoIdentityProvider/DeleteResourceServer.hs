@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteResourceServer where
   type
     AWSResponse DeleteResourceServer =
       DeleteResourceServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteResourceServerResponse'
+
+instance Core.AWSService DeleteResourceServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourceServer where
   hashWithSalt _salt DeleteResourceServer' {..} =

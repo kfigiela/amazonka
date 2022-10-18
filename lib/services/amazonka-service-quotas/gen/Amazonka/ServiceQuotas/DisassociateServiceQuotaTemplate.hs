@@ -67,13 +67,19 @@ instance
   type
     AWSResponse DisassociateServiceQuotaTemplate =
       DisassociateServiceQuotaTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateServiceQuotaTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateServiceQuotaTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

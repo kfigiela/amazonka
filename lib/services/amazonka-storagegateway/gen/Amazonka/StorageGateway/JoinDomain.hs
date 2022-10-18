@@ -187,7 +187,7 @@ joinDomain_password = Lens.lens (\JoinDomain' {password} -> password) (\s@JoinDo
 
 instance Core.AWSRequest JoinDomain where
   type AWSResponse JoinDomain = JoinDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest JoinDomain where
             Prelude.<*> (x Core..?> "ActiveDirectoryStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService JoinDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable JoinDomain where
   hashWithSalt _salt JoinDomain' {..} =

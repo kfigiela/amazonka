@@ -139,7 +139,7 @@ instance Core.AWSRequest ListDocumentMetadataHistory where
   type
     AWSResponse ListDocumentMetadataHistory =
       ListDocumentMetadataHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListDocumentMetadataHistory where
             Prelude.<*> (x Core..?> "DocumentVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDocumentMetadataHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDocumentMetadataHistory where
   hashWithSalt _salt ListDocumentMetadataHistory' {..} =

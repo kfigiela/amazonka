@@ -96,10 +96,13 @@ instance Core.AWSRequest DeleteRealtimeLogConfig where
   type
     AWSResponse DeleteRealtimeLogConfig =
       DeleteRealtimeLogConfigResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveNull
       DeleteRealtimeLogConfigResponse'
+
+instance Core.AWSService DeleteRealtimeLogConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRealtimeLogConfig where
   hashWithSalt _salt DeleteRealtimeLogConfig' {..} =

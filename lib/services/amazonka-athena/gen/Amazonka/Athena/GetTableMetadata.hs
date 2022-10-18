@@ -109,7 +109,7 @@ instance Core.AWSRequest GetTableMetadata where
   type
     AWSResponse GetTableMetadata =
       GetTableMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetTableMetadata where
             Prelude.<$> (x Core..?> "TableMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTableMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTableMetadata where
   hashWithSalt _salt GetTableMetadata' {..} =

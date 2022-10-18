@@ -94,7 +94,7 @@ instance Core.AWSRequest GetMaintenanceWindow where
   type
     AWSResponse GetMaintenanceWindow =
       GetMaintenanceWindowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest GetMaintenanceWindow where
             Prelude.<*> (x Core..?> "AllowUnassociatedTargets")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMaintenanceWindow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMaintenanceWindow where
   hashWithSalt _salt GetMaintenanceWindow' {..} =

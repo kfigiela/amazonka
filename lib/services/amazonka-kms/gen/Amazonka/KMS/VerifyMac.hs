@@ -232,7 +232,7 @@ verifyMac_mac = Lens.lens (\VerifyMac' {mac} -> mac) (\s@VerifyMac' {} a -> s {m
 
 instance Core.AWSRequest VerifyMac where
   type AWSResponse VerifyMac = VerifyMacResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -242,6 +242,9 @@ instance Core.AWSRequest VerifyMac where
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService VerifyMac where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyMac where
   hashWithSalt _salt VerifyMac' {..} =

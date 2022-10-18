@@ -92,7 +92,7 @@ instance Core.AWSRequest BatchGetNamedQuery where
   type
     AWSResponse BatchGetNamedQuery =
       BatchGetNamedQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest BatchGetNamedQuery where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetNamedQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetNamedQuery where
   hashWithSalt _salt BatchGetNamedQuery' {..} =

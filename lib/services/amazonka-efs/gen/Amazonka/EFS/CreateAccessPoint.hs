@@ -191,10 +191,13 @@ instance Core.AWSRequest CreateAccessPoint where
   type
     AWSResponse CreateAccessPoint =
       AccessPointDescription
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateAccessPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccessPoint where
   hashWithSalt _salt CreateAccessPoint' {..} =

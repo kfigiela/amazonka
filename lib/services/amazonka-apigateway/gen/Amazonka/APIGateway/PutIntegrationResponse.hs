@@ -216,10 +216,13 @@ instance Core.AWSRequest PutIntegrationResponse where
   type
     AWSResponse PutIntegrationResponse =
       IntegrationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutIntegrationResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutIntegrationResponse where
   hashWithSalt _salt PutIntegrationResponse' {..} =

@@ -89,7 +89,7 @@ updateTrust_trustId = Lens.lens (\UpdateTrust' {trustId} -> trustId) (\s@UpdateT
 
 instance Core.AWSRequest UpdateTrust where
   type AWSResponse UpdateTrust = UpdateTrustResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest UpdateTrust where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTrust where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTrust where
   hashWithSalt _salt UpdateTrust' {..} =

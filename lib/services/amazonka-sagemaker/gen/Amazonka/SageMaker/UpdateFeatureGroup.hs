@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateFeatureGroup where
   type
     AWSResponse UpdateFeatureGroup =
       UpdateFeatureGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateFeatureGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "FeatureGroupArn")
       )
+
+instance Core.AWSService UpdateFeatureGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFeatureGroup where
   hashWithSalt _salt UpdateFeatureGroup' {..} =

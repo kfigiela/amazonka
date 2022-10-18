@@ -148,7 +148,7 @@ instance Core.AWSRequest DescribeStackEvents where
   type
     AWSResponse DescribeStackEvents =
       DescribeStackEventsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackEventsResult"
@@ -160,6 +160,9 @@ instance Core.AWSRequest DescribeStackEvents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStackEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStackEvents where
   hashWithSalt _salt DescribeStackEvents' {..} =

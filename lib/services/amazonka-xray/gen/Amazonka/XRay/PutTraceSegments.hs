@@ -129,7 +129,7 @@ instance Core.AWSRequest PutTraceSegments where
   type
     AWSResponse PutTraceSegments =
       PutTraceSegmentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest PutTraceSegments where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutTraceSegments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutTraceSegments where
   hashWithSalt _salt PutTraceSegments' {..} =

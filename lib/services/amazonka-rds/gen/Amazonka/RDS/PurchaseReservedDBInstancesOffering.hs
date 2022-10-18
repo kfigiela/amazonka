@@ -134,7 +134,7 @@ instance
   type
     AWSResponse PurchaseReservedDBInstancesOffering =
       PurchaseReservedDBInstancesOfferingResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PurchaseReservedDBInstancesOfferingResult"
@@ -143,6 +143,12 @@ instance
             Prelude.<$> (x Core..@? "ReservedDBInstance")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PurchaseReservedDBInstancesOffering
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

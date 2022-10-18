@@ -218,7 +218,7 @@ createFaq_roleArn = Lens.lens (\CreateFaq' {roleArn} -> roleArn) (\s@CreateFaq' 
 
 instance Core.AWSRequest CreateFaq where
   type AWSResponse CreateFaq = CreateFaqResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest CreateFaq where
             Prelude.<$> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFaq where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFaq where
   hashWithSalt _salt CreateFaq' {..} =

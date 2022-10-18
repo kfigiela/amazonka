@@ -135,7 +135,7 @@ instance Core.AWSRequest UpdateAccelerator where
   type
     AWSResponse UpdateAccelerator =
       UpdateAcceleratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest UpdateAccelerator where
             Prelude.<$> (x Core..?> "Accelerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAccelerator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccelerator where
   hashWithSalt _salt UpdateAccelerator' {..} =

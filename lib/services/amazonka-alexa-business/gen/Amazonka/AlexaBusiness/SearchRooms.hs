@@ -150,7 +150,7 @@ instance Core.AWSPager SearchRooms where
 
 instance Core.AWSRequest SearchRooms where
   type AWSResponse SearchRooms = SearchRoomsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest SearchRooms where
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchRooms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchRooms where
   hashWithSalt _salt SearchRooms' {..} =

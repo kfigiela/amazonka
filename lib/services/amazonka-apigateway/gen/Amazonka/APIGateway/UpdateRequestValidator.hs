@@ -111,10 +111,13 @@ instance Core.AWSRequest UpdateRequestValidator where
   type
     AWSResponse UpdateRequestValidator =
       RequestValidator
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateRequestValidator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRequestValidator where
   hashWithSalt _salt UpdateRequestValidator' {..} =

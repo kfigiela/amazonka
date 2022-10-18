@@ -126,7 +126,7 @@ instance
     AWSResponse
       ListChannelMembershipsForAppInstanceUser =
       ListChannelMembershipsForAppInstanceUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListChannelMembershipsForAppInstanceUser
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -154,7 +154,7 @@ instance Core.AWSRequest ListSchemaVersions where
   type
     AWSResponse ListSchemaVersions =
       ListSchemaVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest ListSchemaVersions where
             Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSchemaVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSchemaVersions where
   hashWithSalt _salt ListSchemaVersions' {..} =

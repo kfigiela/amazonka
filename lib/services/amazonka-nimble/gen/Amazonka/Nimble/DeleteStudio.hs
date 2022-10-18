@@ -96,7 +96,7 @@ deleteStudio_studioId = Lens.lens (\DeleteStudio' {studioId} -> studioId) (\s@De
 
 instance Core.AWSRequest DeleteStudio where
   type AWSResponse DeleteStudio = DeleteStudioResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DeleteStudio where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "studio")
       )
+
+instance Core.AWSService DeleteStudio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStudio where
   hashWithSalt _salt DeleteStudio' {..} =

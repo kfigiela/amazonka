@@ -118,7 +118,7 @@ instance Core.AWSRequest PutAutoScalingPolicy where
   type
     AWSResponse PutAutoScalingPolicy =
       PutAutoScalingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest PutAutoScalingPolicy where
             Prelude.<*> (x Core..?> "InstanceGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAutoScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAutoScalingPolicy where
   hashWithSalt _salt PutAutoScalingPolicy' {..} =

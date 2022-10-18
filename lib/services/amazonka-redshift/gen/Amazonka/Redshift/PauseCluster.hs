@@ -81,7 +81,7 @@ pauseCluster_clusterIdentifier = Lens.lens (\PauseCluster' {clusterIdentifier} -
 
 instance Core.AWSRequest PauseCluster where
   type AWSResponse PauseCluster = PauseClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PauseClusterResult"
@@ -90,6 +90,9 @@ instance Core.AWSRequest PauseCluster where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PauseCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PauseCluster where
   hashWithSalt _salt PauseCluster' {..} =

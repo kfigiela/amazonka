@@ -75,13 +75,16 @@ putFeedback_insightFeedback = Lens.lens (\PutFeedback' {insightFeedback} -> insi
 
 instance Core.AWSRequest PutFeedback where
   type AWSResponse PutFeedback = PutFeedbackResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutFeedbackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutFeedback where
   hashWithSalt _salt PutFeedback' {..} =

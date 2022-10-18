@@ -241,7 +241,7 @@ createScript_version = Lens.lens (\CreateScript' {version} -> version) (\s@Creat
 
 instance Core.AWSRequest CreateScript where
   type AWSResponse CreateScript = CreateScriptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -249,6 +249,9 @@ instance Core.AWSRequest CreateScript where
             Prelude.<$> (x Core..?> "Script")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateScript where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateScript where
   hashWithSalt _salt CreateScript' {..} =

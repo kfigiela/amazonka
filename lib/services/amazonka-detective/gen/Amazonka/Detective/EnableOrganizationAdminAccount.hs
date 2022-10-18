@@ -100,10 +100,16 @@ instance
   type
     AWSResponse EnableOrganizationAdminAccount =
       EnableOrganizationAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       EnableOrganizationAdminAccountResponse'
+
+instance
+  Core.AWSService
+    EnableOrganizationAdminAccount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

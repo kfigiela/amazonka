@@ -89,7 +89,7 @@ instance
   type
     AWSResponse GetPlatformApplicationAttributes =
       GetPlatformApplicationAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetPlatformApplicationAttributesResult"
@@ -100,6 +100,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetPlatformApplicationAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

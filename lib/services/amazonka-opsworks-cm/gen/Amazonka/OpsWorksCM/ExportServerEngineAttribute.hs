@@ -177,7 +177,7 @@ instance Core.AWSRequest ExportServerEngineAttribute where
   type
     AWSResponse ExportServerEngineAttribute =
       ExportServerEngineAttributeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest ExportServerEngineAttribute where
             Prelude.<*> (x Core..?> "ServerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportServerEngineAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportServerEngineAttribute where
   hashWithSalt _salt ExportServerEngineAttribute' {..} =

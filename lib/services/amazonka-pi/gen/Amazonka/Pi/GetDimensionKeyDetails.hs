@@ -213,7 +213,7 @@ instance Core.AWSRequest GetDimensionKeyDetails where
   type
     AWSResponse GetDimensionKeyDetails =
       GetDimensionKeyDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,6 +221,9 @@ instance Core.AWSRequest GetDimensionKeyDetails where
             Prelude.<$> (x Core..?> "Dimensions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDimensionKeyDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDimensionKeyDetails where
   hashWithSalt _salt GetDimensionKeyDetails' {..} =

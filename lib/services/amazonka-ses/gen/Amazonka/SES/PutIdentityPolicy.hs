@@ -155,7 +155,7 @@ instance Core.AWSRequest PutIdentityPolicy where
   type
     AWSResponse PutIdentityPolicy =
       PutIdentityPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutIdentityPolicyResult"
@@ -163,6 +163,9 @@ instance Core.AWSRequest PutIdentityPolicy where
           PutIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutIdentityPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutIdentityPolicy where
   hashWithSalt _salt PutIdentityPolicy' {..} =

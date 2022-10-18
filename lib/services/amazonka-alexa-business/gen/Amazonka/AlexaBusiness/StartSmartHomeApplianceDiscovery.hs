@@ -83,13 +83,19 @@ instance
   type
     AWSResponse StartSmartHomeApplianceDiscovery =
       StartSmartHomeApplianceDiscoveryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartSmartHomeApplianceDiscoveryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartSmartHomeApplianceDiscovery
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteVpcLink where
   type
     AWSResponse DeleteVpcLink =
       DeleteVpcLinkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteVpcLinkResponse'
+
+instance Core.AWSService DeleteVpcLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVpcLink where
   hashWithSalt _salt DeleteVpcLink' {..} =

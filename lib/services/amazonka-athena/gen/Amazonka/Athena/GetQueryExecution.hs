@@ -83,7 +83,7 @@ instance Core.AWSRequest GetQueryExecution where
   type
     AWSResponse GetQueryExecution =
       GetQueryExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetQueryExecution where
             Prelude.<$> (x Core..?> "QueryExecution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetQueryExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueryExecution where
   hashWithSalt _salt GetQueryExecution' {..} =

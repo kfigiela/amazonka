@@ -171,7 +171,7 @@ instance Core.AWSRequest ListActiveViolations where
   type
     AWSResponse ListActiveViolations =
       ListActiveViolationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest ListActiveViolations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListActiveViolations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListActiveViolations where
   hashWithSalt _salt ListActiveViolations' {..} =

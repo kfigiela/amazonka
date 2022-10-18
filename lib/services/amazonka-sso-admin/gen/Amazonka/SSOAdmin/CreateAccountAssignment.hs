@@ -189,7 +189,7 @@ instance Core.AWSRequest CreateAccountAssignment where
   type
     AWSResponse CreateAccountAssignment =
       CreateAccountAssignmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest CreateAccountAssignment where
             Prelude.<$> (x Core..?> "AccountAssignmentCreationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAccountAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccountAssignment where
   hashWithSalt _salt CreateAccountAssignment' {..} =

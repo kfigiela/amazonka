@@ -74,7 +74,7 @@ instance Core.AWSRequest DescribeActiveReceiptRuleSet where
   type
     AWSResponse DescribeActiveReceiptRuleSet =
       DescribeActiveReceiptRuleSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeActiveReceiptRuleSetResult"
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeActiveReceiptRuleSet where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeActiveReceiptRuleSet where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

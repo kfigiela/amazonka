@@ -128,13 +128,16 @@ instance Core.AWSRequest UpdateUserDefinedFunction where
   type
     AWSResponse UpdateUserDefinedFunction =
       UpdateUserDefinedFunctionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateUserDefinedFunctionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUserDefinedFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserDefinedFunction where
   hashWithSalt _salt UpdateUserDefinedFunction' {..} =

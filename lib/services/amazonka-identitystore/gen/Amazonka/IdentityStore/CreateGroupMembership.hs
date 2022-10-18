@@ -116,7 +116,7 @@ instance Core.AWSRequest CreateGroupMembership where
   type
     AWSResponse CreateGroupMembership =
       CreateGroupMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest CreateGroupMembership where
             Prelude.<*> (x Core..:> "MembershipId")
             Prelude.<*> (x Core..:> "IdentityStoreId")
       )
+
+instance Core.AWSService CreateGroupMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGroupMembership where
   hashWithSalt _salt CreateGroupMembership' {..} =

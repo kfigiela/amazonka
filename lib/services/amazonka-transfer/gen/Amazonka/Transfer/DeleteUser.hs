@@ -96,8 +96,11 @@ deleteUser_userName = Lens.lens (\DeleteUser' {userName} -> userName) (\s@Delete
 
 instance Core.AWSRequest DeleteUser where
   type AWSResponse DeleteUser = DeleteUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteUserResponse'
+
+instance Core.AWSService DeleteUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUser where
   hashWithSalt _salt DeleteUser' {..} =

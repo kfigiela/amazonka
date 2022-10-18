@@ -507,13 +507,16 @@ instance Core.AWSRequest DeregisterScalableTarget where
   type
     AWSResponse DeregisterScalableTarget =
       DeregisterScalableTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterScalableTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterScalableTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterScalableTarget where
   hashWithSalt _salt DeregisterScalableTarget' {..} =

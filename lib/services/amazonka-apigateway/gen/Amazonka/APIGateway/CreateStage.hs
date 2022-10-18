@@ -217,10 +217,13 @@ createStage_deploymentId = Lens.lens (\CreateStage' {deploymentId} -> deployment
 
 instance Core.AWSRequest CreateStage where
   type AWSResponse CreateStage = Stage
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStage where
   hashWithSalt _salt CreateStage' {..} =

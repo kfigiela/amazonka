@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteMaintenanceWindow where
   type
     AWSResponse DeleteMaintenanceWindow =
       DeleteMaintenanceWindowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteMaintenanceWindow where
             Prelude.<$> (x Core..?> "WindowId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMaintenanceWindow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMaintenanceWindow where
   hashWithSalt _salt DeleteMaintenanceWindow' {..} =

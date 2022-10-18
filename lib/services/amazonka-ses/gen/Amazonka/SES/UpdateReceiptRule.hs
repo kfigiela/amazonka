@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateReceiptRule where
   type
     AWSResponse UpdateReceiptRule =
       UpdateReceiptRuleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateReceiptRuleResult"
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateReceiptRule where
           UpdateReceiptRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReceiptRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReceiptRule where
   hashWithSalt _salt UpdateReceiptRule' {..} =

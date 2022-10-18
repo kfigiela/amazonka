@@ -117,7 +117,7 @@ createField_type = Lens.lens (\CreateField' {type'} -> type') (\s@CreateField' {
 
 instance Core.AWSRequest CreateField where
   type AWSResponse CreateField = CreateFieldResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateField where
             Prelude.<*> (x Core..:> "fieldArn")
             Prelude.<*> (x Core..:> "fieldId")
       )
+
+instance Core.AWSService CreateField where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateField where
   hashWithSalt _salt CreateField' {..} =

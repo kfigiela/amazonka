@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteLogStream where
   type
     AWSResponse DeleteLogStream =
       DeleteLogStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLogStreamResponse'
+
+instance Core.AWSService DeleteLogStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLogStream where
   hashWithSalt _salt DeleteLogStream' {..} =

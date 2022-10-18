@@ -92,7 +92,7 @@ instance Core.AWSRequest TerminateTargetInstances where
   type
     AWSResponse TerminateTargetInstances =
       TerminateTargetInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest TerminateTargetInstances where
             Prelude.<$> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateTargetInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateTargetInstances where
   hashWithSalt _salt TerminateTargetInstances' {..} =

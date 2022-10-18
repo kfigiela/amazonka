@@ -167,7 +167,7 @@ instance
   type
     AWSResponse ListGroupMembershipsForMember =
       ListGroupMembershipsForMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,12 @@ instance
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance
+  Core.AWSService
+    ListGroupMembershipsForMember
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -132,7 +132,7 @@ putFeedback_targetType = Lens.lens (\PutFeedback' {targetType} -> targetType) (\
 
 instance Core.AWSRequest PutFeedback where
   type AWSResponse PutFeedback = PutFeedbackResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest PutFeedback where
             Prelude.<*> (x Core..:> "targetId")
             Prelude.<*> (x Core..:> "targetType")
       )
+
+instance Core.AWSService PutFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutFeedback where
   hashWithSalt _salt PutFeedback' {..} =

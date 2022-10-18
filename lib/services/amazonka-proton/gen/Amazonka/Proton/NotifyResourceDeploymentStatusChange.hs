@@ -134,13 +134,19 @@ instance
   type
     AWSResponse NotifyResourceDeploymentStatusChange =
       NotifyResourceDeploymentStatusChangeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           NotifyResourceDeploymentStatusChangeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    NotifyResourceDeploymentStatusChange
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

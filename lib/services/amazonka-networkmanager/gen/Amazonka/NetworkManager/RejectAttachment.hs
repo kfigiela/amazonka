@@ -77,7 +77,7 @@ instance Core.AWSRequest RejectAttachment where
   type
     AWSResponse RejectAttachment =
       RejectAttachmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest RejectAttachment where
             Prelude.<$> (x Core..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectAttachment where
   hashWithSalt _salt RejectAttachment' {..} =

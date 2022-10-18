@@ -107,7 +107,7 @@ instance Core.AWSRequest CreateCodeSigningConfig where
   type
     AWSResponse CreateCodeSigningConfig =
       CreateCodeSigningConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateCodeSigningConfig where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CodeSigningConfig")
       )
+
+instance Core.AWSService CreateCodeSigningConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCodeSigningConfig where
   hashWithSalt _salt CreateCodeSigningConfig' {..} =

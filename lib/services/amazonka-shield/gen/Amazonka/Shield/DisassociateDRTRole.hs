@@ -61,13 +61,16 @@ instance Core.AWSRequest DisassociateDRTRole where
   type
     AWSResponse DisassociateDRTRole =
       DisassociateDRTRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDRTRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateDRTRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateDRTRole where
   hashWithSalt _salt _ =

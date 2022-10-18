@@ -334,7 +334,7 @@ instance Core.AWSRequest GetUsageForecast where
   type
     AWSResponse GetUsageForecast =
       GetUsageForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -345,6 +345,9 @@ instance Core.AWSRequest GetUsageForecast where
             Prelude.<*> (x Core..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUsageForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUsageForecast where
   hashWithSalt _salt GetUsageForecast' {..} =

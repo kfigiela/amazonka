@@ -103,10 +103,13 @@ instance Core.AWSRequest DeleteRuleGroupsNamespace where
   type
     AWSResponse DeleteRuleGroupsNamespace =
       DeleteRuleGroupsNamespaceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteRuleGroupsNamespaceResponse'
+
+instance Core.AWSService DeleteRuleGroupsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRuleGroupsNamespace where
   hashWithSalt _salt DeleteRuleGroupsNamespace' {..} =

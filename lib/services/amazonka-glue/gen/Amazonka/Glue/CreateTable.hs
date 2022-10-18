@@ -130,13 +130,16 @@ createTable_tableInput = Lens.lens (\CreateTable' {tableInput} -> tableInput) (\
 
 instance Core.AWSRequest CreateTable where
   type AWSResponse CreateTable = CreateTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateTableResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTable where
   hashWithSalt _salt CreateTable' {..} =

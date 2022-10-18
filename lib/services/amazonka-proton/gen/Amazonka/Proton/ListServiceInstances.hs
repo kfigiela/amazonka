@@ -127,7 +127,7 @@ instance Core.AWSRequest ListServiceInstances where
   type
     AWSResponse ListServiceInstances =
       ListServiceInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListServiceInstances where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListServiceInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServiceInstances where
   hashWithSalt _salt ListServiceInstances' {..} =

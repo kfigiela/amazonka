@@ -247,7 +247,7 @@ instance Core.AWSRequest CreateDataSet where
   type
     AWSResponse CreateDataSet =
       CreateDataSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -259,6 +259,9 @@ instance Core.AWSRequest CreateDataSet where
             Prelude.<*> (x Core..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDataSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataSet where
   hashWithSalt _salt CreateDataSet' {..} =

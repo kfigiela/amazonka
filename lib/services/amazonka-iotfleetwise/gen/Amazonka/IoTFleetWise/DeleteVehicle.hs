@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteVehicle where
   type
     AWSResponse DeleteVehicle =
       DeleteVehicleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteVehicle where
             Prelude.<*> (x Core..:> "vehicleName")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService DeleteVehicle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVehicle where
   hashWithSalt _salt DeleteVehicle' {..} =

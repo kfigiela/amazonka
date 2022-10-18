@@ -1485,6 +1485,7 @@ defaultService =
       Core._serviceEndpointPrefix = "kendra",
       Core._serviceSigningName = "kendra",
       Core._serviceVersion = "2019-02-03",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

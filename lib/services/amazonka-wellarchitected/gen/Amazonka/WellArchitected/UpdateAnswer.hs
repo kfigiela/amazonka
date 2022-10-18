@@ -153,7 +153,7 @@ updateAnswer_questionId = Lens.lens (\UpdateAnswer' {questionId} -> questionId) 
 
 instance Core.AWSRequest UpdateAnswer where
   type AWSResponse UpdateAnswer = UpdateAnswerResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest UpdateAnswer where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAnswer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAnswer where
   hashWithSalt _salt UpdateAnswer' {..} =

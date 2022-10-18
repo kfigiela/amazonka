@@ -114,10 +114,13 @@ instance Core.AWSRequest RemoveTagsFromCertificate where
   type
     AWSResponse RemoveTagsFromCertificate =
       RemoveTagsFromCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RemoveTagsFromCertificateResponse'
+
+instance Core.AWSService RemoveTagsFromCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTagsFromCertificate where
   hashWithSalt _salt RemoveTagsFromCertificate' {..} =

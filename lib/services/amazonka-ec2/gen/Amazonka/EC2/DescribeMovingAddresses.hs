@@ -182,7 +182,7 @@ instance Core.AWSRequest DescribeMovingAddresses where
   type
     AWSResponse DescribeMovingAddresses =
       DescribeMovingAddressesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -194,6 +194,9 @@ instance Core.AWSRequest DescribeMovingAddresses where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMovingAddresses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMovingAddresses where
   hashWithSalt _salt DescribeMovingAddresses' {..} =

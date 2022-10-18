@@ -136,10 +136,13 @@ importCrl_trustAnchorArn = Lens.lens (\ImportCrl' {trustAnchorArn} -> trustAncho
 
 instance Core.AWSRequest ImportCrl where
   type AWSResponse ImportCrl = CrlDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ImportCrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportCrl where
   hashWithSalt _salt ImportCrl' {..} =

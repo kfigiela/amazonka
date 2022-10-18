@@ -145,7 +145,7 @@ instance Core.AWSRequest CreateLabelGroup where
   type
     AWSResponse CreateLabelGroup =
       CreateLabelGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest CreateLabelGroup where
             Prelude.<*> (x Core..?> "LabelGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLabelGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLabelGroup where
   hashWithSalt _salt CreateLabelGroup' {..} =

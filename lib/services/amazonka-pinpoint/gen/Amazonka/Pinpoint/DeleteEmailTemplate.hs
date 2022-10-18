@@ -162,7 +162,7 @@ instance Core.AWSRequest DeleteEmailTemplate where
   type
     AWSResponse DeleteEmailTemplate =
       DeleteEmailTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest DeleteEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteEmailTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEmailTemplate where
   hashWithSalt _salt DeleteEmailTemplate' {..} =

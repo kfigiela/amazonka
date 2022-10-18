@@ -530,7 +530,7 @@ instance Core.AWSRequest DescribeSpotInstanceRequests where
   type
     AWSResponse DescribeSpotInstanceRequests =
       DescribeSpotInstanceRequestsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -542,6 +542,9 @@ instance Core.AWSRequest DescribeSpotInstanceRequests where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSpotInstanceRequests where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

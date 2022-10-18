@@ -102,10 +102,16 @@ instance
   type
     AWSResponse DeleteEnvironmentConfiguration =
       DeleteEnvironmentConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteEnvironmentConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteEnvironmentConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

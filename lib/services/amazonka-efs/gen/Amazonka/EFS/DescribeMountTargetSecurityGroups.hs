@@ -96,7 +96,7 @@ instance
   type
     AWSResponse DescribeMountTargetSecurityGroups =
       DescribeMountTargetSecurityGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,12 @@ instance
                               Core..!@ Prelude.mempty
                           )
       )
+
+instance
+  Core.AWSService
+    DescribeMountTargetSecurityGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

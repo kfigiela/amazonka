@@ -146,7 +146,7 @@ instance Core.AWSRequest CreateConnectPeer where
   type
     AWSResponse CreateConnectPeer =
       CreateConnectPeerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest CreateConnectPeer where
             Prelude.<$> (x Core..?> "ConnectPeer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConnectPeer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConnectPeer where
   hashWithSalt _salt CreateConnectPeer' {..} =

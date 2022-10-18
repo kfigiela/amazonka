@@ -79,7 +79,7 @@ instance Core.AWSRequest CancelDeployment where
   type
     AWSResponse CancelDeployment =
       CancelDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest CancelDeployment where
             Prelude.<$> (x Core..?> "message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelDeployment where
   hashWithSalt _salt CancelDeployment' {..} =

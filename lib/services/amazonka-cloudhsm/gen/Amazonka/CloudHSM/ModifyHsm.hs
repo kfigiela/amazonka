@@ -170,7 +170,7 @@ modifyHsm_hsmArn = Lens.lens (\ModifyHsm' {hsmArn} -> hsmArn) (\s@ModifyHsm' {} 
 
 instance Core.AWSRequest ModifyHsm where
   type AWSResponse ModifyHsm = ModifyHsmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest ModifyHsm where
             Prelude.<$> (x Core..?> "HsmArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyHsm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyHsm where
   hashWithSalt _salt ModifyHsm' {..} =

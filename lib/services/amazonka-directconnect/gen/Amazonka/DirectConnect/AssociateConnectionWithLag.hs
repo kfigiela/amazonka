@@ -130,10 +130,13 @@ instance Core.AWSRequest AssociateConnectionWithLag where
   type
     AWSResponse AssociateConnectionWithLag =
       Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService AssociateConnectionWithLag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateConnectionWithLag where
   hashWithSalt _salt AssociateConnectionWithLag' {..} =

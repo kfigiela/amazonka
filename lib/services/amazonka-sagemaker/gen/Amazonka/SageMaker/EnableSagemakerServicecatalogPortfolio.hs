@@ -66,13 +66,19 @@ instance
     AWSResponse
       EnableSagemakerServicecatalogPortfolio =
       EnableSagemakerServicecatalogPortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableSagemakerServicecatalogPortfolioResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    EnableSagemakerServicecatalogPortfolio
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

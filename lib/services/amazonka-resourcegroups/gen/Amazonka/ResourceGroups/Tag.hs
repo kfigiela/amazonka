@@ -101,7 +101,7 @@ tag_tags = Lens.lens (\Tag' {tags} -> tags) (\s@Tag' {} a -> s {tags = a} :: Tag
 
 instance Core.AWSRequest Tag where
   type AWSResponse Tag = TagResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest Tag where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Tag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Tag where
   hashWithSalt _salt Tag' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribePortal where
   type
     AWSResponse DescribePortal =
       DescribePortalResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribePortal where
             Prelude.<*> (x Core..:> "portalCreationDate")
             Prelude.<*> (x Core..:> "portalLastUpdateDate")
       )
+
+instance Core.AWSService DescribePortal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePortal where
   hashWithSalt _salt DescribePortal' {..} =

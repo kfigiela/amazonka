@@ -870,6 +870,7 @@ defaultService =
       Core._serviceEndpointPrefix = "wafv2",
       Core._serviceSigningName = "wafv2",
       Core._serviceVersion = "2019-07-29",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

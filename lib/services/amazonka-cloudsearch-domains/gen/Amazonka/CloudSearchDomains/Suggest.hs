@@ -120,7 +120,7 @@ suggest_suggester = Lens.lens (\Suggest' {suggester} -> suggester) (\s@Suggest' 
 
 instance Core.AWSRequest Suggest where
   type AWSResponse Suggest = SuggestResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest Suggest where
             Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Suggest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Suggest where
   hashWithSalt _salt Suggest' {..} =

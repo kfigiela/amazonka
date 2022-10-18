@@ -77,13 +77,16 @@ instance Core.AWSRequest DeleteCidrCollection where
   type
     AWSResponse DeleteCidrCollection =
       DeleteCidrCollectionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCidrCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCidrCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCidrCollection where
   hashWithSalt _salt DeleteCidrCollection' {..} =

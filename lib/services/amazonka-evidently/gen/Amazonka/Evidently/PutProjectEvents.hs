@@ -94,7 +94,7 @@ instance Core.AWSRequest PutProjectEvents where
   type
     AWSResponse PutProjectEvents =
       PutProjectEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest PutProjectEvents where
             Prelude.<*> (x Core..?> "eventResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutProjectEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutProjectEvents where
   hashWithSalt _salt PutProjectEvents' {..} =

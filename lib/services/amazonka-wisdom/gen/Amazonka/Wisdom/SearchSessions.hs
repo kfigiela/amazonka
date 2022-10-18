@@ -141,7 +141,7 @@ instance Core.AWSRequest SearchSessions where
   type
     AWSResponse SearchSessions =
       SearchSessionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest SearchSessions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService SearchSessions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchSessions where
   hashWithSalt _salt SearchSessions' {..} =

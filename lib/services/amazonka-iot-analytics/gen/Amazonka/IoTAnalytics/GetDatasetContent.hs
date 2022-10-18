@@ -100,7 +100,7 @@ instance Core.AWSRequest GetDatasetContent where
   type
     AWSResponse GetDatasetContent =
       GetDatasetContentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetDatasetContent where
             Prelude.<*> (x Core..?> "entries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDatasetContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDatasetContent where
   hashWithSalt _salt GetDatasetContent' {..} =

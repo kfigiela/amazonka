@@ -119,9 +119,9 @@ initiateJob_vaultName = Lens.lens (\InitiateJob' {vaultName} -> vaultName) (\s@I
 
 instance Core.AWSRequest InitiateJob where
   type AWSResponse InitiateJob = InitiateJobResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest InitiateJob where
             Prelude.<*> (h Core..#? "x-amz-job-output-path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InitiateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitiateJob where
   hashWithSalt _salt InitiateJob' {..} =

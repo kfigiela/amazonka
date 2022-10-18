@@ -184,7 +184,7 @@ instance Core.AWSRequest CreatePipeline where
   type
     AWSResponse CreatePipeline =
       CreatePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest CreatePipeline where
             Prelude.<$> (x Core..?> "PipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePipeline where
   hashWithSalt _salt CreatePipeline' {..} =

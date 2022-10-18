@@ -82,7 +82,7 @@ instance Core.AWSRequest GetEventIntegration where
   type
     AWSResponse GetEventIntegration =
       GetEventIntegrationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetEventIntegration where
             Prelude.<*> (x Core..?> "EventIntegrationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEventIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEventIntegration where
   hashWithSalt _salt GetEventIntegration' {..} =

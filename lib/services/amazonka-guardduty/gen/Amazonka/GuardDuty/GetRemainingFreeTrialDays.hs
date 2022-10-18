@@ -92,7 +92,7 @@ instance Core.AWSRequest GetRemainingFreeTrialDays where
   type
     AWSResponse GetRemainingFreeTrialDays =
       GetRemainingFreeTrialDaysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetRemainingFreeTrialDays where
             Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRemainingFreeTrialDays where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRemainingFreeTrialDays where
   hashWithSalt _salt GetRemainingFreeTrialDays' {..} =

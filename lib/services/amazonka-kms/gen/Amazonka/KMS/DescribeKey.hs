@@ -244,7 +244,7 @@ describeKey_keyId = Lens.lens (\DescribeKey' {keyId} -> keyId) (\s@DescribeKey' 
 
 instance Core.AWSRequest DescribeKey where
   type AWSResponse DescribeKey = DescribeKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -252,6 +252,9 @@ instance Core.AWSRequest DescribeKey where
             Prelude.<$> (x Core..?> "KeyMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeKey where
   hashWithSalt _salt DescribeKey' {..} =

@@ -105,7 +105,7 @@ instance Core.AWSRequest ResolveCustomer where
   type
     AWSResponse ResolveCustomer =
       ResolveCustomerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest ResolveCustomer where
             Prelude.<*> (x Core..?> "CustomerAWSAccountId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResolveCustomer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResolveCustomer where
   hashWithSalt _salt ResolveCustomer' {..} =

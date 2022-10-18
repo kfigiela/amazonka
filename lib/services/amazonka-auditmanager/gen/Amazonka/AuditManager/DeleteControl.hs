@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteControl where
   type
     AWSResponse DeleteControl =
       DeleteControlResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteControlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteControl where
   hashWithSalt _salt DeleteControl' {..} =

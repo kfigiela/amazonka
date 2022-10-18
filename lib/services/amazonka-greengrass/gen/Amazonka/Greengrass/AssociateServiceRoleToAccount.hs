@@ -84,7 +84,7 @@ instance
   type
     AWSResponse AssociateServiceRoleToAccount =
       AssociateServiceRoleToAccountResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,12 @@ instance
             Prelude.<$> (x Core..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateServiceRoleToAccount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

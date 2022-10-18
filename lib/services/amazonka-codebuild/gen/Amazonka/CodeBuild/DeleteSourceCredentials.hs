@@ -78,7 +78,7 @@ instance Core.AWSRequest DeleteSourceCredentials where
   type
     AWSResponse DeleteSourceCredentials =
       DeleteSourceCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteSourceCredentials where
             Prelude.<$> (x Core..?> "arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSourceCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSourceCredentials where
   hashWithSalt _salt DeleteSourceCredentials' {..} =

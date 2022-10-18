@@ -98,7 +98,7 @@ instance Core.AWSRequest DescribeBackupVault where
   type
     AWSResponse DescribeBackupVault =
       DescribeBackupVaultResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeBackupVault where
             Prelude.<*> (x Core..?> "LockDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBackupVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBackupVault where
   hashWithSalt _salt DescribeBackupVault' {..} =

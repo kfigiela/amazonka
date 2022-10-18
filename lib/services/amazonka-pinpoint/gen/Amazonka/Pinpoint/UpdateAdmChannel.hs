@@ -96,7 +96,7 @@ instance Core.AWSRequest UpdateAdmChannel where
   type
     AWSResponse UpdateAdmChannel =
       UpdateAdmChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest UpdateAdmChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateAdmChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAdmChannel where
   hashWithSalt _salt UpdateAdmChannel' {..} =

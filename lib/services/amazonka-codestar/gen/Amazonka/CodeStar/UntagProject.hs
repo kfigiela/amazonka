@@ -83,13 +83,16 @@ untagProject_tags = Lens.lens (\UntagProject' {tags} -> tags) (\s@UntagProject' 
 
 instance Core.AWSRequest UntagProject where
   type AWSResponse UntagProject = UntagProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UntagProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagProject where
   hashWithSalt _salt UntagProject' {..} =

@@ -113,7 +113,7 @@ instance Core.AWSRequest UpdatePipelineExecution where
   type
     AWSResponse UpdatePipelineExecution =
       UpdatePipelineExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest UpdatePipelineExecution where
             Prelude.<$> (x Core..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePipelineExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePipelineExecution where
   hashWithSalt _salt UpdatePipelineExecution' {..} =

@@ -257,9 +257,12 @@ instance Core.AWSRequest PutPrincipalMapping where
   type
     AWSResponse PutPrincipalMapping =
       PutPrincipalMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutPrincipalMappingResponse'
+
+instance Core.AWSService PutPrincipalMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPrincipalMapping where
   hashWithSalt _salt PutPrincipalMapping' {..} =

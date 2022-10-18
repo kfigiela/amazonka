@@ -99,7 +99,7 @@ instance Core.AWSRequest AssociateS3Resources where
   type
     AWSResponse AssociateS3Resources =
       AssociateS3ResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest AssociateS3Resources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateS3Resources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateS3Resources where
   hashWithSalt _salt AssociateS3Resources' {..} =

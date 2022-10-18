@@ -562,7 +562,7 @@ createSecret_name = Lens.lens (\CreateSecret' {name} -> name) (\s@CreateSecret' 
 
 instance Core.AWSRequest CreateSecret where
   type AWSResponse CreateSecret = CreateSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -575,6 +575,9 @@ instance Core.AWSRequest CreateSecret where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSecret where
   hashWithSalt _salt CreateSecret' {..} =

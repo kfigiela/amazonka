@@ -143,7 +143,7 @@ instance
   type
     AWSResponse GetReservedNodeExchangeOfferings =
       GetReservedNodeExchangeOfferingsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetReservedNodeExchangeOfferingsResult"
@@ -156,6 +156,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetReservedNodeExchangeOfferings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

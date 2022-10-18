@@ -80,7 +80,7 @@ instance Core.AWSRequest DeleteVirtualInterface where
   type
     AWSResponse DeleteVirtualInterface =
       DeleteVirtualInterfaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DeleteVirtualInterface where
             Prelude.<$> (x Core..?> "virtualInterfaceState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVirtualInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVirtualInterface where
   hashWithSalt _salt DeleteVirtualInterface' {..} =

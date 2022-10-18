@@ -76,7 +76,7 @@ getWorkload_workloadId = Lens.lens (\GetWorkload' {workloadId} -> workloadId) (\
 
 instance Core.AWSRequest GetWorkload where
   type AWSResponse GetWorkload = GetWorkloadResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetWorkload where
             Prelude.<$> (x Core..?> "Workload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorkload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkload where
   hashWithSalt _salt GetWorkload' {..} =

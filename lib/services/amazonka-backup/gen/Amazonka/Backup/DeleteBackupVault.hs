@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteBackupVault where
   type
     AWSResponse DeleteBackupVault =
       DeleteBackupVaultResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBackupVaultResponse'
+
+instance Core.AWSService DeleteBackupVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBackupVault where
   hashWithSalt _salt DeleteBackupVault' {..} =

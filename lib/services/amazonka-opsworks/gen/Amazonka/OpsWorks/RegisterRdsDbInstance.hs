@@ -121,9 +121,12 @@ instance Core.AWSRequest RegisterRdsDbInstance where
   type
     AWSResponse RegisterRdsDbInstance =
       RegisterRdsDbInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterRdsDbInstanceResponse'
+
+instance Core.AWSService RegisterRdsDbInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterRdsDbInstance where
   hashWithSalt _salt RegisterRdsDbInstance' {..} =

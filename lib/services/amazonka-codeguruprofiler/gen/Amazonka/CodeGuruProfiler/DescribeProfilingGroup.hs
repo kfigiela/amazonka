@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeProfilingGroup where
   type
     AWSResponse DescribeProfilingGroup =
       DescribeProfilingGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DescribeProfilingGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DescribeProfilingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProfilingGroup where
   hashWithSalt _salt DescribeProfilingGroup' {..} =

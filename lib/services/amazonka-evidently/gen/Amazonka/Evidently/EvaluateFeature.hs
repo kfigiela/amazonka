@@ -149,7 +149,7 @@ instance Core.AWSRequest EvaluateFeature where
   type
     AWSResponse EvaluateFeature =
       EvaluateFeatureResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest EvaluateFeature where
             Prelude.<*> (x Core..?> "value")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EvaluateFeature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EvaluateFeature where
   hashWithSalt _salt EvaluateFeature' {..} =

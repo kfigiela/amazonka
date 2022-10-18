@@ -104,7 +104,7 @@ instance Core.AWSRequest CreateFindingsReport where
   type
     AWSResponse CreateFindingsReport =
       CreateFindingsReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest CreateFindingsReport where
             Prelude.<$> (x Core..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFindingsReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFindingsReport where
   hashWithSalt _salt CreateFindingsReport' {..} =

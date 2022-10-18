@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteAccessPoint where
   type
     AWSResponse DeleteAccessPoint =
       DeleteAccessPointResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAccessPointResponse'
+
+instance Core.AWSService DeleteAccessPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccessPoint where
   hashWithSalt _salt DeleteAccessPoint' {..} =

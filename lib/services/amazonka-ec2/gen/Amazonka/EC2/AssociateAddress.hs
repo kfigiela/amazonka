@@ -234,7 +234,7 @@ instance Core.AWSRequest AssociateAddress where
   type
     AWSResponse AssociateAddress =
       AssociateAddressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -242,6 +242,9 @@ instance Core.AWSRequest AssociateAddress where
             Prelude.<$> (x Core..@? "associationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateAddress where
   hashWithSalt _salt AssociateAddress' {..} =

@@ -115,7 +115,7 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
   type
     AWSResponse ModifyLoadBalancerAttributes =
       ModifyLoadBalancerAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyLoadBalancerAttributesResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest ModifyLoadBalancerAttributes where
             Prelude.<*> (x Core..@? "LoadBalancerAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyLoadBalancerAttributes where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

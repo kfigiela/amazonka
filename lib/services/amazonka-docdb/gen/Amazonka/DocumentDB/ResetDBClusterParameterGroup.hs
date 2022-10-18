@@ -126,11 +126,14 @@ instance Core.AWSRequest ResetDBClusterParameterGroup where
   type
     AWSResponse ResetDBClusterParameterGroup =
       DBClusterParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetDBClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ResetDBClusterParameterGroup where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -108,9 +108,9 @@ instance Core.AWSRequest ListTagsForVault where
   type
     AWSResponse ListTagsForVault =
       ListTagsForVaultResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ListTagsForVault where
             Prelude.<$> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTagsForVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForVault where
   hashWithSalt _salt ListTagsForVault' {..} =

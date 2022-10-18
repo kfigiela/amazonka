@@ -127,7 +127,7 @@ instance Core.AWSRequest ListVocabularyFilters where
   type
     AWSResponse ListVocabularyFilters =
       ListVocabularyFiltersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListVocabularyFilters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVocabularyFilters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVocabularyFilters where
   hashWithSalt _salt ListVocabularyFilters' {..} =

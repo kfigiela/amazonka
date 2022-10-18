@@ -120,13 +120,16 @@ instance Core.AWSRequest AssociateTrackerConsumer where
   type
     AWSResponse AssociateTrackerConsumer =
       AssociateTrackerConsumerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateTrackerConsumerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateTrackerConsumer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateTrackerConsumer where
   hashWithSalt _salt AssociateTrackerConsumer' {..} =

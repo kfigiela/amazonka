@@ -129,9 +129,12 @@ instance Core.AWSRequest DeleteDistribution where
   type
     AWSResponse DeleteDistribution =
       DeleteDistributionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDistributionResponse'
+
+instance Core.AWSService DeleteDistribution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDistribution where
   hashWithSalt _salt DeleteDistribution' {..} =

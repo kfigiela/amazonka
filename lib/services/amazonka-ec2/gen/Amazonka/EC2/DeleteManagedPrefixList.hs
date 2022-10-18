@@ -99,7 +99,7 @@ instance Core.AWSRequest DeleteManagedPrefixList where
   type
     AWSResponse DeleteManagedPrefixList =
       DeleteManagedPrefixListResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteManagedPrefixList where
             Prelude.<$> (x Core..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteManagedPrefixList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteManagedPrefixList where
   hashWithSalt _salt DeleteManagedPrefixList' {..} =

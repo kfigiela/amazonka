@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeResourceGroups where
   type
     AWSResponse DescribeResourceGroups =
       DescribeResourceGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeResourceGroups where
             Prelude.<*> (x Core..?> "resourceGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeResourceGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeResourceGroups where
   hashWithSalt _salt DescribeResourceGroups' {..} =

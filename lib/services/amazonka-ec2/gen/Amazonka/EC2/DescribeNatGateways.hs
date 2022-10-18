@@ -214,7 +214,7 @@ instance Core.AWSRequest DescribeNatGateways where
   type
     AWSResponse DescribeNatGateways =
       DescribeNatGatewaysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -225,6 +225,9 @@ instance Core.AWSRequest DescribeNatGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeNatGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNatGateways where
   hashWithSalt _salt DescribeNatGateways' {..} =

@@ -252,7 +252,7 @@ instance Core.AWSRequest CreateAlgorithm where
   type
     AWSResponse CreateAlgorithm =
       CreateAlgorithmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -260,6 +260,9 @@ instance Core.AWSRequest CreateAlgorithm where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AlgorithmArn")
       )
+
+instance Core.AWSService CreateAlgorithm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAlgorithm where
   hashWithSalt _salt CreateAlgorithm' {..} =

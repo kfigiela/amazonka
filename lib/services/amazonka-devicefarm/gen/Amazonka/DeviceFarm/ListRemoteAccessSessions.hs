@@ -127,7 +127,7 @@ instance Core.AWSRequest ListRemoteAccessSessions where
   type
     AWSResponse ListRemoteAccessSessions =
       ListRemoteAccessSessionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListRemoteAccessSessions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRemoteAccessSessions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRemoteAccessSessions where
   hashWithSalt _salt ListRemoteAccessSessions' {..} =

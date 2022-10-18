@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateEmailTemplate where
   type
     AWSResponse CreateEmailTemplate =
       CreateEmailTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateEmailTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEmailTemplate where
   hashWithSalt _salt CreateEmailTemplate' {..} =

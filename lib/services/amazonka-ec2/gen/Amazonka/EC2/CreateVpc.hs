@@ -341,7 +341,7 @@ createVpc_ipv6CidrBlock = Lens.lens (\CreateVpc' {ipv6CidrBlock} -> ipv6CidrBloc
 
 instance Core.AWSRequest CreateVpc where
   type AWSResponse CreateVpc = CreateVpcResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -349,6 +349,9 @@ instance Core.AWSRequest CreateVpc where
             Prelude.<$> (x Core..@? "vpc")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVpc where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpc where
   hashWithSalt _salt CreateVpc' {..} =

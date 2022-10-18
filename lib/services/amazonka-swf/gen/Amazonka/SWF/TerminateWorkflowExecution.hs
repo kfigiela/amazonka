@@ -223,10 +223,13 @@ instance Core.AWSRequest TerminateWorkflowExecution where
   type
     AWSResponse TerminateWorkflowExecution =
       TerminateWorkflowExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       TerminateWorkflowExecutionResponse'
+
+instance Core.AWSService TerminateWorkflowExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateWorkflowExecution where
   hashWithSalt _salt TerminateWorkflowExecution' {..} =

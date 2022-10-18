@@ -138,7 +138,7 @@ instance Core.AWSRequest DetectProtectiveEquipment where
   type
     AWSResponse DetectProtectiveEquipment =
       DetectProtectiveEquipmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest DetectProtectiveEquipment where
             Prelude.<*> (x Core..?> "Persons" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectProtectiveEquipment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectProtectiveEquipment where
   hashWithSalt _salt DetectProtectiveEquipment' {..} =

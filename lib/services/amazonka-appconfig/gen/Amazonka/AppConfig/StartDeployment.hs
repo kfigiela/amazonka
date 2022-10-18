@@ -173,10 +173,13 @@ startDeployment_configurationVersion = Lens.lens (\StartDeployment' {configurati
 
 instance Core.AWSRequest StartDeployment where
   type AWSResponse StartDeployment = Deployment
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService StartDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDeployment where
   hashWithSalt _salt StartDeployment' {..} =

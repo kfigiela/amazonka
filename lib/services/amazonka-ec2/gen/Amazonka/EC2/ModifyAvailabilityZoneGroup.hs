@@ -130,7 +130,7 @@ instance Core.AWSRequest ModifyAvailabilityZoneGroup where
   type
     AWSResponse ModifyAvailabilityZoneGroup =
       ModifyAvailabilityZoneGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ModifyAvailabilityZoneGroup where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyAvailabilityZoneGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyAvailabilityZoneGroup where
   hashWithSalt _salt ModifyAvailabilityZoneGroup' {..} =

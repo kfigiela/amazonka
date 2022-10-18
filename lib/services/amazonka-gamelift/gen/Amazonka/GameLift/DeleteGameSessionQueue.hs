@@ -104,13 +104,16 @@ instance Core.AWSRequest DeleteGameSessionQueue where
   type
     AWSResponse DeleteGameSessionQueue =
       DeleteGameSessionQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGameSessionQueueResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGameSessionQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGameSessionQueue where
   hashWithSalt _salt DeleteGameSessionQueue' {..} =

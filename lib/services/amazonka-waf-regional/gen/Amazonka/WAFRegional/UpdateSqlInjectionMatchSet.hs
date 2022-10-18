@@ -193,7 +193,7 @@ instance Core.AWSRequest UpdateSqlInjectionMatchSet where
   type
     AWSResponse UpdateSqlInjectionMatchSet =
       UpdateSqlInjectionMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest UpdateSqlInjectionMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSqlInjectionMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSqlInjectionMatchSet where
   hashWithSalt _salt UpdateSqlInjectionMatchSet' {..} =

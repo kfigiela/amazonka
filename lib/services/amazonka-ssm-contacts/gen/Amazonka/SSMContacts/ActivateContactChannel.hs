@@ -94,13 +94,16 @@ instance Core.AWSRequest ActivateContactChannel where
   type
     AWSResponse ActivateContactChannel =
       ActivateContactChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ActivateContactChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ActivateContactChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateContactChannel where
   hashWithSalt _salt ActivateContactChannel' {..} =

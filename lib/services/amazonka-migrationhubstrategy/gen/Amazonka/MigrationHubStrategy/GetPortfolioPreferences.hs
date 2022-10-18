@@ -63,7 +63,7 @@ instance Core.AWSRequest GetPortfolioPreferences where
   type
     AWSResponse GetPortfolioPreferences =
       GetPortfolioPreferencesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest GetPortfolioPreferences where
             Prelude.<*> (x Core..?> "applicationPreferences")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPortfolioPreferences where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPortfolioPreferences where
   hashWithSalt _salt _ =

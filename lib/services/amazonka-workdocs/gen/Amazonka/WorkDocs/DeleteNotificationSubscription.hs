@@ -93,10 +93,16 @@ instance
   type
     AWSResponse DeleteNotificationSubscription =
       DeleteNotificationSubscriptionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteNotificationSubscriptionResponse'
+
+instance
+  Core.AWSService
+    DeleteNotificationSubscription
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

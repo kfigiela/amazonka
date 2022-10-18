@@ -779,7 +779,7 @@ updateItem_key = Lens.lens (\UpdateItem' {key} -> key) (\s@UpdateItem' {} a -> s
 
 instance Core.AWSRequest UpdateItem where
   type AWSResponse UpdateItem = UpdateItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -789,6 +789,9 @@ instance Core.AWSRequest UpdateItem where
             Prelude.<*> (x Core..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateItem where
   hashWithSalt _salt UpdateItem' {..} =

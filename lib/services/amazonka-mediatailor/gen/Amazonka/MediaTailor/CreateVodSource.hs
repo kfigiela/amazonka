@@ -119,7 +119,7 @@ instance Core.AWSRequest CreateVodSource where
   type
     AWSResponse CreateVodSource =
       CreateVodSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest CreateVodSource where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVodSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVodSource where
   hashWithSalt _salt CreateVodSource' {..} =

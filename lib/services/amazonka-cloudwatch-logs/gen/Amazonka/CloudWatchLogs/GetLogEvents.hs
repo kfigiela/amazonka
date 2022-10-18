@@ -187,7 +187,7 @@ getLogEvents_logStreamName = Lens.lens (\GetLogEvents' {logStreamName} -> logStr
 
 instance Core.AWSRequest GetLogEvents where
   type AWSResponse GetLogEvents = GetLogEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest GetLogEvents where
             Prelude.<*> (x Core..?> "nextBackwardToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLogEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLogEvents where
   hashWithSalt _salt GetLogEvents' {..} =

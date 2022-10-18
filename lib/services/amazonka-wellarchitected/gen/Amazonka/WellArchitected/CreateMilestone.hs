@@ -106,7 +106,7 @@ instance Core.AWSRequest CreateMilestone where
   type
     AWSResponse CreateMilestone =
       CreateMilestoneResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateMilestone where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMilestone where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMilestone where
   hashWithSalt _salt CreateMilestone' {..} =

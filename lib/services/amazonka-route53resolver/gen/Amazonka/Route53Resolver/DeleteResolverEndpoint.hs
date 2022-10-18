@@ -87,7 +87,7 @@ instance Core.AWSRequest DeleteResolverEndpoint where
   type
     AWSResponse DeleteResolverEndpoint =
       DeleteResolverEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DeleteResolverEndpoint where
             Prelude.<$> (x Core..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResolverEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResolverEndpoint where
   hashWithSalt _salt DeleteResolverEndpoint' {..} =

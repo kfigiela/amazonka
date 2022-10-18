@@ -160,7 +160,7 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
   type
     AWSResponse GetPredictiveScalingForecast =
       GetPredictiveScalingForecastResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetPredictiveScalingForecastResult"
@@ -173,6 +173,9 @@ instance Core.AWSRequest GetPredictiveScalingForecast where
             Prelude.<*> (x Core..@ "CapacityForecast")
             Prelude.<*> (x Core..@ "UpdateTime")
       )
+
+instance Core.AWSService GetPredictiveScalingForecast where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

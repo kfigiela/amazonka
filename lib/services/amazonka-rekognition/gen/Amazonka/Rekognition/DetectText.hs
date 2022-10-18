@@ -142,7 +142,7 @@ detectText_image = Lens.lens (\DetectText' {image} -> image) (\s@DetectText' {} 
 
 instance Core.AWSRequest DetectText where
   type AWSResponse DetectText = DetectTextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DetectText where
             Prelude.<*> (x Core..?> "TextModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectText where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectText where
   hashWithSalt _salt DetectText' {..} =

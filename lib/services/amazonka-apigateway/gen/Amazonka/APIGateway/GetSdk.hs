@@ -136,7 +136,7 @@ getSdk_sdkType = Lens.lens (\GetSdk' {sdkType} -> sdkType) (\s@GetSdk' {} a -> s
 
 instance Core.AWSRequest GetSdk where
   type AWSResponse GetSdk = GetSdkResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest GetSdk where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSdk where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSdk where
   hashWithSalt _salt GetSdk' {..} =

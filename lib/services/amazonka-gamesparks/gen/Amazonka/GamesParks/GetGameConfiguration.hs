@@ -89,7 +89,7 @@ instance Core.AWSRequest GetGameConfiguration where
   type
     AWSResponse GetGameConfiguration =
       GetGameConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetGameConfiguration where
             Prelude.<$> (x Core..?> "GameConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGameConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGameConfiguration where
   hashWithSalt _salt GetGameConfiguration' {..} =

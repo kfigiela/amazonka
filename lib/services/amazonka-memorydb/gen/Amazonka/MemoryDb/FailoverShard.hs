@@ -91,7 +91,7 @@ instance Core.AWSRequest FailoverShard where
   type
     AWSResponse FailoverShard =
       FailoverShardResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest FailoverShard where
             Prelude.<$> (x Core..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService FailoverShard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FailoverShard where
   hashWithSalt _salt FailoverShard' {..} =

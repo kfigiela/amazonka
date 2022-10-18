@@ -98,7 +98,7 @@ instance Core.AWSRequest DescribeThemePermissions where
   type
     AWSResponse DescribeThemePermissions =
       DescribeThemePermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeThemePermissions where
             Prelude.<*> (x Core..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeThemePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeThemePermissions where
   hashWithSalt _salt DescribeThemePermissions' {..} =

@@ -92,10 +92,16 @@ instance
   type
     AWSResponse DeleteFieldLevelEncryptionConfig =
       DeleteFieldLevelEncryptionConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFieldLevelEncryptionConfigResponse'
+
+instance
+  Core.AWSService
+    DeleteFieldLevelEncryptionConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -130,7 +130,7 @@ instance Core.AWSPager ListCoverage where
 
 instance Core.AWSRequest ListCoverage where
   type AWSResponse ListCoverage = ListCoverageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListCoverage where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCoverage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCoverage where
   hashWithSalt _salt ListCoverage' {..} =

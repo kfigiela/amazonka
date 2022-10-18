@@ -122,7 +122,7 @@ instance Core.AWSRequest ResumeGameServerGroup where
   type
     AWSResponse ResumeGameServerGroup =
       ResumeGameServerGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ResumeGameServerGroup where
             Prelude.<$> (x Core..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResumeGameServerGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeGameServerGroup where
   hashWithSalt _salt ResumeGameServerGroup' {..} =

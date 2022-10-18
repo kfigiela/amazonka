@@ -145,7 +145,7 @@ instance Core.AWSRequest AttachNetworkInterface where
   type
     AWSResponse AttachNetworkInterface =
       AttachNetworkInterfaceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest AttachNetworkInterface where
             Prelude.<*> (x Core..@? "attachmentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachNetworkInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachNetworkInterface where
   hashWithSalt _salt AttachNetworkInterface' {..} =

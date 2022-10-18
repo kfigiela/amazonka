@@ -132,7 +132,7 @@ instance Core.AWSRequest ListAssociatedResources where
   type
     AWSResponse ListAssociatedResources =
       ListAssociatedResourcesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListAssociatedResources where
             Prelude.<*> (x Core..?> "resources" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssociatedResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssociatedResources where
   hashWithSalt _salt ListAssociatedResources' {..} =

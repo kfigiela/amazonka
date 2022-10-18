@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteProtection where
   type
     AWSResponse DeleteProtection =
       DeleteProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProtectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProtection where
   hashWithSalt _salt DeleteProtection' {..} =

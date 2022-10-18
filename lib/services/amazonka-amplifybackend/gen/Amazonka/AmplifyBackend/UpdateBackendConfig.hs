@@ -95,7 +95,7 @@ instance Core.AWSRequest UpdateBackendConfig where
   type
     AWSResponse UpdateBackendConfig =
       UpdateBackendConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest UpdateBackendConfig where
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBackendConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBackendConfig where
   hashWithSalt _salt UpdateBackendConfig' {..} =

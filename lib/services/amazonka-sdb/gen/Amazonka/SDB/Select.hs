@@ -146,7 +146,7 @@ instance Core.AWSPager Select where
 
 instance Core.AWSRequest Select where
   type AWSResponse Select = SelectResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SelectResult"
@@ -156,6 +156,9 @@ instance Core.AWSRequest Select where
             Prelude.<*> (x Core..@? "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Select where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Select where
   hashWithSalt _salt Select' {..} =

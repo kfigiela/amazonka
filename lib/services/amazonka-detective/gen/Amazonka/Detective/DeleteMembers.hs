@@ -115,7 +115,7 @@ instance Core.AWSRequest DeleteMembers where
   type
     AWSResponse DeleteMembers =
       DeleteMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DeleteMembers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMembers where
   hashWithSalt _salt DeleteMembers' {..} =

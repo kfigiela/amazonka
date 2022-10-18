@@ -110,7 +110,7 @@ instance Core.AWSRequest ResetFpgaImageAttribute where
   type
     AWSResponse ResetFpgaImageAttribute =
       ResetFpgaImageAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ResetFpgaImageAttribute where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetFpgaImageAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetFpgaImageAttribute where
   hashWithSalt _salt ResetFpgaImageAttribute' {..} =

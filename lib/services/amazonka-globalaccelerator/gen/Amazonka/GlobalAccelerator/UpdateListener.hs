@@ -175,7 +175,7 @@ instance Core.AWSRequest UpdateListener where
   type
     AWSResponse UpdateListener =
       UpdateListenerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest UpdateListener where
             Prelude.<$> (x Core..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateListener where
   hashWithSalt _salt UpdateListener' {..} =

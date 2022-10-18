@@ -154,7 +154,7 @@ instance
   type
     AWSResponse ListSecurityProfilePermissions =
       ListSecurityProfilePermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,12 @@ instance
             Prelude.<*> (x Core..?> "Permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListSecurityProfilePermissions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

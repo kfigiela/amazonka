@@ -80,13 +80,16 @@ instance Core.AWSRequest DisableRadius where
   type
     AWSResponse DisableRadius =
       DisableRadiusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableRadiusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableRadius where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableRadius where
   hashWithSalt _salt DisableRadius' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest GetFunctionConcurrency where
   type
     AWSResponse GetFunctionConcurrency =
       GetFunctionConcurrencyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest GetFunctionConcurrency where
             Prelude.<$> (x Core..?> "ReservedConcurrentExecutions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFunctionConcurrency where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFunctionConcurrency where
   hashWithSalt _salt GetFunctionConcurrency' {..} =

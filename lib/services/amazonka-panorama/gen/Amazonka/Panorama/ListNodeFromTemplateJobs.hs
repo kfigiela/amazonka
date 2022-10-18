@@ -95,7 +95,7 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
   type
     AWSResponse ListNodeFromTemplateJobs =
       ListNodeFromTemplateJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest ListNodeFromTemplateJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListNodeFromTemplateJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNodeFromTemplateJobs where
   hashWithSalt _salt ListNodeFromTemplateJobs' {..} =

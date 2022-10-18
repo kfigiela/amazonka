@@ -148,7 +148,7 @@ instance Core.AWSRequest UpdateControl where
   type
     AWSResponse UpdateControl =
       UpdateControlResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdateControl where
             Prelude.<$> (x Core..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateControl where
   hashWithSalt _salt UpdateControl' {..} =

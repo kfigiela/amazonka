@@ -346,7 +346,7 @@ instance Core.AWSRequest CreateMeeting where
   type
     AWSResponse CreateMeeting =
       CreateMeetingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -354,6 +354,9 @@ instance Core.AWSRequest CreateMeeting where
             Prelude.<$> (x Core..?> "Meeting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMeeting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMeeting where
   hashWithSalt _salt CreateMeeting' {..} =

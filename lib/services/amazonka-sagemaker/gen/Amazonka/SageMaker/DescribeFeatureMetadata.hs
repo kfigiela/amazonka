@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeFeatureMetadata where
   type
     AWSResponse DescribeFeatureMetadata =
       DescribeFeatureMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeFeatureMetadata where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "LastModifiedTime")
       )
+
+instance Core.AWSService DescribeFeatureMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFeatureMetadata where
   hashWithSalt _salt DescribeFeatureMetadata' {..} =

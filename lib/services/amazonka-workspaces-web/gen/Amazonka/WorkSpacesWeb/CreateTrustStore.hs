@@ -124,7 +124,7 @@ instance Core.AWSRequest CreateTrustStore where
   type
     AWSResponse CreateTrustStore =
       CreateTrustStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest CreateTrustStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "trustStoreArn")
       )
+
+instance Core.AWSService CreateTrustStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrustStore where
   hashWithSalt _salt CreateTrustStore' {..} =

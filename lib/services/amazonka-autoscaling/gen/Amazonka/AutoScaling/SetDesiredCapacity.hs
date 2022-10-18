@@ -121,9 +121,12 @@ instance Core.AWSRequest SetDesiredCapacity where
   type
     AWSResponse SetDesiredCapacity =
       SetDesiredCapacityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetDesiredCapacityResponse'
+
+instance Core.AWSService SetDesiredCapacity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetDesiredCapacity where
   hashWithSalt _salt SetDesiredCapacity' {..} =

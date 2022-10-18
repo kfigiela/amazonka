@@ -125,7 +125,7 @@ createIPSet_changeToken = Lens.lens (\CreateIPSet' {changeToken} -> changeToken)
 
 instance Core.AWSRequest CreateIPSet where
   type AWSResponse CreateIPSet = CreateIPSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateIPSet where
             Prelude.<*> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIPSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =

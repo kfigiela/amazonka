@@ -113,7 +113,7 @@ instance Core.AWSRequest DeleteBackendAuth where
   type
     AWSResponse DeleteBackendAuth =
       DeleteBackendAuthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DeleteBackendAuth where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBackendAuth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBackendAuth where
   hashWithSalt _salt DeleteBackendAuth' {..} =

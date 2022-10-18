@@ -202,6 +202,7 @@ defaultService =
       Core._serviceEndpointPrefix = "emr-containers",
       Core._serviceSigningName = "emr-containers",
       Core._serviceVersion = "2020-10-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

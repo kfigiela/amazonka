@@ -120,7 +120,7 @@ instance Core.AWSRequest PutProfileObject where
   type
     AWSResponse PutProfileObject =
       PutProfileObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest PutProfileObject where
             Prelude.<$> (x Core..?> "ProfileObjectUniqueKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutProfileObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutProfileObject where
   hashWithSalt _salt PutProfileObject' {..} =

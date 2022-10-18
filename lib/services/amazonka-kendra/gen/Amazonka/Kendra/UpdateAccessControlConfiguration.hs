@@ -177,13 +177,19 @@ instance
   type
     AWSResponse UpdateAccessControlConfiguration =
       UpdateAccessControlConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAccessControlConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateAccessControlConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -139,7 +139,7 @@ instance Core.AWSRequest DescribeListenerCertificates where
   type
     AWSResponse DescribeListenerCertificates =
       DescribeListenerCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeListenerCertificatesResult"
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeListenerCertificates where
             Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeListenerCertificates where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

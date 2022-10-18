@@ -81,7 +81,7 @@ instance Core.AWSRequest GetUpgradeStatus where
   type
     AWSResponse GetUpgradeStatus =
       GetUpgradeStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetUpgradeStatus where
             Prelude.<*> (x Core..?> "StepStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUpgradeStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUpgradeStatus where
   hashWithSalt _salt GetUpgradeStatus' {..} =

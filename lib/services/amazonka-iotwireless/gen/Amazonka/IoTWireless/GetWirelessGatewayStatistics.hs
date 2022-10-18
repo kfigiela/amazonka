@@ -82,7 +82,7 @@ instance Core.AWSRequest GetWirelessGatewayStatistics where
   type
     AWSResponse GetWirelessGatewayStatistics =
       GetWirelessGatewayStatisticsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetWirelessGatewayStatistics where
             Prelude.<*> (x Core..?> "ConnectionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWirelessGatewayStatistics where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

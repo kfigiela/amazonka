@@ -263,7 +263,7 @@ instance Core.AWSRequest SendBulkEmail where
   type
     AWSResponse SendBulkEmail =
       SendBulkEmailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -273,6 +273,9 @@ instance Core.AWSRequest SendBulkEmail where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService SendBulkEmail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendBulkEmail where
   hashWithSalt _salt SendBulkEmail' {..} =

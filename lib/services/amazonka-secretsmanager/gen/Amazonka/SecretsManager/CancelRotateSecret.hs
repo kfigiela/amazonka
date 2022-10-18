@@ -115,7 +115,7 @@ instance Core.AWSRequest CancelRotateSecret where
   type
     AWSResponse CancelRotateSecret =
       CancelRotateSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest CancelRotateSecret where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelRotateSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelRotateSecret where
   hashWithSalt _salt CancelRotateSecret' {..} =

@@ -113,7 +113,7 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
   type
     AWSResponse UpgradeElasticsearchDomain =
       UpgradeElasticsearchDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest UpgradeElasticsearchDomain where
             Prelude.<*> (x Core..?> "PerformCheckOnly")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpgradeElasticsearchDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpgradeElasticsearchDomain where
   hashWithSalt _salt UpgradeElasticsearchDomain' {..} =

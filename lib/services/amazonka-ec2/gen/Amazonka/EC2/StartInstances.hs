@@ -132,7 +132,7 @@ instance Core.AWSRequest StartInstances where
   type
     AWSResponse StartInstances =
       StartInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest StartInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartInstances where
   hashWithSalt _salt StartInstances' {..} =

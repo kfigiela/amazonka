@@ -112,13 +112,16 @@ instance Core.AWSRequest DeleteMailboxPermissions where
   type
     AWSResponse DeleteMailboxPermissions =
       DeleteMailboxPermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMailboxPermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMailboxPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMailboxPermissions where
   hashWithSalt _salt DeleteMailboxPermissions' {..} =

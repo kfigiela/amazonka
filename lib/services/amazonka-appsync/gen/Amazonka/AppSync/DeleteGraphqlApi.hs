@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteGraphqlApi where
   type
     AWSResponse DeleteGraphqlApi =
       DeleteGraphqlApiResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGraphqlApiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGraphqlApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGraphqlApi where
   hashWithSalt _salt DeleteGraphqlApi' {..} =

@@ -93,7 +93,7 @@ instance Core.AWSRequest RemoveListenerCertificates where
   type
     AWSResponse RemoveListenerCertificates =
       RemoveListenerCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RemoveListenerCertificatesResult"
@@ -101,6 +101,9 @@ instance Core.AWSRequest RemoveListenerCertificates where
           RemoveListenerCertificatesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveListenerCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveListenerCertificates where
   hashWithSalt _salt RemoveListenerCertificates' {..} =

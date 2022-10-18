@@ -101,7 +101,7 @@ instance Core.AWSRequest AssociateAttributeGroup where
   type
     AWSResponse AssociateAttributeGroup =
       AssociateAttributeGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest AssociateAttributeGroup where
             Prelude.<*> (x Core..?> "attributeGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateAttributeGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateAttributeGroup where
   hashWithSalt _salt AssociateAttributeGroup' {..} =

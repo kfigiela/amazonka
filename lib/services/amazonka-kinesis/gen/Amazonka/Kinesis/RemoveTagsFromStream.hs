@@ -96,9 +96,12 @@ instance Core.AWSRequest RemoveTagsFromStream where
   type
     AWSResponse RemoveTagsFromStream =
       RemoveTagsFromStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RemoveTagsFromStreamResponse'
+
+instance Core.AWSService RemoveTagsFromStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTagsFromStream where
   hashWithSalt _salt RemoveTagsFromStream' {..} =

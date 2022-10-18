@@ -135,13 +135,19 @@ instance
   type
     AWSResponse DeleteColumnStatisticsForPartition =
       DeleteColumnStatisticsForPartitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteColumnStatisticsForPartitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteColumnStatisticsForPartition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

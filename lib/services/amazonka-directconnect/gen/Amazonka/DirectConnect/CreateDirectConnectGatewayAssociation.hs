@@ -139,7 +139,7 @@ instance
     AWSResponse
       CreateDirectConnectGatewayAssociation =
       CreateDirectConnectGatewayAssociationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,12 @@ instance
             Prelude.<$> (x Core..?> "directConnectGatewayAssociation")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateDirectConnectGatewayAssociation
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

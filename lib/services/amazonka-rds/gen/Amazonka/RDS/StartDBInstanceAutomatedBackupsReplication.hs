@@ -224,7 +224,7 @@ instance
     AWSResponse
       StartDBInstanceAutomatedBackupsReplication =
       StartDBInstanceAutomatedBackupsReplicationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartDBInstanceAutomatedBackupsReplicationResult"
@@ -233,6 +233,12 @@ instance
             Prelude.<$> (x Core..@? "DBInstanceAutomatedBackup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartDBInstanceAutomatedBackupsReplication
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

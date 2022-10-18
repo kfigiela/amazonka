@@ -112,13 +112,16 @@ instance Core.AWSRequest ChangePassword where
   type
     AWSResponse ChangePassword =
       ChangePasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ChangePasswordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ChangePassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChangePassword where
   hashWithSalt _salt ChangePassword' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest ListSubChannels where
   type
     AWSResponse ListSubChannels =
       ListSubChannelsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListSubChannels where
             Prelude.<*> (x Core..?> "SubChannels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSubChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSubChannels where
   hashWithSalt _salt ListSubChannels' {..} =

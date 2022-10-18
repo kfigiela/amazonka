@@ -125,7 +125,7 @@ instance Core.AWSRequest DescribeUpdate where
   type
     AWSResponse DescribeUpdate =
       DescribeUpdateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DescribeUpdate where
             Prelude.<$> (x Core..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUpdate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUpdate where
   hashWithSalt _salt DescribeUpdate' {..} =

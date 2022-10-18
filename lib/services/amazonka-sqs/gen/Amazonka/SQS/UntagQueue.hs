@@ -91,8 +91,11 @@ untagQueue_tagKeys = Lens.lens (\UntagQueue' {tagKeys} -> tagKeys) (\s@UntagQueu
 
 instance Core.AWSRequest UntagQueue where
   type AWSResponse UntagQueue = UntagQueueResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UntagQueueResponse'
+
+instance Core.AWSService UntagQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagQueue where
   hashWithSalt _salt UntagQueue' {..} =

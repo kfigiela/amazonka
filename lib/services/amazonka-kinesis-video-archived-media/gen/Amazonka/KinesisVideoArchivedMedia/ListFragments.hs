@@ -195,7 +195,7 @@ instance Core.AWSRequest ListFragments where
   type
     AWSResponse ListFragments =
       ListFragmentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest ListFragments where
             Prelude.<*> (x Core..?> "Fragments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFragments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFragments where
   hashWithSalt _salt ListFragments' {..} =

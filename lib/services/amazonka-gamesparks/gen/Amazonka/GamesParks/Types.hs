@@ -243,6 +243,7 @@ defaultService =
       Core._serviceEndpointPrefix = "gamesparks",
       Core._serviceSigningName = "gamesparks",
       Core._serviceVersion = "2021-08-17",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

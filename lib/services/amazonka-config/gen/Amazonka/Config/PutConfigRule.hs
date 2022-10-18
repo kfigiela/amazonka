@@ -124,9 +124,12 @@ instance Core.AWSRequest PutConfigRule where
   type
     AWSResponse PutConfigRule =
       PutConfigRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutConfigRuleResponse'
+
+instance Core.AWSService PutConfigRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutConfigRule where
   hashWithSalt _salt PutConfigRule' {..} =

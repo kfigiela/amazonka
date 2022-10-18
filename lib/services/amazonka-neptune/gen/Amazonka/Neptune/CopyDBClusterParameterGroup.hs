@@ -201,7 +201,7 @@ instance Core.AWSRequest CopyDBClusterParameterGroup where
   type
     AWSResponse CopyDBClusterParameterGroup =
       CopyDBClusterParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyDBClusterParameterGroupResult"
@@ -210,6 +210,9 @@ instance Core.AWSRequest CopyDBClusterParameterGroup where
             Prelude.<$> (x Core..@? "DBClusterParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyDBClusterParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyDBClusterParameterGroup where
   hashWithSalt _salt CopyDBClusterParameterGroup' {..} =

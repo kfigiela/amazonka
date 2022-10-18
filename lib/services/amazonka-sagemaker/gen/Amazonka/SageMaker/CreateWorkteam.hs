@@ -222,7 +222,7 @@ instance Core.AWSRequest CreateWorkteam where
   type
     AWSResponse CreateWorkteam =
       CreateWorkteamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest CreateWorkteam where
             Prelude.<$> (x Core..?> "WorkteamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkteam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkteam where
   hashWithSalt _salt CreateWorkteam' {..} =

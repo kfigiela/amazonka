@@ -118,13 +118,16 @@ instance Core.AWSRequest UpdateDestination where
   type
     AWSResponse UpdateDestination =
       UpdateDestinationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDestination where
   hashWithSalt _salt UpdateDestination' {..} =

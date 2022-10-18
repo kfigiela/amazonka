@@ -116,7 +116,7 @@ updateUpload_arn = Lens.lens (\UpdateUpload' {arn} -> arn) (\s@UpdateUpload' {} 
 
 instance Core.AWSRequest UpdateUpload where
   type AWSResponse UpdateUpload = UpdateUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest UpdateUpload where
             Prelude.<$> (x Core..?> "upload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUpload where
   hashWithSalt _salt UpdateUpload' {..} =

@@ -178,7 +178,7 @@ instance Core.AWSRequest CreateVirtualService where
   type
     AWSResponse CreateVirtualService =
       CreateVirtualServiceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest CreateVirtualService where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateVirtualService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVirtualService where
   hashWithSalt _salt CreateVirtualService' {..} =

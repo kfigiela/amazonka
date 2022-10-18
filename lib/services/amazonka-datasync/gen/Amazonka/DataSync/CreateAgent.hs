@@ -250,7 +250,7 @@ createAgent_activationKey = Lens.lens (\CreateAgent' {activationKey} -> activati
 
 instance Core.AWSRequest CreateAgent where
   type AWSResponse CreateAgent = CreateAgentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -258,6 +258,9 @@ instance Core.AWSRequest CreateAgent where
             Prelude.<$> (x Core..?> "AgentArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAgent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAgent where
   hashWithSalt _salt CreateAgent' {..} =

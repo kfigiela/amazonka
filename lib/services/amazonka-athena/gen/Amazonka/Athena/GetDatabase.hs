@@ -89,7 +89,7 @@ getDatabase_databaseName = Lens.lens (\GetDatabase' {databaseName} -> databaseNa
 
 instance Core.AWSRequest GetDatabase where
   type AWSResponse GetDatabase = GetDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetDatabase where
             Prelude.<$> (x Core..?> "Database")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDatabase where
   hashWithSalt _salt GetDatabase' {..} =

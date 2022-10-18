@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateDataSource where
   type
     AWSResponse UpdateDataSource =
       UpdateDataSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateDataSource where
             Prelude.<$> (x Core..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDataSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDataSource where
   hashWithSalt _salt UpdateDataSource' {..} =

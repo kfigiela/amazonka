@@ -85,7 +85,7 @@ instance Core.AWSRequest GetDataLakeSettings where
   type
     AWSResponse GetDataLakeSettings =
       GetDataLakeSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetDataLakeSettings where
             Prelude.<$> (x Core..?> "DataLakeSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataLakeSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataLakeSettings where
   hashWithSalt _salt GetDataLakeSettings' {..} =

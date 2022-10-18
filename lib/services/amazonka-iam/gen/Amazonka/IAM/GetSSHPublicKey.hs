@@ -147,7 +147,7 @@ instance Core.AWSRequest GetSSHPublicKey where
   type
     AWSResponse GetSSHPublicKey =
       GetSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSSHPublicKeyResult"
@@ -156,6 +156,9 @@ instance Core.AWSRequest GetSSHPublicKey where
             Prelude.<$> (x Core..@? "SSHPublicKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSSHPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSSHPublicKey where
   hashWithSalt _salt GetSSHPublicKey' {..} =

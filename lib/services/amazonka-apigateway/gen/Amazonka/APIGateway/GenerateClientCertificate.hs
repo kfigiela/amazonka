@@ -99,10 +99,13 @@ instance Core.AWSRequest GenerateClientCertificate where
   type
     AWSResponse GenerateClientCertificate =
       ClientCertificate
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GenerateClientCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateClientCertificate where
   hashWithSalt _salt GenerateClientCertificate' {..} =

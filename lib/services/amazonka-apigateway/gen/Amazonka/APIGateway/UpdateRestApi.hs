@@ -103,10 +103,13 @@ updateRestApi_restApiId = Lens.lens (\UpdateRestApi' {restApiId} -> restApiId) (
 
 instance Core.AWSRequest UpdateRestApi where
   type AWSResponse UpdateRestApi = RestApi
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateRestApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRestApi where
   hashWithSalt _salt UpdateRestApi' {..} =

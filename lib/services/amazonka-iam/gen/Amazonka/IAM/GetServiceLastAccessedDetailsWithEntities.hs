@@ -216,7 +216,7 @@ instance
     AWSResponse
       GetServiceLastAccessedDetailsWithEntities =
       GetServiceLastAccessedDetailsWithEntitiesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetServiceLastAccessedDetailsWithEntitiesResult"
@@ -234,6 +234,12 @@ instance
                               Prelude.>>= Core.parseXMLList "member"
                           )
       )
+
+instance
+  Core.AWSService
+    GetServiceLastAccessedDetailsWithEntities
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

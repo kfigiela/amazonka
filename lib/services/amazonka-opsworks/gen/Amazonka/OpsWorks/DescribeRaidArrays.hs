@@ -114,7 +114,7 @@ instance Core.AWSRequest DescribeRaidArrays where
   type
     AWSResponse DescribeRaidArrays =
       DescribeRaidArraysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeRaidArrays where
             Prelude.<$> (x Core..?> "RaidArrays" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRaidArrays where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRaidArrays where
   hashWithSalt _salt DescribeRaidArrays' {..} =

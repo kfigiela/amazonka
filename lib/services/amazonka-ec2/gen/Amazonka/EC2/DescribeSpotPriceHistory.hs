@@ -279,7 +279,7 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
   type
     AWSResponse DescribeSpotPriceHistory =
       DescribeSpotPriceHistoryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -291,6 +291,9 @@ instance Core.AWSRequest DescribeSpotPriceHistory where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSpotPriceHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSpotPriceHistory where
   hashWithSalt _salt DescribeSpotPriceHistory' {..} =

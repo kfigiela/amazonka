@@ -81,7 +81,7 @@ instance Core.AWSRequest GetQueryState where
   type
     AWSResponse GetQueryState =
       GetQueryStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetQueryState where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "State")
       )
+
+instance Core.AWSService GetQueryState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueryState where
   hashWithSalt _salt GetQueryState' {..} =

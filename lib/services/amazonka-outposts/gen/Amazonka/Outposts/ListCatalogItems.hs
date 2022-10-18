@@ -122,7 +122,7 @@ instance Core.AWSRequest ListCatalogItems where
   type
     AWSResponse ListCatalogItems =
       ListCatalogItemsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListCatalogItems where
             Prelude.<*> (x Core..?> "CatalogItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCatalogItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCatalogItems where
   hashWithSalt _salt ListCatalogItems' {..} =

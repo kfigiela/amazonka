@@ -76,7 +76,7 @@ getInstance_instanceName = Lens.lens (\GetInstance' {instanceName} -> instanceNa
 
 instance Core.AWSRequest GetInstance where
   type AWSResponse GetInstance = GetInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetInstance where
             Prelude.<$> (x Core..?> "instance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstance where
   hashWithSalt _salt GetInstance' {..} =

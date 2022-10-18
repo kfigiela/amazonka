@@ -231,7 +231,7 @@ instance Core.AWSRequest DeleteCluster where
   type
     AWSResponse DeleteCluster =
       DeleteClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteClusterResult"
@@ -240,6 +240,9 @@ instance Core.AWSRequest DeleteCluster where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCluster where
   hashWithSalt _salt DeleteCluster' {..} =

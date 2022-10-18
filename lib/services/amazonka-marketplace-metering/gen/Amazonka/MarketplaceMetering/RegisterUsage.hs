@@ -146,7 +146,7 @@ instance Core.AWSRequest RegisterUsage where
   type
     AWSResponse RegisterUsage =
       RegisterUsageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest RegisterUsage where
             Prelude.<*> (x Core..?> "Signature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterUsage where
   hashWithSalt _salt RegisterUsage' {..} =

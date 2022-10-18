@@ -128,7 +128,7 @@ instance Core.AWSRequest ListProjectAssets where
   type
     AWSResponse ListProjectAssets =
       ListProjectAssetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListProjectAssets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "assetIds" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListProjectAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProjectAssets where
   hashWithSalt _salt ListProjectAssets' {..} =

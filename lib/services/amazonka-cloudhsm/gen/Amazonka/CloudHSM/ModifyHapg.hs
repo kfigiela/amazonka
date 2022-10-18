@@ -114,7 +114,7 @@ modifyHapg_hapgArn = Lens.lens (\ModifyHapg' {hapgArn} -> hapgArn) (\s@ModifyHap
 
 instance Core.AWSRequest ModifyHapg where
   type AWSResponse ModifyHapg = ModifyHapgResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ModifyHapg where
             Prelude.<$> (x Core..?> "HapgArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyHapg where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyHapg where
   hashWithSalt _salt ModifyHapg' {..} =

@@ -133,13 +133,16 @@ instance Core.AWSRequest UpdateTableObjects where
   type
     AWSResponse UpdateTableObjects =
       UpdateTableObjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateTableObjectsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTableObjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTableObjects where
   hashWithSalt _salt UpdateTableObjects' {..} =

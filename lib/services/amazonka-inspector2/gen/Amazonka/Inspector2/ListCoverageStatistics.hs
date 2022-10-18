@@ -137,7 +137,7 @@ instance Core.AWSRequest ListCoverageStatistics where
   type
     AWSResponse ListCoverageStatistics =
       ListCoverageStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListCoverageStatistics where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "totalCounts")
       )
+
+instance Core.AWSService ListCoverageStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCoverageStatistics where
   hashWithSalt _salt ListCoverageStatistics' {..} =

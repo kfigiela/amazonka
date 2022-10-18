@@ -74,13 +74,16 @@ rebootBroker_brokerId = Lens.lens (\RebootBroker' {brokerId} -> brokerId) (\s@Re
 
 instance Core.AWSRequest RebootBroker where
   type AWSResponse RebootBroker = RebootBrokerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RebootBrokerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootBroker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootBroker where
   hashWithSalt _salt RebootBroker' {..} =

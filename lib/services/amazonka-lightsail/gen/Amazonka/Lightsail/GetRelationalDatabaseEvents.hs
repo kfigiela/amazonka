@@ -157,7 +157,7 @@ instance Core.AWSRequest GetRelationalDatabaseEvents where
   type
     AWSResponse GetRelationalDatabaseEvents =
       GetRelationalDatabaseEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest GetRelationalDatabaseEvents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRelationalDatabaseEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRelationalDatabaseEvents where
   hashWithSalt _salt GetRelationalDatabaseEvents' {..} =

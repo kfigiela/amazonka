@@ -387,7 +387,7 @@ instance Core.AWSRequest GetMetricData where
   type
     AWSResponse GetMetricData =
       GetMetricDataResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetMetricDataResult"
@@ -403,6 +403,9 @@ instance Core.AWSRequest GetMetricData where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMetricData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetricData where
   hashWithSalt _salt GetMetricData' {..} =

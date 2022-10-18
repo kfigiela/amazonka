@@ -102,9 +102,12 @@ instance Core.AWSRequest DeleteRoomMembership where
   type
     AWSResponse DeleteRoomMembership =
       DeleteRoomMembershipResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRoomMembershipResponse'
+
+instance Core.AWSService DeleteRoomMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRoomMembership where
   hashWithSalt _salt DeleteRoomMembership' {..} =

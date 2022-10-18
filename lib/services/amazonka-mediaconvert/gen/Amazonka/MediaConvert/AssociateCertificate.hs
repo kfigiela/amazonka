@@ -80,13 +80,16 @@ instance Core.AWSRequest AssociateCertificate where
   type
     AWSResponse AssociateCertificate =
       AssociateCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateCertificate where
   hashWithSalt _salt AssociateCertificate' {..} =

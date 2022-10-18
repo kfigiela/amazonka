@@ -93,7 +93,7 @@ instance Core.AWSRequest ListProfilePermissions where
   type
     AWSResponse ListProfilePermissions =
       ListProfilePermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest ListProfilePermissions where
             Prelude.<*> (x Core..?> "policySizeBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProfilePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProfilePermissions where
   hashWithSalt _salt ListProfilePermissions' {..} =

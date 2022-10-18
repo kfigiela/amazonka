@@ -93,7 +93,7 @@ getGeofence_geofenceId = Lens.lens (\GetGeofence' {geofenceId} -> geofenceId) (\
 
 instance Core.AWSRequest GetGeofence where
   type AWSResponse GetGeofence = GetGeofenceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetGeofence where
             Prelude.<*> (x Core..:> "Status")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService GetGeofence where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGeofence where
   hashWithSalt _salt GetGeofence' {..} =

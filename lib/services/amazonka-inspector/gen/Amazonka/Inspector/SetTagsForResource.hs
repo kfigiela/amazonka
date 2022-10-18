@@ -89,9 +89,12 @@ instance Core.AWSRequest SetTagsForResource where
   type
     AWSResponse SetTagsForResource =
       SetTagsForResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetTagsForResourceResponse'
+
+instance Core.AWSService SetTagsForResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTagsForResource where
   hashWithSalt _salt SetTagsForResource' {..} =

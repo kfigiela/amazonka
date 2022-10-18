@@ -600,7 +600,7 @@ instance Core.AWSRequest ReceiveMessage where
   type
     AWSResponse ReceiveMessage =
       ReceiveMessageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ReceiveMessageResult"
@@ -609,6 +609,9 @@ instance Core.AWSRequest ReceiveMessage where
             Prelude.<$> (Core.may (Core.parseXMLList "Message") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReceiveMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReceiveMessage where
   hashWithSalt _salt ReceiveMessage' {..} =

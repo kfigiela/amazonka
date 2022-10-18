@@ -286,7 +286,7 @@ activateType_loggingConfig = Lens.lens (\ActivateType' {loggingConfig} -> loggin
 
 instance Core.AWSRequest ActivateType where
   type AWSResponse ActivateType = ActivateTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ActivateTypeResult"
@@ -295,6 +295,9 @@ instance Core.AWSRequest ActivateType where
             Prelude.<$> (x Core..@? "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ActivateType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateType where
   hashWithSalt _salt ActivateType' {..} =

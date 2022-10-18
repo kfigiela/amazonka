@@ -107,7 +107,7 @@ instance Core.AWSPager ListChannels where
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListChannels where
             Prelude.<*> (x Core..?> "channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeEndpointGroup where
   type
     AWSResponse DescribeEndpointGroup =
       DescribeEndpointGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeEndpointGroup where
             Prelude.<$> (x Core..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEndpointGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEndpointGroup where
   hashWithSalt _salt DescribeEndpointGroup' {..} =

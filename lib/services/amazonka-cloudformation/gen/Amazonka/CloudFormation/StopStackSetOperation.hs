@@ -150,7 +150,7 @@ instance Core.AWSRequest StopStackSetOperation where
   type
     AWSResponse StopStackSetOperation =
       StopStackSetOperationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopStackSetOperationResult"
@@ -158,6 +158,9 @@ instance Core.AWSRequest StopStackSetOperation where
           StopStackSetOperationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopStackSetOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopStackSetOperation where
   hashWithSalt _salt StopStackSetOperation' {..} =

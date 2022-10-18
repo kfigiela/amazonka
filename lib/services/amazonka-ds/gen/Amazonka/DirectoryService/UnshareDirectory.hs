@@ -98,7 +98,7 @@ instance Core.AWSRequest UnshareDirectory where
   type
     AWSResponse UnshareDirectory =
       UnshareDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest UnshareDirectory where
             Prelude.<$> (x Core..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UnshareDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnshareDirectory where
   hashWithSalt _salt UnshareDirectory' {..} =

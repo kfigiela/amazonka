@@ -124,13 +124,16 @@ instance Core.AWSRequest PutStudioMembers where
   type
     AWSResponse PutStudioMembers =
       PutStudioMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutStudioMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutStudioMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutStudioMembers where
   hashWithSalt _salt PutStudioMembers' {..} =

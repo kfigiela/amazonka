@@ -96,13 +96,16 @@ putOutcome_name = Lens.lens (\PutOutcome' {name} -> name) (\s@PutOutcome' {} a -
 
 instance Core.AWSRequest PutOutcome where
   type AWSResponse PutOutcome = PutOutcomeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutOutcomeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutOutcome where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutOutcome where
   hashWithSalt _salt PutOutcome' {..} =

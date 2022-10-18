@@ -94,9 +94,12 @@ instance Core.AWSRequest AssociateElasticIp where
   type
     AWSResponse AssociateElasticIp =
       AssociateElasticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssociateElasticIpResponse'
+
+instance Core.AWSService AssociateElasticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateElasticIp where
   hashWithSalt _salt AssociateElasticIp' {..} =

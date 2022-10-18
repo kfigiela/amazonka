@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeDatasetGroup where
   type
     AWSResponse DescribeDatasetGroup =
       DescribeDatasetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeDatasetGroup where
             Prelude.<$> (x Core..?> "datasetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDatasetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDatasetGroup where
   hashWithSalt _salt DescribeDatasetGroup' {..} =

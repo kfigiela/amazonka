@@ -79,7 +79,7 @@ instance Core.AWSRequest DescribeBackup where
   type
     AWSResponse DescribeBackup =
       DescribeBackupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest DescribeBackup where
             Prelude.<$> (x Core..?> "BackupDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBackup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBackup where
   hashWithSalt _salt DescribeBackup' {..} =

@@ -163,7 +163,7 @@ instance Core.AWSRequest DescribeReservedNodes where
   type
     AWSResponse DescribeReservedNodes =
       DescribeReservedNodesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedNodesResult"
@@ -175,6 +175,9 @@ instance Core.AWSRequest DescribeReservedNodes where
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReservedNodes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReservedNodes where
   hashWithSalt _salt DescribeReservedNodes' {..} =

@@ -198,7 +198,7 @@ getProfile_profilingGroupName = Lens.lens (\GetProfile' {profilingGroupName} -> 
 
 instance Core.AWSRequest GetProfile where
   type AWSResponse GetProfile = GetProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -208,6 +208,9 @@ instance Core.AWSRequest GetProfile where
             Prelude.<*> (h Core..# "Content-Type")
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =

@@ -112,7 +112,7 @@ updateApiKey_id = Lens.lens (\UpdateApiKey' {id} -> id) (\s@UpdateApiKey' {} a -
 
 instance Core.AWSRequest UpdateApiKey where
   type AWSResponse UpdateApiKey = UpdateApiKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateApiKey where
             Prelude.<$> (x Core..?> "apiKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApiKey where
   hashWithSalt _salt UpdateApiKey' {..} =

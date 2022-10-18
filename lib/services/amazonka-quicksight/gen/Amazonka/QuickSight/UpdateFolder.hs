@@ -106,7 +106,7 @@ updateFolder_name = Lens.lens (\UpdateFolder' {name} -> name) (\s@UpdateFolder' 
 
 instance Core.AWSRequest UpdateFolder where
   type AWSResponse UpdateFolder = UpdateFolderResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest UpdateFolder where
             Prelude.<*> (x Core..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFolder where
   hashWithSalt _salt UpdateFolder' {..} =

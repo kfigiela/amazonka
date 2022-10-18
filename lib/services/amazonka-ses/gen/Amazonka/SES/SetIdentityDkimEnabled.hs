@@ -115,7 +115,7 @@ instance Core.AWSRequest SetIdentityDkimEnabled where
   type
     AWSResponse SetIdentityDkimEnabled =
       SetIdentityDkimEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIdentityDkimEnabledResult"
@@ -123,6 +123,9 @@ instance Core.AWSRequest SetIdentityDkimEnabled where
           SetIdentityDkimEnabledResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetIdentityDkimEnabled where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetIdentityDkimEnabled where
   hashWithSalt _salt SetIdentityDkimEnabled' {..} =

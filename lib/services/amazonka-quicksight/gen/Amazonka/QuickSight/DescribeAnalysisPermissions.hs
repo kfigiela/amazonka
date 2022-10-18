@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeAnalysisPermissions where
   type
     AWSResponse DescribeAnalysisPermissions =
       DescribeAnalysisPermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeAnalysisPermissions where
             Prelude.<*> (x Core..?> "AnalysisArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAnalysisPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAnalysisPermissions where
   hashWithSalt _salt DescribeAnalysisPermissions' {..} =

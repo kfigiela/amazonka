@@ -287,7 +287,7 @@ createRoute_routeTableId = Lens.lens (\CreateRoute' {routeTableId} -> routeTable
 
 instance Core.AWSRequest CreateRoute where
   type AWSResponse CreateRoute = CreateRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -295,6 +295,9 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =

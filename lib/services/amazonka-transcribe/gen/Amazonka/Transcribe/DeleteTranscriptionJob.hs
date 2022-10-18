@@ -81,10 +81,13 @@ instance Core.AWSRequest DeleteTranscriptionJob where
   type
     AWSResponse DeleteTranscriptionJob =
       DeleteTranscriptionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteTranscriptionJobResponse'
+
+instance Core.AWSService DeleteTranscriptionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTranscriptionJob where
   hashWithSalt _salt DeleteTranscriptionJob' {..} =

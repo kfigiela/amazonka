@@ -95,7 +95,7 @@ instance Core.AWSRequest CancelEnvironmentDeployment where
   type
     AWSResponse CancelEnvironmentDeployment =
       CancelEnvironmentDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest CancelEnvironmentDeployment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "environment")
       )
+
+instance Core.AWSService CancelEnvironmentDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelEnvironmentDeployment where
   hashWithSalt _salt CancelEnvironmentDeployment' {..} =

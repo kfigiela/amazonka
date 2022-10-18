@@ -90,7 +90,7 @@ instance Core.AWSRequest GetImportFileTask where
   type
     AWSResponse GetImportFileTask =
       GetImportFileTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetImportFileTask where
             Prelude.<*> (x Core..?> "statusReportS3Key")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImportFileTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImportFileTask where
   hashWithSalt _salt GetImportFileTask' {..} =

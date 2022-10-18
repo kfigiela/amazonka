@@ -108,7 +108,7 @@ instance Core.AWSRequest ModifyLunaClient where
   type
     AWSResponse ModifyLunaClient =
       ModifyLunaClientResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ModifyLunaClient where
             Prelude.<$> (x Core..?> "ClientArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyLunaClient where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyLunaClient where
   hashWithSalt _salt ModifyLunaClient' {..} =

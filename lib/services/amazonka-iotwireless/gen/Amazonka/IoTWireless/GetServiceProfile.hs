@@ -80,7 +80,7 @@ instance Core.AWSRequest GetServiceProfile where
   type
     AWSResponse GetServiceProfile =
       GetServiceProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetServiceProfile where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServiceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServiceProfile where
   hashWithSalt _salt GetServiceProfile' {..} =

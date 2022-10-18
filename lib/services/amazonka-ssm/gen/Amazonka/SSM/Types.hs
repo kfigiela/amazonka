@@ -2162,6 +2162,7 @@ defaultService =
       Core._serviceEndpointPrefix = "ssm",
       Core._serviceSigningName = "ssm",
       Core._serviceVersion = "2014-11-06",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

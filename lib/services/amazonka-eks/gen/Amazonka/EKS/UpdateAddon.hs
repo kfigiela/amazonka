@@ -219,7 +219,7 @@ updateAddon_addonName = Lens.lens (\UpdateAddon' {addonName} -> addonName) (\s@U
 
 instance Core.AWSRequest UpdateAddon where
   type AWSResponse UpdateAddon = UpdateAddonResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -227,6 +227,9 @@ instance Core.AWSRequest UpdateAddon where
             Prelude.<$> (x Core..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAddon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAddon where
   hashWithSalt _salt UpdateAddon' {..} =

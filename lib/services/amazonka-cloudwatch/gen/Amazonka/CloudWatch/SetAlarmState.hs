@@ -149,9 +149,12 @@ instance Core.AWSRequest SetAlarmState where
   type
     AWSResponse SetAlarmState =
       SetAlarmStateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetAlarmStateResponse'
+
+instance Core.AWSService SetAlarmState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetAlarmState where
   hashWithSalt _salt SetAlarmState' {..} =

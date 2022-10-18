@@ -95,7 +95,7 @@ instance Core.AWSRequest GetGroupQuery where
   type
     AWSResponse GetGroupQuery =
       GetGroupQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetGroupQuery where
             Prelude.<$> (x Core..?> "GroupQuery")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGroupQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroupQuery where
   hashWithSalt _salt GetGroupQuery' {..} =

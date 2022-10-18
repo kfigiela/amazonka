@@ -98,7 +98,7 @@ instance Core.AWSRequest GetSMSAttributes where
   type
     AWSResponse GetSMSAttributes =
       GetSMSAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSMSAttributesResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetSMSAttributes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSMSAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSMSAttributes where
   hashWithSalt _salt GetSMSAttributes' {..} =

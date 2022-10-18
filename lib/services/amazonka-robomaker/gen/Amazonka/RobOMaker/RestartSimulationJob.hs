@@ -76,13 +76,16 @@ instance Core.AWSRequest RestartSimulationJob where
   type
     AWSResponse RestartSimulationJob =
       RestartSimulationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RestartSimulationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestartSimulationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestartSimulationJob where
   hashWithSalt _salt RestartSimulationJob' {..} =

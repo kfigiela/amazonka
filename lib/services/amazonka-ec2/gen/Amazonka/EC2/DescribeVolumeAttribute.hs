@@ -117,7 +117,7 @@ instance Core.AWSRequest DescribeVolumeAttribute where
   type
     AWSResponse DescribeVolumeAttribute =
       DescribeVolumeAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DescribeVolumeAttribute where
             Prelude.<*> (x Core..@? "autoEnableIO")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVolumeAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVolumeAttribute where
   hashWithSalt _salt DescribeVolumeAttribute' {..} =

@@ -77,7 +77,7 @@ getLexicon_name = Lens.lens (\GetLexicon' {name} -> name) (\s@GetLexicon' {} a -
 
 instance Core.AWSRequest GetLexicon where
   type AWSResponse GetLexicon = GetLexiconResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetLexicon where
             Prelude.<*> (x Core..?> "Lexicon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLexicon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLexicon where
   hashWithSalt _salt GetLexicon' {..} =

@@ -66,7 +66,7 @@ instance Core.AWSRequest CreateStorageLocation where
   type
     AWSResponse CreateStorageLocation =
       CreateStorageLocationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateStorageLocationResult"
@@ -75,6 +75,9 @@ instance Core.AWSRequest CreateStorageLocation where
             Prelude.<$> (x Core..@? "S3Bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStorageLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStorageLocation where
   hashWithSalt _salt _ =

@@ -271,7 +271,7 @@ instance Core.AWSRequest CreateInferenceScheduler where
   type
     AWSResponse CreateInferenceScheduler =
       CreateInferenceSchedulerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -281,6 +281,9 @@ instance Core.AWSRequest CreateInferenceScheduler where
             Prelude.<*> (x Core..?> "InferenceSchedulerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInferenceScheduler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInferenceScheduler where
   hashWithSalt _salt CreateInferenceScheduler' {..} =

@@ -112,9 +112,12 @@ instance Core.AWSRequest DeregisterGameServer where
   type
     AWSResponse DeregisterGameServer =
       DeregisterGameServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterGameServerResponse'
+
+instance Core.AWSService DeregisterGameServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterGameServer where
   hashWithSalt _salt DeregisterGameServer' {..} =

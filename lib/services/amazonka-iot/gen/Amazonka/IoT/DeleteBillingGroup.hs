@@ -102,13 +102,16 @@ instance Core.AWSRequest DeleteBillingGroup where
   type
     AWSResponse DeleteBillingGroup =
       DeleteBillingGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteBillingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBillingGroup where
   hashWithSalt _salt DeleteBillingGroup' {..} =

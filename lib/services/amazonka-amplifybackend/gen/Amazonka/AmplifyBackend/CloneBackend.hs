@@ -111,7 +111,7 @@ cloneBackend_targetEnvironmentName = Lens.lens (\CloneBackend' {targetEnvironmen
 
 instance Core.AWSRequest CloneBackend where
   type AWSResponse CloneBackend = CloneBackendResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest CloneBackend where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CloneBackend where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CloneBackend where
   hashWithSalt _salt CloneBackend' {..} =

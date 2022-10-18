@@ -97,7 +97,7 @@ instance Core.AWSRequest DeleteFirewallRule where
   type
     AWSResponse DeleteFirewallRule =
       DeleteFirewallRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DeleteFirewallRule where
             Prelude.<$> (x Core..?> "FirewallRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFirewallRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFirewallRule where
   hashWithSalt _salt DeleteFirewallRule' {..} =

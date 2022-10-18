@@ -128,7 +128,7 @@ instance Core.AWSRequest DescribeContinuousExports where
   type
     AWSResponse DescribeContinuousExports =
       DescribeContinuousExportsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest DescribeContinuousExports where
             Prelude.<*> (x Core..?> "descriptions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeContinuousExports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeContinuousExports where
   hashWithSalt _salt DescribeContinuousExports' {..} =

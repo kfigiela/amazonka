@@ -64,13 +64,16 @@ instance Core.AWSRequest ClearDefaultAuthorizer where
   type
     AWSResponse ClearDefaultAuthorizer =
       ClearDefaultAuthorizerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ClearDefaultAuthorizerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ClearDefaultAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClearDefaultAuthorizer where
   hashWithSalt _salt _ =

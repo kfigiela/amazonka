@@ -757,7 +757,7 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
   type
     AWSResponse GetHLSStreamingSessionURL =
       GetHLSStreamingSessionURLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -765,6 +765,9 @@ instance Core.AWSRequest GetHLSStreamingSessionURL where
             Prelude.<$> (x Core..?> "HLSStreamingSessionURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetHLSStreamingSessionURL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHLSStreamingSessionURL where
   hashWithSalt _salt GetHLSStreamingSessionURL' {..} =

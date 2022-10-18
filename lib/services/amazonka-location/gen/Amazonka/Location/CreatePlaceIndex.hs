@@ -311,7 +311,7 @@ instance Core.AWSRequest CreatePlaceIndex where
   type
     AWSResponse CreatePlaceIndex =
       CreatePlaceIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -321,6 +321,9 @@ instance Core.AWSRequest CreatePlaceIndex where
             Prelude.<*> (x Core..:> "IndexArn")
             Prelude.<*> (x Core..:> "IndexName")
       )
+
+instance Core.AWSService CreatePlaceIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePlaceIndex where
   hashWithSalt _salt CreatePlaceIndex' {..} =

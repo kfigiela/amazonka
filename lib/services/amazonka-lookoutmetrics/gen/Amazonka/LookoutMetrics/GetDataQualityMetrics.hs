@@ -93,7 +93,7 @@ instance Core.AWSRequest GetDataQualityMetrics where
   type
     AWSResponse GetDataQualityMetrics =
       GetDataQualityMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetDataQualityMetrics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataQualityMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataQualityMetrics where
   hashWithSalt _salt GetDataQualityMetrics' {..} =

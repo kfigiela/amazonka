@@ -180,7 +180,7 @@ instance Core.AWSRequest CreateHsmConfiguration where
   type
     AWSResponse CreateHsmConfiguration =
       CreateHsmConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateHsmConfigurationResult"
@@ -189,6 +189,9 @@ instance Core.AWSRequest CreateHsmConfiguration where
             Prelude.<$> (x Core..@? "HsmConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHsmConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHsmConfiguration where
   hashWithSalt _salt CreateHsmConfiguration' {..} =

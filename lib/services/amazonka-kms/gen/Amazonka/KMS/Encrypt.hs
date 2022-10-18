@@ -370,7 +370,7 @@ encrypt_plaintext = Lens.lens (\Encrypt' {plaintext} -> plaintext) (\s@Encrypt' 
 
 instance Core.AWSRequest Encrypt where
   type AWSResponse Encrypt = EncryptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -380,6 +380,9 @@ instance Core.AWSRequest Encrypt where
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Encrypt where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Encrypt where
   hashWithSalt _salt Encrypt' {..} =

@@ -141,7 +141,7 @@ instance Core.AWSRequest CreateOrganization where
   type
     AWSResponse CreateOrganization =
       CreateOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest CreateOrganization where
             Prelude.<$> (x Core..?> "Organization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOrganization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOrganization where
   hashWithSalt _salt CreateOrganization' {..} =

@@ -156,7 +156,7 @@ instance Core.AWSRequest CreateDBSnapshot where
   type
     AWSResponse CreateDBSnapshot =
       CreateDBSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBSnapshotResult"
@@ -165,6 +165,9 @@ instance Core.AWSRequest CreateDBSnapshot where
             Prelude.<$> (x Core..@? "DBSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBSnapshot where
   hashWithSalt _salt CreateDBSnapshot' {..} =

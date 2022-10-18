@@ -99,7 +99,7 @@ getEntity_workspaceId = Lens.lens (\GetEntity' {workspaceId} -> workspaceId) (\s
 
 instance Core.AWSRequest GetEntity where
   type AWSResponse GetEntity = GetEntityResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetEntity where
             Prelude.<*> (x Core..:> "updateDateTime")
             Prelude.<*> (x Core..:> "workspaceId")
       )
+
+instance Core.AWSService GetEntity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEntity where
   hashWithSalt _salt GetEntity' {..} =

@@ -112,10 +112,16 @@ instance
   type
     AWSResponse ResetNetworkInterfaceAttribute =
       ResetNetworkInterfaceAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ResetNetworkInterfaceAttributeResponse'
+
+instance
+  Core.AWSService
+    ResetNetworkInterfaceAttribute
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

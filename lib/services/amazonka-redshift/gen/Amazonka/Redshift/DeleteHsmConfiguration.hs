@@ -79,10 +79,13 @@ instance Core.AWSRequest DeleteHsmConfiguration where
   type
     AWSResponse DeleteHsmConfiguration =
       DeleteHsmConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteHsmConfigurationResponse'
+
+instance Core.AWSService DeleteHsmConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHsmConfiguration where
   hashWithSalt _salt DeleteHsmConfiguration' {..} =

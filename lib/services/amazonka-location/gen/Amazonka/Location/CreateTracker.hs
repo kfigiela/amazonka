@@ -319,7 +319,7 @@ instance Core.AWSRequest CreateTracker where
   type
     AWSResponse CreateTracker =
       CreateTrackerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -329,6 +329,9 @@ instance Core.AWSRequest CreateTracker where
             Prelude.<*> (x Core..:> "TrackerArn")
             Prelude.<*> (x Core..:> "TrackerName")
       )
+
+instance Core.AWSService CreateTracker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTracker where
   hashWithSalt _salt CreateTracker' {..} =

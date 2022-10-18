@@ -212,7 +212,7 @@ instance Core.AWSRequest CreateExplainabilityExport where
   type
     AWSResponse CreateExplainabilityExport =
       CreateExplainabilityExportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -220,6 +220,9 @@ instance Core.AWSRequest CreateExplainabilityExport where
             Prelude.<$> (x Core..?> "ExplainabilityExportArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateExplainabilityExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExplainabilityExport where
   hashWithSalt _salt CreateExplainabilityExport' {..} =

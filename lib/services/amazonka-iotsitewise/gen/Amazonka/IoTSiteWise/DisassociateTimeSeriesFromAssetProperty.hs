@@ -123,10 +123,16 @@ instance
     AWSResponse
       DisassociateTimeSeriesFromAssetProperty =
       DisassociateTimeSeriesFromAssetPropertyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateTimeSeriesFromAssetPropertyResponse'
+
+instance
+  Core.AWSService
+    DisassociateTimeSeriesFromAssetProperty
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

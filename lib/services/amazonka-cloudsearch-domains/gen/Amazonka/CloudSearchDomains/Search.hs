@@ -1106,7 +1106,7 @@ search_query = Lens.lens (\Search' {query} -> query) (\s@Search' {} a -> s {quer
 
 instance Core.AWSRequest Search where
   type AWSResponse Search = SearchResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -1117,6 +1117,9 @@ instance Core.AWSRequest Search where
             Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Search where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =

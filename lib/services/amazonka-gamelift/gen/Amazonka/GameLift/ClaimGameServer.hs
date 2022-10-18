@@ -166,7 +166,7 @@ instance Core.AWSRequest ClaimGameServer where
   type
     AWSResponse ClaimGameServer =
       ClaimGameServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest ClaimGameServer where
             Prelude.<$> (x Core..?> "GameServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ClaimGameServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClaimGameServer where
   hashWithSalt _salt ClaimGameServer' {..} =

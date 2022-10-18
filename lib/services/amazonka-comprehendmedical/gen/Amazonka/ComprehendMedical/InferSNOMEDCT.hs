@@ -86,7 +86,7 @@ instance Core.AWSRequest InferSNOMEDCT where
   type
     AWSResponse InferSNOMEDCT =
       InferSNOMEDCTResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest InferSNOMEDCT where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService InferSNOMEDCT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InferSNOMEDCT where
   hashWithSalt _salt InferSNOMEDCT' {..} =

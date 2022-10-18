@@ -80,10 +80,16 @@ instance
   type
     AWSResponse DeleteModelQualityJobDefinition =
       DeleteModelQualityJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteModelQualityJobDefinitionResponse'
+
+instance
+  Core.AWSService
+    DeleteModelQualityJobDefinition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

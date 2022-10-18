@@ -157,13 +157,16 @@ instance Core.AWSRequest PutExternalModel where
   type
     AWSResponse PutExternalModel =
       PutExternalModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutExternalModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutExternalModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutExternalModel where
   hashWithSalt _salt PutExternalModel' {..} =

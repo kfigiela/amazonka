@@ -161,7 +161,7 @@ instance Core.AWSRequest DeleteInventory where
   type
     AWSResponse DeleteInventory =
       DeleteInventoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest DeleteInventory where
             Prelude.<*> (x Core..?> "DeletionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInventory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInventory where
   hashWithSalt _salt DeleteInventory' {..} =

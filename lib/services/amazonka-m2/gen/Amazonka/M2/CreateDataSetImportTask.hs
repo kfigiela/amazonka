@@ -122,7 +122,7 @@ instance Core.AWSRequest CreateDataSetImportTask where
   type
     AWSResponse CreateDataSetImportTask =
       CreateDataSetImportTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest CreateDataSetImportTask where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "taskId")
       )
+
+instance Core.AWSService CreateDataSetImportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataSetImportTask where
   hashWithSalt _salt CreateDataSetImportTask' {..} =

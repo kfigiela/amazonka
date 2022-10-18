@@ -62,7 +62,7 @@ instance Core.AWSRequest DeleteRegistryPolicy where
   type
     AWSResponse DeleteRegistryPolicy =
       DeleteRegistryPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest DeleteRegistryPolicy where
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRegistryPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRegistryPolicy where
   hashWithSalt _salt _ =

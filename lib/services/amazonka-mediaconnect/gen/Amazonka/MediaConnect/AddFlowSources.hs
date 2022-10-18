@@ -92,7 +92,7 @@ instance Core.AWSRequest AddFlowSources where
   type
     AWSResponse AddFlowSources =
       AddFlowSourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest AddFlowSources where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddFlowSources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddFlowSources where
   hashWithSalt _salt AddFlowSources' {..} =

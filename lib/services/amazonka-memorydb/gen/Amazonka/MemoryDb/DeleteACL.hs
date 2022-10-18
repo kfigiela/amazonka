@@ -77,7 +77,7 @@ deleteACL_aCLName = Lens.lens (\DeleteACL' {aCLName} -> aCLName) (\s@DeleteACL' 
 
 instance Core.AWSRequest DeleteACL where
   type AWSResponse DeleteACL = DeleteACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteACL where
             Prelude.<$> (x Core..?> "ACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteACL where
   hashWithSalt _salt DeleteACL' {..} =

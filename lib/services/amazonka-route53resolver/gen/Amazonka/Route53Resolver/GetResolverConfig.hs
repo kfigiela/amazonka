@@ -78,7 +78,7 @@ instance Core.AWSRequest GetResolverConfig where
   type
     AWSResponse GetResolverConfig =
       GetResolverConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetResolverConfig where
             Prelude.<$> (x Core..?> "ResolverConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResolverConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResolverConfig where
   hashWithSalt _salt GetResolverConfig' {..} =

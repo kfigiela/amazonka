@@ -347,7 +347,7 @@ instance Core.AWSRequest UpdateAuthorizer where
   type
     AWSResponse UpdateAuthorizer =
       UpdateAuthorizerResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -365,6 +365,9 @@ instance Core.AWSRequest UpdateAuthorizer where
             Prelude.<*> (x Core..?> "authorizerPayloadFormatVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAuthorizer where
   hashWithSalt _salt UpdateAuthorizer' {..} =

@@ -86,7 +86,7 @@ instance Core.AWSRequest GetContactList where
   type
     AWSResponse GetContactList =
       GetContactListResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetContactList where
             Prelude.<*> (x Core..?> "ContactListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContactList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContactList where
   hashWithSalt _salt GetContactList' {..} =

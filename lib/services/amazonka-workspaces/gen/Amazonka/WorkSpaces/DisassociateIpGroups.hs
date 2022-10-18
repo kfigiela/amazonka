@@ -89,13 +89,16 @@ instance Core.AWSRequest DisassociateIpGroups where
   type
     AWSResponse DisassociateIpGroups =
       DisassociateIpGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateIpGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateIpGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateIpGroups where
   hashWithSalt _salt DisassociateIpGroups' {..} =

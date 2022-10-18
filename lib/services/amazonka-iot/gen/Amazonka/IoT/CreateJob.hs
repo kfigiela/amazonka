@@ -345,7 +345,7 @@ createJob_targets = Lens.lens (\CreateJob' {targets} -> targets) (\s@CreateJob' 
 
 instance Core.AWSRequest CreateJob where
   type AWSResponse CreateJob = CreateJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -355,6 +355,9 @@ instance Core.AWSRequest CreateJob where
             Prelude.<*> (x Core..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateJob where
   hashWithSalt _salt CreateJob' {..} =

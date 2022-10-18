@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteRuleset where
   type
     AWSResponse DeleteRuleset =
       DeleteRulesetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteRuleset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService DeleteRuleset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRuleset where
   hashWithSalt _salt DeleteRuleset' {..} =

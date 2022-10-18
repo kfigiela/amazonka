@@ -130,7 +130,7 @@ instance Core.AWSRequest ListDataSetImportHistory where
   type
     AWSResponse ListDataSetImportHistory =
       ListDataSetImportHistoryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListDataSetImportHistory where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListDataSetImportHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataSetImportHistory where
   hashWithSalt _salt ListDataSetImportHistory' {..} =

@@ -707,6 +707,7 @@ defaultService =
       Core._serviceEndpointPrefix = "devicefarm",
       Core._serviceSigningName = "devicefarm",
       Core._serviceVersion = "2015-06-23",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

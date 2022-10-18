@@ -82,7 +82,7 @@ instance Core.AWSRequest StopReplicationTask where
   type
     AWSResponse StopReplicationTask =
       StopReplicationTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest StopReplicationTask where
             Prelude.<$> (x Core..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopReplicationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopReplicationTask where
   hashWithSalt _salt StopReplicationTask' {..} =

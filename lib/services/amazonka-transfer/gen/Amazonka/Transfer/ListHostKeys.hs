@@ -109,7 +109,7 @@ listHostKeys_serverId = Lens.lens (\ListHostKeys' {serverId} -> serverId) (\s@Li
 
 instance Core.AWSRequest ListHostKeys where
   type AWSResponse ListHostKeys = ListHostKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListHostKeys where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..?> "HostKeys" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListHostKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHostKeys where
   hashWithSalt _salt ListHostKeys' {..} =

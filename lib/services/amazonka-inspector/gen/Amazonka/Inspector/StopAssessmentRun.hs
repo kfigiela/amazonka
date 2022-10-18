@@ -98,9 +98,12 @@ instance Core.AWSRequest StopAssessmentRun where
   type
     AWSResponse StopAssessmentRun =
       StopAssessmentRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopAssessmentRunResponse'
+
+instance Core.AWSService StopAssessmentRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopAssessmentRun where
   hashWithSalt _salt StopAssessmentRun' {..} =

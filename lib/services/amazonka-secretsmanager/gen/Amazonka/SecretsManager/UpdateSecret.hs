@@ -327,7 +327,7 @@ updateSecret_secretId = Lens.lens (\UpdateSecret' {secretId} -> secretId) (\s@Up
 
 instance Core.AWSRequest UpdateSecret where
   type AWSResponse UpdateSecret = UpdateSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -337,6 +337,9 @@ instance Core.AWSRequest UpdateSecret where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSecret where
   hashWithSalt _salt UpdateSecret' {..} =

@@ -118,12 +118,15 @@ instance Core.AWSRequest DeleteVaultNotifications where
   type
     AWSResponse DeleteVaultNotifications =
       DeleteVaultNotificationsResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteVaultNotificationsResponse'
+
+instance Core.AWSService DeleteVaultNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVaultNotifications where
   hashWithSalt _salt DeleteVaultNotifications' {..} =

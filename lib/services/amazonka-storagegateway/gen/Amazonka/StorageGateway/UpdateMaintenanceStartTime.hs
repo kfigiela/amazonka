@@ -162,7 +162,7 @@ instance Core.AWSRequest UpdateMaintenanceStartTime where
   type
     AWSResponse UpdateMaintenanceStartTime =
       UpdateMaintenanceStartTimeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest UpdateMaintenanceStartTime where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMaintenanceStartTime where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMaintenanceStartTime where
   hashWithSalt _salt UpdateMaintenanceStartTime' {..} =

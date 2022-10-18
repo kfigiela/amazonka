@@ -96,7 +96,7 @@ instance Core.AWSRequest ContainsPiiEntities where
   type
     AWSResponse ContainsPiiEntities =
       ContainsPiiEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest ContainsPiiEntities where
             Prelude.<$> (x Core..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ContainsPiiEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ContainsPiiEntities where
   hashWithSalt _salt ContainsPiiEntities' {..} =

@@ -154,13 +154,16 @@ instance Core.AWSRequest SendAutomationSignal where
   type
     AWSResponse SendAutomationSignal =
       SendAutomationSignalResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendAutomationSignalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendAutomationSignal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendAutomationSignal where
   hashWithSalt _salt SendAutomationSignal' {..} =

@@ -152,7 +152,7 @@ instance Core.AWSRequest CreatePlatformVersion where
   type
     AWSResponse CreatePlatformVersion =
       CreatePlatformVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreatePlatformVersionResult"
@@ -162,6 +162,9 @@ instance Core.AWSRequest CreatePlatformVersion where
             Prelude.<*> (x Core..@? "Builder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePlatformVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePlatformVersion where
   hashWithSalt _salt CreatePlatformVersion' {..} =

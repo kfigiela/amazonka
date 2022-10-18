@@ -127,13 +127,16 @@ instance Core.AWSRequest AssociateDRTRole where
   type
     AWSResponse AssociateDRTRole =
       AssociateDRTRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDRTRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateDRTRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateDRTRole where
   hashWithSalt _salt AssociateDRTRole' {..} =

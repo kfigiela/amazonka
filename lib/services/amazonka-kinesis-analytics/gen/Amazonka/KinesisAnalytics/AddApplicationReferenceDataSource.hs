@@ -166,13 +166,19 @@ instance
   type
     AWSResponse AddApplicationReferenceDataSource =
       AddApplicationReferenceDataSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationReferenceDataSourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AddApplicationReferenceDataSource
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

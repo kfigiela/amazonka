@@ -99,9 +99,12 @@ instance Core.AWSRequest DeleteVpnGateway where
   type
     AWSResponse DeleteVpnGateway =
       DeleteVpnGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteVpnGatewayResponse'
+
+instance Core.AWSService DeleteVpnGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVpnGateway where
   hashWithSalt _salt DeleteVpnGateway' {..} =

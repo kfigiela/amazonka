@@ -63,7 +63,7 @@ instance Core.AWSRequest GetMasterAccount where
   type
     AWSResponse GetMasterAccount =
       GetMasterAccountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest GetMasterAccount where
             Prelude.<$> (x Core..?> "master")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMasterAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMasterAccount where
   hashWithSalt _salt _ =

@@ -174,7 +174,7 @@ instance Core.AWSRequest UpdateEventDataStore where
   type
     AWSResponse UpdateEventDataStore =
       UpdateEventDataStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest UpdateEventDataStore where
             Prelude.<*> (x Core..?> "TerminationProtectionEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEventDataStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEventDataStore where
   hashWithSalt _salt UpdateEventDataStore' {..} =

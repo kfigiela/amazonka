@@ -113,9 +113,12 @@ instance Core.AWSRequest DeleteComment where
   type
     AWSResponse DeleteComment =
       DeleteCommentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteCommentResponse'
+
+instance Core.AWSService DeleteComment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteComment where
   hashWithSalt _salt DeleteComment' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest GetDecoderManifest where
   type
     AWSResponse GetDecoderManifest =
       GetDecoderManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetDecoderManifest where
             Prelude.<*> (x Core..:> "creationTime")
             Prelude.<*> (x Core..:> "lastModificationTime")
       )
+
+instance Core.AWSService GetDecoderManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDecoderManifest where
   hashWithSalt _salt GetDecoderManifest' {..} =

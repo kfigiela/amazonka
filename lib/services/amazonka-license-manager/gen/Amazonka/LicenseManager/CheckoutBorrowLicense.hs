@@ -155,7 +155,7 @@ instance Core.AWSRequest CheckoutBorrowLicense where
   type
     AWSResponse CheckoutBorrowLicense =
       CheckoutBorrowLicenseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest CheckoutBorrowLicense where
             Prelude.<*> (x Core..?> "IssuedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CheckoutBorrowLicense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckoutBorrowLicense where
   hashWithSalt _salt CheckoutBorrowLicense' {..} =

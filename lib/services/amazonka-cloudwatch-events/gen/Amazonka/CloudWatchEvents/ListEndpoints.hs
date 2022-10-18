@@ -132,7 +132,7 @@ instance Core.AWSRequest ListEndpoints where
   type
     AWSResponse ListEndpoints =
       ListEndpointsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListEndpoints where
             Prelude.<*> (x Core..?> "Endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEndpoints where
   hashWithSalt _salt ListEndpoints' {..} =

@@ -93,7 +93,7 @@ instance Core.AWSRequest PutApplicationPolicy where
   type
     AWSResponse PutApplicationPolicy =
       PutApplicationPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest PutApplicationPolicy where
             Prelude.<$> (x Core..?> "statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutApplicationPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutApplicationPolicy where
   hashWithSalt _salt PutApplicationPolicy' {..} =

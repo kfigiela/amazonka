@@ -81,7 +81,7 @@ instance Core.AWSRequest GetCatalogImportStatus where
   type
     AWSResponse GetCatalogImportStatus =
       GetCatalogImportStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetCatalogImportStatus where
             Prelude.<$> (x Core..?> "ImportStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCatalogImportStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCatalogImportStatus where
   hashWithSalt _salt GetCatalogImportStatus' {..} =

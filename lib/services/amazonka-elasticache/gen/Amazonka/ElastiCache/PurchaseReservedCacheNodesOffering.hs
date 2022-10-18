@@ -157,7 +157,7 @@ instance
   type
     AWSResponse PurchaseReservedCacheNodesOffering =
       PurchaseReservedCacheNodesOfferingResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PurchaseReservedCacheNodesOfferingResult"
@@ -166,6 +166,12 @@ instance
             Prelude.<$> (x Core..@? "ReservedCacheNode")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PurchaseReservedCacheNodesOffering
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

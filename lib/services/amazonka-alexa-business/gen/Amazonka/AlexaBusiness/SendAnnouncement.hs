@@ -128,7 +128,7 @@ instance Core.AWSRequest SendAnnouncement where
   type
     AWSResponse SendAnnouncement =
       SendAnnouncementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest SendAnnouncement where
             Prelude.<$> (x Core..?> "AnnouncementArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendAnnouncement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendAnnouncement where
   hashWithSalt _salt SendAnnouncement' {..} =

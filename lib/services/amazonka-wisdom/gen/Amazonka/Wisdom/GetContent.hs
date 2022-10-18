@@ -95,7 +95,7 @@ getContent_knowledgeBaseId = Lens.lens (\GetContent' {knowledgeBaseId} -> knowle
 
 instance Core.AWSRequest GetContent where
   type AWSResponse GetContent = GetContentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetContent where
             Prelude.<$> (x Core..?> "content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContent where
   hashWithSalt _salt GetContent' {..} =

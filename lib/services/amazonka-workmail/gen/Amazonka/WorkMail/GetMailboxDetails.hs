@@ -97,7 +97,7 @@ instance Core.AWSRequest GetMailboxDetails where
   type
     AWSResponse GetMailboxDetails =
       GetMailboxDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetMailboxDetails where
             Prelude.<*> (x Core..?> "MailboxSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMailboxDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMailboxDetails where
   hashWithSalt _salt GetMailboxDetails' {..} =

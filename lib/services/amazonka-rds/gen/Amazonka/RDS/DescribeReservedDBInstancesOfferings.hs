@@ -261,7 +261,7 @@ instance
   type
     AWSResponse DescribeReservedDBInstancesOfferings =
       DescribeReservedDBInstancesOfferingsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedDBInstancesOfferingsResult"
@@ -275,6 +275,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeReservedDBInstancesOfferings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -157,7 +157,7 @@ instance Core.AWSRequest ListDatasetContents where
   type
     AWSResponse ListDatasetContents =
       ListDatasetContentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListDatasetContents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatasetContents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatasetContents where
   hashWithSalt _salt ListDatasetContents' {..} =

@@ -117,7 +117,7 @@ instance Core.AWSRequest ListBootstrapActions where
   type
     AWSResponse ListBootstrapActions =
       ListBootstrapActionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListBootstrapActions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBootstrapActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBootstrapActions where
   hashWithSalt _salt ListBootstrapActions' {..} =

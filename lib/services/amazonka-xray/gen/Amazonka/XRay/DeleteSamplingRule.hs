@@ -93,7 +93,7 @@ instance Core.AWSRequest DeleteSamplingRule where
   type
     AWSResponse DeleteSamplingRule =
       DeleteSamplingRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteSamplingRule where
             Prelude.<$> (x Core..?> "SamplingRuleRecord")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSamplingRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSamplingRule where
   hashWithSalt _salt DeleteSamplingRule' {..} =

@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteDeviceProfile where
   type
     AWSResponse DeleteDeviceProfile =
       DeleteDeviceProfileResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDeviceProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDeviceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDeviceProfile where
   hashWithSalt _salt DeleteDeviceProfile' {..} =

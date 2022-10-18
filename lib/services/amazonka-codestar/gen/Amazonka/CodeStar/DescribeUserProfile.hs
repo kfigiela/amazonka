@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeUserProfile where
   type
     AWSResponse DescribeUserProfile =
       DescribeUserProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeUserProfile where
             Prelude.<*> (x Core..:> "createdTimestamp")
             Prelude.<*> (x Core..:> "lastModifiedTimestamp")
       )
+
+instance Core.AWSService DescribeUserProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUserProfile where
   hashWithSalt _salt DescribeUserProfile' {..} =

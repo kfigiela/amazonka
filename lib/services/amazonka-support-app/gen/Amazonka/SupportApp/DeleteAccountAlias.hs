@@ -63,13 +63,16 @@ instance Core.AWSRequest DeleteAccountAlias where
   type
     AWSResponse DeleteAccountAlias =
       DeleteAccountAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAccountAliasResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccountAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccountAlias where
   hashWithSalt _salt _ =

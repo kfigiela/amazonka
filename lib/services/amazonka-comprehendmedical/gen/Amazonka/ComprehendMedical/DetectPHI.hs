@@ -85,7 +85,7 @@ detectPHI_text = Lens.lens (\DetectPHI' {text} -> text) (\s@DetectPHI' {} a -> s
 
 instance Core.AWSRequest DetectPHI where
   type AWSResponse DetectPHI = DetectPHIResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DetectPHI where
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "ModelVersion")
       )
+
+instance Core.AWSService DetectPHI where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectPHI where
   hashWithSalt _salt DetectPHI' {..} =

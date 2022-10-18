@@ -175,7 +175,7 @@ instance Core.AWSRequest UpdateGlobalTableSettings where
   type
     AWSResponse UpdateGlobalTableSettings =
       UpdateGlobalTableSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest UpdateGlobalTableSettings where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGlobalTableSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGlobalTableSettings where
   hashWithSalt _salt UpdateGlobalTableSettings' {..} =

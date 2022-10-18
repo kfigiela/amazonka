@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteLayerVersion where
   type
     AWSResponse DeleteLayerVersion =
       DeleteLayerVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteLayerVersionResponse'
+
+instance Core.AWSService DeleteLayerVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLayerVersion where
   hashWithSalt _salt DeleteLayerVersion' {..} =

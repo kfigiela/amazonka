@@ -106,10 +106,13 @@ instance Core.AWSRequest UpdateUserSecurityProfiles where
   type
     AWSResponse UpdateUserSecurityProfiles =
       UpdateUserSecurityProfilesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserSecurityProfilesResponse'
+
+instance Core.AWSService UpdateUserSecurityProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserSecurityProfiles where
   hashWithSalt _salt UpdateUserSecurityProfiles' {..} =

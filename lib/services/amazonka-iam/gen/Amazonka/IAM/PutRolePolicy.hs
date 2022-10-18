@@ -208,9 +208,12 @@ instance Core.AWSRequest PutRolePolicy where
   type
     AWSResponse PutRolePolicy =
       PutRolePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutRolePolicyResponse'
+
+instance Core.AWSService PutRolePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRolePolicy where
   hashWithSalt _salt PutRolePolicy' {..} =

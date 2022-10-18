@@ -138,7 +138,7 @@ createScene_workspaceId = Lens.lens (\CreateScene' {workspaceId} -> workspaceId)
 
 instance Core.AWSRequest CreateScene where
   type AWSResponse CreateScene = CreateSceneResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest CreateScene where
             Prelude.<*> (x Core..:> "arn")
             Prelude.<*> (x Core..:> "creationDateTime")
       )
+
+instance Core.AWSService CreateScene where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateScene where
   hashWithSalt _salt CreateScene' {..} =

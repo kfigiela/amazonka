@@ -130,12 +130,15 @@ describeVault_vaultName = Lens.lens (\DescribeVault' {vaultName} -> vaultName) (
 
 instance Core.AWSRequest DescribeVault where
   type AWSResponse DescribeVault = DescribeVaultOutput
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DescribeVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVault where
   hashWithSalt _salt DescribeVault' {..} =

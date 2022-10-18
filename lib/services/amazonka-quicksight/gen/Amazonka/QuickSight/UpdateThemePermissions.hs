@@ -157,7 +157,7 @@ instance Core.AWSRequest UpdateThemePermissions where
   type
     AWSResponse UpdateThemePermissions =
       UpdateThemePermissionsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest UpdateThemePermissions where
             Prelude.<*> (x Core..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateThemePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThemePermissions where
   hashWithSalt _salt UpdateThemePermissions' {..} =

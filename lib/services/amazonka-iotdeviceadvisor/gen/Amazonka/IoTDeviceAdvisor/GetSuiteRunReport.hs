@@ -97,7 +97,7 @@ instance Core.AWSRequest GetSuiteRunReport where
   type
     AWSResponse GetSuiteRunReport =
       GetSuiteRunReportResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetSuiteRunReport where
             Prelude.<$> (x Core..?> "qualificationReportDownloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSuiteRunReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSuiteRunReport where
   hashWithSalt _salt GetSuiteRunReport' {..} =

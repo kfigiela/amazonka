@@ -459,7 +459,7 @@ instance Core.AWSRequest CreateMLTransform where
   type
     AWSResponse CreateMLTransform =
       CreateMLTransformResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -467,6 +467,9 @@ instance Core.AWSRequest CreateMLTransform where
             Prelude.<$> (x Core..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMLTransform where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMLTransform where
   hashWithSalt _salt CreateMLTransform' {..} =

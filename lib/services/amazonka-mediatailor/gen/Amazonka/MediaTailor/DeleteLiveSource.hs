@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteLiveSource where
   type
     AWSResponse DeleteLiveSource =
       DeleteLiveSourceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLiveSourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLiveSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLiveSource where
   hashWithSalt _salt DeleteLiveSource' {..} =

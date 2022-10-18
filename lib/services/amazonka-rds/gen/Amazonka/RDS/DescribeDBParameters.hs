@@ -198,7 +198,7 @@ instance Core.AWSRequest DescribeDBParameters where
   type
     AWSResponse DescribeDBParameters =
       DescribeDBParametersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBParametersResult"
@@ -210,6 +210,9 @@ instance Core.AWSRequest DescribeDBParameters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBParameters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBParameters where
   hashWithSalt _salt DescribeDBParameters' {..} =

@@ -115,7 +115,7 @@ instance Core.AWSRequest AddResourcePermissions where
   type
     AWSResponse AddResourcePermissions =
       AddResourcePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest AddResourcePermissions where
             Prelude.<$> (x Core..?> "ShareResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddResourcePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddResourcePermissions where
   hashWithSalt _salt AddResourcePermissions' {..} =

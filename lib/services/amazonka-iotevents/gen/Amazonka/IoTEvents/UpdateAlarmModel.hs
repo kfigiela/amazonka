@@ -170,7 +170,7 @@ instance Core.AWSRequest UpdateAlarmModel where
   type
     AWSResponse UpdateAlarmModel =
       UpdateAlarmModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest UpdateAlarmModel where
             Prelude.<*> (x Core..?> "lastUpdateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAlarmModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAlarmModel where
   hashWithSalt _salt UpdateAlarmModel' {..} =

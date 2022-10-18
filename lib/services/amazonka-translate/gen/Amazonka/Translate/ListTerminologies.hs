@@ -115,7 +115,7 @@ instance Core.AWSRequest ListTerminologies where
   type
     AWSResponse ListTerminologies =
       ListTerminologiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListTerminologies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTerminologies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTerminologies where
   hashWithSalt _salt ListTerminologies' {..} =

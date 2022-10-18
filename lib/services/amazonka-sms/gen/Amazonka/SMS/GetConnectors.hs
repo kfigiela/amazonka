@@ -116,7 +116,7 @@ instance Core.AWSRequest GetConnectors where
   type
     AWSResponse GetConnectors =
       GetConnectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetConnectors where
             Prelude.<*> (x Core..?> "connectorList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConnectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConnectors where
   hashWithSalt _salt GetConnectors' {..} =

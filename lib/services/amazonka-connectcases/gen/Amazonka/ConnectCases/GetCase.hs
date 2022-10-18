@@ -120,7 +120,7 @@ getCase_fields = Lens.lens (\GetCase' {fields} -> fields) (\s@GetCase' {} a -> s
 
 instance Core.AWSRequest GetCase where
   type AWSResponse GetCase = GetCaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetCase where
             Prelude.<*> (x Core..?> "fields" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "templateId")
       )
+
+instance Core.AWSService GetCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCase where
   hashWithSalt _salt GetCase' {..} =

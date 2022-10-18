@@ -212,13 +212,16 @@ instance Core.AWSRequest CreateProtectionGroup where
   type
     AWSResponse CreateProtectionGroup =
       CreateProtectionGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateProtectionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProtectionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProtectionGroup where
   hashWithSalt _salt CreateProtectionGroup' {..} =

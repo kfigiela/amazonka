@@ -103,7 +103,7 @@ exportBundle_bundleId = Lens.lens (\ExportBundle' {bundleId} -> bundleId) (\s@Ex
 
 instance Core.AWSRequest ExportBundle where
   type AWSResponse ExportBundle = ExportBundleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest ExportBundle where
             Prelude.<$> (x Core..?> "downloadUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportBundle where
   hashWithSalt _salt ExportBundle' {..} =

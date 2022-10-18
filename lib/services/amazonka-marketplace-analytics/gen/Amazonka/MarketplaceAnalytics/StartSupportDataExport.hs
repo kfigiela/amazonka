@@ -238,7 +238,7 @@ instance Core.AWSRequest StartSupportDataExport where
   type
     AWSResponse StartSupportDataExport =
       StartSupportDataExportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -246,6 +246,9 @@ instance Core.AWSRequest StartSupportDataExport where
             Prelude.<$> (x Core..?> "dataSetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSupportDataExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSupportDataExport where
   hashWithSalt _salt StartSupportDataExport' {..} =

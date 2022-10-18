@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeEntitiesDetectionJob where
   type
     AWSResponse DescribeEntitiesDetectionJob =
       DescribeEntitiesDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeEntitiesDetectionJob where
             Prelude.<$> (x Core..?> "EntitiesDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEntitiesDetectionJob where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -105,7 +105,7 @@ instance Core.AWSRequest ConfigureLogs where
   type
     AWSResponse ConfigureLogs =
       ConfigureLogsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ConfigureLogs where
             Prelude.<*> (x Core..?> "hlsIngest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfigureLogs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfigureLogs where
   hashWithSalt _salt ConfigureLogs' {..} =

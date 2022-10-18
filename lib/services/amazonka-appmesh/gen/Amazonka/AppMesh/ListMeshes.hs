@@ -145,7 +145,7 @@ instance Core.AWSPager ListMeshes where
 
 instance Core.AWSRequest ListMeshes where
   type AWSResponse ListMeshes = ListMeshesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListMeshes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "meshes" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListMeshes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMeshes where
   hashWithSalt _salt ListMeshes' {..} =

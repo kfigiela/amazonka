@@ -155,7 +155,7 @@ instance Core.AWSRequest ListAccessPreviewFindings where
   type
     AWSResponse ListAccessPreviewFindings =
       ListAccessPreviewFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest ListAccessPreviewFindings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListAccessPreviewFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccessPreviewFindings where
   hashWithSalt _salt ListAccessPreviewFindings' {..} =

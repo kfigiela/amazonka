@@ -66,7 +66,7 @@ instance Core.AWSRequest DescribeMyUserProfile where
   type
     AWSResponse DescribeMyUserProfile =
       DescribeMyUserProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest DescribeMyUserProfile where
             Prelude.<$> (x Core..?> "UserProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMyUserProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMyUserProfile where
   hashWithSalt _salt _ =

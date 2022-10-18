@@ -278,10 +278,16 @@ instance
   type
     AWSResponse SetPlatformApplicationAttributes =
       SetPlatformApplicationAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SetPlatformApplicationAttributesResponse'
+
+instance
+  Core.AWSService
+    SetPlatformApplicationAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

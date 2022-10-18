@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteDedicatedIpPool where
   type
     AWSResponse DeleteDedicatedIpPool =
       DeleteDedicatedIpPoolResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDedicatedIpPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDedicatedIpPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDedicatedIpPool where
   hashWithSalt _salt DeleteDedicatedIpPool' {..} =

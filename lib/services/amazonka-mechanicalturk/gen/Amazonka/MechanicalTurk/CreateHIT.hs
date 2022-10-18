@@ -450,7 +450,7 @@ createHIT_description = Lens.lens (\CreateHIT' {description} -> description) (\s
 
 instance Core.AWSRequest CreateHIT where
   type AWSResponse CreateHIT = CreateHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -458,6 +458,9 @@ instance Core.AWSRequest CreateHIT where
             Prelude.<$> (x Core..?> "HIT")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHIT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHIT where
   hashWithSalt _salt CreateHIT' {..} =

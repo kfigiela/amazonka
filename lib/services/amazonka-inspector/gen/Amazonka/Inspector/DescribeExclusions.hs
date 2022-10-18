@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeExclusions where
   type
     AWSResponse DescribeExclusions =
       DescribeExclusionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeExclusions where
             Prelude.<*> (x Core..?> "exclusions" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeExclusions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExclusions where
   hashWithSalt _salt DescribeExclusions' {..} =

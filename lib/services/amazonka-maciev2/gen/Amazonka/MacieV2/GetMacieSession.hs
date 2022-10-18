@@ -66,7 +66,7 @@ instance Core.AWSRequest GetMacieSession where
   type
     AWSResponse GetMacieSession =
       GetMacieSessionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -78,6 +78,9 @@ instance Core.AWSRequest GetMacieSession where
             Prelude.<*> (x Core..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMacieSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMacieSession where
   hashWithSalt _salt _ =

@@ -104,13 +104,16 @@ instance Core.AWSRequest UpdateContactChannel where
   type
     AWSResponse UpdateContactChannel =
       UpdateContactChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateContactChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContactChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContactChannel where
   hashWithSalt _salt UpdateContactChannel' {..} =

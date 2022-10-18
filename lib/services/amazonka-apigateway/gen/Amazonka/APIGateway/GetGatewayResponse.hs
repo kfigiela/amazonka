@@ -96,10 +96,13 @@ getGatewayResponse_responseType = Lens.lens (\GetGatewayResponse' {responseType}
 
 instance Core.AWSRequest GetGatewayResponse where
   type AWSResponse GetGatewayResponse = GatewayResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetGatewayResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGatewayResponse where
   hashWithSalt _salt GetGatewayResponse' {..} =

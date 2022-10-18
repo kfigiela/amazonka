@@ -119,10 +119,13 @@ instance Core.AWSRequest SetTerminationProtection where
   type
     AWSResponse SetTerminationProtection =
       SetTerminationProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       SetTerminationProtectionResponse'
+
+instance Core.AWSService SetTerminationProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTerminationProtection where
   hashWithSalt _salt SetTerminationProtection' {..} =

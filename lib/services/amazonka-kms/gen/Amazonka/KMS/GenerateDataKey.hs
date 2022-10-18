@@ -378,7 +378,7 @@ instance Core.AWSRequest GenerateDataKey where
   type
     AWSResponse GenerateDataKey =
       GenerateDataKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -388,6 +388,9 @@ instance Core.AWSRequest GenerateDataKey where
             Prelude.<*> (x Core..:> "Plaintext")
             Prelude.<*> (x Core..:> "CiphertextBlob")
       )
+
+instance Core.AWSService GenerateDataKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateDataKey where
   hashWithSalt _salt GenerateDataKey' {..} =

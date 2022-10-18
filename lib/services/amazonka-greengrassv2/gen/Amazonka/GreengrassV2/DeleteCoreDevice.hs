@@ -81,9 +81,12 @@ instance Core.AWSRequest DeleteCoreDevice where
   type
     AWSResponse DeleteCoreDevice =
       DeleteCoreDeviceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteCoreDeviceResponse'
+
+instance Core.AWSService DeleteCoreDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCoreDevice where
   hashWithSalt _salt DeleteCoreDevice' {..} =

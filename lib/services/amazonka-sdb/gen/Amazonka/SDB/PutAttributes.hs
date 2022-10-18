@@ -151,9 +151,12 @@ instance Core.AWSRequest PutAttributes where
   type
     AWSResponse PutAttributes =
       PutAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutAttributesResponse'
+
+instance Core.AWSService PutAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAttributes where
   hashWithSalt _salt PutAttributes' {..} =

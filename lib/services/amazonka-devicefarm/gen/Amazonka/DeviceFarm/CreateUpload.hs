@@ -332,7 +332,7 @@ createUpload_type = Lens.lens (\CreateUpload' {type'} -> type') (\s@CreateUpload
 
 instance Core.AWSRequest CreateUpload where
   type AWSResponse CreateUpload = CreateUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -340,6 +340,9 @@ instance Core.AWSRequest CreateUpload where
             Prelude.<$> (x Core..?> "upload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUpload where
   hashWithSalt _salt CreateUpload' {..} =

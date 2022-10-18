@@ -154,7 +154,7 @@ instance Core.AWSRequest DescribeConfigurationOptions where
   type
     AWSResponse DescribeConfigurationOptions =
       DescribeConfigurationOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeConfigurationOptionsResult"
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeConfigurationOptions where
             Prelude.<*> (x Core..@? "PlatformArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConfigurationOptions where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

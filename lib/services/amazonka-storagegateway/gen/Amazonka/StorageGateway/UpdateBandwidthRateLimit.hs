@@ -119,7 +119,7 @@ instance Core.AWSRequest UpdateBandwidthRateLimit where
   type
     AWSResponse UpdateBandwidthRateLimit =
       UpdateBandwidthRateLimitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateBandwidthRateLimit where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBandwidthRateLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBandwidthRateLimit where
   hashWithSalt _salt UpdateBandwidthRateLimit' {..} =

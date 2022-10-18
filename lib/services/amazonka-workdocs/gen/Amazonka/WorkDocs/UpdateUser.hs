@@ -165,7 +165,7 @@ updateUser_userId = Lens.lens (\UpdateUser' {userId} -> userId) (\s@UpdateUser' 
 
 instance Core.AWSRequest UpdateUser where
   type AWSResponse UpdateUser = UpdateUserResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest UpdateUser where
             Prelude.<$> (x Core..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUser where
   hashWithSalt _salt UpdateUser' {..} =

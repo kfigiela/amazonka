@@ -95,10 +95,13 @@ instance Core.AWSRequest DeleteHoursOfOperation where
   type
     AWSResponse DeleteHoursOfOperation =
       DeleteHoursOfOperationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteHoursOfOperationResponse'
+
+instance Core.AWSService DeleteHoursOfOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHoursOfOperation where
   hashWithSalt _salt DeleteHoursOfOperation' {..} =

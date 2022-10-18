@@ -121,7 +121,7 @@ instance Core.AWSRequest UpdateClusterKafkaVersion where
   type
     AWSResponse UpdateClusterKafkaVersion =
       UpdateClusterKafkaVersionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest UpdateClusterKafkaVersion where
             Prelude.<*> (x Core..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateClusterKafkaVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateClusterKafkaVersion where
   hashWithSalt _salt UpdateClusterKafkaVersion' {..} =

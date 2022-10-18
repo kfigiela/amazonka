@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeTargetHealth where
   type
     AWSResponse DescribeTargetHealth =
       DescribeTargetHealthResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTargetHealthResult"
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeTargetHealth where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTargetHealth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTargetHealth where
   hashWithSalt _salt DescribeTargetHealth' {..} =

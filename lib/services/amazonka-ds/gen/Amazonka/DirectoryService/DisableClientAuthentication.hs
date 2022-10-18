@@ -95,13 +95,16 @@ instance Core.AWSRequest DisableClientAuthentication where
   type
     AWSResponse DisableClientAuthentication =
       DisableClientAuthenticationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableClientAuthenticationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableClientAuthentication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableClientAuthentication where
   hashWithSalt _salt DisableClientAuthentication' {..} =

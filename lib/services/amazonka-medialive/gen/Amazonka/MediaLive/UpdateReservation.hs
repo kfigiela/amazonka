@@ -101,7 +101,7 @@ instance Core.AWSRequest UpdateReservation' where
   type
     AWSResponse UpdateReservation' =
       UpdateReservationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateReservation' where
             Prelude.<$> (x Core..?> "reservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReservation' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReservation' where
   hashWithSalt _salt UpdateReservation'' {..} =

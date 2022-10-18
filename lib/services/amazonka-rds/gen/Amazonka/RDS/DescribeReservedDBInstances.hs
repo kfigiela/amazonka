@@ -276,7 +276,7 @@ instance Core.AWSRequest DescribeReservedDBInstances where
   type
     AWSResponse DescribeReservedDBInstances =
       DescribeReservedDBInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedDBInstancesResult"
@@ -289,6 +289,9 @@ instance Core.AWSRequest DescribeReservedDBInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReservedDBInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReservedDBInstances where
   hashWithSalt _salt DescribeReservedDBInstances' {..} =

@@ -88,10 +88,16 @@ instance
   type
     AWSResponse DeleteBackupVaultAccessPolicy =
       DeleteBackupVaultAccessPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteBackupVaultAccessPolicyResponse'
+
+instance
+  Core.AWSService
+    DeleteBackupVaultAccessPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

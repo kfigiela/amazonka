@@ -92,7 +92,7 @@ instance Core.AWSRequest GetDashboardForJobRun where
   type
     AWSResponse GetDashboardForJobRun =
       GetDashboardForJobRunResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetDashboardForJobRun where
             Prelude.<$> (x Core..?> "url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDashboardForJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDashboardForJobRun where
   hashWithSalt _salt GetDashboardForJobRun' {..} =

@@ -152,7 +152,7 @@ describeSlot_intentId = Lens.lens (\DescribeSlot' {intentId} -> intentId) (\s@De
 
 instance Core.AWSRequest DescribeSlot where
   type AWSResponse DescribeSlot = DescribeSlotResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest DescribeSlot where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSlot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSlot where
   hashWithSalt _salt DescribeSlot' {..} =

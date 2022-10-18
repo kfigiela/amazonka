@@ -119,7 +119,7 @@ instance Core.AWSRequest UpdateDistributionBundle where
   type
     AWSResponse UpdateDistributionBundle =
       UpdateDistributionBundleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateDistributionBundle where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDistributionBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDistributionBundle where
   hashWithSalt _salt UpdateDistributionBundle' {..} =

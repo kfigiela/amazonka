@@ -97,13 +97,16 @@ updateRadius_radiusSettings = Lens.lens (\UpdateRadius' {radiusSettings} -> radi
 
 instance Core.AWSRequest UpdateRadius where
   type AWSResponse UpdateRadius = UpdateRadiusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateRadiusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRadius where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRadius where
   hashWithSalt _salt UpdateRadius' {..} =

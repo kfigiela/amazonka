@@ -122,7 +122,7 @@ instance Core.AWSRequest GetPasswordData where
   type
     AWSResponse GetPasswordData =
       GetPasswordDataResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GetPasswordData where
             Prelude.<*> (x Core..@ "passwordData")
             Prelude.<*> (x Core..@ "timestamp")
       )
+
+instance Core.AWSService GetPasswordData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPasswordData where
   hashWithSalt _salt GetPasswordData' {..} =

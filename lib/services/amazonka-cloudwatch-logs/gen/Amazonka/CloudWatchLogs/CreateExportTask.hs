@@ -199,7 +199,7 @@ instance Core.AWSRequest CreateExportTask where
   type
     AWSResponse CreateExportTask =
       CreateExportTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest CreateExportTask where
             Prelude.<$> (x Core..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateExportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExportTask where
   hashWithSalt _salt CreateExportTask' {..} =

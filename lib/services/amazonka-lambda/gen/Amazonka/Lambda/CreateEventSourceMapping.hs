@@ -563,10 +563,13 @@ instance Core.AWSRequest CreateEventSourceMapping where
   type
     AWSResponse CreateEventSourceMapping =
       EventSourceMappingConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateEventSourceMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEventSourceMapping where
   hashWithSalt _salt CreateEventSourceMapping' {..} =

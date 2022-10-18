@@ -130,7 +130,7 @@ instance Core.AWSRequest DeactivateType where
   type
     AWSResponse DeactivateType =
       DeactivateTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeactivateTypeResult"
@@ -138,6 +138,9 @@ instance Core.AWSRequest DeactivateType where
           DeactivateTypeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeactivateType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateType where
   hashWithSalt _salt DeactivateType' {..} =

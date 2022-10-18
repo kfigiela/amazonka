@@ -194,7 +194,7 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
   type
     AWSResponse ListQueryLoggingConfigs =
       ListQueryLoggingConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest ListQueryLoggingConfigs where
                             Prelude.>>= Core.parseXMLList "QueryLoggingConfig"
                         )
       )
+
+instance Core.AWSService ListQueryLoggingConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListQueryLoggingConfigs where
   hashWithSalt _salt ListQueryLoggingConfigs' {..} =

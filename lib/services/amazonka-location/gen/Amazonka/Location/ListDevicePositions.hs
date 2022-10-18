@@ -136,7 +136,7 @@ instance Core.AWSRequest ListDevicePositions where
   type
     AWSResponse ListDevicePositions =
       ListDevicePositionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest ListDevicePositions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListDevicePositions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDevicePositions where
   hashWithSalt _salt ListDevicePositions' {..} =

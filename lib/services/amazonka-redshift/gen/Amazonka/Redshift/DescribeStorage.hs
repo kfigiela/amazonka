@@ -62,7 +62,7 @@ instance Core.AWSRequest DescribeStorage where
   type
     AWSResponse DescribeStorage =
       DescribeStorageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStorageResult"
@@ -72,6 +72,9 @@ instance Core.AWSRequest DescribeStorage where
             Prelude.<*> (x Core..@? "TotalProvisionedStorageInMegaBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStorage where
   hashWithSalt _salt _ =

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetThingRuntimeConfiguration where
   type
     AWSResponse GetThingRuntimeConfiguration =
       GetThingRuntimeConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetThingRuntimeConfiguration where
             Prelude.<$> (x Core..?> "RuntimeConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetThingRuntimeConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

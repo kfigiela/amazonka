@@ -123,7 +123,7 @@ instance
     AWSResponse
       CreateConfigurationSetEventDestination =
       CreateConfigurationSetEventDestinationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateConfigurationSetEventDestinationResult"
@@ -131,6 +131,12 @@ instance
           CreateConfigurationSetEventDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateConfigurationSetEventDestination
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

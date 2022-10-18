@@ -131,7 +131,7 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
   type
     AWSResponse MoveByoipCidrToIpam =
       MoveByoipCidrToIpamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest MoveByoipCidrToIpam where
             Prelude.<$> (x Core..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MoveByoipCidrToIpam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MoveByoipCidrToIpam where
   hashWithSalt _salt MoveByoipCidrToIpam' {..} =

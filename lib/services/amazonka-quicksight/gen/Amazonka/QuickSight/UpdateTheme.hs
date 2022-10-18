@@ -153,7 +153,7 @@ updateTheme_baseThemeId = Lens.lens (\UpdateTheme' {baseThemeId} -> baseThemeId)
 
 instance Core.AWSRequest UpdateTheme where
   type AWSResponse UpdateTheme = UpdateThemeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest UpdateTheme where
             Prelude.<*> (x Core..?> "ThemeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTheme where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTheme where
   hashWithSalt _salt UpdateTheme' {..} =

@@ -82,13 +82,16 @@ instance Core.AWSRequest RemoveManagedScalingPolicy where
   type
     AWSResponse RemoveManagedScalingPolicy =
       RemoveManagedScalingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveManagedScalingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveManagedScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveManagedScalingPolicy where
   hashWithSalt _salt RemoveManagedScalingPolicy' {..} =

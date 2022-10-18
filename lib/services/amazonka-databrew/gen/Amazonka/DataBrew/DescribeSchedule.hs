@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeSchedule where
   type
     AWSResponse DescribeSchedule =
       DescribeScheduleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeSchedule where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService DescribeSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSchedule where
   hashWithSalt _salt DescribeSchedule' {..} =

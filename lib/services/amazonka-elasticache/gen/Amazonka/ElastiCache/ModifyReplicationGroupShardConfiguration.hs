@@ -222,7 +222,7 @@ instance
     AWSResponse
       ModifyReplicationGroupShardConfiguration =
       ModifyReplicationGroupShardConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyReplicationGroupShardConfigurationResult"
@@ -231,6 +231,12 @@ instance
             Prelude.<$> (x Core..@? "ReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyReplicationGroupShardConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -84,7 +84,7 @@ instance Core.AWSRequest BatchGetOnPremisesInstances where
   type
     AWSResponse BatchGetOnPremisesInstances =
       BatchGetOnPremisesInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest BatchGetOnPremisesInstances where
             Prelude.<$> (x Core..?> "instanceInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetOnPremisesInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetOnPremisesInstances where
   hashWithSalt _salt BatchGetOnPremisesInstances' {..} =

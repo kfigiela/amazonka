@@ -119,7 +119,7 @@ instance Core.AWSRequest DeleteVpcEndpoints where
   type
     AWSResponse DeleteVpcEndpoints =
       DeleteVpcEndpointsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DeleteVpcEndpoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVpcEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVpcEndpoints where
   hashWithSalt _salt DeleteVpcEndpoints' {..} =

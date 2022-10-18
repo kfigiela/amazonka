@@ -219,7 +219,7 @@ instance Core.AWSRequest CreateNetworkProfile where
   type
     AWSResponse CreateNetworkProfile =
       CreateNetworkProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -227,6 +227,9 @@ instance Core.AWSRequest CreateNetworkProfile where
             Prelude.<$> (x Core..?> "networkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNetworkProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNetworkProfile where
   hashWithSalt _salt CreateNetworkProfile' {..} =

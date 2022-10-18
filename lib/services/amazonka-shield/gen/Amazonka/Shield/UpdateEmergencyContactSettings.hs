@@ -101,13 +101,19 @@ instance
   type
     AWSResponse UpdateEmergencyContactSettings =
       UpdateEmergencyContactSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEmergencyContactSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateEmergencyContactSettings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

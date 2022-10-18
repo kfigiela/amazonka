@@ -241,7 +241,7 @@ instance Core.AWSRequest PutSnapshotBlock where
   type
     AWSResponse PutSnapshotBlock =
       PutSnapshotBlockResponse
-  request = Request.putBody defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest PutSnapshotBlock where
             Prelude.<*> (h Core..#? "x-amz-Checksum")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSnapshotBlock where
+  service _proxy = defaultService
 
 instance Core.ToBody PutSnapshotBlock where
   toBody PutSnapshotBlock' {..} = Core.toBody blockData

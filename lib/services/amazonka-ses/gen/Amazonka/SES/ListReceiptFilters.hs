@@ -72,7 +72,7 @@ instance Core.AWSRequest ListReceiptFilters where
   type
     AWSResponse ListReceiptFilters =
       ListReceiptFiltersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListReceiptFiltersResult"
@@ -83,6 +83,9 @@ instance Core.AWSRequest ListReceiptFilters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReceiptFilters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReceiptFilters where
   hashWithSalt _salt _ =

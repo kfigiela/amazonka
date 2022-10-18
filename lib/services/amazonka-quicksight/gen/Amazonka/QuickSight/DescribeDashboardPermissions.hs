@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeDashboardPermissions where
   type
     AWSResponse DescribeDashboardPermissions =
       DescribeDashboardPermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeDashboardPermissions where
             Prelude.<*> (x Core..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDashboardPermissions where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

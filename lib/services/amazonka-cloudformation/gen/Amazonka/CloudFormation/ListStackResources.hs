@@ -146,7 +146,7 @@ instance Core.AWSRequest ListStackResources where
   type
     AWSResponse ListStackResources =
       ListStackResourcesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStackResourcesResult"
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListStackResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStackResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStackResources where
   hashWithSalt _salt ListStackResources' {..} =

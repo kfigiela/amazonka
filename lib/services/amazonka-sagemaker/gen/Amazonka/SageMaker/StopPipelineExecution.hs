@@ -126,7 +126,7 @@ instance Core.AWSRequest StopPipelineExecution where
   type
     AWSResponse StopPipelineExecution =
       StopPipelineExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest StopPipelineExecution where
             Prelude.<$> (x Core..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopPipelineExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopPipelineExecution where
   hashWithSalt _salt StopPipelineExecution' {..} =

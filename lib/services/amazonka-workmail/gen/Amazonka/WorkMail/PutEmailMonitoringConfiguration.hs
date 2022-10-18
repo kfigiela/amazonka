@@ -119,13 +119,19 @@ instance
   type
     AWSResponse PutEmailMonitoringConfiguration =
       PutEmailMonitoringConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutEmailMonitoringConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutEmailMonitoringConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

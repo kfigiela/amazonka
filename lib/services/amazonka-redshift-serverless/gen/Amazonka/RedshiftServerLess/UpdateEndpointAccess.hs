@@ -93,7 +93,7 @@ instance Core.AWSRequest UpdateEndpointAccess where
   type
     AWSResponse UpdateEndpointAccess =
       UpdateEndpointAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest UpdateEndpointAccess where
             Prelude.<$> (x Core..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEndpointAccess where
   hashWithSalt _salt UpdateEndpointAccess' {..} =

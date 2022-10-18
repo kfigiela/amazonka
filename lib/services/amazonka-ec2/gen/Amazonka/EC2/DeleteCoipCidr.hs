@@ -110,7 +110,7 @@ instance Core.AWSRequest DeleteCoipCidr where
   type
     AWSResponse DeleteCoipCidr =
       DeleteCoipCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DeleteCoipCidr where
             Prelude.<$> (x Core..@? "coipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCoipCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCoipCidr where
   hashWithSalt _salt DeleteCoipCidr' {..} =

@@ -289,7 +289,7 @@ instance Core.AWSRequest CreateForecast where
   type
     AWSResponse CreateForecast =
       CreateForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -297,6 +297,9 @@ instance Core.AWSRequest CreateForecast where
             Prelude.<$> (x Core..?> "ForecastArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateForecast where
   hashWithSalt _salt CreateForecast' {..} =

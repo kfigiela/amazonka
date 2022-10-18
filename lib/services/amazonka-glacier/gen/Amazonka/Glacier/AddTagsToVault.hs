@@ -120,11 +120,14 @@ instance Core.AWSRequest AddTagsToVault where
   type
     AWSResponse AddTagsToVault =
       AddTagsToVaultResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveNull AddTagsToVaultResponse'
+
+instance Core.AWSService AddTagsToVault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTagsToVault where
   hashWithSalt _salt AddTagsToVault' {..} =

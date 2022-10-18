@@ -118,7 +118,7 @@ instance
   type
     AWSResponse GetChannelMembershipPreferences =
       GetChannelMembershipPreferencesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,12 @@ instance
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetChannelMembershipPreferences
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

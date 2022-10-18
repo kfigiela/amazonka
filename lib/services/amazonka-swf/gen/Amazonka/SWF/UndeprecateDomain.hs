@@ -98,9 +98,12 @@ instance Core.AWSRequest UndeprecateDomain where
   type
     AWSResponse UndeprecateDomain =
       UndeprecateDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UndeprecateDomainResponse'
+
+instance Core.AWSService UndeprecateDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UndeprecateDomain where
   hashWithSalt _salt UndeprecateDomain' {..} =

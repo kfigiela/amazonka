@@ -155,7 +155,7 @@ instance Core.AWSRequest DescribeObjects where
   type
     AWSResponse DescribeObjects =
       DescribeObjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeObjects where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DescribeObjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeObjects where
   hashWithSalt _salt DescribeObjects' {..} =

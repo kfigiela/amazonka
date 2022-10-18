@@ -61,7 +61,7 @@ instance Core.AWSRequest ListSourceCredentials where
   type
     AWSResponse ListSourceCredentials =
       ListSourceCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest ListSourceCredentials where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSourceCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSourceCredentials where
   hashWithSalt _salt _ =

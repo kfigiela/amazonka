@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteQueuedSavingsPlan where
   type
     AWSResponse DeleteQueuedSavingsPlan =
       DeleteQueuedSavingsPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueuedSavingsPlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteQueuedSavingsPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQueuedSavingsPlan where
   hashWithSalt _salt DeleteQueuedSavingsPlan' {..} =

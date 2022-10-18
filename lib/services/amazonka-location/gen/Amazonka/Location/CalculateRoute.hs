@@ -462,7 +462,7 @@ instance Core.AWSRequest CalculateRoute where
   type
     AWSResponse CalculateRoute =
       CalculateRouteResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -471,6 +471,9 @@ instance Core.AWSRequest CalculateRoute where
             Prelude.<*> (x Core..?> "Legs" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "Summary")
       )
+
+instance Core.AWSService CalculateRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CalculateRoute where
   hashWithSalt _salt CalculateRoute' {..} =

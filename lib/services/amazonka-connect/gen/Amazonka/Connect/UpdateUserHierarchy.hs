@@ -101,9 +101,12 @@ instance Core.AWSRequest UpdateUserHierarchy where
   type
     AWSResponse UpdateUserHierarchy =
       UpdateUserHierarchyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateUserHierarchyResponse'
+
+instance Core.AWSService UpdateUserHierarchy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserHierarchy where
   hashWithSalt _salt UpdateUserHierarchy' {..} =

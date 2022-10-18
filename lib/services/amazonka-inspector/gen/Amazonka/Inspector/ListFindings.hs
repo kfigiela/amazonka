@@ -159,7 +159,7 @@ instance Core.AWSPager ListFindings where
 
 instance Core.AWSRequest ListFindings where
   type AWSResponse ListFindings = ListFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListFindings where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "findingArns" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFindings where
   hashWithSalt _salt ListFindings' {..} =

@@ -73,8 +73,11 @@ deleteApiKey_apiKey = Lens.lens (\DeleteApiKey' {apiKey} -> apiKey) (\s@DeleteAp
 
 instance Core.AWSRequest DeleteApiKey where
   type AWSResponse DeleteApiKey = DeleteApiKeyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteApiKeyResponse'
+
+instance Core.AWSService DeleteApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApiKey where
   hashWithSalt _salt DeleteApiKey' {..} =

@@ -93,13 +93,16 @@ deleteFacet_name = Lens.lens (\DeleteFacet' {name} -> name) (\s@DeleteFacet' {} 
 
 instance Core.AWSRequest DeleteFacet where
   type AWSResponse DeleteFacet = DeleteFacetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFacet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFacet where
   hashWithSalt _salt DeleteFacet' {..} =

@@ -112,10 +112,13 @@ instance Core.AWSRequest UpdateGatewayResponse where
   type
     AWSResponse UpdateGatewayResponse =
       GatewayResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateGatewayResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGatewayResponse where
   hashWithSalt _salt UpdateGatewayResponse' {..} =

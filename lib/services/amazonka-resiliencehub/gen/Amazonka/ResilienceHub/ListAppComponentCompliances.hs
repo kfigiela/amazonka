@@ -122,7 +122,7 @@ instance Core.AWSRequest ListAppComponentCompliances where
   type
     AWSResponse ListAppComponentCompliances =
       ListAppComponentCompliancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListAppComponentCompliances where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAppComponentCompliances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAppComponentCompliances where
   hashWithSalt _salt ListAppComponentCompliances' {..} =

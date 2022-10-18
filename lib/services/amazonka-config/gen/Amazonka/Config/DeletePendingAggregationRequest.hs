@@ -94,10 +94,16 @@ instance
   type
     AWSResponse DeletePendingAggregationRequest =
       DeletePendingAggregationRequestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeletePendingAggregationRequestResponse'
+
+instance
+  Core.AWSService
+    DeletePendingAggregationRequest
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -78,9 +78,12 @@ instance Core.AWSRequest DeletePhoneNumber where
   type
     AWSResponse DeletePhoneNumber =
       DeletePhoneNumberResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeletePhoneNumberResponse'
+
+instance Core.AWSService DeletePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePhoneNumber where
   hashWithSalt _salt DeletePhoneNumber' {..} =

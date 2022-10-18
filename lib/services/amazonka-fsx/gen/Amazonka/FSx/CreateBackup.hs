@@ -178,7 +178,7 @@ createBackup_volumeId = Lens.lens (\CreateBackup' {volumeId} -> volumeId) (\s@Cr
 
 instance Core.AWSRequest CreateBackup where
   type AWSResponse CreateBackup = CreateBackupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest CreateBackup where
             Prelude.<$> (x Core..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBackup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBackup where
   hashWithSalt _salt CreateBackup' {..} =

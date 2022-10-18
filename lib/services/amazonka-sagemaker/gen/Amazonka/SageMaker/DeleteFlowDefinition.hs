@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteFlowDefinition where
   type
     AWSResponse DeleteFlowDefinition =
       DeleteFlowDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFlowDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFlowDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFlowDefinition where
   hashWithSalt _salt DeleteFlowDefinition' {..} =

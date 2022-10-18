@@ -202,7 +202,7 @@ instance Core.AWSRequest StartIncident where
   type
     AWSResponse StartIncident =
       StartIncidentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,6 +210,9 @@ instance Core.AWSRequest StartIncident where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "incidentRecordArn")
       )
+
+instance Core.AWSService StartIncident where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartIncident where
   hashWithSalt _salt StartIncident' {..} =

@@ -104,7 +104,7 @@ listCrawlers_maxResults = Lens.lens (\ListCrawlers' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListCrawlers where
   type AWSResponse ListCrawlers = ListCrawlersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListCrawlers where
             Prelude.<*> (x Core..?> "CrawlerNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCrawlers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCrawlers where
   hashWithSalt _salt ListCrawlers' {..} =

@@ -91,7 +91,7 @@ batchWrite_operations = Lens.lens (\BatchWrite' {operations} -> operations) (\s@
 
 instance Core.AWSRequest BatchWrite where
   type AWSResponse BatchWrite = BatchWriteResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest BatchWrite where
             Prelude.<$> (x Core..?> "Responses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchWrite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchWrite where
   hashWithSalt _salt BatchWrite' {..} =

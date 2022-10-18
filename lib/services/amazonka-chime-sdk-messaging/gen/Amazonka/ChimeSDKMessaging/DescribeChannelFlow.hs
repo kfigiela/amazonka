@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeChannelFlow where
   type
     AWSResponse DescribeChannelFlow =
       DescribeChannelFlowResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeChannelFlow where
             Prelude.<$> (x Core..?> "ChannelFlow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeChannelFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChannelFlow where
   hashWithSalt _salt DescribeChannelFlow' {..} =

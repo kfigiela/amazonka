@@ -85,7 +85,7 @@ instance Core.AWSRequest DisableGateway where
   type
     AWSResponse DisableGateway =
       DisableGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DisableGateway where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableGateway where
   hashWithSalt _salt DisableGateway' {..} =

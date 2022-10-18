@@ -122,7 +122,7 @@ reloadTables_tablesToReload = Lens.lens (\ReloadTables' {tablesToReload} -> tabl
 
 instance Core.AWSRequest ReloadTables where
   type AWSResponse ReloadTables = ReloadTablesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ReloadTables where
             Prelude.<$> (x Core..?> "ReplicationTaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReloadTables where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReloadTables where
   hashWithSalt _salt ReloadTables' {..} =

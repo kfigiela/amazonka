@@ -95,7 +95,7 @@ instance Core.AWSRequest UpdateShareInvitation where
   type
     AWSResponse UpdateShareInvitation =
       UpdateShareInvitationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest UpdateShareInvitation where
             Prelude.<$> (x Core..?> "ShareInvitation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateShareInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateShareInvitation where
   hashWithSalt _salt UpdateShareInvitation' {..} =

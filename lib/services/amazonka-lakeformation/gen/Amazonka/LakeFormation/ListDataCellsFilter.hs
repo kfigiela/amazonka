@@ -122,7 +122,7 @@ instance Core.AWSRequest ListDataCellsFilter where
   type
     AWSResponse ListDataCellsFilter =
       ListDataCellsFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListDataCellsFilter where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataCellsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataCellsFilter where
   hashWithSalt _salt ListDataCellsFilter' {..} =

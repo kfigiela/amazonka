@@ -192,7 +192,7 @@ instance Core.AWSRequest CreateHealthCheck where
   type
     AWSResponse CreateHealthCheck =
       CreateHealthCheckResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest CreateHealthCheck where
             Prelude.<*> (x Core..@ "HealthCheck")
             Prelude.<*> (h Core..# "Location")
       )
+
+instance Core.AWSService CreateHealthCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHealthCheck where
   hashWithSalt _salt CreateHealthCheck' {..} =

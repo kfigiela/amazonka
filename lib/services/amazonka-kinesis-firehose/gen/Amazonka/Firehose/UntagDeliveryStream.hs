@@ -100,13 +100,16 @@ instance Core.AWSRequest UntagDeliveryStream where
   type
     AWSResponse UntagDeliveryStream =
       UntagDeliveryStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagDeliveryStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UntagDeliveryStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagDeliveryStream where
   hashWithSalt _salt UntagDeliveryStream' {..} =

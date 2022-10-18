@@ -155,10 +155,13 @@ instance Core.AWSRequest CreateExtensionAssociation where
   type
     AWSResponse CreateExtensionAssociation =
       ExtensionAssociation
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateExtensionAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExtensionAssociation where
   hashWithSalt _salt CreateExtensionAssociation' {..} =

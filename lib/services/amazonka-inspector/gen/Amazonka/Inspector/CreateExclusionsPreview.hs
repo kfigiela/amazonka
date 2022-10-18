@@ -86,7 +86,7 @@ instance Core.AWSRequest CreateExclusionsPreview where
   type
     AWSResponse CreateExclusionsPreview =
       CreateExclusionsPreviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest CreateExclusionsPreview where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "previewToken")
       )
+
+instance Core.AWSService CreateExclusionsPreview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExclusionsPreview where
   hashWithSalt _salt CreateExclusionsPreview' {..} =

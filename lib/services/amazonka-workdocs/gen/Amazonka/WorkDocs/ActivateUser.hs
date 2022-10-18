@@ -92,7 +92,7 @@ activateUser_userId = Lens.lens (\ActivateUser' {userId} -> userId) (\s@Activate
 
 instance Core.AWSRequest ActivateUser where
   type AWSResponse ActivateUser = ActivateUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest ActivateUser where
             Prelude.<$> (x Core..?> "User")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ActivateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateUser where
   hashWithSalt _salt ActivateUser' {..} =

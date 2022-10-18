@@ -80,6 +80,7 @@ defaultService =
       Core._serviceEndpointPrefix = "data.jobs.iot",
       Core._serviceSigningName = "iot-jobs-data",
       Core._serviceVersion = "2017-09-29",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

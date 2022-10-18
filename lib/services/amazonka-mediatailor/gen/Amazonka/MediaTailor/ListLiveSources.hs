@@ -129,7 +129,7 @@ instance Core.AWSRequest ListLiveSources where
   type
     AWSResponse ListLiveSources =
       ListLiveSourcesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListLiveSources where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLiveSources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLiveSources where
   hashWithSalt _salt ListLiveSources' {..} =

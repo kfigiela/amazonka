@@ -91,7 +91,7 @@ instance
   type
     AWSResponse DeleteEnvironmentAccountConnection =
       DeleteEnvironmentAccountConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,12 @@ instance
             Prelude.<$> (x Core..?> "environmentAccountConnection")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteEnvironmentAccountConnection
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

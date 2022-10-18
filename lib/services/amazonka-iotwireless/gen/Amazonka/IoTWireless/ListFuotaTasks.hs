@@ -93,7 +93,7 @@ instance Core.AWSRequest ListFuotaTasks where
   type
     AWSResponse ListFuotaTasks =
       ListFuotaTasksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest ListFuotaTasks where
             Prelude.<*> (x Core..?> "FuotaTaskList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFuotaTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFuotaTasks where
   hashWithSalt _salt ListFuotaTasks' {..} =

@@ -161,7 +161,7 @@ instance Core.AWSRequest GetProvisionedProductOutputs where
   type
     AWSResponse GetProvisionedProductOutputs =
       GetProvisionedProductOutputsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest GetProvisionedProductOutputs where
             Prelude.<*> (x Core..?> "Outputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetProvisionedProductOutputs where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

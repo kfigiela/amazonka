@@ -116,7 +116,7 @@ deleteApp_appArn = Lens.lens (\DeleteApp' {appArn} -> appArn) (\s@DeleteApp' {} 
 
 instance Core.AWSRequest DeleteApp where
   type AWSResponse DeleteApp = DeleteAppResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DeleteApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "appArn")
       )
+
+instance Core.AWSService DeleteApp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =

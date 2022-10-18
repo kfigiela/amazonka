@@ -238,7 +238,7 @@ instance Core.AWSRequest CreateServiceAction where
   type
     AWSResponse CreateServiceAction =
       CreateServiceActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -246,6 +246,9 @@ instance Core.AWSRequest CreateServiceAction where
             Prelude.<$> (x Core..?> "ServiceActionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateServiceAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateServiceAction where
   hashWithSalt _salt CreateServiceAction' {..} =

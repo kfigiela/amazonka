@@ -114,7 +114,7 @@ instance Core.AWSRequest NotifyWorkers where
   type
     AWSResponse NotifyWorkers =
       NotifyWorkersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest NotifyWorkers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService NotifyWorkers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable NotifyWorkers where
   hashWithSalt _salt NotifyWorkers' {..} =

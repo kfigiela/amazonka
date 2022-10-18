@@ -220,7 +220,7 @@ instance Core.AWSRequest CreateFindingsFilter where
   type
     AWSResponse CreateFindingsFilter =
       CreateFindingsFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -229,6 +229,9 @@ instance Core.AWSRequest CreateFindingsFilter where
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFindingsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFindingsFilter where
   hashWithSalt _salt CreateFindingsFilter' {..} =

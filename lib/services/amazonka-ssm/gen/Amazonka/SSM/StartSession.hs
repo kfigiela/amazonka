@@ -151,7 +151,7 @@ startSession_target = Lens.lens (\StartSession' {target} -> target) (\s@StartSes
 
 instance Core.AWSRequest StartSession where
   type AWSResponse StartSession = StartSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest StartSession where
             Prelude.<*> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSession where
   hashWithSalt _salt StartSession' {..} =

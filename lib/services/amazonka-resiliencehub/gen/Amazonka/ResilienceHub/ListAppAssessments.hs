@@ -173,7 +173,7 @@ instance Core.AWSRequest ListAppAssessments where
   type
     AWSResponse ListAppAssessments =
       ListAppAssessmentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest ListAppAssessments where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAppAssessments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAppAssessments where
   hashWithSalt _salt ListAppAssessments' {..} =

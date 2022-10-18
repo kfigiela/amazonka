@@ -807,7 +807,7 @@ putBot_childDirected = Lens.lens (\PutBot' {childDirected} -> childDirected) (\s
 
 instance Core.AWSRequest PutBot where
   type AWSResponse PutBot = PutBotResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -834,6 +834,9 @@ instance Core.AWSRequest PutBot where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBot where
   hashWithSalt _salt PutBot' {..} =

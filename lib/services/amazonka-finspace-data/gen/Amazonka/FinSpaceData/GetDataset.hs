@@ -86,7 +86,7 @@ getDataset_datasetId = Lens.lens (\GetDataset' {datasetId} -> datasetId) (\s@Get
 
 instance Core.AWSRequest GetDataset where
   type AWSResponse GetDataset = GetDatasetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetDataset where
             Prelude.<*> (x Core..?> "schemaDefinition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataset where
   hashWithSalt _salt GetDataset' {..} =

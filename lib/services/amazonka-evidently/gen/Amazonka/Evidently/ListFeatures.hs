@@ -123,7 +123,7 @@ instance Core.AWSPager ListFeatures where
 
 instance Core.AWSRequest ListFeatures where
   type AWSResponse ListFeatures = ListFeaturesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListFeatures where
             Prelude.<*> (x Core..?> "features" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFeatures where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFeatures where
   hashWithSalt _salt ListFeatures' {..} =

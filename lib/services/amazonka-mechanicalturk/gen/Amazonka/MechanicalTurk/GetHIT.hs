@@ -74,7 +74,7 @@ getHIT_hITId = Lens.lens (\GetHIT' {hITId} -> hITId) (\s@GetHIT' {} a -> s {hITI
 
 instance Core.AWSRequest GetHIT where
   type AWSResponse GetHIT = GetHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetHIT where
             Prelude.<$> (x Core..?> "HIT")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetHIT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHIT where
   hashWithSalt _salt GetHIT' {..} =

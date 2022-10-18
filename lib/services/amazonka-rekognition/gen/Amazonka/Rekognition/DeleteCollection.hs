@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteCollection where
   type
     AWSResponse DeleteCollection =
       DeleteCollectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteCollection where
             Prelude.<$> (x Core..?> "StatusCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCollection where
   hashWithSalt _salt DeleteCollection' {..} =

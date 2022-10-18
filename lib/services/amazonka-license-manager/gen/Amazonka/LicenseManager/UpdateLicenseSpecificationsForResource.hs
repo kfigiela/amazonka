@@ -111,13 +111,19 @@ instance
     AWSResponse
       UpdateLicenseSpecificationsForResource =
       UpdateLicenseSpecificationsForResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLicenseSpecificationsForResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateLicenseSpecificationsForResource
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

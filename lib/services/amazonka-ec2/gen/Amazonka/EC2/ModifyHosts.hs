@@ -177,7 +177,7 @@ modifyHosts_hostIds = Lens.lens (\ModifyHosts' {hostIds} -> hostIds) (\s@ModifyH
 
 instance Core.AWSRequest ModifyHosts where
   type AWSResponse ModifyHosts = ModifyHostsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest ModifyHosts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyHosts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyHosts where
   hashWithSalt _salt ModifyHosts' {..} =

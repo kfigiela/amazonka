@@ -113,7 +113,7 @@ instance
     AWSResponse
       DeleteConfigurationSetEventDestination =
       DeleteConfigurationSetEventDestinationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteConfigurationSetEventDestinationResult"
@@ -121,6 +121,12 @@ instance
           DeleteConfigurationSetEventDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteConfigurationSetEventDestination
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

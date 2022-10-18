@@ -100,7 +100,7 @@ getRole_roleName = Lens.lens (\GetRole' {roleName} -> roleName) (\s@GetRole' {} 
 
 instance Core.AWSRequest GetRole where
   type AWSResponse GetRole = GetRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetRoleResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Role")
       )
+
+instance Core.AWSService GetRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRole where
   hashWithSalt _salt GetRole' {..} =

@@ -2055,6 +2055,7 @@ defaultService =
       Core._serviceEndpointPrefix = "iot",
       Core._serviceSigningName = "execute-api",
       Core._serviceVersion = "2015-05-28",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

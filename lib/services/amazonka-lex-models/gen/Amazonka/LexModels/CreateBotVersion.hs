@@ -134,7 +134,7 @@ instance Core.AWSRequest CreateBotVersion where
   type
     AWSResponse CreateBotVersion =
       CreateBotVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest CreateBotVersion where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBotVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBotVersion where
   hashWithSalt _salt CreateBotVersion' {..} =

@@ -133,7 +133,7 @@ instance Core.AWSRequest GetMLTaskRuns where
   type
     AWSResponse GetMLTaskRuns =
       GetMLTaskRunsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest GetMLTaskRuns where
             Prelude.<*> (x Core..?> "TaskRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMLTaskRuns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMLTaskRuns where
   hashWithSalt _salt GetMLTaskRuns' {..} =

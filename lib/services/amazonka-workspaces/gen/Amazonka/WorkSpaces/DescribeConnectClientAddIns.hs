@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
   type
     AWSResponse DescribeConnectClientAddIns =
       DescribeConnectClientAddInsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DescribeConnectClientAddIns where
             Prelude.<*> (x Core..?> "AddIns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConnectClientAddIns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConnectClientAddIns where
   hashWithSalt _salt DescribeConnectClientAddIns' {..} =

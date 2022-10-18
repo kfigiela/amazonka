@@ -157,7 +157,7 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
   type
     AWSResponse ListResolverDnssecConfigs =
       ListResolverDnssecConfigsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListResolverDnssecConfigs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResolverDnssecConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResolverDnssecConfigs where
   hashWithSalt _salt ListResolverDnssecConfigs' {..} =

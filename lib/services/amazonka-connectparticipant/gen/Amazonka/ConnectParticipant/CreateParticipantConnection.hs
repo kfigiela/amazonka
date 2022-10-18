@@ -154,7 +154,7 @@ instance Core.AWSRequest CreateParticipantConnection where
   type
     AWSResponse CreateParticipantConnection =
       CreateParticipantConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest CreateParticipantConnection where
             Prelude.<*> (x Core..?> "Websocket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateParticipantConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateParticipantConnection where
   hashWithSalt _salt CreateParticipantConnection' {..} =

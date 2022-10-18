@@ -80,9 +80,12 @@ instance Core.AWSRequest StartNotebookInstance where
   type
     AWSResponse StartNotebookInstance =
       StartNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartNotebookInstanceResponse'
+
+instance Core.AWSService StartNotebookInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartNotebookInstance where
   hashWithSalt _salt StartNotebookInstance' {..} =

@@ -96,7 +96,7 @@ instance Core.AWSRequest DeactivateDeviceIdentifier where
   type
     AWSResponse DeactivateDeviceIdentifier =
       DeactivateDeviceIdentifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DeactivateDeviceIdentifier where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "deviceIdentifier")
       )
+
+instance Core.AWSService DeactivateDeviceIdentifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateDeviceIdentifier where
   hashWithSalt _salt DeactivateDeviceIdentifier' {..} =

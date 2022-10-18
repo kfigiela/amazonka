@@ -85,7 +85,7 @@ instance Core.AWSRequest ListQueueTags where
   type
     AWSResponse ListQueueTags =
       ListQueueTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListQueueTagsResult"
@@ -94,6 +94,9 @@ instance Core.AWSRequest ListQueueTags where
             Prelude.<$> (Core.may (Core.parseXMLMap "Tag" "Key" "Value") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListQueueTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListQueueTags where
   hashWithSalt _salt ListQueueTags' {..} =

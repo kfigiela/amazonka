@@ -250,10 +250,13 @@ instance Core.AWSRequest CreateMountTarget where
   type
     AWSResponse CreateMountTarget =
       MountTargetDescription
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateMountTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMountTarget where
   hashWithSalt _salt CreateMountTarget' {..} =

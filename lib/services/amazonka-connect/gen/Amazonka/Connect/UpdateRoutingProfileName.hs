@@ -117,10 +117,13 @@ instance Core.AWSRequest UpdateRoutingProfileName where
   type
     AWSResponse UpdateRoutingProfileName =
       UpdateRoutingProfileNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateRoutingProfileNameResponse'
+
+instance Core.AWSService UpdateRoutingProfileName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoutingProfileName where
   hashWithSalt _salt UpdateRoutingProfileName' {..} =

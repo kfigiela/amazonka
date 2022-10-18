@@ -92,13 +92,16 @@ instance Core.AWSRequest UpdateExpirationForHIT where
   type
     AWSResponse UpdateExpirationForHIT =
       UpdateExpirationForHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateExpirationForHITResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateExpirationForHIT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateExpirationForHIT where
   hashWithSalt _salt UpdateExpirationForHIT' {..} =

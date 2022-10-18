@@ -100,9 +100,12 @@ instance Core.AWSRequest DeleteMountTarget where
   type
     AWSResponse DeleteMountTarget =
       DeleteMountTargetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMountTargetResponse'
+
+instance Core.AWSService DeleteMountTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMountTarget where
   hashWithSalt _salt DeleteMountTarget' {..} =

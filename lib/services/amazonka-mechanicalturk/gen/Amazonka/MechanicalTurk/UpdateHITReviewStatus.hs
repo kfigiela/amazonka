@@ -109,13 +109,16 @@ instance Core.AWSRequest UpdateHITReviewStatus where
   type
     AWSResponse UpdateHITReviewStatus =
       UpdateHITReviewStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateHITReviewStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateHITReviewStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHITReviewStatus where
   hashWithSalt _salt UpdateHITReviewStatus' {..} =

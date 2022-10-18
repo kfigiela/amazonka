@@ -122,7 +122,7 @@ instance Core.AWSRequest ReplaceNetworkAclAssociation where
   type
     AWSResponse ReplaceNetworkAclAssociation =
       ReplaceNetworkAclAssociationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ReplaceNetworkAclAssociation where
             Prelude.<$> (x Core..@? "newAssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReplaceNetworkAclAssociation where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -444,7 +444,7 @@ createBroker_publiclyAccessible = Lens.lens (\CreateBroker' {publiclyAccessible}
 
 instance Core.AWSRequest CreateBroker where
   type AWSResponse CreateBroker = CreateBrokerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -453,6 +453,9 @@ instance Core.AWSRequest CreateBroker where
             Prelude.<*> (x Core..?> "brokerArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBroker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBroker where
   hashWithSalt _salt CreateBroker' {..} =

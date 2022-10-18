@@ -141,7 +141,7 @@ instance Core.AWSRequest ListCachePolicies where
   type
     AWSResponse ListCachePolicies =
       ListCachePoliciesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListCachePolicies where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCachePolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCachePolicies where
   hashWithSalt _salt ListCachePolicies' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest DeauthorizeConnection where
   type
     AWSResponse DeauthorizeConnection =
       DeauthorizeConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DeauthorizeConnection where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeauthorizeConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeauthorizeConnection where
   hashWithSalt _salt DeauthorizeConnection' {..} =

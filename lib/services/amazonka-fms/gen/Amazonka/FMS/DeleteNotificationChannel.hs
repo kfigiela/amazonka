@@ -60,10 +60,13 @@ instance Core.AWSRequest DeleteNotificationChannel where
   type
     AWSResponse DeleteNotificationChannel =
       DeleteNotificationChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteNotificationChannelResponse'
+
+instance Core.AWSService DeleteNotificationChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNotificationChannel where
   hashWithSalt _salt _ =

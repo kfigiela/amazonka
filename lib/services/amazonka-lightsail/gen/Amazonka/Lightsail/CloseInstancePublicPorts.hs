@@ -96,7 +96,7 @@ instance Core.AWSRequest CloseInstancePublicPorts where
   type
     AWSResponse CloseInstancePublicPorts =
       CloseInstancePublicPortsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest CloseInstancePublicPorts where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CloseInstancePublicPorts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CloseInstancePublicPorts where
   hashWithSalt _salt CloseInstancePublicPorts' {..} =

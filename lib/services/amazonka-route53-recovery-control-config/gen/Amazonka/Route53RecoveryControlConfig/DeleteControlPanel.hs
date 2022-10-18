@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteControlPanel where
   type
     AWSResponse DeleteControlPanel =
       DeleteControlPanelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteControlPanelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteControlPanel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteControlPanel where
   hashWithSalt _salt DeleteControlPanel' {..} =

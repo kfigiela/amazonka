@@ -74,13 +74,16 @@ deleteSite_siteId = Lens.lens (\DeleteSite' {siteId} -> siteId) (\s@DeleteSite' 
 
 instance Core.AWSRequest DeleteSite where
   type AWSResponse DeleteSite = DeleteSiteResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSiteResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSite where
   hashWithSalt _salt DeleteSite' {..} =

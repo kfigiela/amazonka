@@ -91,7 +91,7 @@ instance Core.AWSRequest BatchUpdatePhoneNumber where
   type
     AWSResponse BatchUpdatePhoneNumber =
       BatchUpdatePhoneNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest BatchUpdatePhoneNumber where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchUpdatePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdatePhoneNumber where
   hashWithSalt _salt BatchUpdatePhoneNumber' {..} =

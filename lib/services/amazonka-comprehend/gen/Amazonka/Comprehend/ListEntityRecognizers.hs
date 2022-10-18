@@ -138,7 +138,7 @@ instance Core.AWSRequest ListEntityRecognizers where
   type
     AWSResponse ListEntityRecognizers =
       ListEntityRecognizersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListEntityRecognizers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEntityRecognizers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEntityRecognizers where
   hashWithSalt _salt ListEntityRecognizers' {..} =

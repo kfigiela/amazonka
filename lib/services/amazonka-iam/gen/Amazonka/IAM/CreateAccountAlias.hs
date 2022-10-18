@@ -91,9 +91,12 @@ instance Core.AWSRequest CreateAccountAlias where
   type
     AWSResponse CreateAccountAlias =
       CreateAccountAliasResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CreateAccountAliasResponse'
+
+instance Core.AWSService CreateAccountAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccountAlias where
   hashWithSalt _salt CreateAccountAlias' {..} =

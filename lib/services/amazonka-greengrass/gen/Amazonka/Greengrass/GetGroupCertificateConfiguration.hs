@@ -85,7 +85,7 @@ instance
   type
     AWSResponse GetGroupCertificateConfiguration =
       GetGroupCertificateConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,12 @@ instance
             Prelude.<*> (x Core..?> "GroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetGroupCertificateConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

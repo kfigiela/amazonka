@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateModelPackageGroup where
   type
     AWSResponse CreateModelPackageGroup =
       CreateModelPackageGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest CreateModelPackageGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ModelPackageGroupArn")
       )
+
+instance Core.AWSService CreateModelPackageGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateModelPackageGroup where
   hashWithSalt _salt CreateModelPackageGroup' {..} =

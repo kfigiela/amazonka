@@ -62,6 +62,7 @@ defaultService =
       Core._serviceEndpointPrefix = "data.mediastore",
       Core._serviceSigningName = "mediastore",
       Core._serviceVersion = "2017-09-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

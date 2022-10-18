@@ -99,9 +99,12 @@ instance Core.AWSRequest AttachInstances where
   type
     AWSResponse AttachInstances =
       AttachInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachInstancesResponse'
+
+instance Core.AWSService AttachInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachInstances where
   hashWithSalt _salt AttachInstances' {..} =

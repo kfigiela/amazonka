@@ -112,7 +112,7 @@ instance Core.AWSRequest GetEffectivePolicies where
   type
     AWSResponse GetEffectivePolicies =
       GetEffectivePoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest GetEffectivePolicies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEffectivePolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEffectivePolicies where
   hashWithSalt _salt GetEffectivePolicies' {..} =

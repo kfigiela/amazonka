@@ -100,7 +100,7 @@ instance Core.AWSRequest GetApplicationVersion where
   type
     AWSResponse GetApplicationVersion =
       GetApplicationVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest GetApplicationVersion where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetApplicationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplicationVersion where
   hashWithSalt _salt GetApplicationVersion' {..} =

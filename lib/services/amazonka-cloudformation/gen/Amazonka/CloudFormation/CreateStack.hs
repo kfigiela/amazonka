@@ -754,7 +754,7 @@ createStack_stackName = Lens.lens (\CreateStack' {stackName} -> stackName) (\s@C
 
 instance Core.AWSRequest CreateStack where
   type AWSResponse CreateStack = CreateStackResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateStackResult"
@@ -763,6 +763,9 @@ instance Core.AWSRequest CreateStack where
             Prelude.<$> (x Core..@? "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStack where
   hashWithSalt _salt CreateStack' {..} =

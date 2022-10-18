@@ -129,7 +129,7 @@ instance Core.AWSRequest UpdateComponent where
   type
     AWSResponse UpdateComponent =
       UpdateComponentResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest UpdateComponent where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =

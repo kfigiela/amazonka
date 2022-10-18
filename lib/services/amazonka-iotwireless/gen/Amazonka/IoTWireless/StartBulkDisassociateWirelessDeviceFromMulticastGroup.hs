@@ -103,13 +103,19 @@ instance
     AWSResponse
       StartBulkDisassociateWirelessDeviceFromMulticastGroup =
       StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartBulkDisassociateWirelessDeviceFromMulticastGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

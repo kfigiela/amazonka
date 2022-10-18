@@ -128,7 +128,7 @@ testAlarm_state = Lens.lens (\TestAlarm' {state} -> state) (\s@TestAlarm' {} a -
 
 instance Core.AWSRequest TestAlarm where
   type AWSResponse TestAlarm = TestAlarmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest TestAlarm where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestAlarm where
   hashWithSalt _salt TestAlarm' {..} =

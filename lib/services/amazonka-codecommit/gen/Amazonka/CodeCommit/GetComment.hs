@@ -83,7 +83,7 @@ getComment_commentId = Lens.lens (\GetComment' {commentId} -> commentId) (\s@Get
 
 instance Core.AWSRequest GetComment where
   type AWSResponse GetComment = GetCommentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetComment where
             Prelude.<$> (x Core..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetComment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComment where
   hashWithSalt _salt GetComment' {..} =

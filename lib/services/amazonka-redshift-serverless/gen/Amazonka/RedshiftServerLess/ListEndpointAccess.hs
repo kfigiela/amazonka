@@ -141,7 +141,7 @@ instance Core.AWSRequest ListEndpointAccess where
   type
     AWSResponse ListEndpointAccess =
       ListEndpointAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListEndpointAccess where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "endpoints" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEndpointAccess where
   hashWithSalt _salt ListEndpointAccess' {..} =

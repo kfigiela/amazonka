@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeLineageGroup where
   type
     AWSResponse DescribeLineageGroup =
       DescribeLineageGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeLineageGroup where
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLineageGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLineageGroup where
   hashWithSalt _salt DescribeLineageGroup' {..} =

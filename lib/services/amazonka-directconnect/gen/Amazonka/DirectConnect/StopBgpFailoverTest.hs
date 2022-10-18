@@ -80,7 +80,7 @@ instance Core.AWSRequest StopBgpFailoverTest where
   type
     AWSResponse StopBgpFailoverTest =
       StopBgpFailoverTestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest StopBgpFailoverTest where
             Prelude.<$> (x Core..?> "virtualInterfaceTest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopBgpFailoverTest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopBgpFailoverTest where
   hashWithSalt _salt StopBgpFailoverTest' {..} =

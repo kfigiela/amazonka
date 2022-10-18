@@ -130,10 +130,13 @@ instance Core.AWSRequest DeleteStreamingDistribution where
   type
     AWSResponse DeleteStreamingDistribution =
       DeleteStreamingDistributionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteStreamingDistributionResponse'
+
+instance Core.AWSService DeleteStreamingDistribution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStreamingDistribution where
   hashWithSalt _salt DeleteStreamingDistribution' {..} =

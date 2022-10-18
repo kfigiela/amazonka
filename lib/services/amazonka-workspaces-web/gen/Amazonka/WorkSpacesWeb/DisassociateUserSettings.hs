@@ -76,13 +76,16 @@ instance Core.AWSRequest DisassociateUserSettings where
   type
     AWSResponse DisassociateUserSettings =
       DisassociateUserSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateUserSettings where
   hashWithSalt _salt DisassociateUserSettings' {..} =

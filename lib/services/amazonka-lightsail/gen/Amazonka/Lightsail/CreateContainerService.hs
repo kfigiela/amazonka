@@ -370,7 +370,7 @@ instance Core.AWSRequest CreateContainerService where
   type
     AWSResponse CreateContainerService =
       CreateContainerServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -378,6 +378,9 @@ instance Core.AWSRequest CreateContainerService where
             Prelude.<$> (x Core..?> "containerService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateContainerService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContainerService where
   hashWithSalt _salt CreateContainerService' {..} =

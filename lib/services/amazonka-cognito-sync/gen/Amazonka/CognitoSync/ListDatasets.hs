@@ -131,7 +131,7 @@ listDatasets_identityPoolId = Lens.lens (\ListDatasets' {identityPoolId} -> iden
 
 instance Core.AWSRequest ListDatasets where
   type AWSResponse ListDatasets = ListDatasetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListDatasets where
             Prelude.<*> (x Core..?> "Count")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatasets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatasets where
   hashWithSalt _salt ListDatasets' {..} =

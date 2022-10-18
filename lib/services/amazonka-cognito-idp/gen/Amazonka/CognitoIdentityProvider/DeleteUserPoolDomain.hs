@@ -96,13 +96,16 @@ instance Core.AWSRequest DeleteUserPoolDomain where
   type
     AWSResponse DeleteUserPoolDomain =
       DeleteUserPoolDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUserPoolDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteUserPoolDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserPoolDomain where
   hashWithSalt _salt DeleteUserPoolDomain' {..} =

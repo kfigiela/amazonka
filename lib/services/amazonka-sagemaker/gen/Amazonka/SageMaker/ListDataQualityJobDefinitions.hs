@@ -199,7 +199,7 @@ instance
   type
     AWSResponse ListDataQualityJobDefinitions =
       ListDataQualityJobDefinitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -210,6 +210,12 @@ instance
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance
+  Core.AWSService
+    ListDataQualityJobDefinitions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

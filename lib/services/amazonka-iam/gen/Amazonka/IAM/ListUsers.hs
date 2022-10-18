@@ -195,7 +195,7 @@ instance Core.AWSPager ListUsers where
 
 instance Core.AWSRequest ListUsers where
   type AWSResponse ListUsers = ListUsersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListUsersResult"
@@ -208,6 +208,9 @@ instance Core.AWSRequest ListUsers where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUsers where
   hashWithSalt _salt ListUsers' {..} =

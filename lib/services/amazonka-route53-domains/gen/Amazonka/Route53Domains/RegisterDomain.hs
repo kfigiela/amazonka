@@ -425,7 +425,7 @@ instance Core.AWSRequest RegisterDomain where
   type
     AWSResponse RegisterDomain =
       RegisterDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -433,6 +433,9 @@ instance Core.AWSRequest RegisterDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OperationId")
       )
+
+instance Core.AWSService RegisterDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =

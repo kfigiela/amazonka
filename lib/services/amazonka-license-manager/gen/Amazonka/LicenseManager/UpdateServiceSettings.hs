@@ -113,13 +113,16 @@ instance Core.AWSRequest UpdateServiceSettings where
   type
     AWSResponse UpdateServiceSettings =
       UpdateServiceSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateServiceSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateServiceSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServiceSettings where
   hashWithSalt _salt UpdateServiceSettings' {..} =

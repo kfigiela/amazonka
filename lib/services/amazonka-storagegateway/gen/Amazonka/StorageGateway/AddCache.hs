@@ -99,7 +99,7 @@ addCache_diskIds = Lens.lens (\AddCache' {diskIds} -> diskIds) (\s@AddCache' {} 
 
 instance Core.AWSRequest AddCache where
   type AWSResponse AddCache = AddCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest AddCache where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddCache where
   hashWithSalt _salt AddCache' {..} =

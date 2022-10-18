@@ -223,7 +223,7 @@ instance Core.AWSRequest CreateMobileDeviceAccessRule where
   type
     AWSResponse CreateMobileDeviceAccessRule =
       CreateMobileDeviceAccessRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -231,6 +231,9 @@ instance Core.AWSRequest CreateMobileDeviceAccessRule where
             Prelude.<$> (x Core..?> "MobileDeviceAccessRuleId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMobileDeviceAccessRule where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

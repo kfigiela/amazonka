@@ -234,7 +234,7 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
   type
     AWSResponse DownloadDBLogFilePortion =
       DownloadDBLogFilePortionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DownloadDBLogFilePortionResult"
@@ -245,6 +245,9 @@ instance Core.AWSRequest DownloadDBLogFilePortion where
             Prelude.<*> (x Core..@? "LogFileData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DownloadDBLogFilePortion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DownloadDBLogFilePortion where
   hashWithSalt _salt DownloadDBLogFilePortion' {..} =

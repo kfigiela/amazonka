@@ -80,7 +80,7 @@ instance Core.AWSRequest DeleteNotificationRule where
   type
     AWSResponse DeleteNotificationRule =
       DeleteNotificationRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DeleteNotificationRule where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNotificationRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNotificationRule where
   hashWithSalt _salt DeleteNotificationRule' {..} =

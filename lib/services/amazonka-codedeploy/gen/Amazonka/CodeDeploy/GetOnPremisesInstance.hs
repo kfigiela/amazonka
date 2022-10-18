@@ -82,7 +82,7 @@ instance Core.AWSRequest GetOnPremisesInstance where
   type
     AWSResponse GetOnPremisesInstance =
       GetOnPremisesInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetOnPremisesInstance where
             Prelude.<$> (x Core..?> "instanceInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOnPremisesInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOnPremisesInstance where
   hashWithSalt _salt GetOnPremisesInstance' {..} =

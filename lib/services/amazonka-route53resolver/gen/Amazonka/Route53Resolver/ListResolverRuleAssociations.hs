@@ -164,7 +164,7 @@ instance Core.AWSRequest ListResolverRuleAssociations where
   type
     AWSResponse ListResolverRuleAssociations =
       ListResolverRuleAssociationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest ListResolverRuleAssociations where
             Prelude.<*> (x Core..?> "MaxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResolverRuleAssociations where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -102,7 +102,7 @@ instance
   type
     AWSResponse DescribeFleetAdvisorLsaAnalysis =
       DescribeFleetAdvisorLsaAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,12 @@ instance
             Prelude.<*> (x Core..?> "Analysis" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeFleetAdvisorLsaAnalysis
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

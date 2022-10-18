@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeLocationS3 where
   type
     AWSResponse DescribeLocationS3 =
       DescribeLocationS3Response
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeLocationS3 where
             Prelude.<*> (x Core..?> "AgentArns")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocationS3 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocationS3 where
   hashWithSalt _salt DescribeLocationS3' {..} =

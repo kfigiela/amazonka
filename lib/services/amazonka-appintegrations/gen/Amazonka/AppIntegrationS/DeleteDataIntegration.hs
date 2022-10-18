@@ -87,13 +87,16 @@ instance Core.AWSRequest DeleteDataIntegration where
   type
     AWSResponse DeleteDataIntegration =
       DeleteDataIntegrationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDataIntegrationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDataIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDataIntegration where
   hashWithSalt _salt DeleteDataIntegration' {..} =

@@ -161,7 +161,7 @@ instance
   type
     AWSResponse DescribeComplianceByConfigRule =
       DescribeComplianceByConfigRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeComplianceByConfigRule
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

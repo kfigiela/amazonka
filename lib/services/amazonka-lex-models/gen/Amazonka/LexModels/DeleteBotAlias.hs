@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteBotAlias where
   type
     AWSResponse DeleteBotAlias =
       DeleteBotAliasResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBotAliasResponse'
+
+instance Core.AWSService DeleteBotAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBotAlias where
   hashWithSalt _salt DeleteBotAlias' {..} =

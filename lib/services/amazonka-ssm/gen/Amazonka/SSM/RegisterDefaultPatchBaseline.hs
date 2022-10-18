@@ -86,7 +86,7 @@ instance Core.AWSRequest RegisterDefaultPatchBaseline where
   type
     AWSResponse RegisterDefaultPatchBaseline =
       RegisterDefaultPatchBaselineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest RegisterDefaultPatchBaseline where
             Prelude.<$> (x Core..?> "BaselineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterDefaultPatchBaseline where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

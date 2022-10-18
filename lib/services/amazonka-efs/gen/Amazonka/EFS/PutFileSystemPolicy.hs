@@ -154,10 +154,13 @@ instance Core.AWSRequest PutFileSystemPolicy where
   type
     AWSResponse PutFileSystemPolicy =
       FileSystemPolicyDescription
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutFileSystemPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutFileSystemPolicy where
   hashWithSalt _salt PutFileSystemPolicy' {..} =

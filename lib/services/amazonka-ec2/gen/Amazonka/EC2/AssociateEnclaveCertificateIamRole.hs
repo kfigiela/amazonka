@@ -134,7 +134,7 @@ instance
   type
     AWSResponse AssociateEnclaveCertificateIamRole =
       AssociateEnclaveCertificateIamRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -144,6 +144,12 @@ instance
               Prelude.<*> (x Core..@? "certificateS3BucketName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateEnclaveCertificateIamRole
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

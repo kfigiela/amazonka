@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteAssessmentFramework where
   type
     AWSResponse DeleteAssessmentFramework =
       DeleteAssessmentFrameworkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAssessmentFrameworkResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAssessmentFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAssessmentFramework where
   hashWithSalt _salt DeleteAssessmentFramework' {..} =

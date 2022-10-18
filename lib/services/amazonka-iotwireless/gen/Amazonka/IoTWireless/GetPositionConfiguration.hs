@@ -98,7 +98,7 @@ instance Core.AWSRequest GetPositionConfiguration where
   type
     AWSResponse GetPositionConfiguration =
       GetPositionConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetPositionConfiguration where
             Prelude.<*> (x Core..?> "Solvers")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPositionConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPositionConfiguration where
   hashWithSalt _salt GetPositionConfiguration' {..} =

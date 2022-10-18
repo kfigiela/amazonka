@@ -181,7 +181,7 @@ instance Core.AWSPager ListMonitors where
 
 instance Core.AWSRequest ListMonitors where
   type AWSResponse ListMonitors = ListMonitorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest ListMonitors where
             Prelude.<*> (x Core..?> "Monitors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMonitors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMonitors where
   hashWithSalt _salt ListMonitors' {..} =

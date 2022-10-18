@@ -83,7 +83,7 @@ instance Core.AWSRequest GetMapStyleDescriptor where
   type
     AWSResponse GetMapStyleDescriptor =
       GetMapStyleDescriptorResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetMapStyleDescriptor where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMapStyleDescriptor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMapStyleDescriptor where
   hashWithSalt _salt GetMapStyleDescriptor' {..} =

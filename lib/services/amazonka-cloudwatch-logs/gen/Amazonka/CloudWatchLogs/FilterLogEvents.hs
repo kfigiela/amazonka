@@ -270,7 +270,7 @@ instance Core.AWSRequest FilterLogEvents where
   type
     AWSResponse FilterLogEvents =
       FilterLogEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -282,6 +282,9 @@ instance Core.AWSRequest FilterLogEvents where
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService FilterLogEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FilterLogEvents where
   hashWithSalt _salt FilterLogEvents' {..} =

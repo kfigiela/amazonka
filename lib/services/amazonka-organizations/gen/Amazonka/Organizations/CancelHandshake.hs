@@ -101,7 +101,7 @@ instance Core.AWSRequest CancelHandshake where
   type
     AWSResponse CancelHandshake =
       CancelHandshakeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest CancelHandshake where
             Prelude.<$> (x Core..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelHandshake where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelHandshake where
   hashWithSalt _salt CancelHandshake' {..} =

@@ -95,7 +95,7 @@ getApps_token = Lens.lens (\GetApps' {token} -> token) (\s@GetApps' {} a -> s {t
 
 instance Core.AWSRequest GetApps where
   type AWSResponse GetApps = GetAppsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetApps where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetApps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApps where
   hashWithSalt _salt GetApps' {..} =

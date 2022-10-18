@@ -139,10 +139,16 @@ instance
     AWSResponse
       UpdateOpenIDConnectProviderThumbprint =
       UpdateOpenIDConnectProviderThumbprintResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateOpenIDConnectProviderThumbprintResponse'
+
+instance
+  Core.AWSService
+    UpdateOpenIDConnectProviderThumbprint
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

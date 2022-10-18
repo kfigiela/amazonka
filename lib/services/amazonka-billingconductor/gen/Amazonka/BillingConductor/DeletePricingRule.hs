@@ -78,7 +78,7 @@ instance Core.AWSRequest DeletePricingRule where
   type
     AWSResponse DeletePricingRule =
       DeletePricingRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeletePricingRule where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePricingRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePricingRule where
   hashWithSalt _salt DeletePricingRule' {..} =

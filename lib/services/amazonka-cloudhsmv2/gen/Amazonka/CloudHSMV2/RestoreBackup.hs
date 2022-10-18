@@ -82,7 +82,7 @@ instance Core.AWSRequest RestoreBackup where
   type
     AWSResponse RestoreBackup =
       RestoreBackupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest RestoreBackup where
             Prelude.<$> (x Core..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreBackup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreBackup where
   hashWithSalt _salt RestoreBackup' {..} =

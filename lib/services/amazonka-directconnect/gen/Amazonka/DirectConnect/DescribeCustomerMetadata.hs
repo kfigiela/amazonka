@@ -65,7 +65,7 @@ instance Core.AWSRequest DescribeCustomerMetadata where
   type
     AWSResponse DescribeCustomerMetadata =
       DescribeCustomerMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest DescribeCustomerMetadata where
             Prelude.<*> (x Core..?> "nniPartnerType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCustomerMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCustomerMetadata where
   hashWithSalt _salt _ =

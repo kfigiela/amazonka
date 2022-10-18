@@ -151,7 +151,7 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
   type
     AWSResponse ListSnapshotsInRecycleBin =
       ListSnapshotsInRecycleBinResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListSnapshotsInRecycleBin where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSnapshotsInRecycleBin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSnapshotsInRecycleBin where
   hashWithSalt _salt ListSnapshotsInRecycleBin' {..} =

@@ -111,7 +111,7 @@ instance Core.AWSRequest UpdateDomainEndpointOptions where
   type
     AWSResponse UpdateDomainEndpointOptions =
       UpdateDomainEndpointOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateDomainEndpointOptionsResult"
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateDomainEndpointOptions where
             Prelude.<$> (x Core..@? "DomainEndpointOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDomainEndpointOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainEndpointOptions where
   hashWithSalt _salt UpdateDomainEndpointOptions' {..} =

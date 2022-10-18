@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeLifecycleHooks where
   type
     AWSResponse DescribeLifecycleHooks =
       DescribeLifecycleHooksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLifecycleHooksResult"
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeLifecycleHooks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLifecycleHooks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLifecycleHooks where
   hashWithSalt _salt DescribeLifecycleHooks' {..} =

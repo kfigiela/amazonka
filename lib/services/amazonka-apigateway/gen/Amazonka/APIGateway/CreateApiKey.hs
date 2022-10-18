@@ -173,10 +173,13 @@ createApiKey_value = Lens.lens (\CreateApiKey' {value} -> value) (\s@CreateApiKe
 
 instance Core.AWSRequest CreateApiKey where
   type AWSResponse CreateApiKey = ApiKey
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApiKey where
   hashWithSalt _salt CreateApiKey' {..} =

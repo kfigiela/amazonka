@@ -123,7 +123,7 @@ instance Core.AWSRequest GetTableVersion where
   type
     AWSResponse GetTableVersion =
       GetTableVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetTableVersion where
             Prelude.<$> (x Core..?> "TableVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTableVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTableVersion where
   hashWithSalt _salt GetTableVersion' {..} =

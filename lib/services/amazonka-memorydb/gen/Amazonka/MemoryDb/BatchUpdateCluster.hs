@@ -91,7 +91,7 @@ instance Core.AWSRequest BatchUpdateCluster where
   type
     AWSResponse BatchUpdateCluster =
       BatchUpdateClusterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest BatchUpdateCluster where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchUpdateCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdateCluster where
   hashWithSalt _salt BatchUpdateCluster' {..} =

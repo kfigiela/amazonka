@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteWorkflow where
   type
     AWSResponse DeleteWorkflow =
       DeleteWorkflowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteWorkflow where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkflow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkflow where
   hashWithSalt _salt DeleteWorkflow' {..} =

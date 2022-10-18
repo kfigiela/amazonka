@@ -94,13 +94,16 @@ instance Core.AWSRequest UpdateHITTypeOfHIT where
   type
     AWSResponse UpdateHITTypeOfHIT =
       UpdateHITTypeOfHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateHITTypeOfHITResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateHITTypeOfHIT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHITTypeOfHIT where
   hashWithSalt _salt UpdateHITTypeOfHIT' {..} =

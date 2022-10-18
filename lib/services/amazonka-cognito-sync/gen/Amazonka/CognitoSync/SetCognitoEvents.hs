@@ -97,9 +97,12 @@ instance Core.AWSRequest SetCognitoEvents where
   type
     AWSResponse SetCognitoEvents =
       SetCognitoEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull SetCognitoEventsResponse'
+
+instance Core.AWSService SetCognitoEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetCognitoEvents where
   hashWithSalt _salt SetCognitoEvents' {..} =

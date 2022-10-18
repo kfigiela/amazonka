@@ -79,7 +79,7 @@ getHost_hostArn = Lens.lens (\GetHost' {hostArn} -> hostArn) (\s@GetHost' {} a -
 
 instance Core.AWSRequest GetHost where
   type AWSResponse GetHost = GetHostResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetHost where
             Prelude.<*> (x Core..?> "ProviderType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetHost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHost where
   hashWithSalt _salt GetHost' {..} =

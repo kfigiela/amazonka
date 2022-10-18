@@ -76,13 +76,16 @@ instance Core.AWSRequest CancelSimulationJob where
   type
     AWSResponse CancelSimulationJob =
       CancelSimulationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelSimulationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelSimulationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelSimulationJob where
   hashWithSalt _salt CancelSimulationJob' {..} =

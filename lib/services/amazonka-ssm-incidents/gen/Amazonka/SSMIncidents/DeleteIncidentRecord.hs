@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteIncidentRecord where
   type
     AWSResponse DeleteIncidentRecord =
       DeleteIncidentRecordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteIncidentRecordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIncidentRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIncidentRecord where
   hashWithSalt _salt DeleteIncidentRecord' {..} =

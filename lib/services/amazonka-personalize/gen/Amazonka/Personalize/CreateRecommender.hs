@@ -204,7 +204,7 @@ instance Core.AWSRequest CreateRecommender where
   type
     AWSResponse CreateRecommender =
       CreateRecommenderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest CreateRecommender where
             Prelude.<$> (x Core..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRecommender where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRecommender where
   hashWithSalt _salt CreateRecommender' {..} =

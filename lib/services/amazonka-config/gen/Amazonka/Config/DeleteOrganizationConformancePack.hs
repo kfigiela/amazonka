@@ -91,10 +91,16 @@ instance
   type
     AWSResponse DeleteOrganizationConformancePack =
       DeleteOrganizationConformancePackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteOrganizationConformancePackResponse'
+
+instance
+  Core.AWSService
+    DeleteOrganizationConformancePack
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

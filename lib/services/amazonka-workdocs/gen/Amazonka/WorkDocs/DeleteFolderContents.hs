@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteFolderContents where
   type
     AWSResponse DeleteFolderContents =
       DeleteFolderContentsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFolderContentsResponse'
+
+instance Core.AWSService DeleteFolderContents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFolderContents where
   hashWithSalt _salt DeleteFolderContents' {..} =

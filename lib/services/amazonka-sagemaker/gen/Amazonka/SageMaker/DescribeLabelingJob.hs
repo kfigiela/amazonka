@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeLabelingJob where
   type
     AWSResponse DescribeLabelingJob =
       DescribeLabelingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeLabelingJob where
             Prelude.<*> (x Core..:> "RoleArn")
             Prelude.<*> (x Core..:> "HumanTaskConfig")
       )
+
+instance Core.AWSService DescribeLabelingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLabelingJob where
   hashWithSalt _salt DescribeLabelingJob' {..} =

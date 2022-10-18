@@ -116,7 +116,7 @@ instance Core.AWSRequest UpdateServerEngineAttributes where
   type
     AWSResponse UpdateServerEngineAttributes =
       UpdateServerEngineAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest UpdateServerEngineAttributes where
             Prelude.<$> (x Core..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateServerEngineAttributes where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

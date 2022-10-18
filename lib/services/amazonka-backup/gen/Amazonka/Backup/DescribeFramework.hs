@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeFramework where
   type
     AWSResponse DescribeFramework =
       DescribeFrameworkResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeFramework where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFramework where
   hashWithSalt _salt DescribeFramework' {..} =

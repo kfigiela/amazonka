@@ -132,7 +132,7 @@ instance Core.AWSRequest ListServiceQuotas where
   type
     AWSResponse ListServiceQuotas =
       ListServiceQuotasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListServiceQuotas where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListServiceQuotas where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServiceQuotas where
   hashWithSalt _salt ListServiceQuotas' {..} =

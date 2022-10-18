@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeRuleGroupMetadata where
   type
     AWSResponse DescribeRuleGroupMetadata =
       DescribeRuleGroupMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest DescribeRuleGroupMetadata where
             Prelude.<*> (x Core..:> "RuleGroupArn")
             Prelude.<*> (x Core..:> "RuleGroupName")
       )
+
+instance Core.AWSService DescribeRuleGroupMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRuleGroupMetadata where
   hashWithSalt _salt DescribeRuleGroupMetadata' {..} =

@@ -96,7 +96,7 @@ instance Core.AWSRequest DeleteSuggester where
   type
     AWSResponse DeleteSuggester =
       DeleteSuggesterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteSuggesterResult"
@@ -105,6 +105,9 @@ instance Core.AWSRequest DeleteSuggester where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Suggester")
       )
+
+instance Core.AWSService DeleteSuggester where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSuggester where
   hashWithSalt _salt DeleteSuggester' {..} =

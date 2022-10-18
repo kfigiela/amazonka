@@ -140,7 +140,7 @@ instance Core.AWSRequest ListFileSystemAssociations where
   type
     AWSResponse ListFileSystemAssociations =
       ListFileSystemAssociationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListFileSystemAssociations where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFileSystemAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFileSystemAssociations where
   hashWithSalt _salt ListFileSystemAssociations' {..} =

@@ -86,7 +86,7 @@ instance Core.AWSRequest CreateTopicRuleDestination where
   type
     AWSResponse CreateTopicRuleDestination =
       CreateTopicRuleDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest CreateTopicRuleDestination where
             Prelude.<$> (x Core..?> "topicRuleDestination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTopicRuleDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTopicRuleDestination where
   hashWithSalt _salt CreateTopicRuleDestination' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest GetGroupConfiguration where
   type
     AWSResponse GetGroupConfiguration =
       GetGroupConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetGroupConfiguration where
             Prelude.<$> (x Core..?> "GroupConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGroupConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroupConfiguration where
   hashWithSalt _salt GetGroupConfiguration' {..} =

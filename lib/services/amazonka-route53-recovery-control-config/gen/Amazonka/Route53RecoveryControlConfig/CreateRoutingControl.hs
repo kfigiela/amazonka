@@ -136,7 +136,7 @@ instance Core.AWSRequest CreateRoutingControl where
   type
     AWSResponse CreateRoutingControl =
       CreateRoutingControlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest CreateRoutingControl where
             Prelude.<$> (x Core..?> "RoutingControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoutingControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoutingControl where
   hashWithSalt _salt CreateRoutingControl' {..} =

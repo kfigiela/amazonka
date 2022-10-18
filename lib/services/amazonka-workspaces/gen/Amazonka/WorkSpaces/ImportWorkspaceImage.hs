@@ -185,7 +185,7 @@ instance Core.AWSRequest ImportWorkspaceImage where
   type
     AWSResponse ImportWorkspaceImage =
       ImportWorkspaceImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest ImportWorkspaceImage where
             Prelude.<$> (x Core..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportWorkspaceImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportWorkspaceImage where
   hashWithSalt _salt ImportWorkspaceImage' {..} =

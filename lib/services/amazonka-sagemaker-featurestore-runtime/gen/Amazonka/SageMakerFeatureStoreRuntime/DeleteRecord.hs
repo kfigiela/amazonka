@@ -110,8 +110,11 @@ deleteRecord_eventTime = Lens.lens (\DeleteRecord' {eventTime} -> eventTime) (\s
 
 instance Core.AWSRequest DeleteRecord where
   type AWSResponse DeleteRecord = DeleteRecordResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteRecordResponse'
+
+instance Core.AWSService DeleteRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRecord where
   hashWithSalt _salt DeleteRecord' {..} =

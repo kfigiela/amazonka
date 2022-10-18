@@ -76,13 +76,16 @@ instance Core.AWSRequest DisassociateApi where
   type
     AWSResponse DisassociateApi =
       DisassociateApiResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateApiResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateApi where
   hashWithSalt _salt DisassociateApi' {..} =

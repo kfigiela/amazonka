@@ -80,7 +80,7 @@ instance Core.AWSRequest CreateRealtimeEndpoint where
   type
     AWSResponse CreateRealtimeEndpoint =
       CreateRealtimeEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest CreateRealtimeEndpoint where
             Prelude.<*> (x Core..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRealtimeEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRealtimeEndpoint where
   hashWithSalt _salt CreateRealtimeEndpoint' {..} =

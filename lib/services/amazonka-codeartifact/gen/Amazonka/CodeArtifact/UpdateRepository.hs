@@ -136,7 +136,7 @@ instance Core.AWSRequest UpdateRepository where
   type
     AWSResponse UpdateRepository =
       UpdateRepositoryResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UpdateRepository where
             Prelude.<$> (x Core..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRepository where
   hashWithSalt _salt UpdateRepository' {..} =

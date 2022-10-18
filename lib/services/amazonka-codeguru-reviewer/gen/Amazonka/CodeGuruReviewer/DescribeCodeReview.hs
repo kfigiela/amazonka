@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeCodeReview where
   type
     AWSResponse DescribeCodeReview =
       DescribeCodeReviewResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeCodeReview where
             Prelude.<$> (x Core..?> "CodeReview")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCodeReview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCodeReview where
   hashWithSalt _salt DescribeCodeReview' {..} =

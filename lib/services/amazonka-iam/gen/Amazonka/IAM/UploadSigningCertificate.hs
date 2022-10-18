@@ -167,7 +167,7 @@ instance Core.AWSRequest UploadSigningCertificate where
   type
     AWSResponse UploadSigningCertificate =
       UploadSigningCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UploadSigningCertificateResult"
@@ -176,6 +176,9 @@ instance Core.AWSRequest UploadSigningCertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Certificate")
       )
+
+instance Core.AWSService UploadSigningCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UploadSigningCertificate where
   hashWithSalt _salt UploadSigningCertificate' {..} =

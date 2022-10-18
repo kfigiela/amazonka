@@ -106,13 +106,16 @@ instance Core.AWSRequest RemoveFacetFromObject where
   type
     AWSResponse RemoveFacetFromObject =
       RemoveFacetFromObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveFacetFromObjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveFacetFromObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveFacetFromObject where
   hashWithSalt _salt RemoveFacetFromObject' {..} =

@@ -109,7 +109,7 @@ instance Core.AWSRequest UpdateCertificate where
   type
     AWSResponse UpdateCertificate =
       UpdateCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateCertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CertificateId")
       )
+
+instance Core.AWSService UpdateCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCertificate where
   hashWithSalt _salt UpdateCertificate' {..} =

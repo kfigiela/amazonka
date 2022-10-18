@@ -92,13 +92,16 @@ enableLDAPS_type = Lens.lens (\EnableLDAPS' {type'} -> type') (\s@EnableLDAPS' {
 
 instance Core.AWSRequest EnableLDAPS where
   type AWSResponse EnableLDAPS = EnableLDAPSResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableLDAPSResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableLDAPS where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableLDAPS where
   hashWithSalt _salt EnableLDAPS' {..} =

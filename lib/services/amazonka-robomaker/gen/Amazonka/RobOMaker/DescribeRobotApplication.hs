@@ -99,7 +99,7 @@ instance Core.AWSRequest DescribeRobotApplication where
   type
     AWSResponse DescribeRobotApplication =
       DescribeRobotApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeRobotApplication where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRobotApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRobotApplication where
   hashWithSalt _salt DescribeRobotApplication' {..} =

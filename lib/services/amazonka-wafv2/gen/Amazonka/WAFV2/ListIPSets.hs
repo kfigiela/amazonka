@@ -150,7 +150,7 @@ listIPSets_scope = Lens.lens (\ListIPSets' {scope} -> scope) (\s@ListIPSets' {} 
 
 instance Core.AWSRequest ListIPSets where
   type AWSResponse ListIPSets = ListIPSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListIPSets where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIPSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIPSets where
   hashWithSalt _salt ListIPSets' {..} =

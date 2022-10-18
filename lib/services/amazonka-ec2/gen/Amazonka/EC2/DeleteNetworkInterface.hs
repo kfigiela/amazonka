@@ -97,10 +97,13 @@ instance Core.AWSRequest DeleteNetworkInterface where
   type
     AWSResponse DeleteNetworkInterface =
       DeleteNetworkInterfaceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteNetworkInterfaceResponse'
+
+instance Core.AWSService DeleteNetworkInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNetworkInterface where
   hashWithSalt _salt DeleteNetworkInterface' {..} =

@@ -119,7 +119,7 @@ instance Core.AWSRequest GetStatistics where
   type
     AWSResponse GetStatistics =
       GetStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest GetStatistics where
             Prelude.<$> (x Core..?> "statistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStatistics where
   hashWithSalt _salt GetStatistics' {..} =

@@ -125,7 +125,7 @@ instance Core.AWSPager ListPresets where
 
 instance Core.AWSRequest ListPresets where
   type AWSResponse ListPresets = ListPresetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListPresets where
             Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPresets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPresets where
   hashWithSalt _salt ListPresets' {..} =

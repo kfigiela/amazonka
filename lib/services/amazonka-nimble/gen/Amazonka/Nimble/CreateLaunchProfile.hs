@@ -194,7 +194,7 @@ instance Core.AWSRequest CreateLaunchProfile where
   type
     AWSResponse CreateLaunchProfile =
       CreateLaunchProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest CreateLaunchProfile where
             Prelude.<$> (x Core..?> "launchProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLaunchProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLaunchProfile where
   hashWithSalt _salt CreateLaunchProfile' {..} =

@@ -124,7 +124,7 @@ instance Core.AWSRequest ModifyClusterSnapshot where
   type
     AWSResponse ModifyClusterSnapshot =
       ModifyClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterSnapshotResult"
@@ -133,6 +133,9 @@ instance Core.AWSRequest ModifyClusterSnapshot where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyClusterSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyClusterSnapshot where
   hashWithSalt _salt ModifyClusterSnapshot' {..} =

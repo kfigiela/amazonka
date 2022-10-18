@@ -100,7 +100,7 @@ instance Core.AWSRequest GetAssistantAssociation where
   type
     AWSResponse GetAssistantAssociation =
       GetAssistantAssociationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetAssistantAssociation where
             Prelude.<$> (x Core..?> "assistantAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssistantAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssistantAssociation where
   hashWithSalt _salt GetAssistantAssociation' {..} =

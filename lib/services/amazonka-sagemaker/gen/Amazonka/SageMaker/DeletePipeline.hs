@@ -100,7 +100,7 @@ instance Core.AWSRequest DeletePipeline where
   type
     AWSResponse DeletePipeline =
       DeletePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DeletePipeline where
             Prelude.<$> (x Core..?> "PipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePipeline where
   hashWithSalt _salt DeletePipeline' {..} =

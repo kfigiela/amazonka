@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteAnalyzer where
   type
     AWSResponse DeleteAnalyzer =
       DeleteAnalyzerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAnalyzerResponse'
+
+instance Core.AWSService DeleteAnalyzer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAnalyzer where
   hashWithSalt _salt DeleteAnalyzer' {..} =

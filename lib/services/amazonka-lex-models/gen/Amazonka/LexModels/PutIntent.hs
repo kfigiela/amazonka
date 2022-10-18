@@ -574,7 +574,7 @@ putIntent_name = Lens.lens (\PutIntent' {name} -> name) (\s@PutIntent' {} a -> s
 
 instance Core.AWSRequest PutIntent where
   type AWSResponse PutIntent = PutIntentResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -602,6 +602,9 @@ instance Core.AWSRequest PutIntent where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutIntent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutIntent where
   hashWithSalt _salt PutIntent' {..} =

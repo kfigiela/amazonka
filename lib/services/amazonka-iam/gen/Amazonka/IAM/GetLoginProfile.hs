@@ -105,7 +105,7 @@ instance Core.AWSRequest GetLoginProfile where
   type
     AWSResponse GetLoginProfile =
       GetLoginProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetLoginProfileResult"
@@ -114,6 +114,9 @@ instance Core.AWSRequest GetLoginProfile where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "LoginProfile")
       )
+
+instance Core.AWSService GetLoginProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLoginProfile where
   hashWithSalt _salt GetLoginProfile' {..} =

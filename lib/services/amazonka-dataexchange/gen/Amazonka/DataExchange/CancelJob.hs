@@ -71,8 +71,11 @@ cancelJob_jobId = Lens.lens (\CancelJob' {jobId} -> jobId) (\s@CancelJob' {} a -
 
 instance Core.AWSRequest CancelJob where
   type AWSResponse CancelJob = CancelJobResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull CancelJobResponse'
+
+instance Core.AWSService CancelJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =

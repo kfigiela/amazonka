@@ -299,6 +299,7 @@ defaultService =
       Core._serviceEndpointPrefix = "billingconductor",
       Core._serviceSigningName = "billingconductor",
       Core._serviceVersion = "2021-07-30",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

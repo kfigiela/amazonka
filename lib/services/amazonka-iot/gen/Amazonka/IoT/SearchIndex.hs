@@ -132,7 +132,7 @@ searchIndex_queryString = Lens.lens (\SearchIndex' {queryString} -> queryString)
 
 instance Core.AWSRequest SearchIndex where
   type AWSResponse SearchIndex = SearchIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest SearchIndex where
             Prelude.<*> (x Core..?> "things" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchIndex where
   hashWithSalt _salt SearchIndex' {..} =

@@ -113,7 +113,7 @@ instance Core.AWSRequest GetRateBasedRuleManagedKeys where
   type
     AWSResponse GetRateBasedRuleManagedKeys =
       GetRateBasedRuleManagedKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest GetRateBasedRuleManagedKeys where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRateBasedRuleManagedKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRateBasedRuleManagedKeys where
   hashWithSalt _salt GetRateBasedRuleManagedKeys' {..} =

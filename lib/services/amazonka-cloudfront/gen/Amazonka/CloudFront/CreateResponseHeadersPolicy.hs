@@ -97,7 +97,7 @@ instance Core.AWSRequest CreateResponseHeadersPolicy where
   type
     AWSResponse CreateResponseHeadersPolicy =
       CreateResponseHeadersPolicyResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest CreateResponseHeadersPolicy where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResponseHeadersPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResponseHeadersPolicy where
   hashWithSalt _salt CreateResponseHeadersPolicy' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest GetKnowledgeBase where
   type
     AWSResponse GetKnowledgeBase =
       GetKnowledgeBaseResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetKnowledgeBase where
             Prelude.<$> (x Core..?> "knowledgeBase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKnowledgeBase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKnowledgeBase where
   hashWithSalt _salt GetKnowledgeBase' {..} =

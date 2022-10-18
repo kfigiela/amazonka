@@ -101,10 +101,13 @@ instance Core.AWSRequest PutNotificationChannel where
   type
     AWSResponse PutNotificationChannel =
       PutNotificationChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       PutNotificationChannelResponse'
+
+instance Core.AWSService PutNotificationChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutNotificationChannel where
   hashWithSalt _salt PutNotificationChannel' {..} =

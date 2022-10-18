@@ -78,7 +78,7 @@ instance Core.AWSRequest GetRawMessageContent where
   type
     AWSResponse GetRawMessageContent =
       GetRawMessageContentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetRawMessageContent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetRawMessageContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRawMessageContent where
   hashWithSalt _salt GetRawMessageContent' {..} =

@@ -85,7 +85,7 @@ instance Core.AWSRequest DeleteTargetGroup where
   type
     AWSResponse DeleteTargetGroup =
       DeleteTargetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteTargetGroupResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest DeleteTargetGroup where
           DeleteTargetGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTargetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTargetGroup where
   hashWithSalt _salt DeleteTargetGroup' {..} =

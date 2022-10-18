@@ -91,7 +91,7 @@ instance Core.AWSRequest UpdateAnomalyMonitor where
   type
     AWSResponse UpdateAnomalyMonitor =
       UpdateAnomalyMonitorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest UpdateAnomalyMonitor where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "MonitorArn")
       )
+
+instance Core.AWSService UpdateAnomalyMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAnomalyMonitor where
   hashWithSalt _salt UpdateAnomalyMonitor' {..} =

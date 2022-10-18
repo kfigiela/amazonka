@@ -102,7 +102,7 @@ instance Core.AWSRequest DefineIndexField where
   type
     AWSResponse DefineIndexField =
       DefineIndexFieldResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DefineIndexFieldResult"
@@ -111,6 +111,9 @@ instance Core.AWSRequest DefineIndexField where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "IndexField")
       )
+
+instance Core.AWSService DefineIndexField where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DefineIndexField where
   hashWithSalt _salt DefineIndexField' {..} =

@@ -179,7 +179,7 @@ instance Core.AWSRequest PublishLayerVersion where
   type
     AWSResponse PublishLayerVersion =
       PublishLayerVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest PublishLayerVersion where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PublishLayerVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishLayerVersion where
   hashWithSalt _salt PublishLayerVersion' {..} =

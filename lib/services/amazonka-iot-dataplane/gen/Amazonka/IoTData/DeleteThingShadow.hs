@@ -99,7 +99,7 @@ instance Core.AWSRequest DeleteThingShadow where
   type
     AWSResponse DeleteThingShadow =
       DeleteThingShadowResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteThingShadow where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService DeleteThingShadow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteThingShadow where
   hashWithSalt _salt DeleteThingShadow' {..} =

@@ -124,7 +124,7 @@ instance Core.AWSRequest DescribeBotLocale where
   type
     AWSResponse DescribeBotLocale =
       DescribeBotLocaleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeBotLocale where
             Prelude.<*> (x Core..?> "intentsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBotLocale where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBotLocale where
   hashWithSalt _salt DescribeBotLocale' {..} =

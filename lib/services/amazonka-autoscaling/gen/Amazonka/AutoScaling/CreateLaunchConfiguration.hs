@@ -634,10 +634,13 @@ instance Core.AWSRequest CreateLaunchConfiguration where
   type
     AWSResponse CreateLaunchConfiguration =
       CreateLaunchConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       CreateLaunchConfigurationResponse'
+
+instance Core.AWSService CreateLaunchConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLaunchConfiguration where
   hashWithSalt _salt CreateLaunchConfiguration' {..} =

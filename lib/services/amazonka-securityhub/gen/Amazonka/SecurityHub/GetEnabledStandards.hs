@@ -143,7 +143,7 @@ instance Core.AWSRequest GetEnabledStandards where
   type
     AWSResponse GetEnabledStandards =
       GetEnabledStandardsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest GetEnabledStandards where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEnabledStandards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEnabledStandards where
   hashWithSalt _salt GetEnabledStandards' {..} =

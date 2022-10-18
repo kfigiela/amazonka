@@ -91,6 +91,7 @@ defaultService =
       Core._serviceEndpointPrefix = "mobile",
       Core._serviceSigningName = "AWSMobileHubService",
       Core._serviceVersion = "2017-07-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

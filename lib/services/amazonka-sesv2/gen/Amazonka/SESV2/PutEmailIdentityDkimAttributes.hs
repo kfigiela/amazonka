@@ -107,13 +107,19 @@ instance
   type
     AWSResponse PutEmailIdentityDkimAttributes =
       PutEmailIdentityDkimAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutEmailIdentityDkimAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutEmailIdentityDkimAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

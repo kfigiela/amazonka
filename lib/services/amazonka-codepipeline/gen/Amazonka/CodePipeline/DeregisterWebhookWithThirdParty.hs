@@ -82,13 +82,19 @@ instance
   type
     AWSResponse DeregisterWebhookWithThirdParty =
       DeregisterWebhookWithThirdPartyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterWebhookWithThirdPartyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeregisterWebhookWithThirdParty
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

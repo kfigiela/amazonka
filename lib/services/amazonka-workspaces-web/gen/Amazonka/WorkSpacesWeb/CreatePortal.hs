@@ -140,7 +140,7 @@ createPortal_additionalEncryptionContext = Lens.lens (\CreatePortal' {additional
 
 instance Core.AWSRequest CreatePortal where
   type AWSResponse CreatePortal = CreatePortalResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest CreatePortal where
             Prelude.<*> (x Core..:> "portalArn")
             Prelude.<*> (x Core..:> "portalEndpoint")
       )
+
+instance Core.AWSService CreatePortal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =

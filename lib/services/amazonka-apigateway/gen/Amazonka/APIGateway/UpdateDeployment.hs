@@ -110,10 +110,13 @@ updateDeployment_deploymentId = Lens.lens (\UpdateDeployment' {deploymentId} -> 
 
 instance Core.AWSRequest UpdateDeployment where
   type AWSResponse UpdateDeployment = Deployment
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeployment where
   hashWithSalt _salt UpdateDeployment' {..} =

@@ -112,7 +112,7 @@ instance
   type
     AWSResponse UpdateFieldLevelEncryptionProfile =
       UpdateFieldLevelEncryptionProfileResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -120,6 +120,12 @@ instance
             Prelude.<$> (Core.parseXML x) Prelude.<*> (h Core..#? "ETag")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateFieldLevelEncryptionProfile
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

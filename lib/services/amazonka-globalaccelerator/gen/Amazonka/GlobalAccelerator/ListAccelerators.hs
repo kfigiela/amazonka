@@ -118,7 +118,7 @@ instance Core.AWSRequest ListAccelerators where
   type
     AWSResponse ListAccelerators =
       ListAcceleratorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListAccelerators where
             Prelude.<*> (x Core..?> "Accelerators" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccelerators where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccelerators where
   hashWithSalt _salt ListAccelerators' {..} =

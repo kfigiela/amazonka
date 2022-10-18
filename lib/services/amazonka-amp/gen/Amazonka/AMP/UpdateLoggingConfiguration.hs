@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
   type
     AWSResponse UpdateLoggingConfiguration =
       UpdateLoggingConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateLoggingConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService UpdateLoggingConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLoggingConfiguration where
   hashWithSalt _salt UpdateLoggingConfiguration' {..} =

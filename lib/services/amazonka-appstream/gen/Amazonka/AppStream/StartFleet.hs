@@ -73,13 +73,16 @@ startFleet_name = Lens.lens (\StartFleet' {name} -> name) (\s@StartFleet' {} a -
 
 instance Core.AWSRequest StartFleet where
   type AWSResponse StartFleet = StartFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFleet where
   hashWithSalt _salt StartFleet' {..} =

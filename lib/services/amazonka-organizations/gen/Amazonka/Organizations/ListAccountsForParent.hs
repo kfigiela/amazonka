@@ -181,7 +181,7 @@ instance Core.AWSRequest ListAccountsForParent where
   type
     AWSResponse ListAccountsForParent =
       ListAccountsForParentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest ListAccountsForParent where
             Prelude.<*> (x Core..?> "Accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccountsForParent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountsForParent where
   hashWithSalt _salt ListAccountsForParent' {..} =

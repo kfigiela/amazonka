@@ -112,7 +112,7 @@ instance Core.AWSRequest CreateConnectionAlias where
   type
     AWSResponse CreateConnectionAlias =
       CreateConnectionAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateConnectionAlias where
             Prelude.<$> (x Core..?> "AliasId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConnectionAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConnectionAlias where
   hashWithSalt _salt CreateConnectionAlias' {..} =

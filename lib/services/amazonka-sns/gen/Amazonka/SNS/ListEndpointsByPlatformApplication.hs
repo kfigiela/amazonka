@@ -145,7 +145,7 @@ instance
   type
     AWSResponse ListEndpointsByPlatformApplication =
       ListEndpointsByPlatformApplicationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListEndpointsByPlatformApplicationResult"
@@ -157,6 +157,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListEndpointsByPlatformApplication
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

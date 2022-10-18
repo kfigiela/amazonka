@@ -102,9 +102,12 @@ instance Core.AWSRequest RebootInstances where
   type
     AWSResponse RebootInstances =
       RebootInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RebootInstancesResponse'
+
+instance Core.AWSService RebootInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootInstances where
   hashWithSalt _salt RebootInstances' {..} =

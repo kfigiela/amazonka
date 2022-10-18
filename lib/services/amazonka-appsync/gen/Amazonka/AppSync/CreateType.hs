@@ -110,7 +110,7 @@ createType_format = Lens.lens (\CreateType' {format} -> format) (\s@CreateType' 
 
 instance Core.AWSRequest CreateType where
   type AWSResponse CreateType = CreateTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateType where
             Prelude.<$> (x Core..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateType where
   hashWithSalt _salt CreateType' {..} =

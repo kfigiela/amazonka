@@ -123,7 +123,7 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
   type
     AWSResponse ListSubscriptionsByTopic =
       ListSubscriptionsByTopicResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSubscriptionsByTopicResult"
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListSubscriptionsByTopic where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSubscriptionsByTopic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSubscriptionsByTopic where
   hashWithSalt _salt ListSubscriptionsByTopic' {..} =

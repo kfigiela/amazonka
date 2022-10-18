@@ -78,7 +78,7 @@ getTemplate_templateName = Lens.lens (\GetTemplate' {templateName} -> templateNa
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTemplateResult"
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<$> (x Core..@? "Template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTemplate where
   hashWithSalt _salt GetTemplate' {..} =

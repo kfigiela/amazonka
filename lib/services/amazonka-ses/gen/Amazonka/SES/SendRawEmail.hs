@@ -545,7 +545,7 @@ sendRawEmail_rawMessage = Lens.lens (\SendRawEmail' {rawMessage} -> rawMessage) 
 
 instance Core.AWSRequest SendRawEmail where
   type AWSResponse SendRawEmail = SendRawEmailResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendRawEmailResult"
@@ -554,6 +554,9 @@ instance Core.AWSRequest SendRawEmail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "MessageId")
       )
+
+instance Core.AWSService SendRawEmail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendRawEmail where
   hashWithSalt _salt SendRawEmail' {..} =

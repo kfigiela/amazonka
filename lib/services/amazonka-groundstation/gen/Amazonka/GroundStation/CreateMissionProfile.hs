@@ -166,10 +166,13 @@ instance Core.AWSRequest CreateMissionProfile where
   type
     AWSResponse CreateMissionProfile =
       MissionProfileIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateMissionProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMissionProfile where
   hashWithSalt _salt CreateMissionProfile' {..} =

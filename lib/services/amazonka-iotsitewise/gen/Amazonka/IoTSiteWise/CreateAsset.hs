@@ -138,7 +138,7 @@ createAsset_assetModelId = Lens.lens (\CreateAsset' {assetModelId} -> assetModel
 
 instance Core.AWSRequest CreateAsset where
   type AWSResponse CreateAsset = CreateAssetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest CreateAsset where
             Prelude.<*> (x Core..:> "assetArn")
             Prelude.<*> (x Core..:> "assetStatus")
       )
+
+instance Core.AWSService CreateAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAsset where
   hashWithSalt _salt CreateAsset' {..} =

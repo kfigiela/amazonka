@@ -109,7 +109,7 @@ instance
   type
     AWSResponse DeleteDBInstanceAutomatedBackup =
       DeleteDBInstanceAutomatedBackupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBInstanceAutomatedBackupResult"
@@ -118,6 +118,12 @@ instance
             Prelude.<$> (x Core..@? "DBInstanceAutomatedBackup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteDBInstanceAutomatedBackup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteConnectInstanceConfig where
   type
     AWSResponse DeleteConnectInstanceConfig =
       DeleteConnectInstanceConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteConnectInstanceConfigResponse'
+
+instance Core.AWSService DeleteConnectInstanceConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnectInstanceConfig where
   hashWithSalt _salt DeleteConnectInstanceConfig' {..} =

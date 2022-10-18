@@ -139,10 +139,13 @@ instance Core.AWSRequest TagOpenIDConnectProvider where
   type
     AWSResponse TagOpenIDConnectProvider =
       TagOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       TagOpenIDConnectProviderResponse'
+
+instance Core.AWSService TagOpenIDConnectProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagOpenIDConnectProvider where
   hashWithSalt _salt TagOpenIDConnectProvider' {..} =

@@ -129,7 +129,7 @@ instance Core.AWSRequest StartSimulationJobBatch where
   type
     AWSResponse StartSimulationJobBatch =
       StartSimulationJobBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest StartSimulationJobBatch where
             Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSimulationJobBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSimulationJobBatch where
   hashWithSalt _salt StartSimulationJobBatch' {..} =

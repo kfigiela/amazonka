@@ -114,10 +114,13 @@ instance Core.AWSRequest UpdateBasePathMapping where
   type
     AWSResponse UpdateBasePathMapping =
       BasePathMapping
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateBasePathMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBasePathMapping where
   hashWithSalt _salt UpdateBasePathMapping' {..} =

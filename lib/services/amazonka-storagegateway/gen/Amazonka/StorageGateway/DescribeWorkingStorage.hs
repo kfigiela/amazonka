@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeWorkingStorage where
   type
     AWSResponse DescribeWorkingStorage =
       DescribeWorkingStorageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeWorkingStorage where
             Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorkingStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorkingStorage where
   hashWithSalt _salt DescribeWorkingStorage' {..} =

@@ -286,7 +286,7 @@ instance Core.AWSRequest ListEntitiesForPolicy where
   type
     AWSResponse ListEntitiesForPolicy =
       ListEntitiesForPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListEntitiesForPolicyResult"
@@ -305,6 +305,9 @@ instance Core.AWSRequest ListEntitiesForPolicy where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEntitiesForPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEntitiesForPolicy where
   hashWithSalt _salt ListEntitiesForPolicy' {..} =

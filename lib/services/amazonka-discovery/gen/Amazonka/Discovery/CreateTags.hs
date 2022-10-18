@@ -100,13 +100,16 @@ createTags_tags = Lens.lens (\CreateTags' {tags} -> tags) (\s@CreateTags' {} a -
 
 instance Core.AWSRequest CreateTags where
   type AWSResponse CreateTags = CreateTagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateTagsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTags where
   hashWithSalt _salt CreateTags' {..} =

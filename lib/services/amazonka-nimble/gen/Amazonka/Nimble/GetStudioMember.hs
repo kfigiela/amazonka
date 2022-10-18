@@ -91,7 +91,7 @@ instance Core.AWSRequest GetStudioMember where
   type
     AWSResponse GetStudioMember =
       GetStudioMemberResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetStudioMember where
             Prelude.<$> (x Core..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStudioMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStudioMember where
   hashWithSalt _salt GetStudioMember' {..} =

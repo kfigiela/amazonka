@@ -99,7 +99,7 @@ instance Core.AWSRequest DetectTargetedSentiment where
   type
     AWSResponse DetectTargetedSentiment =
       DetectTargetedSentimentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DetectTargetedSentiment where
             Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectTargetedSentiment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectTargetedSentiment where
   hashWithSalt _salt DetectTargetedSentiment' {..} =

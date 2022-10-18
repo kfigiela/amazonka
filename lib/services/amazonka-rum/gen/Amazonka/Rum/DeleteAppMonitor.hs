@@ -77,13 +77,16 @@ instance Core.AWSRequest DeleteAppMonitor where
   type
     AWSResponse DeleteAppMonitor =
       DeleteAppMonitorResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAppMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAppMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppMonitor where
   hashWithSalt _salt DeleteAppMonitor' {..} =

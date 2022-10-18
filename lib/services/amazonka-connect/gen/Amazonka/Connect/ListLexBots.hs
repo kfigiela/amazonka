@@ -138,7 +138,7 @@ instance Core.AWSPager ListLexBots where
 
 instance Core.AWSRequest ListLexBots where
   type AWSResponse ListLexBots = ListLexBotsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListLexBots where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLexBots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLexBots where
   hashWithSalt _salt ListLexBots' {..} =

@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteWhatIfAnalysis where
   type
     AWSResponse DeleteWhatIfAnalysis =
       DeleteWhatIfAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteWhatIfAnalysisResponse'
+
+instance Core.AWSService DeleteWhatIfAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWhatIfAnalysis where
   hashWithSalt _salt DeleteWhatIfAnalysis' {..} =

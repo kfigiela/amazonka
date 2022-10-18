@@ -112,13 +112,16 @@ instance Core.AWSRequest TransferInputDevice' where
   type
     AWSResponse TransferInputDevice' =
       TransferInputDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           TransferInputDeviceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TransferInputDevice' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TransferInputDevice' where
   hashWithSalt _salt TransferInputDevice'' {..} =

@@ -75,13 +75,16 @@ instance Core.AWSRequest DeleteMulticastGroup where
   type
     AWSResponse DeleteMulticastGroup =
       DeleteMulticastGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMulticastGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMulticastGroup where
   hashWithSalt _salt DeleteMulticastGroup' {..} =

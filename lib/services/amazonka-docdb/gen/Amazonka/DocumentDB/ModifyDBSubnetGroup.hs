@@ -122,7 +122,7 @@ instance Core.AWSRequest ModifyDBSubnetGroup where
   type
     AWSResponse ModifyDBSubnetGroup =
       ModifyDBSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBSubnetGroupResult"
@@ -131,6 +131,9 @@ instance Core.AWSRequest ModifyDBSubnetGroup where
             Prelude.<$> (x Core..@? "DBSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBSubnetGroup where
   hashWithSalt _salt ModifyDBSubnetGroup' {..} =

@@ -188,7 +188,7 @@ importModel_sourceModelArn = Lens.lens (\ImportModel' {sourceModelArn} -> source
 
 instance Core.AWSRequest ImportModel where
   type AWSResponse ImportModel = ImportModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest ImportModel where
             Prelude.<$> (x Core..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportModel where
   hashWithSalt _salt ImportModel' {..} =

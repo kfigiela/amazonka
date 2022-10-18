@@ -165,7 +165,7 @@ instance Core.AWSRequest CreateResponsePlan where
   type
     AWSResponse CreateResponsePlan =
       CreateResponsePlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest CreateResponsePlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateResponsePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResponsePlan where
   hashWithSalt _salt CreateResponsePlan' {..} =

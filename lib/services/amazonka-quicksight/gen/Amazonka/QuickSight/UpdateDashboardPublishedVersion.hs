@@ -115,7 +115,7 @@ instance
   type
     AWSResponse UpdateDashboardPublishedVersion =
       UpdateDashboardPublishedVersionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,12 @@ instance
             Prelude.<*> (x Core..?> "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateDashboardPublishedVersion
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

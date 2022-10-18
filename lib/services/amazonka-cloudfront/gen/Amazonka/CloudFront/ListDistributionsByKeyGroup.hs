@@ -123,7 +123,7 @@ instance Core.AWSRequest ListDistributionsByKeyGroup where
   type
     AWSResponse ListDistributionsByKeyGroup =
       ListDistributionsByKeyGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListDistributionsByKeyGroup where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDistributionsByKeyGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDistributionsByKeyGroup where
   hashWithSalt _salt ListDistributionsByKeyGroup' {..} =

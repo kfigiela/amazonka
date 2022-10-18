@@ -241,7 +241,7 @@ instance Core.AWSRequest StartTaskContact where
   type
     AWSResponse StartTaskContact =
       StartTaskContactResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -249,6 +249,9 @@ instance Core.AWSRequest StartTaskContact where
             Prelude.<$> (x Core..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartTaskContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartTaskContact where
   hashWithSalt _salt StartTaskContact' {..} =

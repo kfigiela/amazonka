@@ -63,13 +63,16 @@ instance Core.AWSRequest EnableProactiveEngagement where
   type
     AWSResponse EnableProactiveEngagement =
       EnableProactiveEngagementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableProactiveEngagementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableProactiveEngagement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableProactiveEngagement where
   hashWithSalt _salt _ =

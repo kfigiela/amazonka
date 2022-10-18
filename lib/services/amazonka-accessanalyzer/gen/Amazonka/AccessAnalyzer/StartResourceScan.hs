@@ -96,9 +96,12 @@ instance Core.AWSRequest StartResourceScan where
   type
     AWSResponse StartResourceScan =
       StartResourceScanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartResourceScanResponse'
+
+instance Core.AWSService StartResourceScan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartResourceScan where
   hashWithSalt _salt StartResourceScan' {..} =

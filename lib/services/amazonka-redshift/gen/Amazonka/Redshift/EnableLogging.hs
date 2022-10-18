@@ -210,11 +210,14 @@ enableLogging_clusterIdentifier = Lens.lens (\EnableLogging' {clusterIdentifier}
 
 instance Core.AWSRequest EnableLogging where
   type AWSResponse EnableLogging = LoggingStatus
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "EnableLoggingResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService EnableLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableLogging where
   hashWithSalt _salt EnableLogging' {..} =

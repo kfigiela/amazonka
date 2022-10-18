@@ -99,7 +99,7 @@ instance
   type
     AWSResponse UpdateApplicationResourceLifecycle =
       UpdateApplicationResourceLifecycleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateApplicationResourceLifecycleResult"
@@ -109,6 +109,12 @@ instance
               Prelude.<*> (x Core..@? "ApplicationName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateApplicationResourceLifecycle
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

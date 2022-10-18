@@ -190,7 +190,7 @@ instance Core.AWSRequest BatchPutDocument where
   type
     AWSResponse BatchPutDocument =
       BatchPutDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest BatchPutDocument where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchPutDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchPutDocument where
   hashWithSalt _salt BatchPutDocument' {..} =

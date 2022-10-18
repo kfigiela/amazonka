@@ -101,7 +101,7 @@ instance Core.AWSRequest GetPrefetchSchedule where
   type
     AWSResponse GetPrefetchSchedule =
       GetPrefetchScheduleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest GetPrefetchSchedule where
             Prelude.<*> (x Core..?> "Consumption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPrefetchSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPrefetchSchedule where
   hashWithSalt _salt GetPrefetchSchedule' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest UpdateSamplingRule where
   type
     AWSResponse UpdateSamplingRule =
       UpdateSamplingRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest UpdateSamplingRule where
             Prelude.<$> (x Core..?> "SamplingRuleRecord")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSamplingRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSamplingRule where
   hashWithSalt _salt UpdateSamplingRule' {..} =

@@ -108,7 +108,7 @@ instance Core.AWSRequest GetOperationsForResource where
   type
     AWSResponse GetOperationsForResource =
       GetOperationsForResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetOperationsForResource where
             Prelude.<*> (x Core..?> "nextPageCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOperationsForResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOperationsForResource where
   hashWithSalt _salt GetOperationsForResource' {..} =

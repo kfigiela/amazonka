@@ -248,7 +248,7 @@ instance Core.AWSRequest GetPropertyValueHistory where
   type
     AWSResponse GetPropertyValueHistory =
       GetPropertyValueHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -259,6 +259,9 @@ instance Core.AWSRequest GetPropertyValueHistory where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetPropertyValueHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPropertyValueHistory where
   hashWithSalt _salt GetPropertyValueHistory' {..} =

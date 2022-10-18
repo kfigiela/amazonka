@@ -106,10 +106,13 @@ instance Core.AWSRequest UpdateQuickConnectConfig where
   type
     AWSResponse UpdateQuickConnectConfig =
       UpdateQuickConnectConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQuickConnectConfigResponse'
+
+instance Core.AWSService UpdateQuickConnectConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateQuickConnectConfig where
   hashWithSalt _salt UpdateQuickConnectConfig' {..} =

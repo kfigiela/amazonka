@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeDomainChangeProgress where
   type
     AWSResponse DescribeDomainChangeProgress =
       DescribeDomainChangeProgressResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeDomainChangeProgress where
             Prelude.<$> (x Core..?> "ChangeProgressStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDomainChangeProgress where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

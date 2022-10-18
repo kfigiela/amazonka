@@ -92,7 +92,7 @@ instance Core.AWSRequest DeleteLicense where
   type
     AWSResponse DeleteLicense =
       DeleteLicenseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteLicense where
             Prelude.<*> (x Core..?> "DeletionDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLicense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLicense where
   hashWithSalt _salt DeleteLicense' {..} =

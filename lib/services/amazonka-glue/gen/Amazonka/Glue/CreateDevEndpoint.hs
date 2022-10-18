@@ -420,7 +420,7 @@ instance Core.AWSRequest CreateDevEndpoint where
   type
     AWSResponse CreateDevEndpoint =
       CreateDevEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -448,6 +448,9 @@ instance Core.AWSRequest CreateDevEndpoint where
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDevEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDevEndpoint where
   hashWithSalt _salt CreateDevEndpoint' {..} =

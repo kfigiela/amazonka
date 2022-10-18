@@ -91,7 +91,7 @@ instance Core.AWSRequest GetAttributeGroup where
   type
     AWSResponse GetAttributeGroup =
       GetAttributeGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetAttributeGroup where
             Prelude.<*> (x Core..?> "attributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAttributeGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAttributeGroup where
   hashWithSalt _salt GetAttributeGroup' {..} =

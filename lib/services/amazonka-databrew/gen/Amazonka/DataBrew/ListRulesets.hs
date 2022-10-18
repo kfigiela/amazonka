@@ -131,7 +131,7 @@ instance Core.AWSPager ListRulesets where
 
 instance Core.AWSRequest ListRulesets where
   type AWSResponse ListRulesets = ListRulesetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListRulesets where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Rulesets" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListRulesets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRulesets where
   hashWithSalt _salt ListRulesets' {..} =

@@ -142,7 +142,7 @@ instance Core.AWSRequest ModifyClusterMaintenance where
   type
     AWSResponse ModifyClusterMaintenance =
       ModifyClusterMaintenanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterMaintenanceResult"
@@ -151,6 +151,9 @@ instance Core.AWSRequest ModifyClusterMaintenance where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyClusterMaintenance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyClusterMaintenance where
   hashWithSalt _salt ModifyClusterMaintenance' {..} =

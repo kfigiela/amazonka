@@ -120,7 +120,7 @@ instance Core.AWSRequest AssociateInstanceEventWindow where
   type
     AWSResponse AssociateInstanceEventWindow =
       AssociateInstanceEventWindowResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest AssociateInstanceEventWindow where
             Prelude.<$> (x Core..@? "instanceEventWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateInstanceEventWindow where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

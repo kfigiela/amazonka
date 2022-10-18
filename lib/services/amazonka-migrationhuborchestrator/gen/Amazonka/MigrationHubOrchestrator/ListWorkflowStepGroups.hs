@@ -124,7 +124,7 @@ instance Core.AWSRequest ListWorkflowStepGroups where
   type
     AWSResponse ListWorkflowStepGroups =
       ListWorkflowStepGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListWorkflowStepGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListWorkflowStepGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorkflowStepGroups where
   hashWithSalt _salt ListWorkflowStepGroups' {..} =

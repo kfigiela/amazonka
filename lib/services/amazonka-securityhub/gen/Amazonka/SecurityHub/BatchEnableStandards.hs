@@ -86,7 +86,7 @@ instance Core.AWSRequest BatchEnableStandards where
   type
     AWSResponse BatchEnableStandards =
       BatchEnableStandardsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest BatchEnableStandards where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchEnableStandards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchEnableStandards where
   hashWithSalt _salt BatchEnableStandards' {..} =

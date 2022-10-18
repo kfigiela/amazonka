@@ -124,11 +124,14 @@ instance Core.AWSRequest AddPartner where
   type
     AWSResponse AddPartner =
       PartnerIntegrationOutputMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddPartnerResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService AddPartner where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddPartner where
   hashWithSalt _salt AddPartner' {..} =

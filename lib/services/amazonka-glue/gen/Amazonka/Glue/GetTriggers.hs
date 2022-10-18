@@ -123,7 +123,7 @@ instance Core.AWSPager GetTriggers where
 
 instance Core.AWSRequest GetTriggers where
   type AWSResponse GetTriggers = GetTriggersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GetTriggers where
             Prelude.<*> (x Core..?> "Triggers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTriggers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTriggers where
   hashWithSalt _salt GetTriggers' {..} =

@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteResolverQueryLogConfig where
   type
     AWSResponse DeleteResolverQueryLogConfig =
       DeleteResolverQueryLogConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteResolverQueryLogConfig where
             Prelude.<$> (x Core..?> "ResolverQueryLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResolverQueryLogConfig where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

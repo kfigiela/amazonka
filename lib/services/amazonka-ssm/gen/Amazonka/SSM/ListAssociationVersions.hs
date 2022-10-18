@@ -135,7 +135,7 @@ instance Core.AWSRequest ListAssociationVersions where
   type
     AWSResponse ListAssociationVersions =
       ListAssociationVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest ListAssociationVersions where
             Prelude.<*> (x Core..?> "AssociationVersions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssociationVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssociationVersions where
   hashWithSalt _salt ListAssociationVersions' {..} =

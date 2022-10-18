@@ -133,7 +133,7 @@ instance Core.AWSRequest CreateCacheSecurityGroup where
   type
     AWSResponse CreateCacheSecurityGroup =
       CreateCacheSecurityGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCacheSecurityGroupResult"
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateCacheSecurityGroup where
             Prelude.<$> (x Core..@? "CacheSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCacheSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCacheSecurityGroup where
   hashWithSalt _salt CreateCacheSecurityGroup' {..} =

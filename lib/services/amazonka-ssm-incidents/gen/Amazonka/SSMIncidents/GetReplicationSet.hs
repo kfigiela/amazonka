@@ -80,7 +80,7 @@ instance Core.AWSRequest GetReplicationSet where
   type
     AWSResponse GetReplicationSet =
       GetReplicationSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetReplicationSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "replicationSet")
       )
+
+instance Core.AWSService GetReplicationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReplicationSet where
   hashWithSalt _salt GetReplicationSet' {..} =

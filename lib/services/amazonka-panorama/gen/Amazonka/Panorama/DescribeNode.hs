@@ -100,7 +100,7 @@ describeNode_nodeId = Lens.lens (\DescribeNode' {nodeId} -> nodeId) (\s@Describe
 
 instance Core.AWSRequest DescribeNode where
   type AWSResponse DescribeNode = DescribeNodeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DescribeNode where
             Prelude.<*> (x Core..:> "PackageVersion")
             Prelude.<*> (x Core..:> "PatchVersion")
       )
+
+instance Core.AWSService DescribeNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNode where
   hashWithSalt _salt DescribeNode' {..} =

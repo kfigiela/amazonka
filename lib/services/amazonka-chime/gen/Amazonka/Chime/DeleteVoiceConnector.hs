@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteVoiceConnector where
   type
     AWSResponse DeleteVoiceConnector =
       DeleteVoiceConnectorResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteVoiceConnectorResponse'
+
+instance Core.AWSService DeleteVoiceConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVoiceConnector where
   hashWithSalt _salt DeleteVoiceConnector' {..} =

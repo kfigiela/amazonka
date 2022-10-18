@@ -455,7 +455,7 @@ instance Core.AWSRequest GetPartitions where
   type
     AWSResponse GetPartitions =
       GetPartitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -464,6 +464,9 @@ instance Core.AWSRequest GetPartitions where
             Prelude.<*> (x Core..?> "Partitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPartitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPartitions where
   hashWithSalt _salt GetPartitions' {..} =

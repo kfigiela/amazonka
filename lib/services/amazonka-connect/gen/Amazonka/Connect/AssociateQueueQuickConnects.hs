@@ -110,10 +110,13 @@ instance Core.AWSRequest AssociateQueueQuickConnects where
   type
     AWSResponse AssociateQueueQuickConnects =
       AssociateQueueQuickConnectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AssociateQueueQuickConnectsResponse'
+
+instance Core.AWSService AssociateQueueQuickConnects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateQueueQuickConnects where
   hashWithSalt _salt AssociateQueueQuickConnects' {..} =

@@ -128,13 +128,16 @@ instance Core.AWSRequest AssociateDeviceWithPlacement where
   type
     AWSResponse AssociateDeviceWithPlacement =
       AssociateDeviceWithPlacementResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDeviceWithPlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateDeviceWithPlacement where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

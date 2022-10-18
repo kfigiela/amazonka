@@ -128,7 +128,7 @@ instance Core.AWSRequest SendSSHPublicKey where
   type
     AWSResponse SendSSHPublicKey =
       SendSSHPublicKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest SendSSHPublicKey where
             Prelude.<*> (x Core..?> "Success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendSSHPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendSSHPublicKey where
   hashWithSalt _salt SendSSHPublicKey' {..} =

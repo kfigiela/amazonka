@@ -85,7 +85,7 @@ pauseService_serviceArn = Lens.lens (\PauseService' {serviceArn} -> serviceArn) 
 
 instance Core.AWSRequest PauseService where
   type AWSResponse PauseService = PauseServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest PauseService where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Service")
       )
+
+instance Core.AWSService PauseService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PauseService where
   hashWithSalt _salt PauseService' {..} =

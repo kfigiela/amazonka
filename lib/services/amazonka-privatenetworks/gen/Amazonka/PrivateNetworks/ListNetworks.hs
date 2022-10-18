@@ -139,7 +139,7 @@ instance Core.AWSPager ListNetworks where
 
 instance Core.AWSRequest ListNetworks where
   type AWSResponse ListNetworks = ListNetworksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest ListNetworks where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNetworks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNetworks where
   hashWithSalt _salt ListNetworks' {..} =

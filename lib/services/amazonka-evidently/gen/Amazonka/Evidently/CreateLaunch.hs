@@ -209,7 +209,7 @@ createLaunch_project = Lens.lens (\CreateLaunch' {project} -> project) (\s@Creat
 
 instance Core.AWSRequest CreateLaunch where
   type AWSResponse CreateLaunch = CreateLaunchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest CreateLaunch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "launch")
       )
+
+instance Core.AWSService CreateLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLaunch where
   hashWithSalt _salt CreateLaunch' {..} =

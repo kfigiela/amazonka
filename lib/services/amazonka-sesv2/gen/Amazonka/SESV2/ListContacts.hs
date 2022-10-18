@@ -132,7 +132,7 @@ listContacts_contactListName = Lens.lens (\ListContacts' {contactListName} -> co
 
 instance Core.AWSRequest ListContacts where
   type AWSResponse ListContacts = ListContactsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListContacts where
             Prelude.<*> (x Core..?> "Contacts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListContacts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListContacts where
   hashWithSalt _salt ListContacts' {..} =

@@ -99,13 +99,16 @@ instance Core.AWSRequest DeleteClientBranding where
   type
     AWSResponse DeleteClientBranding =
       DeleteClientBrandingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteClientBrandingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteClientBranding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteClientBranding where
   hashWithSalt _salt DeleteClientBranding' {..} =

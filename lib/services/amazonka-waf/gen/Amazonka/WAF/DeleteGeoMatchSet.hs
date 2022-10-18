@@ -121,7 +121,7 @@ instance Core.AWSRequest DeleteGeoMatchSet where
   type
     AWSResponse DeleteGeoMatchSet =
       DeleteGeoMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DeleteGeoMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGeoMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGeoMatchSet where
   hashWithSalt _salt DeleteGeoMatchSet' {..} =

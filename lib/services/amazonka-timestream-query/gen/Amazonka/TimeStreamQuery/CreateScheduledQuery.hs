@@ -282,7 +282,7 @@ instance Core.AWSRequest CreateScheduledQuery where
   type
     AWSResponse CreateScheduledQuery =
       CreateScheduledQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -290,6 +290,9 @@ instance Core.AWSRequest CreateScheduledQuery where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Arn")
       )
+
+instance Core.AWSService CreateScheduledQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateScheduledQuery where
   hashWithSalt _salt CreateScheduledQuery' {..} =

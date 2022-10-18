@@ -208,7 +208,7 @@ instance Core.AWSRequest GetResourceConfigHistory where
   type
     AWSResponse GetResourceConfigHistory =
       GetResourceConfigHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,6 +219,9 @@ instance Core.AWSRequest GetResourceConfigHistory where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceConfigHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceConfigHistory where
   hashWithSalt _salt GetResourceConfigHistory' {..} =

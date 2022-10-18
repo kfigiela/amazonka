@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeExport where
   type
     AWSResponse DescribeExport =
       DescribeExportResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeExport where
             Prelude.<*> (x Core..?> "fileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExport where
   hashWithSalt _salt DescribeExport' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetTopicAttributes where
   type
     AWSResponse GetTopicAttributes =
       GetTopicAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTopicAttributesResult"
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetTopicAttributes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTopicAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTopicAttributes where
   hashWithSalt _salt GetTopicAttributes' {..} =

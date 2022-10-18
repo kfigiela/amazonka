@@ -122,13 +122,16 @@ instance Core.AWSRequest UpdateFuotaTask where
   type
     AWSResponse UpdateFuotaTask =
       UpdateFuotaTaskResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFuotaTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFuotaTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFuotaTask where
   hashWithSalt _salt UpdateFuotaTask' {..} =

@@ -139,7 +139,7 @@ instance Core.AWSRequest BatchImportFindings where
   type
     AWSResponse BatchImportFindings =
       BatchImportFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest BatchImportFindings where
             Prelude.<*> (x Core..:> "FailedCount")
             Prelude.<*> (x Core..:> "SuccessCount")
       )
+
+instance Core.AWSService BatchImportFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchImportFindings where
   hashWithSalt _salt BatchImportFindings' {..} =

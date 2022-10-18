@@ -138,7 +138,7 @@ updateAsset_revisionId = Lens.lens (\UpdateAsset' {revisionId} -> revisionId) (\
 
 instance Core.AWSRequest UpdateAsset where
   type AWSResponse UpdateAsset = UpdateAssetResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest UpdateAsset where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAsset where
   hashWithSalt _salt UpdateAsset' {..} =

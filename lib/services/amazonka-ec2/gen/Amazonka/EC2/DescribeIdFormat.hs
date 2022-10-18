@@ -125,7 +125,7 @@ instance Core.AWSRequest DescribeIdFormat where
   type
     AWSResponse DescribeIdFormat =
       DescribeIdFormatResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DescribeIdFormat where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeIdFormat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIdFormat where
   hashWithSalt _salt DescribeIdFormat' {..} =

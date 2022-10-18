@@ -228,7 +228,7 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
   type
     AWSResponse DescribeSnapshotCopyGrants =
       DescribeSnapshotCopyGrantsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSnapshotCopyGrantsResult"
@@ -241,6 +241,9 @@ instance Core.AWSRequest DescribeSnapshotCopyGrants where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSnapshotCopyGrants where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSnapshotCopyGrants where
   hashWithSalt _salt DescribeSnapshotCopyGrants' {..} =

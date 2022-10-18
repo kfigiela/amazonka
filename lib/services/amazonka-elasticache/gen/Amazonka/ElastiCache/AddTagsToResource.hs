@@ -128,11 +128,14 @@ addTagsToResource_tags = Lens.lens (\AddTagsToResource' {tags} -> tags) (\s@AddT
 
 instance Core.AWSRequest AddTagsToResource where
   type AWSResponse AddTagsToResource = TagListMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddTagsToResourceResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService AddTagsToResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTagsToResource where
   hashWithSalt _salt AddTagsToResource' {..} =

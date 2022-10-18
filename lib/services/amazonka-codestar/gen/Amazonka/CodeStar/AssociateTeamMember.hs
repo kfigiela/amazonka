@@ -145,7 +145,7 @@ instance Core.AWSRequest AssociateTeamMember where
   type
     AWSResponse AssociateTeamMember =
       AssociateTeamMemberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest AssociateTeamMember where
             Prelude.<$> (x Core..?> "clientRequestToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateTeamMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateTeamMember where
   hashWithSalt _salt AssociateTeamMember' {..} =

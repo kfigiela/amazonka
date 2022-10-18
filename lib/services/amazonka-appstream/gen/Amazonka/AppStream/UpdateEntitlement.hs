@@ -121,7 +121,7 @@ instance Core.AWSRequest UpdateEntitlement where
   type
     AWSResponse UpdateEntitlement =
       UpdateEntitlementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest UpdateEntitlement where
             Prelude.<$> (x Core..?> "Entitlement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEntitlement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEntitlement where
   hashWithSalt _salt UpdateEntitlement' {..} =

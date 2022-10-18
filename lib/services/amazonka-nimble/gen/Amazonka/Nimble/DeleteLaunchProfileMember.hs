@@ -125,13 +125,16 @@ instance Core.AWSRequest DeleteLaunchProfileMember where
   type
     AWSResponse DeleteLaunchProfileMember =
       DeleteLaunchProfileMemberResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLaunchProfileMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLaunchProfileMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLaunchProfileMember where
   hashWithSalt _salt DeleteLaunchProfileMember' {..} =

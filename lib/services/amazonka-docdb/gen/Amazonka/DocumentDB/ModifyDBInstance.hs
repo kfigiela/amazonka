@@ -388,7 +388,7 @@ instance Core.AWSRequest ModifyDBInstance where
   type
     AWSResponse ModifyDBInstance =
       ModifyDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBInstanceResult"
@@ -397,6 +397,9 @@ instance Core.AWSRequest ModifyDBInstance where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBInstance where
   hashWithSalt _salt ModifyDBInstance' {..} =

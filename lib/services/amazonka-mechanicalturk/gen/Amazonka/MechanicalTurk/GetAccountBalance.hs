@@ -67,7 +67,7 @@ instance Core.AWSRequest GetAccountBalance where
   type
     AWSResponse GetAccountBalance =
       GetAccountBalanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -76,6 +76,9 @@ instance Core.AWSRequest GetAccountBalance where
             Prelude.<*> (x Core..?> "OnHoldBalance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountBalance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountBalance where
   hashWithSalt _salt _ =

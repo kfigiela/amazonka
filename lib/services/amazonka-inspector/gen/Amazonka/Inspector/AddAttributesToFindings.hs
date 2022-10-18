@@ -94,7 +94,7 @@ instance Core.AWSRequest AddAttributesToFindings where
   type
     AWSResponse AddAttributesToFindings =
       AddAttributesToFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest AddAttributesToFindings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService AddAttributesToFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddAttributesToFindings where
   hashWithSalt _salt AddAttributesToFindings' {..} =

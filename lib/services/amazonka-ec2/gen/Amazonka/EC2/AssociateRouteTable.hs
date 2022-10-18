@@ -128,7 +128,7 @@ instance Core.AWSRequest AssociateRouteTable where
   type
     AWSResponse AssociateRouteTable =
       AssociateRouteTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest AssociateRouteTable where
             Prelude.<*> (x Core..@? "associationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateRouteTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateRouteTable where
   hashWithSalt _salt AssociateRouteTable' {..} =

@@ -95,13 +95,16 @@ closeTunnel_tunnelId = Lens.lens (\CloseTunnel' {tunnelId} -> tunnelId) (\s@Clos
 
 instance Core.AWSRequest CloseTunnel where
   type AWSResponse CloseTunnel = CloseTunnelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CloseTunnelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CloseTunnel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CloseTunnel where
   hashWithSalt _salt CloseTunnel' {..} =

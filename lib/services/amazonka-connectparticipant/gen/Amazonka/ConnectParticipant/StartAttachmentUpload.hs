@@ -146,7 +146,7 @@ instance Core.AWSRequest StartAttachmentUpload where
   type
     AWSResponse StartAttachmentUpload =
       StartAttachmentUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest StartAttachmentUpload where
             Prelude.<*> (x Core..?> "UploadMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartAttachmentUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartAttachmentUpload where
   hashWithSalt _salt StartAttachmentUpload' {..} =

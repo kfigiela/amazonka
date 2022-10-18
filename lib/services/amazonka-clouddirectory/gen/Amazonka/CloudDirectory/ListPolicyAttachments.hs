@@ -161,7 +161,7 @@ instance Core.AWSRequest ListPolicyAttachments where
   type
     AWSResponse ListPolicyAttachments =
       ListPolicyAttachmentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest ListPolicyAttachments where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPolicyAttachments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPolicyAttachments where
   hashWithSalt _salt ListPolicyAttachments' {..} =

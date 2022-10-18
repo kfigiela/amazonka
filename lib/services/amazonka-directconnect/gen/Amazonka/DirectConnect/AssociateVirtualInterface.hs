@@ -131,10 +131,13 @@ instance Core.AWSRequest AssociateVirtualInterface where
   type
     AWSResponse AssociateVirtualInterface =
       VirtualInterface
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService AssociateVirtualInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateVirtualInterface where
   hashWithSalt _salt AssociateVirtualInterface' {..} =

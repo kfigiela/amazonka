@@ -204,7 +204,7 @@ instance Core.AWSRequest UpdateFeature where
   type
     AWSResponse UpdateFeature =
       UpdateFeatureResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest UpdateFeature where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "feature")
       )
+
+instance Core.AWSService UpdateFeature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFeature where
   hashWithSalt _salt UpdateFeature' {..} =

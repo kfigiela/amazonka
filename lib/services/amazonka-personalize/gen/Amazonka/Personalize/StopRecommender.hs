@@ -78,7 +78,7 @@ instance Core.AWSRequest StopRecommender where
   type
     AWSResponse StopRecommender =
       StopRecommenderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest StopRecommender where
             Prelude.<$> (x Core..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopRecommender where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopRecommender where
   hashWithSalt _salt StopRecommender' {..} =

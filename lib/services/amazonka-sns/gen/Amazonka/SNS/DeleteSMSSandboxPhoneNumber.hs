@@ -91,7 +91,7 @@ instance Core.AWSRequest DeleteSMSSandboxPhoneNumber where
   type
     AWSResponse DeleteSMSSandboxPhoneNumber =
       DeleteSMSSandboxPhoneNumberResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteSMSSandboxPhoneNumberResult"
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteSMSSandboxPhoneNumber where
           DeleteSMSSandboxPhoneNumberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSMSSandboxPhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSMSSandboxPhoneNumber where
   hashWithSalt _salt DeleteSMSSandboxPhoneNumber' {..} =

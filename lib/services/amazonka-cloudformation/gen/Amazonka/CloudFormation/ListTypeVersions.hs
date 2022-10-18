@@ -229,7 +229,7 @@ instance Core.AWSRequest ListTypeVersions where
   type
     AWSResponse ListTypeVersions =
       ListTypeVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTypeVersionsResult"
@@ -242,6 +242,9 @@ instance Core.AWSRequest ListTypeVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTypeVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTypeVersions where
   hashWithSalt _salt ListTypeVersions' {..} =

@@ -210,7 +210,7 @@ instance Core.AWSRequest UpdateVoiceTemplate where
   type
     AWSResponse UpdateVoiceTemplate =
       UpdateVoiceTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest UpdateVoiceTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateVoiceTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVoiceTemplate where
   hashWithSalt _salt UpdateVoiceTemplate' {..} =

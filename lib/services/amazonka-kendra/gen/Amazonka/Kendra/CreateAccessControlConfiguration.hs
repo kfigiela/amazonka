@@ -193,7 +193,7 @@ instance
   type
     AWSResponse CreateAccessControlConfiguration =
       CreateAccessControlConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Id")
       )
+
+instance
+  Core.AWSService
+    CreateAccessControlConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

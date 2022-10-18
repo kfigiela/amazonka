@@ -81,7 +81,7 @@ getChannel_channel = Lens.lens (\GetChannel' {channel} -> channel) (\s@GetChanne
 
 instance Core.AWSRequest GetChannel where
   type AWSResponse GetChannel = GetChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetChannel where
             Prelude.<*> (x Core..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChannel where
   hashWithSalt _salt GetChannel' {..} =

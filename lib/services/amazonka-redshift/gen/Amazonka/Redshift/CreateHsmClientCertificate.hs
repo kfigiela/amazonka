@@ -109,7 +109,7 @@ instance Core.AWSRequest CreateHsmClientCertificate where
   type
     AWSResponse CreateHsmClientCertificate =
       CreateHsmClientCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateHsmClientCertificateResult"
@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateHsmClientCertificate where
             Prelude.<$> (x Core..@? "HsmClientCertificate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHsmClientCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHsmClientCertificate where
   hashWithSalt _salt CreateHsmClientCertificate' {..} =

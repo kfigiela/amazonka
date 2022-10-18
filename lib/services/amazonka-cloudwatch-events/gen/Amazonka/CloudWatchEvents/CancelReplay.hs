@@ -77,7 +77,7 @@ cancelReplay_replayName = Lens.lens (\CancelReplay' {replayName} -> replayName) 
 
 instance Core.AWSRequest CancelReplay where
   type AWSResponse CancelReplay = CancelReplayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest CancelReplay where
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelReplay where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelReplay where
   hashWithSalt _salt CancelReplay' {..} =

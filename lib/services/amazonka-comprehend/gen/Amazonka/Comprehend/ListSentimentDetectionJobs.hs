@@ -132,7 +132,7 @@ instance Core.AWSRequest ListSentimentDetectionJobs where
   type
     AWSResponse ListSentimentDetectionJobs =
       ListSentimentDetectionJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ListSentimentDetectionJobs where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSentimentDetectionJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSentimentDetectionJobs where
   hashWithSalt _salt ListSentimentDetectionJobs' {..} =

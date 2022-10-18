@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeRouteCalculator where
   type
     AWSResponse DescribeRouteCalculator =
       DescribeRouteCalculatorResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeRouteCalculator where
             Prelude.<*> (x Core..:> "Description")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService DescribeRouteCalculator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRouteCalculator where
   hashWithSalt _salt DescribeRouteCalculator' {..} =

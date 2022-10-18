@@ -64,7 +64,7 @@ instance Core.AWSRequest GetOrganizationAdminAccount where
   type
     AWSResponse GetOrganizationAdminAccount =
       GetOrganizationAdminAccountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest GetOrganizationAdminAccount where
             Prelude.<*> (x Core..?> "organizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOrganizationAdminAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOrganizationAdminAccount where
   hashWithSalt _salt _ =

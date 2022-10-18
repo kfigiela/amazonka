@@ -325,7 +325,7 @@ instance Core.AWSPager GetImages where
 
 instance Core.AWSRequest GetImages where
   type AWSResponse GetImages = GetImagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -334,6 +334,9 @@ instance Core.AWSRequest GetImages where
             Prelude.<*> (x Core..?> "Images" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImages where
   hashWithSalt _salt GetImages' {..} =

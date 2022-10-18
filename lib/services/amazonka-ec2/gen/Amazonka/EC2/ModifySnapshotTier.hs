@@ -115,7 +115,7 @@ instance Core.AWSRequest ModifySnapshotTier where
   type
     AWSResponse ModifySnapshotTier =
       ModifySnapshotTierResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ModifySnapshotTier where
             Prelude.<*> (x Core..@? "tieringStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifySnapshotTier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifySnapshotTier where
   hashWithSalt _salt ModifySnapshotTier' {..} =

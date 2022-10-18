@@ -196,7 +196,7 @@ copyBackup_sourceBackupId = Lens.lens (\CopyBackup' {sourceBackupId} -> sourceBa
 
 instance Core.AWSRequest CopyBackup where
   type AWSResponse CopyBackup = CopyBackupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest CopyBackup where
             Prelude.<$> (x Core..?> "Backup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyBackup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyBackup where
   hashWithSalt _salt CopyBackup' {..} =

@@ -114,10 +114,16 @@ instance
   type
     AWSResponse UpdateQueueOutboundCallerConfig =
       UpdateQueueOutboundCallerConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateQueueOutboundCallerConfigResponse'
+
+instance
+  Core.AWSService
+    UpdateQueueOutboundCallerConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

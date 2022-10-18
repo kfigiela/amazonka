@@ -127,9 +127,12 @@ instance Core.AWSRequest DeleteRolePolicy where
   type
     AWSResponse DeleteRolePolicy =
       DeleteRolePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteRolePolicyResponse'
+
+instance Core.AWSService DeleteRolePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRolePolicy where
   hashWithSalt _salt DeleteRolePolicy' {..} =

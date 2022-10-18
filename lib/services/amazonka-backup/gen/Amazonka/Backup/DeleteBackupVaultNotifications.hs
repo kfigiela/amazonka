@@ -88,10 +88,16 @@ instance
   type
     AWSResponse DeleteBackupVaultNotifications =
       DeleteBackupVaultNotificationsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteBackupVaultNotificationsResponse'
+
+instance
+  Core.AWSService
+    DeleteBackupVaultNotifications
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

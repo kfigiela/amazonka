@@ -80,7 +80,7 @@ instance Core.AWSRequest GetTargetResourceType where
   type
     AWSResponse GetTargetResourceType =
       GetTargetResourceTypeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetTargetResourceType where
             Prelude.<$> (x Core..?> "targetResourceType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTargetResourceType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTargetResourceType where
   hashWithSalt _salt GetTargetResourceType' {..} =

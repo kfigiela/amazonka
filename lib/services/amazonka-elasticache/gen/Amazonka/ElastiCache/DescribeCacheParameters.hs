@@ -172,7 +172,7 @@ instance Core.AWSRequest DescribeCacheParameters where
   type
     AWSResponse DescribeCacheParameters =
       DescribeCacheParametersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheParametersResult"
@@ -189,6 +189,9 @@ instance Core.AWSRequest DescribeCacheParameters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCacheParameters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCacheParameters where
   hashWithSalt _salt DescribeCacheParameters' {..} =

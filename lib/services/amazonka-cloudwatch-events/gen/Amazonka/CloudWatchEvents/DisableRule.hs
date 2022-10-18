@@ -90,8 +90,11 @@ disableRule_name = Lens.lens (\DisableRule' {name} -> name) (\s@DisableRule' {} 
 
 instance Core.AWSRequest DisableRule where
   type AWSResponse DisableRule = DisableRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DisableRuleResponse'
+
+instance Core.AWSService DisableRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableRule where
   hashWithSalt _salt DisableRule' {..} =

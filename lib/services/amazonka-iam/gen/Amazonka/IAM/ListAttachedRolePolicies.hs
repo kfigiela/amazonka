@@ -228,7 +228,7 @@ instance Core.AWSRequest ListAttachedRolePolicies where
   type
     AWSResponse ListAttachedRolePolicies =
       ListAttachedRolePoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListAttachedRolePoliciesResult"
@@ -242,6 +242,9 @@ instance Core.AWSRequest ListAttachedRolePolicies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAttachedRolePolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAttachedRolePolicies where
   hashWithSalt _salt ListAttachedRolePolicies' {..} =

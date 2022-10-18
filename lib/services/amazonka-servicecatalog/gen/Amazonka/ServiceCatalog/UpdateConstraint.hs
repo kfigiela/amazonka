@@ -303,7 +303,7 @@ instance Core.AWSRequest UpdateConstraint where
   type
     AWSResponse UpdateConstraint =
       UpdateConstraintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -313,6 +313,9 @@ instance Core.AWSRequest UpdateConstraint where
             Prelude.<*> (x Core..?> "ConstraintParameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConstraint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConstraint where
   hashWithSalt _salt UpdateConstraint' {..} =

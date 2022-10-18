@@ -120,7 +120,7 @@ instance Core.AWSRequest ListSchedules where
   type
     AWSResponse ListSchedules =
       ListSchedulesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListSchedules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Schedules" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListSchedules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSchedules where
   hashWithSalt _salt ListSchedules' {..} =

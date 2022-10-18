@@ -191,7 +191,7 @@ instance Core.AWSRequest BatchUpdateTableRows where
   type
     AWSResponse BatchUpdateTableRows =
       BatchUpdateTableRowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest BatchUpdateTableRows where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "workbookCursor")
       )
+
+instance Core.AWSService BatchUpdateTableRows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdateTableRows where
   hashWithSalt _salt BatchUpdateTableRows' {..} =

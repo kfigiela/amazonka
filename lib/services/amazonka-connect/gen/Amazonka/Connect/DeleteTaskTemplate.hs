@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteTaskTemplate where
   type
     AWSResponse DeleteTaskTemplate =
       DeleteTaskTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTaskTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTaskTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTaskTemplate where
   hashWithSalt _salt DeleteTaskTemplate' {..} =

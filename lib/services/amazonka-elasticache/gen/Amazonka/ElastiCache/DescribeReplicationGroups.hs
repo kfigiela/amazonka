@@ -168,7 +168,7 @@ instance Core.AWSRequest DescribeReplicationGroups where
   type
     AWSResponse DescribeReplicationGroups =
       DescribeReplicationGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReplicationGroupsResult"
@@ -181,6 +181,9 @@ instance Core.AWSRequest DescribeReplicationGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReplicationGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReplicationGroups where
   hashWithSalt _salt DescribeReplicationGroups' {..} =

@@ -135,7 +135,7 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
   type
     AWSResponse UpdateOriginRequestPolicy =
       UpdateOriginRequestPolicyResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UpdateOriginRequestPolicy where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOriginRequestPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOriginRequestPolicy where
   hashWithSalt _salt UpdateOriginRequestPolicy' {..} =

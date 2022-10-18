@@ -126,7 +126,7 @@ instance Core.AWSRequest UpdateBackendAPI where
   type
     AWSResponse UpdateBackendAPI =
       UpdateBackendAPIResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest UpdateBackendAPI where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBackendAPI where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBackendAPI where
   hashWithSalt _salt UpdateBackendAPI' {..} =

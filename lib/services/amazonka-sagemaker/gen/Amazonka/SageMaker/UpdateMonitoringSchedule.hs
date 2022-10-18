@@ -101,7 +101,7 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
   type
     AWSResponse UpdateMonitoringSchedule =
       UpdateMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateMonitoringSchedule where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "MonitoringScheduleArn")
       )
+
+instance Core.AWSService UpdateMonitoringSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMonitoringSchedule where
   hashWithSalt _salt UpdateMonitoringSchedule' {..} =

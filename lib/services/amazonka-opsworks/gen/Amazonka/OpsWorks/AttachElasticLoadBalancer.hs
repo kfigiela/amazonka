@@ -108,10 +108,13 @@ instance Core.AWSRequest AttachElasticLoadBalancer where
   type
     AWSResponse AttachElasticLoadBalancer =
       AttachElasticLoadBalancerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AttachElasticLoadBalancerResponse'
+
+instance Core.AWSService AttachElasticLoadBalancer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachElasticLoadBalancer where
   hashWithSalt _salt AttachElasticLoadBalancer' {..} =

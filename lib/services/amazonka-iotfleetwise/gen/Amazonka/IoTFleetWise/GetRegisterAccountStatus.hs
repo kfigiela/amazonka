@@ -75,7 +75,7 @@ instance Core.AWSRequest GetRegisterAccountStatus where
   type
     AWSResponse GetRegisterAccountStatus =
       GetRegisterAccountStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetRegisterAccountStatus where
             Prelude.<*> (x Core..:> "creationTime")
             Prelude.<*> (x Core..:> "lastModificationTime")
       )
+
+instance Core.AWSService GetRegisterAccountStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRegisterAccountStatus where
   hashWithSalt _salt _ =

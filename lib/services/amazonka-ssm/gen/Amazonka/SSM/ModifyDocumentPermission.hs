@@ -146,13 +146,16 @@ instance Core.AWSRequest ModifyDocumentPermission where
   type
     AWSResponse ModifyDocumentPermission =
       ModifyDocumentPermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyDocumentPermissionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDocumentPermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDocumentPermission where
   hashWithSalt _salt ModifyDocumentPermission' {..} =

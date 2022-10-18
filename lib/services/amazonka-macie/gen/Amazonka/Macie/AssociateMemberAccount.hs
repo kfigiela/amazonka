@@ -80,10 +80,13 @@ instance Core.AWSRequest AssociateMemberAccount where
   type
     AWSResponse AssociateMemberAccount =
       AssociateMemberAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AssociateMemberAccountResponse'
+
+instance Core.AWSService AssociateMemberAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateMemberAccount where
   hashWithSalt _salt AssociateMemberAccount' {..} =

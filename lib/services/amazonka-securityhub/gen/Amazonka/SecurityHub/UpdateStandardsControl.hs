@@ -103,13 +103,16 @@ instance Core.AWSRequest UpdateStandardsControl where
   type
     AWSResponse UpdateStandardsControl =
       UpdateStandardsControlResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateStandardsControlResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStandardsControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStandardsControl where
   hashWithSalt _salt UpdateStandardsControl' {..} =

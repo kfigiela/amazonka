@@ -308,7 +308,7 @@ instance Core.AWSRequest ListRepositoryAssociations where
   type
     AWSResponse ListRepositoryAssociations =
       ListRepositoryAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -319,6 +319,9 @@ instance Core.AWSRequest ListRepositoryAssociations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRepositoryAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRepositoryAssociations where
   hashWithSalt _salt ListRepositoryAssociations' {..} =

@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteWorldTemplate where
   type
     AWSResponse DeleteWorldTemplate =
       DeleteWorldTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorldTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorldTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorldTemplate where
   hashWithSalt _salt DeleteWorldTemplate' {..} =

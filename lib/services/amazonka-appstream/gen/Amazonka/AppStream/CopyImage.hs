@@ -123,7 +123,7 @@ copyImage_destinationRegion = Lens.lens (\CopyImage' {destinationRegion} -> dest
 
 instance Core.AWSRequest CopyImage where
   type AWSResponse CopyImage = CopyImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest CopyImage where
             Prelude.<$> (x Core..?> "DestinationImageName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyImage where
   hashWithSalt _salt CopyImage' {..} =

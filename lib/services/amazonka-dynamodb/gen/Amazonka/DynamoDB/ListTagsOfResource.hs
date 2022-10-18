@@ -127,7 +127,7 @@ instance Core.AWSRequest ListTagsOfResource where
   type
     AWSResponse ListTagsOfResource =
       ListTagsOfResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListTagsOfResource where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTagsOfResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsOfResource where
   hashWithSalt _salt ListTagsOfResource' {..} =

@@ -328,8 +328,11 @@ updateLayer_layerId = Lens.lens (\UpdateLayer' {layerId} -> layerId) (\s@UpdateL
 
 instance Core.AWSRequest UpdateLayer where
   type AWSResponse UpdateLayer = UpdateLayerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull UpdateLayerResponse'
+
+instance Core.AWSService UpdateLayer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLayer where
   hashWithSalt _salt UpdateLayer' {..} =

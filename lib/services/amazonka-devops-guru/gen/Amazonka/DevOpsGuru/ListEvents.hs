@@ -137,7 +137,7 @@ instance Core.AWSPager ListEvents where
 
 instance Core.AWSRequest ListEvents where
   type AWSResponse ListEvents = ListEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListEvents where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEvents where
   hashWithSalt _salt ListEvents' {..} =

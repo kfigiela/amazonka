@@ -167,7 +167,7 @@ instance Core.AWSRequest CreateTapePool where
   type
     AWSResponse CreateTapePool =
       CreateTapePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest CreateTapePool where
             Prelude.<$> (x Core..?> "PoolARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTapePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTapePool where
   hashWithSalt _salt CreateTapePool' {..} =

@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeTaskExecution where
   type
     AWSResponse DescribeTaskExecution =
       DescribeTaskExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeTaskExecution where
             Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTaskExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTaskExecution where
   hashWithSalt _salt DescribeTaskExecution' {..} =

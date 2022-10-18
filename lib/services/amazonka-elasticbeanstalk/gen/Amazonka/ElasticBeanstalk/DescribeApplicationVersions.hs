@@ -162,7 +162,7 @@ instance Core.AWSRequest DescribeApplicationVersions where
   type
     AWSResponse DescribeApplicationVersions =
       DescribeApplicationVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeApplicationVersionsResult"
@@ -175,6 +175,9 @@ instance Core.AWSRequest DescribeApplicationVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeApplicationVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeApplicationVersions where
   hashWithSalt _salt DescribeApplicationVersions' {..} =

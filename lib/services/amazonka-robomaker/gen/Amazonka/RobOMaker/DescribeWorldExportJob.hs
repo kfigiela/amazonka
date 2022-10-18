@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeWorldExportJob where
   type
     AWSResponse DescribeWorldExportJob =
       DescribeWorldExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeWorldExportJob where
             Prelude.<*> (x Core..?> "failureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorldExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorldExportJob where
   hashWithSalt _salt DescribeWorldExportJob' {..} =

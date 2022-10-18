@@ -141,7 +141,7 @@ instance Core.AWSRequest ListServerNeighbors where
   type
     AWSResponse ListServerNeighbors =
       ListServerNeighborsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListServerNeighbors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "neighbors" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListServerNeighbors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServerNeighbors where
   hashWithSalt _salt ListServerNeighbors' {..} =

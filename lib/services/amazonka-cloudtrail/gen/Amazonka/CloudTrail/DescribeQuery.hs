@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeQuery where
   type
     AWSResponse DescribeQuery =
       DescribeQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeQuery where
             Prelude.<*> (x Core..?> "QueryString")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeQuery where
   hashWithSalt _salt DescribeQuery' {..} =

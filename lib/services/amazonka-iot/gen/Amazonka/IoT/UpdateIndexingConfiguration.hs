@@ -91,13 +91,16 @@ instance Core.AWSRequest UpdateIndexingConfiguration where
   type
     AWSResponse UpdateIndexingConfiguration =
       UpdateIndexingConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateIndexingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIndexingConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIndexingConfiguration where
   hashWithSalt _salt UpdateIndexingConfiguration' {..} =

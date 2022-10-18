@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteOpenIDConnectProvider where
   type
     AWSResponse DeleteOpenIDConnectProvider =
       DeleteOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteOpenIDConnectProviderResponse'
+
+instance Core.AWSService DeleteOpenIDConnectProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOpenIDConnectProvider where
   hashWithSalt _salt DeleteOpenIDConnectProvider' {..} =

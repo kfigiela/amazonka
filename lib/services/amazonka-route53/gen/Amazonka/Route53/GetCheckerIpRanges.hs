@@ -70,7 +70,7 @@ instance Core.AWSRequest GetCheckerIpRanges where
   type
     AWSResponse GetCheckerIpRanges =
       GetCheckerIpRangesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -80,6 +80,9 @@ instance Core.AWSRequest GetCheckerIpRanges where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService GetCheckerIpRanges where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCheckerIpRanges where
   hashWithSalt _salt _ =

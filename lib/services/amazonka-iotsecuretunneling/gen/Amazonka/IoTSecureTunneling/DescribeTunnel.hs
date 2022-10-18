@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeTunnel where
   type
     AWSResponse DescribeTunnel =
       DescribeTunnelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeTunnel where
             Prelude.<$> (x Core..?> "tunnel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTunnel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTunnel where
   hashWithSalt _salt DescribeTunnel' {..} =

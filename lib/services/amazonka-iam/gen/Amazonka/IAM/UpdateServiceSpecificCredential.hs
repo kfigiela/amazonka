@@ -141,10 +141,16 @@ instance
   type
     AWSResponse UpdateServiceSpecificCredential =
       UpdateServiceSpecificCredentialResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateServiceSpecificCredentialResponse'
+
+instance
+  Core.AWSService
+    UpdateServiceSpecificCredential
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

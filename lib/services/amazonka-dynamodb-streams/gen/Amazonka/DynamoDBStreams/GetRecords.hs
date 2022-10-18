@@ -109,7 +109,7 @@ getRecords_shardIterator = Lens.lens (\GetRecords' {shardIterator} -> shardItera
 
 instance Core.AWSRequest GetRecords where
   type AWSResponse GetRecords = GetRecordsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetRecords where
             Prelude.<*> (x Core..?> "NextShardIterator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRecords where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRecords where
   hashWithSalt _salt GetRecords' {..} =

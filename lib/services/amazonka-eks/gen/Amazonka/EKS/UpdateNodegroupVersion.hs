@@ -242,7 +242,7 @@ instance Core.AWSRequest UpdateNodegroupVersion where
   type
     AWSResponse UpdateNodegroupVersion =
       UpdateNodegroupVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest UpdateNodegroupVersion where
             Prelude.<$> (x Core..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNodegroupVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNodegroupVersion where
   hashWithSalt _salt UpdateNodegroupVersion' {..} =

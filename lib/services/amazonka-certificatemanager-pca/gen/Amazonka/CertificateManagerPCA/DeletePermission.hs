@@ -149,9 +149,12 @@ instance Core.AWSRequest DeletePermission where
   type
     AWSResponse DeletePermission =
       DeletePermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeletePermissionResponse'
+
+instance Core.AWSService DeletePermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePermission where
   hashWithSalt _salt DeletePermission' {..} =

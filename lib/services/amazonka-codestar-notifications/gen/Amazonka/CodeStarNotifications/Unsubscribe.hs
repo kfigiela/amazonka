@@ -92,7 +92,7 @@ unsubscribe_targetAddress = Lens.lens (\Unsubscribe' {targetAddress} -> targetAd
 
 instance Core.AWSRequest Unsubscribe where
   type AWSResponse Unsubscribe = UnsubscribeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest Unsubscribe where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Arn")
       )
+
+instance Core.AWSService Unsubscribe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Unsubscribe where
   hashWithSalt _salt Unsubscribe' {..} =

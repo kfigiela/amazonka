@@ -247,13 +247,16 @@ instance Core.AWSRequest PutRecommendationPreferences where
   type
     AWSResponse PutRecommendationPreferences =
       PutRecommendationPreferencesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutRecommendationPreferencesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRecommendationPreferences where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -108,7 +108,7 @@ instance Core.AWSRequest UpdateHostKey where
   type
     AWSResponse UpdateHostKey =
       UpdateHostKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateHostKey where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..:> "HostKeyId")
       )
+
+instance Core.AWSService UpdateHostKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHostKey where
   hashWithSalt _salt UpdateHostKey' {..} =

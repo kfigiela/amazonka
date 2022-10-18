@@ -85,13 +85,16 @@ instance Core.AWSRequest DeleteWorkforce where
   type
     AWSResponse DeleteWorkforce =
       DeleteWorkforceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkforceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkforce where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkforce where
   hashWithSalt _salt DeleteWorkforce' {..} =

@@ -97,7 +97,7 @@ instance Core.AWSRequest OptOutSpeaker where
   type
     AWSResponse OptOutSpeaker =
       OptOutSpeakerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest OptOutSpeaker where
             Prelude.<$> (x Core..?> "Speaker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService OptOutSpeaker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable OptOutSpeaker where
   hashWithSalt _salt OptOutSpeaker' {..} =

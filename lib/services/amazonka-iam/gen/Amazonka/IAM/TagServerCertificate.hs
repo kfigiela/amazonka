@@ -143,9 +143,12 @@ instance Core.AWSRequest TagServerCertificate where
   type
     AWSResponse TagServerCertificate =
       TagServerCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull TagServerCertificateResponse'
+
+instance Core.AWSService TagServerCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagServerCertificate where
   hashWithSalt _salt TagServerCertificate' {..} =

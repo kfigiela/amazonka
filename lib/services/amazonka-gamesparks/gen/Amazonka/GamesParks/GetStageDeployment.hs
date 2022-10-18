@@ -104,7 +104,7 @@ instance Core.AWSRequest GetStageDeployment where
   type
     AWSResponse GetStageDeployment =
       GetStageDeploymentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetStageDeployment where
             Prelude.<$> (x Core..?> "StageDeployment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStageDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStageDeployment where
   hashWithSalt _salt GetStageDeployment' {..} =

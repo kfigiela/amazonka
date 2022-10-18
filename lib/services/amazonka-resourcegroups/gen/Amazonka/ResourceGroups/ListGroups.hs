@@ -211,7 +211,7 @@ instance Core.AWSPager ListGroups where
 
 instance Core.AWSRequest ListGroups where
   type AWSResponse ListGroups = ListGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest ListGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGroups where
   hashWithSalt _salt ListGroups' {..} =

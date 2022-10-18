@@ -100,9 +100,12 @@ instance Core.AWSRequest ApplyArchiveRule where
   type
     AWSResponse ApplyArchiveRule =
       ApplyArchiveRuleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull ApplyArchiveRuleResponse'
+
+instance Core.AWSService ApplyArchiveRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ApplyArchiveRule where
   hashWithSalt _salt ApplyArchiveRule' {..} =

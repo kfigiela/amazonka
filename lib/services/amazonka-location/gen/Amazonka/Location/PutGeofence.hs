@@ -126,7 +126,7 @@ putGeofence_geometry = Lens.lens (\PutGeofence' {geometry} -> geometry) (\s@PutG
 
 instance Core.AWSRequest PutGeofence where
   type AWSResponse PutGeofence = PutGeofenceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest PutGeofence where
             Prelude.<*> (x Core..:> "GeofenceId")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService PutGeofence where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutGeofence where
   hashWithSalt _salt PutGeofence' {..} =

@@ -98,9 +98,12 @@ instance Core.AWSRequest DeleteFileSystem where
   type
     AWSResponse DeleteFileSystem =
       DeleteFileSystemResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFileSystemResponse'
+
+instance Core.AWSService DeleteFileSystem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFileSystem where
   hashWithSalt _salt DeleteFileSystem' {..} =

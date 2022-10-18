@@ -127,7 +127,7 @@ instance Core.AWSRequest CreateRelatedItem where
   type
     AWSResponse CreateRelatedItem =
       CreateRelatedItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateRelatedItem where
             Prelude.<*> (x Core..:> "relatedItemArn")
             Prelude.<*> (x Core..:> "relatedItemId")
       )
+
+instance Core.AWSService CreateRelatedItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRelatedItem where
   hashWithSalt _salt CreateRelatedItem' {..} =

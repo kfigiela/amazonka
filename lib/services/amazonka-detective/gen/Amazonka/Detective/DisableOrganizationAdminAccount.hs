@@ -73,10 +73,16 @@ instance
   type
     AWSResponse DisableOrganizationAdminAccount =
       DisableOrganizationAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisableOrganizationAdminAccountResponse'
+
+instance
+  Core.AWSService
+    DisableOrganizationAdminAccount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

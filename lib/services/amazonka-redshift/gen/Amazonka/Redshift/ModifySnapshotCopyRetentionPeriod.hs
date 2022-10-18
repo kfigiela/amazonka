@@ -204,7 +204,7 @@ instance
   type
     AWSResponse ModifySnapshotCopyRetentionPeriod =
       ModifySnapshotCopyRetentionPeriodResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifySnapshotCopyRetentionPeriodResult"
@@ -213,6 +213,12 @@ instance
             Prelude.<$> (x Core..@? "Cluster")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifySnapshotCopyRetentionPeriod
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

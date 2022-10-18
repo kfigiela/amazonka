@@ -80,9 +80,12 @@ instance Core.AWSRequest DeleteExplainability where
   type
     AWSResponse DeleteExplainability =
       DeleteExplainabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteExplainabilityResponse'
+
+instance Core.AWSService DeleteExplainability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExplainability where
   hashWithSalt _salt DeleteExplainability' {..} =

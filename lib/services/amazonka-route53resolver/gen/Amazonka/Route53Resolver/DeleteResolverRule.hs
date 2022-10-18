@@ -83,7 +83,7 @@ instance Core.AWSRequest DeleteResolverRule where
   type
     AWSResponse DeleteResolverRule =
       DeleteResolverRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteResolverRule where
             Prelude.<$> (x Core..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResolverRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResolverRule where
   hashWithSalt _salt DeleteResolverRule' {..} =

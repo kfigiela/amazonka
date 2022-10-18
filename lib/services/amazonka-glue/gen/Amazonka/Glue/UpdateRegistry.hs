@@ -100,7 +100,7 @@ instance Core.AWSRequest UpdateRegistry where
   type
     AWSResponse UpdateRegistry =
       UpdateRegistryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateRegistry where
             Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRegistry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRegistry where
   hashWithSalt _salt UpdateRegistry' {..} =

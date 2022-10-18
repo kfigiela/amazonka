@@ -94,7 +94,7 @@ instance Core.AWSRequest RotateEncryptionKey where
   type
     AWSResponse RotateEncryptionKey =
       RotateEncryptionKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RotateEncryptionKeyResult"
@@ -103,6 +103,9 @@ instance Core.AWSRequest RotateEncryptionKey where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RotateEncryptionKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RotateEncryptionKey where
   hashWithSalt _salt RotateEncryptionKey' {..} =

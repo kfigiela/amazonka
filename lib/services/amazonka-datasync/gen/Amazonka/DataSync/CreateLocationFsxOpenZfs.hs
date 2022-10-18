@@ -145,7 +145,7 @@ instance Core.AWSRequest CreateLocationFsxOpenZfs where
   type
     AWSResponse CreateLocationFsxOpenZfs =
       CreateLocationFsxOpenZfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateLocationFsxOpenZfs where
             Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocationFsxOpenZfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocationFsxOpenZfs where
   hashWithSalt _salt CreateLocationFsxOpenZfs' {..} =

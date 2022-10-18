@@ -114,7 +114,7 @@ instance Core.AWSPager ListBrokers where
 
 instance Core.AWSRequest ListBrokers where
   type AWSResponse ListBrokers = ListBrokersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListBrokers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBrokers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBrokers where
   hashWithSalt _salt ListBrokers' {..} =

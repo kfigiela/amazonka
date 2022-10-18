@@ -101,7 +101,7 @@ instance Core.AWSRequest ListTagsForCertificate where
   type
     AWSResponse ListTagsForCertificate =
       ListTagsForCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ListTagsForCertificate where
             Prelude.<$> (x Core..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTagsForCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForCertificate where
   hashWithSalt _salt ListTagsForCertificate' {..} =

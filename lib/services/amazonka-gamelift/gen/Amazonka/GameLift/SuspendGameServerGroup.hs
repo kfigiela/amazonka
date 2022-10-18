@@ -128,7 +128,7 @@ instance Core.AWSRequest SuspendGameServerGroup where
   type
     AWSResponse SuspendGameServerGroup =
       SuspendGameServerGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest SuspendGameServerGroup where
             Prelude.<$> (x Core..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SuspendGameServerGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SuspendGameServerGroup where
   hashWithSalt _salt SuspendGameServerGroup' {..} =

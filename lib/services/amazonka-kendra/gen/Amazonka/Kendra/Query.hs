@@ -334,7 +334,7 @@ query_indexId = Lens.lens (\Query' {indexId} -> indexId) (\s@Query' {} a -> s {i
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -349,6 +349,9 @@ instance Core.AWSRequest Query where
             Prelude.<*> (x Core..?> "TotalNumberOfResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Query where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =

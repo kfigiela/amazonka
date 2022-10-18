@@ -108,7 +108,7 @@ instance Core.AWSRequest ListAssessmentFrameworks where
   type
     AWSResponse ListAssessmentFrameworks =
       ListAssessmentFrameworksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListAssessmentFrameworks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssessmentFrameworks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssessmentFrameworks where
   hashWithSalt _salt ListAssessmentFrameworks' {..} =

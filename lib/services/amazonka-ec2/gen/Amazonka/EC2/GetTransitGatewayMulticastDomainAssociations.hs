@@ -203,7 +203,7 @@ instance
     AWSResponse
       GetTransitGatewayMulticastDomainAssociations =
       GetTransitGatewayMulticastDomainAssociationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -215,6 +215,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetTransitGatewayMulticastDomainAssociations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

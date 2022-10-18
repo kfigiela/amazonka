@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteDecoderManifest where
   type
     AWSResponse DeleteDecoderManifest =
       DeleteDecoderManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteDecoderManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService DeleteDecoderManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDecoderManifest where
   hashWithSalt _salt DeleteDecoderManifest' {..} =

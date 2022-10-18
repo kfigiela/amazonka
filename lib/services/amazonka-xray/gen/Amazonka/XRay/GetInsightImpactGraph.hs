@@ -142,7 +142,7 @@ instance Core.AWSRequest GetInsightImpactGraph where
   type
     AWSResponse GetInsightImpactGraph =
       GetInsightImpactGraphResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest GetInsightImpactGraph where
             Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInsightImpactGraph where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInsightImpactGraph where
   hashWithSalt _salt GetInsightImpactGraph' {..} =

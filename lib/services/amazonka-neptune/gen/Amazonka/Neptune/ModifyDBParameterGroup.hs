@@ -147,11 +147,14 @@ instance Core.AWSRequest ModifyDBParameterGroup where
   type
     AWSResponse ModifyDBParameterGroup =
       DBParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyDBParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBParameterGroup where
   hashWithSalt _salt ModifyDBParameterGroup' {..} =

@@ -180,10 +180,13 @@ createDeployment_restApiId = Lens.lens (\CreateDeployment' {restApiId} -> restAp
 
 instance Core.AWSRequest CreateDeployment where
   type AWSResponse CreateDeployment = Deployment
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

@@ -81,7 +81,7 @@ getSubject_subjectId = Lens.lens (\GetSubject' {subjectId} -> subjectId) (\s@Get
 
 instance Core.AWSRequest GetSubject where
   type AWSResponse GetSubject = GetSubjectResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetSubject where
             Prelude.<$> (x Core..?> "subject")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSubject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSubject where
   hashWithSalt _salt GetSubject' {..} =

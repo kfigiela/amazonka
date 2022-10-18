@@ -231,9 +231,12 @@ instance Core.AWSRequest PutPermission where
   type
     AWSResponse PutPermission =
       PutPermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutPermissionResponse'
+
+instance Core.AWSService PutPermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPermission where
   hashWithSalt _salt PutPermission' {..} =

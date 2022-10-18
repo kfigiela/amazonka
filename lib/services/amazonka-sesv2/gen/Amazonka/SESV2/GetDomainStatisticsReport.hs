@@ -119,7 +119,7 @@ instance Core.AWSRequest GetDomainStatisticsReport where
   type
     AWSResponse GetDomainStatisticsReport =
       GetDomainStatisticsReportResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest GetDomainStatisticsReport where
             Prelude.<*> (x Core..:> "OverallVolume")
             Prelude.<*> (x Core..?> "DailyVolumes" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetDomainStatisticsReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomainStatisticsReport where
   hashWithSalt _salt GetDomainStatisticsReport' {..} =

@@ -137,7 +137,7 @@ getKeyPolicy_policyName = Lens.lens (\GetKeyPolicy' {policyName} -> policyName) 
 
 instance Core.AWSRequest GetKeyPolicy where
   type AWSResponse GetKeyPolicy = GetKeyPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest GetKeyPolicy where
             Prelude.<$> (x Core..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKeyPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKeyPolicy where
   hashWithSalt _salt GetKeyPolicy' {..} =

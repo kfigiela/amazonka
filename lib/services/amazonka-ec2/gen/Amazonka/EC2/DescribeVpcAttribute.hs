@@ -114,7 +114,7 @@ instance Core.AWSRequest DescribeVpcAttribute where
   type
     AWSResponse DescribeVpcAttribute =
       DescribeVpcAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeVpcAttribute where
             Prelude.<*> (x Core..@? "enableNetworkAddressUsageMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVpcAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVpcAttribute where
   hashWithSalt _salt DescribeVpcAttribute' {..} =

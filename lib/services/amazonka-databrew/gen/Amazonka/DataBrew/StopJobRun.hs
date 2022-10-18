@@ -86,7 +86,7 @@ stopJobRun_runId = Lens.lens (\StopJobRun' {runId} -> runId) (\s@StopJobRun' {} 
 
 instance Core.AWSRequest StopJobRun where
   type AWSResponse StopJobRun = StopJobRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest StopJobRun where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "RunId")
       )
+
+instance Core.AWSService StopJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopJobRun where
   hashWithSalt _salt StopJobRun' {..} =

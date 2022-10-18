@@ -96,6 +96,7 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudcontrolapi",
       Core._serviceSigningName = "cloudcontrolapi",
       Core._serviceVersion = "2021-09-30",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

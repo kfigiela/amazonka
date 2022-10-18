@@ -76,7 +76,7 @@ startTrigger_name = Lens.lens (\StartTrigger' {name} -> name) (\s@StartTrigger' 
 
 instance Core.AWSRequest StartTrigger where
   type AWSResponse StartTrigger = StartTriggerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest StartTrigger where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartTrigger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartTrigger where
   hashWithSalt _salt StartTrigger' {..} =

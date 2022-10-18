@@ -87,13 +87,16 @@ instance Core.AWSRequest DeleteJobQueue where
   type
     AWSResponse DeleteJobQueue =
       DeleteJobQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteJobQueueResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteJobQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteJobQueue where
   hashWithSalt _salt DeleteJobQueue' {..} =

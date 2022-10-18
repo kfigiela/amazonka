@@ -100,7 +100,7 @@ instance Core.AWSRequest GetJobManifest where
   type
     AWSResponse GetJobManifest =
       GetJobManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetJobManifest where
             Prelude.<$> (x Core..?> "ManifestURI")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetJobManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetJobManifest where
   hashWithSalt _salt GetJobManifest' {..} =

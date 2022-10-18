@@ -109,13 +109,16 @@ instance Core.AWSRequest PutResourceLogLevel where
   type
     AWSResponse PutResourceLogLevel =
       PutResourceLogLevelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutResourceLogLevelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutResourceLogLevel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutResourceLogLevel where
   hashWithSalt _salt PutResourceLogLevel' {..} =

@@ -80,10 +80,16 @@ instance
   type
     AWSResponse DeleteModelPackageGroupPolicy =
       DeleteModelPackageGroupPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteModelPackageGroupPolicyResponse'
+
+instance
+  Core.AWSService
+    DeleteModelPackageGroupPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

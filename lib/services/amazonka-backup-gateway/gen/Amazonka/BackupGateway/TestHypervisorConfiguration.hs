@@ -115,13 +115,16 @@ instance Core.AWSRequest TestHypervisorConfiguration where
   type
     AWSResponse TestHypervisorConfiguration =
       TestHypervisorConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           TestHypervisorConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestHypervisorConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestHypervisorConfiguration where
   hashWithSalt _salt TestHypervisorConfiguration' {..} =

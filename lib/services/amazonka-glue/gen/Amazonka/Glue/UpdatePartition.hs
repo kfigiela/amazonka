@@ -137,13 +137,16 @@ instance Core.AWSRequest UpdatePartition where
   type
     AWSResponse UpdatePartition =
       UpdatePartitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePartitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePartition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePartition where
   hashWithSalt _salt UpdatePartition' {..} =

@@ -94,10 +94,16 @@ instance
   type
     AWSResponse UpdateOrganizationConfiguration =
       UpdateOrganizationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateOrganizationConfigurationResponse'
+
+instance
+  Core.AWSService
+    UpdateOrganizationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

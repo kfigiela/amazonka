@@ -79,7 +79,7 @@ instance Core.AWSRequest GetAppLaunchConfiguration where
   type
     AWSResponse GetAppLaunchConfiguration =
       GetAppLaunchConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetAppLaunchConfiguration where
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAppLaunchConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAppLaunchConfiguration where
   hashWithSalt _salt GetAppLaunchConfiguration' {..} =

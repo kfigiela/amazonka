@@ -284,7 +284,7 @@ createModel_clientToken = Lens.lens (\CreateModel' {clientToken} -> clientToken)
 
 instance Core.AWSRequest CreateModel where
   type AWSResponse CreateModel = CreateModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -293,6 +293,9 @@ instance Core.AWSRequest CreateModel where
             Prelude.<*> (x Core..?> "ModelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateModel where
   hashWithSalt _salt CreateModel' {..} =

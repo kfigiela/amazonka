@@ -95,7 +95,7 @@ deletePool_poolId = Lens.lens (\DeletePool' {poolId} -> poolId) (\s@DeletePool' 
 
 instance Core.AWSRequest DeletePool where
   type AWSResponse DeletePool = DeletePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DeletePool where
             Prelude.<*> (x Core..?> "SharedRoutesEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePool where
   hashWithSalt _salt DeletePool' {..} =

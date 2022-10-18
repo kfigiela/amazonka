@@ -95,7 +95,7 @@ instance Core.AWSRequest CreateWirelessGatewayTask where
   type
     AWSResponse CreateWirelessGatewayTask =
       CreateWirelessGatewayTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest CreateWirelessGatewayTask where
             Prelude.<*> (x Core..?> "WirelessGatewayTaskDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWirelessGatewayTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWirelessGatewayTask where
   hashWithSalt _salt CreateWirelessGatewayTask' {..} =

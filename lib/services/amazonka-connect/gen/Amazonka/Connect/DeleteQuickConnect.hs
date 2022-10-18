@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteQuickConnect where
   type
     AWSResponse DeleteQuickConnect =
       DeleteQuickConnectResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteQuickConnectResponse'
+
+instance Core.AWSService DeleteQuickConnect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQuickConnect where
   hashWithSalt _salt DeleteQuickConnect' {..} =

@@ -74,7 +74,7 @@ getPreset_name = Lens.lens (\GetPreset' {name} -> name) (\s@GetPreset' {} a -> s
 
 instance Core.AWSRequest GetPreset where
   type AWSResponse GetPreset = GetPresetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetPreset where
             Prelude.<$> (x Core..?> "preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPreset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPreset where
   hashWithSalt _salt GetPreset' {..} =

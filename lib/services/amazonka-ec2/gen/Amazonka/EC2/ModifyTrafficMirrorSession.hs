@@ -207,7 +207,7 @@ instance Core.AWSRequest ModifyTrafficMirrorSession where
   type
     AWSResponse ModifyTrafficMirrorSession =
       ModifyTrafficMirrorSessionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -215,6 +215,9 @@ instance Core.AWSRequest ModifyTrafficMirrorSession where
             Prelude.<$> (x Core..@? "trafficMirrorSession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyTrafficMirrorSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyTrafficMirrorSession where
   hashWithSalt _salt ModifyTrafficMirrorSession' {..} =

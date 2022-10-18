@@ -170,10 +170,13 @@ instance Core.AWSRequest PutBackupVaultNotifications where
   type
     AWSResponse PutBackupVaultNotifications =
       PutBackupVaultNotificationsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       PutBackupVaultNotificationsResponse'
+
+instance Core.AWSService PutBackupVaultNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutBackupVaultNotifications where
   hashWithSalt _salt PutBackupVaultNotifications' {..} =

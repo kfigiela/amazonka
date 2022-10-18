@@ -112,13 +112,16 @@ instance Core.AWSRequest StartConfigRulesEvaluation where
   type
     AWSResponse StartConfigRulesEvaluation =
       StartConfigRulesEvaluationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartConfigRulesEvaluationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartConfigRulesEvaluation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartConfigRulesEvaluation where
   hashWithSalt _salt StartConfigRulesEvaluation' {..} =

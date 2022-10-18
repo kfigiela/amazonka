@@ -459,6 +459,7 @@ defaultService =
       Core._serviceEndpointPrefix = "iotfleetwise",
       Core._serviceSigningName = "iotfleetwise",
       Core._serviceVersion = "2021-06-17",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

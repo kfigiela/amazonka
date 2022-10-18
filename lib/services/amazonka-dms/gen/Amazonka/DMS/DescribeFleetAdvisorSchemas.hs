@@ -181,7 +181,7 @@ instance Core.AWSRequest DescribeFleetAdvisorSchemas where
   type
     AWSResponse DescribeFleetAdvisorSchemas =
       DescribeFleetAdvisorSchemasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest DescribeFleetAdvisorSchemas where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFleetAdvisorSchemas where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFleetAdvisorSchemas where
   hashWithSalt _salt DescribeFleetAdvisorSchemas' {..} =

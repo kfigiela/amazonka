@@ -122,7 +122,7 @@ instance
   type
     AWSResponse ListDeliverabilityTestReports =
       ListDeliverabilityTestReportsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,12 @@ instance
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance
+  Core.AWSService
+    ListDeliverabilityTestReports
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

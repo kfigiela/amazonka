@@ -87,13 +87,19 @@ instance
     AWSResponse
       DisableApplicationLayerAutomaticResponse =
       DisableApplicationLayerAutomaticResponseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableApplicationLayerAutomaticResponseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisableApplicationLayerAutomaticResponse
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeDashboard where
   type
     AWSResponse DescribeDashboard =
       DescribeDashboardResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeDashboard where
             Prelude.<*> (x Core..:> "dashboardCreationDate")
             Prelude.<*> (x Core..:> "dashboardLastUpdateDate")
       )
+
+instance Core.AWSService DescribeDashboard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDashboard where
   hashWithSalt _salt DescribeDashboard' {..} =

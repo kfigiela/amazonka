@@ -117,7 +117,7 @@ instance Core.AWSRequest AssociateUser where
   type
     AWSResponse AssociateUser =
       AssociateUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest AssociateUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "InstanceUserSummary")
       )
+
+instance Core.AWSService AssociateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateUser where
   hashWithSalt _salt AssociateUser' {..} =

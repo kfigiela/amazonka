@@ -121,13 +121,16 @@ instance Core.AWSRequest UpdateNotificationSettings where
   type
     AWSResponse UpdateNotificationSettings =
       UpdateNotificationSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotificationSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNotificationSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNotificationSettings where
   hashWithSalt _salt UpdateNotificationSettings' {..} =

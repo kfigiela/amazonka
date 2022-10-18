@@ -201,9 +201,9 @@ instance Core.AWSRequest ListMultipartUploads where
   type
     AWSResponse ListMultipartUploads =
       ListMultipartUploadsResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.get defaultService
+      Prelude.. Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest ListMultipartUploads where
             Prelude.<*> (x Core..?> "UploadsList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMultipartUploads where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMultipartUploads where
   hashWithSalt _salt ListMultipartUploads' {..} =

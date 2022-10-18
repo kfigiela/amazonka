@@ -143,7 +143,7 @@ instance Core.AWSRequest CreateAgentStatus where
   type
     AWSResponse CreateAgentStatus =
       CreateAgentStatusResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest CreateAgentStatus where
             Prelude.<*> (x Core..?> "AgentStatusARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAgentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAgentStatus where
   hashWithSalt _salt CreateAgentStatus' {..} =

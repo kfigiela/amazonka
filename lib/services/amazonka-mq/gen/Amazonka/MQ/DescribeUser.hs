@@ -99,7 +99,7 @@ describeUser_brokerId = Lens.lens (\DescribeUser' {brokerId} -> brokerId) (\s@De
 
 instance Core.AWSRequest DescribeUser where
   type AWSResponse DescribeUser = DescribeUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DescribeUser where
             Prelude.<*> (x Core..?> "pending")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUser where
   hashWithSalt _salt DescribeUser' {..} =

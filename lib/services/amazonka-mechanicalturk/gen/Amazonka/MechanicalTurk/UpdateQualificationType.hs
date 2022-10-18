@@ -263,7 +263,7 @@ instance Core.AWSRequest UpdateQualificationType where
   type
     AWSResponse UpdateQualificationType =
       UpdateQualificationTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -271,6 +271,9 @@ instance Core.AWSRequest UpdateQualificationType where
             Prelude.<$> (x Core..?> "QualificationType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateQualificationType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateQualificationType where
   hashWithSalt _salt UpdateQualificationType' {..} =

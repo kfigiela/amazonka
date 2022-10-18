@@ -80,7 +80,7 @@ instance Core.AWSRequest GetSiteToSiteVpnAttachment where
   type
     AWSResponse GetSiteToSiteVpnAttachment =
       GetSiteToSiteVpnAttachmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetSiteToSiteVpnAttachment where
             Prelude.<$> (x Core..?> "SiteToSiteVpnAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSiteToSiteVpnAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSiteToSiteVpnAttachment where
   hashWithSalt _salt GetSiteToSiteVpnAttachment' {..} =

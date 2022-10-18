@@ -76,10 +76,13 @@ instance Core.AWSRequest StopMonitoringSchedule where
   type
     AWSResponse StopMonitoringSchedule =
       StopMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopMonitoringScheduleResponse'
+
+instance Core.AWSService StopMonitoringSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopMonitoringSchedule where
   hashWithSalt _salt StopMonitoringSchedule' {..} =

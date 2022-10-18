@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeDBSnapshotAttributes where
   type
     AWSResponse DescribeDBSnapshotAttributes =
       DescribeDBSnapshotAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBSnapshotAttributesResult"
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeDBSnapshotAttributes where
             Prelude.<$> (x Core..@? "DBSnapshotAttributesResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBSnapshotAttributes where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

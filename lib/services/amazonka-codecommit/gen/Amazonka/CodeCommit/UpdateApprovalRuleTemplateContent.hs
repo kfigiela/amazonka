@@ -119,7 +119,7 @@ instance
   type
     AWSResponse UpdateApprovalRuleTemplateContent =
       UpdateApprovalRuleTemplateContentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "approvalRuleTemplate")
       )
+
+instance
+  Core.AWSService
+    UpdateApprovalRuleTemplateContent
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

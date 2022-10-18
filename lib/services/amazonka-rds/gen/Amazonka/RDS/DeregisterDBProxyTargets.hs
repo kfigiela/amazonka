@@ -113,7 +113,7 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
   type
     AWSResponse DeregisterDBProxyTargets =
       DeregisterDBProxyTargetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeregisterDBProxyTargetsResult"
@@ -121,6 +121,9 @@ instance Core.AWSRequest DeregisterDBProxyTargets where
           DeregisterDBProxyTargetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterDBProxyTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterDBProxyTargets where
   hashWithSalt _salt DeregisterDBProxyTargets' {..} =

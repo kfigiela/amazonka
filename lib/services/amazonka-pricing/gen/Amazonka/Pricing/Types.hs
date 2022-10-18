@@ -64,6 +64,7 @@ defaultService =
       Core._serviceEndpointPrefix = "api.pricing",
       Core._serviceSigningName = "pricing",
       Core._serviceVersion = "2017-10-15",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

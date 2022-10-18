@@ -119,10 +119,13 @@ instance Core.AWSRequest UndeprecateActivityType where
   type
     AWSResponse UndeprecateActivityType =
       UndeprecateActivityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UndeprecateActivityTypeResponse'
+
+instance Core.AWSService UndeprecateActivityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UndeprecateActivityType where
   hashWithSalt _salt UndeprecateActivityType' {..} =

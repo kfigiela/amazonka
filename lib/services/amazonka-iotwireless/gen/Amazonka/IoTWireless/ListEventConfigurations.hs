@@ -107,7 +107,7 @@ instance Core.AWSRequest ListEventConfigurations where
   type
     AWSResponse ListEventConfigurations =
       ListEventConfigurationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ListEventConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEventConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEventConfigurations where
   hashWithSalt _salt ListEventConfigurations' {..} =

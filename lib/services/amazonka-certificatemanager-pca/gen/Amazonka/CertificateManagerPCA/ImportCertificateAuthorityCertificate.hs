@@ -251,10 +251,16 @@ instance
     AWSResponse
       ImportCertificateAuthorityCertificate =
       ImportCertificateAuthorityCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       ImportCertificateAuthorityCertificateResponse'
+
+instance
+  Core.AWSService
+    ImportCertificateAuthorityCertificate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

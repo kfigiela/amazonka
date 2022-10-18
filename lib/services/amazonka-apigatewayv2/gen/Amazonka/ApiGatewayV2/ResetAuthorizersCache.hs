@@ -94,9 +94,12 @@ instance Core.AWSRequest ResetAuthorizersCache where
   type
     AWSResponse ResetAuthorizersCache =
       ResetAuthorizersCacheResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull ResetAuthorizersCacheResponse'
+
+instance Core.AWSService ResetAuthorizersCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetAuthorizersCache where
   hashWithSalt _salt ResetAuthorizersCache' {..} =

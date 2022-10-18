@@ -206,7 +206,7 @@ putWarmPool_autoScalingGroupName = Lens.lens (\PutWarmPool' {autoScalingGroupNam
 
 instance Core.AWSRequest PutWarmPool where
   type AWSResponse PutWarmPool = PutWarmPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutWarmPoolResult"
@@ -214,6 +214,9 @@ instance Core.AWSRequest PutWarmPool where
           PutWarmPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutWarmPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutWarmPool where
   hashWithSalt _salt PutWarmPool' {..} =

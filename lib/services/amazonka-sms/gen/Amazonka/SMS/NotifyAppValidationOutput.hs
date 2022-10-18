@@ -90,13 +90,16 @@ instance Core.AWSRequest NotifyAppValidationOutput where
   type
     AWSResponse NotifyAppValidationOutput =
       NotifyAppValidationOutputResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           NotifyAppValidationOutputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService NotifyAppValidationOutput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable NotifyAppValidationOutput where
   hashWithSalt _salt NotifyAppValidationOutput' {..} =

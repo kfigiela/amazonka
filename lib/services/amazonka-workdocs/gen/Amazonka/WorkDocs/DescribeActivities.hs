@@ -228,7 +228,7 @@ instance Core.AWSRequest DescribeActivities where
   type
     AWSResponse DescribeActivities =
       DescribeActivitiesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -237,6 +237,9 @@ instance Core.AWSRequest DescribeActivities where
             Prelude.<*> (x Core..?> "UserActivities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeActivities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeActivities where
   hashWithSalt _salt DescribeActivities' {..} =

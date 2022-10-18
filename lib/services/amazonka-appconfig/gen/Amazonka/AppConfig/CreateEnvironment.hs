@@ -136,10 +136,13 @@ createEnvironment_name = Lens.lens (\CreateEnvironment' {name} -> name) (\s@Crea
 
 instance Core.AWSRequest CreateEnvironment where
   type AWSResponse CreateEnvironment = Environment
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =

@@ -111,7 +111,7 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
   type
     AWSResponse DeleteBandwidthRateLimit =
       DeleteBandwidthRateLimitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DeleteBandwidthRateLimit where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBandwidthRateLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBandwidthRateLimit where
   hashWithSalt _salt DeleteBandwidthRateLimit' {..} =

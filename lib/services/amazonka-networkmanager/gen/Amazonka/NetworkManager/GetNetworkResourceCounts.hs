@@ -232,7 +232,7 @@ instance Core.AWSRequest GetNetworkResourceCounts where
   type
     AWSResponse GetNetworkResourceCounts =
       GetNetworkResourceCountsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -243,6 +243,9 @@ instance Core.AWSRequest GetNetworkResourceCounts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNetworkResourceCounts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetworkResourceCounts where
   hashWithSalt _salt GetNetworkResourceCounts' {..} =

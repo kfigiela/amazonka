@@ -106,13 +106,16 @@ instance Core.AWSRequest DeleteLogPattern where
   type
     AWSResponse DeleteLogPattern =
       DeleteLogPatternResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLogPatternResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLogPattern where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLogPattern where
   hashWithSalt _salt DeleteLogPattern' {..} =

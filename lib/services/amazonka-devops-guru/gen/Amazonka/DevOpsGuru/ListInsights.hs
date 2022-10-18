@@ -141,7 +141,7 @@ instance Core.AWSPager ListInsights where
 
 instance Core.AWSRequest ListInsights where
   type AWSResponse ListInsights = ListInsightsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ListInsights where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInsights where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInsights where
   hashWithSalt _salt ListInsights' {..} =

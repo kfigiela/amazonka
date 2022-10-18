@@ -152,7 +152,7 @@ instance Core.AWSPager SearchQueues where
 
 instance Core.AWSRequest SearchQueues where
   type AWSResponse SearchQueues = SearchQueuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest SearchQueues where
             Prelude.<*> (x Core..?> "Queues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchQueues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchQueues where
   hashWithSalt _salt SearchQueues' {..} =

@@ -230,7 +230,7 @@ instance Core.AWSRequest DescribeCustomKeyStores where
   type
     AWSResponse DescribeCustomKeyStores =
       DescribeCustomKeyStoresResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -242,6 +242,9 @@ instance Core.AWSRequest DescribeCustomKeyStores where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCustomKeyStores where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCustomKeyStores where
   hashWithSalt _salt DescribeCustomKeyStores' {..} =

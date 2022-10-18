@@ -189,7 +189,7 @@ instance Core.AWSRequest CreatePermissionGroup where
   type
     AWSResponse CreatePermissionGroup =
       CreatePermissionGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest CreatePermissionGroup where
             Prelude.<$> (x Core..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePermissionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePermissionGroup where
   hashWithSalt _salt CreatePermissionGroup' {..} =

@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateGatewaySoftwareNow where
   type
     AWSResponse UpdateGatewaySoftwareNow =
       UpdateGatewaySoftwareNowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateGatewaySoftwareNow where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGatewaySoftwareNow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGatewaySoftwareNow where
   hashWithSalt _salt UpdateGatewaySoftwareNow' {..} =

@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteJobTemplate where
   type
     AWSResponse DeleteJobTemplate =
       DeleteJobTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteJobTemplateResponse'
+
+instance Core.AWSService DeleteJobTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteJobTemplate where
   hashWithSalt _salt DeleteJobTemplate' {..} =

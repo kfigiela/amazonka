@@ -90,7 +90,7 @@ deleteLink_linkId = Lens.lens (\DeleteLink' {linkId} -> linkId) (\s@DeleteLink' 
 
 instance Core.AWSRequest DeleteLink where
   type AWSResponse DeleteLink = DeleteLinkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DeleteLink where
             Prelude.<$> (x Core..?> "Link")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLink where
   hashWithSalt _salt DeleteLink' {..} =

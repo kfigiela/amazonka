@@ -91,7 +91,7 @@ instance Core.AWSRequest CreatePackage where
   type
     AWSResponse CreatePackage =
       CreatePackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest CreatePackage where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "StorageLocation")
       )
+
+instance Core.AWSService CreatePackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePackage where
   hashWithSalt _salt CreatePackage' {..} =

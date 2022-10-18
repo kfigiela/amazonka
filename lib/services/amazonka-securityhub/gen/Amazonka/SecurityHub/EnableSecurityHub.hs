@@ -124,13 +124,16 @@ instance Core.AWSRequest EnableSecurityHub where
   type
     AWSResponse EnableSecurityHub =
       EnableSecurityHubResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableSecurityHubResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableSecurityHub where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableSecurityHub where
   hashWithSalt _salt EnableSecurityHub' {..} =

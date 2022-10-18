@@ -275,7 +275,7 @@ instance Core.AWSRequest UpdateMLTransform where
   type
     AWSResponse UpdateMLTransform =
       UpdateMLTransformResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -283,6 +283,9 @@ instance Core.AWSRequest UpdateMLTransform where
             Prelude.<$> (x Core..?> "TransformId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMLTransform where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMLTransform where
   hashWithSalt _salt UpdateMLTransform' {..} =

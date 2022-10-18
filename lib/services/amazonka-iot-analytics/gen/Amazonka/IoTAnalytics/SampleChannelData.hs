@@ -113,7 +113,7 @@ instance Core.AWSRequest SampleChannelData where
   type
     AWSResponse SampleChannelData =
       SampleChannelDataResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest SampleChannelData where
             Prelude.<$> (x Core..?> "payloads")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SampleChannelData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SampleChannelData where
   hashWithSalt _salt SampleChannelData' {..} =

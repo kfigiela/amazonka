@@ -80,7 +80,7 @@ instance Core.AWSRequest ListAccessControlRules where
   type
     AWSResponse ListAccessControlRules =
       ListAccessControlRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest ListAccessControlRules where
             Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccessControlRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccessControlRules where
   hashWithSalt _salt ListAccessControlRules' {..} =

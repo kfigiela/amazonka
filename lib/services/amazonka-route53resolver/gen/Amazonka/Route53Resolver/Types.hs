@@ -395,6 +395,7 @@ defaultService =
       Core._serviceEndpointPrefix = "route53resolver",
       Core._serviceSigningName = "route53resolver",
       Core._serviceVersion = "2018-04-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

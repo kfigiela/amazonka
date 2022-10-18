@@ -193,7 +193,7 @@ instance Core.AWSRequest ListHandshakesForAccount where
   type
     AWSResponse ListHandshakesForAccount =
       ListHandshakesForAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest ListHandshakesForAccount where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListHandshakesForAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHandshakesForAccount where
   hashWithSalt _salt ListHandshakesForAccount' {..} =

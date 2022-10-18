@@ -83,7 +83,7 @@ instance Core.AWSRequest GetDeliverabilityTestReport where
   type
     AWSResponse GetDeliverabilityTestReport =
       GetDeliverabilityTestReportResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetDeliverabilityTestReport where
             Prelude.<*> (x Core..:> "OverallPlacement")
             Prelude.<*> (x Core..?> "IspPlacements" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetDeliverabilityTestReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeliverabilityTestReport where
   hashWithSalt _salt GetDeliverabilityTestReport' {..} =

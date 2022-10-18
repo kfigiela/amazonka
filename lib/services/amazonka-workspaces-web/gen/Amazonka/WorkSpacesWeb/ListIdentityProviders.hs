@@ -103,7 +103,7 @@ instance Core.AWSRequest ListIdentityProviders where
   type
     AWSResponse ListIdentityProviders =
       ListIdentityProvidersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest ListIdentityProviders where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIdentityProviders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentityProviders where
   hashWithSalt _salt ListIdentityProviders' {..} =

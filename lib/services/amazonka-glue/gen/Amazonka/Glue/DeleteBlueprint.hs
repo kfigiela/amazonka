@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteBlueprint where
   type
     AWSResponse DeleteBlueprint =
       DeleteBlueprintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteBlueprint where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBlueprint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBlueprint where
   hashWithSalt _salt DeleteBlueprint' {..} =

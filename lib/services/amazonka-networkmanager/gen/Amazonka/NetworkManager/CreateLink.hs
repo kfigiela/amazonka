@@ -165,7 +165,7 @@ createLink_siteId = Lens.lens (\CreateLink' {siteId} -> siteId) (\s@CreateLink' 
 
 instance Core.AWSRequest CreateLink where
   type AWSResponse CreateLink = CreateLinkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest CreateLink where
             Prelude.<$> (x Core..?> "Link")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLink where
   hashWithSalt _salt CreateLink' {..} =

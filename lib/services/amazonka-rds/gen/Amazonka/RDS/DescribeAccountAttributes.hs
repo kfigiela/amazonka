@@ -69,7 +69,7 @@ instance Core.AWSRequest DescribeAccountAttributes where
   type
     AWSResponse DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAccountAttributesResult"
@@ -80,6 +80,9 @@ instance Core.AWSRequest DescribeAccountAttributes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccountAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountAttributes where
   hashWithSalt _salt _ =

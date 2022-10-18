@@ -90,7 +90,7 @@ instance
   type
     AWSResponse ValidateAssessmentReportIntegrity =
       ValidateAssessmentReportIntegrityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,12 @@ instance
               Prelude.<*> (x Core..?> "signatureDateTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ValidateAssessmentReportIntegrity
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

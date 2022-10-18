@@ -84,11 +84,14 @@ deleteUserGroup_userGroupId = Lens.lens (\DeleteUserGroup' {userGroupId} -> user
 
 instance Core.AWSRequest DeleteUserGroup where
   type AWSResponse DeleteUserGroup = UserGroup
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteUserGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DeleteUserGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserGroup where
   hashWithSalt _salt DeleteUserGroup' {..} =

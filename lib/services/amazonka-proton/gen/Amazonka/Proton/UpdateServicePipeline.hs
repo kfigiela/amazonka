@@ -269,7 +269,7 @@ instance Core.AWSRequest UpdateServicePipeline where
   type
     AWSResponse UpdateServicePipeline =
       UpdateServicePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -277,6 +277,9 @@ instance Core.AWSRequest UpdateServicePipeline where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "pipeline")
       )
+
+instance Core.AWSService UpdateServicePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServicePipeline where
   hashWithSalt _salt UpdateServicePipeline' {..} =

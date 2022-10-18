@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteIdentityProvider where
   type
     AWSResponse DeleteIdentityProvider =
       DeleteIdentityProviderResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteIdentityProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIdentityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIdentityProvider where
   hashWithSalt _salt DeleteIdentityProvider' {..} =

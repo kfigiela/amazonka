@@ -102,7 +102,7 @@ instance Core.AWSRequest DeleteTrafficMirrorTarget where
   type
     AWSResponse DeleteTrafficMirrorTarget =
       DeleteTrafficMirrorTargetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DeleteTrafficMirrorTarget where
             Prelude.<$> (x Core..@? "trafficMirrorTargetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTrafficMirrorTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrafficMirrorTarget where
   hashWithSalt _salt DeleteTrafficMirrorTarget' {..} =

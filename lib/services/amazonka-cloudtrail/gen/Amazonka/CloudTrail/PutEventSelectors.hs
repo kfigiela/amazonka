@@ -237,7 +237,7 @@ instance Core.AWSRequest PutEventSelectors where
   type
     AWSResponse PutEventSelectors =
       PutEventSelectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -249,6 +249,9 @@ instance Core.AWSRequest PutEventSelectors where
             Prelude.<*> (x Core..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutEventSelectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEventSelectors where
   hashWithSalt _salt PutEventSelectors' {..} =

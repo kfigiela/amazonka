@@ -105,7 +105,7 @@ instance Core.AWSRequest DeleteTapeArchive where
   type
     AWSResponse DeleteTapeArchive =
       DeleteTapeArchiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DeleteTapeArchive where
             Prelude.<$> (x Core..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTapeArchive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTapeArchive where
   hashWithSalt _salt DeleteTapeArchive' {..} =

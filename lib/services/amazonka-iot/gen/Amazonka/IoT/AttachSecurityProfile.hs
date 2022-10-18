@@ -103,13 +103,16 @@ instance Core.AWSRequest AttachSecurityProfile where
   type
     AWSResponse AttachSecurityProfile =
       AttachSecurityProfileResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AttachSecurityProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachSecurityProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachSecurityProfile where
   hashWithSalt _salt AttachSecurityProfile' {..} =

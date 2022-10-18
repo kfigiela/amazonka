@@ -130,7 +130,7 @@ instance Core.AWSRequest DeleteReplicationGroup where
   type
     AWSResponse DeleteReplicationGroup =
       DeleteReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteReplicationGroupResult"
@@ -139,6 +139,9 @@ instance Core.AWSRequest DeleteReplicationGroup where
             Prelude.<$> (x Core..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReplicationGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReplicationGroup where
   hashWithSalt _salt DeleteReplicationGroup' {..} =

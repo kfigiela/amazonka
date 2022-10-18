@@ -509,7 +509,7 @@ instance Core.AWSRequest CreateNodegroup where
   type
     AWSResponse CreateNodegroup =
       CreateNodegroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -517,6 +517,9 @@ instance Core.AWSRequest CreateNodegroup where
             Prelude.<$> (x Core..?> "nodegroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNodegroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNodegroup where
   hashWithSalt _salt CreateNodegroup' {..} =

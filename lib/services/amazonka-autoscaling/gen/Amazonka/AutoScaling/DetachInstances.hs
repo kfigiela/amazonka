@@ -123,7 +123,7 @@ instance Core.AWSRequest DetachInstances where
   type
     AWSResponse DetachInstances =
       DetachInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DetachInstancesResult"
@@ -134,6 +134,9 @@ instance Core.AWSRequest DetachInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachInstances where
   hashWithSalt _salt DetachInstances' {..} =

@@ -119,7 +119,7 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
   type
     AWSResponse ListAnomalyGroupSummaries =
       ListAnomalyGroupSummariesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListAnomalyGroupSummaries where
             Prelude.<*> (x Core..?> "AnomalyGroupStatistics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAnomalyGroupSummaries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnomalyGroupSummaries where
   hashWithSalt _salt ListAnomalyGroupSummaries' {..} =

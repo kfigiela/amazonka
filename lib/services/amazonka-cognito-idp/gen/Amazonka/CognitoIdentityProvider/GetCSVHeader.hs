@@ -83,7 +83,7 @@ getCSVHeader_userPoolId = Lens.lens (\GetCSVHeader' {userPoolId} -> userPoolId) 
 
 instance Core.AWSRequest GetCSVHeader where
   type AWSResponse GetCSVHeader = GetCSVHeaderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetCSVHeader where
             Prelude.<*> (x Core..?> "UserPoolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCSVHeader where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCSVHeader where
   hashWithSalt _salt GetCSVHeader' {..} =

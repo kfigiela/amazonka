@@ -144,7 +144,7 @@ instance Core.AWSRequest DescribeSubnetGroups where
   type
     AWSResponse DescribeSubnetGroups =
       DescribeSubnetGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest DescribeSubnetGroups where
             Prelude.<*> (x Core..?> "SubnetGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSubnetGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSubnetGroups where
   hashWithSalt _salt DescribeSubnetGroups' {..} =

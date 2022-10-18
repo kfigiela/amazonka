@@ -109,10 +109,13 @@ instance Core.AWSRequest DeleteBotChannelAssociation where
   type
     AWSResponse DeleteBotChannelAssociation =
       DeleteBotChannelAssociationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteBotChannelAssociationResponse'
+
+instance Core.AWSService DeleteBotChannelAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBotChannelAssociation where
   hashWithSalt _salt DeleteBotChannelAssociation' {..} =

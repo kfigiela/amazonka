@@ -88,7 +88,7 @@ instance Core.AWSRequest GetBlacklistReports where
   type
     AWSResponse GetBlacklistReports =
       GetBlacklistReportsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetBlacklistReports where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetBlacklistReports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBlacklistReports where
   hashWithSalt _salt GetBlacklistReports' {..} =

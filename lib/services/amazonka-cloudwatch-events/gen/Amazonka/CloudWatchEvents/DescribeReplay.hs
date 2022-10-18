@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeReplay where
   type
     AWSResponse DescribeReplay =
       DescribeReplayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeReplay where
             Prelude.<*> (x Core..?> "EventStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReplay where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReplay where
   hashWithSalt _salt DescribeReplay' {..} =

@@ -154,7 +154,7 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
   type
     AWSResponse DescribeCacheParameterGroups =
       DescribeCacheParameterGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheParameterGroupsResult"
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeCacheParameterGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCacheParameterGroups where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -99,7 +99,7 @@ instance Core.AWSRequest DescribeEventCategories where
   type
     AWSResponse DescribeEventCategories =
       DescribeEventCategoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeEventCategories where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEventCategories where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEventCategories where
   hashWithSalt _salt DescribeEventCategories' {..} =

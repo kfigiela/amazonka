@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteAccessLogSettings where
   type
     AWSResponse DeleteAccessLogSettings =
       DeleteAccessLogSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteAccessLogSettingsResponse'
+
+instance Core.AWSService DeleteAccessLogSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccessLogSettings where
   hashWithSalt _salt DeleteAccessLogSettings' {..} =

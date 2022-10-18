@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateTagOption where
   type
     AWSResponse UpdateTagOption =
       UpdateTagOptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateTagOption where
             Prelude.<$> (x Core..?> "TagOptionDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTagOption where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTagOption where
   hashWithSalt _salt UpdateTagOption' {..} =

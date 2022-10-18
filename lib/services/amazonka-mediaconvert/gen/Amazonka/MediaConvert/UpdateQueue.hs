@@ -131,7 +131,7 @@ updateQueue_name = Lens.lens (\UpdateQueue' {name} -> name) (\s@UpdateQueue' {} 
 
 instance Core.AWSRequest UpdateQueue where
   type AWSResponse UpdateQueue = UpdateQueueResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest UpdateQueue where
             Prelude.<$> (x Core..?> "queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateQueue where
   hashWithSalt _salt UpdateQueue' {..} =

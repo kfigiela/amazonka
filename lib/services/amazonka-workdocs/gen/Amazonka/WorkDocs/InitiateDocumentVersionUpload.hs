@@ -165,7 +165,7 @@ instance
   type
     AWSResponse InitiateDocumentVersionUpload =
       InitiateDocumentVersionUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,12 @@ instance
             Prelude.<*> (x Core..?> "UploadMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    InitiateDocumentVersionUpload
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

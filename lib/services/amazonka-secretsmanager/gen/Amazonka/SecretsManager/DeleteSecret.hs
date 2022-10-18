@@ -209,7 +209,7 @@ deleteSecret_secretId = Lens.lens (\DeleteSecret' {secretId} -> secretId) (\s@De
 
 instance Core.AWSRequest DeleteSecret where
   type AWSResponse DeleteSecret = DeleteSecretResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,6 +219,9 @@ instance Core.AWSRequest DeleteSecret where
             Prelude.<*> (x Core..?> "DeletionDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSecret where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSecret where
   hashWithSalt _salt DeleteSecret' {..} =

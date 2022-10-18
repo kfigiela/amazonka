@@ -218,6 +218,7 @@ defaultService =
       Core._serviceEndpointPrefix = "api.ecr-public",
       Core._serviceSigningName = "ecr-public",
       Core._serviceVersion = "2020-10-30",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

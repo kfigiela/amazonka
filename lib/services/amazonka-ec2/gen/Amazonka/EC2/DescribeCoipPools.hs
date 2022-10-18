@@ -173,7 +173,7 @@ instance Core.AWSRequest DescribeCoipPools where
   type
     AWSResponse DescribeCoipPools =
       DescribeCoipPoolsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest DescribeCoipPools where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCoipPools where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCoipPools where
   hashWithSalt _salt DescribeCoipPools' {..} =

@@ -124,7 +124,7 @@ instance Core.AWSRequest ListSubscribedRuleGroups where
   type
     AWSResponse ListSubscribedRuleGroups =
       ListSubscribedRuleGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListSubscribedRuleGroups where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSubscribedRuleGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSubscribedRuleGroups where
   hashWithSalt _salt ListSubscribedRuleGroups' {..} =

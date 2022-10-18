@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteRecoveryInstance where
   type
     AWSResponse DeleteRecoveryInstance =
       DeleteRecoveryInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteRecoveryInstanceResponse'
+
+instance Core.AWSService DeleteRecoveryInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRecoveryInstance where
   hashWithSalt _salt DeleteRecoveryInstance' {..} =

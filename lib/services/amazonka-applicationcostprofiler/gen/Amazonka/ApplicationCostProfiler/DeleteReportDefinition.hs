@@ -78,7 +78,7 @@ instance Core.AWSRequest DeleteReportDefinition where
   type
     AWSResponse DeleteReportDefinition =
       DeleteReportDefinitionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteReportDefinition where
             Prelude.<$> (x Core..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReportDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReportDefinition where
   hashWithSalt _salt DeleteReportDefinition' {..} =

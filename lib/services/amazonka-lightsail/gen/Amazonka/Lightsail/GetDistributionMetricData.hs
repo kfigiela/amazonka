@@ -486,7 +486,7 @@ instance Core.AWSRequest GetDistributionMetricData where
   type
     AWSResponse GetDistributionMetricData =
       GetDistributionMetricDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -495,6 +495,9 @@ instance Core.AWSRequest GetDistributionMetricData where
             Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDistributionMetricData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDistributionMetricData where
   hashWithSalt _salt GetDistributionMetricData' {..} =

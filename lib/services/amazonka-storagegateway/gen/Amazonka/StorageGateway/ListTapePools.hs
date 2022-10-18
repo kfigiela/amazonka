@@ -140,7 +140,7 @@ instance Core.AWSRequest ListTapePools where
   type
     AWSResponse ListTapePools =
       ListTapePoolsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListTapePools where
             Prelude.<*> (x Core..?> "PoolInfos" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTapePools where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTapePools where
   hashWithSalt _salt ListTapePools' {..} =

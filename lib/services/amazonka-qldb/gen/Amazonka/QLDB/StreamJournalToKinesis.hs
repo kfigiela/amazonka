@@ -249,7 +249,7 @@ instance Core.AWSRequest StreamJournalToKinesis where
   type
     AWSResponse StreamJournalToKinesis =
       StreamJournalToKinesisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -257,6 +257,9 @@ instance Core.AWSRequest StreamJournalToKinesis where
             Prelude.<$> (x Core..?> "StreamId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StreamJournalToKinesis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StreamJournalToKinesis where
   hashWithSalt _salt StreamJournalToKinesis' {..} =

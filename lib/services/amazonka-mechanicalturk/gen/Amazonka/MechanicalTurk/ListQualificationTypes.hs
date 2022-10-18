@@ -167,7 +167,7 @@ instance Core.AWSRequest ListQualificationTypes where
   type
     AWSResponse ListQualificationTypes =
       ListQualificationTypesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListQualificationTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListQualificationTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListQualificationTypes where
   hashWithSalt _salt ListQualificationTypes' {..} =

@@ -141,7 +141,7 @@ instance Core.AWSPager ListServices where
 
 instance Core.AWSRequest ListServices where
   type AWSResponse ListServices = ListServicesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListServices where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListServices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServices where
   hashWithSalt _salt ListServices' {..} =

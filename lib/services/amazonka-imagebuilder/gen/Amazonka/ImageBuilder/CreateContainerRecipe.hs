@@ -305,7 +305,7 @@ instance Core.AWSRequest CreateContainerRecipe where
   type
     AWSResponse CreateContainerRecipe =
       CreateContainerRecipeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -315,6 +315,9 @@ instance Core.AWSRequest CreateContainerRecipe where
             Prelude.<*> (x Core..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateContainerRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContainerRecipe where
   hashWithSalt _salt CreateContainerRecipe' {..} =

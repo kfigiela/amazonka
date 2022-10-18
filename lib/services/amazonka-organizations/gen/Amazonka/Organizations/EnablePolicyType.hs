@@ -145,7 +145,7 @@ instance Core.AWSRequest EnablePolicyType where
   type
     AWSResponse EnablePolicyType =
       EnablePolicyTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest EnablePolicyType where
             Prelude.<$> (x Core..?> "Root")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnablePolicyType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnablePolicyType where
   hashWithSalt _salt EnablePolicyType' {..} =

@@ -91,13 +91,16 @@ instance Core.AWSRequest AuthorizeIpRules where
   type
     AWSResponse AuthorizeIpRules =
       AuthorizeIpRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AuthorizeIpRulesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AuthorizeIpRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AuthorizeIpRules where
   hashWithSalt _salt AuthorizeIpRules' {..} =

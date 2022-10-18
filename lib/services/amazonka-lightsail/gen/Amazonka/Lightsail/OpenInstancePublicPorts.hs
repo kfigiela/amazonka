@@ -98,7 +98,7 @@ instance Core.AWSRequest OpenInstancePublicPorts where
   type
     AWSResponse OpenInstancePublicPorts =
       OpenInstancePublicPortsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest OpenInstancePublicPorts where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService OpenInstancePublicPorts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable OpenInstancePublicPorts where
   hashWithSalt _salt OpenInstancePublicPorts' {..} =

@@ -156,7 +156,7 @@ instance Core.AWSRequest UpdateRouteResponse where
   type
     AWSResponse UpdateRouteResponse =
       UpdateRouteResponseResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest UpdateRouteResponse where
             Prelude.<*> (x Core..?> "routeResponseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRouteResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRouteResponse where
   hashWithSalt _salt UpdateRouteResponse' {..} =

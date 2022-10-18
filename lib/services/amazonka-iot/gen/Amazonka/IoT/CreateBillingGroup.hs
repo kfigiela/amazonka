@@ -105,7 +105,7 @@ instance Core.AWSRequest CreateBillingGroup where
   type
     AWSResponse CreateBillingGroup =
       CreateBillingGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateBillingGroup where
             Prelude.<*> (x Core..?> "billingGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBillingGroup where
   hashWithSalt _salt CreateBillingGroup' {..} =

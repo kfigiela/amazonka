@@ -190,7 +190,7 @@ instance Core.AWSRequest CreateLocationS3 where
   type
     AWSResponse CreateLocationS3 =
       CreateLocationS3Response
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest CreateLocationS3 where
             Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocationS3 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocationS3 where
   hashWithSalt _salt CreateLocationS3' {..} =

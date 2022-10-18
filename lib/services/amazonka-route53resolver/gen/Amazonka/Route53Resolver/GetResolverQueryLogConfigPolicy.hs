@@ -85,7 +85,7 @@ instance
   type
     AWSResponse GetResolverQueryLogConfigPolicy =
       GetResolverQueryLogConfigPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,12 @@ instance
             Prelude.<$> (x Core..?> "ResolverQueryLogConfigPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetResolverQueryLogConfigPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -109,13 +109,16 @@ instance Core.AWSRequest CreateUserDefinedFunction where
   type
     AWSResponse CreateUserDefinedFunction =
       CreateUserDefinedFunctionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateUserDefinedFunctionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUserDefinedFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUserDefinedFunction where
   hashWithSalt _salt CreateUserDefinedFunction' {..} =

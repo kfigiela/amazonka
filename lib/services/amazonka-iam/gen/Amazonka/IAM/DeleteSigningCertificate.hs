@@ -120,10 +120,13 @@ instance Core.AWSRequest DeleteSigningCertificate where
   type
     AWSResponse DeleteSigningCertificate =
       DeleteSigningCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteSigningCertificateResponse'
+
+instance Core.AWSService DeleteSigningCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSigningCertificate where
   hashWithSalt _salt DeleteSigningCertificate' {..} =

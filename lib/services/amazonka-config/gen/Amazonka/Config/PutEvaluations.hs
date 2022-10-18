@@ -130,7 +130,7 @@ instance Core.AWSRequest PutEvaluations where
   type
     AWSResponse PutEvaluations =
       PutEvaluationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest PutEvaluations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutEvaluations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEvaluations where
   hashWithSalt _salt PutEvaluations' {..} =

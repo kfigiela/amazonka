@@ -86,7 +86,7 @@ listClusters_maxResults = Lens.lens (\ListClusters' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListClusters where
   type AWSResponse ListClusters = ListClustersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest ListClusters where
             Prelude.<*> (x Core..?> "Clusters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListClusters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListClusters where
   hashWithSalt _salt ListClusters' {..} =

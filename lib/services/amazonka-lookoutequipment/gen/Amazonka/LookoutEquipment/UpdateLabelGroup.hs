@@ -97,9 +97,12 @@ instance Core.AWSRequest UpdateLabelGroup where
   type
     AWSResponse UpdateLabelGroup =
       UpdateLabelGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateLabelGroupResponse'
+
+instance Core.AWSService UpdateLabelGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLabelGroup where
   hashWithSalt _salt UpdateLabelGroup' {..} =

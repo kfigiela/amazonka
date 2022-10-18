@@ -131,9 +131,12 @@ instance Core.AWSRequest UpdateFindings where
   type
     AWSResponse UpdateFindings =
       UpdateFindingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateFindingsResponse'
+
+instance Core.AWSService UpdateFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFindings where
   hashWithSalt _salt UpdateFindings' {..} =

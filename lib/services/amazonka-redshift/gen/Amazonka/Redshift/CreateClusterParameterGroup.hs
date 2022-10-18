@@ -193,7 +193,7 @@ instance Core.AWSRequest CreateClusterParameterGroup where
   type
     AWSResponse CreateClusterParameterGroup =
       CreateClusterParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateClusterParameterGroupResult"
@@ -202,6 +202,9 @@ instance Core.AWSRequest CreateClusterParameterGroup where
             Prelude.<$> (x Core..@? "ClusterParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClusterParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClusterParameterGroup where
   hashWithSalt _salt CreateClusterParameterGroup' {..} =

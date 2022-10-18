@@ -184,7 +184,7 @@ instance Core.AWSRequest UpdateXssMatchSet where
   type
     AWSResponse UpdateXssMatchSet =
       UpdateXssMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest UpdateXssMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateXssMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateXssMatchSet where
   hashWithSalt _salt UpdateXssMatchSet' {..} =

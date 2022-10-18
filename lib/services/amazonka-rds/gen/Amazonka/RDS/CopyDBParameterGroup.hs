@@ -177,7 +177,7 @@ instance Core.AWSRequest CopyDBParameterGroup where
   type
     AWSResponse CopyDBParameterGroup =
       CopyDBParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyDBParameterGroupResult"
@@ -186,6 +186,9 @@ instance Core.AWSRequest CopyDBParameterGroup where
             Prelude.<$> (x Core..@? "DBParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyDBParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyDBParameterGroup where
   hashWithSalt _salt CopyDBParameterGroup' {..} =

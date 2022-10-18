@@ -129,7 +129,7 @@ instance
   type
     AWSResponse ListJournalS3ExportsForLedger =
       ListJournalS3ExportsForLedgerResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListJournalS3ExportsForLedger
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

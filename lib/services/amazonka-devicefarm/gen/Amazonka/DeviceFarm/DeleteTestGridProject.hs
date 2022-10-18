@@ -83,13 +83,16 @@ instance Core.AWSRequest DeleteTestGridProject where
   type
     AWSResponse DeleteTestGridProject =
       DeleteTestGridProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTestGridProjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTestGridProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTestGridProject where
   hashWithSalt _salt DeleteTestGridProject' {..} =

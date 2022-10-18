@@ -95,7 +95,7 @@ instance Core.AWSRequest UpdateRoleDescription where
   type
     AWSResponse UpdateRoleDescription =
       UpdateRoleDescriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateRoleDescriptionResult"
@@ -104,6 +104,9 @@ instance Core.AWSRequest UpdateRoleDescription where
             Prelude.<$> (x Core..@? "Role")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoleDescription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoleDescription where
   hashWithSalt _salt UpdateRoleDescription' {..} =

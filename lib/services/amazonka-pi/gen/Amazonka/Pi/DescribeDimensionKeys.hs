@@ -420,7 +420,7 @@ instance Core.AWSRequest DescribeDimensionKeys where
   type
     AWSResponse DescribeDimensionKeys =
       DescribeDimensionKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -432,6 +432,9 @@ instance Core.AWSRequest DescribeDimensionKeys where
             Prelude.<*> (x Core..?> "AlignedStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDimensionKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDimensionKeys where
   hashWithSalt _salt DescribeDimensionKeys' {..} =

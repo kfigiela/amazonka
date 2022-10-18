@@ -93,10 +93,16 @@ instance
     AWSResponse
       DeleteCustomVerificationEmailTemplate =
       DeleteCustomVerificationEmailTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCustomVerificationEmailTemplateResponse'
+
+instance
+  Core.AWSService
+    DeleteCustomVerificationEmailTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

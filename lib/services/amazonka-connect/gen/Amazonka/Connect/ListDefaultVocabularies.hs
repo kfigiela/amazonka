@@ -150,7 +150,7 @@ instance Core.AWSRequest ListDefaultVocabularies where
   type
     AWSResponse ListDefaultVocabularies =
       ListDefaultVocabulariesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListDefaultVocabularies where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListDefaultVocabularies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDefaultVocabularies where
   hashWithSalt _salt ListDefaultVocabularies' {..} =

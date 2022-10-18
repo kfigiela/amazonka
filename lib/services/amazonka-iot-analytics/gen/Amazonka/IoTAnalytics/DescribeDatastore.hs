@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeDatastore where
   type
     AWSResponse DescribeDatastore =
       DescribeDatastoreResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeDatastore where
             Prelude.<*> (x Core..?> "datastore")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDatastore where
   hashWithSalt _salt DescribeDatastore' {..} =

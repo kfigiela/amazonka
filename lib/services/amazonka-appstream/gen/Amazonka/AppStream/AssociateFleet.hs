@@ -90,13 +90,16 @@ instance Core.AWSRequest AssociateFleet where
   type
     AWSResponse AssociateFleet =
       AssociateFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateFleet where
   hashWithSalt _salt AssociateFleet' {..} =

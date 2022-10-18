@@ -158,7 +158,7 @@ instance Core.AWSRequest ListTableColumns where
   type
     AWSResponse ListTableColumns =
       ListTableColumnsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListTableColumns where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "tableColumns" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListTableColumns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTableColumns where
   hashWithSalt _salt ListTableColumns' {..} =

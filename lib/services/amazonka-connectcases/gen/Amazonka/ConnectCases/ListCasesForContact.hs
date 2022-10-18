@@ -118,7 +118,7 @@ instance Core.AWSRequest ListCasesForContact where
   type
     AWSResponse ListCasesForContact =
       ListCasesForContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListCasesForContact where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "cases" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListCasesForContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCasesForContact where
   hashWithSalt _salt ListCasesForContact' {..} =

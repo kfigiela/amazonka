@@ -54,6 +54,7 @@ defaultService =
       Core._serviceEndpointPrefix = "kinesisvideo",
       Core._serviceSigningName = "kinesisvideo",
       Core._serviceVersion = "2019-12-04",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

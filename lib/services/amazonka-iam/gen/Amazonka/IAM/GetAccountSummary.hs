@@ -66,7 +66,7 @@ instance Core.AWSRequest GetAccountSummary where
   type
     AWSResponse GetAccountSummary =
       GetAccountSummaryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccountSummaryResult"
@@ -77,6 +77,9 @@ instance Core.AWSRequest GetAccountSummary where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountSummary where
   hashWithSalt _salt _ =

@@ -108,7 +108,7 @@ instance Core.AWSRequest GetResourcePolicy where
   type
     AWSResponse GetResourcePolicy =
       GetResourcePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetResourcePolicy where
             Prelude.<*> (x Core..?> "ResourcePolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourcePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourcePolicy where
   hashWithSalt _salt GetResourcePolicy' {..} =

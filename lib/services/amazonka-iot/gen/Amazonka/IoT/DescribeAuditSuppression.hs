@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeAuditSuppression where
   type
     AWSResponse DescribeAuditSuppression =
       DescribeAuditSuppressionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeAuditSuppression where
             Prelude.<*> (x Core..?> "suppressIndefinitely")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAuditSuppression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAuditSuppression where
   hashWithSalt _salt DescribeAuditSuppression' {..} =

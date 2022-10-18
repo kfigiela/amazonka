@@ -110,7 +110,7 @@ instance Core.AWSRequest CreateAppImageConfig where
   type
     AWSResponse CreateAppImageConfig =
       CreateAppImageConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateAppImageConfig where
             Prelude.<$> (x Core..?> "AppImageConfigArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAppImageConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAppImageConfig where
   hashWithSalt _salt CreateAppImageConfig' {..} =

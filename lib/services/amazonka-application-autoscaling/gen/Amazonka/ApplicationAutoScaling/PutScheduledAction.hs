@@ -689,13 +689,16 @@ instance Core.AWSRequest PutScheduledAction where
   type
     AWSResponse PutScheduledAction =
       PutScheduledActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutScheduledActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutScheduledAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutScheduledAction where
   hashWithSalt _salt PutScheduledAction' {..} =

@@ -179,7 +179,7 @@ instance Core.AWSRequest CreateWorkgroup where
   type
     AWSResponse CreateWorkgroup =
       CreateWorkgroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest CreateWorkgroup where
             Prelude.<$> (x Core..?> "workgroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkgroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkgroup where
   hashWithSalt _salt CreateWorkgroup' {..} =

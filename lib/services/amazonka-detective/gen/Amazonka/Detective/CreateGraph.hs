@@ -101,7 +101,7 @@ createGraph_tags = Lens.lens (\CreateGraph' {tags} -> tags) (\s@CreateGraph' {} 
 
 instance Core.AWSRequest CreateGraph where
   type AWSResponse CreateGraph = CreateGraphResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest CreateGraph where
             Prelude.<$> (x Core..?> "GraphArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGraph where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGraph where
   hashWithSalt _salt CreateGraph' {..} =

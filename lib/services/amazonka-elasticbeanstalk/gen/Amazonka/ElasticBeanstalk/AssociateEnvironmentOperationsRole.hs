@@ -103,10 +103,16 @@ instance
   type
     AWSResponse AssociateEnvironmentOperationsRole =
       AssociateEnvironmentOperationsRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       AssociateEnvironmentOperationsRoleResponse'
+
+instance
+  Core.AWSService
+    AssociateEnvironmentOperationsRole
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

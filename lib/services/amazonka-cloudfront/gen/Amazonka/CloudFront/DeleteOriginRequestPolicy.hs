@@ -109,10 +109,13 @@ instance Core.AWSRequest DeleteOriginRequestPolicy where
   type
     AWSResponse DeleteOriginRequestPolicy =
       DeleteOriginRequestPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteOriginRequestPolicyResponse'
+
+instance Core.AWSService DeleteOriginRequestPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOriginRequestPolicy where
   hashWithSalt _salt DeleteOriginRequestPolicy' {..} =

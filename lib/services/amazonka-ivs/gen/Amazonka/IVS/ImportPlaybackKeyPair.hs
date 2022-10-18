@@ -119,7 +119,7 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
   type
     AWSResponse ImportPlaybackKeyPair =
       ImportPlaybackKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ImportPlaybackKeyPair where
             Prelude.<$> (x Core..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportPlaybackKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportPlaybackKeyPair where
   hashWithSalt _salt ImportPlaybackKeyPair' {..} =

@@ -89,7 +89,7 @@ instance Core.AWSRequest ListVoiceConnectors where
   type
     AWSResponse ListVoiceConnectors =
       ListVoiceConnectorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest ListVoiceConnectors where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVoiceConnectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVoiceConnectors where
   hashWithSalt _salt ListVoiceConnectors' {..} =

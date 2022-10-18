@@ -257,7 +257,7 @@ instance Core.AWSRequest DescribeAvailabilityZones where
   type
     AWSResponse DescribeAvailabilityZones =
       DescribeAvailabilityZonesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -268,6 +268,9 @@ instance Core.AWSRequest DescribeAvailabilityZones where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAvailabilityZones where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAvailabilityZones where
   hashWithSalt _salt DescribeAvailabilityZones' {..} =

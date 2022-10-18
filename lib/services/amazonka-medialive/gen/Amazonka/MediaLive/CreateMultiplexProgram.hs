@@ -126,7 +126,7 @@ instance Core.AWSRequest CreateMultiplexProgram' where
   type
     AWSResponse CreateMultiplexProgram' =
       CreateMultiplexProgramResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateMultiplexProgram' where
             Prelude.<$> (x Core..?> "multiplexProgram")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMultiplexProgram' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMultiplexProgram' where
   hashWithSalt _salt CreateMultiplexProgram'' {..} =

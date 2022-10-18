@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteFramework where
   type
     AWSResponse DeleteFramework =
       DeleteFrameworkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteFrameworkResponse'
+
+instance Core.AWSService DeleteFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFramework where
   hashWithSalt _salt DeleteFramework' {..} =

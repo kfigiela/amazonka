@@ -103,7 +103,7 @@ deleteBackup_backupId = Lens.lens (\DeleteBackup' {backupId} -> backupId) (\s@De
 
 instance Core.AWSRequest DeleteBackup where
   type AWSResponse DeleteBackup = DeleteBackupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DeleteBackup where
             Prelude.<*> (x Core..?> "Lifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBackup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBackup where
   hashWithSalt _salt DeleteBackup' {..} =

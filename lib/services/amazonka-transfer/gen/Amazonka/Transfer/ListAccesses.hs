@@ -130,7 +130,7 @@ instance Core.AWSPager ListAccesses where
 
 instance Core.AWSRequest ListAccesses where
   type AWSResponse ListAccesses = ListAccessesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListAccesses where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..?> "Accesses" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListAccesses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccesses where
   hashWithSalt _salt ListAccesses' {..} =

@@ -89,10 +89,13 @@ retryDataReplication_sourceServerID = Lens.lens (\RetryDataReplication' {sourceS
 
 instance Core.AWSRequest RetryDataReplication where
   type AWSResponse RetryDataReplication = SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService RetryDataReplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetryDataReplication where
   hashWithSalt _salt RetryDataReplication' {..} =

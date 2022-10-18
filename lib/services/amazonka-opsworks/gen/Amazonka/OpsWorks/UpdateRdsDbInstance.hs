@@ -101,9 +101,12 @@ instance Core.AWSRequest UpdateRdsDbInstance where
   type
     AWSResponse UpdateRdsDbInstance =
       UpdateRdsDbInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateRdsDbInstanceResponse'
+
+instance Core.AWSService UpdateRdsDbInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRdsDbInstance where
   hashWithSalt _salt UpdateRdsDbInstance' {..} =

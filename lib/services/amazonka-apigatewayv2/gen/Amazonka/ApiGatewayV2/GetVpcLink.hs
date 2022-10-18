@@ -83,7 +83,7 @@ getVpcLink_vpcLinkId = Lens.lens (\GetVpcLink' {vpcLinkId} -> vpcLinkId) (\s@Get
 
 instance Core.AWSRequest GetVpcLink where
   type AWSResponse GetVpcLink = GetVpcLinkResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetVpcLink where
             Prelude.<*> (x Core..?> "subnetIds" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVpcLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVpcLink where
   hashWithSalt _salt GetVpcLink' {..} =

@@ -79,10 +79,13 @@ instance Core.AWSRequest StartMonitoringSchedule where
   type
     AWSResponse StartMonitoringSchedule =
       StartMonitoringScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StartMonitoringScheduleResponse'
+
+instance Core.AWSService StartMonitoringSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMonitoringSchedule where
   hashWithSalt _salt StartMonitoringSchedule' {..} =

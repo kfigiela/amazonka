@@ -364,7 +364,7 @@ createCanary_runtimeVersion = Lens.lens (\CreateCanary' {runtimeVersion} -> runt
 
 instance Core.AWSRequest CreateCanary where
   type AWSResponse CreateCanary = CreateCanaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -372,6 +372,9 @@ instance Core.AWSRequest CreateCanary where
             Prelude.<$> (x Core..?> "Canary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCanary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCanary where
   hashWithSalt _salt CreateCanary' {..} =

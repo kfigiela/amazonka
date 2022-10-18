@@ -108,13 +108,16 @@ instance Core.AWSRequest CreateClassifier where
   type
     AWSResponse CreateClassifier =
       CreateClassifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateClassifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClassifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClassifier where
   hashWithSalt _salt CreateClassifier' {..} =

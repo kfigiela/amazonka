@@ -126,13 +126,16 @@ instance Core.AWSRequest DeleteSubscriber where
   type
     AWSResponse DeleteSubscriber =
       DeleteSubscriberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSubscriberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSubscriber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSubscriber where
   hashWithSalt _salt DeleteSubscriber' {..} =

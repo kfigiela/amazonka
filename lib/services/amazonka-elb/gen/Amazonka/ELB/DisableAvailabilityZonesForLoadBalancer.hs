@@ -112,7 +112,7 @@ instance
     AWSResponse
       DisableAvailabilityZonesForLoadBalancer =
       DisableAvailabilityZonesForLoadBalancerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisableAvailabilityZonesForLoadBalancerResult"
@@ -124,6 +124,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisableAvailabilityZonesForLoadBalancer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

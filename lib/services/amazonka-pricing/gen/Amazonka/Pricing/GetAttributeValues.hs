@@ -150,7 +150,7 @@ instance Core.AWSRequest GetAttributeValues where
   type
     AWSResponse GetAttributeValues =
       GetAttributeValuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest GetAttributeValues where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAttributeValues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAttributeValues where
   hashWithSalt _salt GetAttributeValues' {..} =

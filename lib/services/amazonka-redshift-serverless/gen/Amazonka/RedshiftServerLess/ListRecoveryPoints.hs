@@ -151,7 +151,7 @@ instance Core.AWSRequest ListRecoveryPoints where
   type
     AWSResponse ListRecoveryPoints =
       ListRecoveryPointsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest ListRecoveryPoints where
             Prelude.<*> (x Core..?> "recoveryPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRecoveryPoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRecoveryPoints where
   hashWithSalt _salt ListRecoveryPoints' {..} =

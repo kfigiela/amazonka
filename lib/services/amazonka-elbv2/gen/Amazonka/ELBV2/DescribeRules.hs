@@ -134,7 +134,7 @@ instance Core.AWSRequest DescribeRules where
   type
     AWSResponse DescribeRules =
       DescribeRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeRulesResult"
@@ -146,6 +146,9 @@ instance Core.AWSRequest DescribeRules where
             Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRules where
   hashWithSalt _salt DescribeRules' {..} =

@@ -94,13 +94,16 @@ instance Core.AWSRequest DeregisterMailDomain where
   type
     AWSResponse DeregisterMailDomain =
       DeregisterMailDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterMailDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterMailDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterMailDomain where
   hashWithSalt _salt DeregisterMailDomain' {..} =

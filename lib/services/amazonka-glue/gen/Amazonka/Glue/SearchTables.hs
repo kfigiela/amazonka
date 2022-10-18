@@ -212,7 +212,7 @@ searchTables_catalogId = Lens.lens (\SearchTables' {catalogId} -> catalogId) (\s
 
 instance Core.AWSRequest SearchTables where
   type AWSResponse SearchTables = SearchTablesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,6 +221,9 @@ instance Core.AWSRequest SearchTables where
             Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchTables where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchTables where
   hashWithSalt _salt SearchTables' {..} =

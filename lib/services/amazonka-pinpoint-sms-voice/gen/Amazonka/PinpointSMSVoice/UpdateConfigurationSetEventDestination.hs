@@ -113,13 +113,19 @@ instance
     AWSResponse
       UpdateConfigurationSetEventDestination =
       UpdateConfigurationSetEventDestinationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateConfigurationSetEventDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateConfigurationSetEventDestination
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

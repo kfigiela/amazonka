@@ -239,7 +239,7 @@ instance Core.AWSRequest DescribeFlowLogs where
   type
     AWSResponse DescribeFlowLogs =
       DescribeFlowLogsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest DescribeFlowLogs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFlowLogs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFlowLogs where
   hashWithSalt _salt DescribeFlowLogs' {..} =

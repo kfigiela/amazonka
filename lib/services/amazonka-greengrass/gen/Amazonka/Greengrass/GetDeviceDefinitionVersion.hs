@@ -128,7 +128,7 @@ instance Core.AWSRequest GetDeviceDefinitionVersion where
   type
     AWSResponse GetDeviceDefinitionVersion =
       GetDeviceDefinitionVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest GetDeviceDefinitionVersion where
             Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeviceDefinitionVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeviceDefinitionVersion where
   hashWithSalt _salt GetDeviceDefinitionVersion' {..} =

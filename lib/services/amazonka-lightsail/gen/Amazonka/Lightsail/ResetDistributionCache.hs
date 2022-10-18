@@ -93,7 +93,7 @@ instance Core.AWSRequest ResetDistributionCache where
   type
     AWSResponse ResetDistributionCache =
       ResetDistributionCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ResetDistributionCache where
             Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetDistributionCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetDistributionCache where
   hashWithSalt _salt ResetDistributionCache' {..} =

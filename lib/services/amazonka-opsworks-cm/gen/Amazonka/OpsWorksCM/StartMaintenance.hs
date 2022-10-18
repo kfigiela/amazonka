@@ -126,7 +126,7 @@ instance Core.AWSRequest StartMaintenance where
   type
     AWSResponse StartMaintenance =
       StartMaintenanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest StartMaintenance where
             Prelude.<$> (x Core..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMaintenance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMaintenance where
   hashWithSalt _salt StartMaintenance' {..} =

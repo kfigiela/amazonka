@@ -81,7 +81,7 @@ instance Core.AWSRequest GetVoiceConnectorOrigination where
   type
     AWSResponse GetVoiceConnectorOrigination =
       GetVoiceConnectorOriginationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetVoiceConnectorOrigination where
             Prelude.<$> (x Core..?> "Origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVoiceConnectorOrigination where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

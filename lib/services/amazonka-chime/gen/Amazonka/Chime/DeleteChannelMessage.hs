@@ -104,9 +104,12 @@ instance Core.AWSRequest DeleteChannelMessage where
   type
     AWSResponse DeleteChannelMessage =
       DeleteChannelMessageResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteChannelMessageResponse'
+
+instance Core.AWSService DeleteChannelMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChannelMessage where
   hashWithSalt _salt DeleteChannelMessage' {..} =

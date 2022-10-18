@@ -115,7 +115,7 @@ instance Core.AWSRequest ListLoggerDefinitions where
   type
     AWSResponse ListLoggerDefinitions =
       ListLoggerDefinitionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListLoggerDefinitions where
             Prelude.<*> (x Core..?> "Definitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLoggerDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLoggerDefinitions where
   hashWithSalt _salt ListLoggerDefinitions' {..} =

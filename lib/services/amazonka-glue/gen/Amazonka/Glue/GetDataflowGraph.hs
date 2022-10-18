@@ -76,7 +76,7 @@ instance Core.AWSRequest GetDataflowGraph where
   type
     AWSResponse GetDataflowGraph =
       GetDataflowGraphResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetDataflowGraph where
             Prelude.<*> (x Core..?> "DagEdges" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataflowGraph where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataflowGraph where
   hashWithSalt _salt GetDataflowGraph' {..} =

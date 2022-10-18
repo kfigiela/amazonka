@@ -164,7 +164,7 @@ instance Core.AWSRequest GetManagedRuleSet where
   type
     AWSResponse GetManagedRuleSet =
       GetManagedRuleSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest GetManagedRuleSet where
             Prelude.<*> (x Core..?> "LockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetManagedRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetManagedRuleSet where
   hashWithSalt _salt GetManagedRuleSet' {..} =

@@ -135,7 +135,7 @@ instance Core.AWSRequest ValidateTemplate where
   type
     AWSResponse ValidateTemplate =
       ValidateTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ValidateTemplateResult"
@@ -155,6 +155,9 @@ instance Core.AWSRequest ValidateTemplate where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ValidateTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ValidateTemplate where
   hashWithSalt _salt ValidateTemplate' {..} =

@@ -183,7 +183,7 @@ instance Core.AWSRequest GetSecretValue where
   type
     AWSResponse GetSecretValue =
       GetSecretValueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest GetSecretValue where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSecretValue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSecretValue where
   hashWithSalt _salt GetSecretValue' {..} =

@@ -85,13 +85,16 @@ instance Core.AWSRequest CancelPolicyGeneration where
   type
     AWSResponse CancelPolicyGeneration =
       CancelPolicyGenerationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelPolicyGenerationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelPolicyGeneration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelPolicyGeneration where
   hashWithSalt _salt CancelPolicyGeneration' {..} =

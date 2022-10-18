@@ -287,7 +287,7 @@ instance Core.AWSRequest GetCostAndUsageWithResources where
   type
     AWSResponse GetCostAndUsageWithResources =
       GetCostAndUsageWithResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -302,6 +302,9 @@ instance Core.AWSRequest GetCostAndUsageWithResources where
             Prelude.<*> (x Core..?> "ResultsByTime" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCostAndUsageWithResources where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

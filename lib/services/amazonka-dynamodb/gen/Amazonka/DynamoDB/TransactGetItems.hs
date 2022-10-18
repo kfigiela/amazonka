@@ -121,7 +121,7 @@ instance Core.AWSRequest TransactGetItems where
   type
     AWSResponse TransactGetItems =
       TransactGetItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest TransactGetItems where
             Prelude.<*> (x Core..?> "Responses")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TransactGetItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TransactGetItems where
   hashWithSalt _salt TransactGetItems' {..} =

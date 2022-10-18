@@ -98,7 +98,7 @@ instance Core.AWSRequest GetDevicePosition where
   type
     AWSResponse GetDevicePosition =
       GetDevicePositionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetDevicePosition where
             Prelude.<*> (x Core..:> "ReceivedTime")
             Prelude.<*> (x Core..:> "SampleTime")
       )
+
+instance Core.AWSService GetDevicePosition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDevicePosition where
   hashWithSalt _salt GetDevicePosition' {..} =

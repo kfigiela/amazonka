@@ -146,13 +146,16 @@ instance Core.AWSRequest UpdateProvisioningTemplate where
   type
     AWSResponse UpdateProvisioningTemplate =
       UpdateProvisioningTemplateResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateProvisioningTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateProvisioningTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProvisioningTemplate where
   hashWithSalt _salt UpdateProvisioningTemplate' {..} =

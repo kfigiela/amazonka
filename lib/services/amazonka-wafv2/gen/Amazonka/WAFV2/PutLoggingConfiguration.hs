@@ -114,7 +114,7 @@ instance Core.AWSRequest PutLoggingConfiguration where
   type
     AWSResponse PutLoggingConfiguration =
       PutLoggingConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest PutLoggingConfiguration where
             Prelude.<$> (x Core..?> "LoggingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLoggingConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLoggingConfiguration where
   hashWithSalt _salt PutLoggingConfiguration' {..} =

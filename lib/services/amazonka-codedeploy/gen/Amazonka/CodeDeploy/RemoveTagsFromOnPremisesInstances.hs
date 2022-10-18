@@ -89,10 +89,16 @@ instance
   type
     AWSResponse RemoveTagsFromOnPremisesInstances =
       RemoveTagsFromOnPremisesInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RemoveTagsFromOnPremisesInstancesResponse'
+
+instance
+  Core.AWSService
+    RemoveTagsFromOnPremisesInstances
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

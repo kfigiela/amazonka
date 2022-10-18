@@ -150,7 +150,7 @@ instance Core.AWSRequest ImportBackendAuth where
   type
     AWSResponse ImportBackendAuth =
       ImportBackendAuthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest ImportBackendAuth where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportBackendAuth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportBackendAuth where
   hashWithSalt _salt ImportBackendAuth' {..} =

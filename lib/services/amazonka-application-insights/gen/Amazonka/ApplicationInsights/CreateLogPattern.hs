@@ -167,7 +167,7 @@ instance Core.AWSRequest CreateLogPattern where
   type
     AWSResponse CreateLogPattern =
       CreateLogPatternResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateLogPattern where
             Prelude.<*> (x Core..?> "ResourceGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLogPattern where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLogPattern where
   hashWithSalt _salt CreateLogPattern' {..} =

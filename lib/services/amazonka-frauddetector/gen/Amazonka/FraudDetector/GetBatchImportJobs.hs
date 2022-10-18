@@ -104,7 +104,7 @@ instance Core.AWSRequest GetBatchImportJobs where
   type
     AWSResponse GetBatchImportJobs =
       GetBatchImportJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetBatchImportJobs where
             Prelude.<*> (x Core..?> "batchImports" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBatchImportJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBatchImportJobs where
   hashWithSalt _salt GetBatchImportJobs' {..} =

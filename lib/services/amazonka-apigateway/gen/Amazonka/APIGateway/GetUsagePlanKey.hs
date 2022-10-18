@@ -99,10 +99,13 @@ getUsagePlanKey_keyId = Lens.lens (\GetUsagePlanKey' {keyId} -> keyId) (\s@GetUs
 
 instance Core.AWSRequest GetUsagePlanKey where
   type AWSResponse GetUsagePlanKey = UsagePlanKey
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetUsagePlanKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUsagePlanKey where
   hashWithSalt _salt GetUsagePlanKey' {..} =

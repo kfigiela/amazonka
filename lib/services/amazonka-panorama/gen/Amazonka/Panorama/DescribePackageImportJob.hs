@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribePackageImportJob where
   type
     AWSResponse DescribePackageImportJob =
       DescribePackageImportJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribePackageImportJob where
             Prelude.<*> (x Core..:> "Status")
             Prelude.<*> (x Core..:> "StatusMessage")
       )
+
+instance Core.AWSService DescribePackageImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePackageImportJob where
   hashWithSalt _salt DescribePackageImportJob' {..} =

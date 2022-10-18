@@ -106,13 +106,16 @@ instance Core.AWSRequest AssociateMemberToGroup where
   type
     AWSResponse AssociateMemberToGroup =
       AssociateMemberToGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateMemberToGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateMemberToGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateMemberToGroup where
   hashWithSalt _salt AssociateMemberToGroup' {..} =

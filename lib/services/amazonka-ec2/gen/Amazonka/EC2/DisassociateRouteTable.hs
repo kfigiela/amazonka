@@ -103,10 +103,13 @@ instance Core.AWSRequest DisassociateRouteTable where
   type
     AWSResponse DisassociateRouteTable =
       DisassociateRouteTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DisassociateRouteTableResponse'
+
+instance Core.AWSService DisassociateRouteTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateRouteTable where
   hashWithSalt _salt DisassociateRouteTable' {..} =

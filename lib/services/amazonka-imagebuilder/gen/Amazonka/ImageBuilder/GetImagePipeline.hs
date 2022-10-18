@@ -84,7 +84,7 @@ instance Core.AWSRequest GetImagePipeline where
   type
     AWSResponse GetImagePipeline =
       GetImagePipelineResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetImagePipeline where
             Prelude.<*> (x Core..?> "imagePipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImagePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImagePipeline where
   hashWithSalt _salt GetImagePipeline' {..} =

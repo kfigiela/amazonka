@@ -147,7 +147,7 @@ instance Core.AWSRequest ListRecoveryPointsByResource where
   type
     AWSResponse ListRecoveryPointsByResource =
       ListRecoveryPointsByResourceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListRecoveryPointsByResource where
             Prelude.<*> (x Core..?> "RecoveryPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRecoveryPointsByResource where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

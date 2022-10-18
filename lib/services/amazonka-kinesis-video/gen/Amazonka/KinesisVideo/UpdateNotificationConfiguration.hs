@@ -118,13 +118,19 @@ instance
   type
     AWSResponse UpdateNotificationConfiguration =
       UpdateNotificationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotificationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateNotificationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

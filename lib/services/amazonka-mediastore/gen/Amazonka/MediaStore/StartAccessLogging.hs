@@ -81,13 +81,16 @@ instance Core.AWSRequest StartAccessLogging where
   type
     AWSResponse StartAccessLogging =
       StartAccessLoggingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartAccessLoggingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartAccessLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartAccessLogging where
   hashWithSalt _salt StartAccessLogging' {..} =

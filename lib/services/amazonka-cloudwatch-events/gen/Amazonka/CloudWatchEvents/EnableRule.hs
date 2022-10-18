@@ -91,8 +91,11 @@ enableRule_name = Lens.lens (\EnableRule' {name} -> name) (\s@EnableRule' {} a -
 
 instance Core.AWSRequest EnableRule where
   type AWSResponse EnableRule = EnableRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull EnableRuleResponse'
+
+instance Core.AWSService EnableRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableRule where
   hashWithSalt _salt EnableRule' {..} =

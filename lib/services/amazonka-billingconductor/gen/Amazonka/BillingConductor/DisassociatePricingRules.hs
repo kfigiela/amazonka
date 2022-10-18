@@ -98,7 +98,7 @@ instance Core.AWSRequest DisassociatePricingRules where
   type
     AWSResponse DisassociatePricingRules =
       DisassociatePricingRulesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DisassociatePricingRules where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociatePricingRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociatePricingRules where
   hashWithSalt _salt DisassociatePricingRules' {..} =

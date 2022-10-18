@@ -145,7 +145,7 @@ instance Core.AWSRequest CreateAppBlock where
   type
     AWSResponse CreateAppBlock =
       CreateAppBlockResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateAppBlock where
             Prelude.<$> (x Core..?> "AppBlock")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAppBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAppBlock where
   hashWithSalt _salt CreateAppBlock' {..} =

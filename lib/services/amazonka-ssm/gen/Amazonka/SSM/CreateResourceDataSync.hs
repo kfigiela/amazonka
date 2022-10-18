@@ -163,13 +163,16 @@ instance Core.AWSRequest CreateResourceDataSync where
   type
     AWSResponse CreateResourceDataSync =
       CreateResourceDataSyncResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateResourceDataSyncResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResourceDataSync where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResourceDataSync where
   hashWithSalt _salt CreateResourceDataSync' {..} =

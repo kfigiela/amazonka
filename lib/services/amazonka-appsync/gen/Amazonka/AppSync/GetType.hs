@@ -101,7 +101,7 @@ getType_format = Lens.lens (\GetType' {format} -> format) (\s@GetType' {} a -> s
 
 instance Core.AWSRequest GetType where
   type AWSResponse GetType = GetTypeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetType where
             Prelude.<$> (x Core..?> "type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetType where
   hashWithSalt _salt GetType' {..} =

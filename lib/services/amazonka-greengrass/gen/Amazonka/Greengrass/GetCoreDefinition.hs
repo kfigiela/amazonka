@@ -87,7 +87,7 @@ instance Core.AWSRequest GetCoreDefinition where
   type
     AWSResponse GetCoreDefinition =
       GetCoreDefinitionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetCoreDefinition where
             Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCoreDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCoreDefinition where
   hashWithSalt _salt GetCoreDefinition' {..} =

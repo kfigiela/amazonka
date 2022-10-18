@@ -113,7 +113,7 @@ instance Core.AWSRequest PutLifecyclePolicy where
   type
     AWSResponse PutLifecyclePolicy =
       PutLifecyclePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest PutLifecyclePolicy where
             Prelude.<*> (x Core..?> "lifecyclePolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLifecyclePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLifecyclePolicy where
   hashWithSalt _salt PutLifecyclePolicy' {..} =

@@ -82,7 +82,7 @@ instance Core.AWSRequest GetSignalCatalog where
   type
     AWSResponse GetSignalCatalog =
       GetSignalCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetSignalCatalog where
             Prelude.<*> (x Core..:> "creationTime")
             Prelude.<*> (x Core..:> "lastModificationTime")
       )
+
+instance Core.AWSService GetSignalCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSignalCatalog where
   hashWithSalt _salt GetSignalCatalog' {..} =

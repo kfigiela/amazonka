@@ -120,7 +120,7 @@ instance Core.AWSRequest ListRecordingConfigurations where
   type
     AWSResponse ListRecordingConfigurations =
       ListRecordingConfigurationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListRecordingConfigurations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListRecordingConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRecordingConfigurations where
   hashWithSalt _salt ListRecordingConfigurations' {..} =

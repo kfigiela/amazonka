@@ -105,7 +105,7 @@ getStatus_jobId = Lens.lens (\GetStatus' {jobId} -> jobId) (\s@GetStatus' {} a -
 
 instance Core.AWSRequest GetStatus where
   type AWSResponse GetStatus = GetStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetStatusResult"
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetStatus where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStatus where
   hashWithSalt _salt GetStatus' {..} =

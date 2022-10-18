@@ -387,6 +387,7 @@ defaultService =
       Core._serviceEndpointPrefix = "workdocs",
       Core._serviceSigningName = "workdocs",
       Core._serviceVersion = "2016-05-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

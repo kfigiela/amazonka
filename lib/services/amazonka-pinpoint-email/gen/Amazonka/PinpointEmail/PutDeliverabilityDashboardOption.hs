@@ -121,13 +121,19 @@ instance
   type
     AWSResponse PutDeliverabilityDashboardOption =
       PutDeliverabilityDashboardOptionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutDeliverabilityDashboardOptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutDeliverabilityDashboardOption
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -143,7 +143,7 @@ instance Core.AWSRequest TestInvokeAuthorizer where
   type
     AWSResponse TestInvokeAuthorizer =
       TestInvokeAuthorizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest TestInvokeAuthorizer where
             Prelude.<*> (x Core..?> "disconnectAfterInSeconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestInvokeAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestInvokeAuthorizer where
   hashWithSalt _salt TestInvokeAuthorizer' {..} =

@@ -150,7 +150,7 @@ instance Core.AWSRequest UpdateTemplateSyncConfig where
   type
     AWSResponse UpdateTemplateSyncConfig =
       UpdateTemplateSyncConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest UpdateTemplateSyncConfig where
             Prelude.<$> (x Core..?> "templateSyncConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTemplateSyncConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTemplateSyncConfig where
   hashWithSalt _salt UpdateTemplateSyncConfig' {..} =

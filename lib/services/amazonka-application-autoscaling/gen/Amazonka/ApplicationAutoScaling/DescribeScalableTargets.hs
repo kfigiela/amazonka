@@ -570,7 +570,7 @@ instance Core.AWSRequest DescribeScalableTargets where
   type
     AWSResponse DescribeScalableTargets =
       DescribeScalableTargetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -581,6 +581,9 @@ instance Core.AWSRequest DescribeScalableTargets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeScalableTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScalableTargets where
   hashWithSalt _salt DescribeScalableTargets' {..} =

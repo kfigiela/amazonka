@@ -128,7 +128,7 @@ instance Core.AWSRequest RenderUiTemplate where
   type
     AWSResponse RenderUiTemplate =
       RenderUiTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest RenderUiTemplate where
             Prelude.<*> (x Core..:> "RenderedContent")
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService RenderUiTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RenderUiTemplate where
   hashWithSalt _salt RenderUiTemplate' {..} =

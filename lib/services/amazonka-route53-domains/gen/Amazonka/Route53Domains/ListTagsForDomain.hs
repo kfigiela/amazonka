@@ -83,7 +83,7 @@ instance Core.AWSRequest ListTagsForDomain where
   type
     AWSResponse ListTagsForDomain =
       ListTagsForDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest ListTagsForDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "TagList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListTagsForDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForDomain where
   hashWithSalt _salt ListTagsForDomain' {..} =

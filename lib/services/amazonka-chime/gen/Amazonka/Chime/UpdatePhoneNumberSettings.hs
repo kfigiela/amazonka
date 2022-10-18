@@ -79,10 +79,13 @@ instance Core.AWSRequest UpdatePhoneNumberSettings where
   type
     AWSResponse UpdatePhoneNumberSettings =
       UpdatePhoneNumberSettingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull
       UpdatePhoneNumberSettingsResponse'
+
+instance Core.AWSService UpdatePhoneNumberSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePhoneNumberSettings where
   hashWithSalt _salt UpdatePhoneNumberSettings' {..} =

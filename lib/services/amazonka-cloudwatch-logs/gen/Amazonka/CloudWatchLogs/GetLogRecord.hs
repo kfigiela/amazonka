@@ -92,7 +92,7 @@ getLogRecord_logRecordPointer = Lens.lens (\GetLogRecord' {logRecordPointer} -> 
 
 instance Core.AWSRequest GetLogRecord where
   type AWSResponse GetLogRecord = GetLogRecordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetLogRecord where
             Prelude.<$> (x Core..?> "logRecord" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLogRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLogRecord where
   hashWithSalt _salt GetLogRecord' {..} =

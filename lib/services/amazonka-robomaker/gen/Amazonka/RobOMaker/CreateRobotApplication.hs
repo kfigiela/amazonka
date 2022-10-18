@@ -138,7 +138,7 @@ instance Core.AWSRequest CreateRobotApplication where
   type
     AWSResponse CreateRobotApplication =
       CreateRobotApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest CreateRobotApplication where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRobotApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRobotApplication where
   hashWithSalt _salt CreateRobotApplication' {..} =

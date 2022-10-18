@@ -108,7 +108,7 @@ instance Core.AWSRequest ListICD10CMInferenceJobs where
   type
     AWSResponse ListICD10CMInferenceJobs =
       ListICD10CMInferenceJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListICD10CMInferenceJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListICD10CMInferenceJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListICD10CMInferenceJobs where
   hashWithSalt _salt ListICD10CMInferenceJobs' {..} =

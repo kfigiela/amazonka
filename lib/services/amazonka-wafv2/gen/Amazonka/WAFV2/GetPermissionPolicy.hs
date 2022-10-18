@@ -82,7 +82,7 @@ instance Core.AWSRequest GetPermissionPolicy where
   type
     AWSResponse GetPermissionPolicy =
       GetPermissionPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetPermissionPolicy where
             Prelude.<$> (x Core..?> "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPermissionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPermissionPolicy where
   hashWithSalt _salt GetPermissionPolicy' {..} =

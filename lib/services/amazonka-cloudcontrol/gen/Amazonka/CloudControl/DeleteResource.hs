@@ -255,7 +255,7 @@ instance Core.AWSRequest DeleteResource where
   type
     AWSResponse DeleteResource =
       DeleteResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -263,6 +263,9 @@ instance Core.AWSRequest DeleteResource where
             Prelude.<$> (x Core..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResource where
   hashWithSalt _salt DeleteResource' {..} =

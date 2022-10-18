@@ -563,7 +563,7 @@ instance Core.AWSRequest GenerateDataSet where
   type
     AWSResponse GenerateDataSet =
       GenerateDataSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -571,6 +571,9 @@ instance Core.AWSRequest GenerateDataSet where
             Prelude.<$> (x Core..?> "dataSetRequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GenerateDataSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateDataSet where
   hashWithSalt _salt GenerateDataSet' {..} =

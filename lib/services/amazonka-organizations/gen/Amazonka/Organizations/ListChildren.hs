@@ -219,7 +219,7 @@ instance Core.AWSPager ListChildren where
 
 instance Core.AWSRequest ListChildren where
   type AWSResponse ListChildren = ListChildrenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -228,6 +228,9 @@ instance Core.AWSRequest ListChildren where
             Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChildren where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChildren where
   hashWithSalt _salt ListChildren' {..} =

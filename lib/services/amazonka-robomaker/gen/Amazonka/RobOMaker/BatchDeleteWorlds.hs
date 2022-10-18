@@ -83,7 +83,7 @@ instance Core.AWSRequest BatchDeleteWorlds where
   type
     AWSResponse BatchDeleteWorlds =
       BatchDeleteWorldsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest BatchDeleteWorlds where
             Prelude.<$> (x Core..?> "unprocessedWorlds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteWorlds where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteWorlds where
   hashWithSalt _salt BatchDeleteWorlds' {..} =

@@ -88,9 +88,12 @@ instance Core.AWSRequest RejectInvitation where
   type
     AWSResponse RejectInvitation =
       RejectInvitationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RejectInvitationResponse'
+
+instance Core.AWSService RejectInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectInvitation where
   hashWithSalt _salt RejectInvitation' {..} =

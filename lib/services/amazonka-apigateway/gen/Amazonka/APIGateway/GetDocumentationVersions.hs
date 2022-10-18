@@ -129,7 +129,7 @@ instance Core.AWSRequest GetDocumentationVersions where
   type
     AWSResponse GetDocumentationVersions =
       GetDocumentationVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetDocumentationVersions where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDocumentationVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocumentationVersions where
   hashWithSalt _salt GetDocumentationVersions' {..} =

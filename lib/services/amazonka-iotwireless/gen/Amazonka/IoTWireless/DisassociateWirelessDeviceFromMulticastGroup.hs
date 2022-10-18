@@ -96,13 +96,19 @@ instance
     AWSResponse
       DisassociateWirelessDeviceFromMulticastGroup =
       DisassociateWirelessDeviceFromMulticastGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateWirelessDeviceFromMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateWirelessDeviceFromMulticastGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

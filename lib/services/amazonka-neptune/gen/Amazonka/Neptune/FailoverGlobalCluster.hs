@@ -129,7 +129,7 @@ instance Core.AWSRequest FailoverGlobalCluster where
   type
     AWSResponse FailoverGlobalCluster =
       FailoverGlobalClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "FailoverGlobalClusterResult"
@@ -138,6 +138,9 @@ instance Core.AWSRequest FailoverGlobalCluster where
             Prelude.<$> (x Core..@? "GlobalCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService FailoverGlobalCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FailoverGlobalCluster where
   hashWithSalt _salt FailoverGlobalCluster' {..} =

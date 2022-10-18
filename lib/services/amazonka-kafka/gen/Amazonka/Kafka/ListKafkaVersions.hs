@@ -121,7 +121,7 @@ instance Core.AWSRequest ListKafkaVersions where
   type
     AWSResponse ListKafkaVersions =
       ListKafkaVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListKafkaVersions where
             Prelude.<*> (x Core..?> "kafkaVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListKafkaVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListKafkaVersions where
   hashWithSalt _salt ListKafkaVersions' {..} =

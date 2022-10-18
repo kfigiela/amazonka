@@ -82,7 +82,7 @@ instance Core.AWSRequest GetInstancePortStates where
   type
     AWSResponse GetInstancePortStates =
       GetInstancePortStatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetInstancePortStates where
             Prelude.<$> (x Core..?> "portStates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstancePortStates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstancePortStates where
   hashWithSalt _salt GetInstancePortStates' {..} =

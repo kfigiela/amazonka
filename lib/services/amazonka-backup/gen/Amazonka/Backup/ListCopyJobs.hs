@@ -296,7 +296,7 @@ instance Core.AWSPager ListCopyJobs where
 
 instance Core.AWSRequest ListCopyJobs where
   type AWSResponse ListCopyJobs = ListCopyJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -305,6 +305,9 @@ instance Core.AWSRequest ListCopyJobs where
             Prelude.<*> (x Core..?> "CopyJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCopyJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCopyJobs where
   hashWithSalt _salt ListCopyJobs' {..} =

@@ -136,7 +136,7 @@ instance Core.AWSRequest UpdateVPCEConfiguration where
   type
     AWSResponse UpdateVPCEConfiguration =
       UpdateVPCEConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UpdateVPCEConfiguration where
             Prelude.<$> (x Core..?> "vpceConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVPCEConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVPCEConfiguration where
   hashWithSalt _salt UpdateVPCEConfiguration' {..} =

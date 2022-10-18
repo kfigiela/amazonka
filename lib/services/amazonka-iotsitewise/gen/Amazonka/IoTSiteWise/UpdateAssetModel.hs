@@ -226,7 +226,7 @@ instance Core.AWSRequest UpdateAssetModel where
   type
     AWSResponse UpdateAssetModel =
       UpdateAssetModelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,6 +234,9 @@ instance Core.AWSRequest UpdateAssetModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "assetModelStatus")
       )
+
+instance Core.AWSService UpdateAssetModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssetModel where
   hashWithSalt _salt UpdateAssetModel' {..} =

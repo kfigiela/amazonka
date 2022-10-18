@@ -264,7 +264,7 @@ createImage_name = Lens.lens (\CreateImage' {name} -> name) (\s@CreateImage' {} 
 
 instance Core.AWSRequest CreateImage where
   type AWSResponse CreateImage = CreateImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -272,6 +272,9 @@ instance Core.AWSRequest CreateImage where
             Prelude.<$> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateImage where
   hashWithSalt _salt CreateImage' {..} =

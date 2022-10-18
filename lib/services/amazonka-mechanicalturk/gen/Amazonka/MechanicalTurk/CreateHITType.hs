@@ -214,7 +214,7 @@ instance Core.AWSRequest CreateHITType where
   type
     AWSResponse CreateHITType =
       CreateHITTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -222,6 +222,9 @@ instance Core.AWSRequest CreateHITType where
             Prelude.<$> (x Core..?> "HITTypeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHITType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHITType where
   hashWithSalt _salt CreateHITType' {..} =

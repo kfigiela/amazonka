@@ -89,9 +89,12 @@ instance Core.AWSRequest FlushStageCache where
   type
     AWSResponse FlushStageCache =
       FlushStageCacheResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull FlushStageCacheResponse'
+
+instance Core.AWSService FlushStageCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FlushStageCache where
   hashWithSalt _salt FlushStageCache' {..} =

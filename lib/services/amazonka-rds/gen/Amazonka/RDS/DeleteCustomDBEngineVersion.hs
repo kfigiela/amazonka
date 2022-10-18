@@ -148,11 +148,14 @@ instance Core.AWSRequest DeleteCustomDBEngineVersion where
   type
     AWSResponse DeleteCustomDBEngineVersion =
       DBEngineVersion
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteCustomDBEngineVersionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DeleteCustomDBEngineVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomDBEngineVersion where
   hashWithSalt _salt DeleteCustomDBEngineVersion' {..} =

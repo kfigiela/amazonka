@@ -99,10 +99,13 @@ instance Core.AWSRequest CreateVpnConnectionRoute where
   type
     AWSResponse CreateVpnConnectionRoute =
       CreateVpnConnectionRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       CreateVpnConnectionRouteResponse'
+
+instance Core.AWSService CreateVpnConnectionRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpnConnectionRoute where
   hashWithSalt _salt CreateVpnConnectionRoute' {..} =

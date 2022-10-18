@@ -81,7 +81,7 @@ instance Core.AWSRequest BatchGetStreamKey where
   type
     AWSResponse BatchGetStreamKey =
       BatchGetStreamKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest BatchGetStreamKey where
             Prelude.<*> (x Core..?> "streamKeys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetStreamKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetStreamKey where
   hashWithSalt _salt BatchGetStreamKey' {..} =

@@ -140,7 +140,7 @@ instance Core.AWSRequest SetRepositoryPolicy where
   type
     AWSResponse SetRepositoryPolicy =
       SetRepositoryPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest SetRepositoryPolicy where
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetRepositoryPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetRepositoryPolicy where
   hashWithSalt _salt SetRepositoryPolicy' {..} =

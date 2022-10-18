@@ -106,7 +106,7 @@ instance
   type
     AWSResponse DescribeAccessControlConfiguration =
       DescribeAccessControlConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,12 @@ instance
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "Name")
       )
+
+instance
+  Core.AWSService
+    DescribeAccessControlConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

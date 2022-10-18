@@ -572,7 +572,7 @@ instance Core.AWSRequest DescribeReservedCacheNodes where
   type
     AWSResponse DescribeReservedCacheNodes =
       DescribeReservedCacheNodesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedCacheNodesResult"
@@ -585,6 +585,9 @@ instance Core.AWSRequest DescribeReservedCacheNodes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReservedCacheNodes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReservedCacheNodes where
   hashWithSalt _salt DescribeReservedCacheNodes' {..} =

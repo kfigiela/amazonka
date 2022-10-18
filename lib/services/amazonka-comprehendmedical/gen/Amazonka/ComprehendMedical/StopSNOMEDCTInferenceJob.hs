@@ -77,7 +77,7 @@ instance Core.AWSRequest StopSNOMEDCTInferenceJob where
   type
     AWSResponse StopSNOMEDCTInferenceJob =
       StopSNOMEDCTInferenceJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest StopSNOMEDCTInferenceJob where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopSNOMEDCTInferenceJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopSNOMEDCTInferenceJob where
   hashWithSalt _salt StopSNOMEDCTInferenceJob' {..} =

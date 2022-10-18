@@ -109,7 +109,7 @@ instance Core.AWSRequest GetTraceGraph where
   type
     AWSResponse GetTraceGraph =
       GetTraceGraphResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetTraceGraph where
             Prelude.<*> (x Core..?> "Services" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTraceGraph where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTraceGraph where
   hashWithSalt _salt GetTraceGraph' {..} =

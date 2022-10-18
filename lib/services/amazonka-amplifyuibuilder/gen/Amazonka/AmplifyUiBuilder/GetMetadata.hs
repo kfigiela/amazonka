@@ -89,7 +89,7 @@ getMetadata_environmentName = Lens.lens (\GetMetadata' {environmentName} -> envi
 
 instance Core.AWSRequest GetMetadata where
   type AWSResponse GetMetadata = GetMetadataResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetMetadata where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "features" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetadata where
   hashWithSalt _salt GetMetadata' {..} =

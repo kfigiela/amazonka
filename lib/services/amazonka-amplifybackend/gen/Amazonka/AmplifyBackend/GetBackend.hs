@@ -96,7 +96,7 @@ getBackend_appId = Lens.lens (\GetBackend' {appId} -> appId) (\s@GetBackend' {} 
 
 instance Core.AWSRequest GetBackend where
   type AWSResponse GetBackend = GetBackendResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetBackend where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackend where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackend where
   hashWithSalt _salt GetBackend' {..} =

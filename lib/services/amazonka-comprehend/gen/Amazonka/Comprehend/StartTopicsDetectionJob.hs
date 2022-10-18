@@ -232,7 +232,7 @@ instance Core.AWSRequest StartTopicsDetectionJob where
   type
     AWSResponse StartTopicsDetectionJob =
       StartTopicsDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -242,6 +242,9 @@ instance Core.AWSRequest StartTopicsDetectionJob where
             Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartTopicsDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartTopicsDetectionJob where
   hashWithSalt _salt StartTopicsDetectionJob' {..} =

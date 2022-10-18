@@ -77,13 +77,16 @@ instance Core.AWSRequest CancelTransaction where
   type
     AWSResponse CancelTransaction =
       CancelTransactionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelTransactionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelTransaction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelTransaction where
   hashWithSalt _salt CancelTransaction' {..} =

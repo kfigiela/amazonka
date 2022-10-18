@@ -125,7 +125,7 @@ instance Core.AWSRequest ListRecipeVersions where
   type
     AWSResponse ListRecipeVersions =
       ListRecipeVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListRecipeVersions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Recipes" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListRecipeVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRecipeVersions where
   hashWithSalt _salt ListRecipeVersions' {..} =

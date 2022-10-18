@@ -144,6 +144,7 @@ defaultService =
       Core._serviceEndpointPrefix = "polly",
       Core._serviceSigningName = "polly",
       Core._serviceVersion = "2016-06-10",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

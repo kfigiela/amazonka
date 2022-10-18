@@ -159,7 +159,7 @@ instance Core.AWSRequest ShareDirectory where
   type
     AWSResponse ShareDirectory =
       ShareDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest ShareDirectory where
             Prelude.<$> (x Core..?> "SharedDirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ShareDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ShareDirectory where
   hashWithSalt _salt ShareDirectory' {..} =

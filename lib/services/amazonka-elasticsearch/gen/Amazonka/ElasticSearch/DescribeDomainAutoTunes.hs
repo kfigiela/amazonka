@@ -111,7 +111,7 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
   type
     AWSResponse DescribeDomainAutoTunes =
       DescribeDomainAutoTunesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DescribeDomainAutoTunes where
             Prelude.<*> (x Core..?> "AutoTunes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDomainAutoTunes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDomainAutoTunes where
   hashWithSalt _salt DescribeDomainAutoTunes' {..} =

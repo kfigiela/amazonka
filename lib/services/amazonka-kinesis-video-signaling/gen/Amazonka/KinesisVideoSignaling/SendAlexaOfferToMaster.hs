@@ -115,7 +115,7 @@ instance Core.AWSRequest SendAlexaOfferToMaster where
   type
     AWSResponse SendAlexaOfferToMaster =
       SendAlexaOfferToMasterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest SendAlexaOfferToMaster where
             Prelude.<$> (x Core..?> "Answer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendAlexaOfferToMaster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendAlexaOfferToMaster where
   hashWithSalt _salt SendAlexaOfferToMaster' {..} =

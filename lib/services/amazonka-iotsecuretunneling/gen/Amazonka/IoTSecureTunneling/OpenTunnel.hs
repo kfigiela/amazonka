@@ -113,7 +113,7 @@ openTunnel_timeoutConfig = Lens.lens (\OpenTunnel' {timeoutConfig} -> timeoutCon
 
 instance Core.AWSRequest OpenTunnel where
   type AWSResponse OpenTunnel = OpenTunnelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest OpenTunnel where
             Prelude.<*> (x Core..?> "tunnelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService OpenTunnel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable OpenTunnel where
   hashWithSalt _salt OpenTunnel' {..} =

@@ -86,7 +86,7 @@ describePage_pageId = Lens.lens (\DescribePage' {pageId} -> pageId) (\s@Describe
 
 instance Core.AWSRequest DescribePage where
   type AWSResponse DescribePage = DescribePageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribePage where
             Prelude.<*> (x Core..:> "Subject")
             Prelude.<*> (x Core..:> "Content")
       )
+
+instance Core.AWSService DescribePage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePage where
   hashWithSalt _salt DescribePage' {..} =

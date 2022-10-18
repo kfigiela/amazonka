@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeImport where
   type
     AWSResponse DescribeImport =
       DescribeImportResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeImport where
             Prelude.<*> (x Core..?> "mergeStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImport where
   hashWithSalt _salt DescribeImport' {..} =

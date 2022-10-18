@@ -129,7 +129,7 @@ instance Core.AWSRequest DescribeChangeSetHooks where
   type
     AWSResponse DescribeChangeSetHooks =
       DescribeChangeSetHooksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeChangeSetHooksResult"
@@ -146,6 +146,9 @@ instance Core.AWSRequest DescribeChangeSetHooks where
             Prelude.<*> (x Core..@? "StackName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeChangeSetHooks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChangeSetHooks where
   hashWithSalt _salt DescribeChangeSetHooks' {..} =

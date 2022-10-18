@@ -179,13 +179,16 @@ instance Core.AWSRequest RemoveTagsFromResource where
   type
     AWSResponse RemoveTagsFromResource =
       RemoveTagsFromResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveTagsFromResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveTagsFromResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =

@@ -150,7 +150,7 @@ instance Core.AWSRequest CreateChatToken where
   type
     AWSResponse CreateChatToken =
       CreateChatTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest CreateChatToken where
             Prelude.<*> (x Core..?> "token")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChatToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChatToken where
   hashWithSalt _salt CreateChatToken' {..} =

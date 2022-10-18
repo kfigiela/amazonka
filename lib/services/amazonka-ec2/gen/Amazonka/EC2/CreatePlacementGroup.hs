@@ -174,7 +174,7 @@ instance Core.AWSRequest CreatePlacementGroup where
   type
     AWSResponse CreatePlacementGroup =
       CreatePlacementGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest CreatePlacementGroup where
             Prelude.<$> (x Core..@? "placementGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePlacementGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePlacementGroup where
   hashWithSalt _salt CreatePlacementGroup' {..} =

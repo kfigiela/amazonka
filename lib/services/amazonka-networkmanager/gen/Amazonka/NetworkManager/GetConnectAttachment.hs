@@ -80,7 +80,7 @@ instance Core.AWSRequest GetConnectAttachment where
   type
     AWSResponse GetConnectAttachment =
       GetConnectAttachmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetConnectAttachment where
             Prelude.<$> (x Core..?> "ConnectAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConnectAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConnectAttachment where
   hashWithSalt _salt GetConnectAttachment' {..} =

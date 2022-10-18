@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteReadinessCheck where
   type
     AWSResponse DeleteReadinessCheck =
       DeleteReadinessCheckResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteReadinessCheckResponse'
+
+instance Core.AWSService DeleteReadinessCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReadinessCheck where
   hashWithSalt _salt DeleteReadinessCheck' {..} =

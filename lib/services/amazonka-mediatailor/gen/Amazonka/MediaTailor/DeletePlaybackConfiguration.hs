@@ -76,13 +76,16 @@ instance Core.AWSRequest DeletePlaybackConfiguration where
   type
     AWSResponse DeletePlaybackConfiguration =
       DeletePlaybackConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePlaybackConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePlaybackConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlaybackConfiguration where
   hashWithSalt _salt DeletePlaybackConfiguration' {..} =

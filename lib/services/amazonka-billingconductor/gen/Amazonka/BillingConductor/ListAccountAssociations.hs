@@ -159,7 +159,7 @@ instance Core.AWSRequest ListAccountAssociations where
   type
     AWSResponse ListAccountAssociations =
       ListAccountAssociationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListAccountAssociations where
             Prelude.<*> (x Core..?> "LinkedAccounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccountAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountAssociations where
   hashWithSalt _salt ListAccountAssociations' {..} =

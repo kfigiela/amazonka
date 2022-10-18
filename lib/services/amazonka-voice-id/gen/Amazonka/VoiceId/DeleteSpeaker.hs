@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteSpeaker where
   type
     AWSResponse DeleteSpeaker =
       DeleteSpeakerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteSpeakerResponse'
+
+instance Core.AWSService DeleteSpeaker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSpeaker where
   hashWithSalt _salt DeleteSpeaker' {..} =

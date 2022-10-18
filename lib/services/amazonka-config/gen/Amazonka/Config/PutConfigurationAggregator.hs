@@ -134,7 +134,7 @@ instance Core.AWSRequest PutConfigurationAggregator where
   type
     AWSResponse PutConfigurationAggregator =
       PutConfigurationAggregatorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest PutConfigurationAggregator where
             Prelude.<$> (x Core..?> "ConfigurationAggregator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutConfigurationAggregator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutConfigurationAggregator where
   hashWithSalt _salt PutConfigurationAggregator' {..} =

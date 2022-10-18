@@ -104,13 +104,16 @@ instance Core.AWSRequest UpdatePlacement where
   type
     AWSResponse UpdatePlacement =
       UpdatePlacementResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePlacement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePlacement where
   hashWithSalt _salt UpdatePlacement' {..} =

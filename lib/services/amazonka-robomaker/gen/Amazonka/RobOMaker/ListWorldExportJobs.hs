@@ -157,7 +157,7 @@ instance Core.AWSRequest ListWorldExportJobs where
   type
     AWSResponse ListWorldExportJobs =
       ListWorldExportJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListWorldExportJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListWorldExportJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorldExportJobs where
   hashWithSalt _salt ListWorldExportJobs' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest ModifyReservedInstances where
   type
     AWSResponse ModifyReservedInstances =
       ModifyReservedInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ModifyReservedInstances where
             Prelude.<$> (x Core..@? "reservedInstancesModificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyReservedInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyReservedInstances where
   hashWithSalt _salt ModifyReservedInstances' {..} =

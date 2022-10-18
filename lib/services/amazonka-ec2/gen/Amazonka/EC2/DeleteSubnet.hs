@@ -93,8 +93,11 @@ deleteSubnet_subnetId = Lens.lens (\DeleteSubnet' {subnetId} -> subnetId) (\s@De
 
 instance Core.AWSRequest DeleteSubnet where
   type AWSResponse DeleteSubnet = DeleteSubnetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteSubnetResponse'
+
+instance Core.AWSService DeleteSubnet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSubnet where
   hashWithSalt _salt DeleteSubnet' {..} =

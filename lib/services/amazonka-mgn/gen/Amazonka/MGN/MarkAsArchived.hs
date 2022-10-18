@@ -86,10 +86,13 @@ markAsArchived_sourceServerID = Lens.lens (\MarkAsArchived' {sourceServerID} -> 
 
 instance Core.AWSRequest MarkAsArchived where
   type AWSResponse MarkAsArchived = SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService MarkAsArchived where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MarkAsArchived where
   hashWithSalt _salt MarkAsArchived' {..} =

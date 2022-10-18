@@ -373,6 +373,7 @@ defaultService =
       Core._serviceEndpointPrefix = "fis",
       Core._serviceSigningName = "fis",
       Core._serviceVersion = "2020-12-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

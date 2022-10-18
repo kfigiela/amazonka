@@ -115,7 +115,7 @@ instance Core.AWSRequest CreateAddressBook where
   type
     AWSResponse CreateAddressBook =
       CreateAddressBookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest CreateAddressBook where
             Prelude.<$> (x Core..?> "AddressBookArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAddressBook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAddressBook where
   hashWithSalt _salt CreateAddressBook' {..} =

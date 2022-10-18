@@ -139,9 +139,12 @@ instance Core.AWSRequest TagSAMLProvider where
   type
     AWSResponse TagSAMLProvider =
       TagSAMLProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull TagSAMLProviderResponse'
+
+instance Core.AWSService TagSAMLProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagSAMLProvider where
   hashWithSalt _salt TagSAMLProvider' {..} =

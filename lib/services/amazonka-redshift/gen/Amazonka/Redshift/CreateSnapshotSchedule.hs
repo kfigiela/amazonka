@@ -140,11 +140,14 @@ instance Core.AWSRequest CreateSnapshotSchedule where
   type
     AWSResponse CreateSnapshotSchedule =
       SnapshotSchedule
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateSnapshotScheduleResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateSnapshotSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSnapshotSchedule where
   hashWithSalt _salt CreateSnapshotSchedule' {..} =

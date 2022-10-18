@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeInput where
   type
     AWSResponse DescribeInput =
       DescribeInputResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeInput where
             Prelude.<*> (x Core..?> "inputClass")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInput where
   hashWithSalt _salt DescribeInput' {..} =

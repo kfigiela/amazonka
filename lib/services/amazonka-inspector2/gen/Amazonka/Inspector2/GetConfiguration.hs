@@ -61,7 +61,7 @@ instance Core.AWSRequest GetConfiguration where
   type
     AWSResponse GetConfiguration =
       GetConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest GetConfiguration where
             Prelude.<$> (x Core..?> "ecrConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConfiguration where
   hashWithSalt _salt _ =

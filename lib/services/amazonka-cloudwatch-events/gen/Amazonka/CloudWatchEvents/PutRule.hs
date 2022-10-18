@@ -240,7 +240,7 @@ putRule_name = Lens.lens (\PutRule' {name} -> name) (\s@PutRule' {} a -> s {name
 
 instance Core.AWSRequest PutRule where
   type AWSResponse PutRule = PutRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -248,6 +248,9 @@ instance Core.AWSRequest PutRule where
             Prelude.<$> (x Core..?> "RuleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRule where
   hashWithSalt _salt PutRule' {..} =

@@ -94,13 +94,16 @@ instance Core.AWSRequest StartApplication where
   type
     AWSResponse StartApplication =
       StartApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartApplication where
   hashWithSalt _salt StartApplication' {..} =

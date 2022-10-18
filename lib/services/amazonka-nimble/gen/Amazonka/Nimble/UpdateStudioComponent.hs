@@ -225,7 +225,7 @@ instance Core.AWSRequest UpdateStudioComponent where
   type
     AWSResponse UpdateStudioComponent =
       UpdateStudioComponentResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -233,6 +233,9 @@ instance Core.AWSRequest UpdateStudioComponent where
             Prelude.<$> (x Core..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStudioComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStudioComponent where
   hashWithSalt _salt UpdateStudioComponent' {..} =

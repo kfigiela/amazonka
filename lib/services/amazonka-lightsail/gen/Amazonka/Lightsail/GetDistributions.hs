@@ -110,7 +110,7 @@ instance Core.AWSRequest GetDistributions where
   type
     AWSResponse GetDistributions =
       GetDistributionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetDistributions where
             Prelude.<*> (x Core..?> "distributions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDistributions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDistributions where
   hashWithSalt _salt GetDistributions' {..} =

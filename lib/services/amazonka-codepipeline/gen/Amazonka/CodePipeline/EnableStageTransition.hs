@@ -123,9 +123,12 @@ instance Core.AWSRequest EnableStageTransition where
   type
     AWSResponse EnableStageTransition =
       EnableStageTransitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull EnableStageTransitionResponse'
+
+instance Core.AWSService EnableStageTransition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableStageTransition where
   hashWithSalt _salt EnableStageTransition' {..} =

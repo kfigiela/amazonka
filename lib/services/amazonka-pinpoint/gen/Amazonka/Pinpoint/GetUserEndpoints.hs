@@ -95,7 +95,7 @@ instance Core.AWSRequest GetUserEndpoints where
   type
     AWSResponse GetUserEndpoints =
       GetUserEndpointsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetUserEndpoints where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetUserEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUserEndpoints where
   hashWithSalt _salt GetUserEndpoints' {..} =

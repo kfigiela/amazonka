@@ -125,7 +125,7 @@ instance Core.AWSRequest StartBgpFailoverTest where
   type
     AWSResponse StartBgpFailoverTest =
       StartBgpFailoverTestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest StartBgpFailoverTest where
             Prelude.<$> (x Core..?> "virtualInterfaceTest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartBgpFailoverTest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBgpFailoverTest where
   hashWithSalt _salt StartBgpFailoverTest' {..} =

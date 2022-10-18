@@ -141,7 +141,7 @@ instance Core.AWSRequest EstimateTemplateCost where
   type
     AWSResponse EstimateTemplateCost =
       EstimateTemplateCostResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "EstimateTemplateCostResult"
@@ -150,6 +150,9 @@ instance Core.AWSRequest EstimateTemplateCost where
             Prelude.<$> (x Core..@? "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EstimateTemplateCost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EstimateTemplateCost where
   hashWithSalt _salt EstimateTemplateCost' {..} =

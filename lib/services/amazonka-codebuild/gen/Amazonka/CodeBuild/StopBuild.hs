@@ -74,7 +74,7 @@ stopBuild_id = Lens.lens (\StopBuild' {id} -> id) (\s@StopBuild' {} a -> s {id =
 
 instance Core.AWSRequest StopBuild where
   type AWSResponse StopBuild = StopBuildResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest StopBuild where
             Prelude.<$> (x Core..?> "build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopBuild where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopBuild where
   hashWithSalt _salt StopBuild' {..} =

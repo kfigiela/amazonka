@@ -109,7 +109,7 @@ instance Core.AWSRequest GetResourceMetadata where
   type
     AWSResponse GetResourceMetadata =
       GetResourceMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetResourceMetadata where
             Prelude.<*> (x Core..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceMetadata where
   hashWithSalt _salt GetResourceMetadata' {..} =

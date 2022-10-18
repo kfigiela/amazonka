@@ -751,7 +751,7 @@ createServer_serviceRoleArn = Lens.lens (\CreateServer' {serviceRoleArn} -> serv
 
 instance Core.AWSRequest CreateServer where
   type AWSResponse CreateServer = CreateServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -759,6 +759,9 @@ instance Core.AWSRequest CreateServer where
             Prelude.<$> (x Core..?> "Server")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateServer where
   hashWithSalt _salt CreateServer' {..} =

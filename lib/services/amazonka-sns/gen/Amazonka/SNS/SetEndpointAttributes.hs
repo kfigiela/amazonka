@@ -135,9 +135,12 @@ instance Core.AWSRequest SetEndpointAttributes where
   type
     AWSResponse SetEndpointAttributes =
       SetEndpointAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetEndpointAttributesResponse'
+
+instance Core.AWSService SetEndpointAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetEndpointAttributes where
   hashWithSalt _salt SetEndpointAttributes' {..} =

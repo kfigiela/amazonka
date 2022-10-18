@@ -135,7 +135,7 @@ instance
   type
     AWSResponse GetConnectorDefinitionVersion =
       GetConnectorDefinitionVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,12 @@ instance
             Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetConnectorDefinitionVersion
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

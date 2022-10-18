@@ -98,10 +98,13 @@ instance Core.AWSRequest DisassociateSecurityKey where
   type
     AWSResponse DisassociateSecurityKey =
       DisassociateSecurityKeyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateSecurityKeyResponse'
+
+instance Core.AWSService DisassociateSecurityKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateSecurityKey where
   hashWithSalt _salt DisassociateSecurityKey' {..} =

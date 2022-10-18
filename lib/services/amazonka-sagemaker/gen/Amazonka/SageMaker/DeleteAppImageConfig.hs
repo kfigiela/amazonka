@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteAppImageConfig where
   type
     AWSResponse DeleteAppImageConfig =
       DeleteAppImageConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAppImageConfigResponse'
+
+instance Core.AWSService DeleteAppImageConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppImageConfig where
   hashWithSalt _salt DeleteAppImageConfig' {..} =

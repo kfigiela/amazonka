@@ -92,7 +92,7 @@ getAttendee_attendeeId = Lens.lens (\GetAttendee' {attendeeId} -> attendeeId) (\
 
 instance Core.AWSRequest GetAttendee where
   type AWSResponse GetAttendee = GetAttendeeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetAttendee where
             Prelude.<$> (x Core..?> "Attendee")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAttendee where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAttendee where
   hashWithSalt _salt GetAttendee' {..} =

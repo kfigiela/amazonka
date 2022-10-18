@@ -135,7 +135,7 @@ instance Core.AWSPager ListSpeakers where
 
 instance Core.AWSRequest ListSpeakers where
   type AWSResponse ListSpeakers = ListSpeakersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListSpeakers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSpeakers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSpeakers where
   hashWithSalt _salt ListSpeakers' {..} =

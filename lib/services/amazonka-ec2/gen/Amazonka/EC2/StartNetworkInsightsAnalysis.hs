@@ -144,7 +144,7 @@ instance Core.AWSRequest StartNetworkInsightsAnalysis where
   type
     AWSResponse StartNetworkInsightsAnalysis =
       StartNetworkInsightsAnalysisResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest StartNetworkInsightsAnalysis where
             Prelude.<$> (x Core..@? "networkInsightsAnalysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartNetworkInsightsAnalysis where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

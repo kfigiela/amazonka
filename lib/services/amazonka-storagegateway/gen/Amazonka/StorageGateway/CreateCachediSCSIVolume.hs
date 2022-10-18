@@ -299,7 +299,7 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
   type
     AWSResponse CreateCachediSCSIVolume =
       CreateCachediSCSIVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -308,6 +308,9 @@ instance Core.AWSRequest CreateCachediSCSIVolume where
             Prelude.<*> (x Core..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCachediSCSIVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCachediSCSIVolume where
   hashWithSalt _salt CreateCachediSCSIVolume' {..} =

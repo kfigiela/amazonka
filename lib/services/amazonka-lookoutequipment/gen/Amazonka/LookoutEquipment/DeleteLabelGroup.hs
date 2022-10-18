@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteLabelGroup where
   type
     AWSResponse DeleteLabelGroup =
       DeleteLabelGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLabelGroupResponse'
+
+instance Core.AWSService DeleteLabelGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLabelGroup where
   hashWithSalt _salt DeleteLabelGroup' {..} =

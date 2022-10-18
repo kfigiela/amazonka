@@ -94,10 +94,13 @@ instance Core.AWSRequest UpdateUserHierarchyStructure where
   type
     AWSResponse UpdateUserHierarchyStructure =
       UpdateUserHierarchyStructureResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserHierarchyStructureResponse'
+
+instance Core.AWSService UpdateUserHierarchyStructure where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

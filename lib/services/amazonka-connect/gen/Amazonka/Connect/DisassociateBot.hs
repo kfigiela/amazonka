@@ -101,9 +101,12 @@ instance Core.AWSRequest DisassociateBot where
   type
     AWSResponse DisassociateBot =
       DisassociateBotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DisassociateBotResponse'
+
+instance Core.AWSService DisassociateBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateBot where
   hashWithSalt _salt DisassociateBot' {..} =

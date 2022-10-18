@@ -151,7 +151,7 @@ instance Core.AWSRequest ListRoutingProfileQueues where
   type
     AWSResponse ListRoutingProfileQueues =
       ListRoutingProfileQueuesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListRoutingProfileQueues where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRoutingProfileQueues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRoutingProfileQueues where
   hashWithSalt _salt ListRoutingProfileQueues' {..} =

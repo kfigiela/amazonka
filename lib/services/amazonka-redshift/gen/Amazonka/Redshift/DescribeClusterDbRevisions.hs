@@ -180,7 +180,7 @@ instance Core.AWSRequest DescribeClusterDbRevisions where
   type
     AWSResponse DescribeClusterDbRevisions =
       DescribeClusterDbRevisionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterDbRevisionsResult"
@@ -193,6 +193,9 @@ instance Core.AWSRequest DescribeClusterDbRevisions where
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClusterDbRevisions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClusterDbRevisions where
   hashWithSalt _salt DescribeClusterDbRevisions' {..} =

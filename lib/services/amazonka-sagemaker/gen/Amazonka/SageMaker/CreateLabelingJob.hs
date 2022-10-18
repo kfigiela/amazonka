@@ -596,7 +596,7 @@ instance Core.AWSRequest CreateLabelingJob where
   type
     AWSResponse CreateLabelingJob =
       CreateLabelingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -604,6 +604,9 @@ instance Core.AWSRequest CreateLabelingJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "LabelingJobArn")
       )
+
+instance Core.AWSService CreateLabelingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLabelingJob where
   hashWithSalt _salt CreateLabelingJob' {..} =

@@ -66,7 +66,7 @@ instance Core.AWSRequest DownloadDefaultKeyPair where
   type
     AWSResponse DownloadDefaultKeyPair =
       DownloadDefaultKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -76,6 +76,9 @@ instance Core.AWSRequest DownloadDefaultKeyPair where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DownloadDefaultKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DownloadDefaultKeyPair where
   hashWithSalt _salt _ =

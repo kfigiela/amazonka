@@ -115,7 +115,7 @@ instance Core.AWSRequest StartSuiteRun where
   type
     AWSResponse StartSuiteRun =
       StartSuiteRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest StartSuiteRun where
             Prelude.<*> (x Core..?> "suiteRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSuiteRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSuiteRun where
   hashWithSalt _salt StartSuiteRun' {..} =

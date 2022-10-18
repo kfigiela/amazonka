@@ -113,7 +113,7 @@ instance Core.AWSRequest GetCardinality where
   type
     AWSResponse GetCardinality =
       GetCardinalityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetCardinality where
             Prelude.<$> (x Core..?> "cardinality")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCardinality where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCardinality where
   hashWithSalt _salt GetCardinality' {..} =

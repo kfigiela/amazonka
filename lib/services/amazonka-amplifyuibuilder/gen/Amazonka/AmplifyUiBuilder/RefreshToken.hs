@@ -90,7 +90,7 @@ refreshToken_refreshTokenBody = Lens.lens (\RefreshToken' {refreshTokenBody} -> 
 
 instance Core.AWSRequest RefreshToken where
   type AWSResponse RefreshToken = RefreshTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest RefreshToken where
             Prelude.<*> (x Core..:> "accessToken")
             Prelude.<*> (x Core..:> "expiresIn")
       )
+
+instance Core.AWSService RefreshToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RefreshToken where
   hashWithSalt _salt RefreshToken' {..} =

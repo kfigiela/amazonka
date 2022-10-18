@@ -82,13 +82,16 @@ instance Core.AWSRequest RemoveAutoTerminationPolicy where
   type
     AWSResponse RemoveAutoTerminationPolicy =
       RemoveAutoTerminationPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveAutoTerminationPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveAutoTerminationPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveAutoTerminationPolicy where
   hashWithSalt _salt RemoveAutoTerminationPolicy' {..} =

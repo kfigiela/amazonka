@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeWorld where
   type
     AWSResponse DescribeWorld =
       DescribeWorldResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeWorld where
             Prelude.<*> (x Core..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorld where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorld where
   hashWithSalt _salt DescribeWorld' {..} =

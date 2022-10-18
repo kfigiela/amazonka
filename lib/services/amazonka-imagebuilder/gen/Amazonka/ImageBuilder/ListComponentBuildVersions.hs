@@ -119,7 +119,7 @@ instance Core.AWSRequest ListComponentBuildVersions where
   type
     AWSResponse ListComponentBuildVersions =
       ListComponentBuildVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListComponentBuildVersions where
             Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListComponentBuildVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListComponentBuildVersions where
   hashWithSalt _salt ListComponentBuildVersions' {..} =

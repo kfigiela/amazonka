@@ -126,13 +126,16 @@ updateFacet_name = Lens.lens (\UpdateFacet' {name} -> name) (\s@UpdateFacet' {} 
 
 instance Core.AWSRequest UpdateFacet where
   type AWSResponse UpdateFacet = UpdateFacetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateFacetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFacet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFacet where
   hashWithSalt _salt UpdateFacet' {..} =

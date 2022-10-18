@@ -130,7 +130,7 @@ instance
   type
     AWSResponse RestoreManagedPrefixListVersion =
       RestoreManagedPrefixListVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -138,6 +138,12 @@ instance
             Prelude.<$> (x Core..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RestoreManagedPrefixListVersion
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

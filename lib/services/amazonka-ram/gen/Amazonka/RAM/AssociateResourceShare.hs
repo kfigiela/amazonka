@@ -241,7 +241,7 @@ instance Core.AWSRequest AssociateResourceShare where
   type
     AWSResponse AssociateResourceShare =
       AssociateResourceShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -252,6 +252,9 @@ instance Core.AWSRequest AssociateResourceShare where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateResourceShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateResourceShare where
   hashWithSalt _salt AssociateResourceShare' {..} =

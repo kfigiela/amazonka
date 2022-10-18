@@ -113,7 +113,7 @@ instance Core.AWSRequest ListEnvironments where
   type
     AWSResponse ListEnvironments =
       ListEnvironmentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListEnvironments where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Environments" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListEnvironments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEnvironments where
   hashWithSalt _salt ListEnvironments' {..} =

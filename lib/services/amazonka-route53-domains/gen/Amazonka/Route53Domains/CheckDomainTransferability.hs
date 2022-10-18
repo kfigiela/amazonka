@@ -146,7 +146,7 @@ instance Core.AWSRequest CheckDomainTransferability where
   type
     AWSResponse CheckDomainTransferability =
       CheckDomainTransferabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest CheckDomainTransferability where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Transferability")
       )
+
+instance Core.AWSService CheckDomainTransferability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckDomainTransferability where
   hashWithSalt _salt CheckDomainTransferability' {..} =

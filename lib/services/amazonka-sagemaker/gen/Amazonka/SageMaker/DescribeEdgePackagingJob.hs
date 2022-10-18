@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeEdgePackagingJob where
   type
     AWSResponse DescribeEdgePackagingJob =
       DescribeEdgePackagingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeEdgePackagingJob where
             Prelude.<*> (x Core..:> "EdgePackagingJobName")
             Prelude.<*> (x Core..:> "EdgePackagingJobStatus")
       )
+
+instance Core.AWSService DescribeEdgePackagingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEdgePackagingJob where
   hashWithSalt _salt DescribeEdgePackagingJob' {..} =

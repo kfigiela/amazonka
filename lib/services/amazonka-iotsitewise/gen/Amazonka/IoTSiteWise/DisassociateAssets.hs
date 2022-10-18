@@ -134,9 +134,12 @@ instance Core.AWSRequest DisassociateAssets where
   type
     AWSResponse DisassociateAssets =
       DisassociateAssetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DisassociateAssetsResponse'
+
+instance Core.AWSService DisassociateAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateAssets where
   hashWithSalt _salt DisassociateAssets' {..} =

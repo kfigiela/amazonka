@@ -122,7 +122,7 @@ instance Core.AWSRequest AssociatePersonasToEntities where
   type
     AWSResponse AssociatePersonasToEntities =
       AssociatePersonasToEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest AssociatePersonasToEntities where
             Prelude.<$> (x Core..?> "FailedEntityList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociatePersonasToEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociatePersonasToEntities where
   hashWithSalt _salt AssociatePersonasToEntities' {..} =

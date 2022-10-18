@@ -116,7 +116,7 @@ instance Core.AWSRequest SearchChannels where
   type
     AWSResponse SearchChannels =
       SearchChannelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest SearchChannels where
             Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchChannels where
   hashWithSalt _salt SearchChannels' {..} =

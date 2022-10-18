@@ -85,8 +85,11 @@ deleteAlias_aliasId = Lens.lens (\DeleteAlias' {aliasId} -> aliasId) (\s@DeleteA
 
 instance Core.AWSRequest DeleteAlias where
   type AWSResponse DeleteAlias = DeleteAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteAliasResponse'
+
+instance Core.AWSService DeleteAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlias where
   hashWithSalt _salt DeleteAlias' {..} =

@@ -127,7 +127,7 @@ instance Core.AWSRequest UpdateTimeToLive where
   type
     AWSResponse UpdateTimeToLive =
       UpdateTimeToLiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest UpdateTimeToLive where
             Prelude.<$> (x Core..?> "TimeToLiveSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTimeToLive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTimeToLive where
   hashWithSalt _salt UpdateTimeToLive' {..} =

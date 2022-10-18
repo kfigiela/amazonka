@@ -64,7 +64,7 @@ instance Core.AWSRequest RunFleetAdvisorLsaAnalysis where
   type
     AWSResponse RunFleetAdvisorLsaAnalysis =
       RunFleetAdvisorLsaAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest RunFleetAdvisorLsaAnalysis where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RunFleetAdvisorLsaAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RunFleetAdvisorLsaAnalysis where
   hashWithSalt _salt _ =

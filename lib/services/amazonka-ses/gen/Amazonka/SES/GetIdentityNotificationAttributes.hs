@@ -102,7 +102,7 @@ instance
   type
     AWSResponse GetIdentityNotificationAttributes =
       GetIdentityNotificationAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetIdentityNotificationAttributesResult"
@@ -114,6 +114,12 @@ instance
                               Prelude.>>= Core.parseXMLMap "entry" "key" "value"
                           )
       )
+
+instance
+  Core.AWSService
+    GetIdentityNotificationAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

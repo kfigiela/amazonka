@@ -83,7 +83,7 @@ instance Core.AWSRequest GetResponsePlan where
   type
     AWSResponse GetResponsePlan =
       GetResponsePlanResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetResponsePlan where
             Prelude.<*> (x Core..:> "incidentTemplate")
             Prelude.<*> (x Core..:> "name")
       )
+
+instance Core.AWSService GetResponsePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResponsePlan where
   hashWithSalt _salt GetResponsePlan' {..} =

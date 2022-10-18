@@ -130,7 +130,7 @@ instance Core.AWSRequest RecognizeCelebrities where
   type
     AWSResponse RecognizeCelebrities =
       RecognizeCelebritiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest RecognizeCelebrities where
             Prelude.<*> (x Core..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RecognizeCelebrities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RecognizeCelebrities where
   hashWithSalt _salt RecognizeCelebrities' {..} =

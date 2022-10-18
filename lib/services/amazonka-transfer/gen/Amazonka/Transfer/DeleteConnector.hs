@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteConnector where
   type
     AWSResponse DeleteConnector =
       DeleteConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteConnectorResponse'
+
+instance Core.AWSService DeleteConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnector where
   hashWithSalt _salt DeleteConnector' {..} =

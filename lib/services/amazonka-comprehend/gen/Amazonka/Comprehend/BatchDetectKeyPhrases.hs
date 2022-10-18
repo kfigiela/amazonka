@@ -106,7 +106,7 @@ instance Core.AWSRequest BatchDetectKeyPhrases where
   type
     AWSResponse BatchDetectKeyPhrases =
       BatchDetectKeyPhrasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest BatchDetectKeyPhrases where
             Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchDetectKeyPhrases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDetectKeyPhrases where
   hashWithSalt _salt BatchDetectKeyPhrases' {..} =

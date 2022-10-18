@@ -245,7 +245,7 @@ compareFaces_targetImage = Lens.lens (\CompareFaces' {targetImage} -> targetImag
 
 instance Core.AWSRequest CompareFaces where
   type AWSResponse CompareFaces = CompareFacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -257,6 +257,9 @@ instance Core.AWSRequest CompareFaces where
             Prelude.<*> (x Core..?> "SourceImageFace")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompareFaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompareFaces where
   hashWithSalt _salt CompareFaces' {..} =

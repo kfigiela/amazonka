@@ -68,7 +68,7 @@ instance
   type
     AWSResponse DescribeCrossAccountAccessRole =
       DescribeCrossAccountAccessRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -78,6 +78,12 @@ instance
             Prelude.<*> (x Core..:> "valid")
             Prelude.<*> (x Core..:> "registeredAt")
       )
+
+instance
+  Core.AWSService
+    DescribeCrossAccountAccessRole
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

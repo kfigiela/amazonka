@@ -699,11 +699,14 @@ instance Core.AWSRequest SimulateCustomPolicy where
   type
     AWSResponse SimulateCustomPolicy =
       SimulatePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SimulateCustomPolicyResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService SimulateCustomPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SimulateCustomPolicy where
   hashWithSalt _salt SimulateCustomPolicy' {..} =

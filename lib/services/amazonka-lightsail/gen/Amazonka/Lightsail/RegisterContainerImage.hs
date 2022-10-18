@@ -182,7 +182,7 @@ instance Core.AWSRequest RegisterContainerImage where
   type
     AWSResponse RegisterContainerImage =
       RegisterContainerImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest RegisterContainerImage where
             Prelude.<$> (x Core..?> "containerImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterContainerImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterContainerImage where
   hashWithSalt _salt RegisterContainerImage' {..} =

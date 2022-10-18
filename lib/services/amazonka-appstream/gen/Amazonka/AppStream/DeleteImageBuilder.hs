@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteImageBuilder where
   type
     AWSResponse DeleteImageBuilder =
       DeleteImageBuilderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteImageBuilder where
             Prelude.<$> (x Core..?> "ImageBuilder")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImageBuilder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImageBuilder where
   hashWithSalt _salt DeleteImageBuilder' {..} =

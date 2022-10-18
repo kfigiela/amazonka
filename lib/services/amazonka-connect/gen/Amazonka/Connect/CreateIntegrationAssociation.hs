@@ -173,7 +173,7 @@ instance Core.AWSRequest CreateIntegrationAssociation where
   type
     AWSResponse CreateIntegrationAssociation =
       CreateIntegrationAssociationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest CreateIntegrationAssociation where
             Prelude.<*> (x Core..?> "IntegrationAssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIntegrationAssociation where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

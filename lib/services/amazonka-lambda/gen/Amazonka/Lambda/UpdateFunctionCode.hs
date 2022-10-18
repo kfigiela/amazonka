@@ -313,10 +313,13 @@ instance Core.AWSRequest UpdateFunctionCode where
   type
     AWSResponse UpdateFunctionCode =
       FunctionConfiguration
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateFunctionCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFunctionCode where
   hashWithSalt _salt UpdateFunctionCode' {..} =

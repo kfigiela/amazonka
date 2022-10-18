@@ -173,7 +173,7 @@ instance Core.AWSRequest GetScreenData where
   type
     AWSResponse GetScreenData =
       GetScreenDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest GetScreenData where
             Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "workbookCursor")
       )
+
+instance Core.AWSService GetScreenData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetScreenData where
   hashWithSalt _salt GetScreenData' {..} =

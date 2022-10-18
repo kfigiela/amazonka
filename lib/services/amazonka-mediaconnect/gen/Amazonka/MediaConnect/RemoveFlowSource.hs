@@ -93,7 +93,7 @@ instance Core.AWSRequest RemoveFlowSource where
   type
     AWSResponse RemoveFlowSource =
       RemoveFlowSourceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest RemoveFlowSource where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveFlowSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveFlowSource where
   hashWithSalt _salt RemoveFlowSource' {..} =

@@ -231,7 +231,7 @@ instance Core.AWSRequest StartMatchBackfill where
   type
     AWSResponse StartMatchBackfill =
       StartMatchBackfillResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -239,6 +239,9 @@ instance Core.AWSRequest StartMatchBackfill where
             Prelude.<$> (x Core..?> "MatchmakingTicket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMatchBackfill where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMatchBackfill where
   hashWithSalt _salt StartMatchBackfill' {..} =

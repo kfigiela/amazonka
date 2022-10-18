@@ -246,7 +246,7 @@ instance Core.AWSRequest DescribeVpcEndpoints where
   type
     AWSResponse DescribeVpcEndpoints =
       DescribeVpcEndpointsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -257,6 +257,9 @@ instance Core.AWSRequest DescribeVpcEndpoints where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVpcEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVpcEndpoints where
   hashWithSalt _salt DescribeVpcEndpoints' {..} =

@@ -94,7 +94,7 @@ instance Core.AWSRequest DeleteStorageVirtualMachine where
   type
     AWSResponse DeleteStorageVirtualMachine =
       DeleteStorageVirtualMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DeleteStorageVirtualMachine where
             Prelude.<*> (x Core..?> "StorageVirtualMachineId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStorageVirtualMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStorageVirtualMachine where
   hashWithSalt _salt DeleteStorageVirtualMachine' {..} =

@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeApplicationState where
   type
     AWSResponse DescribeApplicationState =
       DescribeApplicationStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribeApplicationState where
             Prelude.<*> (x Core..?> "ApplicationStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeApplicationState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeApplicationState where
   hashWithSalt _salt DescribeApplicationState' {..} =

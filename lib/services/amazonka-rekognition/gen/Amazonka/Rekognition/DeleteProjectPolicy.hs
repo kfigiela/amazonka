@@ -108,13 +108,16 @@ instance Core.AWSRequest DeleteProjectPolicy where
   type
     AWSResponse DeleteProjectPolicy =
       DeleteProjectPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProjectPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProjectPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProjectPolicy where
   hashWithSalt _salt DeleteProjectPolicy' {..} =

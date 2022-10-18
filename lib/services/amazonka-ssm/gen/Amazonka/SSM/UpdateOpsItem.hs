@@ -345,13 +345,16 @@ instance Core.AWSRequest UpdateOpsItem where
   type
     AWSResponse UpdateOpsItem =
       UpdateOpsItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateOpsItemResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOpsItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOpsItem where
   hashWithSalt _salt UpdateOpsItem' {..} =

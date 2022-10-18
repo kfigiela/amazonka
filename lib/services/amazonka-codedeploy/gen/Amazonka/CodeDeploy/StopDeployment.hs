@@ -99,7 +99,7 @@ instance Core.AWSRequest StopDeployment where
   type
     AWSResponse StopDeployment =
       StopDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest StopDeployment where
             Prelude.<*> (x Core..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =

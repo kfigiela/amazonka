@@ -92,9 +92,12 @@ instance Core.AWSRequest ModifyInstanceFleet where
   type
     AWSResponse ModifyInstanceFleet =
       ModifyInstanceFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ModifyInstanceFleetResponse'
+
+instance Core.AWSService ModifyInstanceFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyInstanceFleet where
   hashWithSalt _salt ModifyInstanceFleet' {..} =

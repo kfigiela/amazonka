@@ -134,7 +134,7 @@ instance Core.AWSRequest UpdateModelManifest where
   type
     AWSResponse UpdateModelManifest =
       UpdateModelManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest UpdateModelManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService UpdateModelManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModelManifest where
   hashWithSalt _salt UpdateModelManifest' {..} =

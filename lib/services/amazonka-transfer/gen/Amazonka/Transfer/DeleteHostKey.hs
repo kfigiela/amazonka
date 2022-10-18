@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteHostKey where
   type
     AWSResponse DeleteHostKey =
       DeleteHostKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteHostKeyResponse'
+
+instance Core.AWSService DeleteHostKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHostKey where
   hashWithSalt _salt DeleteHostKey' {..} =

@@ -268,7 +268,7 @@ instance Core.AWSRequest CreateLanguageModel where
   type
     AWSResponse CreateLanguageModel =
       CreateLanguageModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -280,6 +280,9 @@ instance Core.AWSRequest CreateLanguageModel where
             Prelude.<*> (x Core..?> "InputDataConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLanguageModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLanguageModel where
   hashWithSalt _salt CreateLanguageModel' {..} =

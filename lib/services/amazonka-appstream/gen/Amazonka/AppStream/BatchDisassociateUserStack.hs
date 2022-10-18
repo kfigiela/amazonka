@@ -80,7 +80,7 @@ instance Core.AWSRequest BatchDisassociateUserStack where
   type
     AWSResponse BatchDisassociateUserStack =
       BatchDisassociateUserStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest BatchDisassociateUserStack where
             Prelude.<$> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDisassociateUserStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDisassociateUserStack where
   hashWithSalt _salt BatchDisassociateUserStack' {..} =

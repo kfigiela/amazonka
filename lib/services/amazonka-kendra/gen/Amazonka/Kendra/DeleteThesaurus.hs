@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteThesaurus where
   type
     AWSResponse DeleteThesaurus =
       DeleteThesaurusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteThesaurusResponse'
+
+instance Core.AWSService DeleteThesaurus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteThesaurus where
   hashWithSalt _salt DeleteThesaurus' {..} =

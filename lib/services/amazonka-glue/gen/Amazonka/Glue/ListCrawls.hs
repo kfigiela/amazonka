@@ -130,7 +130,7 @@ listCrawls_crawlerName = Lens.lens (\ListCrawls' {crawlerName} -> crawlerName) (
 
 instance Core.AWSRequest ListCrawls where
   type AWSResponse ListCrawls = ListCrawlsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListCrawls where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCrawls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCrawls where
   hashWithSalt _salt ListCrawls' {..} =

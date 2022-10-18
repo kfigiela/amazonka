@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeThingType where
   type
     AWSResponse DescribeThingType =
       DescribeThingTypeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeThingType where
             Prelude.<*> (x Core..?> "thingTypeProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeThingType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeThingType where
   hashWithSalt _salt DescribeThingType' {..} =

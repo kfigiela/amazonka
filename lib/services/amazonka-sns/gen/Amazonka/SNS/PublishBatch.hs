@@ -119,7 +119,7 @@ publishBatch_publishBatchRequestEntries = Lens.lens (\PublishBatch' {publishBatc
 
 instance Core.AWSRequest PublishBatch where
   type AWSResponse PublishBatch = PublishBatchResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PublishBatchResult"
@@ -133,6 +133,9 @@ instance Core.AWSRequest PublishBatch where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PublishBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishBatch where
   hashWithSalt _salt PublishBatch' {..} =

@@ -99,7 +99,7 @@ inviteUsers_userEmailList = Lens.lens (\InviteUsers' {userEmailList} -> userEmai
 
 instance Core.AWSRequest InviteUsers where
   type AWSResponse InviteUsers = InviteUsersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest InviteUsers where
             Prelude.<$> (x Core..?> "Invites" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InviteUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InviteUsers where
   hashWithSalt _salt InviteUsers' {..} =

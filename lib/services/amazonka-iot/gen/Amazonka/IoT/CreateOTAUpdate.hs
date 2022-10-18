@@ -259,7 +259,7 @@ instance Core.AWSRequest CreateOTAUpdate where
   type
     AWSResponse CreateOTAUpdate =
       CreateOTAUpdateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -271,6 +271,9 @@ instance Core.AWSRequest CreateOTAUpdate where
             Prelude.<*> (x Core..?> "otaUpdateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOTAUpdate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOTAUpdate where
   hashWithSalt _salt CreateOTAUpdate' {..} =

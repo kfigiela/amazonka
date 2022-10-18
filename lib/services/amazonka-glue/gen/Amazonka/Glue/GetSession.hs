@@ -87,7 +87,7 @@ getSession_id = Lens.lens (\GetSession' {id} -> id) (\s@GetSession' {} a -> s {i
 
 instance Core.AWSRequest GetSession where
   type AWSResponse GetSession = GetSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetSession where
             Prelude.<$> (x Core..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSession where
   hashWithSalt _salt GetSession' {..} =

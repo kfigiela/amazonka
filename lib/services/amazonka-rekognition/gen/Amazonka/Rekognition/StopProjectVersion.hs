@@ -93,7 +93,7 @@ instance Core.AWSRequest StopProjectVersion where
   type
     AWSResponse StopProjectVersion =
       StopProjectVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest StopProjectVersion where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopProjectVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopProjectVersion where
   hashWithSalt _salt StopProjectVersion' {..} =

@@ -283,13 +283,16 @@ instance Core.AWSRequest AdminUpdateUserAttributes where
   type
     AWSResponse AdminUpdateUserAttributes =
       AdminUpdateUserAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminUpdateUserAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminUpdateUserAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminUpdateUserAttributes where
   hashWithSalt _salt AdminUpdateUserAttributes' {..} =

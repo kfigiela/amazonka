@@ -87,13 +87,16 @@ instance Core.AWSRequest DeleteFindingAggregator where
   type
     AWSResponse DeleteFindingAggregator =
       DeleteFindingAggregatorResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFindingAggregatorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFindingAggregator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFindingAggregator where
   hashWithSalt _salt DeleteFindingAggregator' {..} =

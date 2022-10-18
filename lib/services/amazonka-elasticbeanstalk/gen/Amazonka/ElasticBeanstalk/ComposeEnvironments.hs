@@ -134,11 +134,14 @@ instance Core.AWSRequest ComposeEnvironments where
   type
     AWSResponse ComposeEnvironments =
       EnvironmentDescriptionsMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ComposeEnvironmentsResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ComposeEnvironments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ComposeEnvironments where
   hashWithSalt _salt ComposeEnvironments' {..} =

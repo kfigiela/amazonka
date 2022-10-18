@@ -101,7 +101,7 @@ instance Core.AWSRequest CreateCidrCollection where
   type
     AWSResponse CreateCidrCollection =
       CreateCidrCollectionResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateCidrCollection where
             Prelude.<*> (h Core..#? "Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCidrCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCidrCollection where
   hashWithSalt _salt CreateCidrCollection' {..} =

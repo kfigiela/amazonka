@@ -84,9 +84,12 @@ instance Core.AWSRequest DeregisterEcsCluster where
   type
     AWSResponse DeregisterEcsCluster =
       DeregisterEcsClusterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterEcsClusterResponse'
+
+instance Core.AWSService DeregisterEcsCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterEcsCluster where
   hashWithSalt _salt DeregisterEcsCluster' {..} =

@@ -128,7 +128,7 @@ describeHsm_hsmArn = Lens.lens (\DescribeHsm' {hsmArn} -> hsmArn) (\s@DescribeHs
 
 instance Core.AWSRequest DescribeHsm where
   type AWSResponse DescribeHsm = DescribeHsmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest DescribeHsm where
             Prelude.<*> (x Core..?> "SubscriptionEndDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHsm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHsm where
   hashWithSalt _salt DescribeHsm' {..} =

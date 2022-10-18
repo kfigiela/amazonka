@@ -177,7 +177,7 @@ instance Core.AWSRequest CreateClusterSnapshot where
   type
     AWSResponse CreateClusterSnapshot =
       CreateClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateClusterSnapshotResult"
@@ -186,6 +186,9 @@ instance Core.AWSRequest CreateClusterSnapshot where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClusterSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClusterSnapshot where
   hashWithSalt _salt CreateClusterSnapshot' {..} =

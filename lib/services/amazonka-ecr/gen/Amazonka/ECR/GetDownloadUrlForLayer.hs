@@ -123,7 +123,7 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
   type
     AWSResponse GetDownloadUrlForLayer =
       GetDownloadUrlForLayerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GetDownloadUrlForLayer where
             Prelude.<*> (x Core..?> "layerDigest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDownloadUrlForLayer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDownloadUrlForLayer where
   hashWithSalt _salt GetDownloadUrlForLayer' {..} =

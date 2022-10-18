@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteMetricFilter where
   type
     AWSResponse DeleteMetricFilter =
       DeleteMetricFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteMetricFilterResponse'
+
+instance Core.AWSService DeleteMetricFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMetricFilter where
   hashWithSalt _salt DeleteMetricFilter' {..} =

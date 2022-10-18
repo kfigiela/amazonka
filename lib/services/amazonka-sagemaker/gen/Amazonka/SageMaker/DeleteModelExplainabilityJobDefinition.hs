@@ -81,10 +81,16 @@ instance
     AWSResponse
       DeleteModelExplainabilityJobDefinition =
       DeleteModelExplainabilityJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteModelExplainabilityJobDefinitionResponse'
+
+instance
+  Core.AWSService
+    DeleteModelExplainabilityJobDefinition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

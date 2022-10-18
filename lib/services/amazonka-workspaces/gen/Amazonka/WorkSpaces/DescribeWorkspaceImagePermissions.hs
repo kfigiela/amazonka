@@ -109,7 +109,7 @@ instance
   type
     AWSResponse DescribeWorkspaceImagePermissions =
       DescribeWorkspaceImagePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,12 @@ instance
               Prelude.<*> (x Core..?> "ImageId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeWorkspaceImagePermissions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

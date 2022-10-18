@@ -82,7 +82,7 @@ instance Core.AWSRequest RetrieveDomainAuthCode where
   type
     AWSResponse RetrieveDomainAuthCode =
       RetrieveDomainAuthCodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest RetrieveDomainAuthCode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AuthCode")
       )
+
+instance Core.AWSService RetrieveDomainAuthCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetrieveDomainAuthCode where
   hashWithSalt _salt RetrieveDomainAuthCode' {..} =

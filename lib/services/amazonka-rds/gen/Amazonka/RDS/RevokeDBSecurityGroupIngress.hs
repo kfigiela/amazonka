@@ -175,7 +175,7 @@ instance Core.AWSRequest RevokeDBSecurityGroupIngress where
   type
     AWSResponse RevokeDBSecurityGroupIngress =
       RevokeDBSecurityGroupIngressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RevokeDBSecurityGroupIngressResult"
@@ -184,6 +184,9 @@ instance Core.AWSRequest RevokeDBSecurityGroupIngress where
             Prelude.<$> (x Core..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeDBSecurityGroupIngress where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

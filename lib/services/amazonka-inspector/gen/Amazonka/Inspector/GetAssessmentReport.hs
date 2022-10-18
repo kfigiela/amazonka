@@ -124,7 +124,7 @@ instance Core.AWSRequest GetAssessmentReport where
   type
     AWSResponse GetAssessmentReport =
       GetAssessmentReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest GetAssessmentReport where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetAssessmentReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssessmentReport where
   hashWithSalt _salt GetAssessmentReport' {..} =

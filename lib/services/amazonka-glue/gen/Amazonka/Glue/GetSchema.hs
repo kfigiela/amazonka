@@ -111,7 +111,7 @@ getSchema_schemaId = Lens.lens (\GetSchema' {schemaId} -> schemaId) (\s@GetSchem
 
 instance Core.AWSRequest GetSchema where
   type AWSResponse GetSchema = GetSchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetSchema where
             Prelude.<*> (x Core..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSchema where
   hashWithSalt _salt GetSchema' {..} =

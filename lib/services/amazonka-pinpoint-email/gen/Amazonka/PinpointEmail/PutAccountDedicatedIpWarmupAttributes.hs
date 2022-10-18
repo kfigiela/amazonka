@@ -93,13 +93,19 @@ instance
     AWSResponse
       PutAccountDedicatedIpWarmupAttributes =
       PutAccountDedicatedIpWarmupAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAccountDedicatedIpWarmupAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutAccountDedicatedIpWarmupAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

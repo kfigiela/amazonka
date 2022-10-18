@@ -110,7 +110,7 @@ listChunks_objectToken = Lens.lens (\ListChunks' {objectToken} -> objectToken) (
 
 instance Core.AWSRequest ListChunks where
   type AWSResponse ListChunks = ListChunksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListChunks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "ChunkList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListChunks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChunks where
   hashWithSalt _salt ListChunks' {..} =

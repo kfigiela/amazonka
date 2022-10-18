@@ -199,7 +199,7 @@ createInput'_destinations = Lens.lens (\CreateInput'' {destinations} -> destinat
 
 instance Core.AWSRequest CreateInput' where
   type AWSResponse CreateInput' = CreateInputResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest CreateInput' where
             Prelude.<$> (x Core..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInput' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInput' where
   hashWithSalt _salt CreateInput'' {..} =

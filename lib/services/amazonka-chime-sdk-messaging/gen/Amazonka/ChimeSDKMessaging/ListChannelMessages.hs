@@ -179,7 +179,7 @@ instance Core.AWSRequest ListChannelMessages where
   type
     AWSResponse ListChannelMessages =
       ListChannelMessagesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest ListChannelMessages where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannelMessages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannelMessages where
   hashWithSalt _salt ListChannelMessages' {..} =

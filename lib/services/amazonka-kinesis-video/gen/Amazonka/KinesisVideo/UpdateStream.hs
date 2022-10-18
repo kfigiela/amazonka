@@ -172,13 +172,16 @@ updateStream_currentVersion = Lens.lens (\UpdateStream' {currentVersion} -> curr
 
 instance Core.AWSRequest UpdateStream where
   type AWSResponse UpdateStream = UpdateStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStream where
   hashWithSalt _salt UpdateStream' {..} =

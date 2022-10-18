@@ -120,7 +120,7 @@ instance Core.AWSRequest ConfirmSubscription where
   type
     AWSResponse ConfirmSubscription =
       ConfirmSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ConfirmSubscriptionResult"
@@ -129,6 +129,9 @@ instance Core.AWSRequest ConfirmSubscription where
             Prelude.<$> (x Core..@? "SubscriptionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmSubscription where
   hashWithSalt _salt ConfirmSubscription' {..} =

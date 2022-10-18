@@ -116,7 +116,7 @@ instance Core.AWSRequest GetLogGroupFields where
   type
     AWSResponse GetLogGroupFields =
       GetLogGroupFieldsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest GetLogGroupFields where
             Prelude.<$> (x Core..?> "logGroupFields" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLogGroupFields where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLogGroupFields where
   hashWithSalt _salt GetLogGroupFields' {..} =

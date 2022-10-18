@@ -310,7 +310,7 @@ createTopic_name = Lens.lens (\CreateTopic' {name} -> name) (\s@CreateTopic' {} 
 
 instance Core.AWSRequest CreateTopic where
   type AWSResponse CreateTopic = CreateTopicResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateTopicResult"
@@ -319,6 +319,9 @@ instance Core.AWSRequest CreateTopic where
             Prelude.<$> (x Core..@? "TopicArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTopic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTopic where
   hashWithSalt _salt CreateTopic' {..} =

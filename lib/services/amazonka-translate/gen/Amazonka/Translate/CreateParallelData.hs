@@ -145,7 +145,7 @@ instance Core.AWSRequest CreateParallelData where
   type
     AWSResponse CreateParallelData =
       CreateParallelDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest CreateParallelData where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateParallelData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateParallelData where
   hashWithSalt _salt CreateParallelData' {..} =

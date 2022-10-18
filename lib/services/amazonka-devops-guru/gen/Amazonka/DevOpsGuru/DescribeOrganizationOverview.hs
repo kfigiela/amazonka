@@ -128,7 +128,7 @@ instance Core.AWSRequest DescribeOrganizationOverview where
   type
     AWSResponse DescribeOrganizationOverview =
       DescribeOrganizationOverviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest DescribeOrganizationOverview where
             Prelude.<*> (x Core..:> "ReactiveInsights")
             Prelude.<*> (x Core..:> "ProactiveInsights")
       )
+
+instance Core.AWSService DescribeOrganizationOverview where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

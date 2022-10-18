@@ -74,7 +74,7 @@ getStreamKey_arn = Lens.lens (\GetStreamKey' {arn} -> arn) (\s@GetStreamKey' {} 
 
 instance Core.AWSRequest GetStreamKey where
   type AWSResponse GetStreamKey = GetStreamKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetStreamKey where
             Prelude.<$> (x Core..?> "streamKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStreamKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStreamKey where
   hashWithSalt _salt GetStreamKey' {..} =

@@ -159,7 +159,7 @@ createSite_name = Lens.lens (\CreateSite' {name} -> name) (\s@CreateSite' {} a -
 
 instance Core.AWSRequest CreateSite where
   type AWSResponse CreateSite = CreateSiteResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest CreateSite where
             Prelude.<$> (x Core..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSite where
   hashWithSalt _salt CreateSite' {..} =

@@ -100,13 +100,16 @@ deleteTarget_targetAddress = Lens.lens (\DeleteTarget' {targetAddress} -> target
 
 instance Core.AWSRequest DeleteTarget where
   type AWSResponse DeleteTarget = DeleteTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTargetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTarget where
   hashWithSalt _salt DeleteTarget' {..} =

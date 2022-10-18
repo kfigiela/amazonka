@@ -196,7 +196,7 @@ instance Core.AWSRequest StartMigration where
   type
     AWSResponse StartMigration =
       StartMigrationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest StartMigration where
             Prelude.<*> (x Core..?> "migrationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMigration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMigration where
   hashWithSalt _salt StartMigration' {..} =

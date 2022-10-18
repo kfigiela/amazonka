@@ -83,7 +83,7 @@ instance
   type
     AWSResponse DescribeSecurityConfiguration =
       DescribeSecurityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,12 @@ instance
             Prelude.<*> (x Core..?> "CreationDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeSecurityConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

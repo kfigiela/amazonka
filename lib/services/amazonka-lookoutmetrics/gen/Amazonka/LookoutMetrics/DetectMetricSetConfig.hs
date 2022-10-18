@@ -95,7 +95,7 @@ instance Core.AWSRequest DetectMetricSetConfig where
   type
     AWSResponse DetectMetricSetConfig =
       DetectMetricSetConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DetectMetricSetConfig where
             Prelude.<$> (x Core..?> "DetectedMetricSetConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectMetricSetConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectMetricSetConfig where
   hashWithSalt _salt DetectMetricSetConfig' {..} =

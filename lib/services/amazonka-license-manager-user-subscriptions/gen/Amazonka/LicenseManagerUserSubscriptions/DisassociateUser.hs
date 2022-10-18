@@ -117,7 +117,7 @@ instance Core.AWSRequest DisassociateUser where
   type
     AWSResponse DisassociateUser =
       DisassociateUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DisassociateUser where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "InstanceUserSummary")
       )
+
+instance Core.AWSService DisassociateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateUser where
   hashWithSalt _salt DisassociateUser' {..} =

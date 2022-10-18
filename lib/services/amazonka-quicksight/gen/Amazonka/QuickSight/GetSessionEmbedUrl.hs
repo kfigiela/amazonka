@@ -218,7 +218,7 @@ instance Core.AWSRequest GetSessionEmbedUrl where
   type
     AWSResponse GetSessionEmbedUrl =
       GetSessionEmbedUrlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -227,6 +227,9 @@ instance Core.AWSRequest GetSessionEmbedUrl where
             Prelude.<*> (x Core..?> "EmbedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSessionEmbedUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSessionEmbedUrl where
   hashWithSalt _salt GetSessionEmbedUrl' {..} =

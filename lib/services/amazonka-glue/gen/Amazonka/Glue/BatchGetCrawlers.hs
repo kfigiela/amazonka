@@ -83,7 +83,7 @@ instance Core.AWSRequest BatchGetCrawlers where
   type
     AWSResponse BatchGetCrawlers =
       BatchGetCrawlersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest BatchGetCrawlers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetCrawlers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetCrawlers where
   hashWithSalt _salt BatchGetCrawlers' {..} =

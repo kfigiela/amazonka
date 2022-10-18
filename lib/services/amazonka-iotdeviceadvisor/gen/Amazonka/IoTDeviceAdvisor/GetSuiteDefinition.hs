@@ -101,7 +101,7 @@ instance Core.AWSRequest GetSuiteDefinition where
   type
     AWSResponse GetSuiteDefinition =
       GetSuiteDefinitionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest GetSuiteDefinition where
             Prelude.<*> (x Core..?> "lastModifiedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSuiteDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSuiteDefinition where
   hashWithSalt _salt GetSuiteDefinition' {..} =

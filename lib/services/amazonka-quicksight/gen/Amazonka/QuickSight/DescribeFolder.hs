@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribeFolder where
   type
     AWSResponse DescribeFolder =
       DescribeFolderResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeFolder where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFolder where
   hashWithSalt _salt DescribeFolder' {..} =

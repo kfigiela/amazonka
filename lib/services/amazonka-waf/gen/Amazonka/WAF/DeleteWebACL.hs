@@ -112,7 +112,7 @@ deleteWebACL_changeToken = Lens.lens (\DeleteWebACL' {changeToken} -> changeToke
 
 instance Core.AWSRequest DeleteWebACL where
   type AWSResponse DeleteWebACL = DeleteWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DeleteWebACL where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWebACL where
   hashWithSalt _salt DeleteWebACL' {..} =

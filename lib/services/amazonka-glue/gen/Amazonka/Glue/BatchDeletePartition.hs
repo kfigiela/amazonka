@@ -117,7 +117,7 @@ instance Core.AWSRequest BatchDeletePartition where
   type
     AWSResponse BatchDeletePartition =
       BatchDeletePartitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest BatchDeletePartition where
             Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeletePartition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeletePartition where
   hashWithSalt _salt BatchDeletePartition' {..} =

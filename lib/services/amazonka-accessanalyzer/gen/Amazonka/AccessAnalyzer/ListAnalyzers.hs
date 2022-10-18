@@ -119,7 +119,7 @@ instance Core.AWSRequest ListAnalyzers where
   type
     AWSResponse ListAnalyzers =
       ListAnalyzersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListAnalyzers where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "analyzers" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListAnalyzers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnalyzers where
   hashWithSalt _salt ListAnalyzers' {..} =

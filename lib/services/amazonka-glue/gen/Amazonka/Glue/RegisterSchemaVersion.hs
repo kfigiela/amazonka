@@ -136,7 +136,7 @@ instance Core.AWSRequest RegisterSchemaVersion where
   type
     AWSResponse RegisterSchemaVersion =
       RegisterSchemaVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest RegisterSchemaVersion where
             Prelude.<*> (x Core..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterSchemaVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterSchemaVersion where
   hashWithSalt _salt RegisterSchemaVersion' {..} =

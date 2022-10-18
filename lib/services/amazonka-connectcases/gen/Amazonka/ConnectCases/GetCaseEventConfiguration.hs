@@ -77,7 +77,7 @@ instance Core.AWSRequest GetCaseEventConfiguration where
   type
     AWSResponse GetCaseEventConfiguration =
       GetCaseEventConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetCaseEventConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "eventBridge")
       )
+
+instance Core.AWSService GetCaseEventConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCaseEventConfiguration where
   hashWithSalt _salt GetCaseEventConfiguration' {..} =

@@ -365,11 +365,14 @@ instance Core.AWSRequest CreateCustomDBEngineVersion where
   type
     AWSResponse CreateCustomDBEngineVersion =
       DBEngineVersion
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCustomDBEngineVersionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateCustomDBEngineVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomDBEngineVersion where
   hashWithSalt _salt CreateCustomDBEngineVersion' {..} =

@@ -77,7 +77,7 @@ instance Core.AWSRequest DisassociateRoleFromGroup where
   type
     AWSResponse DisassociateRoleFromGroup =
       DisassociateRoleFromGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DisassociateRoleFromGroup where
             Prelude.<$> (x Core..?> "DisassociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateRoleFromGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateRoleFromGroup where
   hashWithSalt _salt DisassociateRoleFromGroup' {..} =

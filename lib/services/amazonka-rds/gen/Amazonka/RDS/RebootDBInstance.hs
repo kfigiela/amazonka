@@ -134,7 +134,7 @@ instance Core.AWSRequest RebootDBInstance where
   type
     AWSResponse RebootDBInstance =
       RebootDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebootDBInstanceResult"
@@ -143,6 +143,9 @@ instance Core.AWSRequest RebootDBInstance where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootDBInstance where
   hashWithSalt _salt RebootDBInstance' {..} =

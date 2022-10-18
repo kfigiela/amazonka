@@ -116,7 +116,7 @@ instance Core.AWSRequest DeleteGlobalReplicationGroup where
   type
     AWSResponse DeleteGlobalReplicationGroup =
       DeleteGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteGlobalReplicationGroupResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest DeleteGlobalReplicationGroup where
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGlobalReplicationGroup where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

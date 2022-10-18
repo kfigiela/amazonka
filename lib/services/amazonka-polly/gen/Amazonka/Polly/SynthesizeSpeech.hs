@@ -329,7 +329,7 @@ instance Core.AWSRequest SynthesizeSpeech where
   type
     AWSResponse SynthesizeSpeech =
       SynthesizeSpeechResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -339,6 +339,9 @@ instance Core.AWSRequest SynthesizeSpeech where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService SynthesizeSpeech where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SynthesizeSpeech where
   hashWithSalt _salt SynthesizeSpeech' {..} =

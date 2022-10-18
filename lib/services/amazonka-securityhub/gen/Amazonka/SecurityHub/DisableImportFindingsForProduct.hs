@@ -85,13 +85,19 @@ instance
   type
     AWSResponse DisableImportFindingsForProduct =
       DisableImportFindingsForProductResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableImportFindingsForProductResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisableImportFindingsForProduct
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

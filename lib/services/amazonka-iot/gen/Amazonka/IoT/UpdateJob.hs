@@ -184,8 +184,11 @@ updateJob_jobId = Lens.lens (\UpdateJob' {jobId} -> jobId) (\s@UpdateJob' {} a -
 
 instance Core.AWSRequest UpdateJob where
   type AWSResponse UpdateJob = UpdateJobResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response = Response.receiveNull UpdateJobResponse'
+
+instance Core.AWSService UpdateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateJob where
   hashWithSalt _salt UpdateJob' {..} =

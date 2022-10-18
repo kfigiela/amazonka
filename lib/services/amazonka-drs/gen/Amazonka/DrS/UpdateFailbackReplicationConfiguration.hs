@@ -119,10 +119,16 @@ instance
     AWSResponse
       UpdateFailbackReplicationConfiguration =
       UpdateFailbackReplicationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateFailbackReplicationConfigurationResponse'
+
+instance
+  Core.AWSService
+    UpdateFailbackReplicationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

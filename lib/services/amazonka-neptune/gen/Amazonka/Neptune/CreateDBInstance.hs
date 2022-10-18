@@ -923,7 +923,7 @@ instance Core.AWSRequest CreateDBInstance where
   type
     AWSResponse CreateDBInstance =
       CreateDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBInstanceResult"
@@ -932,6 +932,9 @@ instance Core.AWSRequest CreateDBInstance where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBInstance where
   hashWithSalt _salt CreateDBInstance' {..} =

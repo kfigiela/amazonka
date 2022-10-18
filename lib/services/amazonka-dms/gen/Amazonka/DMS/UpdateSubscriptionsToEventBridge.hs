@@ -106,7 +106,7 @@ instance
   type
     AWSResponse UpdateSubscriptionsToEventBridge =
       UpdateSubscriptionsToEventBridgeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,12 @@ instance
             Prelude.<$> (x Core..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateSubscriptionsToEventBridge
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

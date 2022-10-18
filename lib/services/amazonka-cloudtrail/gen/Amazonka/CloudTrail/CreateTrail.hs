@@ -383,7 +383,7 @@ createTrail_s3BucketName = Lens.lens (\CreateTrail' {s3BucketName} -> s3BucketNa
 
 instance Core.AWSRequest CreateTrail where
   type AWSResponse CreateTrail = CreateTrailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -403,6 +403,9 @@ instance Core.AWSRequest CreateTrail where
             Prelude.<*> (x Core..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTrail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrail where
   hashWithSalt _salt CreateTrail' {..} =

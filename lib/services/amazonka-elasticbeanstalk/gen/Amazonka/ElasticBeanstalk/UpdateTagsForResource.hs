@@ -140,9 +140,12 @@ instance Core.AWSRequest UpdateTagsForResource where
   type
     AWSResponse UpdateTagsForResource =
       UpdateTagsForResourceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UpdateTagsForResourceResponse'
+
+instance Core.AWSService UpdateTagsForResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTagsForResource where
   hashWithSalt _salt UpdateTagsForResource' {..} =

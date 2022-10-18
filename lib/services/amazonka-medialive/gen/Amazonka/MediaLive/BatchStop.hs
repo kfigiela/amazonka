@@ -88,7 +88,7 @@ batchStop'_channelIds = Lens.lens (\BatchStop'' {channelIds} -> channelIds) (\s@
 
 instance Core.AWSRequest BatchStop' where
   type AWSResponse BatchStop' = BatchStopResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest BatchStop' where
             Prelude.<*> (x Core..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchStop' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchStop' where
   hashWithSalt _salt BatchStop'' {..} =

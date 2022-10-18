@@ -122,7 +122,7 @@ instance Core.AWSRequest CreateRevision where
   type
     AWSResponse CreateRevision =
       CreateRevisionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest CreateRevision where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRevision where
   hashWithSalt _salt CreateRevision' {..} =

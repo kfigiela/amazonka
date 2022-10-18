@@ -214,7 +214,7 @@ instance Core.AWSRequest GetSampledRequests where
   type
     AWSResponse GetSampledRequests =
       GetSampledRequestsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest GetSampledRequests where
             Prelude.<*> (x Core..?> "TimeWindow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSampledRequests where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSampledRequests where
   hashWithSalt _salt GetSampledRequests' {..} =

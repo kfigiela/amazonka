@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeBuild where
   type
     AWSResponse DescribeBuild =
       DescribeBuildResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeBuild where
             Prelude.<$> (x Core..?> "Build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBuild where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBuild where
   hashWithSalt _salt DescribeBuild' {..} =

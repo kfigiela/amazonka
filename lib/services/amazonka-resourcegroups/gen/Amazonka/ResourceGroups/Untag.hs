@@ -97,7 +97,7 @@ untag_keys = Lens.lens (\Untag' {keys} -> keys) (\s@Untag' {} a -> s {keys = a} 
 
 instance Core.AWSRequest Untag where
   type AWSResponse Untag = UntagResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest Untag where
             Prelude.<*> (x Core..?> "Keys" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Untag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Untag where
   hashWithSalt _salt Untag' {..} =

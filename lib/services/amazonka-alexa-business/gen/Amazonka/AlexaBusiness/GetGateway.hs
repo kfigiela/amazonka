@@ -75,7 +75,7 @@ getGateway_gatewayArn = Lens.lens (\GetGateway' {gatewayArn} -> gatewayArn) (\s@
 
 instance Core.AWSRequest GetGateway where
   type AWSResponse GetGateway = GetGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetGateway where
             Prelude.<$> (x Core..?> "Gateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGateway where
   hashWithSalt _salt GetGateway' {..} =

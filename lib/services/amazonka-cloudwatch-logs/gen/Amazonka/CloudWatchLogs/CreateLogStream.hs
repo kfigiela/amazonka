@@ -101,9 +101,12 @@ instance Core.AWSRequest CreateLogStream where
   type
     AWSResponse CreateLogStream =
       CreateLogStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreateLogStreamResponse'
+
+instance Core.AWSService CreateLogStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLogStream where
   hashWithSalt _salt CreateLogStream' {..} =

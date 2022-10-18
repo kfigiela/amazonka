@@ -103,9 +103,12 @@ instance Core.AWSRequest DeleteSchemaVersion where
   type
     AWSResponse DeleteSchemaVersion =
       DeleteSchemaVersionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteSchemaVersionResponse'
+
+instance Core.AWSService DeleteSchemaVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSchemaVersion where
   hashWithSalt _salt DeleteSchemaVersion' {..} =

@@ -201,7 +201,7 @@ instance Core.AWSRequest StartNotebookExecution where
   type
     AWSResponse StartNotebookExecution =
       StartNotebookExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest StartNotebookExecution where
             Prelude.<$> (x Core..?> "NotebookExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartNotebookExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartNotebookExecution where
   hashWithSalt _salt StartNotebookExecution' {..} =

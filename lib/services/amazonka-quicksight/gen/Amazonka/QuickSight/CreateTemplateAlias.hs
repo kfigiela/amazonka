@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateTemplateAlias where
   type
     AWSResponse CreateTemplateAlias =
       CreateTemplateAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateTemplateAlias where
             Prelude.<*> (x Core..?> "TemplateAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTemplateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTemplateAlias where
   hashWithSalt _salt CreateTemplateAlias' {..} =

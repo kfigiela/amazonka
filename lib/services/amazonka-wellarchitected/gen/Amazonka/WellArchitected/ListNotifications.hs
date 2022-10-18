@@ -96,7 +96,7 @@ instance Core.AWSRequest ListNotifications where
   type
     AWSResponse ListNotifications =
       ListNotificationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest ListNotifications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNotifications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNotifications where
   hashWithSalt _salt ListNotifications' {..} =

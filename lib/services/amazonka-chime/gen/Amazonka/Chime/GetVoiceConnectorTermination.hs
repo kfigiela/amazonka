@@ -81,7 +81,7 @@ instance Core.AWSRequest GetVoiceConnectorTermination where
   type
     AWSResponse GetVoiceConnectorTermination =
       GetVoiceConnectorTerminationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetVoiceConnectorTermination where
             Prelude.<$> (x Core..?> "Termination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVoiceConnectorTermination where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

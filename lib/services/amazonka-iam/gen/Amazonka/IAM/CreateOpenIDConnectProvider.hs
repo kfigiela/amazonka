@@ -298,7 +298,7 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
   type
     AWSResponse CreateOpenIDConnectProvider =
       CreateOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateOpenIDConnectProviderResult"
@@ -310,6 +310,9 @@ instance Core.AWSRequest CreateOpenIDConnectProvider where
             Prelude.<*> (x Core..@? "OpenIDConnectProviderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOpenIDConnectProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOpenIDConnectProvider where
   hashWithSalt _salt CreateOpenIDConnectProvider' {..} =

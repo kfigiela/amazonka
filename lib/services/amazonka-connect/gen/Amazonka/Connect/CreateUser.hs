@@ -238,7 +238,7 @@ createUser_instanceId = Lens.lens (\CreateUser' {instanceId} -> instanceId) (\s@
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -247,6 +247,9 @@ instance Core.AWSRequest CreateUser where
             Prelude.<*> (x Core..?> "UserId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

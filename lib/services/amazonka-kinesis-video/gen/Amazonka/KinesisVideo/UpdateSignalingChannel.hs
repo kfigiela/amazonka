@@ -115,13 +115,16 @@ instance Core.AWSRequest UpdateSignalingChannel where
   type
     AWSResponse UpdateSignalingChannel =
       UpdateSignalingChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSignalingChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSignalingChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSignalingChannel where
   hashWithSalt _salt UpdateSignalingChannel' {..} =

@@ -206,7 +206,7 @@ instance Core.AWSRequest GetIpamAddressHistory where
   type
     AWSResponse GetIpamAddressHistory =
       GetIpamAddressHistoryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest GetIpamAddressHistory where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIpamAddressHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIpamAddressHistory where
   hashWithSalt _salt GetIpamAddressHistory' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest GetImagePolicy where
   type
     AWSResponse GetImagePolicy =
       GetImagePolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetImagePolicy where
             Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImagePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImagePolicy where
   hashWithSalt _salt GetImagePolicy' {..} =

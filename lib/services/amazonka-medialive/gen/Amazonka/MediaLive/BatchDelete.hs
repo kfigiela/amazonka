@@ -108,7 +108,7 @@ batchDelete'_inputIds = Lens.lens (\BatchDelete'' {inputIds} -> inputIds) (\s@Ba
 
 instance Core.AWSRequest BatchDelete' where
   type AWSResponse BatchDelete' = BatchDeleteResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest BatchDelete' where
             Prelude.<*> (x Core..?> "successful" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDelete' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDelete' where
   hashWithSalt _salt BatchDelete'' {..} =

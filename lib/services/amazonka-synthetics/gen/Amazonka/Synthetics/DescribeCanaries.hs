@@ -155,7 +155,7 @@ instance Core.AWSRequest DescribeCanaries where
   type
     AWSResponse DescribeCanaries =
       DescribeCanariesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest DescribeCanaries where
             Prelude.<*> (x Core..?> "Canaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCanaries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCanaries where
   hashWithSalt _salt DescribeCanaries' {..} =

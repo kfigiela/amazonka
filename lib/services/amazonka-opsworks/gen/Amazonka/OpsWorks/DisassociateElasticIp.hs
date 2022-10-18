@@ -81,9 +81,12 @@ instance Core.AWSRequest DisassociateElasticIp where
   type
     AWSResponse DisassociateElasticIp =
       DisassociateElasticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DisassociateElasticIpResponse'
+
+instance Core.AWSService DisassociateElasticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateElasticIp where
   hashWithSalt _salt DisassociateElasticIp' {..} =

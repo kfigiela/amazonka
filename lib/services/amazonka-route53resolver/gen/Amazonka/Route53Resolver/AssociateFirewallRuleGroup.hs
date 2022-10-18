@@ -210,7 +210,7 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
   type
     AWSResponse AssociateFirewallRuleGroup =
       AssociateFirewallRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest AssociateFirewallRuleGroup where
             Prelude.<$> (x Core..?> "FirewallRuleGroupAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateFirewallRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateFirewallRuleGroup where
   hashWithSalt _salt AssociateFirewallRuleGroup' {..} =

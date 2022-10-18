@@ -146,7 +146,7 @@ instance Core.AWSRequest GetMigrations where
   type
     AWSResponse GetMigrations =
       GetMigrationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest GetMigrations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMigrations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMigrations where
   hashWithSalt _salt GetMigrations' {..} =

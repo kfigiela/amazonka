@@ -46,6 +46,7 @@ defaultService =
       Core._serviceEndpointPrefix = "oidc",
       Core._serviceSigningName = "awsssooidc",
       Core._serviceVersion = "2019-06-10",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

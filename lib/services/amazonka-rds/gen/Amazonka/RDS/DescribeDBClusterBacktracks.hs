@@ -300,7 +300,7 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
   type
     AWSResponse DescribeDBClusterBacktracks =
       DescribeDBClusterBacktracksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBClusterBacktracksResult"
@@ -313,6 +313,9 @@ instance Core.AWSRequest DescribeDBClusterBacktracks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBClusterBacktracks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBClusterBacktracks where
   hashWithSalt _salt DescribeDBClusterBacktracks' {..} =

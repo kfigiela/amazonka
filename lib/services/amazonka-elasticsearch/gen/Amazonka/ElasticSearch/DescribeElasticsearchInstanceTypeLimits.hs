@@ -123,7 +123,7 @@ instance
     AWSResponse
       DescribeElasticsearchInstanceTypeLimits =
       DescribeElasticsearchInstanceTypeLimitsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,12 @@ instance
             Prelude.<$> (x Core..?> "LimitsByRole" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeElasticsearchInstanceTypeLimits
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

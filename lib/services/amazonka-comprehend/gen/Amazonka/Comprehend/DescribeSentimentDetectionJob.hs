@@ -84,7 +84,7 @@ instance
   type
     AWSResponse DescribeSentimentDetectionJob =
       DescribeSentimentDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,12 @@ instance
             Prelude.<$> (x Core..?> "SentimentDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeSentimentDetectionJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

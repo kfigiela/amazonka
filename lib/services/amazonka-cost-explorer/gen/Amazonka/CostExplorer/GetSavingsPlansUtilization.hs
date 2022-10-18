@@ -235,7 +235,7 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
   type
     AWSResponse GetSavingsPlansUtilization =
       GetSavingsPlansUtilizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -246,6 +246,9 @@ instance Core.AWSRequest GetSavingsPlansUtilization where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Total")
       )
+
+instance Core.AWSService GetSavingsPlansUtilization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSavingsPlansUtilization where
   hashWithSalt _salt GetSavingsPlansUtilization' {..} =

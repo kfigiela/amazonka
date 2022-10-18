@@ -88,13 +88,16 @@ instance Core.AWSRequest StartMulticastGroupSession where
   type
     AWSResponse StartMulticastGroupSession =
       StartMulticastGroupSessionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartMulticastGroupSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMulticastGroupSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMulticastGroupSession where
   hashWithSalt _salt StartMulticastGroupSession' {..} =

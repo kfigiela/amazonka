@@ -179,7 +179,7 @@ createTrust_trustDirection = Lens.lens (\CreateTrust' {trustDirection} -> trustD
 
 instance Core.AWSRequest CreateTrust where
   type AWSResponse CreateTrust = CreateTrustResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest CreateTrust where
             Prelude.<$> (x Core..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTrust where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTrust where
   hashWithSalt _salt CreateTrust' {..} =

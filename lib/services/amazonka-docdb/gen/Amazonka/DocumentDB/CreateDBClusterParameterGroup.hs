@@ -160,7 +160,7 @@ instance
   type
     AWSResponse CreateDBClusterParameterGroup =
       CreateDBClusterParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBClusterParameterGroupResult"
@@ -169,6 +169,12 @@ instance
             Prelude.<$> (x Core..@? "DBClusterParameterGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateDBClusterParameterGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

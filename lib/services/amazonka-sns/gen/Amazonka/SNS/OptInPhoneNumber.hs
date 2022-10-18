@@ -81,7 +81,7 @@ instance Core.AWSRequest OptInPhoneNumber where
   type
     AWSResponse OptInPhoneNumber =
       OptInPhoneNumberResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "OptInPhoneNumberResult"
@@ -89,6 +89,9 @@ instance Core.AWSRequest OptInPhoneNumber where
           OptInPhoneNumberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService OptInPhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable OptInPhoneNumber where
   hashWithSalt _salt OptInPhoneNumber' {..} =

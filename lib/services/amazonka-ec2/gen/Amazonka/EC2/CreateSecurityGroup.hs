@@ -205,7 +205,7 @@ instance Core.AWSRequest CreateSecurityGroup where
   type
     AWSResponse CreateSecurityGroup =
       CreateSecurityGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -216,6 +216,9 @@ instance Core.AWSRequest CreateSecurityGroup where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "groupId")
       )
+
+instance Core.AWSService CreateSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSecurityGroup where
   hashWithSalt _salt CreateSecurityGroup' {..} =

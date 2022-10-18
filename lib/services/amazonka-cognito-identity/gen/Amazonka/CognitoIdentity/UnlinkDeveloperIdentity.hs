@@ -127,10 +127,13 @@ instance Core.AWSRequest UnlinkDeveloperIdentity where
   type
     AWSResponse UnlinkDeveloperIdentity =
       UnlinkDeveloperIdentityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UnlinkDeveloperIdentityResponse'
+
+instance Core.AWSService UnlinkDeveloperIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnlinkDeveloperIdentity where
   hashWithSalt _salt UnlinkDeveloperIdentity' {..} =

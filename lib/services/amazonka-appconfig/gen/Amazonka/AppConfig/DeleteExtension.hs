@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteExtension where
   type
     AWSResponse DeleteExtension =
       DeleteExtensionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteExtensionResponse'
+
+instance Core.AWSService DeleteExtension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExtension where
   hashWithSalt _salt DeleteExtension' {..} =

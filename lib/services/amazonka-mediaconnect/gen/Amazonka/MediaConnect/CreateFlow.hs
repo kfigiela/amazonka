@@ -173,7 +173,7 @@ createFlow_name = Lens.lens (\CreateFlow' {name} -> name) (\s@CreateFlow' {} a -
 
 instance Core.AWSRequest CreateFlow where
   type AWSResponse CreateFlow = CreateFlowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest CreateFlow where
             Prelude.<$> (x Core..?> "flow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFlow where
   hashWithSalt _salt CreateFlow' {..} =

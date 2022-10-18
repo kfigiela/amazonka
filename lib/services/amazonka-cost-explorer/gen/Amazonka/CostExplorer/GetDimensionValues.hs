@@ -699,7 +699,7 @@ instance Core.AWSRequest GetDimensionValues where
   type
     AWSResponse GetDimensionValues =
       GetDimensionValuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -712,6 +712,9 @@ instance Core.AWSRequest GetDimensionValues where
             Prelude.<*> (x Core..:> "ReturnSize")
             Prelude.<*> (x Core..:> "TotalSize")
       )
+
+instance Core.AWSService GetDimensionValues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDimensionValues where
   hashWithSalt _salt GetDimensionValues' {..} =

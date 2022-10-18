@@ -231,7 +231,7 @@ instance Core.AWSRequest MergeBranchesByThreeWay where
   type
     AWSResponse MergeBranchesByThreeWay =
       MergeBranchesByThreeWayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -240,6 +240,9 @@ instance Core.AWSRequest MergeBranchesByThreeWay where
             Prelude.<*> (x Core..?> "treeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MergeBranchesByThreeWay where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MergeBranchesByThreeWay where
   hashWithSalt _salt MergeBranchesByThreeWay' {..} =

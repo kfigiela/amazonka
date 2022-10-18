@@ -62,7 +62,7 @@ instance Core.AWSRequest GetPortfolioSummary where
   type
     AWSResponse GetPortfolioSummary =
       GetPortfolioSummaryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetPortfolioSummary where
             Prelude.<$> (x Core..?> "assessmentSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPortfolioSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPortfolioSummary where
   hashWithSalt _salt _ =

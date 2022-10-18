@@ -112,7 +112,7 @@ instance Core.AWSRequest PurchaseReservedNodeOffering where
   type
     AWSResponse PurchaseReservedNodeOffering =
       PurchaseReservedNodeOfferingResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PurchaseReservedNodeOfferingResult"
@@ -121,6 +121,9 @@ instance Core.AWSRequest PurchaseReservedNodeOffering where
             Prelude.<$> (x Core..@? "ReservedNode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PurchaseReservedNodeOffering where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -140,7 +140,7 @@ instance Core.AWSRequest GetCoreNetworkChangeSet where
   type
     AWSResponse GetCoreNetworkChangeSet =
       GetCoreNetworkChangeSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetCoreNetworkChangeSet where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCoreNetworkChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCoreNetworkChangeSet where
   hashWithSalt _salt GetCoreNetworkChangeSet' {..} =

@@ -66,7 +66,7 @@ instance Core.AWSRequest StartContinuousExport where
   type
     AWSResponse StartContinuousExport =
       StartContinuousExportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -80,6 +80,9 @@ instance Core.AWSRequest StartContinuousExport where
             Prelude.<*> (x Core..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartContinuousExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartContinuousExport where
   hashWithSalt _salt _ =

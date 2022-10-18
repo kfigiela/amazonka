@@ -93,13 +93,16 @@ instance Core.AWSRequest DisassociateApplicationFleet where
   type
     AWSResponse DisassociateApplicationFleet =
       DisassociateApplicationFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateApplicationFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateApplicationFleet where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -99,7 +99,7 @@ instance
   type
     AWSResponse DescribeInferenceRecommendationsJob =
       DescribeInferenceRecommendationsJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,12 @@ instance
               Prelude.<*> (x Core..:> "LastModifiedTime")
               Prelude.<*> (x Core..:> "InputConfig")
       )
+
+instance
+  Core.AWSService
+    DescribeInferenceRecommendationsJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

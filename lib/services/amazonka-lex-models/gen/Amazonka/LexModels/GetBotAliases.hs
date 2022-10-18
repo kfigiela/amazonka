@@ -152,7 +152,7 @@ instance Core.AWSRequest GetBotAliases where
   type
     AWSResponse GetBotAliases =
       GetBotAliasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest GetBotAliases where
             Prelude.<*> (x Core..?> "BotAliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBotAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBotAliases where
   hashWithSalt _salt GetBotAliases' {..} =

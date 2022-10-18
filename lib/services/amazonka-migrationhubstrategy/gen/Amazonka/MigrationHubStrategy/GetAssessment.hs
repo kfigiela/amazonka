@@ -77,7 +77,7 @@ instance Core.AWSRequest GetAssessment where
   type
     AWSResponse GetAssessment =
       GetAssessmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetAssessment where
             Prelude.<*> (x Core..?> "dataCollectionDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssessment where
   hashWithSalt _salt GetAssessment' {..} =

@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteTrustAnchor where
   type
     AWSResponse DeleteTrustAnchor =
       TrustAnchorDetailResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteTrustAnchor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrustAnchor where
   hashWithSalt _salt DeleteTrustAnchor' {..} =

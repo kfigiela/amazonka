@@ -121,11 +121,14 @@ instance Core.AWSRequest ModifyClusterParameterGroup where
   type
     AWSResponse ModifyClusterParameterGroup =
       ClusterParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyClusterParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyClusterParameterGroup where
   hashWithSalt _salt ModifyClusterParameterGroup' {..} =

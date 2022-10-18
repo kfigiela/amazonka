@@ -113,7 +113,7 @@ instance Core.AWSRequest GetTemplateStep where
   type
     AWSResponse GetTemplateStep =
       GetTemplateStepResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetTemplateStep where
             Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTemplateStep where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTemplateStep where
   hashWithSalt _salt GetTemplateStep' {..} =

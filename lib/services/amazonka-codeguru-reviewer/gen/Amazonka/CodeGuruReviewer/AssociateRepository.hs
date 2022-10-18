@@ -188,7 +188,7 @@ instance Core.AWSRequest AssociateRepository where
   type
     AWSResponse AssociateRepository =
       AssociateRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest AssociateRepository where
             Prelude.<*> (x Core..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateRepository where
   hashWithSalt _salt AssociateRepository' {..} =

@@ -106,7 +106,7 @@ instance
   type
     AWSResponse GetArchitectureRecommendations =
       GetArchitectureRecommendationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,12 @@ instance
             Prelude.<*> (x Core..?> "lastAuditTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetArchitectureRecommendations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

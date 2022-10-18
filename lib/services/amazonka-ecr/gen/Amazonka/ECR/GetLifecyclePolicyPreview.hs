@@ -215,7 +215,7 @@ instance Core.AWSRequest GetLifecyclePolicyPreview where
   type
     AWSResponse GetLifecyclePolicyPreview =
       GetLifecyclePolicyPreviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -229,6 +229,9 @@ instance Core.AWSRequest GetLifecyclePolicyPreview where
             Prelude.<*> (x Core..?> "lifecyclePolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLifecyclePolicyPreview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLifecyclePolicyPreview where
   hashWithSalt _salt GetLifecyclePolicyPreview' {..} =

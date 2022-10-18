@@ -104,7 +104,7 @@ instance Core.AWSRequest DeleteOptedOutNumber where
   type
     AWSResponse DeleteOptedOutNumber =
       DeleteOptedOutNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DeleteOptedOutNumber where
             Prelude.<*> (x Core..?> "EndUserOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOptedOutNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOptedOutNumber where
   hashWithSalt _salt DeleteOptedOutNumber' {..} =

@@ -98,10 +98,16 @@ instance
   type
     AWSResponse DeleteQuerySuggestionsBlockList =
       DeleteQuerySuggestionsBlockListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteQuerySuggestionsBlockListResponse'
+
+instance
+  Core.AWSService
+    DeleteQuerySuggestionsBlockList
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -84,7 +84,7 @@ instance Core.AWSRequest GetContainerRecipePolicy where
   type
     AWSResponse GetContainerRecipePolicy =
       GetContainerRecipePolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetContainerRecipePolicy where
             Prelude.<*> (x Core..?> "requestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContainerRecipePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContainerRecipePolicy where
   hashWithSalt _salt GetContainerRecipePolicy' {..} =

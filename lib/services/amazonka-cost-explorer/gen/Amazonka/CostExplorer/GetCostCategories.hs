@@ -257,7 +257,7 @@ instance Core.AWSRequest GetCostCategories where
   type
     AWSResponse GetCostCategories =
       GetCostCategoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -273,6 +273,9 @@ instance Core.AWSRequest GetCostCategories where
             Prelude.<*> (x Core..:> "ReturnSize")
             Prelude.<*> (x Core..:> "TotalSize")
       )
+
+instance Core.AWSService GetCostCategories where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCostCategories where
   hashWithSalt _salt GetCostCategories' {..} =

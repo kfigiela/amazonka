@@ -158,7 +158,7 @@ instance Core.AWSRequest DescribeTestCases where
   type
     AWSResponse DescribeTestCases =
       DescribeTestCasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeTestCases where
             Prelude.<*> (x Core..?> "testCases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTestCases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTestCases where
   hashWithSalt _salt DescribeTestCases' {..} =

@@ -226,9 +226,12 @@ instance Core.AWSRequest ReportInstanceStatus where
   type
     AWSResponse ReportInstanceStatus =
       ReportInstanceStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ReportInstanceStatusResponse'
+
+instance Core.AWSService ReportInstanceStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReportInstanceStatus where
   hashWithSalt _salt ReportInstanceStatus' {..} =

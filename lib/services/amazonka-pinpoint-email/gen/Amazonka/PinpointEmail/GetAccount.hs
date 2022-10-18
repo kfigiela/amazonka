@@ -67,7 +67,7 @@ newGetAccount = GetAccount'
 
 instance Core.AWSRequest GetAccount where
   type AWSResponse GetAccount = GetAccountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -79,6 +79,9 @@ instance Core.AWSRequest GetAccount where
             Prelude.<*> (x Core..?> "SendQuota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccount where
   hashWithSalt _salt _ =

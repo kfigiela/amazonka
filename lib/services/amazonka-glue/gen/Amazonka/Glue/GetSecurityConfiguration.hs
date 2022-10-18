@@ -77,7 +77,7 @@ instance Core.AWSRequest GetSecurityConfiguration where
   type
     AWSResponse GetSecurityConfiguration =
       GetSecurityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetSecurityConfiguration where
             Prelude.<$> (x Core..?> "SecurityConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSecurityConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSecurityConfiguration where
   hashWithSalt _salt GetSecurityConfiguration' {..} =

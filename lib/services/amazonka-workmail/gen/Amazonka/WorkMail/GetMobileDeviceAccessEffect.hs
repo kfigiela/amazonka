@@ -124,7 +124,7 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
   type
     AWSResponse GetMobileDeviceAccessEffect =
       GetMobileDeviceAccessEffectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest GetMobileDeviceAccessEffect where
             Prelude.<*> (x Core..?> "MatchedRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMobileDeviceAccessEffect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMobileDeviceAccessEffect where
   hashWithSalt _salt GetMobileDeviceAccessEffect' {..} =

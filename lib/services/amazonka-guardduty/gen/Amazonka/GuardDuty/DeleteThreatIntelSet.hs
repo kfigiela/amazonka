@@ -95,13 +95,16 @@ instance Core.AWSRequest DeleteThreatIntelSet where
   type
     AWSResponse DeleteThreatIntelSet =
       DeleteThreatIntelSetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteThreatIntelSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteThreatIntelSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteThreatIntelSet where
   hashWithSalt _salt DeleteThreatIntelSet' {..} =

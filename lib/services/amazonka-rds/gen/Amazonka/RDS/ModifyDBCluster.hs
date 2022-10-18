@@ -1515,7 +1515,7 @@ instance Core.AWSRequest ModifyDBCluster where
   type
     AWSResponse ModifyDBCluster =
       ModifyDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterResult"
@@ -1524,6 +1524,9 @@ instance Core.AWSRequest ModifyDBCluster where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBCluster where
   hashWithSalt _salt ModifyDBCluster' {..} =

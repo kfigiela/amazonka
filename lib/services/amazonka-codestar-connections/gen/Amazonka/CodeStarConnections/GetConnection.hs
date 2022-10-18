@@ -78,7 +78,7 @@ instance Core.AWSRequest GetConnection where
   type
     AWSResponse GetConnection =
       GetConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetConnection where
             Prelude.<$> (x Core..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConnection where
   hashWithSalt _salt GetConnection' {..} =

@@ -117,7 +117,7 @@ instance Core.AWSRequest DecreaseReplicationFactor where
   type
     AWSResponse DecreaseReplicationFactor =
       DecreaseReplicationFactorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DecreaseReplicationFactor where
             Prelude.<$> (x Core..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DecreaseReplicationFactor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DecreaseReplicationFactor where
   hashWithSalt _salt DecreaseReplicationFactor' {..} =

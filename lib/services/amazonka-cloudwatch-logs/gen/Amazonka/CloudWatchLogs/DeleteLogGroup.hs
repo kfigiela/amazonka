@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteLogGroup where
   type
     AWSResponse DeleteLogGroup =
       DeleteLogGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLogGroupResponse'
+
+instance Core.AWSService DeleteLogGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLogGroup where
   hashWithSalt _salt DeleteLogGroup' {..} =

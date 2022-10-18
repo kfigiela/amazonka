@@ -189,7 +189,7 @@ instance Core.AWSRequest TranslateText where
   type
     AWSResponse TranslateText =
       TranslateTextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -203,6 +203,9 @@ instance Core.AWSRequest TranslateText where
             Prelude.<*> (x Core..:> "SourceLanguageCode")
             Prelude.<*> (x Core..:> "TargetLanguageCode")
       )
+
+instance Core.AWSService TranslateText where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TranslateText where
   hashWithSalt _salt TranslateText' {..} =

@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteDiscoverer where
   type
     AWSResponse DeleteDiscoverer =
       DeleteDiscovererResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDiscovererResponse'
+
+instance Core.AWSService DeleteDiscoverer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDiscoverer where
   hashWithSalt _salt DeleteDiscoverer' {..} =

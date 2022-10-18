@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeDomains where
   type
     AWSResponse DescribeDomains =
       DescribeDomainsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDomainsResult"
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeDomains where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDomains where
   hashWithSalt _salt DescribeDomains' {..} =

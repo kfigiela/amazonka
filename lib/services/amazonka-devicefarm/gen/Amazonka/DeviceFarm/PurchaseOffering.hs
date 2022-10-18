@@ -109,7 +109,7 @@ instance Core.AWSRequest PurchaseOffering where
   type
     AWSResponse PurchaseOffering =
       PurchaseOfferingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest PurchaseOffering where
             Prelude.<$> (x Core..?> "offeringTransaction")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PurchaseOffering where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PurchaseOffering where
   hashWithSalt _salt PurchaseOffering' {..} =

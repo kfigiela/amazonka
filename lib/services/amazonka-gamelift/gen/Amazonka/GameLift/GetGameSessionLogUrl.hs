@@ -98,7 +98,7 @@ instance Core.AWSRequest GetGameSessionLogUrl where
   type
     AWSResponse GetGameSessionLogUrl =
       GetGameSessionLogUrlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetGameSessionLogUrl where
             Prelude.<$> (x Core..?> "PreSignedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGameSessionLogUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGameSessionLogUrl where
   hashWithSalt _salt GetGameSessionLogUrl' {..} =

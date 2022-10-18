@@ -293,7 +293,7 @@ instance Core.AWSRequest ContinueUpdateRollback where
   type
     AWSResponse ContinueUpdateRollback =
       ContinueUpdateRollbackResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ContinueUpdateRollbackResult"
@@ -301,6 +301,9 @@ instance Core.AWSRequest ContinueUpdateRollback where
           ContinueUpdateRollbackResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ContinueUpdateRollback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ContinueUpdateRollback where
   hashWithSalt _salt ContinueUpdateRollback' {..} =

@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeDomainConfiguration where
   type
     AWSResponse DescribeDomainConfiguration =
       DescribeDomainConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DescribeDomainConfiguration where
             Prelude.<*> (x Core..?> "domainType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDomainConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDomainConfiguration where
   hashWithSalt _salt DescribeDomainConfiguration' {..} =

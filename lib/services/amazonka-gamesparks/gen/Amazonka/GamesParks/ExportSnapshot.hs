@@ -91,7 +91,7 @@ instance Core.AWSRequest ExportSnapshot where
   type
     AWSResponse ExportSnapshot =
       ExportSnapshotResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest ExportSnapshot where
             Prelude.<$> (x Core..?> "S3Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportSnapshot where
   hashWithSalt _salt ExportSnapshot' {..} =

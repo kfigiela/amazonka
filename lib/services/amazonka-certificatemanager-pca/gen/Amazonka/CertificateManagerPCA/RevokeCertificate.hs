@@ -172,9 +172,12 @@ instance Core.AWSRequest RevokeCertificate where
   type
     AWSResponse RevokeCertificate =
       RevokeCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RevokeCertificateResponse'
+
+instance Core.AWSService RevokeCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeCertificate where
   hashWithSalt _salt RevokeCertificate' {..} =

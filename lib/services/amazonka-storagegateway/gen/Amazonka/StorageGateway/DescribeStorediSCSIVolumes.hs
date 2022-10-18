@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeStorediSCSIVolumes where
   type
     AWSResponse DescribeStorediSCSIVolumes =
       DescribeStorediSCSIVolumesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeStorediSCSIVolumes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStorediSCSIVolumes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStorediSCSIVolumes where
   hashWithSalt _salt DescribeStorediSCSIVolumes' {..} =

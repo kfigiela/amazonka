@@ -131,13 +131,16 @@ instance Core.AWSRequest DeleteDocument where
   type
     AWSResponse DeleteDocument =
       DeleteDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDocumentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =

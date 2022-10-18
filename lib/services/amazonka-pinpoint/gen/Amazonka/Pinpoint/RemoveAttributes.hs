@@ -145,7 +145,7 @@ instance Core.AWSRequest RemoveAttributes where
   type
     AWSResponse RemoveAttributes =
       RemoveAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest RemoveAttributes where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService RemoveAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveAttributes where
   hashWithSalt _salt RemoveAttributes' {..} =

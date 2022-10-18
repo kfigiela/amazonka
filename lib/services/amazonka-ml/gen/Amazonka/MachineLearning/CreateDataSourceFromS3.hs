@@ -194,7 +194,7 @@ instance Core.AWSRequest CreateDataSourceFromS3 where
   type
     AWSResponse CreateDataSourceFromS3 =
       CreateDataSourceFromS3Response
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -202,6 +202,9 @@ instance Core.AWSRequest CreateDataSourceFromS3 where
             Prelude.<$> (x Core..?> "DataSourceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDataSourceFromS3 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataSourceFromS3 where
   hashWithSalt _salt CreateDataSourceFromS3' {..} =

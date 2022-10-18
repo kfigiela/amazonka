@@ -74,7 +74,7 @@ getSite_siteId = Lens.lens (\GetSite' {siteId} -> siteId) (\s@GetSite' {} a -> s
 
 instance Core.AWSRequest GetSite where
   type AWSResponse GetSite = GetSiteResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetSite where
             Prelude.<$> (x Core..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSite where
   hashWithSalt _salt GetSite' {..} =

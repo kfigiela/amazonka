@@ -127,11 +127,14 @@ instance Core.AWSRequest ResetClusterParameterGroup where
   type
     AWSResponse ResetClusterParameterGroup =
       ClusterParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetClusterParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ResetClusterParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetClusterParameterGroup where
   hashWithSalt _salt ResetClusterParameterGroup' {..} =

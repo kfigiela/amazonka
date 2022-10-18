@@ -87,10 +87,16 @@ instance
     AWSResponse
       EnableHealthServiceAccessForOrganization =
       EnableHealthServiceAccessForOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       EnableHealthServiceAccessForOrganizationResponse'
+
+instance
+  Core.AWSService
+    EnableHealthServiceAccessForOrganization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

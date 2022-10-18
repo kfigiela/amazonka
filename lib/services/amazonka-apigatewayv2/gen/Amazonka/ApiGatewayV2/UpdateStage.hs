@@ -202,7 +202,7 @@ updateStage_apiId = Lens.lens (\UpdateStage' {apiId} -> apiId) (\s@UpdateStage' 
 
 instance Core.AWSRequest UpdateStage where
   type AWSResponse UpdateStage = UpdateStageResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest UpdateStage where
             Prelude.<*> (x Core..?> "routeSettings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStage where
   hashWithSalt _salt UpdateStage' {..} =

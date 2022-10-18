@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeGateway where
   type
     AWSResponse DescribeGateway =
       DescribeGatewayResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeGateway where
             Prelude.<*> (x Core..:> "creationDate")
             Prelude.<*> (x Core..:> "lastUpdateDate")
       )
+
+instance Core.AWSService DescribeGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGateway where
   hashWithSalt _salt DescribeGateway' {..} =

@@ -150,13 +150,16 @@ instance Core.AWSRequest ChangeTagsForResource where
   type
     AWSResponse ChangeTagsForResource =
       ChangeTagsForResourceResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ChangeTagsForResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ChangeTagsForResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChangeTagsForResource where
   hashWithSalt _salt ChangeTagsForResource' {..} =

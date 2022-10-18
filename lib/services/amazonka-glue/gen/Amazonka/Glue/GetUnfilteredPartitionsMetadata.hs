@@ -167,7 +167,7 @@ instance
   type
     AWSResponse GetUnfilteredPartitionsMetadata =
       GetUnfilteredPartitionsMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetUnfilteredPartitionsMetadata
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

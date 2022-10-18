@@ -175,7 +175,7 @@ instance Core.AWSRequest CreateWorkforce where
   type
     AWSResponse CreateWorkforce =
       CreateWorkforceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest CreateWorkforce where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "WorkforceArn")
       )
+
+instance Core.AWSService CreateWorkforce where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkforce where
   hashWithSalt _salt CreateWorkforce' {..} =

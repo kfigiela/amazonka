@@ -111,7 +111,7 @@ instance Core.AWSRequest UpdateThingShadow where
   type
     AWSResponse UpdateThingShadow =
       UpdateThingShadowResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdateThingShadow where
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateThingShadow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThingShadow where
   hashWithSalt _salt UpdateThingShadow' {..} =

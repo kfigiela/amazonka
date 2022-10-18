@@ -112,7 +112,7 @@ instance Core.AWSRequest ListResourceSets where
   type
     AWSResponse ListResourceSets =
       ListResourceSetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest ListResourceSets where
             Prelude.<*> (x Core..?> "resourceSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResourceSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResourceSets where
   hashWithSalt _salt ListResourceSets' {..} =

@@ -119,7 +119,7 @@ instance Core.AWSRequest ListAttributeGroups where
   type
     AWSResponse ListAttributeGroups =
       ListAttributeGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListAttributeGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAttributeGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAttributeGroups where
   hashWithSalt _salt ListAttributeGroups' {..} =

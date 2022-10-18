@@ -198,7 +198,7 @@ instance Core.AWSRequest ImportAsProvisionedProduct where
   type
     AWSResponse ImportAsProvisionedProduct =
       ImportAsProvisionedProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest ImportAsProvisionedProduct where
             Prelude.<$> (x Core..?> "RecordDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportAsProvisionedProduct where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportAsProvisionedProduct where
   hashWithSalt _salt ImportAsProvisionedProduct' {..} =

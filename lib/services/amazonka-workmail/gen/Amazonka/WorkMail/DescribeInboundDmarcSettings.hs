@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeInboundDmarcSettings where
   type
     AWSResponse DescribeInboundDmarcSettings =
       DescribeInboundDmarcSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeInboundDmarcSettings where
             Prelude.<$> (x Core..?> "Enforced")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInboundDmarcSettings where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

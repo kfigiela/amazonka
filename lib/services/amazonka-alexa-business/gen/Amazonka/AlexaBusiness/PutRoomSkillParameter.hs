@@ -103,13 +103,16 @@ instance Core.AWSRequest PutRoomSkillParameter where
   type
     AWSResponse PutRoomSkillParameter =
       PutRoomSkillParameterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutRoomSkillParameterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRoomSkillParameter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRoomSkillParameter where
   hashWithSalt _salt PutRoomSkillParameter' {..} =

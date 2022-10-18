@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteCampaign where
   type
     AWSResponse DeleteCampaign =
       DeleteCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteCampaignResponse'
+
+instance Core.AWSService DeleteCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCampaign where
   hashWithSalt _salt DeleteCampaign' {..} =

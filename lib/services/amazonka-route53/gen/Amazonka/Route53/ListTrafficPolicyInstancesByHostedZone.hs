@@ -209,7 +209,7 @@ instance
     AWSResponse
       ListTrafficPolicyInstancesByHostedZone =
       ListTrafficPolicyInstancesByHostedZoneResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -224,6 +224,12 @@ instance
               Prelude.<*> (x Core..@ "IsTruncated")
               Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance
+  Core.AWSService
+    ListTrafficPolicyInstancesByHostedZone
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

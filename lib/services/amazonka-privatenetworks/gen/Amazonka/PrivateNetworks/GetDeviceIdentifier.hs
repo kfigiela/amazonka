@@ -81,7 +81,7 @@ instance Core.AWSRequest GetDeviceIdentifier where
   type
     AWSResponse GetDeviceIdentifier =
       GetDeviceIdentifierResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetDeviceIdentifier where
             Prelude.<*> (x Core..?> "deviceIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeviceIdentifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeviceIdentifier where
   hashWithSalt _salt GetDeviceIdentifier' {..} =

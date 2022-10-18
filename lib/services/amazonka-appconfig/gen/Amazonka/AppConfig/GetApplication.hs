@@ -76,10 +76,13 @@ getApplication_applicationId = Lens.lens (\GetApplication' {applicationId} -> ap
 
 instance Core.AWSRequest GetApplication where
   type AWSResponse GetApplication = Application
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplication where
   hashWithSalt _salt GetApplication' {..} =

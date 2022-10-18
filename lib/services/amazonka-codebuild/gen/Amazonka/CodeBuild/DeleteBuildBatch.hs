@@ -79,7 +79,7 @@ instance Core.AWSRequest DeleteBuildBatch where
   type
     AWSResponse DeleteBuildBatch =
       DeleteBuildBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteBuildBatch where
             Prelude.<*> (x Core..?> "statusCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBuildBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBuildBatch where
   hashWithSalt _salt DeleteBuildBatch' {..} =

@@ -126,7 +126,7 @@ instance Core.AWSRequest UpdateCampaign where
   type
     AWSResponse UpdateCampaign =
       UpdateCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest UpdateCampaign where
             Prelude.<$> (x Core..?> "campaignArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCampaign where
   hashWithSalt _salt UpdateCampaign' {..} =

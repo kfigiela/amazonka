@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteSubnetGroup where
   type
     AWSResponse DeleteSubnetGroup =
       DeleteSubnetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteSubnetGroup where
             Prelude.<$> (x Core..?> "SubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSubnetGroup where
   hashWithSalt _salt DeleteSubnetGroup' {..} =

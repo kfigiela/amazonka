@@ -76,7 +76,7 @@ deleteFlow_flowArn = Lens.lens (\DeleteFlow' {flowArn} -> flowArn) (\s@DeleteFlo
 
 instance Core.AWSRequest DeleteFlow where
   type AWSResponse DeleteFlow = DeleteFlowResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteFlow where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFlow where
   hashWithSalt _salt DeleteFlow' {..} =

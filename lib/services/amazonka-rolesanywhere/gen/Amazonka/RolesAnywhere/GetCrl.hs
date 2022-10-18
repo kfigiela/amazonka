@@ -75,10 +75,13 @@ getCrl_crlId = Lens.lens (\GetCrl' {crlId} -> crlId) (\s@GetCrl' {} a -> s {crlI
 
 instance Core.AWSRequest GetCrl where
   type AWSResponse GetCrl = CrlDetailResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetCrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCrl where
   hashWithSalt _salt GetCrl' {..} =

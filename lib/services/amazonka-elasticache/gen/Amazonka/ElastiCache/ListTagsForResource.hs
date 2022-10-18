@@ -104,11 +104,14 @@ listTagsForResource_resourceName = Lens.lens (\ListTagsForResource' {resourceNam
 
 instance Core.AWSRequest ListTagsForResource where
   type AWSResponse ListTagsForResource = TagListMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTagsForResourceResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ListTagsForResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForResource where
   hashWithSalt _salt ListTagsForResource' {..} =

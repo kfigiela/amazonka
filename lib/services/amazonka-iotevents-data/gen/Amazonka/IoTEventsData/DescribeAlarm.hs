@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeAlarm where
   type
     AWSResponse DescribeAlarm =
       DescribeAlarmResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeAlarm where
             Prelude.<$> (x Core..?> "alarm")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAlarm where
   hashWithSalt _salt DescribeAlarm' {..} =

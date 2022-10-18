@@ -134,7 +134,7 @@ instance Core.AWSRequest DescribeHomeRegionControls where
   type
     AWSResponse DescribeHomeRegionControls =
       DescribeHomeRegionControlsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest DescribeHomeRegionControls where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHomeRegionControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHomeRegionControls where
   hashWithSalt _salt DescribeHomeRegionControls' {..} =

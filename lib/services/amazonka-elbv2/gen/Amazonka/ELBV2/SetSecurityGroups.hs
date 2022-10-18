@@ -95,7 +95,7 @@ instance Core.AWSRequest SetSecurityGroups where
   type
     AWSResponse SetSecurityGroups =
       SetSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetSecurityGroupsResult"
@@ -107,6 +107,9 @@ instance Core.AWSRequest SetSecurityGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetSecurityGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetSecurityGroups where
   hashWithSalt _salt SetSecurityGroups' {..} =

@@ -92,7 +92,7 @@ createHapg_label = Lens.lens (\CreateHapg' {label} -> label) (\s@CreateHapg' {} 
 
 instance Core.AWSRequest CreateHapg where
   type AWSResponse CreateHapg = CreateHapgResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest CreateHapg where
             Prelude.<$> (x Core..?> "HapgArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHapg where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHapg where
   hashWithSalt _salt CreateHapg' {..} =

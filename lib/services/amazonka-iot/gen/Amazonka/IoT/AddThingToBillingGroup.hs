@@ -120,13 +120,16 @@ instance Core.AWSRequest AddThingToBillingGroup where
   type
     AWSResponse AddThingToBillingGroup =
       AddThingToBillingGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddThingToBillingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddThingToBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddThingToBillingGroup where
   hashWithSalt _salt AddThingToBillingGroup' {..} =

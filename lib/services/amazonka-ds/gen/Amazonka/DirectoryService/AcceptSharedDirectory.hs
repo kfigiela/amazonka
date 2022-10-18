@@ -84,7 +84,7 @@ instance Core.AWSRequest AcceptSharedDirectory where
   type
     AWSResponse AcceptSharedDirectory =
       AcceptSharedDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest AcceptSharedDirectory where
             Prelude.<$> (x Core..?> "SharedDirectory")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptSharedDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptSharedDirectory where
   hashWithSalt _salt AcceptSharedDirectory' {..} =

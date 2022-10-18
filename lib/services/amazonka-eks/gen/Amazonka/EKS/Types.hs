@@ -524,6 +524,7 @@ defaultService =
       Core._serviceEndpointPrefix = "eks",
       Core._serviceSigningName = "eks",
       Core._serviceVersion = "2017-11-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

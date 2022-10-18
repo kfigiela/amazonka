@@ -178,9 +178,9 @@ instance Core.AWSRequest UploadArchive where
   type
     AWSResponse UploadArchive =
       ArchiveCreationOutput
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postBody defaultService
+      Prelude.. Request.postBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest UploadArchive where
             Prelude.<*> (h Core..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (h Core..#? "Location")
       )
+
+instance Core.AWSService UploadArchive where
+  service _proxy = defaultService
 
 instance Core.ToBody UploadArchive where
   toBody UploadArchive' {..} = Core.toBody body

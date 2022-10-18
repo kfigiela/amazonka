@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribeOrganizationHealth where
   type
     AWSResponse DescribeOrganizationHealth =
       DescribeOrganizationHealthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeOrganizationHealth where
             Prelude.<*> (x Core..:> "MetricsAnalyzed")
             Prelude.<*> (x Core..:> "ResourceHours")
       )
+
+instance Core.AWSService DescribeOrganizationHealth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOrganizationHealth where
   hashWithSalt _salt DescribeOrganizationHealth' {..} =

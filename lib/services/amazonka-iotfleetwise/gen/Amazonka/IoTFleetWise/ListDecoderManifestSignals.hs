@@ -148,7 +148,7 @@ instance Core.AWSRequest ListDecoderManifestSignals where
   type
     AWSResponse ListDecoderManifestSignals =
       ListDecoderManifestSignalsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListDecoderManifestSignals where
             Prelude.<*> (x Core..?> "signalDecoders")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDecoderManifestSignals where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDecoderManifestSignals where
   hashWithSalt _salt ListDecoderManifestSignals' {..} =

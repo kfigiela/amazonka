@@ -253,7 +253,7 @@ putObject_body = Lens.lens (\PutObject' {body} -> body) (\s@PutObject' {} a -> s
 
 instance Core.AWSRequest PutObject where
   type AWSResponse PutObject = PutObjectResponse
-  request = Request.putBody defaultService
+  request srv = Request.putBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -263,6 +263,9 @@ instance Core.AWSRequest PutObject where
             Prelude.<*> (x Core..?> "ContentSHA256")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutObject where
+  service _proxy = defaultService
 
 instance Core.ToBody PutObject where
   toBody PutObject' {..} = Core.toBody body

@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeRoleAlias where
   type
     AWSResponse DescribeRoleAlias =
       DescribeRoleAliasResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeRoleAlias where
             Prelude.<$> (x Core..?> "roleAliasDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRoleAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRoleAlias where
   hashWithSalt _salt DescribeRoleAlias' {..} =

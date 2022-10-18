@@ -106,7 +106,7 @@ instance Core.AWSRequest DeleteFargateProfile where
   type
     AWSResponse DeleteFargateProfile =
       DeleteFargateProfileResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DeleteFargateProfile where
             Prelude.<$> (x Core..?> "fargateProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFargateProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFargateProfile where
   hashWithSalt _salt DeleteFargateProfile' {..} =

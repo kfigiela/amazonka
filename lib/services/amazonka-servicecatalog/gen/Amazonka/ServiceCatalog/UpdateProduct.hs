@@ -198,7 +198,7 @@ instance Core.AWSRequest UpdateProduct where
   type
     AWSResponse UpdateProduct =
       UpdateProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest UpdateProduct where
             Prelude.<*> (x Core..?> "ProductViewDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateProduct where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProduct where
   hashWithSalt _salt UpdateProduct' {..} =

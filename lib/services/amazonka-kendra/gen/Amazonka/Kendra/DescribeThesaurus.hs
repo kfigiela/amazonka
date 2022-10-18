@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeThesaurus where
   type
     AWSResponse DescribeThesaurus =
       DescribeThesaurusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DescribeThesaurus where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeThesaurus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeThesaurus where
   hashWithSalt _salt DescribeThesaurus' {..} =

@@ -141,7 +141,7 @@ instance Core.AWSRequest UpdateProjectVisibility where
   type
     AWSResponse UpdateProjectVisibility =
       UpdateProjectVisibilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest UpdateProjectVisibility where
             Prelude.<*> (x Core..?> "projectArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateProjectVisibility where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProjectVisibility where
   hashWithSalt _salt UpdateProjectVisibility' {..} =

@@ -751,6 +751,7 @@ defaultService =
       Core._serviceEndpointPrefix = "codebuild",
       Core._serviceSigningName = "codebuild",
       Core._serviceVersion = "2016-10-06",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

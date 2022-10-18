@@ -77,7 +77,7 @@ getCanary_name = Lens.lens (\GetCanary' {name} -> name) (\s@GetCanary' {} a -> s
 
 instance Core.AWSRequest GetCanary where
   type AWSResponse GetCanary = GetCanaryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetCanary where
             Prelude.<$> (x Core..?> "Canary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCanary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCanary where
   hashWithSalt _salt GetCanary' {..} =

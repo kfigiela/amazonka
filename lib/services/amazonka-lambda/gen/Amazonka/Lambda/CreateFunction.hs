@@ -546,10 +546,13 @@ instance Core.AWSRequest CreateFunction where
   type
     AWSResponse CreateFunction =
       FunctionConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFunction where
   hashWithSalt _salt CreateFunction' {..} =

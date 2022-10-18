@@ -94,13 +94,16 @@ instance Core.AWSRequest AdminEnableUser where
   type
     AWSResponse AdminEnableUser =
       AdminEnableUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminEnableUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminEnableUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminEnableUser where
   hashWithSalt _salt AdminEnableUser' {..} =

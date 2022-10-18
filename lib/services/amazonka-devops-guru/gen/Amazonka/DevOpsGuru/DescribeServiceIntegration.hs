@@ -65,7 +65,7 @@ instance Core.AWSRequest DescribeServiceIntegration where
   type
     AWSResponse DescribeServiceIntegration =
       DescribeServiceIntegrationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest DescribeServiceIntegration where
             Prelude.<$> (x Core..?> "ServiceIntegration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeServiceIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeServiceIntegration where
   hashWithSalt _salt _ =

@@ -69,6 +69,7 @@ defaultService =
       Core._serviceEndpointPrefix = "s3-outposts",
       Core._serviceSigningName = "s3-outposts",
       Core._serviceVersion = "2017-07-25",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

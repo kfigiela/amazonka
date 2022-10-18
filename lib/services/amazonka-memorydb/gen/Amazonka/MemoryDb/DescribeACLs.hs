@@ -114,7 +114,7 @@ describeACLs_maxResults = Lens.lens (\DescribeACLs' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest DescribeACLs where
   type AWSResponse DescribeACLs = DescribeACLsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeACLs where
             Prelude.<*> (x Core..?> "ACLs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeACLs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeACLs where
   hashWithSalt _salt DescribeACLs' {..} =

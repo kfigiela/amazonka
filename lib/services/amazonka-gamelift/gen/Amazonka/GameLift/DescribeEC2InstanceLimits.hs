@@ -166,7 +166,7 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
   type
     AWSResponse DescribeEC2InstanceLimits =
       DescribeEC2InstanceLimitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest DescribeEC2InstanceLimits where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEC2InstanceLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEC2InstanceLimits where
   hashWithSalt _salt DescribeEC2InstanceLimits' {..} =

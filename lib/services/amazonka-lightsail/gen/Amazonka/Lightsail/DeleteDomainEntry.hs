@@ -99,7 +99,7 @@ instance Core.AWSRequest DeleteDomainEntry where
   type
     AWSResponse DeleteDomainEntry =
       DeleteDomainEntryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteDomainEntry where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDomainEntry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDomainEntry where
   hashWithSalt _salt DeleteDomainEntry' {..} =

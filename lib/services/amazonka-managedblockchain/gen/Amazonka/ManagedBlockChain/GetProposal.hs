@@ -91,7 +91,7 @@ getProposal_proposalId = Lens.lens (\GetProposal' {proposalId} -> proposalId) (\
 
 instance Core.AWSRequest GetProposal where
   type AWSResponse GetProposal = GetProposalResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetProposal where
             Prelude.<$> (x Core..?> "Proposal")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetProposal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProposal where
   hashWithSalt _salt GetProposal' {..} =

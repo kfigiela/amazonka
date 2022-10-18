@@ -113,7 +113,7 @@ getAnswer_questionId = Lens.lens (\GetAnswer' {questionId} -> questionId) (\s@Ge
 
 instance Core.AWSRequest GetAnswer where
   type AWSResponse GetAnswer = GetAnswerResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetAnswer where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAnswer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAnswer where
   hashWithSalt _salt GetAnswer' {..} =

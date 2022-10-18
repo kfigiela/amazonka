@@ -124,7 +124,7 @@ instance Core.AWSRequest CreateAssessmentFramework where
   type
     AWSResponse CreateAssessmentFramework =
       CreateAssessmentFrameworkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest CreateAssessmentFramework where
             Prelude.<$> (x Core..?> "framework")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAssessmentFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAssessmentFramework where
   hashWithSalt _salt CreateAssessmentFramework' {..} =

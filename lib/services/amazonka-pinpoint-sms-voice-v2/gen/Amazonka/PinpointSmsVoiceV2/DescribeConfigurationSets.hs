@@ -148,7 +148,7 @@ instance Core.AWSRequest DescribeConfigurationSets where
   type
     AWSResponse DescribeConfigurationSets =
       DescribeConfigurationSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest DescribeConfigurationSets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConfigurationSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConfigurationSets where
   hashWithSalt _salt DescribeConfigurationSets' {..} =

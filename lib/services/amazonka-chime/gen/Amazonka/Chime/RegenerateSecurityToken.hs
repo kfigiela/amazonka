@@ -91,7 +91,7 @@ instance Core.AWSRequest RegenerateSecurityToken where
   type
     AWSResponse RegenerateSecurityToken =
       RegenerateSecurityTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest RegenerateSecurityToken where
             Prelude.<$> (x Core..?> "Bot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegenerateSecurityToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegenerateSecurityToken where
   hashWithSalt _salt RegenerateSecurityToken' {..} =

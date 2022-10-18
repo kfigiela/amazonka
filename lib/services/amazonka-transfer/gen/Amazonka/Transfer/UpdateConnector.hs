@@ -160,7 +160,7 @@ instance Core.AWSRequest UpdateConnector where
   type
     AWSResponse UpdateConnector =
       UpdateConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest UpdateConnector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ConnectorId")
       )
+
+instance Core.AWSService UpdateConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConnector where
   hashWithSalt _salt UpdateConnector' {..} =

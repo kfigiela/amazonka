@@ -602,7 +602,7 @@ instance Core.AWSRequest CreatePredictor where
   type
     AWSResponse CreatePredictor =
       CreatePredictorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -610,6 +610,9 @@ instance Core.AWSRequest CreatePredictor where
             Prelude.<$> (x Core..?> "PredictorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePredictor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePredictor where
   hashWithSalt _salt CreatePredictor' {..} =

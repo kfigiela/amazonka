@@ -228,7 +228,7 @@ instance Core.AWSRequest CreateResource where
   type
     AWSResponse CreateResource =
       CreateResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -236,6 +236,9 @@ instance Core.AWSRequest CreateResource where
             Prelude.<$> (x Core..?> "ProgressEvent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =

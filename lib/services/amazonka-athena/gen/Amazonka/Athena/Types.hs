@@ -398,6 +398,7 @@ defaultService =
       Core._serviceEndpointPrefix = "athena",
       Core._serviceSigningName = "athena",
       Core._serviceVersion = "2017-05-18",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

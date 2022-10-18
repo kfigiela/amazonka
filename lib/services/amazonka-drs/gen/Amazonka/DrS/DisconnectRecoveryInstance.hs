@@ -88,10 +88,13 @@ instance Core.AWSRequest DisconnectRecoveryInstance where
   type
     AWSResponse DisconnectRecoveryInstance =
       DisconnectRecoveryInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisconnectRecoveryInstanceResponse'
+
+instance Core.AWSService DisconnectRecoveryInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisconnectRecoveryInstance where
   hashWithSalt _salt DisconnectRecoveryInstance' {..} =

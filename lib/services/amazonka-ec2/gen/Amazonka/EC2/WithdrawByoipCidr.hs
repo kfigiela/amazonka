@@ -105,7 +105,7 @@ instance Core.AWSRequest WithdrawByoipCidr where
   type
     AWSResponse WithdrawByoipCidr =
       WithdrawByoipCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest WithdrawByoipCidr where
             Prelude.<$> (x Core..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService WithdrawByoipCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable WithdrawByoipCidr where
   hashWithSalt _salt WithdrawByoipCidr' {..} =

@@ -218,9 +218,12 @@ instance Core.AWSRequest UpdatePrimaryRegion where
   type
     AWSResponse UpdatePrimaryRegion =
       UpdatePrimaryRegionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdatePrimaryRegionResponse'
+
+instance Core.AWSService UpdatePrimaryRegion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePrimaryRegion where
   hashWithSalt _salt UpdatePrimaryRegion' {..} =

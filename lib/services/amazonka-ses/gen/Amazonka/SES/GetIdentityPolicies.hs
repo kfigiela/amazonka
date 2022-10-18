@@ -132,7 +132,7 @@ instance Core.AWSRequest GetIdentityPolicies where
   type
     AWSResponse GetIdentityPolicies =
       GetIdentityPoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetIdentityPoliciesResult"
@@ -143,6 +143,9 @@ instance Core.AWSRequest GetIdentityPolicies where
                             Prelude.>>= Core.parseXMLMap "entry" "key" "value"
                         )
       )
+
+instance Core.AWSService GetIdentityPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIdentityPolicies where
   hashWithSalt _salt GetIdentityPolicies' {..} =

@@ -85,9 +85,12 @@ instance Core.AWSRequest DeleteComponent where
   type
     AWSResponse DeleteComponent =
       DeleteComponentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteComponentResponse'
+
+instance Core.AWSService DeleteComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteComponent where
   hashWithSalt _salt DeleteComponent' {..} =

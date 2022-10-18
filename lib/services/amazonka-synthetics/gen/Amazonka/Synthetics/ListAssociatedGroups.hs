@@ -113,7 +113,7 @@ instance Core.AWSRequest ListAssociatedGroups where
   type
     AWSResponse ListAssociatedGroups =
       ListAssociatedGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListAssociatedGroups where
             Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssociatedGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssociatedGroups where
   hashWithSalt _salt ListAssociatedGroups' {..} =

@@ -88,13 +88,16 @@ instance Core.AWSRequest UpdateServiceIntegration where
   type
     AWSResponse UpdateServiceIntegration =
       UpdateServiceIntegrationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateServiceIntegrationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateServiceIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServiceIntegration where
   hashWithSalt _salt UpdateServiceIntegration' {..} =

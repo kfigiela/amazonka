@@ -78,9 +78,12 @@ instance Core.AWSRequest DeleteLanguageModel where
   type
     AWSResponse DeleteLanguageModel =
       DeleteLanguageModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteLanguageModelResponse'
+
+instance Core.AWSService DeleteLanguageModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLanguageModel where
   hashWithSalt _salt DeleteLanguageModel' {..} =

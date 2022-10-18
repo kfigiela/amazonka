@@ -98,13 +98,16 @@ updateModel_modelType = Lens.lens (\UpdateModel' {modelType} -> modelType) (\s@U
 
 instance Core.AWSRequest UpdateModel where
   type AWSResponse UpdateModel = UpdateModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModel where
   hashWithSalt _salt UpdateModel' {..} =

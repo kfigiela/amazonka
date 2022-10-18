@@ -117,7 +117,7 @@ updateAction_actionName = Lens.lens (\UpdateAction' {actionName} -> actionName) 
 
 instance Core.AWSRequest UpdateAction where
   type AWSResponse UpdateAction = UpdateActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdateAction where
             Prelude.<$> (x Core..?> "ActionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAction where
   hashWithSalt _salt UpdateAction' {..} =

@@ -135,7 +135,7 @@ getBuckets_bucketName = Lens.lens (\GetBuckets' {bucketName} -> bucketName) (\s@
 
 instance Core.AWSRequest GetBuckets where
   type AWSResponse GetBuckets = GetBucketsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest GetBuckets where
             Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBuckets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBuckets where
   hashWithSalt _salt GetBuckets' {..} =

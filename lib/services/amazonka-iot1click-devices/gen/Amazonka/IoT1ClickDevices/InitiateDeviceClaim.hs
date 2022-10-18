@@ -81,7 +81,7 @@ instance Core.AWSRequest InitiateDeviceClaim where
   type
     AWSResponse InitiateDeviceClaim =
       InitiateDeviceClaimResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest InitiateDeviceClaim where
             Prelude.<$> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InitiateDeviceClaim where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitiateDeviceClaim where
   hashWithSalt _salt InitiateDeviceClaim' {..} =

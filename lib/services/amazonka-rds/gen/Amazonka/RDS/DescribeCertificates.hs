@@ -183,7 +183,7 @@ instance Core.AWSRequest DescribeCertificates where
   type
     AWSResponse DescribeCertificates =
       DescribeCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCertificatesResult"
@@ -195,6 +195,9 @@ instance Core.AWSRequest DescribeCertificates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCertificates where
   hashWithSalt _salt DescribeCertificates' {..} =

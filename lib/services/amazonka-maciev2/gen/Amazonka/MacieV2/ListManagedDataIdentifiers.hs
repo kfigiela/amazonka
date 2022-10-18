@@ -83,7 +83,7 @@ instance Core.AWSRequest ListManagedDataIdentifiers where
   type
     AWSResponse ListManagedDataIdentifiers =
       ListManagedDataIdentifiersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest ListManagedDataIdentifiers where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListManagedDataIdentifiers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListManagedDataIdentifiers where
   hashWithSalt _salt ListManagedDataIdentifiers' {..} =

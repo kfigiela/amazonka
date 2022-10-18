@@ -224,7 +224,7 @@ instance Core.AWSRequest CreateGeofenceCollection where
   type
     AWSResponse CreateGeofenceCollection =
       CreateGeofenceCollectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,6 +234,9 @@ instance Core.AWSRequest CreateGeofenceCollection where
             Prelude.<*> (x Core..:> "CollectionName")
             Prelude.<*> (x Core..:> "CreateTime")
       )
+
+instance Core.AWSService CreateGeofenceCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGeofenceCollection where
   hashWithSalt _salt CreateGeofenceCollection' {..} =

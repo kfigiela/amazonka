@@ -79,7 +79,7 @@ instance Core.AWSRequest DescribeInterconnects where
   type
     AWSResponse DescribeInterconnects =
       DescribeInterconnectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest DescribeInterconnects where
             Prelude.<$> (x Core..?> "interconnects" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInterconnects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInterconnects where
   hashWithSalt _salt DescribeInterconnects' {..} =

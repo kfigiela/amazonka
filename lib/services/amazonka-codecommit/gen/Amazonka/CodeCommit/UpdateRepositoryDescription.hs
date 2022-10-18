@@ -101,10 +101,13 @@ instance Core.AWSRequest UpdateRepositoryDescription where
   type
     AWSResponse UpdateRepositoryDescription =
       UpdateRepositoryDescriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateRepositoryDescriptionResponse'
+
+instance Core.AWSService UpdateRepositoryDescription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRepositoryDescription where
   hashWithSalt _salt UpdateRepositoryDescription' {..} =

@@ -210,7 +210,7 @@ instance Core.AWSRequest CreateAnalysis where
   type
     AWSResponse CreateAnalysis =
       CreateAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,6 +221,9 @@ instance Core.AWSRequest CreateAnalysis where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAnalysis where
   hashWithSalt _salt CreateAnalysis' {..} =

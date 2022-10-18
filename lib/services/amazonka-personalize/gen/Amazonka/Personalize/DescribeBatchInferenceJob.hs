@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeBatchInferenceJob where
   type
     AWSResponse DescribeBatchInferenceJob =
       DescribeBatchInferenceJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeBatchInferenceJob where
             Prelude.<$> (x Core..?> "batchInferenceJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBatchInferenceJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBatchInferenceJob where
   hashWithSalt _salt DescribeBatchInferenceJob' {..} =

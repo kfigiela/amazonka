@@ -115,7 +115,7 @@ instance Core.AWSRequest ListApiDestinations where
   type
     AWSResponse ListApiDestinations =
       ListApiDestinationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListApiDestinations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListApiDestinations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApiDestinations where
   hashWithSalt _salt ListApiDestinations' {..} =

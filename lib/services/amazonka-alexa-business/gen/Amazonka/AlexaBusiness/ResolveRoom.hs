@@ -100,7 +100,7 @@ resolveRoom_skillId = Lens.lens (\ResolveRoom' {skillId} -> skillId) (\s@Resolve
 
 instance Core.AWSRequest ResolveRoom where
   type AWSResponse ResolveRoom = ResolveRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ResolveRoom where
             Prelude.<*> (x Core..?> "RoomName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResolveRoom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResolveRoom where
   hashWithSalt _salt ResolveRoom' {..} =

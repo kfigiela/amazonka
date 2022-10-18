@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeSharedDirectories where
   type
     AWSResponse DescribeSharedDirectories =
       DescribeSharedDirectoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest DescribeSharedDirectories where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSharedDirectories where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSharedDirectories where
   hashWithSalt _salt DescribeSharedDirectories' {..} =

@@ -255,7 +255,7 @@ instance Core.AWSRequest ListMonitoringSchedules where
   type
     AWSResponse ListMonitoringSchedules =
       ListMonitoringSchedulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -266,6 +266,9 @@ instance Core.AWSRequest ListMonitoringSchedules where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListMonitoringSchedules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMonitoringSchedules where
   hashWithSalt _salt ListMonitoringSchedules' {..} =

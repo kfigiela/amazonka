@@ -142,7 +142,7 @@ instance Core.AWSRequest CreateRuleGroupsNamespace where
   type
     AWSResponse CreateRuleGroupsNamespace =
       CreateRuleGroupsNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateRuleGroupsNamespace where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService CreateRuleGroupsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRuleGroupsNamespace where
   hashWithSalt _salt CreateRuleGroupsNamespace' {..} =

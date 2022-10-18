@@ -89,7 +89,7 @@ getApi_apiId = Lens.lens (\GetApi' {apiId} -> apiId) (\s@GetApi' {} a -> s {apiI
 
 instance Core.AWSRequest GetApi where
   type AWSResponse GetApi = GetApiResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetApi where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApi where
   hashWithSalt _salt GetApi' {..} =

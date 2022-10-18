@@ -121,7 +121,7 @@ instance Core.AWSRequest ListTrustAnchors where
   type
     AWSResponse ListTrustAnchors =
       ListTrustAnchorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ListTrustAnchors where
             Prelude.<*> (x Core..?> "trustAnchors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTrustAnchors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTrustAnchors where
   hashWithSalt _salt ListTrustAnchors' {..} =

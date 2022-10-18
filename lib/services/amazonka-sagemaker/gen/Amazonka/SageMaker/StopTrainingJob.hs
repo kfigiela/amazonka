@@ -83,9 +83,12 @@ instance Core.AWSRequest StopTrainingJob where
   type
     AWSResponse StopTrainingJob =
       StopTrainingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopTrainingJobResponse'
+
+instance Core.AWSService StopTrainingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopTrainingJob where
   hashWithSalt _salt StopTrainingJob' {..} =

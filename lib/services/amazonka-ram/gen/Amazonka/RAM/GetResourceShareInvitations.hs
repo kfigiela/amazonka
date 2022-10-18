@@ -185,7 +185,7 @@ instance Core.AWSRequest GetResourceShareInvitations where
   type
     AWSResponse GetResourceShareInvitations =
       GetResourceShareInvitationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest GetResourceShareInvitations where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceShareInvitations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceShareInvitations where
   hashWithSalt _salt GetResourceShareInvitations' {..} =

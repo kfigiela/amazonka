@@ -100,7 +100,7 @@ instance Core.AWSRequest GetOriginRequestPolicyConfig where
   type
     AWSResponse GetOriginRequestPolicyConfig =
       GetOriginRequestPolicyConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetOriginRequestPolicyConfig where
             Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOriginRequestPolicyConfig where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

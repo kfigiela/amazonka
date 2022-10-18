@@ -146,7 +146,7 @@ instance
   type
     AWSResponse GetJourneyExecutionActivityMetrics =
       GetJourneyExecutionActivityMetricsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance
+  Core.AWSService
+    GetJourneyExecutionActivityMetrics
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

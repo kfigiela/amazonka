@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteBusinessReportSchedule where
   type
     AWSResponse DeleteBusinessReportSchedule =
       DeleteBusinessReportScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteBusinessReportScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBusinessReportSchedule where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

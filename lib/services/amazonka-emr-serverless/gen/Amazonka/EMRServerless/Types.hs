@@ -230,6 +230,7 @@ defaultService =
       Core._serviceEndpointPrefix = "emr-serverless",
       Core._serviceSigningName = "emr-serverless",
       Core._serviceVersion = "2021-07-13",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

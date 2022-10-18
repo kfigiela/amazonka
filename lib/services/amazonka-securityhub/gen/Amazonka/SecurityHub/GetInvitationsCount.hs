@@ -63,7 +63,7 @@ instance Core.AWSRequest GetInvitationsCount where
   type
     AWSResponse GetInvitationsCount =
       GetInvitationsCountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest GetInvitationsCount where
             Prelude.<$> (x Core..?> "InvitationsCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInvitationsCount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInvitationsCount where
   hashWithSalt _salt _ =

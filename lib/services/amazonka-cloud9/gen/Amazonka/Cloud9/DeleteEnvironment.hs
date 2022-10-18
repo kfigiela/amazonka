@@ -77,13 +77,16 @@ instance Core.AWSRequest DeleteEnvironment where
   type
     AWSResponse DeleteEnvironment =
       DeleteEnvironmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEnvironmentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEnvironment where
   hashWithSalt _salt DeleteEnvironment' {..} =

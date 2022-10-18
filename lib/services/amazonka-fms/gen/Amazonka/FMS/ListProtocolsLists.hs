@@ -157,7 +157,7 @@ instance Core.AWSRequest ListProtocolsLists where
   type
     AWSResponse ListProtocolsLists =
       ListProtocolsListsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest ListProtocolsLists where
             Prelude.<*> (x Core..?> "ProtocolsLists" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProtocolsLists where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProtocolsLists where
   hashWithSalt _salt ListProtocolsLists' {..} =

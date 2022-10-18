@@ -111,7 +111,7 @@ instance Core.AWSRequest CreateBlueprint where
   type
     AWSResponse CreateBlueprint =
       CreateBlueprintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest CreateBlueprint where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBlueprint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBlueprint where
   hashWithSalt _salt CreateBlueprint' {..} =

@@ -182,7 +182,7 @@ updateRule_identifier = Lens.lens (\UpdateRule' {identifier} -> identifier) (\s@
 
 instance Core.AWSRequest UpdateRule where
   type AWSResponse UpdateRule = UpdateRuleResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest UpdateRule where
             Prelude.<*> (x Core..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRule where
   hashWithSalt _salt UpdateRule' {..} =

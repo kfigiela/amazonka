@@ -87,7 +87,7 @@ instance
     AWSResponse
       GetVoiceConnectorLoggingConfiguration =
       GetVoiceConnectorLoggingConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
             Prelude.<$> (x Core..?> "LoggingConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetVoiceConnectorLoggingConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

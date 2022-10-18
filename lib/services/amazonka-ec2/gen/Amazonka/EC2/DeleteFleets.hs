@@ -157,7 +157,7 @@ deleteFleets_terminateInstances = Lens.lens (\DeleteFleets' {terminateInstances}
 
 instance Core.AWSRequest DeleteFleets where
   type AWSResponse DeleteFleets = DeleteFleetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest DeleteFleets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFleets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFleets where
   hashWithSalt _salt DeleteFleets' {..} =

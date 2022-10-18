@@ -132,7 +132,7 @@ instance Core.AWSRequest DescribeInboundConnections where
   type
     AWSResponse DescribeInboundConnections =
       DescribeInboundConnectionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest DescribeInboundConnections where
             Prelude.<*> (x Core..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInboundConnections where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInboundConnections where
   hashWithSalt _salt DescribeInboundConnections' {..} =

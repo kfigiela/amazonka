@@ -132,7 +132,7 @@ instance Core.AWSRequest ListIAMPolicyAssignments where
   type
     AWSResponse ListIAMPolicyAssignments =
       ListIAMPolicyAssignmentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest ListIAMPolicyAssignments where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIAMPolicyAssignments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIAMPolicyAssignments where
   hashWithSalt _salt ListIAMPolicyAssignments' {..} =

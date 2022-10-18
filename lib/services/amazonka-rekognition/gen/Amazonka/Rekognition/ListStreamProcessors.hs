@@ -125,7 +125,7 @@ instance Core.AWSRequest ListStreamProcessors where
   type
     AWSResponse ListStreamProcessors =
       ListStreamProcessorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListStreamProcessors where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStreamProcessors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStreamProcessors where
   hashWithSalt _salt ListStreamProcessors' {..} =

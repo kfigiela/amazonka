@@ -292,11 +292,14 @@ startExportTask_kmsKeyId = Lens.lens (\StartExportTask' {kmsKeyId} -> kmsKeyId) 
 
 instance Core.AWSRequest StartExportTask where
   type AWSResponse StartExportTask = ExportTask
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartExportTaskResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService StartExportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartExportTask where
   hashWithSalt _salt StartExportTask' {..} =

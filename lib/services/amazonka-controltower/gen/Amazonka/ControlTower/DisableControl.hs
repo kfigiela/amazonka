@@ -103,7 +103,7 @@ instance Core.AWSRequest DisableControl where
   type
     AWSResponse DisableControl =
       DisableControlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DisableControl where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "operationIdentifier")
       )
+
+instance Core.AWSService DisableControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableControl where
   hashWithSalt _salt DisableControl' {..} =

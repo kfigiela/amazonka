@@ -83,7 +83,7 @@ instance Core.AWSRequest GetModelManifest where
   type
     AWSResponse GetModelManifest =
       GetModelManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetModelManifest where
             Prelude.<*> (x Core..:> "creationTime")
             Prelude.<*> (x Core..:> "lastModificationTime")
       )
+
+instance Core.AWSService GetModelManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetModelManifest where
   hashWithSalt _salt GetModelManifest' {..} =

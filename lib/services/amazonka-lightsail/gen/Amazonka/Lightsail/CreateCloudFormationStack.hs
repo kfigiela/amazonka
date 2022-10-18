@@ -96,7 +96,7 @@ instance Core.AWSRequest CreateCloudFormationStack where
   type
     AWSResponse CreateCloudFormationStack =
       CreateCloudFormationStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest CreateCloudFormationStack where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCloudFormationStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCloudFormationStack where
   hashWithSalt _salt CreateCloudFormationStack' {..} =

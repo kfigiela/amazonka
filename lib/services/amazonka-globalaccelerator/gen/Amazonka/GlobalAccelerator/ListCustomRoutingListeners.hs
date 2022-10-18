@@ -131,7 +131,7 @@ instance Core.AWSRequest ListCustomRoutingListeners where
   type
     AWSResponse ListCustomRoutingListeners =
       ListCustomRoutingListenersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListCustomRoutingListeners where
             Prelude.<*> (x Core..?> "Listeners" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCustomRoutingListeners where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCustomRoutingListeners where
   hashWithSalt _salt ListCustomRoutingListeners' {..} =

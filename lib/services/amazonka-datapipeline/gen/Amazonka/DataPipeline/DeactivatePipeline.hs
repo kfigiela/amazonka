@@ -101,13 +101,16 @@ instance Core.AWSRequest DeactivatePipeline where
   type
     AWSResponse DeactivatePipeline =
       DeactivatePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeactivatePipelineResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeactivatePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivatePipeline where
   hashWithSalt _salt DeactivatePipeline' {..} =

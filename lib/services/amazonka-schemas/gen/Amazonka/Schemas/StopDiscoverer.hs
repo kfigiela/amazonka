@@ -78,7 +78,7 @@ instance Core.AWSRequest StopDiscoverer where
   type
     AWSResponse StopDiscoverer =
       StopDiscovererResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest StopDiscoverer where
             Prelude.<*> (x Core..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopDiscoverer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopDiscoverer where
   hashWithSalt _salt StopDiscoverer' {..} =

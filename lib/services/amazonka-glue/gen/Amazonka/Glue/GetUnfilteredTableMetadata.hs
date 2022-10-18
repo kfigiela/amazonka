@@ -130,7 +130,7 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
   type
     AWSResponse GetUnfilteredTableMetadata =
       GetUnfilteredTableMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest GetUnfilteredTableMetadata where
             Prelude.<*> (x Core..?> "Table")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUnfilteredTableMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUnfilteredTableMetadata where
   hashWithSalt _salt GetUnfilteredTableMetadata' {..} =

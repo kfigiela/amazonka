@@ -1552,6 +1552,7 @@ defaultService =
       Core._serviceEndpointPrefix = "cloudfront",
       Core._serviceSigningName = "cloudfront",
       Core._serviceVersion = "2020-05-31",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

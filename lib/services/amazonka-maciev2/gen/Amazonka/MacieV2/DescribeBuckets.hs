@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeBuckets where
   type
     AWSResponse DescribeBuckets =
       DescribeBucketsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest DescribeBuckets where
             Prelude.<*> (x Core..?> "buckets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBuckets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBuckets where
   hashWithSalt _salt DescribeBuckets' {..} =

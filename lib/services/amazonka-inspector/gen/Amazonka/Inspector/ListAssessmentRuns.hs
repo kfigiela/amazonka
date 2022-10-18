@@ -168,7 +168,7 @@ instance Core.AWSRequest ListAssessmentRuns where
   type
     AWSResponse ListAssessmentRuns =
       ListAssessmentRunsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListAssessmentRuns where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAssessmentRuns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssessmentRuns where
   hashWithSalt _salt ListAssessmentRuns' {..} =

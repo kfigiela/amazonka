@@ -93,7 +93,7 @@ instance Core.AWSRequest AddFlowOutputs where
   type
     AWSResponse AddFlowOutputs =
       AddFlowOutputsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest AddFlowOutputs where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddFlowOutputs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddFlowOutputs where
   hashWithSalt _salt AddFlowOutputs' {..} =

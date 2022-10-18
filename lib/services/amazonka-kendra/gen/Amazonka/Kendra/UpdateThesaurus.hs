@@ -129,9 +129,12 @@ instance Core.AWSRequest UpdateThesaurus where
   type
     AWSResponse UpdateThesaurus =
       UpdateThesaurusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateThesaurusResponse'
+
+instance Core.AWSService UpdateThesaurus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThesaurus where
   hashWithSalt _salt UpdateThesaurus' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeTypeRegistration where
   type
     AWSResponse DescribeTypeRegistration =
       DescribeTypeRegistrationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeTypeRegistrationResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeTypeRegistration where
             Prelude.<*> (x Core..@? "TypeVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTypeRegistration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTypeRegistration where
   hashWithSalt _salt DescribeTypeRegistration' {..} =

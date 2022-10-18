@@ -373,7 +373,7 @@ instance Core.AWSRequest UploadServerCertificate where
   type
     AWSResponse UploadServerCertificate =
       UploadServerCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UploadServerCertificateResult"
@@ -385,6 +385,9 @@ instance Core.AWSRequest UploadServerCertificate where
             Prelude.<*> (x Core..@? "ServerCertificateMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadServerCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UploadServerCertificate where
   hashWithSalt _salt UploadServerCertificate' {..} =

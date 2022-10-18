@@ -92,10 +92,13 @@ instance Core.AWSRequest RemoveCustomRoutingEndpoints where
   type
     AWSResponse RemoveCustomRoutingEndpoints =
       RemoveCustomRoutingEndpointsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RemoveCustomRoutingEndpointsResponse'
+
+instance Core.AWSService RemoveCustomRoutingEndpoints where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

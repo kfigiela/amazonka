@@ -77,7 +77,7 @@ readPipeline_id = Lens.lens (\ReadPipeline' {id} -> id) (\s@ReadPipeline' {} a -
 
 instance Core.AWSRequest ReadPipeline where
   type AWSResponse ReadPipeline = ReadPipelineResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest ReadPipeline where
             Prelude.<*> (x Core..?> "Pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReadPipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReadPipeline where
   hashWithSalt _salt ReadPipeline' {..} =

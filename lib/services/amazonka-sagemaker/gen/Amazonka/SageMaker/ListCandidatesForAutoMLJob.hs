@@ -167,7 +167,7 @@ instance Core.AWSRequest ListCandidatesForAutoMLJob where
   type
     AWSResponse ListCandidatesForAutoMLJob =
       ListCandidatesForAutoMLJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest ListCandidatesForAutoMLJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Candidates" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListCandidatesForAutoMLJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCandidatesForAutoMLJob where
   hashWithSalt _salt ListCandidatesForAutoMLJob' {..} =

@@ -82,7 +82,7 @@ instance Core.AWSRequest DisableHostedZoneDNSSEC where
   type
     AWSResponse DisableHostedZoneDNSSEC =
       DisableHostedZoneDNSSECResponse
-  request = Request.post defaultService
+  request srv = Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DisableHostedZoneDNSSEC where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService DisableHostedZoneDNSSEC where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableHostedZoneDNSSEC where
   hashWithSalt _salt DisableHostedZoneDNSSEC' {..} =

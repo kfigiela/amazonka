@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeEnvironmentStatus where
   type
     AWSResponse DescribeEnvironmentStatus =
       DescribeEnvironmentStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeEnvironmentStatus where
             Prelude.<*> (x Core..:> "status")
             Prelude.<*> (x Core..:> "message")
       )
+
+instance Core.AWSService DescribeEnvironmentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEnvironmentStatus where
   hashWithSalt _salt DescribeEnvironmentStatus' {..} =

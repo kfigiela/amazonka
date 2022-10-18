@@ -112,7 +112,7 @@ instance Core.AWSRequest SetDefaultMessageType where
   type
     AWSResponse SetDefaultMessageType =
       SetDefaultMessageTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest SetDefaultMessageType where
             Prelude.<*> (x Core..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetDefaultMessageType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetDefaultMessageType where
   hashWithSalt _salt SetDefaultMessageType' {..} =

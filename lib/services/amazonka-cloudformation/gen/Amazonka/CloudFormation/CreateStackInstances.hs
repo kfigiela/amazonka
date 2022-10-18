@@ -343,7 +343,7 @@ instance Core.AWSRequest CreateStackInstances where
   type
     AWSResponse CreateStackInstances =
       CreateStackInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateStackInstancesResult"
@@ -352,6 +352,9 @@ instance Core.AWSRequest CreateStackInstances where
             Prelude.<$> (x Core..@? "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStackInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStackInstances where
   hashWithSalt _salt CreateStackInstances' {..} =

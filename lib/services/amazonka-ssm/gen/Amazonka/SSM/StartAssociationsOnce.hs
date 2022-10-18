@@ -80,13 +80,16 @@ instance Core.AWSRequest StartAssociationsOnce where
   type
     AWSResponse StartAssociationsOnce =
       StartAssociationsOnceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartAssociationsOnceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartAssociationsOnce where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartAssociationsOnce where
   hashWithSalt _salt StartAssociationsOnce' {..} =

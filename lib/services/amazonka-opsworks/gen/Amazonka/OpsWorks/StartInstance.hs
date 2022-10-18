@@ -80,9 +80,12 @@ instance Core.AWSRequest StartInstance where
   type
     AWSResponse StartInstance =
       StartInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartInstanceResponse'
+
+instance Core.AWSService StartInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartInstance where
   hashWithSalt _salt StartInstance' {..} =

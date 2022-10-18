@@ -130,7 +130,7 @@ instance Core.AWSRequest ListListeners where
   type
     AWSResponse ListListeners =
       ListListenersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListListeners where
             Prelude.<*> (x Core..?> "Listeners" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListListeners where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListListeners where
   hashWithSalt _salt ListListeners' {..} =

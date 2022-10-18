@@ -140,7 +140,7 @@ instance Core.AWSRequest GetGroupPolicy where
   type
     AWSResponse GetGroupPolicy =
       GetGroupPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetGroupPolicyResult"
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetGroupPolicy where
             Prelude.<*> (x Core..@ "PolicyName")
             Prelude.<*> (x Core..@ "PolicyDocument")
       )
+
+instance Core.AWSService GetGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroupPolicy where
   hashWithSalt _salt GetGroupPolicy' {..} =

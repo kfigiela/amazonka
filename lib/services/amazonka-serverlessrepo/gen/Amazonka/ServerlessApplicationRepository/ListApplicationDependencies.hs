@@ -135,7 +135,7 @@ instance Core.AWSRequest ListApplicationDependencies where
   type
     AWSResponse ListApplicationDependencies =
       ListApplicationDependenciesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest ListApplicationDependencies where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListApplicationDependencies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApplicationDependencies where
   hashWithSalt _salt ListApplicationDependencies' {..} =

@@ -139,13 +139,16 @@ putRumEvents_userDetails = Lens.lens (\PutRumEvents' {userDetails} -> userDetail
 
 instance Core.AWSRequest PutRumEvents where
   type AWSResponse PutRumEvents = PutRumEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutRumEventsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRumEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRumEvents where
   hashWithSalt _salt PutRumEvents' {..} =

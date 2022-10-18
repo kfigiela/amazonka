@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateDirectConnectGateway where
   type
     AWSResponse CreateDirectConnectGateway =
       CreateDirectConnectGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest CreateDirectConnectGateway where
             Prelude.<$> (x Core..?> "directConnectGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDirectConnectGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDirectConnectGateway where
   hashWithSalt _salt CreateDirectConnectGateway' {..} =

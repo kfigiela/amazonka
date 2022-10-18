@@ -106,7 +106,7 @@ instance Core.AWSRequest UpdatePublicKey where
   type
     AWSResponse UpdatePublicKey =
       UpdatePublicKeyResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdatePublicKey where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePublicKey where
   hashWithSalt _salt UpdatePublicKey' {..} =

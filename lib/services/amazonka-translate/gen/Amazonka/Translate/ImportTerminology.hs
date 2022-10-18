@@ -154,7 +154,7 @@ instance Core.AWSRequest ImportTerminology where
   type
     AWSResponse ImportTerminology =
       ImportTerminologyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest ImportTerminology where
             Prelude.<*> (x Core..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportTerminology where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportTerminology where
   hashWithSalt _salt ImportTerminology' {..} =

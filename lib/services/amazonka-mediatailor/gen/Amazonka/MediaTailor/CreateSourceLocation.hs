@@ -148,7 +148,7 @@ instance Core.AWSRequest CreateSourceLocation where
   type
     AWSResponse CreateSourceLocation =
       CreateSourceLocationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest CreateSourceLocation where
             Prelude.<*> (x Core..?> "HttpConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSourceLocation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSourceLocation where
   hashWithSalt _salt CreateSourceLocation' {..} =

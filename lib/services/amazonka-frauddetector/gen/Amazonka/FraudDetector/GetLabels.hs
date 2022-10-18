@@ -101,7 +101,7 @@ getLabels_maxResults = Lens.lens (\GetLabels' {maxResults} -> maxResults) (\s@Ge
 
 instance Core.AWSRequest GetLabels where
   type AWSResponse GetLabels = GetLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetLabels where
             Prelude.<*> (x Core..?> "labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLabels where
   hashWithSalt _salt GetLabels' {..} =

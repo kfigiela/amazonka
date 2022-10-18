@@ -116,9 +116,12 @@ instance Core.AWSRequest DisassociateAddress where
   type
     AWSResponse DisassociateAddress =
       DisassociateAddressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DisassociateAddressResponse'
+
+instance Core.AWSService DisassociateAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateAddress where
   hashWithSalt _salt DisassociateAddress' {..} =

@@ -122,10 +122,16 @@ instance
   type
     AWSResponse AssociateTimeSeriesToAssetProperty =
       AssociateTimeSeriesToAssetPropertyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AssociateTimeSeriesToAssetPropertyResponse'
+
+instance
+  Core.AWSService
+    AssociateTimeSeriesToAssetProperty
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

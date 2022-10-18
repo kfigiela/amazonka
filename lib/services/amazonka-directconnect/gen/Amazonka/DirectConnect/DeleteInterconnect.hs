@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteInterconnect where
   type
     AWSResponse DeleteInterconnect =
       DeleteInterconnectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteInterconnect where
             Prelude.<$> (x Core..?> "interconnectState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInterconnect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInterconnect where
   hashWithSalt _salt DeleteInterconnect' {..} =

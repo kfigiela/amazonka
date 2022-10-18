@@ -108,7 +108,7 @@ instance Core.AWSRequest ListPHIDetectionJobs where
   type
     AWSResponse ListPHIDetectionJobs =
       ListPHIDetectionJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListPHIDetectionJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPHIDetectionJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPHIDetectionJobs where
   hashWithSalt _salt ListPHIDetectionJobs' {..} =

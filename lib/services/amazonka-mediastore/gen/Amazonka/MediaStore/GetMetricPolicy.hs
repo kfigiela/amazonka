@@ -77,7 +77,7 @@ instance Core.AWSRequest GetMetricPolicy where
   type
     AWSResponse GetMetricPolicy =
       GetMetricPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetMetricPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "MetricPolicy")
       )
+
+instance Core.AWSService GetMetricPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetricPolicy where
   hashWithSalt _salt GetMetricPolicy' {..} =

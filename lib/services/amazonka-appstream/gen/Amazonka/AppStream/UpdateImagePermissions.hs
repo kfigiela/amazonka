@@ -108,13 +108,16 @@ instance Core.AWSRequest UpdateImagePermissions where
   type
     AWSResponse UpdateImagePermissions =
       UpdateImagePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateImagePermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateImagePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateImagePermissions where
   hashWithSalt _salt UpdateImagePermissions' {..} =

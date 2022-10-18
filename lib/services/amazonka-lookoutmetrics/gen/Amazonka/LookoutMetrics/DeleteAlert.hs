@@ -74,13 +74,16 @@ deleteAlert_alertArn = Lens.lens (\DeleteAlert' {alertArn} -> alertArn) (\s@Dele
 
 instance Core.AWSRequest DeleteAlert where
   type AWSResponse DeleteAlert = DeleteAlertResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAlertResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAlert where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlert where
   hashWithSalt _salt DeleteAlert' {..} =

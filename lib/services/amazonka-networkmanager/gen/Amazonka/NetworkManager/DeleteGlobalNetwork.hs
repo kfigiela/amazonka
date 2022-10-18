@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteGlobalNetwork where
   type
     AWSResponse DeleteGlobalNetwork =
       DeleteGlobalNetworkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteGlobalNetwork where
             Prelude.<$> (x Core..?> "GlobalNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGlobalNetwork where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGlobalNetwork where
   hashWithSalt _salt DeleteGlobalNetwork' {..} =

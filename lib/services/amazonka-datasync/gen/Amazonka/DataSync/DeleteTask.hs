@@ -76,13 +76,16 @@ deleteTask_taskArn = Lens.lens (\DeleteTask' {taskArn} -> taskArn) (\s@DeleteTas
 
 instance Core.AWSRequest DeleteTask where
   type AWSResponse DeleteTask = DeleteTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTask where
   hashWithSalt _salt DeleteTask' {..} =

@@ -170,7 +170,7 @@ instance Core.AWSRequest ListNamespaces where
   type
     AWSResponse ListNamespaces =
       ListNamespacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListNamespaces where
             Prelude.<*> (x Core..?> "Namespaces" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNamespaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNamespaces where
   hashWithSalt _salt ListNamespaces' {..} =

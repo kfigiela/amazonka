@@ -102,9 +102,12 @@ instance Core.AWSRequest DeleteLoginProfile where
   type
     AWSResponse DeleteLoginProfile =
       DeleteLoginProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteLoginProfileResponse'
+
+instance Core.AWSService DeleteLoginProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLoginProfile where
   hashWithSalt _salt DeleteLoginProfile' {..} =

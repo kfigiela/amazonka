@@ -114,7 +114,7 @@ createForm_formToCreate = Lens.lens (\CreateForm' {formToCreate} -> formToCreate
 
 instance Core.AWSRequest CreateForm where
   type AWSResponse CreateForm = CreateFormResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest CreateForm where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateForm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateForm where
   hashWithSalt _salt CreateForm' {..} =

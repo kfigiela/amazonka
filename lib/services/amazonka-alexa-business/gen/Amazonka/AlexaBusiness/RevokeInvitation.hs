@@ -89,13 +89,16 @@ instance Core.AWSRequest RevokeInvitation where
   type
     AWSResponse RevokeInvitation =
       RevokeInvitationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RevokeInvitationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeInvitation where
   hashWithSalt _salt RevokeInvitation' {..} =

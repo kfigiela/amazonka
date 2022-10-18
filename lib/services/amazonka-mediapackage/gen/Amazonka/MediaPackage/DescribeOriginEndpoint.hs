@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribeOriginEndpoint where
   type
     AWSResponse DescribeOriginEndpoint =
       DescribeOriginEndpointResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeOriginEndpoint where
             Prelude.<*> (x Core..?> "origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeOriginEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOriginEndpoint where
   hashWithSalt _salt DescribeOriginEndpoint' {..} =

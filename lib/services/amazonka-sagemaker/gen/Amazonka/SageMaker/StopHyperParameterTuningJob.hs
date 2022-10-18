@@ -84,10 +84,13 @@ instance Core.AWSRequest StopHyperParameterTuningJob where
   type
     AWSResponse StopHyperParameterTuningJob =
       StopHyperParameterTuningJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopHyperParameterTuningJobResponse'
+
+instance Core.AWSService StopHyperParameterTuningJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopHyperParameterTuningJob where
   hashWithSalt _salt StopHyperParameterTuningJob' {..} =

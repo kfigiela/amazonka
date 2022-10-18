@@ -144,7 +144,7 @@ listLabels_labelGroupName = Lens.lens (\ListLabels' {labelGroupName} -> labelGro
 
 instance Core.AWSRequest ListLabels where
   type AWSResponse ListLabels = ListLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListLabels where
             Prelude.<*> (x Core..?> "LabelSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLabels where
   hashWithSalt _salt ListLabels' {..} =

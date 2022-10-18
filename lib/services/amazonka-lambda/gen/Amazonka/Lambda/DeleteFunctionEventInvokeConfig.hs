@@ -135,10 +135,16 @@ instance
   type
     AWSResponse DeleteFunctionEventInvokeConfig =
       DeleteFunctionEventInvokeConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFunctionEventInvokeConfigResponse'
+
+instance
+  Core.AWSService
+    DeleteFunctionEventInvokeConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

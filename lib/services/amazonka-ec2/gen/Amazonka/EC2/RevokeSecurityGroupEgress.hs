@@ -214,7 +214,7 @@ instance Core.AWSRequest RevokeSecurityGroupEgress where
   type
     AWSResponse RevokeSecurityGroupEgress =
       RevokeSecurityGroupEgressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest RevokeSecurityGroupEgress where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeSecurityGroupEgress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeSecurityGroupEgress where
   hashWithSalt _salt RevokeSecurityGroupEgress' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest DeleteEventSubscription where
   type
     AWSResponse DeleteEventSubscription =
       DeleteEventSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteEventSubscriptionResult"
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteEventSubscription where
             Prelude.<$> (x Core..@? "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEventSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventSubscription where
   hashWithSalt _salt DeleteEventSubscription' {..} =

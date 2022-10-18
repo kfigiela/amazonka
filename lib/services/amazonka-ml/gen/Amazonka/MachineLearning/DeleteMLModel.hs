@@ -83,7 +83,7 @@ instance Core.AWSRequest DeleteMLModel where
   type
     AWSResponse DeleteMLModel =
       DeleteMLModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteMLModel where
             Prelude.<$> (x Core..?> "MLModelId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMLModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMLModel where
   hashWithSalt _salt DeleteMLModel' {..} =

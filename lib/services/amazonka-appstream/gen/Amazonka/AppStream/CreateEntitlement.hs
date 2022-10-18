@@ -135,7 +135,7 @@ instance Core.AWSRequest CreateEntitlement where
   type
     AWSResponse CreateEntitlement =
       CreateEntitlementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateEntitlement where
             Prelude.<$> (x Core..?> "Entitlement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEntitlement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEntitlement where
   hashWithSalt _salt CreateEntitlement' {..} =

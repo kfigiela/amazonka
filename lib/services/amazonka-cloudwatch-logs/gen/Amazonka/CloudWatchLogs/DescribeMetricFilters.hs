@@ -175,7 +175,7 @@ instance Core.AWSRequest DescribeMetricFilters where
   type
     AWSResponse DescribeMetricFilters =
       DescribeMetricFiltersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest DescribeMetricFilters where
             Prelude.<*> (x Core..?> "metricFilters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMetricFilters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMetricFilters where
   hashWithSalt _salt DescribeMetricFilters' {..} =

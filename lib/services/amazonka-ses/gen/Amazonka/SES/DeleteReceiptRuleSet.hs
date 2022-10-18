@@ -89,7 +89,7 @@ instance Core.AWSRequest DeleteReceiptRuleSet where
   type
     AWSResponse DeleteReceiptRuleSet =
       DeleteReceiptRuleSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteReceiptRuleSetResult"
@@ -97,6 +97,9 @@ instance Core.AWSRequest DeleteReceiptRuleSet where
           DeleteReceiptRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReceiptRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReceiptRuleSet where
   hashWithSalt _salt DeleteReceiptRuleSet' {..} =

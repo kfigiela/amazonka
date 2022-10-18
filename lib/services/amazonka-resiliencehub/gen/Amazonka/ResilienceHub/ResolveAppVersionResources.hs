@@ -106,7 +106,7 @@ instance Core.AWSRequest ResolveAppVersionResources where
   type
     AWSResponse ResolveAppVersionResources =
       ResolveAppVersionResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest ResolveAppVersionResources where
             Prelude.<*> (x Core..:> "resolutionId")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService ResolveAppVersionResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResolveAppVersionResources where
   hashWithSalt _salt ResolveAppVersionResources' {..} =

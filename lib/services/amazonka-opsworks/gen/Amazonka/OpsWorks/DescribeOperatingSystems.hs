@@ -63,7 +63,7 @@ instance Core.AWSRequest DescribeOperatingSystems where
   type
     AWSResponse DescribeOperatingSystems =
       DescribeOperatingSystemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest DescribeOperatingSystems where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeOperatingSystems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOperatingSystems where
   hashWithSalt _salt _ =

@@ -83,7 +83,7 @@ getDomain_domainName = Lens.lens (\GetDomain' {domainName} -> domainName) (\s@Ge
 
 instance Core.AWSRequest GetDomain where
   type AWSResponse GetDomain = GetDomainResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetDomain where
             Prelude.<*> (x Core..:> "CreatedAt")
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
+
+instance Core.AWSService GetDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomain where
   hashWithSalt _salt GetDomain' {..} =

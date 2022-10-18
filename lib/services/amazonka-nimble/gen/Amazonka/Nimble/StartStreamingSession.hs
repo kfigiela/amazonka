@@ -113,7 +113,7 @@ instance Core.AWSRequest StartStreamingSession where
   type
     AWSResponse StartStreamingSession =
       StartStreamingSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest StartStreamingSession where
             Prelude.<$> (x Core..?> "session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartStreamingSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartStreamingSession where
   hashWithSalt _salt StartStreamingSession' {..} =

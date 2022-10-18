@@ -127,7 +127,7 @@ instance Core.AWSRequest ListTaskExecutions where
   type
     AWSResponse ListTaskExecutions =
       ListTaskExecutionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListTaskExecutions where
             Prelude.<*> (x Core..?> "TaskExecutions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTaskExecutions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTaskExecutions where
   hashWithSalt _salt ListTaskExecutions' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest GetLineageGroupPolicy where
   type
     AWSResponse GetLineageGroupPolicy =
       GetLineageGroupPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetLineageGroupPolicy where
             Prelude.<*> (x Core..?> "LineageGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLineageGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLineageGroupPolicy where
   hashWithSalt _salt GetLineageGroupPolicy' {..} =

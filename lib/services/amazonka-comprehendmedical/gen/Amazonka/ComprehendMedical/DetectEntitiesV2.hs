@@ -98,7 +98,7 @@ instance Core.AWSRequest DetectEntitiesV2 where
   type
     AWSResponse DetectEntitiesV2 =
       DetectEntitiesV2Response
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DetectEntitiesV2 where
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "ModelVersion")
       )
+
+instance Core.AWSService DetectEntitiesV2 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectEntitiesV2 where
   hashWithSalt _salt DetectEntitiesV2' {..} =

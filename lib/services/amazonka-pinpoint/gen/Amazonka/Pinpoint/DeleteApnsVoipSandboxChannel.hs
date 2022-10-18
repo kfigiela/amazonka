@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteApnsVoipSandboxChannel where
   type
     AWSResponse DeleteApnsVoipSandboxChannel =
       DeleteApnsVoipSandboxChannelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteApnsVoipSandboxChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteApnsVoipSandboxChannel where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

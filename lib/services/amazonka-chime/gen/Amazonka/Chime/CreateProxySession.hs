@@ -161,7 +161,7 @@ instance Core.AWSRequest CreateProxySession where
   type
     AWSResponse CreateProxySession =
       CreateProxySessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest CreateProxySession where
             Prelude.<$> (x Core..?> "ProxySession")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProxySession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProxySession where
   hashWithSalt _salt CreateProxySession' {..} =

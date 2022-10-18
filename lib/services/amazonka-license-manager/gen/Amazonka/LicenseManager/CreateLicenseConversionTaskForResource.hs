@@ -134,7 +134,7 @@ instance
     AWSResponse
       CreateLicenseConversionTaskForResource =
       CreateLicenseConversionTaskForResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,12 @@ instance
             Prelude.<$> (x Core..?> "LicenseConversionTaskId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateLicenseConversionTaskForResource
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

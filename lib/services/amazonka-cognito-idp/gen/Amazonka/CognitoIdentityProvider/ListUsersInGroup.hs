@@ -143,7 +143,7 @@ instance Core.AWSRequest ListUsersInGroup where
   type
     AWSResponse ListUsersInGroup =
       ListUsersInGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListUsersInGroup where
             Prelude.<*> (x Core..?> "Users" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUsersInGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUsersInGroup where
   hashWithSalt _salt ListUsersInGroup' {..} =

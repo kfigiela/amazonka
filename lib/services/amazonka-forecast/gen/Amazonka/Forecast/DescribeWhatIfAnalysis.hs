@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeWhatIfAnalysis where
   type
     AWSResponse DescribeWhatIfAnalysis =
       DescribeWhatIfAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DescribeWhatIfAnalysis where
             Prelude.<*> (x Core..?> "TimeSeriesSelector")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWhatIfAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWhatIfAnalysis where
   hashWithSalt _salt DescribeWhatIfAnalysis' {..} =

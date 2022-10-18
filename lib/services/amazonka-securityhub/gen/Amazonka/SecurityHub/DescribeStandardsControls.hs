@@ -154,7 +154,7 @@ instance Core.AWSRequest DescribeStandardsControls where
   type
     AWSResponse DescribeStandardsControls =
       DescribeStandardsControlsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest DescribeStandardsControls where
             Prelude.<*> (x Core..?> "Controls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStandardsControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStandardsControls where
   hashWithSalt _salt DescribeStandardsControls' {..} =

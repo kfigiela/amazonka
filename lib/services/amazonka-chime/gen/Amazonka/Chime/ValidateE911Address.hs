@@ -165,7 +165,7 @@ instance Core.AWSRequest ValidateE911Address where
   type
     AWSResponse ValidateE911Address =
       ValidateE911AddressResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest ValidateE911Address where
             Prelude.<*> (x Core..?> "AddressExternalId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ValidateE911Address where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ValidateE911Address where
   hashWithSalt _salt ValidateE911Address' {..} =

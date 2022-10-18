@@ -82,7 +82,7 @@ instance Core.AWSRequest CreateWebLoginToken where
   type
     AWSResponse CreateWebLoginToken =
       CreateWebLoginTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest CreateWebLoginToken where
             Prelude.<*> (x Core..?> "WebToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWebLoginToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWebLoginToken where
   hashWithSalt _salt CreateWebLoginToken' {..} =

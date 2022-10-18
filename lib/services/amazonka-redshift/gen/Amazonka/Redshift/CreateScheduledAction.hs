@@ -201,11 +201,14 @@ instance Core.AWSRequest CreateScheduledAction where
   type
     AWSResponse CreateScheduledAction =
       ScheduledAction
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateScheduledActionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateScheduledAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateScheduledAction where
   hashWithSalt _salt CreateScheduledAction' {..} =

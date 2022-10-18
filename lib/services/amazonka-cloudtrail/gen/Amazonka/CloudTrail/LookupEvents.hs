@@ -225,7 +225,7 @@ instance Core.AWSPager LookupEvents where
 
 instance Core.AWSRequest LookupEvents where
   type AWSResponse LookupEvents = LookupEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,6 +234,9 @@ instance Core.AWSRequest LookupEvents where
             Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService LookupEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable LookupEvents where
   hashWithSalt _salt LookupEvents' {..} =

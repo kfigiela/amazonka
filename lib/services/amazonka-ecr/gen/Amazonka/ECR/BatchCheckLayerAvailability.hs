@@ -123,7 +123,7 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
   type
     AWSResponse BatchCheckLayerAvailability =
       BatchCheckLayerAvailabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest BatchCheckLayerAvailability where
             Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchCheckLayerAvailability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchCheckLayerAvailability where
   hashWithSalt _salt BatchCheckLayerAvailability' {..} =

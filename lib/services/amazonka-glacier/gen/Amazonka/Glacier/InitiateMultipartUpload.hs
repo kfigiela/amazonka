@@ -187,9 +187,9 @@ instance Core.AWSRequest InitiateMultipartUpload where
   type
     AWSResponse InitiateMultipartUpload =
       InitiateMultipartUploadResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest InitiateMultipartUpload where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (h Core..# "x-amz-multipart-upload-id")
       )
+
+instance Core.AWSService InitiateMultipartUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitiateMultipartUpload where
   hashWithSalt _salt InitiateMultipartUpload' {..} =

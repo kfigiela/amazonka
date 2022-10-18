@@ -80,13 +80,16 @@ instance Core.AWSRequest DeletePlaybackKeyPair where
   type
     AWSResponse DeletePlaybackKeyPair =
       DeletePlaybackKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePlaybackKeyPairResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePlaybackKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlaybackKeyPair where
   hashWithSalt _salt DeletePlaybackKeyPair' {..} =

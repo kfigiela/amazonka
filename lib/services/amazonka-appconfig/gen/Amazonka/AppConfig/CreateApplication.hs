@@ -108,10 +108,13 @@ createApplication_name = Lens.lens (\CreateApplication' {name} -> name) (\s@Crea
 
 instance Core.AWSRequest CreateApplication where
   type AWSResponse CreateApplication = Application
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =

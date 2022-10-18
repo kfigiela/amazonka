@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeUserPool where
   type
     AWSResponse DescribeUserPool =
       DescribeUserPoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeUserPool where
             Prelude.<$> (x Core..?> "UserPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUserPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUserPool where
   hashWithSalt _salt DescribeUserPool' {..} =

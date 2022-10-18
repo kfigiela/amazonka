@@ -215,7 +215,7 @@ instance Core.AWSRequest ValidatePolicy where
   type
     AWSResponse ValidatePolicy =
       ValidatePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -224,6 +224,9 @@ instance Core.AWSRequest ValidatePolicy where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ValidatePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ValidatePolicy where
   hashWithSalt _salt ValidatePolicy' {..} =

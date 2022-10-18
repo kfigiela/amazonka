@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteProxySession where
   type
     AWSResponse DeleteProxySession =
       DeleteProxySessionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteProxySessionResponse'
+
+instance Core.AWSService DeleteProxySession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProxySession where
   hashWithSalt _salt DeleteProxySession' {..} =

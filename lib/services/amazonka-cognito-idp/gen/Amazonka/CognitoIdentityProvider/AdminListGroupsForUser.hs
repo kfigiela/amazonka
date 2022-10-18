@@ -145,7 +145,7 @@ instance Core.AWSRequest AdminListGroupsForUser where
   type
     AWSResponse AdminListGroupsForUser =
       AdminListGroupsForUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest AdminListGroupsForUser where
             Prelude.<*> (x Core..?> "Groups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminListGroupsForUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminListGroupsForUser where
   hashWithSalt _salt AdminListGroupsForUser' {..} =

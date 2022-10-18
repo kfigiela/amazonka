@@ -220,7 +220,7 @@ instance Core.AWSRequest ListContainerInstances where
   type
     AWSResponse ListContainerInstances =
       ListContainerInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -231,6 +231,9 @@ instance Core.AWSRequest ListContainerInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListContainerInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListContainerInstances where
   hashWithSalt _salt ListContainerInstances' {..} =

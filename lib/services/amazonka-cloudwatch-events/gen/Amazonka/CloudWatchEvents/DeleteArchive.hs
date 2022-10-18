@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteArchive where
   type
     AWSResponse DeleteArchive =
       DeleteArchiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteArchiveResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteArchive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteArchive where
   hashWithSalt _salt DeleteArchive' {..} =

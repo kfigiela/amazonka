@@ -110,9 +110,12 @@ instance Core.AWSRequest DeleteSnapshot where
   type
     AWSResponse DeleteSnapshot =
       DeleteSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteSnapshotResponse'
+
+instance Core.AWSService DeleteSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSnapshot where
   hashWithSalt _salt DeleteSnapshot' {..} =

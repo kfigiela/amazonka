@@ -109,7 +109,7 @@ instance
     AWSResponse
       RemoveSourceIdentifierFromSubscription =
       RemoveSourceIdentifierFromSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RemoveSourceIdentifierFromSubscriptionResult"
@@ -118,6 +118,12 @@ instance
             Prelude.<$> (x Core..@? "EventSubscription")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RemoveSourceIdentifierFromSubscription
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

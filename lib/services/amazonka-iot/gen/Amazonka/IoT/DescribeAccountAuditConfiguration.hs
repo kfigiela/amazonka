@@ -73,7 +73,7 @@ instance
   type
     AWSResponse DescribeAccountAuditConfiguration =
       DescribeAccountAuditConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAccountAuditConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

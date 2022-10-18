@@ -89,7 +89,7 @@ listMeetings_maxResults = Lens.lens (\ListMeetings' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListMeetings where
   type AWSResponse ListMeetings = ListMeetingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest ListMeetings where
             Prelude.<*> (x Core..?> "Meetings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMeetings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMeetings where
   hashWithSalt _salt ListMeetings' {..} =

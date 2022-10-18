@@ -88,13 +88,16 @@ instance Core.AWSRequest DeleteEntityRecognizer where
   type
     AWSResponse DeleteEntityRecognizer =
       DeleteEntityRecognizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEntityRecognizerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEntityRecognizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEntityRecognizer where
   hashWithSalt _salt DeleteEntityRecognizer' {..} =

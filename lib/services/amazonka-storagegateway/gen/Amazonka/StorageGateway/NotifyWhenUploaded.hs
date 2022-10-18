@@ -91,7 +91,7 @@ instance Core.AWSRequest NotifyWhenUploaded where
   type
     AWSResponse NotifyWhenUploaded =
       NotifyWhenUploadedResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest NotifyWhenUploaded where
             Prelude.<*> (x Core..?> "NotificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService NotifyWhenUploaded where
+  service _proxy = defaultService
 
 instance Prelude.Hashable NotifyWhenUploaded where
   hashWithSalt _salt NotifyWhenUploaded' {..} =

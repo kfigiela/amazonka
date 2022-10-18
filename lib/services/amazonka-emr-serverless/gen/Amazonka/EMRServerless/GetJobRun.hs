@@ -89,7 +89,7 @@ getJobRun_jobRunId = Lens.lens (\GetJobRun' {jobRunId} -> jobRunId) (\s@GetJobRu
 
 instance Core.AWSRequest GetJobRun where
   type AWSResponse GetJobRun = GetJobRunResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetJobRun where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "jobRun")
       )
+
+instance Core.AWSService GetJobRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetJobRun where
   hashWithSalt _salt GetJobRun' {..} =

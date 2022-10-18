@@ -197,7 +197,7 @@ instance Core.AWSRequest ListViolationEvents where
   type
     AWSResponse ListViolationEvents =
       ListViolationEventsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -208,6 +208,9 @@ instance Core.AWSRequest ListViolationEvents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListViolationEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListViolationEvents where
   hashWithSalt _salt ListViolationEvents' {..} =

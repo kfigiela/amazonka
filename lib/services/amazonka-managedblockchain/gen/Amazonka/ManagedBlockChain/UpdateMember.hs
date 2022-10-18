@@ -104,13 +104,16 @@ updateMember_memberId = Lens.lens (\UpdateMember' {memberId} -> memberId) (\s@Up
 
 instance Core.AWSRequest UpdateMember where
   type AWSResponse UpdateMember = UpdateMemberResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateMemberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMember where
   hashWithSalt _salt UpdateMember' {..} =

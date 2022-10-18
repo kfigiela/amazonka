@@ -117,7 +117,7 @@ instance Core.AWSRequest AssociateSoftwareToken where
   type
     AWSResponse AssociateSoftwareToken =
       AssociateSoftwareTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest AssociateSoftwareToken where
             Prelude.<*> (x Core..?> "Session")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateSoftwareToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateSoftwareToken where
   hashWithSalt _salt AssociateSoftwareToken' {..} =

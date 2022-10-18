@@ -82,13 +82,16 @@ instance Core.AWSRequest SendActivationCode where
   type
     AWSResponse SendActivationCode =
       SendActivationCodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendActivationCodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendActivationCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendActivationCode where
   hashWithSalt _salt SendActivationCode' {..} =

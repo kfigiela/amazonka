@@ -170,7 +170,7 @@ instance Core.AWSRequest CreateServiceTemplate where
   type
     AWSResponse CreateServiceTemplate =
       CreateServiceTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest CreateServiceTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "serviceTemplate")
       )
+
+instance Core.AWSService CreateServiceTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateServiceTemplate where
   hashWithSalt _salt CreateServiceTemplate' {..} =

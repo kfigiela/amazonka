@@ -114,10 +114,13 @@ instance Core.AWSRequest UpdateRoutingProfileQueues where
   type
     AWSResponse UpdateRoutingProfileQueues =
       UpdateRoutingProfileQueuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateRoutingProfileQueuesResponse'
+
+instance Core.AWSService UpdateRoutingProfileQueues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoutingProfileQueues where
   hashWithSalt _salt UpdateRoutingProfileQueues' {..} =

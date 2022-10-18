@@ -148,7 +148,7 @@ modifyIpam_ipamId = Lens.lens (\ModifyIpam' {ipamId} -> ipamId) (\s@ModifyIpam' 
 
 instance Core.AWSRequest ModifyIpam where
   type AWSResponse ModifyIpam = ModifyIpamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ModifyIpam where
             Prelude.<$> (x Core..@? "ipam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyIpam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyIpam where
   hashWithSalt _salt ModifyIpam' {..} =

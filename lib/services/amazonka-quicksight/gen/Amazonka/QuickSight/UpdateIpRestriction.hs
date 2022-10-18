@@ -106,7 +106,7 @@ instance Core.AWSRequest UpdateIpRestriction where
   type
     AWSResponse UpdateIpRestriction =
       UpdateIpRestrictionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdateIpRestriction where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIpRestriction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIpRestriction where
   hashWithSalt _salt UpdateIpRestriction' {..} =

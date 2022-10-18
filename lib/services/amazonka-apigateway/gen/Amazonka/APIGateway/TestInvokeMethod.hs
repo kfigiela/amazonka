@@ -193,7 +193,7 @@ instance Core.AWSRequest TestInvokeMethod where
   type
     AWSResponse TestInvokeMethod =
       TestInvokeMethodResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -208,6 +208,9 @@ instance Core.AWSRequest TestInvokeMethod where
             Prelude.<*> (x Core..?> "log")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestInvokeMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestInvokeMethod where
   hashWithSalt _salt TestInvokeMethod' {..} =

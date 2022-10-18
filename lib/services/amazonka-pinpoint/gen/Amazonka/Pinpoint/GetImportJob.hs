@@ -93,7 +93,7 @@ getImportJob_jobId = Lens.lens (\GetImportJob' {jobId} -> jobId) (\s@GetImportJo
 
 instance Core.AWSRequest GetImportJob where
   type AWSResponse GetImportJob = GetImportJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImportJob where
   hashWithSalt _salt GetImportJob' {..} =

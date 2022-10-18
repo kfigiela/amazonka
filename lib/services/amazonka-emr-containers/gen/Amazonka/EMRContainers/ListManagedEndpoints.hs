@@ -166,7 +166,7 @@ instance Core.AWSRequest ListManagedEndpoints where
   type
     AWSResponse ListManagedEndpoints =
       ListManagedEndpointsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest ListManagedEndpoints where
             Prelude.<*> (x Core..?> "endpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListManagedEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListManagedEndpoints where
   hashWithSalt _salt ListManagedEndpoints' {..} =

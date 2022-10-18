@@ -89,7 +89,7 @@ listPackages_maxResults = Lens.lens (\ListPackages' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListPackages where
   type AWSResponse ListPackages = ListPackagesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest ListPackages where
             Prelude.<*> (x Core..?> "Packages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPackages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPackages where
   hashWithSalt _salt ListPackages' {..} =

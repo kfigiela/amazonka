@@ -99,7 +99,7 @@ instance Core.AWSRequest GetLoadBalancerTlsPolicies where
   type
     AWSResponse GetLoadBalancerTlsPolicies =
       GetLoadBalancerTlsPoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetLoadBalancerTlsPolicies where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLoadBalancerTlsPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLoadBalancerTlsPolicies where
   hashWithSalt _salt GetLoadBalancerTlsPolicies' {..} =

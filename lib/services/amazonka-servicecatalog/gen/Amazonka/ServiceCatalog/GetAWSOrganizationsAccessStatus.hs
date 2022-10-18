@@ -67,7 +67,7 @@ instance
   type
     AWSResponse GetAWSOrganizationsAccessStatus =
       GetAWSOrganizationsAccessStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -75,6 +75,12 @@ instance
             Prelude.<$> (x Core..?> "AccessStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetAWSOrganizationsAccessStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

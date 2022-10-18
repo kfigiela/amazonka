@@ -177,7 +177,7 @@ instance Core.AWSRequest AuthorizeClientVpnIngress where
   type
     AWSResponse AuthorizeClientVpnIngress =
       AuthorizeClientVpnIngressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest AuthorizeClientVpnIngress where
             Prelude.<$> (x Core..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AuthorizeClientVpnIngress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AuthorizeClientVpnIngress where
   hashWithSalt _salt AuthorizeClientVpnIngress' {..} =

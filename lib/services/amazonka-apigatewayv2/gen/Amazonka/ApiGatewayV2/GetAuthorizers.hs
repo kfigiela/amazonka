@@ -125,7 +125,7 @@ instance Core.AWSRequest GetAuthorizers where
   type
     AWSResponse GetAuthorizers =
       GetAuthorizersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest GetAuthorizers where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAuthorizers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAuthorizers where
   hashWithSalt _salt GetAuthorizers' {..} =

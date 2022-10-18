@@ -93,7 +93,7 @@ instance Core.AWSRequest ExchangeCodeForToken where
   type
     AWSResponse ExchangeCodeForToken =
       ExchangeCodeForTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ExchangeCodeForToken where
             Prelude.<*> (x Core..:> "expiresIn")
             Prelude.<*> (x Core..:> "refreshToken")
       )
+
+instance Core.AWSService ExchangeCodeForToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExchangeCodeForToken where
   hashWithSalt _salt ExchangeCodeForToken' {..} =

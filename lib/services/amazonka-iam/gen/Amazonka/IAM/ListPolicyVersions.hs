@@ -179,7 +179,7 @@ instance Core.AWSRequest ListPolicyVersions where
   type
     AWSResponse ListPolicyVersions =
       ListPolicyVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPolicyVersionsResult"
@@ -192,6 +192,9 @@ instance Core.AWSRequest ListPolicyVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPolicyVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPolicyVersions where
   hashWithSalt _salt ListPolicyVersions' {..} =

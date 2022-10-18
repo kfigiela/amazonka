@@ -104,7 +104,7 @@ listDevices_accessToken = Lens.lens (\ListDevices' {accessToken} -> accessToken)
 
 instance Core.AWSRequest ListDevices where
   type AWSResponse ListDevices = ListDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListDevices where
             Prelude.<*> (x Core..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDevices where
   hashWithSalt _salt ListDevices' {..} =

@@ -142,11 +142,14 @@ instance Core.AWSRequest ResetDBParameterGroup where
   type
     AWSResponse ResetDBParameterGroup =
       DBParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ResetDBParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ResetDBParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetDBParameterGroup where
   hashWithSalt _salt ResetDBParameterGroup' {..} =

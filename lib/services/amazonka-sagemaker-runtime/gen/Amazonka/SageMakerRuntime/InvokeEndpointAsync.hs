@@ -226,7 +226,7 @@ instance Core.AWSRequest InvokeEndpointAsync where
   type
     AWSResponse InvokeEndpointAsync =
       InvokeEndpointAsyncResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -235,6 +235,9 @@ instance Core.AWSRequest InvokeEndpointAsync where
             Prelude.<*> (x Core..?> "InferenceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InvokeEndpointAsync where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InvokeEndpointAsync where
   hashWithSalt _salt InvokeEndpointAsync' {..} =

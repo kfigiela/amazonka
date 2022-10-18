@@ -105,7 +105,7 @@ adminGetUser_username = Lens.lens (\AdminGetUser' {username} -> username) (\s@Ad
 
 instance Core.AWSRequest AdminGetUser where
   type AWSResponse AdminGetUser = AdminGetUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest AdminGetUser where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Username")
       )
+
+instance Core.AWSService AdminGetUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminGetUser where
   hashWithSalt _salt AdminGetUser' {..} =

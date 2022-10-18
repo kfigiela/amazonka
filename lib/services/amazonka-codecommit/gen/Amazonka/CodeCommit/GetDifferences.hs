@@ -208,7 +208,7 @@ instance Core.AWSRequest GetDifferences where
   type
     AWSResponse GetDifferences =
       GetDifferencesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest GetDifferences where
             Prelude.<*> (x Core..?> "differences" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDifferences where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDifferences where
   hashWithSalt _salt GetDifferences' {..} =

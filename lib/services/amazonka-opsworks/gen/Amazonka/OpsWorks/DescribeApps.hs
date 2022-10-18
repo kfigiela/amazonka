@@ -102,7 +102,7 @@ describeApps_appIds = Lens.lens (\DescribeApps' {appIds} -> appIds) (\s@Describe
 
 instance Core.AWSRequest DescribeApps where
   type AWSResponse DescribeApps = DescribeAppsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribeApps where
             Prelude.<$> (x Core..?> "Apps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeApps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeApps where
   hashWithSalt _salt DescribeApps' {..} =

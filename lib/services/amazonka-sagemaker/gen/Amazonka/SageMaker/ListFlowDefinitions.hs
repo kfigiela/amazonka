@@ -159,7 +159,7 @@ instance Core.AWSRequest ListFlowDefinitions where
   type
     AWSResponse ListFlowDefinitions =
       ListFlowDefinitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest ListFlowDefinitions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListFlowDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFlowDefinitions where
   hashWithSalt _salt ListFlowDefinitions' {..} =

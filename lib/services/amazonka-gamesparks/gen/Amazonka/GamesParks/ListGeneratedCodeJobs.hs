@@ -157,7 +157,7 @@ instance Core.AWSRequest ListGeneratedCodeJobs where
   type
     AWSResponse ListGeneratedCodeJobs =
       ListGeneratedCodeJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest ListGeneratedCodeJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGeneratedCodeJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGeneratedCodeJobs where
   hashWithSalt _salt ListGeneratedCodeJobs' {..} =

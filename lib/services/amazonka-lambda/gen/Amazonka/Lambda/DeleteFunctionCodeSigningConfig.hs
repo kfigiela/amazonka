@@ -115,10 +115,16 @@ instance
   type
     AWSResponse DeleteFunctionCodeSigningConfig =
       DeleteFunctionCodeSigningConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFunctionCodeSigningConfigResponse'
+
+instance
+  Core.AWSService
+    DeleteFunctionCodeSigningConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -101,7 +101,7 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
   type
     AWSResponse GetOutpostInstanceTypes =
       GetOutpostInstanceTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetOutpostInstanceTypes where
             Prelude.<*> (x Core..?> "InstanceTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOutpostInstanceTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOutpostInstanceTypes where
   hashWithSalt _salt GetOutpostInstanceTypes' {..} =

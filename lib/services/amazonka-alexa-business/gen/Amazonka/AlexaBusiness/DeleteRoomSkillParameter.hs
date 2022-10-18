@@ -108,13 +108,16 @@ instance Core.AWSRequest DeleteRoomSkillParameter where
   type
     AWSResponse DeleteRoomSkillParameter =
       DeleteRoomSkillParameterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRoomSkillParameterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRoomSkillParameter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRoomSkillParameter where
   hashWithSalt _salt DeleteRoomSkillParameter' {..} =

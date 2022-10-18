@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribePackagingGroup where
   type
     AWSResponse DescribePackagingGroup =
       DescribePackagingGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribePackagingGroup where
             Prelude.<*> (x Core..?> "egressAccessLogs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePackagingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePackagingGroup where
   hashWithSalt _salt DescribePackagingGroup' {..} =

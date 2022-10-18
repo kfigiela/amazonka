@@ -204,7 +204,7 @@ updateDomain_domainName = Lens.lens (\UpdateDomain' {domainName} -> domainName) 
 
 instance Core.AWSRequest UpdateDomain where
   type AWSResponse UpdateDomain = UpdateDomainResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,6 +219,9 @@ instance Core.AWSRequest UpdateDomain where
             Prelude.<*> (x Core..:> "CreatedAt")
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
+
+instance Core.AWSService UpdateDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomain where
   hashWithSalt _salt UpdateDomain' {..} =

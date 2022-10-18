@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeInsight where
   type
     AWSResponse DescribeInsight =
       DescribeInsightResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeInsight where
             Prelude.<*> (x Core..?> "ReactiveInsight")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInsight where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInsight where
   hashWithSalt _salt DescribeInsight' {..} =

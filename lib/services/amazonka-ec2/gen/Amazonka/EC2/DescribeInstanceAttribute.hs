@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeInstanceAttribute where
   type
     AWSResponse DescribeInstanceAttribute =
       DescribeInstanceAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest DescribeInstanceAttribute where
             Prelude.<*> (x Core..@? "enclaveOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstanceAttribute where
   hashWithSalt _salt DescribeInstanceAttribute' {..} =

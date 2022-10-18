@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteProfilingGroup where
   type
     AWSResponse DeleteProfilingGroup =
       DeleteProfilingGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProfilingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProfilingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProfilingGroup where
   hashWithSalt _salt DeleteProfilingGroup' {..} =

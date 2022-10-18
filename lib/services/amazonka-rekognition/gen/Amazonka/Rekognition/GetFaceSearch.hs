@@ -168,7 +168,7 @@ instance Core.AWSRequest GetFaceSearch where
   type
     AWSResponse GetFaceSearch =
       GetFaceSearchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest GetFaceSearch where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFaceSearch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFaceSearch where
   hashWithSalt _salt GetFaceSearch' {..} =

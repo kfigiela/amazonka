@@ -100,10 +100,13 @@ getApiKey_apiKey = Lens.lens (\GetApiKey' {apiKey} -> apiKey) (\s@GetApiKey' {} 
 
 instance Core.AWSRequest GetApiKey where
   type AWSResponse GetApiKey = ApiKey
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApiKey where
   hashWithSalt _salt GetApiKey' {..} =

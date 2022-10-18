@@ -232,7 +232,7 @@ instance Core.AWSRequest CreateRecommendationTemplate where
   type
     AWSResponse CreateRecommendationTemplate =
       CreateRecommendationTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -240,6 +240,9 @@ instance Core.AWSRequest CreateRecommendationTemplate where
             Prelude.<$> (x Core..?> "recommendationTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRecommendationTemplate where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

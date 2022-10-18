@@ -187,7 +187,7 @@ instance Core.AWSRequest CreateMicrosoftAD where
   type
     AWSResponse CreateMicrosoftAD =
       CreateMicrosoftADResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest CreateMicrosoftAD where
             Prelude.<$> (x Core..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMicrosoftAD where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMicrosoftAD where
   hashWithSalt _salt CreateMicrosoftAD' {..} =

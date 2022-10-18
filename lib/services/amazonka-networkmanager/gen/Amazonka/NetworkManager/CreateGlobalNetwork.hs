@@ -93,7 +93,7 @@ instance Core.AWSRequest CreateGlobalNetwork where
   type
     AWSResponse CreateGlobalNetwork =
       CreateGlobalNetworkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest CreateGlobalNetwork where
             Prelude.<$> (x Core..?> "GlobalNetwork")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGlobalNetwork where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGlobalNetwork where
   hashWithSalt _salt CreateGlobalNetwork' {..} =

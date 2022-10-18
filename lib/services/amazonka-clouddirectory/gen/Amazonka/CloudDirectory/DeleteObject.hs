@@ -95,13 +95,16 @@ deleteObject_objectReference = Lens.lens (\DeleteObject' {objectReference} -> ob
 
 instance Core.AWSRequest DeleteObject where
   type AWSResponse DeleteObject = DeleteObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteObject where
   hashWithSalt _salt DeleteObject' {..} =

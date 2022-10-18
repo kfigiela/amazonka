@@ -160,7 +160,7 @@ instance
     AWSResponse
       PutEmailIdentityDkimSigningAttributes =
       PutEmailIdentityDkimSigningAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,12 @@ instance
               Prelude.<*> (x Core..?> "DkimTokens" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutEmailIdentityDkimSigningAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

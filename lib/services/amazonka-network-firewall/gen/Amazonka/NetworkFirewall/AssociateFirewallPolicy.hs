@@ -181,7 +181,7 @@ instance Core.AWSRequest AssociateFirewallPolicy where
   type
     AWSResponse AssociateFirewallPolicy =
       AssociateFirewallPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest AssociateFirewallPolicy where
             Prelude.<*> (x Core..?> "FirewallPolicyArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateFirewallPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateFirewallPolicy where
   hashWithSalt _salt AssociateFirewallPolicy' {..} =

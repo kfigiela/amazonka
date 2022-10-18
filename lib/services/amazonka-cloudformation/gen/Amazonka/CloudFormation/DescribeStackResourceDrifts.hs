@@ -170,7 +170,7 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
   type
     AWSResponse DescribeStackResourceDrifts =
       DescribeStackResourceDriftsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeStackResourceDriftsResult"
@@ -183,6 +183,9 @@ instance Core.AWSRequest DescribeStackResourceDrifts where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeStackResourceDrifts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStackResourceDrifts where
   hashWithSalt _salt DescribeStackResourceDrifts' {..} =

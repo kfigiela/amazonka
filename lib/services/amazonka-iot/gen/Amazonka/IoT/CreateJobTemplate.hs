@@ -221,7 +221,7 @@ instance Core.AWSRequest CreateJobTemplate where
   type
     AWSResponse CreateJobTemplate =
       CreateJobTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest CreateJobTemplate where
             Prelude.<*> (x Core..?> "jobTemplateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateJobTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateJobTemplate where
   hashWithSalt _salt CreateJobTemplate' {..} =

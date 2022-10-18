@@ -158,7 +158,7 @@ instance Core.AWSRequest ImportCertificate where
   type
     AWSResponse ImportCertificate =
       ImportCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest ImportCertificate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CertificateId")
       )
+
+instance Core.AWSService ImportCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportCertificate where
   hashWithSalt _salt ImportCertificate' {..} =

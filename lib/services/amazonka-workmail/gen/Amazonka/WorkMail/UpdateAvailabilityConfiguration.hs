@@ -138,13 +138,19 @@ instance
   type
     AWSResponse UpdateAvailabilityConfiguration =
       UpdateAvailabilityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAvailabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateAvailabilityConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

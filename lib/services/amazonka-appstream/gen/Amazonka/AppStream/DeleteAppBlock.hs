@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteAppBlock where
   type
     AWSResponse DeleteAppBlock =
       DeleteAppBlockResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAppBlockResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAppBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppBlock where
   hashWithSalt _salt DeleteAppBlock' {..} =

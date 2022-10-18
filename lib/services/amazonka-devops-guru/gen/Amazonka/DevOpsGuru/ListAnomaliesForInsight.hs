@@ -165,7 +165,7 @@ instance Core.AWSRequest ListAnomaliesForInsight where
   type
     AWSResponse ListAnomaliesForInsight =
       ListAnomaliesForInsightResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListAnomaliesForInsight where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAnomaliesForInsight where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnomaliesForInsight where
   hashWithSalt _salt ListAnomaliesForInsight' {..} =

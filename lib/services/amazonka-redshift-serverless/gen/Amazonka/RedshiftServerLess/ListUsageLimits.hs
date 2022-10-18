@@ -148,7 +148,7 @@ instance Core.AWSRequest ListUsageLimits where
   type
     AWSResponse ListUsageLimits =
       ListUsageLimitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListUsageLimits where
             Prelude.<*> (x Core..?> "usageLimits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUsageLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUsageLimits where
   hashWithSalt _salt ListUsageLimits' {..} =

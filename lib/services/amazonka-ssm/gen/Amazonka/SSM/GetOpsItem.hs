@@ -86,7 +86,7 @@ getOpsItem_opsItemId = Lens.lens (\GetOpsItem' {opsItemId} -> opsItemId) (\s@Get
 
 instance Core.AWSRequest GetOpsItem where
   type AWSResponse GetOpsItem = GetOpsItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetOpsItem where
             Prelude.<$> (x Core..?> "OpsItem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOpsItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOpsItem where
   hashWithSalt _salt GetOpsItem' {..} =

@@ -179,10 +179,13 @@ instance Core.AWSRequest CreateStudioSessionMapping where
   type
     AWSResponse CreateStudioSessionMapping =
       CreateStudioSessionMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       CreateStudioSessionMappingResponse'
+
+instance Core.AWSService CreateStudioSessionMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStudioSessionMapping where
   hashWithSalt _salt CreateStudioSessionMapping' {..} =

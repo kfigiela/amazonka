@@ -108,10 +108,13 @@ instance Core.AWSRequest RegisterApplicationRevision where
   type
     AWSResponse RegisterApplicationRevision =
       RegisterApplicationRevisionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RegisterApplicationRevisionResponse'
+
+instance Core.AWSService RegisterApplicationRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterApplicationRevision where
   hashWithSalt _salt RegisterApplicationRevision' {..} =

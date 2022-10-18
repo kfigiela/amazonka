@@ -215,7 +215,7 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
   type
     AWSResponse SearchTransitGatewayRoutes =
       SearchTransitGatewayRoutesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest SearchTransitGatewayRoutes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchTransitGatewayRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchTransitGatewayRoutes where
   hashWithSalt _salt SearchTransitGatewayRoutes' {..} =

@@ -222,7 +222,7 @@ instance Core.AWSRequest UpdateSlotType where
   type
     AWSResponse UpdateSlotType =
       UpdateSlotTypeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -242,6 +242,9 @@ instance Core.AWSRequest UpdateSlotType where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSlotType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSlotType where
   hashWithSalt _salt UpdateSlotType' {..} =

@@ -353,9 +353,12 @@ instance Core.AWSRequest RegisterActivityType where
   type
     AWSResponse RegisterActivityType =
       RegisterActivityTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterActivityTypeResponse'
+
+instance Core.AWSService RegisterActivityType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterActivityType where
   hashWithSalt _salt RegisterActivityType' {..} =

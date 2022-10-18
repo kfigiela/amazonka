@@ -172,8 +172,11 @@ retireGrant_keyId = Lens.lens (\RetireGrant' {keyId} -> keyId) (\s@RetireGrant' 
 
 instance Core.AWSRequest RetireGrant where
   type AWSResponse RetireGrant = RetireGrantResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull RetireGrantResponse'
+
+instance Core.AWSService RetireGrant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetireGrant where
   hashWithSalt _salt RetireGrant' {..} =

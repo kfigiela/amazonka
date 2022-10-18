@@ -102,7 +102,7 @@ instance Core.AWSRequest DescribeConversionTasks where
   type
     AWSResponse DescribeConversionTasks =
       DescribeConversionTasksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeConversionTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConversionTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConversionTasks where
   hashWithSalt _salt DescribeConversionTasks' {..} =

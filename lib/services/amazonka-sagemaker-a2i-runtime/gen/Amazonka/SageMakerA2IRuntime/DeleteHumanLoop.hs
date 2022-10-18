@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteHumanLoop where
   type
     AWSResponse DeleteHumanLoop =
       DeleteHumanLoopResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHumanLoopResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteHumanLoop where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHumanLoop where
   hashWithSalt _salt DeleteHumanLoop' {..} =

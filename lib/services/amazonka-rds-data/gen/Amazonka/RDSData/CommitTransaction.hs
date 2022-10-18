@@ -110,7 +110,7 @@ instance Core.AWSRequest CommitTransaction where
   type
     AWSResponse CommitTransaction =
       CommitTransactionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CommitTransaction where
             Prelude.<$> (x Core..?> "transactionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CommitTransaction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CommitTransaction where
   hashWithSalt _salt CommitTransaction' {..} =

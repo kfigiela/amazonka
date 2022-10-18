@@ -501,7 +501,7 @@ instance Core.AWSRequest CreateGameServerGroup where
   type
     AWSResponse CreateGameServerGroup =
       CreateGameServerGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -509,6 +509,9 @@ instance Core.AWSRequest CreateGameServerGroup where
             Prelude.<$> (x Core..?> "GameServerGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGameServerGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGameServerGroup where
   hashWithSalt _salt CreateGameServerGroup' {..} =

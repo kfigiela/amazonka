@@ -103,7 +103,7 @@ instance Core.AWSRequest StopDBInstance where
   type
     AWSResponse StopDBInstance =
       StopDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopDBInstanceResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest StopDBInstance where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopDBInstance where
   hashWithSalt _salt StopDBInstance' {..} =

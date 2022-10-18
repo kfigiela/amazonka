@@ -112,7 +112,7 @@ instance Core.AWSRequest DeleteResiliencyPolicy where
   type
     AWSResponse DeleteResiliencyPolicy =
       DeleteResiliencyPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DeleteResiliencyPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "policyArn")
       )
+
+instance Core.AWSService DeleteResiliencyPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResiliencyPolicy where
   hashWithSalt _salt DeleteResiliencyPolicy' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest PutApprovalResult where
   type
     AWSResponse PutApprovalResult =
       PutApprovalResultResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest PutApprovalResult where
             Prelude.<$> (x Core..?> "approvedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutApprovalResult where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutApprovalResult where
   hashWithSalt _salt PutApprovalResult' {..} =

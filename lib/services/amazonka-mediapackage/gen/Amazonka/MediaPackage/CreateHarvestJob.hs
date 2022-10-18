@@ -147,7 +147,7 @@ instance Core.AWSRequest CreateHarvestJob where
   type
     AWSResponse CreateHarvestJob =
       CreateHarvestJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest CreateHarvestJob where
             Prelude.<*> (x Core..?> "startTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHarvestJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHarvestJob where
   hashWithSalt _salt CreateHarvestJob' {..} =

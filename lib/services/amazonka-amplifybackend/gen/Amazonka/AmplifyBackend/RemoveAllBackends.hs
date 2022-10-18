@@ -96,7 +96,7 @@ instance Core.AWSRequest RemoveAllBackends where
   type
     AWSResponse RemoveAllBackends =
       RemoveAllBackendsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest RemoveAllBackends where
             Prelude.<*> (x Core..?> "appId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveAllBackends where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveAllBackends where
   hashWithSalt _salt RemoveAllBackends' {..} =

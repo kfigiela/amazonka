@@ -96,7 +96,7 @@ instance
   type
     AWSResponse DescribeRepositoryAssociation =
       DescribeRepositoryAssociationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,12 @@ instance
             Prelude.<*> (x Core..?> "RepositoryAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeRepositoryAssociation
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

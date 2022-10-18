@@ -103,7 +103,7 @@ instance Core.AWSRequest GetDetectorVersion where
   type
     AWSResponse GetDetectorVersion =
       GetDetectorVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetDetectorVersion where
             Prelude.<*> (x Core..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDetectorVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDetectorVersion where
   hashWithSalt _salt GetDetectorVersion' {..} =

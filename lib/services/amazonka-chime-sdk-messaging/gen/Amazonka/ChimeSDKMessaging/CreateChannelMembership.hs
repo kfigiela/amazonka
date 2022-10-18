@@ -175,7 +175,7 @@ instance Core.AWSRequest CreateChannelMembership where
   type
     AWSResponse CreateChannelMembership =
       CreateChannelMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest CreateChannelMembership where
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChannelMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChannelMembership where
   hashWithSalt _salt CreateChannelMembership' {..} =

@@ -122,7 +122,7 @@ listAssets_outpostIdentifier = Lens.lens (\ListAssets' {outpostIdentifier} -> ou
 
 instance Core.AWSRequest ListAssets where
   type AWSResponse ListAssets = ListAssetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListAssets where
             Prelude.<*> (x Core..?> "Assets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssets where
   hashWithSalt _salt ListAssets' {..} =

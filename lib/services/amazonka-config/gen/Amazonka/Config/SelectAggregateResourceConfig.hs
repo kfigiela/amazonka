@@ -179,7 +179,7 @@ instance
   type
     AWSResponse SelectAggregateResourceConfig =
       SelectAggregateResourceConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,12 @@ instance
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    SelectAggregateResourceConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -127,9 +127,12 @@ instance Core.AWSRequest DeleteDBSecurityGroup where
   type
     AWSResponse DeleteDBSecurityGroup =
       DeleteDBSecurityGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteDBSecurityGroupResponse'
+
+instance Core.AWSService DeleteDBSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBSecurityGroup where
   hashWithSalt _salt DeleteDBSecurityGroup' {..} =

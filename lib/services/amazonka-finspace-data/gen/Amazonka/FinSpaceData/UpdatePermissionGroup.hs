@@ -198,7 +198,7 @@ instance Core.AWSRequest UpdatePermissionGroup where
   type
     AWSResponse UpdatePermissionGroup =
       UpdatePermissionGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest UpdatePermissionGroup where
             Prelude.<$> (x Core..?> "permissionGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePermissionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePermissionGroup where
   hashWithSalt _salt UpdatePermissionGroup' {..} =

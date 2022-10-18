@@ -186,7 +186,7 @@ instance Core.AWSRequest UpdateSecretVersionStage where
   type
     AWSResponse UpdateSecretVersionStage =
       UpdateSecretVersionStageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest UpdateSecretVersionStage where
             Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSecretVersionStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSecretVersionStage where
   hashWithSalt _salt UpdateSecretVersionStage' {..} =

@@ -139,7 +139,7 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
   type
     AWSResponse AuthorizeSnapshotAccess =
       AuthorizeSnapshotAccessResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AuthorizeSnapshotAccessResult"
@@ -148,6 +148,9 @@ instance Core.AWSRequest AuthorizeSnapshotAccess where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AuthorizeSnapshotAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AuthorizeSnapshotAccess where
   hashWithSalt _salt AuthorizeSnapshotAccess' {..} =

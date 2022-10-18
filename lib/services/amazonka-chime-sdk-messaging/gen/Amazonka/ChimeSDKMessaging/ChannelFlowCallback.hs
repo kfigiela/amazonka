@@ -133,7 +133,7 @@ instance Core.AWSRequest ChannelFlowCallback where
   type
     AWSResponse ChannelFlowCallback =
       ChannelFlowCallbackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest ChannelFlowCallback where
             Prelude.<*> (x Core..?> "CallbackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ChannelFlowCallback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChannelFlowCallback where
   hashWithSalt _salt ChannelFlowCallback' {..} =

@@ -129,10 +129,16 @@ instance
   type
     AWSResponse DisassociateConnectionFromLag =
       Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    DisassociateConnectionFromLag
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -203,7 +203,7 @@ instance Core.AWSRequest BatchGetFrameMetricData where
   type
     AWSResponse BatchGetFrameMetricData =
       BatchGetFrameMetricDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -220,6 +220,9 @@ instance Core.AWSRequest BatchGetFrameMetricData where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService BatchGetFrameMetricData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetFrameMetricData where
   hashWithSalt _salt BatchGetFrameMetricData' {..} =

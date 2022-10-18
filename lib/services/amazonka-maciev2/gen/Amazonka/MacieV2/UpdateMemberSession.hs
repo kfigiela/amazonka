@@ -97,13 +97,16 @@ instance Core.AWSRequest UpdateMemberSession where
   type
     AWSResponse UpdateMemberSession =
       UpdateMemberSessionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateMemberSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMemberSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMemberSession where
   hashWithSalt _salt UpdateMemberSession' {..} =

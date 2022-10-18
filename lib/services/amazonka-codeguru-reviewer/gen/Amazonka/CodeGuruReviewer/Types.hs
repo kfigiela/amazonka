@@ -331,6 +331,7 @@ defaultService =
       Core._serviceEndpointPrefix = "codeguru-reviewer",
       Core._serviceSigningName = "codeguru-reviewer",
       Core._serviceVersion = "2019-09-19",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

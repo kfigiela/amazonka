@@ -334,7 +334,7 @@ registerType_schemaHandlerPackage = Lens.lens (\RegisterType' {schemaHandlerPack
 
 instance Core.AWSRequest RegisterType where
   type AWSResponse RegisterType = RegisterTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RegisterTypeResult"
@@ -343,6 +343,9 @@ instance Core.AWSRequest RegisterType where
             Prelude.<$> (x Core..@? "RegistrationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterType where
   hashWithSalt _salt RegisterType' {..} =

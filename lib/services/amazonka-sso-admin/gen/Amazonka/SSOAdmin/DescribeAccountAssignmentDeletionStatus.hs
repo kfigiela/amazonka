@@ -108,7 +108,7 @@ instance
     AWSResponse
       DescribeAccountAssignmentDeletionStatus =
       DescribeAccountAssignmentDeletionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,12 @@ instance
             Prelude.<$> (x Core..?> "AccountAssignmentDeletionStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAccountAssignmentDeletionStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

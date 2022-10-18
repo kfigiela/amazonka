@@ -119,7 +119,7 @@ instance Core.AWSRequest CreateChannelModerator where
   type
     AWSResponse CreateChannelModerator =
       CreateChannelModeratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest CreateChannelModerator where
             Prelude.<*> (x Core..?> "ChannelModerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChannelModerator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChannelModerator where
   hashWithSalt _salt CreateChannelModerator' {..} =

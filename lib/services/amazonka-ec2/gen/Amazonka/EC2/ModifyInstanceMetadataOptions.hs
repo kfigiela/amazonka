@@ -245,7 +245,7 @@ instance
   type
     AWSResponse ModifyInstanceMetadataOptions =
       ModifyInstanceMetadataOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -254,6 +254,12 @@ instance
             Prelude.<*> (x Core..@? "instanceMetadataOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyInstanceMetadataOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

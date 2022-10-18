@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteConformancePack where
   type
     AWSResponse DeleteConformancePack =
       DeleteConformancePackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteConformancePackResponse'
+
+instance Core.AWSService DeleteConformancePack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConformancePack where
   hashWithSalt _salt DeleteConformancePack' {..} =

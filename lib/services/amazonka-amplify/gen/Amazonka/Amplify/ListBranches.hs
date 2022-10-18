@@ -125,7 +125,7 @@ instance Core.AWSPager ListBranches where
 
 instance Core.AWSRequest ListBranches where
   type AWSResponse ListBranches = ListBranchesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListBranches where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "branches" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListBranches where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBranches where
   hashWithSalt _salt ListBranches' {..} =

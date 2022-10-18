@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteInstanceOnboardingJob where
   type
     AWSResponse DeleteInstanceOnboardingJob =
       DeleteInstanceOnboardingJobResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteInstanceOnboardingJobResponse'
+
+instance Core.AWSService DeleteInstanceOnboardingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInstanceOnboardingJob where
   hashWithSalt _salt DeleteInstanceOnboardingJob' {..} =

@@ -188,7 +188,7 @@ instance Core.AWSRequest DescribeCodeCoverages where
   type
     AWSResponse DescribeCodeCoverages =
       DescribeCodeCoveragesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest DescribeCodeCoverages where
             Prelude.<*> (x Core..?> "codeCoverages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCodeCoverages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCodeCoverages where
   hashWithSalt _salt DescribeCodeCoverages' {..} =

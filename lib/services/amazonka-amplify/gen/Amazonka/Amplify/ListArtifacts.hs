@@ -132,7 +132,7 @@ instance Core.AWSRequest ListArtifacts where
   type
     AWSResponse ListArtifacts =
       ListArtifactsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListArtifacts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "artifacts" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListArtifacts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListArtifacts where
   hashWithSalt _salt ListArtifacts' {..} =

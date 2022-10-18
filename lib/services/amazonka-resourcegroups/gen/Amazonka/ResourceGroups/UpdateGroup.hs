@@ -108,7 +108,7 @@ updateGroup_group = Lens.lens (\UpdateGroup' {group'} -> group') (\s@UpdateGroup
 
 instance Core.AWSRequest UpdateGroup where
   type AWSResponse UpdateGroup = UpdateGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest UpdateGroup where
             Prelude.<$> (x Core..?> "Group")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGroup where
   hashWithSalt _salt UpdateGroup' {..} =

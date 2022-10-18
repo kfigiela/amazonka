@@ -88,7 +88,7 @@ instance Core.AWSRequest GetContactReachabilityStatus where
   type
     AWSResponse GetContactReachabilityStatus =
       GetContactReachabilityStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetContactReachabilityStatus where
             Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContactReachabilityStatus where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

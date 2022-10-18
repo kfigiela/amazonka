@@ -81,7 +81,7 @@ getDashboard_dashboardName = Lens.lens (\GetDashboard' {dashboardName} -> dashbo
 
 instance Core.AWSRequest GetDashboard where
   type AWSResponse GetDashboard = GetDashboardResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetDashboardResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetDashboard where
             Prelude.<*> (x Core..@? "DashboardArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDashboard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDashboard where
   hashWithSalt _salt GetDashboard' {..} =

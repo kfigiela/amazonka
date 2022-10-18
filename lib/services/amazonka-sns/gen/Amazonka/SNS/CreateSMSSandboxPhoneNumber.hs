@@ -107,7 +107,7 @@ instance Core.AWSRequest CreateSMSSandboxPhoneNumber where
   type
     AWSResponse CreateSMSSandboxPhoneNumber =
       CreateSMSSandboxPhoneNumberResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateSMSSandboxPhoneNumberResult"
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateSMSSandboxPhoneNumber where
           CreateSMSSandboxPhoneNumberResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSMSSandboxPhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSMSSandboxPhoneNumber where
   hashWithSalt _salt CreateSMSSandboxPhoneNumber' {..} =

@@ -164,7 +164,7 @@ instance Core.AWSRequest ListRecordHistory where
   type
     AWSResponse ListRecordHistory =
       ListRecordHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest ListRecordHistory where
             Prelude.<*> (x Core..?> "RecordDetails" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRecordHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRecordHistory where
   hashWithSalt _salt ListRecordHistory' {..} =

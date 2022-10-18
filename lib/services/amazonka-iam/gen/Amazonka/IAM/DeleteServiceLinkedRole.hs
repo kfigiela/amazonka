@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteServiceLinkedRole where
   type
     AWSResponse DeleteServiceLinkedRole =
       DeleteServiceLinkedRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteServiceLinkedRoleResult"
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteServiceLinkedRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "DeletionTaskId")
       )
+
+instance Core.AWSService DeleteServiceLinkedRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteServiceLinkedRole where
   hashWithSalt _salt DeleteServiceLinkedRole' {..} =

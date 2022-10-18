@@ -125,7 +125,7 @@ instance Core.AWSRequest SearchQuantumTasks where
   type
     AWSResponse SearchQuantumTasks =
       SearchQuantumTasksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest SearchQuantumTasks where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "quantumTasks" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService SearchQuantumTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchQuantumTasks where
   hashWithSalt _salt SearchQuantumTasks' {..} =

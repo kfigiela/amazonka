@@ -166,7 +166,7 @@ instance
   type
     AWSResponse ListDomainDeliverabilityCampaigns =
       ListDomainDeliverabilityCampaignsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,12 @@ instance
                               Core..!@ Prelude.mempty
                           )
       )
+
+instance
+  Core.AWSService
+    ListDomainDeliverabilityCampaigns
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

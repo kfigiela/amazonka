@@ -102,7 +102,7 @@ instance Core.AWSRequest UpdateInputSecurityGroup where
   type
     AWSResponse UpdateInputSecurityGroup =
       UpdateInputSecurityGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest UpdateInputSecurityGroup where
             Prelude.<$> (x Core..?> "securityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateInputSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInputSecurityGroup where
   hashWithSalt _salt UpdateInputSecurityGroup' {..} =

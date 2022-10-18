@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
   type
     AWSResponse DescribeBrokerEngineTypes =
       DescribeBrokerEngineTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DescribeBrokerEngineTypes where
             Prelude.<*> (x Core..?> "maxResults")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBrokerEngineTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBrokerEngineTypes where
   hashWithSalt _salt DescribeBrokerEngineTypes' {..} =

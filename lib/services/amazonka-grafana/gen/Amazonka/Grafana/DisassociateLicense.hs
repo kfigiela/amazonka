@@ -91,7 +91,7 @@ instance Core.AWSRequest DisassociateLicense where
   type
     AWSResponse DisassociateLicense =
       DisassociateLicenseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DisassociateLicense where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "workspace")
       )
+
+instance Core.AWSService DisassociateLicense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateLicense where
   hashWithSalt _salt DisassociateLicense' {..} =

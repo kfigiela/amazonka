@@ -585,7 +585,7 @@ instance Core.AWSRequest DescribeScalingPolicies where
   type
     AWSResponse DescribeScalingPolicies =
       DescribeScalingPoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -596,6 +596,9 @@ instance Core.AWSRequest DescribeScalingPolicies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeScalingPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScalingPolicies where
   hashWithSalt _salt DescribeScalingPolicies' {..} =

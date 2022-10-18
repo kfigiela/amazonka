@@ -123,10 +123,13 @@ stopDeployment_deploymentNumber = Lens.lens (\StopDeployment' {deploymentNumber}
 
 instance Core.AWSRequest StopDeployment where
   type AWSResponse StopDeployment = Deployment
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService StopDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopDeployment where
   hashWithSalt _salt StopDeployment' {..} =

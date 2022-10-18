@@ -124,7 +124,7 @@ instance Core.AWSRequest ListScheduledQueries where
   type
     AWSResponse ListScheduledQueries =
       ListScheduledQueriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListScheduledQueries where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListScheduledQueries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListScheduledQueries where
   hashWithSalt _salt ListScheduledQueries' {..} =

@@ -108,7 +108,7 @@ instance Core.AWSRequest ModifySecurityGroupRules where
   type
     AWSResponse ModifySecurityGroupRules =
       ModifySecurityGroupRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ModifySecurityGroupRules where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifySecurityGroupRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifySecurityGroupRules where
   hashWithSalt _salt ModifySecurityGroupRules' {..} =

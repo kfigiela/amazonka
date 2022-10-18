@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteConfiguration where
   type
     AWSResponse DeleteConfiguration =
       DeleteConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteConfiguration where
             Prelude.<*> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfiguration where
   hashWithSalt _salt DeleteConfiguration' {..} =

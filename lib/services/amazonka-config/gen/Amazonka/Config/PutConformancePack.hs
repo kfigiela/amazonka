@@ -209,7 +209,7 @@ instance Core.AWSRequest PutConformancePack where
   type
     AWSResponse PutConformancePack =
       PutConformancePackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest PutConformancePack where
             Prelude.<$> (x Core..?> "ConformancePackArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutConformancePack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutConformancePack where
   hashWithSalt _salt PutConformancePack' {..} =

@@ -90,13 +90,16 @@ instance Core.AWSRequest UpdateRuleMetadata where
   type
     AWSResponse UpdateRuleMetadata =
       UpdateRuleMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateRuleMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRuleMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRuleMetadata where
   hashWithSalt _salt UpdateRuleMetadata' {..} =

@@ -451,7 +451,7 @@ instance
   type
     AWSResponse RestoreDBClusterToPointInTime =
       RestoreDBClusterToPointInTimeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterToPointInTimeResult"
@@ -460,6 +460,12 @@ instance
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RestoreDBClusterToPointInTime
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

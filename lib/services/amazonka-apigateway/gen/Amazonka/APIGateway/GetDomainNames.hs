@@ -114,7 +114,7 @@ instance Core.AWSRequest GetDomainNames where
   type
     AWSResponse GetDomainNames =
       GetDomainNamesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetDomainNames where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDomainNames where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomainNames where
   hashWithSalt _salt GetDomainNames' {..} =

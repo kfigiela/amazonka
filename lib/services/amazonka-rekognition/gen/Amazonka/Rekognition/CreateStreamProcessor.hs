@@ -317,7 +317,7 @@ instance Core.AWSRequest CreateStreamProcessor where
   type
     AWSResponse CreateStreamProcessor =
       CreateStreamProcessorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -325,6 +325,9 @@ instance Core.AWSRequest CreateStreamProcessor where
             Prelude.<$> (x Core..?> "StreamProcessorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStreamProcessor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStreamProcessor where
   hashWithSalt _salt CreateStreamProcessor' {..} =

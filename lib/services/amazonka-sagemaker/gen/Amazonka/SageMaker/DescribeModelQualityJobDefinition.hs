@@ -97,7 +97,7 @@ instance
   type
     AWSResponse DescribeModelQualityJobDefinition =
       DescribeModelQualityJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,12 @@ instance
               Prelude.<*> (x Core..:> "JobResources")
               Prelude.<*> (x Core..:> "RoleArn")
       )
+
+instance
+  Core.AWSService
+    DescribeModelQualityJobDefinition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

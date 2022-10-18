@@ -740,11 +740,14 @@ instance Core.AWSRequest SimulatePrincipalPolicy where
   type
     AWSResponse SimulatePrincipalPolicy =
       SimulatePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SimulatePrincipalPolicyResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService SimulatePrincipalPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SimulatePrincipalPolicy where
   hashWithSalt _salt SimulatePrincipalPolicy' {..} =

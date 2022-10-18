@@ -162,7 +162,7 @@ createFolder_folderId = Lens.lens (\CreateFolder' {folderId} -> folderId) (\s@Cr
 
 instance Core.AWSRequest CreateFolder where
   type AWSResponse CreateFolder = CreateFolderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest CreateFolder where
             Prelude.<*> (x Core..?> "FolderId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFolder where
   hashWithSalt _salt CreateFolder' {..} =

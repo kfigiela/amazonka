@@ -136,7 +136,7 @@ createMesh_meshName = Lens.lens (\CreateMesh' {meshName} -> meshName) (\s@Create
 
 instance Core.AWSRequest CreateMesh where
   type AWSResponse CreateMesh = CreateMeshResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest CreateMesh where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateMesh where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMesh where
   hashWithSalt _salt CreateMesh' {..} =

@@ -126,7 +126,7 @@ instance
     AWSResponse
       DescribeAppVersionResourcesResolutionStatus =
       DescribeAppVersionResourcesResolutionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,12 @@ instance
               Prelude.<*> (x Core..:> "resolutionId")
               Prelude.<*> (x Core..:> "status")
       )
+
+instance
+  Core.AWSService
+    DescribeAppVersionResourcesResolutionStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

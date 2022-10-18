@@ -181,7 +181,7 @@ instance Core.AWSRequest CreateFirewallPolicy where
   type
     AWSResponse CreateFirewallPolicy =
       CreateFirewallPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest CreateFirewallPolicy where
             Prelude.<*> (x Core..:> "UpdateToken")
             Prelude.<*> (x Core..:> "FirewallPolicyResponse")
       )
+
+instance Core.AWSService CreateFirewallPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFirewallPolicy where
   hashWithSalt _salt CreateFirewallPolicy' {..} =

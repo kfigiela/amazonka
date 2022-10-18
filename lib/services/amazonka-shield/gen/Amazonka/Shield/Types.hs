@@ -328,6 +328,7 @@ defaultService =
       Core._serviceEndpointPrefix = "shield",
       Core._serviceSigningName = "shield",
       Core._serviceVersion = "2016-06-02",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

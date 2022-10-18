@@ -130,7 +130,7 @@ instance Core.AWSRequest GetBasePathMappings where
   type
     AWSResponse GetBasePathMappings =
       GetBasePathMappingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetBasePathMappings where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBasePathMappings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBasePathMappings where
   hashWithSalt _salt GetBasePathMappings' {..} =

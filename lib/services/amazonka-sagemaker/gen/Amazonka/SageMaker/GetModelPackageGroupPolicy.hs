@@ -83,7 +83,7 @@ instance Core.AWSRequest GetModelPackageGroupPolicy where
   type
     AWSResponse GetModelPackageGroupPolicy =
       GetModelPackageGroupPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetModelPackageGroupPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ResourcePolicy")
       )
+
+instance Core.AWSService GetModelPackageGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetModelPackageGroupPolicy where
   hashWithSalt _salt GetModelPackageGroupPolicy' {..} =

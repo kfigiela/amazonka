@@ -129,9 +129,12 @@ instance Core.AWSRequest UpdateFeatureMetadata where
   type
     AWSResponse UpdateFeatureMetadata =
       UpdateFeatureMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateFeatureMetadataResponse'
+
+instance Core.AWSService UpdateFeatureMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFeatureMetadata where
   hashWithSalt _salt UpdateFeatureMetadata' {..} =

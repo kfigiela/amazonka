@@ -144,7 +144,7 @@ instance Core.AWSRequest ListProfileObjects where
   type
     AWSResponse ListProfileObjects =
       ListProfileObjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListProfileObjects where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProfileObjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProfileObjects where
   hashWithSalt _salt ListProfileObjects' {..} =

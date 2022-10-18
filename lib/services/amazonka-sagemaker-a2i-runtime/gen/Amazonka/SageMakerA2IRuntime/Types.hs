@@ -82,6 +82,7 @@ defaultService =
         "a2i-runtime.sagemaker",
       Core._serviceSigningName = "sagemaker",
       Core._serviceVersion = "2019-11-07",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

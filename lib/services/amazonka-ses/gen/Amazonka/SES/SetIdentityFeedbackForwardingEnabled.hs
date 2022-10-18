@@ -135,7 +135,7 @@ instance
   type
     AWSResponse SetIdentityFeedbackForwardingEnabled =
       SetIdentityFeedbackForwardingEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIdentityFeedbackForwardingEnabledResult"
@@ -143,6 +143,12 @@ instance
           SetIdentityFeedbackForwardingEnabledResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    SetIdentityFeedbackForwardingEnabled
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

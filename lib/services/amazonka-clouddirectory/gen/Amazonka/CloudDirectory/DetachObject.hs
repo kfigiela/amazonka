@@ -111,7 +111,7 @@ detachObject_linkName = Lens.lens (\DetachObject' {linkName} -> linkName) (\s@De
 
 instance Core.AWSRequest DetachObject where
   type AWSResponse DetachObject = DetachObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DetachObject where
             Prelude.<$> (x Core..?> "DetachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachObject where
   hashWithSalt _salt DetachObject' {..} =

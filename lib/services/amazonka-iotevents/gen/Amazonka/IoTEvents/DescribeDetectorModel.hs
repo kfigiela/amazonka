@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeDetectorModel where
   type
     AWSResponse DescribeDetectorModel =
       DescribeDetectorModelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeDetectorModel where
             Prelude.<$> (x Core..?> "detectorModel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDetectorModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDetectorModel where
   hashWithSalt _salt DescribeDetectorModel' {..} =

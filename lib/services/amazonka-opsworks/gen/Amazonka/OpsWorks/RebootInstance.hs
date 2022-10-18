@@ -80,9 +80,12 @@ instance Core.AWSRequest RebootInstance where
   type
     AWSResponse RebootInstance =
       RebootInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RebootInstanceResponse'
+
+instance Core.AWSService RebootInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootInstance where
   hashWithSalt _salt RebootInstance' {..} =

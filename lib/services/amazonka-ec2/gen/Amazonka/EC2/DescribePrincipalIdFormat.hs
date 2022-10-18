@@ -193,7 +193,7 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
   type
     AWSResponse DescribePrincipalIdFormat =
       DescribePrincipalIdFormatResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest DescribePrincipalIdFormat where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePrincipalIdFormat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePrincipalIdFormat where
   hashWithSalt _salt DescribePrincipalIdFormat' {..} =

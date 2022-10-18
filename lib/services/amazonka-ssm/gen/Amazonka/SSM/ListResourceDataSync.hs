@@ -150,7 +150,7 @@ instance Core.AWSRequest ListResourceDataSync where
   type
     AWSResponse ListResourceDataSync =
       ListResourceDataSyncResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListResourceDataSync where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResourceDataSync where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResourceDataSync where
   hashWithSalt _salt ListResourceDataSync' {..} =

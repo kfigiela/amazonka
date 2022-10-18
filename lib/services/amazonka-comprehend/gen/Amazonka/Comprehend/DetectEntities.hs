@@ -150,7 +150,7 @@ instance Core.AWSRequest DetectEntities where
   type
     AWSResponse DetectEntities =
       DetectEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest DetectEntities where
             Prelude.<$> (x Core..?> "Entities" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectEntities where
   hashWithSalt _salt DetectEntities' {..} =

@@ -130,7 +130,7 @@ instance Core.AWSRequest InviteMembers where
   type
     AWSResponse InviteMembers =
       InviteMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest InviteMembers where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService InviteMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InviteMembers where
   hashWithSalt _salt InviteMembers' {..} =

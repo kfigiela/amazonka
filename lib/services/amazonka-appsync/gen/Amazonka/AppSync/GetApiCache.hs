@@ -77,7 +77,7 @@ getApiCache_apiId = Lens.lens (\GetApiCache' {apiId} -> apiId) (\s@GetApiCache' 
 
 instance Core.AWSRequest GetApiCache where
   type AWSResponse GetApiCache = GetApiCacheResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetApiCache where
             Prelude.<$> (x Core..?> "apiCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApiCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApiCache where
   hashWithSalt _salt GetApiCache' {..} =

@@ -115,7 +115,7 @@ instance Core.AWSRequest GetConsoleScreenshot where
   type
     AWSResponse GetConsoleScreenshot =
       GetConsoleScreenshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest GetConsoleScreenshot where
             Prelude.<*> (x Core..@? "instanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConsoleScreenshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConsoleScreenshot where
   hashWithSalt _salt GetConsoleScreenshot' {..} =

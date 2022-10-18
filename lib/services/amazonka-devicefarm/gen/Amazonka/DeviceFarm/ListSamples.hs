@@ -117,7 +117,7 @@ instance Core.AWSPager ListSamples where
 
 instance Core.AWSRequest ListSamples where
   type AWSResponse ListSamples = ListSamplesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListSamples where
             Prelude.<*> (x Core..?> "samples" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSamples where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSamples where
   hashWithSalt _salt ListSamples' {..} =

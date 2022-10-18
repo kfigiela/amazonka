@@ -309,7 +309,7 @@ instance Core.AWSRequest UpdateFlowSource where
   type
     AWSResponse UpdateFlowSource =
       UpdateFlowSourceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -318,6 +318,9 @@ instance Core.AWSRequest UpdateFlowSource where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFlowSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFlowSource where
   hashWithSalt _salt UpdateFlowSource' {..} =

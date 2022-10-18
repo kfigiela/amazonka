@@ -99,7 +99,7 @@ instance Core.AWSRequest ActivateKeySigningKey where
   type
     AWSResponse ActivateKeySigningKey =
       ActivateKeySigningKeyResponse
-  request = Request.post defaultService
+  request srv = Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest ActivateKeySigningKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService ActivateKeySigningKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateKeySigningKey where
   hashWithSalt _salt ActivateKeySigningKey' {..} =

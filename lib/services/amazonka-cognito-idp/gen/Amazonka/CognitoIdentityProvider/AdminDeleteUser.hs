@@ -91,9 +91,12 @@ instance Core.AWSRequest AdminDeleteUser where
   type
     AWSResponse AdminDeleteUser =
       AdminDeleteUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AdminDeleteUserResponse'
+
+instance Core.AWSService AdminDeleteUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminDeleteUser where
   hashWithSalt _salt AdminDeleteUser' {..} =

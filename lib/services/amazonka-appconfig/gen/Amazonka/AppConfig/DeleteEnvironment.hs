@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteEnvironment where
   type
     AWSResponse DeleteEnvironment =
       DeleteEnvironmentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteEnvironmentResponse'
+
+instance Core.AWSService DeleteEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEnvironment where
   hashWithSalt _salt DeleteEnvironment' {..} =

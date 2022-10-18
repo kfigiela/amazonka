@@ -111,9 +111,12 @@ instance Core.AWSRequest ResetImageAttribute where
   type
     AWSResponse ResetImageAttribute =
       ResetImageAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ResetImageAttributeResponse'
+
+instance Core.AWSService ResetImageAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetImageAttribute where
   hashWithSalt _salt ResetImageAttribute' {..} =

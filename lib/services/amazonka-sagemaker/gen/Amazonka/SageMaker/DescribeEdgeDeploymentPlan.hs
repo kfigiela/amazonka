@@ -115,7 +115,7 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
   type
     AWSResponse DescribeEdgeDeploymentPlan =
       DescribeEdgeDeploymentPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DescribeEdgeDeploymentPlan where
             Prelude.<*> (x Core..:> "DeviceFleetName")
             Prelude.<*> (x Core..?> "Stages" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeEdgeDeploymentPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEdgeDeploymentPlan where
   hashWithSalt _salt DescribeEdgeDeploymentPlan' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest BuildSuggesters where
   type
     AWSResponse BuildSuggesters =
       BuildSuggestersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BuildSuggestersResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest BuildSuggesters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BuildSuggesters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BuildSuggesters where
   hashWithSalt _salt BuildSuggesters' {..} =

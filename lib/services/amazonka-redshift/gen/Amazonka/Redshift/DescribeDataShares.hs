@@ -150,7 +150,7 @@ instance Core.AWSRequest DescribeDataShares where
   type
     AWSResponse DescribeDataShares =
       DescribeDataSharesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDataSharesResult"
@@ -162,6 +162,9 @@ instance Core.AWSRequest DescribeDataShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDataShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDataShares where
   hashWithSalt _salt DescribeDataShares' {..} =

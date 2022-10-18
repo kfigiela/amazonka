@@ -122,10 +122,13 @@ getResource_resourceId = Lens.lens (\GetResource' {resourceId} -> resourceId) (\
 
 instance Core.AWSRequest GetResource where
   type AWSResponse GetResource = Resource
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResource where
   hashWithSalt _salt GetResource' {..} =

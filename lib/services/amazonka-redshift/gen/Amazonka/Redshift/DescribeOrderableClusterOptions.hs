@@ -213,7 +213,7 @@ instance
   type
     AWSResponse DescribeOrderableClusterOptions =
       DescribeOrderableClusterOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeOrderableClusterOptionsResult"
@@ -227,6 +227,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeOrderableClusterOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

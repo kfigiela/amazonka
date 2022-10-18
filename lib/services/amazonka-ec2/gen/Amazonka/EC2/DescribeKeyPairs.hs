@@ -190,7 +190,7 @@ instance Core.AWSRequest DescribeKeyPairs where
   type
     AWSResponse DescribeKeyPairs =
       DescribeKeyPairsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest DescribeKeyPairs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeKeyPairs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeKeyPairs where
   hashWithSalt _salt DescribeKeyPairs' {..} =

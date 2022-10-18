@@ -210,9 +210,12 @@ instance Core.AWSRequest EnableMFADevice where
   type
     AWSResponse EnableMFADevice =
       EnableMFADeviceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull EnableMFADeviceResponse'
+
+instance Core.AWSService EnableMFADevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableMFADevice where
   hashWithSalt _salt EnableMFADevice' {..} =

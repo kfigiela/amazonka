@@ -110,9 +110,12 @@ instance Core.AWSRequest AddRoleToDBCluster where
   type
     AWSResponse AddRoleToDBCluster =
       AddRoleToDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AddRoleToDBClusterResponse'
+
+instance Core.AWSService AddRoleToDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddRoleToDBCluster where
   hashWithSalt _salt AddRoleToDBCluster' {..} =

@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeAgentVersions where
   type
     AWSResponse DescribeAgentVersions =
       DescribeAgentVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DescribeAgentVersions where
             Prelude.<$> (x Core..?> "AgentVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAgentVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAgentVersions where
   hashWithSalt _salt DescribeAgentVersions' {..} =

@@ -102,11 +102,14 @@ instance Core.AWSRequest BatchStopUpdateAction where
   type
     AWSResponse BatchStopUpdateAction =
       UpdateActionResultsMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchStopUpdateActionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService BatchStopUpdateAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchStopUpdateAction where
   hashWithSalt _salt BatchStopUpdateAction' {..} =

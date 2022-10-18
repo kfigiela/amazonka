@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeRecipe where
   type
     AWSResponse DescribeRecipe =
       DescribeRecipeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeRecipe where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService DescribeRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRecipe where
   hashWithSalt _salt DescribeRecipe' {..} =

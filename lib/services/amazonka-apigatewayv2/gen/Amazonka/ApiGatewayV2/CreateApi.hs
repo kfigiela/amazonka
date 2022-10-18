@@ -303,7 +303,7 @@ createApi_name = Lens.lens (\CreateApi' {name} -> name) (\s@CreateApi' {} a -> s
 
 instance Core.AWSRequest CreateApi where
   type AWSResponse CreateApi = CreateApiResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -326,6 +326,9 @@ instance Core.AWSRequest CreateApi where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApi where
   hashWithSalt _salt CreateApi' {..} =

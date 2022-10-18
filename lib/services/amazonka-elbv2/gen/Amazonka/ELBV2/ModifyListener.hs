@@ -239,7 +239,7 @@ instance Core.AWSRequest ModifyListener where
   type
     AWSResponse ModifyListener =
       ModifyListenerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyListenerResult"
@@ -250,6 +250,9 @@ instance Core.AWSRequest ModifyListener where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyListener where
   hashWithSalt _salt ModifyListener' {..} =

@@ -119,7 +119,7 @@ instance
   type
     AWSResponse CreateVPCAssociationAuthorization =
       CreateVPCAssociationAuthorizationResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -128,6 +128,12 @@ instance
               Prelude.<*> (x Core..@ "HostedZoneId")
               Prelude.<*> (x Core..@ "VPC")
       )
+
+instance
+  Core.AWSService
+    CreateVPCAssociationAuthorization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

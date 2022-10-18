@@ -252,7 +252,7 @@ instance
   type
     AWSResponse ExportEBSVolumeRecommendations =
       ExportEBSVolumeRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -261,6 +261,12 @@ instance
             Prelude.<*> (x Core..?> "s3Destination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ExportEBSVolumeRecommendations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

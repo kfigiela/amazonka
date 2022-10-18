@@ -165,7 +165,7 @@ instance
     AWSResponse
       DecreaseNodeGroupsInGlobalReplicationGroup =
       DecreaseNodeGroupsInGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DecreaseNodeGroupsInGlobalReplicationGroupResult"
@@ -174,6 +174,12 @@ instance
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DecreaseNodeGroupsInGlobalReplicationGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

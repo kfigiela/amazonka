@@ -105,10 +105,13 @@ instance Core.AWSRequest AdminRemoveUserFromGroup where
   type
     AWSResponse AdminRemoveUserFromGroup =
       AdminRemoveUserFromGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AdminRemoveUserFromGroupResponse'
+
+instance Core.AWSService AdminRemoveUserFromGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminRemoveUserFromGroup where
   hashWithSalt _salt AdminRemoveUserFromGroup' {..} =

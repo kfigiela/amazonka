@@ -91,10 +91,13 @@ instance Core.AWSRequest DeleteRequestValidator where
   type
     AWSResponse DeleteRequestValidator =
       DeleteRequestValidatorResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteRequestValidatorResponse'
+
+instance Core.AWSService DeleteRequestValidator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRequestValidator where
   hashWithSalt _salt DeleteRequestValidator' {..} =

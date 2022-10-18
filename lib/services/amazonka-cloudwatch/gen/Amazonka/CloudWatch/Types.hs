@@ -436,6 +436,7 @@ defaultService =
       Core._serviceEndpointPrefix = "monitoring",
       Core._serviceSigningName = "monitoring",
       Core._serviceVersion = "2010-08-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

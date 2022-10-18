@@ -77,13 +77,16 @@ instance Core.AWSRequest DeleteStoredQuery where
   type
     AWSResponse DeleteStoredQuery =
       DeleteStoredQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteStoredQueryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStoredQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStoredQuery where
   hashWithSalt _salt DeleteStoredQuery' {..} =

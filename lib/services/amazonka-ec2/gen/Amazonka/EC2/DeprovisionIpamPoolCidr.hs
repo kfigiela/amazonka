@@ -112,7 +112,7 @@ instance Core.AWSRequest DeprovisionIpamPoolCidr where
   type
     AWSResponse DeprovisionIpamPoolCidr =
       DeprovisionIpamPoolCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DeprovisionIpamPoolCidr where
             Prelude.<$> (x Core..@? "ipamPoolCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeprovisionIpamPoolCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeprovisionIpamPoolCidr where
   hashWithSalt _salt DeprovisionIpamPoolCidr' {..} =

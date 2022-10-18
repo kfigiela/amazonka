@@ -155,7 +155,7 @@ instance
   type
     AWSResponse GetReadinessCheckResourceStatus =
       GetReadinessCheckResourceStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,12 @@ instance
             Prelude.<*> (x Core..?> "rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetReadinessCheckResourceStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

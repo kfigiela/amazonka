@@ -77,7 +77,7 @@ instance Core.AWSRequest GetNetworkProfile where
   type
     AWSResponse GetNetworkProfile =
       GetNetworkProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetNetworkProfile where
             Prelude.<$> (x Core..?> "networkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNetworkProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetworkProfile where
   hashWithSalt _salt GetNetworkProfile' {..} =

@@ -248,7 +248,7 @@ instance Core.AWSRequest StartReplicationTask where
   type
     AWSResponse StartReplicationTask =
       StartReplicationTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -256,6 +256,9 @@ instance Core.AWSRequest StartReplicationTask where
             Prelude.<$> (x Core..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartReplicationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartReplicationTask where
   hashWithSalt _salt StartReplicationTask' {..} =

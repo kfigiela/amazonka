@@ -87,7 +87,7 @@ instance Core.AWSRequest RegisterAccount where
   type
     AWSResponse RegisterAccount =
       RegisterAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest RegisterAccount where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterAccount where
   hashWithSalt _salt RegisterAccount' {..} =

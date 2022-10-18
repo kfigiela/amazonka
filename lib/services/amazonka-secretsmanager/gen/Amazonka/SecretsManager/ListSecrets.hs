@@ -170,7 +170,7 @@ instance Core.AWSPager ListSecrets where
 
 instance Core.AWSRequest ListSecrets where
   type AWSResponse ListSecrets = ListSecretsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListSecrets where
             Prelude.<*> (x Core..?> "SecretList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSecrets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSecrets where
   hashWithSalt _salt ListSecrets' {..} =

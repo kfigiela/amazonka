@@ -62,7 +62,7 @@ instance Core.AWSRequest GetKMSEncryptionKey where
   type
     AWSResponse GetKMSEncryptionKey =
       GetKMSEncryptionKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetKMSEncryptionKey where
             Prelude.<$> (x Core..?> "kmsKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKMSEncryptionKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKMSEncryptionKey where
   hashWithSalt _salt _ =

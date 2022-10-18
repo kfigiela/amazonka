@@ -120,7 +120,7 @@ instance Core.AWSRequest UpdateTemplateActiveVersion where
   type
     AWSResponse UpdateTemplateActiveVersion =
       UpdateTemplateActiveVersionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest UpdateTemplateActiveVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateTemplateActiveVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTemplateActiveVersion where
   hashWithSalt _salt UpdateTemplateActiveVersion' {..} =

@@ -209,7 +209,7 @@ instance Core.AWSRequest CreateAuthorizer where
   type
     AWSResponse CreateAuthorizer =
       CreateAuthorizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,9 @@ instance Core.AWSRequest CreateAuthorizer where
             Prelude.<*> (x Core..?> "authorizerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAuthorizer where
   hashWithSalt _salt CreateAuthorizer' {..} =

@@ -93,13 +93,16 @@ instance Core.AWSRequest UpdateWorkspaceBundle where
   type
     AWSResponse UpdateWorkspaceBundle =
       UpdateWorkspaceBundleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateWorkspaceBundleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWorkspaceBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkspaceBundle where
   hashWithSalt _salt UpdateWorkspaceBundle' {..} =

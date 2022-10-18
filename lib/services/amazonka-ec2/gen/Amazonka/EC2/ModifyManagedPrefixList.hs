@@ -177,7 +177,7 @@ instance Core.AWSRequest ModifyManagedPrefixList where
   type
     AWSResponse ModifyManagedPrefixList =
       ModifyManagedPrefixListResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest ModifyManagedPrefixList where
             Prelude.<$> (x Core..@? "prefixList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyManagedPrefixList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyManagedPrefixList where
   hashWithSalt _salt ModifyManagedPrefixList' {..} =

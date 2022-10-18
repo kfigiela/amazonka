@@ -139,7 +139,7 @@ instance Core.AWSRequest RevokeClientVpnIngress where
   type
     AWSResponse RevokeClientVpnIngress =
       RevokeClientVpnIngressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest RevokeClientVpnIngress where
             Prelude.<$> (x Core..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeClientVpnIngress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeClientVpnIngress where
   hashWithSalt _salt RevokeClientVpnIngress' {..} =

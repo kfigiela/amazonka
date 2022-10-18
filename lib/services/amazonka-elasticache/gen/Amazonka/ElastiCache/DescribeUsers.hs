@@ -154,7 +154,7 @@ instance Core.AWSRequest DescribeUsers where
   type
     AWSResponse DescribeUsers =
       DescribeUsersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeUsersResult"
@@ -166,6 +166,9 @@ instance Core.AWSRequest DescribeUsers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUsers where
   hashWithSalt _salt DescribeUsers' {..} =

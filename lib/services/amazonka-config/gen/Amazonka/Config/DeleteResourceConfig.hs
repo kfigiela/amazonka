@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteResourceConfig where
   type
     AWSResponse DeleteResourceConfig =
       DeleteResourceConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteResourceConfigResponse'
+
+instance Core.AWSService DeleteResourceConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourceConfig where
   hashWithSalt _salt DeleteResourceConfig' {..} =

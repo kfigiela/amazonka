@@ -108,10 +108,13 @@ updateDomainName_domainName = Lens.lens (\UpdateDomainName' {domainName} -> doma
 
 instance Core.AWSRequest UpdateDomainName where
   type AWSResponse UpdateDomainName = DomainName
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateDomainName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainName where
   hashWithSalt _salt UpdateDomainName' {..} =

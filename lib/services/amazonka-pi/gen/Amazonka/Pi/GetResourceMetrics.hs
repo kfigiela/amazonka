@@ -306,7 +306,7 @@ instance Core.AWSRequest GetResourceMetrics where
   type
     AWSResponse GetResourceMetrics =
       GetResourceMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -318,6 +318,9 @@ instance Core.AWSRequest GetResourceMetrics where
             Prelude.<*> (x Core..?> "AlignedStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceMetrics where
   hashWithSalt _salt GetResourceMetrics' {..} =

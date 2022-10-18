@@ -109,7 +109,7 @@ instance
   type
     AWSResponse GetIdentityVerificationAttributes =
       GetIdentityVerificationAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetIdentityVerificationAttributesResult"
@@ -121,6 +121,12 @@ instance
                               Prelude.>>= Core.parseXMLMap "entry" "key" "value"
                           )
       )
+
+instance
+  Core.AWSService
+    GetIdentityVerificationAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

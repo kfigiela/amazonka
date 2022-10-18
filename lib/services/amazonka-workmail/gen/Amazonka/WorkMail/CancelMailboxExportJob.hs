@@ -109,13 +109,16 @@ instance Core.AWSRequest CancelMailboxExportJob where
   type
     AWSResponse CancelMailboxExportJob =
       CancelMailboxExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelMailboxExportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelMailboxExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelMailboxExportJob where
   hashWithSalt _salt CancelMailboxExportJob' {..} =

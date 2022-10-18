@@ -85,7 +85,7 @@ instance Core.AWSRequest CreateDistributionWithTags where
   type
     AWSResponse CreateDistributionWithTags =
       CreateDistributionWithTagsResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest CreateDistributionWithTags where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDistributionWithTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDistributionWithTags where
   hashWithSalt _salt CreateDistributionWithTags' {..} =

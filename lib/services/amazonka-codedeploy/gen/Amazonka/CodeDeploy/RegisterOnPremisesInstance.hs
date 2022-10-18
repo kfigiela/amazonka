@@ -101,10 +101,13 @@ instance Core.AWSRequest RegisterOnPremisesInstance where
   type
     AWSResponse RegisterOnPremisesInstance =
       RegisterOnPremisesInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RegisterOnPremisesInstanceResponse'
+
+instance Core.AWSService RegisterOnPremisesInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterOnPremisesInstance where
   hashWithSalt _salt RegisterOnPremisesInstance' {..} =

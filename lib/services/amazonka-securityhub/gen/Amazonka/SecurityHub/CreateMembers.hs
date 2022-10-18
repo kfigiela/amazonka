@@ -127,7 +127,7 @@ instance Core.AWSRequest CreateMembers where
   type
     AWSResponse CreateMembers =
       CreateMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest CreateMembers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMembers where
   hashWithSalt _salt CreateMembers' {..} =

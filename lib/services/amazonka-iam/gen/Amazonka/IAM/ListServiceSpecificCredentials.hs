@@ -125,7 +125,7 @@ instance
   type
     AWSResponse ListServiceSpecificCredentials =
       ListServiceSpecificCredentialsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListServiceSpecificCredentialsResult"
@@ -137,6 +137,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListServiceSpecificCredentials
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

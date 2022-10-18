@@ -113,13 +113,16 @@ instance Core.AWSRequest AdminSetUserSettings where
   type
     AWSResponse AdminSetUserSettings =
       AdminSetUserSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminSetUserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminSetUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminSetUserSettings where
   hashWithSalt _salt AdminSetUserSettings' {..} =

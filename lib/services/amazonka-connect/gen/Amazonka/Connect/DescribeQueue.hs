@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeQueue where
   type
     AWSResponse DescribeQueue =
       DescribeQueueResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeQueue where
             Prelude.<$> (x Core..?> "Queue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeQueue where
   hashWithSalt _salt DescribeQueue' {..} =

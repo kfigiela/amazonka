@@ -224,7 +224,7 @@ instance Core.AWSRequest GetMetricWidgetImage where
   type
     AWSResponse GetMetricWidgetImage =
       GetMetricWidgetImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetMetricWidgetImageResult"
@@ -233,6 +233,9 @@ instance Core.AWSRequest GetMetricWidgetImage where
             Prelude.<$> (x Core..@? "MetricWidgetImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMetricWidgetImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetricWidgetImage where
   hashWithSalt _salt GetMetricWidgetImage' {..} =

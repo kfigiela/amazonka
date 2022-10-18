@@ -99,7 +99,7 @@ instance Core.AWSRequest DescribeProgram where
   type
     AWSResponse DescribeProgram =
       DescribeProgramResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeProgram where
             Prelude.<*> (x Core..?> "SourceLocationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProgram where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProgram where
   hashWithSalt _salt DescribeProgram' {..} =

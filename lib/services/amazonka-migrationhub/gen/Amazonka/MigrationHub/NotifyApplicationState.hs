@@ -120,13 +120,16 @@ instance Core.AWSRequest NotifyApplicationState where
   type
     AWSResponse NotifyApplicationState =
       NotifyApplicationStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           NotifyApplicationStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService NotifyApplicationState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable NotifyApplicationState where
   hashWithSalt _salt NotifyApplicationState' {..} =

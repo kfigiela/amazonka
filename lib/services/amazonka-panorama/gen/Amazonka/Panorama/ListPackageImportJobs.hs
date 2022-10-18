@@ -94,7 +94,7 @@ instance Core.AWSRequest ListPackageImportJobs where
   type
     AWSResponse ListPackageImportJobs =
       ListPackageImportJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest ListPackageImportJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListPackageImportJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPackageImportJobs where
   hashWithSalt _salt ListPackageImportJobs' {..} =

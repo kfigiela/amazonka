@@ -147,7 +147,7 @@ instance Core.AWSRequest ListSuppressedDestinations where
   type
     AWSResponse ListSuppressedDestinations =
       ListSuppressedDestinationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest ListSuppressedDestinations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSuppressedDestinations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSuppressedDestinations where
   hashWithSalt _salt ListSuppressedDestinations' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest RegisterConnector where
   type
     AWSResponse RegisterConnector =
       RegisterConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest RegisterConnector where
             Prelude.<$> (x Core..?> "connectorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterConnector where
   hashWithSalt _salt RegisterConnector' {..} =

@@ -113,7 +113,7 @@ instance Core.AWSRequest ListJournalS3Exports where
   type
     AWSResponse ListJournalS3Exports =
       ListJournalS3ExportsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListJournalS3Exports where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListJournalS3Exports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListJournalS3Exports where
   hashWithSalt _salt ListJournalS3Exports' {..} =

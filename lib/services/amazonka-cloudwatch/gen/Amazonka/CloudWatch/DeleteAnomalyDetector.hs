@@ -235,7 +235,7 @@ instance Core.AWSRequest DeleteAnomalyDetector where
   type
     AWSResponse DeleteAnomalyDetector =
       DeleteAnomalyDetectorResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteAnomalyDetectorResult"
@@ -243,6 +243,9 @@ instance Core.AWSRequest DeleteAnomalyDetector where
           DeleteAnomalyDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAnomalyDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAnomalyDetector where
   hashWithSalt _salt DeleteAnomalyDetector' {..} =

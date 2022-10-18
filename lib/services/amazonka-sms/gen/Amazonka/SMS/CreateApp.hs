@@ -134,7 +134,7 @@ createApp_serverGroups = Lens.lens (\CreateApp' {serverGroups} -> serverGroups) 
 
 instance Core.AWSRequest CreateApp where
   type AWSResponse CreateApp = CreateAppResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest CreateApp where
             Prelude.<*> (x Core..?> "serverGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateApp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =

@@ -212,7 +212,7 @@ instance Core.AWSRequest ExportTransitGatewayRoutes where
   type
     AWSResponse ExportTransitGatewayRoutes =
       ExportTransitGatewayRoutesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -220,6 +220,9 @@ instance Core.AWSRequest ExportTransitGatewayRoutes where
             Prelude.<$> (x Core..@? "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportTransitGatewayRoutes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportTransitGatewayRoutes where
   hashWithSalt _salt ExportTransitGatewayRoutes' {..} =

@@ -138,7 +138,7 @@ instance Core.AWSRequest ListInventoryEntries where
   type
     AWSResponse ListInventoryEntries =
       ListInventoryEntriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListInventoryEntries where
             Prelude.<*> (x Core..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInventoryEntries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInventoryEntries where
   hashWithSalt _salt ListInventoryEntries' {..} =

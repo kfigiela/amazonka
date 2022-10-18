@@ -85,13 +85,16 @@ instance Core.AWSRequest DeleteLexicon where
   type
     AWSResponse DeleteLexicon =
       DeleteLexiconResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLexiconResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLexicon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLexicon where
   hashWithSalt _salt DeleteLexicon' {..} =

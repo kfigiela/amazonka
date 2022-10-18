@@ -105,7 +105,7 @@ instance Core.AWSRequest DeleteChangeSet where
   type
     AWSResponse DeleteChangeSet =
       DeleteChangeSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteChangeSetResult"
@@ -113,6 +113,9 @@ instance Core.AWSRequest DeleteChangeSet where
           DeleteChangeSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChangeSet where
   hashWithSalt _salt DeleteChangeSet' {..} =

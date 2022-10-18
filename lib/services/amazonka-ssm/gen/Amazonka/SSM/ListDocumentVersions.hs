@@ -134,7 +134,7 @@ instance Core.AWSRequest ListDocumentVersions where
   type
     AWSResponse ListDocumentVersions =
       ListDocumentVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ListDocumentVersions where
             Prelude.<*> (x Core..?> "DocumentVersions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDocumentVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDocumentVersions where
   hashWithSalt _salt ListDocumentVersions' {..} =

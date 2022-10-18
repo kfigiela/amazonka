@@ -101,7 +101,7 @@ instance Core.AWSRequest UpdateBlueprint where
   type
     AWSResponse UpdateBlueprint =
       UpdateBlueprintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateBlueprint where
             Prelude.<$> (x Core..?> "Name")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBlueprint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBlueprint where
   hashWithSalt _salt UpdateBlueprint' {..} =

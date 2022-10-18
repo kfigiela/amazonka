@@ -151,7 +151,7 @@ instance Core.AWSRequest DescribePhoneNumbers where
   type
     AWSResponse DescribePhoneNumbers =
       DescribePhoneNumbersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest DescribePhoneNumbers where
             Prelude.<*> (x Core..?> "PhoneNumbers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePhoneNumbers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePhoneNumbers where
   hashWithSalt _salt DescribePhoneNumbers' {..} =

@@ -200,7 +200,7 @@ instance Core.AWSRequest DescribeJobDefinitions where
   type
     AWSResponse DescribeJobDefinitions =
       DescribeJobDefinitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest DescribeJobDefinitions where
             Prelude.<*> (x Core..?> "jobDefinitions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJobDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJobDefinitions where
   hashWithSalt _salt DescribeJobDefinitions' {..} =

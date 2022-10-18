@@ -143,7 +143,7 @@ instance Core.AWSRequest ListLanguageModels where
   type
     AWSResponse ListLanguageModels =
       ListLanguageModelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListLanguageModels where
             Prelude.<*> (x Core..?> "Models" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLanguageModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLanguageModels where
   hashWithSalt _salt ListLanguageModels' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest ValidateMatchmakingRuleSet where
   type
     AWSResponse ValidateMatchmakingRuleSet =
       ValidateMatchmakingRuleSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ValidateMatchmakingRuleSet where
             Prelude.<$> (x Core..?> "Valid")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ValidateMatchmakingRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ValidateMatchmakingRuleSet where
   hashWithSalt _salt ValidateMatchmakingRuleSet' {..} =

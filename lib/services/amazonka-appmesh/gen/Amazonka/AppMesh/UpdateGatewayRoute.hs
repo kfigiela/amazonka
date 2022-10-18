@@ -161,7 +161,7 @@ instance Core.AWSRequest UpdateGatewayRoute where
   type
     AWSResponse UpdateGatewayRoute =
       UpdateGatewayRouteResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest UpdateGatewayRoute where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateGatewayRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGatewayRoute where
   hashWithSalt _salt UpdateGatewayRoute' {..} =

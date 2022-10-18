@@ -412,7 +412,7 @@ instance Core.AWSRequest DescribeCapacityReservations where
   type
     AWSResponse DescribeCapacityReservations =
       DescribeCapacityReservationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -424,6 +424,9 @@ instance Core.AWSRequest DescribeCapacityReservations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCapacityReservations where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

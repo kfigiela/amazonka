@@ -872,6 +872,7 @@ defaultService =
       Core._serviceEndpointPrefix = "api.iotwireless",
       Core._serviceSigningName = "iotwireless",
       Core._serviceVersion = "2020-11-22",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

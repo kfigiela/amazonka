@@ -91,7 +91,7 @@ instance Core.AWSRequest ListMediaPipelines where
   type
     AWSResponse ListMediaPipelines =
       ListMediaPipelinesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest ListMediaPipelines where
             Prelude.<*> (x Core..?> "MediaPipelines" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMediaPipelines where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMediaPipelines where
   hashWithSalt _salt ListMediaPipelines' {..} =

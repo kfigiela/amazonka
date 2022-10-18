@@ -186,10 +186,13 @@ instance Core.AWSRequest AllocateHostedConnection where
   type
     AWSResponse AllocateHostedConnection =
       Connection
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService AllocateHostedConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AllocateHostedConnection where
   hashWithSalt _salt AllocateHostedConnection' {..} =

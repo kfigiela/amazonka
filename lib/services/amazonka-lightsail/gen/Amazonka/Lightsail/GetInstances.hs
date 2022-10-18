@@ -110,7 +110,7 @@ instance Core.AWSPager GetInstances where
 
 instance Core.AWSRequest GetInstances where
   type AWSResponse GetInstances = GetInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetInstances where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstances where
   hashWithSalt _salt GetInstances' {..} =

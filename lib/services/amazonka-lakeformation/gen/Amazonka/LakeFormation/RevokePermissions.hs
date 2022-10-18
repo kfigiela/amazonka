@@ -139,13 +139,16 @@ instance Core.AWSRequest RevokePermissions where
   type
     AWSResponse RevokePermissions =
       RevokePermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RevokePermissionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokePermissions where
   hashWithSalt _salt RevokePermissions' {..} =

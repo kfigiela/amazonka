@@ -201,9 +201,12 @@ instance Core.AWSRequest PutUserPolicy where
   type
     AWSResponse PutUserPolicy =
       PutUserPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutUserPolicyResponse'
+
+instance Core.AWSService PutUserPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutUserPolicy where
   hashWithSalt _salt PutUserPolicy' {..} =

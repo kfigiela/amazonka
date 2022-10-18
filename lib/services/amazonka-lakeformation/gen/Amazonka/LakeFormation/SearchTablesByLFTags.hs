@@ -153,7 +153,7 @@ instance Core.AWSRequest SearchTablesByLFTags where
   type
     AWSResponse SearchTablesByLFTags =
       SearchTablesByLFTagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest SearchTablesByLFTags where
             Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchTablesByLFTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchTablesByLFTags where
   hashWithSalt _salt SearchTablesByLFTags' {..} =

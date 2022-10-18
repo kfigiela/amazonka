@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteEmailTemplate where
   type
     AWSResponse DeleteEmailTemplate =
       DeleteEmailTemplateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEmailTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEmailTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEmailTemplate where
   hashWithSalt _salt DeleteEmailTemplate' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetConnectionStatus where
   type
     AWSResponse GetConnectionStatus =
       GetConnectionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetConnectionStatus where
             Prelude.<*> (x Core..?> "Target")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConnectionStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConnectionStatus where
   hashWithSalt _salt GetConnectionStatus' {..} =

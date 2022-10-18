@@ -270,7 +270,7 @@ instance
   type
     AWSResponse CreateDataRepositoryAssociation =
       CreateDataRepositoryAssociationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,12 @@ instance
             Prelude.<$> (x Core..?> "Association")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateDataRepositoryAssociation
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

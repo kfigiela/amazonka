@@ -285,7 +285,7 @@ instance Core.AWSRequest CopyPackageVersions where
   type
     AWSResponse CopyPackageVersions =
       CopyPackageVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -296,6 +296,9 @@ instance Core.AWSRequest CopyPackageVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyPackageVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyPackageVersions where
   hashWithSalt _salt CopyPackageVersions' {..} =

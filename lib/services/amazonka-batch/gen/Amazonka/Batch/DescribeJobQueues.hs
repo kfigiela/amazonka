@@ -172,7 +172,7 @@ instance Core.AWSRequest DescribeJobQueues where
   type
     AWSResponse DescribeJobQueues =
       DescribeJobQueuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest DescribeJobQueues where
             Prelude.<*> (x Core..?> "jobQueues" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJobQueues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJobQueues where
   hashWithSalt _salt DescribeJobQueues' {..} =

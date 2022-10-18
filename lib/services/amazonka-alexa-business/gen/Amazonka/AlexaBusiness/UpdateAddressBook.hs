@@ -98,13 +98,16 @@ instance Core.AWSRequest UpdateAddressBook where
   type
     AWSResponse UpdateAddressBook =
       UpdateAddressBookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAddressBookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAddressBook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAddressBook where
   hashWithSalt _salt UpdateAddressBook' {..} =

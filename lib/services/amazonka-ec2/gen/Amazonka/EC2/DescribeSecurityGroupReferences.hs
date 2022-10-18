@@ -102,7 +102,7 @@ instance
   type
     AWSResponse DescribeSecurityGroupReferences =
       DescribeSecurityGroupReferencesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -113,6 +113,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeSecurityGroupReferences
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

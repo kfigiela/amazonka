@@ -194,9 +194,12 @@ instance Core.AWSRequest RegisterDomain where
   type
     AWSResponse RegisterDomain =
       RegisterDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterDomainResponse'
+
+instance Core.AWSService RegisterDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterDomain where
   hashWithSalt _salt RegisterDomain' {..} =

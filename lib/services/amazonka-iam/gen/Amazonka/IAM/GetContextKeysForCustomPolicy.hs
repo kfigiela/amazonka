@@ -133,11 +133,17 @@ instance
   type
     AWSResponse GetContextKeysForCustomPolicy =
       GetContextKeysForPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetContextKeysForCustomPolicyResult"
       (\s h x -> Core.parseXML x)
+
+instance
+  Core.AWSService
+    GetContextKeysForCustomPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -136,7 +136,7 @@ getBlock_blockAddress = Lens.lens (\GetBlock' {blockAddress} -> blockAddress) (\
 
 instance Core.AWSRequest GetBlock where
   type AWSResponse GetBlock = GetBlockResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest GetBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Block")
       )
+
+instance Core.AWSService GetBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBlock where
   hashWithSalt _salt GetBlock' {..} =

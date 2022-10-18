@@ -111,7 +111,7 @@ instance Core.AWSPager ListGateways where
 
 instance Core.AWSRequest ListGateways where
   type AWSResponse ListGateways = ListGatewaysResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListGateways where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGateways where
   hashWithSalt _salt ListGateways' {..} =

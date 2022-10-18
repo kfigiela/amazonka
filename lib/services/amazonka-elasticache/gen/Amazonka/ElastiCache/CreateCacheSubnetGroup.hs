@@ -140,7 +140,7 @@ instance Core.AWSRequest CreateCacheSubnetGroup where
   type
     AWSResponse CreateCacheSubnetGroup =
       CreateCacheSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCacheSubnetGroupResult"
@@ -149,6 +149,9 @@ instance Core.AWSRequest CreateCacheSubnetGroup where
             Prelude.<$> (x Core..@? "CacheSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCacheSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCacheSubnetGroup where
   hashWithSalt _salt CreateCacheSubnetGroup' {..} =

@@ -98,10 +98,13 @@ getEnvironment_environmentId = Lens.lens (\GetEnvironment' {environmentId} -> en
 
 instance Core.AWSRequest GetEnvironment where
   type AWSResponse GetEnvironment = Environment
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEnvironment where
   hashWithSalt _salt GetEnvironment' {..} =

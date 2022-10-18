@@ -145,7 +145,7 @@ instance Core.AWSRequest SearchAnalyses where
   type
     AWSResponse SearchAnalyses =
       SearchAnalysesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest SearchAnalyses where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchAnalyses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchAnalyses where
   hashWithSalt _salt SearchAnalyses' {..} =

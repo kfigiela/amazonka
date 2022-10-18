@@ -96,9 +96,12 @@ instance Core.AWSRequest DeleteRouteTable where
   type
     AWSResponse DeleteRouteTable =
       DeleteRouteTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteRouteTableResponse'
+
+instance Core.AWSService DeleteRouteTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRouteTable where
   hashWithSalt _salt DeleteRouteTable' {..} =

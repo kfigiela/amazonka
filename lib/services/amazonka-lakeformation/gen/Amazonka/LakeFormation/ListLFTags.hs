@@ -152,7 +152,7 @@ instance Core.AWSPager ListLFTags where
 
 instance Core.AWSRequest ListLFTags where
   type AWSResponse ListLFTags = ListLFTagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListLFTags where
             Prelude.<*> (x Core..?> "LFTags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLFTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLFTags where
   hashWithSalt _salt ListLFTags' {..} =

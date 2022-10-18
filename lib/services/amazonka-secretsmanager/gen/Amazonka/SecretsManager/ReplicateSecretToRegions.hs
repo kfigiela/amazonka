@@ -121,7 +121,7 @@ instance Core.AWSRequest ReplicateSecretToRegions where
   type
     AWSResponse ReplicateSecretToRegions =
       ReplicateSecretToRegionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ReplicateSecretToRegions where
             Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReplicateSecretToRegions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReplicateSecretToRegions where
   hashWithSalt _salt ReplicateSecretToRegions' {..} =

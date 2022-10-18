@@ -106,11 +106,14 @@ authorizeDataShare_consumerIdentifier = Lens.lens (\AuthorizeDataShare' {consume
 
 instance Core.AWSRequest AuthorizeDataShare where
   type AWSResponse AuthorizeDataShare = DataShare
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AuthorizeDataShareResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService AuthorizeDataShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AuthorizeDataShare where
   hashWithSalt _salt AuthorizeDataShare' {..} =

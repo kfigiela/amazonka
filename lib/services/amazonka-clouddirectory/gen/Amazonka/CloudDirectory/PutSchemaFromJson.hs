@@ -94,7 +94,7 @@ instance Core.AWSRequest PutSchemaFromJson where
   type
     AWSResponse PutSchemaFromJson =
       PutSchemaFromJsonResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest PutSchemaFromJson where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSchemaFromJson where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSchemaFromJson where
   hashWithSalt _salt PutSchemaFromJson' {..} =

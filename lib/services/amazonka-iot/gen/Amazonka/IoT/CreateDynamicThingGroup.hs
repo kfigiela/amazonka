@@ -169,7 +169,7 @@ instance Core.AWSRequest CreateDynamicThingGroup where
   type
     AWSResponse CreateDynamicThingGroup =
       CreateDynamicThingGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest CreateDynamicThingGroup where
             Prelude.<*> (x Core..?> "thingGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDynamicThingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDynamicThingGroup where
   hashWithSalt _salt CreateDynamicThingGroup' {..} =

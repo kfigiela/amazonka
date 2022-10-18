@@ -135,7 +135,7 @@ instance Core.AWSRequest GetConnectPeerAssociations where
   type
     AWSResponse GetConnectPeerAssociations =
       GetConnectPeerAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest GetConnectPeerAssociations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConnectPeerAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConnectPeerAssociations where
   hashWithSalt _salt GetConnectPeerAssociations' {..} =

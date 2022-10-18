@@ -91,7 +91,7 @@ instance Core.AWSRequest UpdateTrigger where
   type
     AWSResponse UpdateTrigger =
       UpdateTriggerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest UpdateTrigger where
             Prelude.<$> (x Core..?> "Trigger")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTrigger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTrigger where
   hashWithSalt _salt UpdateTrigger' {..} =

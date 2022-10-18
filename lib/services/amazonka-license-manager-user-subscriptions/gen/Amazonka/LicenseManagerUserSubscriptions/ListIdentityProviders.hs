@@ -111,7 +111,7 @@ instance Core.AWSRequest ListIdentityProviders where
   type
     AWSResponse ListIdentityProviders =
       ListIdentityProvidersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListIdentityProviders where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListIdentityProviders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentityProviders where
   hashWithSalt _salt ListIdentityProviders' {..} =

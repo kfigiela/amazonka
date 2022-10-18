@@ -119,7 +119,7 @@ instance Core.AWSRequest ImportSshPublicKey where
   type
     AWSResponse ImportSshPublicKey =
       ImportSshPublicKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ImportSshPublicKey where
             Prelude.<*> (x Core..:> "SshPublicKeyId")
             Prelude.<*> (x Core..:> "UserName")
       )
+
+instance Core.AWSService ImportSshPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportSshPublicKey where
   hashWithSalt _salt ImportSshPublicKey' {..} =

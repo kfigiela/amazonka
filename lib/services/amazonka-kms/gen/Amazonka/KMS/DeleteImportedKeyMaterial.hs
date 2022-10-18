@@ -141,10 +141,13 @@ instance Core.AWSRequest DeleteImportedKeyMaterial where
   type
     AWSResponse DeleteImportedKeyMaterial =
       DeleteImportedKeyMaterialResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteImportedKeyMaterialResponse'
+
+instance Core.AWSService DeleteImportedKeyMaterial where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImportedKeyMaterial where
   hashWithSalt _salt DeleteImportedKeyMaterial' {..} =

@@ -229,7 +229,7 @@ instance Core.AWSPager ListAttacks where
 
 instance Core.AWSRequest ListAttacks where
   type AWSResponse ListAttacks = ListAttacksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -240,6 +240,9 @@ instance Core.AWSRequest ListAttacks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAttacks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAttacks where
   hashWithSalt _salt ListAttacks' {..} =

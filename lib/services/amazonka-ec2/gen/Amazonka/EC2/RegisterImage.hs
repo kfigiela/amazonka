@@ -479,7 +479,7 @@ instance Core.AWSRequest RegisterImage where
   type
     AWSResponse RegisterImage =
       RegisterImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -487,6 +487,9 @@ instance Core.AWSRequest RegisterImage where
             Prelude.<$> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterImage where
   hashWithSalt _salt RegisterImage' {..} =

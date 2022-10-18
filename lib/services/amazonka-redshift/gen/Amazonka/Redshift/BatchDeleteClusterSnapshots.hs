@@ -79,7 +79,7 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
   type
     AWSResponse BatchDeleteClusterSnapshots =
       BatchDeleteClusterSnapshotsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchDeleteClusterSnapshotsResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest BatchDeleteClusterSnapshots where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteClusterSnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteClusterSnapshots where
   hashWithSalt _salt BatchDeleteClusterSnapshots' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest GetVirtualMachine where
   type
     AWSResponse GetVirtualMachine =
       GetVirtualMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetVirtualMachine where
             Prelude.<$> (x Core..?> "VirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVirtualMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVirtualMachine where
   hashWithSalt _salt GetVirtualMachine' {..} =

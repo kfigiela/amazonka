@@ -88,7 +88,7 @@ instance Core.AWSRequest GetKeyGroupConfig where
   type
     AWSResponse GetKeyGroupConfig =
       GetKeyGroupConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetKeyGroupConfig where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKeyGroupConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKeyGroupConfig where
   hashWithSalt _salt GetKeyGroupConfig' {..} =

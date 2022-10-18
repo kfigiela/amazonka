@@ -91,7 +91,7 @@ instance Core.AWSRequest GetMissionProfile where
   type
     AWSResponse GetMissionProfile =
       GetMissionProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetMissionProfile where
             Prelude.<*> (x Core..?> "trackingConfigArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMissionProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMissionProfile where
   hashWithSalt _salt GetMissionProfile' {..} =

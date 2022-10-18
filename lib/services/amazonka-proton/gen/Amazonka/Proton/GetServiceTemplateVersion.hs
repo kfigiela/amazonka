@@ -116,7 +116,7 @@ instance Core.AWSRequest GetServiceTemplateVersion where
   type
     AWSResponse GetServiceTemplateVersion =
       GetServiceTemplateVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest GetServiceTemplateVersion where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "serviceTemplateVersion")
       )
+
+instance Core.AWSService GetServiceTemplateVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServiceTemplateVersion where
   hashWithSalt _salt GetServiceTemplateVersion' {..} =

@@ -131,13 +131,16 @@ enableSso_directoryId = Lens.lens (\EnableSso' {directoryId} -> directoryId) (\s
 
 instance Core.AWSRequest EnableSso where
   type AWSResponse EnableSso = EnableSsoResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableSsoResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableSso where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableSso where
   hashWithSalt _salt EnableSso' {..} =

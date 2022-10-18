@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeProvisioningTemplate where
   type
     AWSResponse DescribeProvisioningTemplate =
       DescribeProvisioningTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeProvisioningTemplate where
             Prelude.<*> (x Core..?> "provisioningRoleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProvisioningTemplate where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

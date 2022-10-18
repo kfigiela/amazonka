@@ -78,7 +78,7 @@ instance Core.AWSRequest DeleteFHIRDatastore where
   type
     AWSResponse DeleteFHIRDatastore =
       DeleteFHIRDatastoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteFHIRDatastore where
             Prelude.<*> (x Core..:> "DatastoreStatus")
             Prelude.<*> (x Core..:> "DatastoreEndpoint")
       )
+
+instance Core.AWSService DeleteFHIRDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFHIRDatastore where
   hashWithSalt _salt DeleteFHIRDatastore' {..} =

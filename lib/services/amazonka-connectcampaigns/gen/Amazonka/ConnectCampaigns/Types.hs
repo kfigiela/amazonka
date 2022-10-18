@@ -202,6 +202,7 @@ defaultService =
       Core._serviceEndpointPrefix = "connect-campaigns",
       Core._serviceSigningName = "connect-campaigns",
       Core._serviceVersion = "2021-01-30",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

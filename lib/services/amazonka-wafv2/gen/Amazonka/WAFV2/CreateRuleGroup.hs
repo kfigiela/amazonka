@@ -294,7 +294,7 @@ instance Core.AWSRequest CreateRuleGroup where
   type
     AWSResponse CreateRuleGroup =
       CreateRuleGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -302,6 +302,9 @@ instance Core.AWSRequest CreateRuleGroup where
             Prelude.<$> (x Core..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRuleGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRuleGroup where
   hashWithSalt _salt CreateRuleGroup' {..} =

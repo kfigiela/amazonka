@@ -166,7 +166,7 @@ instance Core.AWSRequest PutIntegration where
   type
     AWSResponse PutIntegration =
       PutIntegrationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest PutIntegration where
             Prelude.<*> (x Core..:> "CreatedAt")
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
+
+instance Core.AWSService PutIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutIntegration where
   hashWithSalt _salt PutIntegration' {..} =

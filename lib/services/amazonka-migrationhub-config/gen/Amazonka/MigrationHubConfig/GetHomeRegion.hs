@@ -66,7 +66,7 @@ instance Core.AWSRequest GetHomeRegion where
   type
     AWSResponse GetHomeRegion =
       GetHomeRegionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,9 @@ instance Core.AWSRequest GetHomeRegion where
             Prelude.<$> (x Core..?> "HomeRegion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetHomeRegion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHomeRegion where
   hashWithSalt _salt _ =

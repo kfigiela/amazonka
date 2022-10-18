@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeRiskConfiguration where
   type
     AWSResponse DescribeRiskConfiguration =
       DescribeRiskConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DescribeRiskConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "RiskConfiguration")
       )
+
+instance Core.AWSService DescribeRiskConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRiskConfiguration where
   hashWithSalt _salt DescribeRiskConfiguration' {..} =

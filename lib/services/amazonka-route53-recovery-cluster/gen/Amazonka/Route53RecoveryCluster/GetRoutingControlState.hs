@@ -111,7 +111,7 @@ instance Core.AWSRequest GetRoutingControlState where
   type
     AWSResponse GetRoutingControlState =
       GetRoutingControlStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetRoutingControlState where
             Prelude.<*> (x Core..:> "RoutingControlArn")
             Prelude.<*> (x Core..:> "RoutingControlState")
       )
+
+instance Core.AWSService GetRoutingControlState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRoutingControlState where
   hashWithSalt _salt GetRoutingControlState' {..} =

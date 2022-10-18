@@ -110,7 +110,7 @@ instance Core.AWSRequest ListProxySessions where
   type
     AWSResponse ListProxySessions =
       ListProxySessionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListProxySessions where
             Prelude.<*> (x Core..?> "ProxySessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProxySessions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProxySessions where
   hashWithSalt _salt ListProxySessions' {..} =

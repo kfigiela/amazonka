@@ -70,7 +70,7 @@ instance Core.AWSRequest DescribeAdjustmentTypes where
   type
     AWSResponse DescribeAdjustmentTypes =
       DescribeAdjustmentTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAdjustmentTypesResult"
@@ -81,6 +81,9 @@ instance Core.AWSRequest DescribeAdjustmentTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAdjustmentTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAdjustmentTypes where
   hashWithSalt _salt _ =

@@ -127,7 +127,7 @@ instance Core.AWSRequest PublishSchema where
   type
     AWSResponse PublishSchema =
       PublishSchemaResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest PublishSchema where
             Prelude.<$> (x Core..?> "PublishedSchemaArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PublishSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishSchema where
   hashWithSalt _salt PublishSchema' {..} =

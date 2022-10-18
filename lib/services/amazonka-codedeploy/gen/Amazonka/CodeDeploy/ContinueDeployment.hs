@@ -100,9 +100,12 @@ instance Core.AWSRequest ContinueDeployment where
   type
     AWSResponse ContinueDeployment =
       ContinueDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ContinueDeploymentResponse'
+
+instance Core.AWSService ContinueDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ContinueDeployment where
   hashWithSalt _salt ContinueDeployment' {..} =

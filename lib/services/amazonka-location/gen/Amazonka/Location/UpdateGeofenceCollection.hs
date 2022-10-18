@@ -115,7 +115,7 @@ instance Core.AWSRequest UpdateGeofenceCollection where
   type
     AWSResponse UpdateGeofenceCollection =
       UpdateGeofenceCollectionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdateGeofenceCollection where
             Prelude.<*> (x Core..:> "CollectionName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService UpdateGeofenceCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGeofenceCollection where
   hashWithSalt _salt UpdateGeofenceCollection' {..} =

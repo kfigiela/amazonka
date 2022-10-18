@@ -112,7 +112,7 @@ instance Core.AWSRequest CreateSkillGroup where
   type
     AWSResponse CreateSkillGroup =
       CreateSkillGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateSkillGroup where
             Prelude.<$> (x Core..?> "SkillGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSkillGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSkillGroup where
   hashWithSalt _salt CreateSkillGroup' {..} =

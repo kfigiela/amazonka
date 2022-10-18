@@ -97,7 +97,7 @@ instance Core.AWSRequest GetGroupCertificateAuthority where
   type
     AWSResponse GetGroupCertificateAuthority =
       GetGroupCertificateAuthorityResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetGroupCertificateAuthority where
             Prelude.<*> (x Core..?> "GroupCertificateAuthorityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGroupCertificateAuthority where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

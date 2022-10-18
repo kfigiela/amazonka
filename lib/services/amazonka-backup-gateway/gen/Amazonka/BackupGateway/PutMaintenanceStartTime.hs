@@ -136,7 +136,7 @@ instance Core.AWSRequest PutMaintenanceStartTime where
   type
     AWSResponse PutMaintenanceStartTime =
       PutMaintenanceStartTimeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest PutMaintenanceStartTime where
             Prelude.<$> (x Core..?> "GatewayArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutMaintenanceStartTime where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMaintenanceStartTime where
   hashWithSalt _salt PutMaintenanceStartTime' {..} =

@@ -579,7 +579,7 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
   type
     AWSResponse GetLoadBalancerMetricData =
       GetLoadBalancerMetricDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -588,6 +588,9 @@ instance Core.AWSRequest GetLoadBalancerMetricData where
             Prelude.<*> (x Core..?> "metricData" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLoadBalancerMetricData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLoadBalancerMetricData where
   hashWithSalt _salt GetLoadBalancerMetricData' {..} =

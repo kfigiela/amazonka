@@ -328,7 +328,7 @@ instance Core.AWSPager ListUploads where
 
 instance Core.AWSRequest ListUploads where
   type AWSResponse ListUploads = ListUploadsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -337,6 +337,9 @@ instance Core.AWSRequest ListUploads where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUploads where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUploads where
   hashWithSalt _salt ListUploads' {..} =

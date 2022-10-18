@@ -86,10 +86,13 @@ instance Core.AWSRequest DeleteOrganizationConfigRule where
   type
     AWSResponse DeleteOrganizationConfigRule =
       DeleteOrganizationConfigRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteOrganizationConfigRuleResponse'
+
+instance Core.AWSService DeleteOrganizationConfigRule where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

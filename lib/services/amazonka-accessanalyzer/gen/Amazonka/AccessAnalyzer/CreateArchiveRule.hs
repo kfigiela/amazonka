@@ -116,9 +116,12 @@ instance Core.AWSRequest CreateArchiveRule where
   type
     AWSResponse CreateArchiveRule =
       CreateArchiveRuleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull CreateArchiveRuleResponse'
+
+instance Core.AWSService CreateArchiveRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateArchiveRule where
   hashWithSalt _salt CreateArchiveRule' {..} =

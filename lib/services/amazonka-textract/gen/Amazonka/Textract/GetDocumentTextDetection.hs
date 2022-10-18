@@ -162,7 +162,7 @@ instance Core.AWSRequest GetDocumentTextDetection where
   type
     AWSResponse GetDocumentTextDetection =
       GetDocumentTextDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest GetDocumentTextDetection where
             Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDocumentTextDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocumentTextDetection where
   hashWithSalt _salt GetDocumentTextDetection' {..} =

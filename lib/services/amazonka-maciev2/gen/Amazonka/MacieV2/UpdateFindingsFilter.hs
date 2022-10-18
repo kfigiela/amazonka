@@ -197,7 +197,7 @@ instance Core.AWSRequest UpdateFindingsFilter where
   type
     AWSResponse UpdateFindingsFilter =
       UpdateFindingsFilterResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest UpdateFindingsFilter where
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFindingsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFindingsFilter where
   hashWithSalt _salt UpdateFindingsFilter' {..} =

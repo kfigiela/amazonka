@@ -85,7 +85,7 @@ instance Core.AWSRequest DeleteInsightRules where
   type
     AWSResponse DeleteInsightRules =
       DeleteInsightRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteInsightRulesResult"
@@ -96,6 +96,9 @@ instance Core.AWSRequest DeleteInsightRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInsightRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInsightRules where
   hashWithSalt _salt DeleteInsightRules' {..} =

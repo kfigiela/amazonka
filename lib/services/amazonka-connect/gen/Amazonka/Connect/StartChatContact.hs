@@ -242,7 +242,7 @@ instance Core.AWSRequest StartChatContact where
   type
     AWSResponse StartChatContact =
       StartChatContactResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -252,6 +252,9 @@ instance Core.AWSRequest StartChatContact where
             Prelude.<*> (x Core..?> "ParticipantToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartChatContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartChatContact where
   hashWithSalt _salt StartChatContact' {..} =

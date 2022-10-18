@@ -100,7 +100,7 @@ instance Core.AWSRequest MoveReplicationTask where
   type
     AWSResponse MoveReplicationTask =
       MoveReplicationTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest MoveReplicationTask where
             Prelude.<$> (x Core..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MoveReplicationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MoveReplicationTask where
   hashWithSalt _salt MoveReplicationTask' {..} =

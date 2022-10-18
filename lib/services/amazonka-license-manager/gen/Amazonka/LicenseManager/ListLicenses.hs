@@ -130,7 +130,7 @@ listLicenses_maxResults = Lens.lens (\ListLicenses' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListLicenses where
   type AWSResponse ListLicenses = ListLicensesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListLicenses where
             Prelude.<*> (x Core..?> "Licenses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLicenses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLicenses where
   hashWithSalt _salt ListLicenses' {..} =

@@ -124,9 +124,12 @@ instance Core.AWSRequest AddTagsToCertificate where
   type
     AWSResponse AddTagsToCertificate =
       AddTagsToCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AddTagsToCertificateResponse'
+
+instance Core.AWSService AddTagsToCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTagsToCertificate where
   hashWithSalt _salt AddTagsToCertificate' {..} =

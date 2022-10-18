@@ -63,7 +63,7 @@ instance Core.AWSRequest CreateUploadUrl where
   type
     AWSResponse CreateUploadUrl =
       CreateUploadUrlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest CreateUploadUrl where
             Prelude.<*> (x Core..?> "importId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUploadUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUploadUrl where
   hashWithSalt _salt _ =

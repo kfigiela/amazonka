@@ -99,7 +99,7 @@ instance Core.AWSRequest GetChangeTokenStatus where
   type
     AWSResponse GetChangeTokenStatus =
       GetChangeTokenStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetChangeTokenStatus where
             Prelude.<$> (x Core..?> "ChangeTokenStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChangeTokenStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChangeTokenStatus where
   hashWithSalt _salt GetChangeTokenStatus' {..} =

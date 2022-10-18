@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteWhatIfForecast where
   type
     AWSResponse DeleteWhatIfForecast =
       DeleteWhatIfForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteWhatIfForecastResponse'
+
+instance Core.AWSService DeleteWhatIfForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWhatIfForecast where
   hashWithSalt _salt DeleteWhatIfForecast' {..} =

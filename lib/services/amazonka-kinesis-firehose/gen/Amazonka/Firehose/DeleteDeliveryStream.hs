@@ -132,13 +132,16 @@ instance Core.AWSRequest DeleteDeliveryStream where
   type
     AWSResponse DeleteDeliveryStream =
       DeleteDeliveryStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDeliveryStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDeliveryStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDeliveryStream where
   hashWithSalt _salt DeleteDeliveryStream' {..} =

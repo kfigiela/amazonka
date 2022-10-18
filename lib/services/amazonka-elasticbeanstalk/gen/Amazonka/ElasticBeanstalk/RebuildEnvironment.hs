@@ -112,9 +112,12 @@ instance Core.AWSRequest RebuildEnvironment where
   type
     AWSResponse RebuildEnvironment =
       RebuildEnvironmentResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RebuildEnvironmentResponse'
+
+instance Core.AWSService RebuildEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebuildEnvironment where
   hashWithSalt _salt RebuildEnvironment' {..} =

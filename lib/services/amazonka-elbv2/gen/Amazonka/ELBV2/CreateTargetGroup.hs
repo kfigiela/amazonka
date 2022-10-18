@@ -471,7 +471,7 @@ instance Core.AWSRequest CreateTargetGroup where
   type
     AWSResponse CreateTargetGroup =
       CreateTargetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateTargetGroupResult"
@@ -482,6 +482,9 @@ instance Core.AWSRequest CreateTargetGroup where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTargetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTargetGroup where
   hashWithSalt _salt CreateTargetGroup' {..} =

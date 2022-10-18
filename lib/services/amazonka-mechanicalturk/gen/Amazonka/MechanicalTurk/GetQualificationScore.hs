@@ -102,7 +102,7 @@ instance Core.AWSRequest GetQualificationScore where
   type
     AWSResponse GetQualificationScore =
       GetQualificationScoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetQualificationScore where
             Prelude.<$> (x Core..?> "Qualification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetQualificationScore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQualificationScore where
   hashWithSalt _salt GetQualificationScore' {..} =

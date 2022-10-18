@@ -80,7 +80,7 @@ getDomain_domainId = Lens.lens (\GetDomain' {domainId} -> domainId) (\s@GetDomai
 
 instance Core.AWSRequest GetDomain where
   type AWSResponse GetDomain = GetDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetDomain where
             Prelude.<*> (x Core..:> "domainStatus")
             Prelude.<*> (x Core..:> "name")
       )
+
+instance Core.AWSService GetDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomain where
   hashWithSalt _salt GetDomain' {..} =

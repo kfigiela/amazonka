@@ -99,7 +99,7 @@ instance Core.AWSRequest AddNotificationChannels where
   type
     AWSResponse AddNotificationChannels =
       AddNotificationChannelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest AddNotificationChannels where
             Prelude.<$> (x Core..?> "notificationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddNotificationChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddNotificationChannels where
   hashWithSalt _salt AddNotificationChannels' {..} =

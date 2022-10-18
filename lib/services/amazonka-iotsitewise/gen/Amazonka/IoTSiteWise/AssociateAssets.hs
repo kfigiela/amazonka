@@ -133,9 +133,12 @@ instance Core.AWSRequest AssociateAssets where
   type
     AWSResponse AssociateAssets =
       AssociateAssetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssociateAssetsResponse'
+
+instance Core.AWSService AssociateAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateAssets where
   hashWithSalt _salt AssociateAssets' {..} =

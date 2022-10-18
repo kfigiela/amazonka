@@ -101,7 +101,7 @@ updateRecipe_name = Lens.lens (\UpdateRecipe' {name} -> name) (\s@UpdateRecipe' 
 
 instance Core.AWSRequest UpdateRecipe where
   type AWSResponse UpdateRecipe = UpdateRecipeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateRecipe where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService UpdateRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRecipe where
   hashWithSalt _salt UpdateRecipe' {..} =

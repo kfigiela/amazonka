@@ -154,7 +154,7 @@ instance Core.AWSRequest DescribeCacheSecurityGroups where
   type
     AWSResponse DescribeCacheSecurityGroups =
       DescribeCacheSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheSecurityGroupsResult"
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeCacheSecurityGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCacheSecurityGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCacheSecurityGroups where
   hashWithSalt _salt DescribeCacheSecurityGroups' {..} =

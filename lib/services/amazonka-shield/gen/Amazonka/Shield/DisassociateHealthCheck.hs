@@ -108,13 +108,16 @@ instance Core.AWSRequest DisassociateHealthCheck where
   type
     AWSResponse DisassociateHealthCheck =
       DisassociateHealthCheckResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateHealthCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateHealthCheck where
   hashWithSalt _salt DisassociateHealthCheck' {..} =

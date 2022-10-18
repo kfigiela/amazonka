@@ -218,7 +218,7 @@ instance Core.AWSRequest CreateReplicationJob where
   type
     AWSResponse CreateReplicationJob =
       CreateReplicationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest CreateReplicationJob where
             Prelude.<$> (x Core..?> "replicationJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateReplicationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReplicationJob where
   hashWithSalt _salt CreateReplicationJob' {..} =

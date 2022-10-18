@@ -96,7 +96,7 @@ instance Core.AWSRequest TestRepositoryTriggers where
   type
     AWSResponse TestRepositoryTriggers =
       TestRepositoryTriggersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest TestRepositoryTriggers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestRepositoryTriggers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestRepositoryTriggers where
   hashWithSalt _salt TestRepositoryTriggers' {..} =

@@ -275,10 +275,13 @@ instance Core.AWSRequest CreateDeploymentStrategy where
   type
     AWSResponse CreateDeploymentStrategy =
       DeploymentStrategy
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateDeploymentStrategy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDeploymentStrategy where
   hashWithSalt _salt CreateDeploymentStrategy' {..} =

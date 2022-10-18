@@ -93,7 +93,7 @@ instance Core.AWSRequest VerifyOTPMessage where
   type
     AWSResponse VerifyOTPMessage =
       VerifyOTPMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest VerifyOTPMessage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService VerifyOTPMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyOTPMessage where
   hashWithSalt _salt VerifyOTPMessage' {..} =

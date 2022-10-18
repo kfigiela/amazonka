@@ -142,7 +142,7 @@ instance Core.AWSRequest CreateAppInstanceUser where
   type
     AWSResponse CreateAppInstanceUser =
       CreateAppInstanceUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest CreateAppInstanceUser where
             Prelude.<$> (x Core..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAppInstanceUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAppInstanceUser where
   hashWithSalt _salt CreateAppInstanceUser' {..} =

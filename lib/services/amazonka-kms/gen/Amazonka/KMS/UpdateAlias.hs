@@ -222,8 +222,11 @@ updateAlias_targetKeyId = Lens.lens (\UpdateAlias' {targetKeyId} -> targetKeyId)
 
 instance Core.AWSRequest UpdateAlias where
   type AWSResponse UpdateAlias = UpdateAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull UpdateAliasResponse'
+
+instance Core.AWSService UpdateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAlias where
   hashWithSalt _salt UpdateAlias' {..} =

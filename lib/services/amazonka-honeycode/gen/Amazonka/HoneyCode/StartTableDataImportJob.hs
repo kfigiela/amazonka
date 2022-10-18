@@ -200,7 +200,7 @@ instance Core.AWSRequest StartTableDataImportJob where
   type
     AWSResponse StartTableDataImportJob =
       StartTableDataImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest StartTableDataImportJob where
             Prelude.<*> (x Core..:> "jobId")
             Prelude.<*> (x Core..:> "jobStatus")
       )
+
+instance Core.AWSService StartTableDataImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartTableDataImportJob where
   hashWithSalt _salt StartTableDataImportJob' {..} =

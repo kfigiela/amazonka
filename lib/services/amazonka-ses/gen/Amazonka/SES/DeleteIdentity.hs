@@ -85,7 +85,7 @@ instance Core.AWSRequest DeleteIdentity where
   type
     AWSResponse DeleteIdentity =
       DeleteIdentityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteIdentityResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest DeleteIdentity where
           DeleteIdentityResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIdentity where
   hashWithSalt _salt DeleteIdentity' {..} =

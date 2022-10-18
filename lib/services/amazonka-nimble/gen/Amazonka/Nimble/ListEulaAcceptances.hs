@@ -124,7 +124,7 @@ instance Core.AWSRequest ListEulaAcceptances where
   type
     AWSResponse ListEulaAcceptances =
       ListEulaAcceptancesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListEulaAcceptances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEulaAcceptances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEulaAcceptances where
   hashWithSalt _salt ListEulaAcceptances' {..} =

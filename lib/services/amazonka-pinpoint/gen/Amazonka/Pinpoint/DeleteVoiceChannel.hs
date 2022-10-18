@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteVoiceChannel where
   type
     AWSResponse DeleteVoiceChannel =
       DeleteVoiceChannelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteVoiceChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteVoiceChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVoiceChannel where
   hashWithSalt _salt DeleteVoiceChannel' {..} =

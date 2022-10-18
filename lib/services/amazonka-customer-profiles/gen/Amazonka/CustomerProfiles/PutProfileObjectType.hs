@@ -242,7 +242,7 @@ instance Core.AWSRequest PutProfileObjectType where
   type
     AWSResponse PutProfileObjectType =
       PutProfileObjectTypeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -261,6 +261,9 @@ instance Core.AWSRequest PutProfileObjectType where
             Prelude.<*> (x Core..:> "ObjectTypeName")
             Prelude.<*> (x Core..:> "Description")
       )
+
+instance Core.AWSService PutProfileObjectType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutProfileObjectType where
   hashWithSalt _salt PutProfileObjectType' {..} =

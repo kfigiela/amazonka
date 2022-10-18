@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeDataSetPermissions where
   type
     AWSResponse DescribeDataSetPermissions =
       DescribeDataSetPermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DescribeDataSetPermissions where
             Prelude.<*> (x Core..?> "DataSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDataSetPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDataSetPermissions where
   hashWithSalt _salt DescribeDataSetPermissions' {..} =

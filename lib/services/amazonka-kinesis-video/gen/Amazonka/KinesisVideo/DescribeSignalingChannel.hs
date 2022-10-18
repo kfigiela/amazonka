@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeSignalingChannel where
   type
     AWSResponse DescribeSignalingChannel =
       DescribeSignalingChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DescribeSignalingChannel where
             Prelude.<$> (x Core..?> "ChannelInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSignalingChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSignalingChannel where
   hashWithSalt _salt DescribeSignalingChannel' {..} =

@@ -112,7 +112,7 @@ instance Core.AWSRequest GetCanaryRuns where
   type
     AWSResponse GetCanaryRuns =
       GetCanaryRunsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetCanaryRuns where
             Prelude.<*> (x Core..?> "CanaryRuns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCanaryRuns where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCanaryRuns where
   hashWithSalt _salt GetCanaryRuns' {..} =

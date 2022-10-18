@@ -106,13 +106,16 @@ instance Core.AWSRequest DeleteDataCellsFilter where
   type
     AWSResponse DeleteDataCellsFilter =
       DeleteDataCellsFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDataCellsFilterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDataCellsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDataCellsFilter where
   hashWithSalt _salt DeleteDataCellsFilter' {..} =

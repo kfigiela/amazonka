@@ -105,7 +105,7 @@ instance
   type
     AWSResponse DeregisterInstancesFromLoadBalancer =
       DeregisterInstancesFromLoadBalancerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeregisterInstancesFromLoadBalancerResult"
@@ -116,6 +116,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeregisterInstancesFromLoadBalancer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

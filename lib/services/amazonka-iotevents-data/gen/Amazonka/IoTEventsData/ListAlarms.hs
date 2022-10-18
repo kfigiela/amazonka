@@ -99,7 +99,7 @@ listAlarms_alarmModelName = Lens.lens (\ListAlarms' {alarmModelName} -> alarmMod
 
 instance Core.AWSRequest ListAlarms where
   type AWSResponse ListAlarms = ListAlarmsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ListAlarms where
             Prelude.<*> (x Core..?> "alarmSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAlarms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAlarms where
   hashWithSalt _salt ListAlarms' {..} =

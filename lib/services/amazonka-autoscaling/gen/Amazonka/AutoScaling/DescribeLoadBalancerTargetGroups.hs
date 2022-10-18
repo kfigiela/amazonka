@@ -164,7 +164,7 @@ instance
   type
     AWSResponse DescribeLoadBalancerTargetGroups =
       DescribeLoadBalancerTargetGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLoadBalancerTargetGroupsResult"
@@ -177,6 +177,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeLoadBalancerTargetGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -1098,6 +1098,7 @@ defaultService =
       Core._serviceEndpointPrefix = "dynamodb",
       Core._serviceSigningName = "dynamodb",
       Core._serviceVersion = "2012-08-10",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

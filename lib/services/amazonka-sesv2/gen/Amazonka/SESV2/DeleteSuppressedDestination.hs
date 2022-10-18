@@ -85,13 +85,16 @@ instance Core.AWSRequest DeleteSuppressedDestination where
   type
     AWSResponse DeleteSuppressedDestination =
       DeleteSuppressedDestinationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSuppressedDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSuppressedDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSuppressedDestination where
   hashWithSalt _salt DeleteSuppressedDestination' {..} =

@@ -305,7 +305,7 @@ instance
   type
     AWSResponse CreateCapacityReservationFleet =
       CreateCapacityReservationFleetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -328,6 +328,12 @@ instance
             Prelude.<*> (x Core..@? "tenancy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateCapacityReservationFleet
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

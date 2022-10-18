@@ -125,7 +125,7 @@ instance Core.AWSRequest ListGeofenceCollections where
   type
     AWSResponse ListGeofenceCollections =
       ListGeofenceCollectionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListGeofenceCollections where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListGeofenceCollections where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGeofenceCollections where
   hashWithSalt _salt ListGeofenceCollections' {..} =

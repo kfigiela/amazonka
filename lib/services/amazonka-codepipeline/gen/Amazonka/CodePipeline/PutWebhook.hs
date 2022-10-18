@@ -107,7 +107,7 @@ putWebhook_webhook = Lens.lens (\PutWebhook' {webhook} -> webhook) (\s@PutWebhoo
 
 instance Core.AWSRequest PutWebhook where
   type AWSResponse PutWebhook = PutWebhookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest PutWebhook where
             Prelude.<$> (x Core..?> "webhook")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutWebhook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutWebhook where
   hashWithSalt _salt PutWebhook' {..} =

@@ -132,7 +132,7 @@ instance
     AWSResponse
       DescribeReplicationConfigurationTemplates =
       DescribeReplicationConfigurationTemplatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,12 @@ instance
               Prelude.<*> (x Core..?> "nextToken")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeReplicationConfigurationTemplates
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

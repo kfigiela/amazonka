@@ -128,13 +128,16 @@ disableSso_directoryId = Lens.lens (\DisableSso' {directoryId} -> directoryId) (
 
 instance Core.AWSRequest DisableSso where
   type AWSResponse DisableSso = DisableSsoResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableSsoResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableSso where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableSso where
   hashWithSalt _salt DisableSso' {..} =

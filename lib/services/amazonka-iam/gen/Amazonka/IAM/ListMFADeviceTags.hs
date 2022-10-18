@@ -159,7 +159,7 @@ instance Core.AWSRequest ListMFADeviceTags where
   type
     AWSResponse ListMFADeviceTags =
       ListMFADeviceTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListMFADeviceTagsResult"
@@ -172,6 +172,9 @@ instance Core.AWSRequest ListMFADeviceTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListMFADeviceTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMFADeviceTags where
   hashWithSalt _salt ListMFADeviceTags' {..} =

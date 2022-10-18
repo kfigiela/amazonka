@@ -109,9 +109,12 @@ instance Core.AWSRequest DeleteRecoveryPoint where
   type
     AWSResponse DeleteRecoveryPoint =
       DeleteRecoveryPointResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRecoveryPointResponse'
+
+instance Core.AWSService DeleteRecoveryPoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRecoveryPoint where
   hashWithSalt _salt DeleteRecoveryPoint' {..} =

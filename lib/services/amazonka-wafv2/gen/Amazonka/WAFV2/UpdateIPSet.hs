@@ -321,7 +321,7 @@ updateIPSet_lockToken = Lens.lens (\UpdateIPSet' {lockToken} -> lockToken) (\s@U
 
 instance Core.AWSRequest UpdateIPSet where
   type AWSResponse UpdateIPSet = UpdateIPSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -329,6 +329,9 @@ instance Core.AWSRequest UpdateIPSet where
             Prelude.<$> (x Core..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIPSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIPSet where
   hashWithSalt _salt UpdateIPSet' {..} =

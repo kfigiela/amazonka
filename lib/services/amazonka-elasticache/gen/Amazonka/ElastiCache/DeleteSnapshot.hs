@@ -83,7 +83,7 @@ instance Core.AWSRequest DeleteSnapshot where
   type
     AWSResponse DeleteSnapshot =
       DeleteSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteSnapshotResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteSnapshot where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSnapshot where
   hashWithSalt _salt DeleteSnapshot' {..} =

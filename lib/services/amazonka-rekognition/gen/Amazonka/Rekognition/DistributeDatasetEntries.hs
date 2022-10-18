@@ -103,13 +103,16 @@ instance Core.AWSRequest DistributeDatasetEntries where
   type
     AWSResponse DistributeDatasetEntries =
       DistributeDatasetEntriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DistributeDatasetEntriesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DistributeDatasetEntries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DistributeDatasetEntries where
   hashWithSalt _salt DistributeDatasetEntries' {..} =

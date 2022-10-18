@@ -148,7 +148,7 @@ instance
   type
     AWSResponse CreateDeliverabilityTestReport =
       CreateDeliverabilityTestReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,12 @@ instance
             Prelude.<*> (x Core..:> "ReportId")
             Prelude.<*> (x Core..:> "DeliverabilityTestStatus")
       )
+
+instance
+  Core.AWSService
+    CreateDeliverabilityTestReport
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

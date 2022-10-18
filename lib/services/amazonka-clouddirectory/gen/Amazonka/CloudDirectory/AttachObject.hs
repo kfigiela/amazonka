@@ -125,7 +125,7 @@ attachObject_linkName = Lens.lens (\AttachObject' {linkName} -> linkName) (\s@At
 
 instance Core.AWSRequest AttachObject where
   type AWSResponse AttachObject = AttachObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest AttachObject where
             Prelude.<$> (x Core..?> "AttachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachObject where
   hashWithSalt _salt AttachObject' {..} =

@@ -177,7 +177,7 @@ instance Core.AWSRequest GetLabelDetection where
   type
     AWSResponse GetLabelDetection =
       GetLabelDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest GetLabelDetection where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLabelDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLabelDetection where
   hashWithSalt _salt GetLabelDetection' {..} =

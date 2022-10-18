@@ -115,7 +115,7 @@ instance Core.AWSRequest CreateAlertManagerDefinition where
   type
     AWSResponse CreateAlertManagerDefinition =
       CreateAlertManagerDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest CreateAlertManagerDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService CreateAlertManagerDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

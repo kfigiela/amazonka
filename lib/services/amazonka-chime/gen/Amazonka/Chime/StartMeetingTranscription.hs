@@ -96,13 +96,16 @@ instance Core.AWSRequest StartMeetingTranscription where
   type
     AWSResponse StartMeetingTranscription =
       StartMeetingTranscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartMeetingTranscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMeetingTranscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMeetingTranscription where
   hashWithSalt _salt StartMeetingTranscription' {..} =

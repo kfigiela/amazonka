@@ -109,7 +109,7 @@ instance Core.AWSRequest CreateCoipPool where
   type
     AWSResponse CreateCoipPool =
       CreateCoipPoolResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest CreateCoipPool where
             Prelude.<$> (x Core..@? "coipPool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCoipPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCoipPool where
   hashWithSalt _salt CreateCoipPool' {..} =

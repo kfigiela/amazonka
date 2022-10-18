@@ -413,7 +413,7 @@ instance Core.AWSRequest CalculateRouteMatrix where
   type
     AWSResponse CalculateRouteMatrix =
       CalculateRouteMatrixResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -424,6 +424,9 @@ instance Core.AWSRequest CalculateRouteMatrix where
             Prelude.<*> (x Core..?> "RouteMatrix" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "Summary")
       )
+
+instance Core.AWSService CalculateRouteMatrix where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CalculateRouteMatrix where
   hashWithSalt _salt CalculateRouteMatrix' {..} =

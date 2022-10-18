@@ -179,7 +179,7 @@ instance Core.AWSRequest StartMailboxExportJob where
   type
     AWSResponse StartMailboxExportJob =
       StartMailboxExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest StartMailboxExportJob where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMailboxExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMailboxExportJob where
   hashWithSalt _salt StartMailboxExportJob' {..} =

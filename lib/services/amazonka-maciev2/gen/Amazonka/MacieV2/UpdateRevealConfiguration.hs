@@ -84,7 +84,7 @@ instance Core.AWSRequest UpdateRevealConfiguration where
   type
     AWSResponse UpdateRevealConfiguration =
       UpdateRevealConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest UpdateRevealConfiguration where
             Prelude.<$> (x Core..?> "configuration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRevealConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRevealConfiguration where
   hashWithSalt _salt UpdateRevealConfiguration' {..} =

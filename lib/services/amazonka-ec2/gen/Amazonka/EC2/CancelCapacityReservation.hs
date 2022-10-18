@@ -107,7 +107,7 @@ instance Core.AWSRequest CancelCapacityReservation where
   type
     AWSResponse CancelCapacityReservation =
       CancelCapacityReservationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CancelCapacityReservation where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelCapacityReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelCapacityReservation where
   hashWithSalt _salt CancelCapacityReservation' {..} =

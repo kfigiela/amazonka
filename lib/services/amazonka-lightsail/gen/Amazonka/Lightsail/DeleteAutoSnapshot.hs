@@ -102,7 +102,7 @@ instance Core.AWSRequest DeleteAutoSnapshot where
   type
     AWSResponse DeleteAutoSnapshot =
       DeleteAutoSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DeleteAutoSnapshot where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAutoSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAutoSnapshot where
   hashWithSalt _salt DeleteAutoSnapshot' {..} =

@@ -212,7 +212,7 @@ instance Core.AWSRequest StartPiiEntitiesDetectionJob where
   type
     AWSResponse StartPiiEntitiesDetectionJob =
       StartPiiEntitiesDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -222,6 +222,9 @@ instance Core.AWSRequest StartPiiEntitiesDetectionJob where
             Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartPiiEntitiesDetectionJob where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

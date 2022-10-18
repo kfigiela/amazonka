@@ -154,7 +154,7 @@ instance Core.AWSRequest CreateApplicationVersion where
   type
     AWSResponse CreateApplicationVersion =
       CreateApplicationVersionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest CreateApplicationVersion where
             Prelude.<*> (x Core..?> "templateUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateApplicationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =

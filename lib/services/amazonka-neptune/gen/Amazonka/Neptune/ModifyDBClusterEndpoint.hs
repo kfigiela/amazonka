@@ -133,7 +133,7 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
   type
     AWSResponse ModifyDBClusterEndpoint =
       ModifyDBClusterEndpointResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterEndpointResult"
@@ -155,6 +155,9 @@ instance Core.AWSRequest ModifyDBClusterEndpoint where
             Prelude.<*> (x Core..@? "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBClusterEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBClusterEndpoint where
   hashWithSalt _salt ModifyDBClusterEndpoint' {..} =

@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteDocument where
   type
     AWSResponse DeleteDocument =
       DeleteDocumentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDocumentResponse'
+
+instance Core.AWSService DeleteDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDocument where
   hashWithSalt _salt DeleteDocument' {..} =

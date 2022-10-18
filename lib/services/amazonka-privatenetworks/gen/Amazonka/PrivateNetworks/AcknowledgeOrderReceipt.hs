@@ -77,7 +77,7 @@ instance Core.AWSRequest AcknowledgeOrderReceipt where
   type
     AWSResponse AcknowledgeOrderReceipt =
       AcknowledgeOrderReceiptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest AcknowledgeOrderReceipt where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "order")
       )
+
+instance Core.AWSService AcknowledgeOrderReceipt where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcknowledgeOrderReceipt where
   hashWithSalt _salt AcknowledgeOrderReceipt' {..} =

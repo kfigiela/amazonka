@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteResourceSet where
   type
     AWSResponse DeleteResourceSet =
       DeleteResourceSetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteResourceSetResponse'
+
+instance Core.AWSService DeleteResourceSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourceSet where
   hashWithSalt _salt DeleteResourceSet' {..} =

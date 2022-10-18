@@ -229,7 +229,7 @@ instance Core.AWSRequest CreateFeature where
   type
     AWSResponse CreateFeature =
       CreateFeatureResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -237,6 +237,9 @@ instance Core.AWSRequest CreateFeature where
             Prelude.<$> (x Core..?> "feature")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFeature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFeature where
   hashWithSalt _salt CreateFeature' {..} =

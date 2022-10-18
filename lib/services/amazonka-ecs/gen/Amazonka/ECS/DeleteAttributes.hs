@@ -105,7 +105,7 @@ instance Core.AWSRequest DeleteAttributes where
   type
     AWSResponse DeleteAttributes =
       DeleteAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DeleteAttributes where
             Prelude.<$> (x Core..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAttributes where
   hashWithSalt _salt DeleteAttributes' {..} =

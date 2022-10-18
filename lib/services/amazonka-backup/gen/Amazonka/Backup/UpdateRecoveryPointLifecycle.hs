@@ -163,7 +163,7 @@ instance Core.AWSRequest UpdateRecoveryPointLifecycle where
   type
     AWSResponse UpdateRecoveryPointLifecycle =
       UpdateRecoveryPointLifecycleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest UpdateRecoveryPointLifecycle where
             Prelude.<*> (x Core..?> "CalculatedLifecycle")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRecoveryPointLifecycle where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

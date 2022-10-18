@@ -241,7 +241,7 @@ createUser_identityStoreId = Lens.lens (\CreateUser' {identityStoreId} -> identi
 
 instance Core.AWSRequest CreateUser where
   type AWSResponse CreateUser = CreateUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest CreateUser where
             Prelude.<*> (x Core..:> "UserId")
             Prelude.<*> (x Core..:> "IdentityStoreId")
       )
+
+instance Core.AWSService CreateUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUser where
   hashWithSalt _salt CreateUser' {..} =

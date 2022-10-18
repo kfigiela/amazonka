@@ -137,10 +137,13 @@ instance Core.AWSRequest RespondActivityTaskCanceled where
   type
     AWSResponse RespondActivityTaskCanceled =
       RespondActivityTaskCanceledResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RespondActivityTaskCanceledResponse'
+
+instance Core.AWSService RespondActivityTaskCanceled where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RespondActivityTaskCanceled where
   hashWithSalt _salt RespondActivityTaskCanceled' {..} =

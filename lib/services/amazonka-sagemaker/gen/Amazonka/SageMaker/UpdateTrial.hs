@@ -90,7 +90,7 @@ updateTrial_trialName = Lens.lens (\UpdateTrial' {trialName} -> trialName) (\s@U
 
 instance Core.AWSRequest UpdateTrial where
   type AWSResponse UpdateTrial = UpdateTrialResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest UpdateTrial where
             Prelude.<$> (x Core..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTrial where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTrial where
   hashWithSalt _salt UpdateTrial' {..} =

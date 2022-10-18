@@ -95,13 +95,16 @@ instance Core.AWSRequest UpdateDefaultMailDomain where
   type
     AWSResponse UpdateDefaultMailDomain =
       UpdateDefaultMailDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDefaultMailDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDefaultMailDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDefaultMailDomain where
   hashWithSalt _salt UpdateDefaultMailDomain' {..} =

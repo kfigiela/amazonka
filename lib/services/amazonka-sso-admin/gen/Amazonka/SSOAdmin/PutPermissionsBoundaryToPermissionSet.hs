@@ -116,13 +116,19 @@ instance
     AWSResponse
       PutPermissionsBoundaryToPermissionSet =
       PutPermissionsBoundaryToPermissionSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutPermissionsBoundaryToPermissionSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutPermissionsBoundaryToPermissionSet
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

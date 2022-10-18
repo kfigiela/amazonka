@@ -433,7 +433,7 @@ instance Core.AWSRequest SendTemplatedEmail where
   type
     AWSResponse SendTemplatedEmail =
       SendTemplatedEmailResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendTemplatedEmailResult"
@@ -442,6 +442,9 @@ instance Core.AWSRequest SendTemplatedEmail where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "MessageId")
       )
+
+instance Core.AWSService SendTemplatedEmail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendTemplatedEmail where
   hashWithSalt _salt SendTemplatedEmail' {..} =

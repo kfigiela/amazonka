@@ -106,7 +106,7 @@ instance Core.AWSRequest UpdateCustomMetric where
   type
     AWSResponse UpdateCustomMetric =
       UpdateCustomMetricResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdateCustomMetric where
             Prelude.<*> (x Core..?> "metricName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCustomMetric where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCustomMetric where
   hashWithSalt _salt UpdateCustomMetric' {..} =

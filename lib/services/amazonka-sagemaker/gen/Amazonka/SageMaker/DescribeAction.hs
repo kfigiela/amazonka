@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeAction where
   type
     AWSResponse DescribeAction =
       DescribeActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeAction where
             Prelude.<*> (x Core..?> "CreatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAction where
   hashWithSalt _salt DescribeAction' {..} =

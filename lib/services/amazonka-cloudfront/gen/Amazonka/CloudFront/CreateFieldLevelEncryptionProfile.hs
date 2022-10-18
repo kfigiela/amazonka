@@ -86,7 +86,7 @@ instance
   type
     AWSResponse CreateFieldLevelEncryptionProfile =
       CreateFieldLevelEncryptionProfileResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
               Prelude.<*> (h Core..#? "ETag")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateFieldLevelEncryptionProfile
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -148,7 +148,7 @@ instance Core.AWSRequest ListDiscoveredResources where
   type
     AWSResponse ListDiscoveredResources =
       ListDiscoveredResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListDiscoveredResources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDiscoveredResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDiscoveredResources where
   hashWithSalt _salt ListDiscoveredResources' {..} =

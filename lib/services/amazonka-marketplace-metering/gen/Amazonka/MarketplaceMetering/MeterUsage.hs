@@ -182,7 +182,7 @@ meterUsage_usageDimension = Lens.lens (\MeterUsage' {usageDimension} -> usageDim
 
 instance Core.AWSRequest MeterUsage where
   type AWSResponse MeterUsage = MeterUsageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest MeterUsage where
             Prelude.<$> (x Core..?> "MeteringRecordId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MeterUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MeterUsage where
   hashWithSalt _salt MeterUsage' {..} =

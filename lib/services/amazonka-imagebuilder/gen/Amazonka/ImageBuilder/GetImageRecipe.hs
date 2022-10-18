@@ -81,7 +81,7 @@ instance Core.AWSRequest GetImageRecipe where
   type
     AWSResponse GetImageRecipe =
       GetImageRecipeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest GetImageRecipe where
             Prelude.<*> (x Core..?> "imageRecipe")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImageRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImageRecipe where
   hashWithSalt _salt GetImageRecipe' {..} =

@@ -100,9 +100,12 @@ instance Core.AWSRequest RenewCertificate where
   type
     AWSResponse RenewCertificate =
       RenewCertificateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RenewCertificateResponse'
+
+instance Core.AWSService RenewCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RenewCertificate where
   hashWithSalt _salt RenewCertificate' {..} =

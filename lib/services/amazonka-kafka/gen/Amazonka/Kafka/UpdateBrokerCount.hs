@@ -114,7 +114,7 @@ instance Core.AWSRequest UpdateBrokerCount where
   type
     AWSResponse UpdateBrokerCount =
       UpdateBrokerCountResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest UpdateBrokerCount where
             Prelude.<*> (x Core..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBrokerCount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBrokerCount where
   hashWithSalt _salt UpdateBrokerCount' {..} =

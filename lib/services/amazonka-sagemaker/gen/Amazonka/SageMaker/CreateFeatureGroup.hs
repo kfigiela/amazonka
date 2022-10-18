@@ -389,7 +389,7 @@ instance Core.AWSRequest CreateFeatureGroup where
   type
     AWSResponse CreateFeatureGroup =
       CreateFeatureGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -397,6 +397,9 @@ instance Core.AWSRequest CreateFeatureGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "FeatureGroupArn")
       )
+
+instance Core.AWSService CreateFeatureGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFeatureGroup where
   hashWithSalt _salt CreateFeatureGroup' {..} =

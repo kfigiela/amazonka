@@ -161,7 +161,7 @@ instance Core.AWSRequest DescribeVTLDevices where
   type
     AWSResponse DescribeVTLDevices =
       DescribeVTLDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest DescribeVTLDevices where
             Prelude.<*> (x Core..?> "VTLDevices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVTLDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVTLDevices where
   hashWithSalt _salt DescribeVTLDevices' {..} =

@@ -82,8 +82,11 @@ deleteFaq_indexId = Lens.lens (\DeleteFaq' {indexId} -> indexId) (\s@DeleteFaq' 
 
 instance Core.AWSRequest DeleteFaq where
   type AWSResponse DeleteFaq = DeleteFaqResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteFaqResponse'
+
+instance Core.AWSService DeleteFaq where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFaq where
   hashWithSalt _salt DeleteFaq' {..} =

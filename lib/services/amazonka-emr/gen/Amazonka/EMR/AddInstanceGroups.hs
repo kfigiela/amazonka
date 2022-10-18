@@ -93,7 +93,7 @@ instance Core.AWSRequest AddInstanceGroups where
   type
     AWSResponse AddInstanceGroups =
       AddInstanceGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest AddInstanceGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddInstanceGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddInstanceGroups where
   hashWithSalt _salt AddInstanceGroups' {..} =

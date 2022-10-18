@@ -108,7 +108,7 @@ instance Core.AWSRequest ListIdentityResolutionJobs where
   type
     AWSResponse ListIdentityResolutionJobs =
       ListIdentityResolutionJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListIdentityResolutionJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIdentityResolutionJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentityResolutionJobs where
   hashWithSalt _salt ListIdentityResolutionJobs' {..} =

@@ -116,13 +116,16 @@ instance Core.AWSRequest UpdateWirelessGateway where
   type
     AWSResponse UpdateWirelessGateway =
       UpdateWirelessGatewayResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateWirelessGatewayResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWirelessGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWirelessGateway where
   hashWithSalt _salt UpdateWirelessGateway' {..} =

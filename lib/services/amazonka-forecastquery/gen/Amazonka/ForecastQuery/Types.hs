@@ -52,6 +52,7 @@ defaultService =
       Core._serviceEndpointPrefix = "forecastquery",
       Core._serviceSigningName = "forecast",
       Core._serviceVersion = "2018-06-26",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

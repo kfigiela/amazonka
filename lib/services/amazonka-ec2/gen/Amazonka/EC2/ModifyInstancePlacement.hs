@@ -196,7 +196,7 @@ instance Core.AWSRequest ModifyInstancePlacement where
   type
     AWSResponse ModifyInstancePlacement =
       ModifyInstancePlacementResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest ModifyInstancePlacement where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyInstancePlacement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyInstancePlacement where
   hashWithSalt _salt ModifyInstancePlacement' {..} =

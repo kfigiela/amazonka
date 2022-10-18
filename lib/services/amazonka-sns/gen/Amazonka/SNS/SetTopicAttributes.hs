@@ -235,9 +235,12 @@ instance Core.AWSRequest SetTopicAttributes where
   type
     AWSResponse SetTopicAttributes =
       SetTopicAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetTopicAttributesResponse'
+
+instance Core.AWSService SetTopicAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTopicAttributes where
   hashWithSalt _salt SetTopicAttributes' {..} =

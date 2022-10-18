@@ -168,7 +168,7 @@ instance Core.AWSRequest DescribePatchBaselines where
   type
     AWSResponse DescribePatchBaselines =
       DescribePatchBaselinesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest DescribePatchBaselines where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePatchBaselines where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePatchBaselines where
   hashWithSalt _salt DescribePatchBaselines' {..} =

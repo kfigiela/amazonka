@@ -107,7 +107,7 @@ instance Core.AWSRequest ListSubscriptions where
   type
     AWSResponse ListSubscriptions =
       ListSubscriptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSubscriptionsResult"
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListSubscriptions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSubscriptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSubscriptions where
   hashWithSalt _salt ListSubscriptions' {..} =

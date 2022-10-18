@@ -85,8 +85,11 @@ tagResource_tagsModel = Lens.lens (\TagResource' {tagsModel} -> tagsModel) (\s@T
 
 instance Core.AWSRequest TagResource where
   type AWSResponse TagResource = TagResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull TagResourceResponse'
+
+instance Core.AWSService TagResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagResource where
   hashWithSalt _salt TagResource' {..} =

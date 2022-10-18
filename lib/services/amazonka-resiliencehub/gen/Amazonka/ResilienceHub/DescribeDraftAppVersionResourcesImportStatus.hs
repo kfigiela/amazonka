@@ -101,7 +101,7 @@ instance
     AWSResponse
       DescribeDraftAppVersionResourcesImportStatus =
       DescribeDraftAppVersionResourcesImportStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,12 @@ instance
               Prelude.<*> (x Core..:> "status")
               Prelude.<*> (x Core..:> "statusChangeTime")
       )
+
+instance
+  Core.AWSService
+    DescribeDraftAppVersionResourcesImportStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

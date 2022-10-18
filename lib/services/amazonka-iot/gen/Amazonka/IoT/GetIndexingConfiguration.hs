@@ -67,7 +67,7 @@ instance Core.AWSRequest GetIndexingConfiguration where
   type
     AWSResponse GetIndexingConfiguration =
       GetIndexingConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -76,6 +76,9 @@ instance Core.AWSRequest GetIndexingConfiguration where
             Prelude.<*> (x Core..?> "thingIndexingConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIndexingConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIndexingConfiguration where
   hashWithSalt _salt _ =

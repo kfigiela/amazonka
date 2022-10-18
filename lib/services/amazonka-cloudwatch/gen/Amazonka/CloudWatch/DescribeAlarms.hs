@@ -318,7 +318,7 @@ instance Core.AWSRequest DescribeAlarms where
   type
     AWSResponse DescribeAlarms =
       DescribeAlarmsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAlarmsResult"
@@ -333,6 +333,9 @@ instance Core.AWSRequest DescribeAlarms where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAlarms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAlarms where
   hashWithSalt _salt DescribeAlarms' {..} =

@@ -105,7 +105,7 @@ instance Core.AWSRequest UpdateRouteCalculator where
   type
     AWSResponse UpdateRouteCalculator =
       UpdateRouteCalculatorResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdateRouteCalculator where
             Prelude.<*> (x Core..:> "CalculatorName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService UpdateRouteCalculator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRouteCalculator where
   hashWithSalt _salt UpdateRouteCalculator' {..} =

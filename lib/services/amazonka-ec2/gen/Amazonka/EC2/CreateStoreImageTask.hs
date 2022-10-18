@@ -141,7 +141,7 @@ instance Core.AWSRequest CreateStoreImageTask where
   type
     AWSResponse CreateStoreImageTask =
       CreateStoreImageTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest CreateStoreImageTask where
             Prelude.<$> (x Core..@? "objectKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStoreImageTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStoreImageTask where
   hashWithSalt _salt CreateStoreImageTask' {..} =

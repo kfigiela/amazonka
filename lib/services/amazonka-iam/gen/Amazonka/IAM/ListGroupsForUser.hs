@@ -175,7 +175,7 @@ instance Core.AWSRequest ListGroupsForUser where
   type
     AWSResponse ListGroupsForUser =
       ListGroupsForUserResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListGroupsForUserResult"
@@ -188,6 +188,9 @@ instance Core.AWSRequest ListGroupsForUser where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListGroupsForUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGroupsForUser where
   hashWithSalt _salt ListGroupsForUser' {..} =

@@ -256,10 +256,13 @@ instance Core.AWSRequest EnableMetricsCollection where
   type
     AWSResponse EnableMetricsCollection =
       EnableMetricsCollectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       EnableMetricsCollectionResponse'
+
+instance Core.AWSService EnableMetricsCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableMetricsCollection where
   hashWithSalt _salt EnableMetricsCollection' {..} =

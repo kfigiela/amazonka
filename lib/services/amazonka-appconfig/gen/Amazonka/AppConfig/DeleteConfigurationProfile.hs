@@ -95,10 +95,13 @@ instance Core.AWSRequest DeleteConfigurationProfile where
   type
     AWSResponse DeleteConfigurationProfile =
       DeleteConfigurationProfileResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteConfigurationProfileResponse'
+
+instance Core.AWSService DeleteConfigurationProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfigurationProfile where
   hashWithSalt _salt DeleteConfigurationProfile' {..} =

@@ -230,7 +230,7 @@ instance Core.AWSRequest InviteAccountToOrganization where
   type
     AWSResponse InviteAccountToOrganization =
       InviteAccountToOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -238,6 +238,9 @@ instance Core.AWSRequest InviteAccountToOrganization where
             Prelude.<$> (x Core..?> "Handshake")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InviteAccountToOrganization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InviteAccountToOrganization where
   hashWithSalt _salt InviteAccountToOrganization' {..} =

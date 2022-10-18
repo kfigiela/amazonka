@@ -100,7 +100,7 @@ instance Core.AWSRequest ListInputRoutings where
   type
     AWSResponse ListInputRoutings =
       ListInputRoutingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest ListInputRoutings where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInputRoutings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInputRoutings where
   hashWithSalt _salt ListInputRoutings' {..} =

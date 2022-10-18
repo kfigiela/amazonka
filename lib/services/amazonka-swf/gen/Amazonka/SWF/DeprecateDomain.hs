@@ -101,9 +101,12 @@ instance Core.AWSRequest DeprecateDomain where
   type
     AWSResponse DeprecateDomain =
       DeprecateDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeprecateDomainResponse'
+
+instance Core.AWSService DeprecateDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeprecateDomain where
   hashWithSalt _salt DeprecateDomain' {..} =

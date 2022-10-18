@@ -157,7 +157,7 @@ instance
   type
     AWSResponse ModifyVpcPeeringConnectionOptions =
       ModifyVpcPeeringConnectionOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -166,6 +166,12 @@ instance
               Prelude.<*> (x Core..@? "accepterPeeringConnectionOptions")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyVpcPeeringConnectionOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

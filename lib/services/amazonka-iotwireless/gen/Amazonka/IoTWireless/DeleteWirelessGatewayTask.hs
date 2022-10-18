@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteWirelessGatewayTask where
   type
     AWSResponse DeleteWirelessGatewayTask =
       DeleteWirelessGatewayTaskResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWirelessGatewayTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWirelessGatewayTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWirelessGatewayTask where
   hashWithSalt _salt DeleteWirelessGatewayTask' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest GetSchemaCreationStatus where
   type
     AWSResponse GetSchemaCreationStatus =
       GetSchemaCreationStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetSchemaCreationStatus where
             Prelude.<*> (x Core..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSchemaCreationStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSchemaCreationStatus where
   hashWithSalt _salt GetSchemaCreationStatus' {..} =

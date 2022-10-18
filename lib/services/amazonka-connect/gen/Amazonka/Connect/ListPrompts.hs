@@ -130,7 +130,7 @@ instance Core.AWSPager ListPrompts where
 
 instance Core.AWSRequest ListPrompts where
   type AWSResponse ListPrompts = ListPromptsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListPrompts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPrompts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPrompts where
   hashWithSalt _salt ListPrompts' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest ListStreamingSessions where
   type
     AWSResponse ListStreamingSessions =
       ListStreamingSessionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListStreamingSessions where
             Prelude.<*> (x Core..?> "sessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStreamingSessions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStreamingSessions where
   hashWithSalt _salt ListStreamingSessions' {..} =

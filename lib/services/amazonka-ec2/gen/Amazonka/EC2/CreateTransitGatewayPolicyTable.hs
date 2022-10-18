@@ -115,7 +115,7 @@ instance
   type
     AWSResponse CreateTransitGatewayPolicyTable =
       CreateTransitGatewayPolicyTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -123,6 +123,12 @@ instance
             Prelude.<$> (x Core..@? "transitGatewayPolicyTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateTransitGatewayPolicyTable
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

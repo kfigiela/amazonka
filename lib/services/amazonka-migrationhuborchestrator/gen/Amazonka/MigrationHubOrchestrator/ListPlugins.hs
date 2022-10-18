@@ -107,7 +107,7 @@ instance Core.AWSPager ListPlugins where
 
 instance Core.AWSRequest ListPlugins where
   type AWSResponse ListPlugins = ListPluginsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListPlugins where
             Prelude.<*> (x Core..?> "plugins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPlugins where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPlugins where
   hashWithSalt _salt ListPlugins' {..} =

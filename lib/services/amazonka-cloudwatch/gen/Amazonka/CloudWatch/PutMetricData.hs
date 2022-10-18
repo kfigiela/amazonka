@@ -150,9 +150,12 @@ instance Core.AWSRequest PutMetricData where
   type
     AWSResponse PutMetricData =
       PutMetricDataResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutMetricDataResponse'
+
+instance Core.AWSService PutMetricData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMetricData where
   hashWithSalt _salt PutMetricData' {..} =

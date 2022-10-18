@@ -84,7 +84,7 @@ instance Core.AWSRequest BatchGetApplications where
   type
     AWSResponse BatchGetApplications =
       BatchGetApplicationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest BatchGetApplications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetApplications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetApplications where
   hashWithSalt _salt BatchGetApplications' {..} =

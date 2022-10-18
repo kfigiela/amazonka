@@ -132,9 +132,12 @@ instance Core.AWSRequest SetInstanceHealth where
   type
     AWSResponse SetInstanceHealth =
       SetInstanceHealthResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetInstanceHealthResponse'
+
+instance Core.AWSService SetInstanceHealth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetInstanceHealth where
   hashWithSalt _salt SetInstanceHealth' {..} =

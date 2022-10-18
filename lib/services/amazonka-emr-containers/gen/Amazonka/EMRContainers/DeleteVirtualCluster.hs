@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteVirtualCluster where
   type
     AWSResponse DeleteVirtualCluster =
       DeleteVirtualClusterResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteVirtualCluster where
             Prelude.<$> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVirtualCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVirtualCluster where
   hashWithSalt _salt DeleteVirtualCluster' {..} =

@@ -281,7 +281,7 @@ createIndex_roleArn = Lens.lens (\CreateIndex' {roleArn} -> roleArn) (\s@CreateI
 
 instance Core.AWSRequest CreateIndex where
   type AWSResponse CreateIndex = CreateIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -289,6 +289,9 @@ instance Core.AWSRequest CreateIndex where
             Prelude.<$> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIndex where
   hashWithSalt _salt CreateIndex' {..} =

@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateSuiteDefinition where
   type
     AWSResponse UpdateSuiteDefinition =
       UpdateSuiteDefinitionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest UpdateSuiteDefinition where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSuiteDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSuiteDefinition where
   hashWithSalt _salt UpdateSuiteDefinition' {..} =

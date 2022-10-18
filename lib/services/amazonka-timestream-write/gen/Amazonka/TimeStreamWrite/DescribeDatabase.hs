@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeDatabase where
   type
     AWSResponse DescribeDatabase =
       DescribeDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeDatabase where
             Prelude.<$> (x Core..?> "Database")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDatabase where
   hashWithSalt _salt DescribeDatabase' {..} =

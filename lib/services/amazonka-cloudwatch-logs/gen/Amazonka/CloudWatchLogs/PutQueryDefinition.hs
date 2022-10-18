@@ -173,7 +173,7 @@ instance Core.AWSRequest PutQueryDefinition where
   type
     AWSResponse PutQueryDefinition =
       PutQueryDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest PutQueryDefinition where
             Prelude.<$> (x Core..?> "queryDefinitionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutQueryDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutQueryDefinition where
   hashWithSalt _salt PutQueryDefinition' {..} =

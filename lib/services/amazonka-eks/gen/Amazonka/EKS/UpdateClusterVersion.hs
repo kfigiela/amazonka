@@ -117,7 +117,7 @@ instance Core.AWSRequest UpdateClusterVersion where
   type
     AWSResponse UpdateClusterVersion =
       UpdateClusterVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdateClusterVersion where
             Prelude.<$> (x Core..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateClusterVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateClusterVersion where
   hashWithSalt _salt UpdateClusterVersion' {..} =

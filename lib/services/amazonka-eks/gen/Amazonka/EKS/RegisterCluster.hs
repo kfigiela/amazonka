@@ -143,7 +143,7 @@ instance Core.AWSRequest RegisterCluster where
   type
     AWSResponse RegisterCluster =
       RegisterClusterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest RegisterCluster where
             Prelude.<$> (x Core..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterCluster where
   hashWithSalt _salt RegisterCluster' {..} =

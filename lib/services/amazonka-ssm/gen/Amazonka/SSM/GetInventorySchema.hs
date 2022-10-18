@@ -161,7 +161,7 @@ instance Core.AWSRequest GetInventorySchema where
   type
     AWSResponse GetInventorySchema =
       GetInventorySchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest GetInventorySchema where
             Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInventorySchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInventorySchema where
   hashWithSalt _salt GetInventorySchema' {..} =

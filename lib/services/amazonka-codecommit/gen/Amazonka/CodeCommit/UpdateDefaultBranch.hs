@@ -96,9 +96,12 @@ instance Core.AWSRequest UpdateDefaultBranch where
   type
     AWSResponse UpdateDefaultBranch =
       UpdateDefaultBranchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateDefaultBranchResponse'
+
+instance Core.AWSService UpdateDefaultBranch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDefaultBranch where
   hashWithSalt _salt UpdateDefaultBranch' {..} =

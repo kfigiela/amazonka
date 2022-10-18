@@ -105,7 +105,7 @@ updateMesh_meshName = Lens.lens (\UpdateMesh' {meshName} -> meshName) (\s@Update
 
 instance Core.AWSRequest UpdateMesh where
   type AWSResponse UpdateMesh = UpdateMeshResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest UpdateMesh where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateMesh where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMesh where
   hashWithSalt _salt UpdateMesh' {..} =

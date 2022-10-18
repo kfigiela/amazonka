@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteConferenceProvider where
   type
     AWSResponse DeleteConferenceProvider =
       DeleteConferenceProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConferenceProviderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConferenceProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConferenceProvider where
   hashWithSalt _salt DeleteConferenceProvider' {..} =

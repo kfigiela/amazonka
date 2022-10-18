@@ -83,13 +83,16 @@ instance Core.AWSRequest DeleteGeofenceCollection where
   type
     AWSResponse DeleteGeofenceCollection =
       DeleteGeofenceCollectionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGeofenceCollectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGeofenceCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGeofenceCollection where
   hashWithSalt _salt DeleteGeofenceCollection' {..} =

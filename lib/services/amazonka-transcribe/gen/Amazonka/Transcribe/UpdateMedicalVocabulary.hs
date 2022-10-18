@@ -136,7 +136,7 @@ instance Core.AWSRequest UpdateMedicalVocabulary where
   type
     AWSResponse UpdateMedicalVocabulary =
       UpdateMedicalVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest UpdateMedicalVocabulary where
             Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMedicalVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMedicalVocabulary where
   hashWithSalt _salt UpdateMedicalVocabulary' {..} =

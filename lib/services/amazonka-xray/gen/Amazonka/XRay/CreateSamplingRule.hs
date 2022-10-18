@@ -156,7 +156,7 @@ instance Core.AWSRequest CreateSamplingRule where
   type
     AWSResponse CreateSamplingRule =
       CreateSamplingRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest CreateSamplingRule where
             Prelude.<$> (x Core..?> "SamplingRuleRecord")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSamplingRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSamplingRule where
   hashWithSalt _salt CreateSamplingRule' {..} =

@@ -234,9 +234,12 @@ instance Core.AWSRequest ModifyImageAttribute where
   type
     AWSResponse ModifyImageAttribute =
       ModifyImageAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ModifyImageAttributeResponse'
+
+instance Core.AWSService ModifyImageAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyImageAttribute where
   hashWithSalt _salt ModifyImageAttribute' {..} =

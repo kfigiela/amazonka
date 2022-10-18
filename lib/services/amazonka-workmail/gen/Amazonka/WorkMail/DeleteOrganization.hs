@@ -111,7 +111,7 @@ instance Core.AWSRequest DeleteOrganization where
   type
     AWSResponse DeleteOrganization =
       DeleteOrganizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DeleteOrganization where
             Prelude.<*> (x Core..?> "OrganizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOrganization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOrganization where
   hashWithSalt _salt DeleteOrganization' {..} =

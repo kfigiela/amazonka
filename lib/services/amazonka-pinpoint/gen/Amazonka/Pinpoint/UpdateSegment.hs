@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateSegment where
   type
     AWSResponse UpdateSegment =
       UpdateSegmentResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest UpdateSegment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateSegment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSegment where
   hashWithSalt _salt UpdateSegment' {..} =

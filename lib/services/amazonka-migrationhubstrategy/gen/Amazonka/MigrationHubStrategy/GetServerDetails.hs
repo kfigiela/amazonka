@@ -140,7 +140,7 @@ instance Core.AWSRequest GetServerDetails where
   type
     AWSResponse GetServerDetails =
       GetServerDetailsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetServerDetails where
             Prelude.<*> (x Core..?> "serverDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServerDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServerDetails where
   hashWithSalt _salt GetServerDetails' {..} =

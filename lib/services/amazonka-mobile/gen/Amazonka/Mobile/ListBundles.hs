@@ -115,7 +115,7 @@ instance Core.AWSPager ListBundles where
 
 instance Core.AWSRequest ListBundles where
   type AWSResponse ListBundles = ListBundlesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListBundles where
             Prelude.<*> (x Core..?> "bundleList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBundles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBundles where
   hashWithSalt _salt ListBundles' {..} =

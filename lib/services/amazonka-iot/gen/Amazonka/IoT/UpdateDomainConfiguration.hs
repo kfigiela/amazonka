@@ -118,7 +118,7 @@ instance Core.AWSRequest UpdateDomainConfiguration where
   type
     AWSResponse UpdateDomainConfiguration =
       UpdateDomainConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest UpdateDomainConfiguration where
             Prelude.<*> (x Core..?> "domainConfigurationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDomainConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainConfiguration where
   hashWithSalt _salt UpdateDomainConfiguration' {..} =

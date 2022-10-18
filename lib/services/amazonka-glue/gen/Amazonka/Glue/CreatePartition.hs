@@ -121,13 +121,16 @@ instance Core.AWSRequest CreatePartition where
   type
     AWSResponse CreatePartition =
       CreatePartitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreatePartitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePartition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePartition where
   hashWithSalt _salt CreatePartition' {..} =

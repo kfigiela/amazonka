@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeAppInstanceAdmin where
   type
     AWSResponse DescribeAppInstanceAdmin =
       DescribeAppInstanceAdminResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeAppInstanceAdmin where
             Prelude.<$> (x Core..?> "AppInstanceAdmin")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAppInstanceAdmin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAppInstanceAdmin where
   hashWithSalt _salt DescribeAppInstanceAdmin' {..} =

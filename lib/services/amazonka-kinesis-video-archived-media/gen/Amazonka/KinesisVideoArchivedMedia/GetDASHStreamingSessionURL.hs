@@ -618,7 +618,7 @@ instance Core.AWSRequest GetDASHStreamingSessionURL where
   type
     AWSResponse GetDASHStreamingSessionURL =
       GetDASHStreamingSessionURLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -626,6 +626,9 @@ instance Core.AWSRequest GetDASHStreamingSessionURL where
             Prelude.<$> (x Core..?> "DASHStreamingSessionURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDASHStreamingSessionURL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDASHStreamingSessionURL where
   hashWithSalt _salt GetDASHStreamingSessionURL' {..} =

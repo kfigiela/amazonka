@@ -89,7 +89,7 @@ instance Core.AWSRequest CreateStreamingDistribution where
   type
     AWSResponse CreateStreamingDistribution =
       CreateStreamingDistributionResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest CreateStreamingDistribution where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStreamingDistribution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStreamingDistribution where
   hashWithSalt _salt CreateStreamingDistribution' {..} =

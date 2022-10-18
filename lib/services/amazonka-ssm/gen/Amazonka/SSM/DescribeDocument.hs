@@ -109,7 +109,7 @@ instance Core.AWSRequest DescribeDocument where
   type
     AWSResponse DescribeDocument =
       DescribeDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeDocument where
             Prelude.<$> (x Core..?> "Document")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDocument where
   hashWithSalt _salt DescribeDocument' {..} =

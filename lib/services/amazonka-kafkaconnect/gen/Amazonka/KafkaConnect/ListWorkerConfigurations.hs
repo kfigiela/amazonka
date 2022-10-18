@@ -120,7 +120,7 @@ instance Core.AWSRequest ListWorkerConfigurations where
   type
     AWSResponse ListWorkerConfigurations =
       ListWorkerConfigurationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListWorkerConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWorkerConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorkerConfigurations where
   hashWithSalt _salt ListWorkerConfigurations' {..} =

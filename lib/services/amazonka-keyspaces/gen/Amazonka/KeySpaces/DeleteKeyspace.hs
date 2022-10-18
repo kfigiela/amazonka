@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteKeyspace where
   type
     AWSResponse DeleteKeyspace =
       DeleteKeyspaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteKeyspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteKeyspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteKeyspace where
   hashWithSalt _salt DeleteKeyspace' {..} =

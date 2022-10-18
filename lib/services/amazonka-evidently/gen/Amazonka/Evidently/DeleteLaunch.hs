@@ -92,13 +92,16 @@ deleteLaunch_project = Lens.lens (\DeleteLaunch' {project} -> project) (\s@Delet
 
 instance Core.AWSRequest DeleteLaunch where
   type AWSResponse DeleteLaunch = DeleteLaunchResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLaunchResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLaunch where
   hashWithSalt _salt DeleteLaunch' {..} =

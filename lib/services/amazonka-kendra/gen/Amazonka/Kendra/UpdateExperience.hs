@@ -144,9 +144,12 @@ instance Core.AWSRequest UpdateExperience where
   type
     AWSResponse UpdateExperience =
       UpdateExperienceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateExperienceResponse'
+
+instance Core.AWSService UpdateExperience where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateExperience where
   hashWithSalt _salt UpdateExperience' {..} =

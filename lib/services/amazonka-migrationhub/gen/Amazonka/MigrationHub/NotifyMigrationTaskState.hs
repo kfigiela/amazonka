@@ -167,13 +167,16 @@ instance Core.AWSRequest NotifyMigrationTaskState where
   type
     AWSResponse NotifyMigrationTaskState =
       NotifyMigrationTaskStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           NotifyMigrationTaskStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService NotifyMigrationTaskState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable NotifyMigrationTaskState where
   hashWithSalt _salt NotifyMigrationTaskState' {..} =

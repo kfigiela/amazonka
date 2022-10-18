@@ -107,7 +107,7 @@ instance Core.AWSRequest ModifyClusterSubnetGroup where
   type
     AWSResponse ModifyClusterSubnetGroup =
       ModifyClusterSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyClusterSubnetGroupResult"
@@ -116,6 +116,9 @@ instance Core.AWSRequest ModifyClusterSubnetGroup where
             Prelude.<$> (x Core..@? "ClusterSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyClusterSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyClusterSubnetGroup where
   hashWithSalt _salt ModifyClusterSubnetGroup' {..} =

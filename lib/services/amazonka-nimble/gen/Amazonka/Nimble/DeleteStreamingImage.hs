@@ -111,7 +111,7 @@ instance Core.AWSRequest DeleteStreamingImage where
   type
     AWSResponse DeleteStreamingImage =
       DeleteStreamingImageResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DeleteStreamingImage where
             Prelude.<$> (x Core..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStreamingImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStreamingImage where
   hashWithSalt _salt DeleteStreamingImage' {..} =

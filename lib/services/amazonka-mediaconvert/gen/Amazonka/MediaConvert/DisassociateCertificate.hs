@@ -81,13 +81,16 @@ instance Core.AWSRequest DisassociateCertificate where
   type
     AWSResponse DisassociateCertificate =
       DisassociateCertificateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateCertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateCertificate where
   hashWithSalt _salt DisassociateCertificate' {..} =

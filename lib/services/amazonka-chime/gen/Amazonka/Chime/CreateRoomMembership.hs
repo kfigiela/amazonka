@@ -118,7 +118,7 @@ instance Core.AWSRequest CreateRoomMembership where
   type
     AWSResponse CreateRoomMembership =
       CreateRoomMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateRoomMembership where
             Prelude.<$> (x Core..?> "RoomMembership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoomMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoomMembership where
   hashWithSalt _salt CreateRoomMembership' {..} =

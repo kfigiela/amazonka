@@ -131,7 +131,7 @@ listAnswers_lensAlias = Lens.lens (\ListAnswers' {lensAlias} -> lensAlias) (\s@L
 
 instance Core.AWSRequest ListAnswers where
   type AWSResponse ListAnswers = ListAnswersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListAnswers where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAnswers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnswers where
   hashWithSalt _salt ListAnswers' {..} =

@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteProtocolsList where
   type
     AWSResponse DeleteProtocolsList =
       DeleteProtocolsListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteProtocolsListResponse'
+
+instance Core.AWSService DeleteProtocolsList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProtocolsList where
   hashWithSalt _salt DeleteProtocolsList' {..} =

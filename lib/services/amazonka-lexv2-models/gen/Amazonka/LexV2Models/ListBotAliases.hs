@@ -116,7 +116,7 @@ instance Core.AWSRequest ListBotAliases where
   type
     AWSResponse ListBotAliases =
       ListBotAliasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListBotAliases where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBotAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBotAliases where
   hashWithSalt _salt ListBotAliases' {..} =

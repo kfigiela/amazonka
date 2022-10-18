@@ -95,7 +95,7 @@ instance Core.AWSRequest GetEmailIdentityPolicies where
   type
     AWSResponse GetEmailIdentityPolicies =
       GetEmailIdentityPoliciesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetEmailIdentityPolicies where
             Prelude.<$> (x Core..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEmailIdentityPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEmailIdentityPolicies where
   hashWithSalt _salt GetEmailIdentityPolicies' {..} =

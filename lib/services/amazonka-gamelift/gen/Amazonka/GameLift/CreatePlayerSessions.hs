@@ -140,7 +140,7 @@ instance Core.AWSRequest CreatePlayerSessions where
   type
     AWSResponse CreatePlayerSessions =
       CreatePlayerSessionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest CreatePlayerSessions where
             Prelude.<$> (x Core..?> "PlayerSessions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePlayerSessions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePlayerSessions where
   hashWithSalt _salt CreatePlayerSessions' {..} =

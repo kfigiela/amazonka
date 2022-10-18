@@ -96,13 +96,16 @@ instance Core.AWSRequest DeleteAccessPolicy where
   type
     AWSResponse DeleteAccessPolicy =
       DeleteAccessPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAccessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccessPolicy where
   hashWithSalt _salt DeleteAccessPolicy' {..} =

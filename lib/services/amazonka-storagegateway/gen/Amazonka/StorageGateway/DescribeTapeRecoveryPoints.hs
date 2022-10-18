@@ -139,7 +139,7 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
   type
     AWSResponse DescribeTapeRecoveryPoints =
       DescribeTapeRecoveryPointsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeTapeRecoveryPoints where
             Prelude.<*> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTapeRecoveryPoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTapeRecoveryPoints where
   hashWithSalt _salt DescribeTapeRecoveryPoints' {..} =

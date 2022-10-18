@@ -143,7 +143,7 @@ instance Core.AWSRequest ListResolversByFunction where
   type
     AWSResponse ListResolversByFunction =
       ListResolversByFunctionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListResolversByFunction where
             Prelude.<*> (x Core..?> "resolvers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResolversByFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResolversByFunction where
   hashWithSalt _salt ListResolversByFunction' {..} =

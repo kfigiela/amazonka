@@ -88,13 +88,16 @@ instance Core.AWSRequest RevokeIpRules where
   type
     AWSResponse RevokeIpRules =
       RevokeIpRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RevokeIpRulesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeIpRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeIpRules where
   hashWithSalt _salt RevokeIpRules' {..} =

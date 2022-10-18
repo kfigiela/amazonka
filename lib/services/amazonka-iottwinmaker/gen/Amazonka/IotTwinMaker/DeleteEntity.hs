@@ -102,7 +102,7 @@ deleteEntity_workspaceId = Lens.lens (\DeleteEntity' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest DeleteEntity where
   type AWSResponse DeleteEntity = DeleteEntityResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DeleteEntity where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "state")
       )
+
+instance Core.AWSService DeleteEntity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEntity where
   hashWithSalt _salt DeleteEntity' {..} =

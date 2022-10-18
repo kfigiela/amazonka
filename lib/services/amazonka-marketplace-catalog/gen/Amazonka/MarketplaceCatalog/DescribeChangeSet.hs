@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeChangeSet where
   type
     AWSResponse DescribeChangeSet =
       DescribeChangeSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChangeSet where
   hashWithSalt _salt DescribeChangeSet' {..} =

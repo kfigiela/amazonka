@@ -241,7 +241,7 @@ instance Core.AWSRequest CreateJobQueue where
   type
     AWSResponse CreateJobQueue =
       CreateJobQueueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest CreateJobQueue where
             Prelude.<*> (x Core..:> "jobQueueName")
             Prelude.<*> (x Core..:> "jobQueueArn")
       )
+
+instance Core.AWSService CreateJobQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateJobQueue where
   hashWithSalt _salt CreateJobQueue' {..} =

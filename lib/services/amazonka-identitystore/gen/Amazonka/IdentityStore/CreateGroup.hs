@@ -101,7 +101,7 @@ createGroup_identityStoreId = Lens.lens (\CreateGroup' {identityStoreId} -> iden
 
 instance Core.AWSRequest CreateGroup where
   type AWSResponse CreateGroup = CreateGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateGroup where
             Prelude.<*> (x Core..:> "GroupId")
             Prelude.<*> (x Core..:> "IdentityStoreId")
       )
+
+instance Core.AWSService CreateGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGroup where
   hashWithSalt _salt CreateGroup' {..} =

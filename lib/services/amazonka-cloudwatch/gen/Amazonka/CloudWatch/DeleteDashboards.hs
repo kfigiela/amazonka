@@ -76,7 +76,7 @@ instance Core.AWSRequest DeleteDashboards where
   type
     AWSResponse DeleteDashboards =
       DeleteDashboardsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDashboardsResult"
@@ -84,6 +84,9 @@ instance Core.AWSRequest DeleteDashboards where
           DeleteDashboardsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDashboards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDashboards where
   hashWithSalt _salt DeleteDashboards' {..} =

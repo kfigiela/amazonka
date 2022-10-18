@@ -102,7 +102,7 @@ listLedgers_maxResults = Lens.lens (\ListLedgers' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListLedgers where
   type AWSResponse ListLedgers = ListLedgersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest ListLedgers where
             Prelude.<*> (x Core..?> "Ledgers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLedgers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLedgers where
   hashWithSalt _salt ListLedgers' {..} =

@@ -85,13 +85,16 @@ instance Core.AWSRequest DeleteProtectionGroup where
   type
     AWSResponse DeleteProtectionGroup =
       DeleteProtectionGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProtectionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProtectionGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteProtectionGroup where
   hashWithSalt _salt DeleteProtectionGroup' {..} =

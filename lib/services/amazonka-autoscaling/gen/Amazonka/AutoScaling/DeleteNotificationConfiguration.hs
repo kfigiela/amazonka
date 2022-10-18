@@ -93,10 +93,16 @@ instance
   type
     AWSResponse DeleteNotificationConfiguration =
       DeleteNotificationConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteNotificationConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteNotificationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

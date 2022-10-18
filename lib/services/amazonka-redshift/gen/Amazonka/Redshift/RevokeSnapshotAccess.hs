@@ -134,7 +134,7 @@ instance Core.AWSRequest RevokeSnapshotAccess where
   type
     AWSResponse RevokeSnapshotAccess =
       RevokeSnapshotAccessResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RevokeSnapshotAccessResult"
@@ -143,6 +143,9 @@ instance Core.AWSRequest RevokeSnapshotAccess where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeSnapshotAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeSnapshotAccess where
   hashWithSalt _salt RevokeSnapshotAccess' {..} =

@@ -97,7 +97,7 @@ retryBuild_id = Lens.lens (\RetryBuild' {id} -> id) (\s@RetryBuild' {} a -> s {i
 
 instance Core.AWSRequest RetryBuild where
   type AWSResponse RetryBuild = RetryBuildResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest RetryBuild where
             Prelude.<$> (x Core..?> "build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RetryBuild where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetryBuild where
   hashWithSalt _salt RetryBuild' {..} =

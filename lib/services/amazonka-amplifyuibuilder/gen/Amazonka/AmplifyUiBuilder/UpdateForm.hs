@@ -127,7 +127,7 @@ updateForm_updatedForm = Lens.lens (\UpdateForm' {updatedForm} -> updatedForm) (
 
 instance Core.AWSRequest UpdateForm where
   type AWSResponse UpdateForm = UpdateFormResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest UpdateForm where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateForm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateForm where
   hashWithSalt _salt UpdateForm' {..} =

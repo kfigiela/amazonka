@@ -104,7 +104,7 @@ instance Core.AWSRequest StartContentUpload where
   type
     AWSResponse StartContentUpload =
       StartContentUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest StartContentUpload where
             Prelude.<*> (x Core..:> "url")
             Prelude.<*> (x Core..:> "urlExpiry")
       )
+
+instance Core.AWSService StartContentUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartContentUpload where
   hashWithSalt _salt StartContentUpload' {..} =

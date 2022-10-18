@@ -86,13 +86,16 @@ instance Core.AWSRequest RestoreWorkspace where
   type
     AWSResponse RestoreWorkspace =
       RestoreWorkspaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RestoreWorkspaceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreWorkspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreWorkspace where
   hashWithSalt _salt RestoreWorkspace' {..} =

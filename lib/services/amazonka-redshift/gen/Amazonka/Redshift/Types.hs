@@ -1106,6 +1106,7 @@ defaultService =
       Core._serviceEndpointPrefix = "redshift",
       Core._serviceSigningName = "redshift",
       Core._serviceVersion = "2012-12-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

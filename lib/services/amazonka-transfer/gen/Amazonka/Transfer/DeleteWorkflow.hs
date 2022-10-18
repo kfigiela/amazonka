@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteWorkflow where
   type
     AWSResponse DeleteWorkflow =
       DeleteWorkflowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteWorkflowResponse'
+
+instance Core.AWSService DeleteWorkflow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkflow where
   hashWithSalt _salt DeleteWorkflow' {..} =

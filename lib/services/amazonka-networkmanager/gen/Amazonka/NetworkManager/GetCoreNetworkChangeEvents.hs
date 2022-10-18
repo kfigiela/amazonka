@@ -139,7 +139,7 @@ instance Core.AWSRequest GetCoreNetworkChangeEvents where
   type
     AWSResponse GetCoreNetworkChangeEvents =
       GetCoreNetworkChangeEventsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest GetCoreNetworkChangeEvents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCoreNetworkChangeEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCoreNetworkChangeEvents where
   hashWithSalt _salt GetCoreNetworkChangeEvents' {..} =

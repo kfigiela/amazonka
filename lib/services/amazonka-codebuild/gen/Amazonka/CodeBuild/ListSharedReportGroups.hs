@@ -189,7 +189,7 @@ instance Core.AWSRequest ListSharedReportGroups where
   type
     AWSResponse ListSharedReportGroups =
       ListSharedReportGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest ListSharedReportGroups where
             Prelude.<*> (x Core..?> "reportGroups")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSharedReportGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSharedReportGroups where
   hashWithSalt _salt ListSharedReportGroups' {..} =

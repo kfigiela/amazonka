@@ -175,7 +175,7 @@ sendBounce_bouncedRecipientInfoList = Lens.lens (\SendBounce' {bouncedRecipientI
 
 instance Core.AWSRequest SendBounce where
   type AWSResponse SendBounce = SendBounceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendBounceResult"
@@ -184,6 +184,9 @@ instance Core.AWSRequest SendBounce where
             Prelude.<$> (x Core..@? "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendBounce where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendBounce where
   hashWithSalt _salt SendBounce' {..} =

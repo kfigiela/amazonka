@@ -85,7 +85,7 @@ instance Core.AWSRequest GetBulkDeploymentStatus where
   type
     AWSResponse GetBulkDeploymentStatus =
       GetBulkDeploymentStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetBulkDeploymentStatus where
             Prelude.<*> (x Core..?> "CreatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBulkDeploymentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBulkDeploymentStatus where
   hashWithSalt _salt GetBulkDeploymentStatus' {..} =

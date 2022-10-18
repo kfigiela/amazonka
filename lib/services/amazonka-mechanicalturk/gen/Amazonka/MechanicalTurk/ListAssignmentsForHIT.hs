@@ -154,7 +154,7 @@ instance Core.AWSRequest ListAssignmentsForHIT where
   type
     AWSResponse ListAssignmentsForHIT =
       ListAssignmentsForHITResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest ListAssignmentsForHIT where
             Prelude.<*> (x Core..?> "Assignments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssignmentsForHIT where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssignmentsForHIT where
   hashWithSalt _salt ListAssignmentsForHIT' {..} =

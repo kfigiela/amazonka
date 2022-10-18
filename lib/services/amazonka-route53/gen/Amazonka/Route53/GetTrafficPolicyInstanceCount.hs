@@ -69,7 +69,7 @@ instance
   type
     AWSResponse GetTrafficPolicyInstanceCount =
       GetTrafficPolicyInstanceCountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -77,6 +77,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "TrafficPolicyInstanceCount")
       )
+
+instance
+  Core.AWSService
+    GetTrafficPolicyInstanceCount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

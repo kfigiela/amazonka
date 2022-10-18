@@ -99,7 +99,7 @@ instance Core.AWSRequest CreateSecurityConfiguration where
   type
     AWSResponse CreateSecurityConfiguration =
       CreateSecurityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest CreateSecurityConfiguration where
             Prelude.<*> (x Core..?> "CreatedTimestamp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSecurityConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSecurityConfiguration where
   hashWithSalt _salt CreateSecurityConfiguration' {..} =

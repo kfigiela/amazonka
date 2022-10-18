@@ -111,7 +111,7 @@ instance Core.AWSRequest DeleteIAMPolicyAssignment where
   type
     AWSResponse DeleteIAMPolicyAssignment =
       DeleteIAMPolicyAssignmentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DeleteIAMPolicyAssignment where
             Prelude.<*> (x Core..?> "AssignmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteIAMPolicyAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIAMPolicyAssignment where
   hashWithSalt _salt DeleteIAMPolicyAssignment' {..} =

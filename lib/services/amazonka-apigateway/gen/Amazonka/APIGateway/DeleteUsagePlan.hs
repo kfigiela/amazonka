@@ -75,9 +75,12 @@ instance Core.AWSRequest DeleteUsagePlan where
   type
     AWSResponse DeleteUsagePlan =
       DeleteUsagePlanResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteUsagePlanResponse'
+
+instance Core.AWSService DeleteUsagePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUsagePlan where
   hashWithSalt _salt DeleteUsagePlan' {..} =

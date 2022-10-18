@@ -401,7 +401,7 @@ instance Core.AWSRequest RequestSpotInstances where
   type
     AWSResponse RequestSpotInstances =
       RequestSpotInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -412,6 +412,9 @@ instance Core.AWSRequest RequestSpotInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RequestSpotInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RequestSpotInstances where
   hashWithSalt _salt RequestSpotInstances' {..} =

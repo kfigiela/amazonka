@@ -192,7 +192,7 @@ instance Core.AWSRequest ProvisionByoipCidr where
   type
     AWSResponse ProvisionByoipCidr =
       ProvisionByoipCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest ProvisionByoipCidr where
             Prelude.<$> (x Core..@? "byoipCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ProvisionByoipCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ProvisionByoipCidr where
   hashWithSalt _salt ProvisionByoipCidr' {..} =

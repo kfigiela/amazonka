@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteLogSubscription where
   type
     AWSResponse DeleteLogSubscription =
       DeleteLogSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLogSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLogSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLogSubscription where
   hashWithSalt _salt DeleteLogSubscription' {..} =

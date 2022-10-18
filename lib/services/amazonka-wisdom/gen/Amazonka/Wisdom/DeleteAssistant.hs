@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteAssistant where
   type
     AWSResponse DeleteAssistant =
       DeleteAssistantResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAssistantResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAssistant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAssistant where
   hashWithSalt _salt DeleteAssistant' {..} =

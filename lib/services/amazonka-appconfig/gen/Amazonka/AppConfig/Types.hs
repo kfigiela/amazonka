@@ -291,6 +291,7 @@ defaultService =
       Core._serviceEndpointPrefix = "appconfig",
       Core._serviceSigningName = "appconfig",
       Core._serviceVersion = "2019-10-09",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

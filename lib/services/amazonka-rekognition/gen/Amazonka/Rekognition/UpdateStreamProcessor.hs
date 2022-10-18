@@ -141,13 +141,16 @@ instance Core.AWSRequest UpdateStreamProcessor where
   type
     AWSResponse UpdateStreamProcessor =
       UpdateStreamProcessorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateStreamProcessorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStreamProcessor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStreamProcessor where
   hashWithSalt _salt UpdateStreamProcessor' {..} =

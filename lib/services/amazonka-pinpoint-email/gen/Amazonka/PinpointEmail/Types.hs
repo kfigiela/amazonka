@@ -376,6 +376,7 @@ defaultService =
       Core._serviceEndpointPrefix = "email",
       Core._serviceSigningName = "ses",
       Core._serviceVersion = "2018-07-26",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

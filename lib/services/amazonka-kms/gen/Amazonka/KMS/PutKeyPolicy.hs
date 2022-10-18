@@ -322,8 +322,11 @@ putKeyPolicy_policy = Lens.lens (\PutKeyPolicy' {policy} -> policy) (\s@PutKeyPo
 
 instance Core.AWSRequest PutKeyPolicy where
   type AWSResponse PutKeyPolicy = PutKeyPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull PutKeyPolicyResponse'
+
+instance Core.AWSService PutKeyPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutKeyPolicy where
   hashWithSalt _salt PutKeyPolicy' {..} =

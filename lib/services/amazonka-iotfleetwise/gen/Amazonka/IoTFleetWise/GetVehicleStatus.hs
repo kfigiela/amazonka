@@ -143,7 +143,7 @@ instance Core.AWSRequest GetVehicleStatus where
   type
     AWSResponse GetVehicleStatus =
       GetVehicleStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetVehicleStatus where
             Prelude.<*> (x Core..?> "campaigns" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVehicleStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVehicleStatus where
   hashWithSalt _salt GetVehicleStatus' {..} =

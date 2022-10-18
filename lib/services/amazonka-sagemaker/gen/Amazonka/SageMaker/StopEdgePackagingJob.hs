@@ -76,9 +76,12 @@ instance Core.AWSRequest StopEdgePackagingJob where
   type
     AWSResponse StopEdgePackagingJob =
       StopEdgePackagingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopEdgePackagingJobResponse'
+
+instance Core.AWSService StopEdgePackagingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopEdgePackagingJob where
   hashWithSalt _salt StopEdgePackagingJob' {..} =

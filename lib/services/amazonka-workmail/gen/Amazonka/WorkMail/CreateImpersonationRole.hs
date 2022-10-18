@@ -145,7 +145,7 @@ instance Core.AWSRequest CreateImpersonationRole where
   type
     AWSResponse CreateImpersonationRole =
       CreateImpersonationRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateImpersonationRole where
             Prelude.<$> (x Core..?> "ImpersonationRoleId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateImpersonationRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateImpersonationRole where
   hashWithSalt _salt CreateImpersonationRole' {..} =

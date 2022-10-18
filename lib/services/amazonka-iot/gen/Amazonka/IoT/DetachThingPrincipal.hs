@@ -107,13 +107,16 @@ instance Core.AWSRequest DetachThingPrincipal where
   type
     AWSResponse DetachThingPrincipal =
       DetachThingPrincipalResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DetachThingPrincipalResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachThingPrincipal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachThingPrincipal where
   hashWithSalt _salt DetachThingPrincipal' {..} =

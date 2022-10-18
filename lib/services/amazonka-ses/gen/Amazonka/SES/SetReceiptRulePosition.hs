@@ -116,7 +116,7 @@ instance Core.AWSRequest SetReceiptRulePosition where
   type
     AWSResponse SetReceiptRulePosition =
       SetReceiptRulePositionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetReceiptRulePositionResult"
@@ -124,6 +124,9 @@ instance Core.AWSRequest SetReceiptRulePosition where
           SetReceiptRulePositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetReceiptRulePosition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetReceiptRulePosition where
   hashWithSalt _salt SetReceiptRulePosition' {..} =

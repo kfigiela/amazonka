@@ -108,7 +108,7 @@ instance Core.AWSRequest ReportTaskProgress where
   type
     AWSResponse ReportTaskProgress =
       ReportTaskProgressResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ReportTaskProgress where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "canceled")
       )
+
+instance Core.AWSService ReportTaskProgress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReportTaskProgress where
   hashWithSalt _salt ReportTaskProgress' {..} =

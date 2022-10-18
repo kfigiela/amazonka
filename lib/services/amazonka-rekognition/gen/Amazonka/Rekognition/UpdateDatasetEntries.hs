@@ -119,13 +119,16 @@ instance Core.AWSRequest UpdateDatasetEntries where
   type
     AWSResponse UpdateDatasetEntries =
       UpdateDatasetEntriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDatasetEntriesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDatasetEntries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDatasetEntries where
   hashWithSalt _salt UpdateDatasetEntries' {..} =

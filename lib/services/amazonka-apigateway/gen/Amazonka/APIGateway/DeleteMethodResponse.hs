@@ -117,9 +117,12 @@ instance Core.AWSRequest DeleteMethodResponse where
   type
     AWSResponse DeleteMethodResponse =
       DeleteMethodResponseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMethodResponseResponse'
+
+instance Core.AWSService DeleteMethodResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMethodResponse where
   hashWithSalt _salt DeleteMethodResponse' {..} =

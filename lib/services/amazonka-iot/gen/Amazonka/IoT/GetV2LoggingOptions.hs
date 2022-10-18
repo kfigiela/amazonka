@@ -67,7 +67,7 @@ instance Core.AWSRequest GetV2LoggingOptions where
   type
     AWSResponse GetV2LoggingOptions =
       GetV2LoggingOptionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -77,6 +77,9 @@ instance Core.AWSRequest GetV2LoggingOptions where
             Prelude.<*> (x Core..?> "defaultLogLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetV2LoggingOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetV2LoggingOptions where
   hashWithSalt _salt _ =

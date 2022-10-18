@@ -118,7 +118,7 @@ instance Core.AWSRequest ConfirmDevice where
   type
     AWSResponse ConfirmDevice =
       ConfirmDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ConfirmDevice where
             Prelude.<$> (x Core..?> "UserConfirmationNecessary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmDevice where
   hashWithSalt _salt ConfirmDevice' {..} =

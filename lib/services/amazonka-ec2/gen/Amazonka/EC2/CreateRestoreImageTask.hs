@@ -168,7 +168,7 @@ instance Core.AWSRequest CreateRestoreImageTask where
   type
     AWSResponse CreateRestoreImageTask =
       CreateRestoreImageTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateRestoreImageTask where
             Prelude.<$> (x Core..@? "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRestoreImageTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRestoreImageTask where
   hashWithSalt _salt CreateRestoreImageTask' {..} =

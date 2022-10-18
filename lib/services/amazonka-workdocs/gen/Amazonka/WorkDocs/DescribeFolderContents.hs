@@ -196,7 +196,7 @@ instance Core.AWSRequest DescribeFolderContents where
   type
     AWSResponse DescribeFolderContents =
       DescribeFolderContentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -206,6 +206,9 @@ instance Core.AWSRequest DescribeFolderContents where
             Prelude.<*> (x Core..?> "Documents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFolderContents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFolderContents where
   hashWithSalt _salt DescribeFolderContents' {..} =

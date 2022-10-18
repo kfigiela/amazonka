@@ -80,7 +80,7 @@ instance Core.AWSRequest PromoteReadReplicaDBCluster where
   type
     AWSResponse PromoteReadReplicaDBCluster =
       PromoteReadReplicaDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PromoteReadReplicaDBClusterResult"
@@ -89,6 +89,9 @@ instance Core.AWSRequest PromoteReadReplicaDBCluster where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PromoteReadReplicaDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PromoteReadReplicaDBCluster where
   hashWithSalt _salt PromoteReadReplicaDBCluster' {..} =

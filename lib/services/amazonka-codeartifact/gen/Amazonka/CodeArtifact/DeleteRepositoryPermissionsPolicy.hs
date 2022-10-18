@@ -142,7 +142,7 @@ instance
   type
     AWSResponse DeleteRepositoryPermissionsPolicy =
       DeleteRepositoryPermissionsPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,12 @@ instance
             Prelude.<$> (x Core..?> "policy")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteRepositoryPermissionsPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

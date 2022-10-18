@@ -95,7 +95,7 @@ instance Core.AWSRequest DeleteSnapshot where
   type
     AWSResponse DeleteSnapshot =
       DeleteSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DeleteSnapshot where
             Prelude.<*> (x Core..?> "SnapshotId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSnapshot where
   hashWithSalt _salt DeleteSnapshot' {..} =

@@ -59,7 +59,7 @@ newIsVpcPeered = IsVpcPeered'
 
 instance Core.AWSRequest IsVpcPeered where
   type AWSResponse IsVpcPeered = IsVpcPeeredResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -67,6 +67,9 @@ instance Core.AWSRequest IsVpcPeered where
             Prelude.<$> (x Core..?> "isPeered")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService IsVpcPeered where
+  service _proxy = defaultService
 
 instance Prelude.Hashable IsVpcPeered where
   hashWithSalt _salt _ =

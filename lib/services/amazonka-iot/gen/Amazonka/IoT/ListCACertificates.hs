@@ -142,7 +142,7 @@ instance Core.AWSRequest ListCACertificates where
   type
     AWSResponse ListCACertificates =
       ListCACertificatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListCACertificates where
             Prelude.<*> (x Core..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCACertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCACertificates where
   hashWithSalt _salt ListCACertificates' {..} =

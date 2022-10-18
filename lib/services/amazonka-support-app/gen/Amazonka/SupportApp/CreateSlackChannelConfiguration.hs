@@ -213,13 +213,19 @@ instance
   type
     AWSResponse CreateSlackChannelConfiguration =
       CreateSlackChannelConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateSlackChannelConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateSlackChannelConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -82,9 +82,12 @@ instance Core.AWSRequest DeleteDeliveryChannel where
   type
     AWSResponse DeleteDeliveryChannel =
       DeleteDeliveryChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteDeliveryChannelResponse'
+
+instance Core.AWSService DeleteDeliveryChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDeliveryChannel where
   hashWithSalt _salt DeleteDeliveryChannel' {..} =

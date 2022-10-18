@@ -129,7 +129,7 @@ instance Core.AWSRequest EnableImageDeprecation where
   type
     AWSResponse EnableImageDeprecation =
       EnableImageDeprecationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest EnableImageDeprecation where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableImageDeprecation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableImageDeprecation where
   hashWithSalt _salt EnableImageDeprecation' {..} =

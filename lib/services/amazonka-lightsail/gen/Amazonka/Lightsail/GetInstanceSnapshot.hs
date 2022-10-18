@@ -80,7 +80,7 @@ instance Core.AWSRequest GetInstanceSnapshot where
   type
     AWSResponse GetInstanceSnapshot =
       GetInstanceSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetInstanceSnapshot where
             Prelude.<$> (x Core..?> "instanceSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstanceSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstanceSnapshot where
   hashWithSalt _salt GetInstanceSnapshot' {..} =

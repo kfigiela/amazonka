@@ -77,13 +77,16 @@ instance Core.AWSRequest AssociateSkillWithUsers where
   type
     AWSResponse AssociateSkillWithUsers =
       AssociateSkillWithUsersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateSkillWithUsersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateSkillWithUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateSkillWithUsers where
   hashWithSalt _salt AssociateSkillWithUsers' {..} =

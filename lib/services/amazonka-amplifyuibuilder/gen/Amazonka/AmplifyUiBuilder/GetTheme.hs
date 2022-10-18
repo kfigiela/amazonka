@@ -101,7 +101,7 @@ getTheme_id = Lens.lens (\GetTheme' {id} -> id) (\s@GetTheme' {} a -> s {id = a}
 
 instance Core.AWSRequest GetTheme where
   type AWSResponse GetTheme = GetThemeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetTheme where
             Prelude.<$> (Core.eitherParseJSON x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTheme where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTheme where
   hashWithSalt _salt GetTheme' {..} =

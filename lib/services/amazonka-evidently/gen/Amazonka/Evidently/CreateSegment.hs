@@ -155,7 +155,7 @@ instance Core.AWSRequest CreateSegment where
   type
     AWSResponse CreateSegment =
       CreateSegmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest CreateSegment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "segment")
       )
+
+instance Core.AWSService CreateSegment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSegment where
   hashWithSalt _salt CreateSegment' {..} =

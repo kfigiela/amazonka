@@ -278,7 +278,7 @@ createBranch_branchName = Lens.lens (\CreateBranch' {branchName} -> branchName) 
 
 instance Core.AWSRequest CreateBranch where
   type AWSResponse CreateBranch = CreateBranchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -286,6 +286,9 @@ instance Core.AWSRequest CreateBranch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "branch")
       )
+
+instance Core.AWSService CreateBranch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBranch where
   hashWithSalt _salt CreateBranch' {..} =

@@ -190,7 +190,7 @@ instance Core.AWSRequest UpdateShardCount where
   type
     AWSResponse UpdateShardCount =
       UpdateShardCountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest UpdateShardCount where
             Prelude.<*> (x Core..?> "StreamName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateShardCount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateShardCount where
   hashWithSalt _salt UpdateShardCount' {..} =

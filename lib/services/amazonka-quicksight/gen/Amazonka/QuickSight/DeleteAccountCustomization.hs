@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteAccountCustomization where
   type
     AWSResponse DeleteAccountCustomization =
       DeleteAccountCustomizationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteAccountCustomization where
             Prelude.<$> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccountCustomization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccountCustomization where
   hashWithSalt _salt DeleteAccountCustomization' {..} =

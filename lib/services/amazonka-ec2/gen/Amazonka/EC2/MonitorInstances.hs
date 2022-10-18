@@ -102,7 +102,7 @@ instance Core.AWSRequest MonitorInstances where
   type
     AWSResponse MonitorInstances =
       MonitorInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest MonitorInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MonitorInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MonitorInstances where
   hashWithSalt _salt MonitorInstances' {..} =

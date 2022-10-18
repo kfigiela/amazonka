@@ -102,7 +102,7 @@ instance Core.AWSRequest ListDetectorModelVersions where
   type
     AWSResponse ListDetectorModelVersions =
       ListDetectorModelVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListDetectorModelVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDetectorModelVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDetectorModelVersions where
   hashWithSalt _salt ListDetectorModelVersions' {..} =

@@ -111,13 +111,16 @@ instance Core.AWSRequest DeletePortfolio where
   type
     AWSResponse DeletePortfolio =
       DeletePortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePortfolioResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePortfolio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePortfolio where
   hashWithSalt _salt DeletePortfolio' {..} =

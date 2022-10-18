@@ -90,10 +90,13 @@ instance Core.AWSRequest DeleteCacheParameterGroup where
   type
     AWSResponse DeleteCacheParameterGroup =
       DeleteCacheParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCacheParameterGroupResponse'
+
+instance Core.AWSService DeleteCacheParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCacheParameterGroup where
   hashWithSalt _salt DeleteCacheParameterGroup' {..} =

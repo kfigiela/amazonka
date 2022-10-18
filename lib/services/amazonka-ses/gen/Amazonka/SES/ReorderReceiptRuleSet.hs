@@ -105,7 +105,7 @@ instance Core.AWSRequest ReorderReceiptRuleSet where
   type
     AWSResponse ReorderReceiptRuleSet =
       ReorderReceiptRuleSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ReorderReceiptRuleSetResult"
@@ -113,6 +113,9 @@ instance Core.AWSRequest ReorderReceiptRuleSet where
           ReorderReceiptRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReorderReceiptRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReorderReceiptRuleSet where
   hashWithSalt _salt ReorderReceiptRuleSet' {..} =

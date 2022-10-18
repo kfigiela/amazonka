@@ -91,13 +91,16 @@ instance Core.AWSRequest StopAutomationExecution where
   type
     AWSResponse StopAutomationExecution =
       StopAutomationExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopAutomationExecutionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopAutomationExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopAutomationExecution where
   hashWithSalt _salt StopAutomationExecution' {..} =

@@ -75,7 +75,7 @@ getSettings_attribute = Lens.lens (\GetSettings' {attribute} -> attribute) (\s@G
 
 instance Core.AWSRequest GetSettings where
   type AWSResponse GetSettings = GetSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetSettings where
             Prelude.<$> (x Core..?> "settings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSettings where
   hashWithSalt _salt GetSettings' {..} =

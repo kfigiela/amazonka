@@ -334,7 +334,7 @@ instance Core.AWSRequest StartAutomationExecution where
   type
     AWSResponse StartAutomationExecution =
       StartAutomationExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -342,6 +342,9 @@ instance Core.AWSRequest StartAutomationExecution where
             Prelude.<$> (x Core..?> "AutomationExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartAutomationExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartAutomationExecution where
   hashWithSalt _salt StartAutomationExecution' {..} =

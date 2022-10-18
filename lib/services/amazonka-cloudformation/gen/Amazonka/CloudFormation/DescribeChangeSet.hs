@@ -156,7 +156,7 @@ instance Core.AWSRequest DescribeChangeSet where
   type
     AWSResponse DescribeChangeSet =
       DescribeChangeSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeChangeSetResult"
@@ -194,6 +194,9 @@ instance Core.AWSRequest DescribeChangeSet where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Status")
       )
+
+instance Core.AWSService DescribeChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChangeSet where
   hashWithSalt _salt DescribeChangeSet' {..} =

@@ -165,9 +165,12 @@ instance Core.AWSRequest CreatePermission where
   type
     AWSResponse CreatePermission =
       CreatePermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreatePermissionResponse'
+
+instance Core.AWSService CreatePermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePermission where
   hashWithSalt _salt CreatePermission' {..} =

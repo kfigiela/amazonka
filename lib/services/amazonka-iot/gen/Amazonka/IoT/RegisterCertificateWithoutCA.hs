@@ -93,7 +93,7 @@ instance Core.AWSRequest RegisterCertificateWithoutCA where
   type
     AWSResponse RegisterCertificateWithoutCA =
       RegisterCertificateWithoutCAResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest RegisterCertificateWithoutCA where
             Prelude.<*> (x Core..?> "certificateId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterCertificateWithoutCA where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

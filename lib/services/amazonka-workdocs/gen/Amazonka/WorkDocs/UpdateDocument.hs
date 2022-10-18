@@ -122,9 +122,12 @@ instance Core.AWSRequest UpdateDocument where
   type
     AWSResponse UpdateDocument =
       UpdateDocumentResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull UpdateDocumentResponse'
+
+instance Core.AWSService UpdateDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDocument where
   hashWithSalt _salt UpdateDocument' {..} =

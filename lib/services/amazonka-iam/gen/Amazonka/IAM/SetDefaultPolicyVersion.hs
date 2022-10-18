@@ -123,10 +123,13 @@ instance Core.AWSRequest SetDefaultPolicyVersion where
   type
     AWSResponse SetDefaultPolicyVersion =
       SetDefaultPolicyVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SetDefaultPolicyVersionResponse'
+
+instance Core.AWSService SetDefaultPolicyVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetDefaultPolicyVersion where
   hashWithSalt _salt SetDefaultPolicyVersion' {..} =

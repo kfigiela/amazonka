@@ -152,7 +152,7 @@ instance Core.AWSPager GetProducts where
 
 instance Core.AWSRequest GetProducts where
   type AWSResponse GetProducts = GetProductsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest GetProducts where
             Prelude.<*> (x Core..?> "PriceList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetProducts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProducts where
   hashWithSalt _salt GetProducts' {..} =

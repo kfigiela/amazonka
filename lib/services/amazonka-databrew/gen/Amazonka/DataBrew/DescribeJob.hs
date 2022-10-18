@@ -97,7 +97,7 @@ describeJob_name = Lens.lens (\DescribeJob' {name} -> name) (\s@DescribeJob' {} 
 
 instance Core.AWSRequest DescribeJob where
   type AWSResponse DescribeJob = DescribeJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest DescribeJob where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService DescribeJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJob where
   hashWithSalt _salt DescribeJob' {..} =

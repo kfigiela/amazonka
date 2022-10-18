@@ -172,7 +172,7 @@ instance Core.AWSRequest UpdateDistribution where
   type
     AWSResponse UpdateDistribution =
       UpdateDistributionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest UpdateDistribution where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDistribution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDistribution where
   hashWithSalt _salt UpdateDistribution' {..} =

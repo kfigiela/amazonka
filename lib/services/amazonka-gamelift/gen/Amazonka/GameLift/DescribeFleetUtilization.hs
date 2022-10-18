@@ -189,7 +189,7 @@ instance Core.AWSRequest DescribeFleetUtilization where
   type
     AWSResponse DescribeFleetUtilization =
       DescribeFleetUtilizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest DescribeFleetUtilization where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFleetUtilization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFleetUtilization where
   hashWithSalt _salt DescribeFleetUtilization' {..} =

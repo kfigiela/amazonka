@@ -179,7 +179,7 @@ instance Core.AWSRequest DescribeScalingActivities where
   type
     AWSResponse DescribeScalingActivities =
       DescribeScalingActivitiesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScalingActivitiesResult"
@@ -191,6 +191,9 @@ instance Core.AWSRequest DescribeScalingActivities where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeScalingActivities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScalingActivities where
   hashWithSalt _salt DescribeScalingActivities' {..} =

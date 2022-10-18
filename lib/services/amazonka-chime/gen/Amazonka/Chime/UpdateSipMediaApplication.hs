@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateSipMediaApplication where
   type
     AWSResponse UpdateSipMediaApplication =
       UpdateSipMediaApplicationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateSipMediaApplication where
             Prelude.<$> (x Core..?> "SipMediaApplication")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSipMediaApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSipMediaApplication where
   hashWithSalt _salt UpdateSipMediaApplication' {..} =

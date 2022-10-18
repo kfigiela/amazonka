@@ -72,7 +72,7 @@ instance Core.AWSRequest GetEnrollmentStatus where
   type
     AWSResponse GetEnrollmentStatus =
       GetEnrollmentStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetEnrollmentStatus where
             Prelude.<*> (x Core..?> "memberAccountsEnrolled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEnrollmentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEnrollmentStatus where
   hashWithSalt _salt _ =

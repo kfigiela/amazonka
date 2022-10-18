@@ -83,7 +83,7 @@ inferICD10CM_text = Lens.lens (\InferICD10CM' {text} -> text) (\s@InferICD10CM' 
 
 instance Core.AWSRequest InferICD10CM where
   type AWSResponse InferICD10CM = InferICD10CMResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest InferICD10CM where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService InferICD10CM where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InferICD10CM where
   hashWithSalt _salt InferICD10CM' {..} =

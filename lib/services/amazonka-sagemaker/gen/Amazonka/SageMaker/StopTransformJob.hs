@@ -82,9 +82,12 @@ instance Core.AWSRequest StopTransformJob where
   type
     AWSResponse StopTransformJob =
       StopTransformJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopTransformJobResponse'
+
+instance Core.AWSService StopTransformJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopTransformJob where
   hashWithSalt _salt StopTransformJob' {..} =

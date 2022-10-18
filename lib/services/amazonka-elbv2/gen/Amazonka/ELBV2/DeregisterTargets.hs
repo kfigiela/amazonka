@@ -97,7 +97,7 @@ instance Core.AWSRequest DeregisterTargets where
   type
     AWSResponse DeregisterTargets =
       DeregisterTargetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeregisterTargetsResult"
@@ -105,6 +105,9 @@ instance Core.AWSRequest DeregisterTargets where
           DeregisterTargetsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterTargets where
   hashWithSalt _salt DeregisterTargets' {..} =

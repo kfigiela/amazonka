@@ -78,13 +78,16 @@ instance Core.AWSRequest FlushApiCache where
   type
     AWSResponse FlushApiCache =
       FlushApiCacheResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           FlushApiCacheResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService FlushApiCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FlushApiCache where
   hashWithSalt _salt FlushApiCache' {..} =

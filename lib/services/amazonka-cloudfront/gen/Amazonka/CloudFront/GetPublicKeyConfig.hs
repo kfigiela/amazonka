@@ -78,7 +78,7 @@ instance Core.AWSRequest GetPublicKeyConfig where
   type
     AWSResponse GetPublicKeyConfig =
       GetPublicKeyConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetPublicKeyConfig where
             Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPublicKeyConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPublicKeyConfig where
   hashWithSalt _salt GetPublicKeyConfig' {..} =

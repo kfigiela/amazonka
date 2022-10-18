@@ -230,9 +230,12 @@ createSnapshot_volumeId = Lens.lens (\CreateSnapshot' {volumeId} -> volumeId) (\
 
 instance Core.AWSRequest CreateSnapshot where
   type AWSResponse CreateSnapshot = Snapshot
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSnapshot where
   hashWithSalt _salt CreateSnapshot' {..} =

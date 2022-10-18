@@ -130,7 +130,7 @@ instance Core.AWSRequest GetMapSprites where
   type
     AWSResponse GetMapSprites =
       GetMapSpritesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetMapSprites where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMapSprites where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMapSprites where
   hashWithSalt _salt GetMapSprites' {..} =

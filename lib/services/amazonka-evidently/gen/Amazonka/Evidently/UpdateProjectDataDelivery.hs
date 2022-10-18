@@ -116,7 +116,7 @@ instance Core.AWSRequest UpdateProjectDataDelivery where
   type
     AWSResponse UpdateProjectDataDelivery =
       UpdateProjectDataDeliveryResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest UpdateProjectDataDelivery where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "project")
       )
+
+instance Core.AWSService UpdateProjectDataDelivery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateProjectDataDelivery where
   hashWithSalt _salt UpdateProjectDataDelivery' {..} =

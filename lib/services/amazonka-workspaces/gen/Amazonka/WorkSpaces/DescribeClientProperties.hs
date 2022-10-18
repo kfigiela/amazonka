@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeClientProperties where
   type
     AWSResponse DescribeClientProperties =
       DescribeClientPropertiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeClientProperties where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClientProperties where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClientProperties where
   hashWithSalt _salt DescribeClientProperties' {..} =

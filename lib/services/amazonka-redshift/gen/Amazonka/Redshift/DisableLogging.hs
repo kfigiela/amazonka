@@ -93,11 +93,14 @@ disableLogging_clusterIdentifier = Lens.lens (\DisableLogging' {clusterIdentifie
 
 instance Core.AWSRequest DisableLogging where
   type AWSResponse DisableLogging = LoggingStatus
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisableLoggingResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DisableLogging where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableLogging where
   hashWithSalt _salt DisableLogging' {..} =

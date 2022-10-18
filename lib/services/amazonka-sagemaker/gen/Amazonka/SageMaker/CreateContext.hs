@@ -140,7 +140,7 @@ instance Core.AWSRequest CreateContext where
   type
     AWSResponse CreateContext =
       CreateContextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest CreateContext where
             Prelude.<$> (x Core..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateContext where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContext where
   hashWithSalt _salt CreateContext' {..} =

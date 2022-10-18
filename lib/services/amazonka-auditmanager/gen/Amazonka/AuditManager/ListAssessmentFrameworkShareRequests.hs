@@ -111,7 +111,7 @@ instance
   type
     AWSResponse ListAssessmentFrameworkShareRequests =
       ListAssessmentFrameworkShareRequestsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListAssessmentFrameworkShareRequests
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

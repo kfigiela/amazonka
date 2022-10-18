@@ -130,7 +130,7 @@ createVolume_name = Lens.lens (\CreateVolume' {name} -> name) (\s@CreateVolume' 
 
 instance Core.AWSRequest CreateVolume where
   type AWSResponse CreateVolume = CreateVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateVolume where
             Prelude.<$> (x Core..?> "Volume")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVolume where
   hashWithSalt _salt CreateVolume' {..} =

@@ -167,7 +167,7 @@ instance Core.AWSRequest AssociateFileSystemAliases where
   type
     AWSResponse AssociateFileSystemAliases =
       AssociateFileSystemAliasesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest AssociateFileSystemAliases where
             Prelude.<$> (x Core..?> "Aliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateFileSystemAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateFileSystemAliases where
   hashWithSalt _salt AssociateFileSystemAliases' {..} =

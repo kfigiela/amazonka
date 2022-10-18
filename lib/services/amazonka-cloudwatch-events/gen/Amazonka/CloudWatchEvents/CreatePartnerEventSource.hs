@@ -133,7 +133,7 @@ instance Core.AWSRequest CreatePartnerEventSource where
   type
     AWSResponse CreatePartnerEventSource =
       CreatePartnerEventSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest CreatePartnerEventSource where
             Prelude.<$> (x Core..?> "EventSourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePartnerEventSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePartnerEventSource where
   hashWithSalt _salt CreatePartnerEventSource' {..} =

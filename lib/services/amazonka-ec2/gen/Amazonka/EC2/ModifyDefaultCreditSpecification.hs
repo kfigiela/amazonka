@@ -139,7 +139,7 @@ instance
   type
     AWSResponse ModifyDefaultCreditSpecification =
       ModifyDefaultCreditSpecificationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -147,6 +147,12 @@ instance
             Prelude.<$> (x Core..@? "instanceFamilyCreditSpecification")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyDefaultCreditSpecification
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

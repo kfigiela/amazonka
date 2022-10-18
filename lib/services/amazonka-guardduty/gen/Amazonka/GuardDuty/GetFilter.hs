@@ -94,7 +94,7 @@ getFilter_filterName = Lens.lens (\GetFilter' {filterName} -> filterName) (\s@Ge
 
 instance Core.AWSRequest GetFilter where
   type AWSResponse GetFilter = GetFilterResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetFilter where
             Prelude.<*> (x Core..:> "action")
             Prelude.<*> (x Core..:> "findingCriteria")
       )
+
+instance Core.AWSService GetFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFilter where
   hashWithSalt _salt GetFilter' {..} =

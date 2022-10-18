@@ -117,7 +117,7 @@ instance Core.AWSPager ListTests where
 
 instance Core.AWSRequest ListTests where
   type AWSResponse ListTests = ListTestsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListTests where
             Prelude.<*> (x Core..?> "tests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTests where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTests where
   hashWithSalt _salt ListTests' {..} =

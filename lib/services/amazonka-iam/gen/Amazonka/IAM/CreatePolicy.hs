@@ -320,7 +320,7 @@ createPolicy_policyDocument = Lens.lens (\CreatePolicy' {policyDocument} -> poli
 
 instance Core.AWSRequest CreatePolicy where
   type AWSResponse CreatePolicy = CreatePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreatePolicyResult"
@@ -329,6 +329,9 @@ instance Core.AWSRequest CreatePolicy where
             Prelude.<$> (x Core..@? "Policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePolicy where
   hashWithSalt _salt CreatePolicy' {..} =

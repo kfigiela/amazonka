@@ -109,7 +109,7 @@ instance Core.AWSRequest DetectDocumentText where
   type
     AWSResponse DetectDocumentText =
       DetectDocumentTextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DetectDocumentText where
             Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectDocumentText where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectDocumentText where
   hashWithSalt _salt DetectDocumentText' {..} =

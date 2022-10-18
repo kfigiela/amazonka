@@ -95,7 +95,7 @@ instance Core.AWSRequest DeleteDefaultSenderId where
   type
     AWSResponse DeleteDefaultSenderId =
       DeleteDefaultSenderIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DeleteDefaultSenderId where
             Prelude.<*> (x Core..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDefaultSenderId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDefaultSenderId where
   hashWithSalt _salt DeleteDefaultSenderId' {..} =

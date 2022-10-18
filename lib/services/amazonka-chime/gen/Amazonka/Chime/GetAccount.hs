@@ -76,7 +76,7 @@ getAccount_accountId = Lens.lens (\GetAccount' {accountId} -> accountId) (\s@Get
 
 instance Core.AWSRequest GetAccount where
   type AWSResponse GetAccount = GetAccountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetAccount where
             Prelude.<$> (x Core..?> "Account")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccount where
   hashWithSalt _salt GetAccount' {..} =

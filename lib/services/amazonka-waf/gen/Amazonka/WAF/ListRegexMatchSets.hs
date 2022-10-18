@@ -145,7 +145,7 @@ instance Core.AWSRequest ListRegexMatchSets where
   type
     AWSResponse ListRegexMatchSets =
       ListRegexMatchSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListRegexMatchSets where
             Prelude.<*> (x Core..?> "RegexMatchSets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRegexMatchSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRegexMatchSets where
   hashWithSalt _salt ListRegexMatchSets' {..} =

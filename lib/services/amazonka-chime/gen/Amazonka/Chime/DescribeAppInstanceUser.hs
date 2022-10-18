@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeAppInstanceUser where
   type
     AWSResponse DescribeAppInstanceUser =
       DescribeAppInstanceUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeAppInstanceUser where
             Prelude.<$> (x Core..?> "AppInstanceUser")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAppInstanceUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAppInstanceUser where
   hashWithSalt _salt DescribeAppInstanceUser' {..} =

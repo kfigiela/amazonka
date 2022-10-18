@@ -158,7 +158,7 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
   type
     AWSResponse SetIdentityMailFromDomain =
       SetIdentityMailFromDomainResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIdentityMailFromDomainResult"
@@ -166,6 +166,9 @@ instance Core.AWSRequest SetIdentityMailFromDomain where
           SetIdentityMailFromDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetIdentityMailFromDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetIdentityMailFromDomain where
   hashWithSalt _salt SetIdentityMailFromDomain' {..} =

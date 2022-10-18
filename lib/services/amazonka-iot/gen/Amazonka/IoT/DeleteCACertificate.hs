@@ -88,13 +88,16 @@ instance Core.AWSRequest DeleteCACertificate where
   type
     AWSResponse DeleteCACertificate =
       DeleteCACertificateResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCACertificateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCACertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCACertificate where
   hashWithSalt _salt DeleteCACertificate' {..} =

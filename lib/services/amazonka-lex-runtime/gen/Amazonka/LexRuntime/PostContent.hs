@@ -549,7 +549,7 @@ postContent_inputStream = Lens.lens (\PostContent' {inputStream} -> inputStream)
 
 instance Core.AWSRequest PostContent where
   type AWSResponse PostContent = PostContentResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -574,6 +574,9 @@ instance Core.AWSRequest PostContent where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService PostContent where
+  service _proxy = defaultService
 
 instance Core.ToBody PostContent where
   toBody PostContent' {..} = Core.toBody inputStream

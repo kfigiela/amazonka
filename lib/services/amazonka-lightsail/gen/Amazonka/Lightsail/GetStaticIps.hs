@@ -109,7 +109,7 @@ instance Core.AWSPager GetStaticIps where
 
 instance Core.AWSRequest GetStaticIps where
   type AWSResponse GetStaticIps = GetStaticIpsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetStaticIps where
             Prelude.<*> (x Core..?> "staticIps" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStaticIps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStaticIps where
   hashWithSalt _salt GetStaticIps' {..} =

@@ -110,7 +110,7 @@ instance Core.AWSRequest DescribeFlowExecutionRecords where
   type
     AWSResponse DescribeFlowExecutionRecords =
       DescribeFlowExecutionRecordsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeFlowExecutionRecords where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFlowExecutionRecords where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

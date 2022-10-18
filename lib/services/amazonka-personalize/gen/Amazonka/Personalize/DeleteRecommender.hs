@@ -79,9 +79,12 @@ instance Core.AWSRequest DeleteRecommender where
   type
     AWSResponse DeleteRecommender =
       DeleteRecommenderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteRecommenderResponse'
+
+instance Core.AWSService DeleteRecommender where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRecommender where
   hashWithSalt _salt DeleteRecommender' {..} =

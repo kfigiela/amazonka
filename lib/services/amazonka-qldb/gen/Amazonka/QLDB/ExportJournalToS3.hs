@@ -257,7 +257,7 @@ instance Core.AWSRequest ExportJournalToS3 where
   type
     AWSResponse ExportJournalToS3 =
       ExportJournalToS3Response
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -265,6 +265,9 @@ instance Core.AWSRequest ExportJournalToS3 where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ExportId")
       )
+
+instance Core.AWSService ExportJournalToS3 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportJournalToS3 where
   hashWithSalt _salt ExportJournalToS3' {..} =

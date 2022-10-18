@@ -186,7 +186,7 @@ instance Core.AWSRequest CreateAttendee where
   type
     AWSResponse CreateAttendee =
       CreateAttendeeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -194,6 +194,9 @@ instance Core.AWSRequest CreateAttendee where
             Prelude.<$> (x Core..?> "Attendee")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAttendee where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAttendee where
   hashWithSalt _salt CreateAttendee' {..} =

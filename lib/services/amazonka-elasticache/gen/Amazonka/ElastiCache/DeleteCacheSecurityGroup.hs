@@ -87,10 +87,13 @@ instance Core.AWSRequest DeleteCacheSecurityGroup where
   type
     AWSResponse DeleteCacheSecurityGroup =
       DeleteCacheSecurityGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCacheSecurityGroupResponse'
+
+instance Core.AWSService DeleteCacheSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCacheSecurityGroup where
   hashWithSalt _salt DeleteCacheSecurityGroup' {..} =

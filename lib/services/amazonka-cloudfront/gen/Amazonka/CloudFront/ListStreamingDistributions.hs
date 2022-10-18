@@ -116,7 +116,7 @@ instance Core.AWSRequest ListStreamingDistributions where
   type
     AWSResponse ListStreamingDistributions =
       ListStreamingDistributionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListStreamingDistributions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.parseXML x)
       )
+
+instance Core.AWSService ListStreamingDistributions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStreamingDistributions where
   hashWithSalt _salt ListStreamingDistributions' {..} =

@@ -106,10 +106,13 @@ createResource_pathPart = Lens.lens (\CreateResource' {pathPart} -> pathPart) (\
 
 instance Core.AWSRequest CreateResource where
   type AWSResponse CreateResource = Resource
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResource where
   hashWithSalt _salt CreateResource' {..} =

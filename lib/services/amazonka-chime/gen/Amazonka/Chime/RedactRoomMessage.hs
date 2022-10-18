@@ -102,13 +102,16 @@ instance Core.AWSRequest RedactRoomMessage where
   type
     AWSResponse RedactRoomMessage =
       RedactRoomMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RedactRoomMessageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RedactRoomMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RedactRoomMessage where
   hashWithSalt _salt RedactRoomMessage' {..} =

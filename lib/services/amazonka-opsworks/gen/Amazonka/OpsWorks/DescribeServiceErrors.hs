@@ -120,7 +120,7 @@ instance Core.AWSRequest DescribeServiceErrors where
   type
     AWSResponse DescribeServiceErrors =
       DescribeServiceErrorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest DescribeServiceErrors where
             Prelude.<$> (x Core..?> "ServiceErrors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeServiceErrors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeServiceErrors where
   hashWithSalt _salt DescribeServiceErrors' {..} =

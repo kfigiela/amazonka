@@ -80,7 +80,7 @@ instance Core.AWSRequest GetBackupPlanFromJSON where
   type
     AWSResponse GetBackupPlanFromJSON =
       GetBackupPlanFromJSONResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetBackupPlanFromJSON where
             Prelude.<$> (x Core..?> "BackupPlan")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackupPlanFromJSON where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackupPlanFromJSON where
   hashWithSalt _salt GetBackupPlanFromJSON' {..} =

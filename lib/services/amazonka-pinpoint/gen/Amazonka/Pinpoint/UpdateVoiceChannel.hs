@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateVoiceChannel where
   type
     AWSResponse UpdateVoiceChannel =
       UpdateVoiceChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateVoiceChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateVoiceChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVoiceChannel where
   hashWithSalt _salt UpdateVoiceChannel' {..} =

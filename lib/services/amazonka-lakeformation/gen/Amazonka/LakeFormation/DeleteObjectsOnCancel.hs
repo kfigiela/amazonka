@@ -143,13 +143,16 @@ instance Core.AWSRequest DeleteObjectsOnCancel where
   type
     AWSResponse DeleteObjectsOnCancel =
       DeleteObjectsOnCancelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteObjectsOnCancelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteObjectsOnCancel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteObjectsOnCancel where
   hashWithSalt _salt DeleteObjectsOnCancel' {..} =

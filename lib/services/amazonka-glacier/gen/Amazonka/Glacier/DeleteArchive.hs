@@ -140,11 +140,14 @@ instance Core.AWSRequest DeleteArchive where
   type
     AWSResponse DeleteArchive =
       DeleteArchiveResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response =
     Response.receiveNull DeleteArchiveResponse'
+
+instance Core.AWSService DeleteArchive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteArchive where
   hashWithSalt _salt DeleteArchive' {..} =

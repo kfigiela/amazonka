@@ -119,11 +119,14 @@ instance Core.AWSRequest RemoveTagsFromResource where
   type
     AWSResponse RemoveTagsFromResource =
       TagListMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RemoveTagsFromResourceResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService RemoveTagsFromResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =

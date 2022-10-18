@@ -214,6 +214,7 @@ defaultService =
         "snow-device-management",
       Core._serviceSigningName = "snow-device-management",
       Core._serviceVersion = "2021-08-04",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

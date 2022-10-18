@@ -73,7 +73,7 @@ getProfile_profileArn = Lens.lens (\GetProfile' {profileArn} -> profileArn) (\s@
 
 instance Core.AWSRequest GetProfile where
   type AWSResponse GetProfile = GetProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -81,6 +81,9 @@ instance Core.AWSRequest GetProfile where
             Prelude.<$> (x Core..?> "Profile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProfile where
   hashWithSalt _salt GetProfile' {..} =

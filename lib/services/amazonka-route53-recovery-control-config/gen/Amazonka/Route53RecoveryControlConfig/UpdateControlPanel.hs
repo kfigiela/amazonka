@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateControlPanel where
   type
     AWSResponse UpdateControlPanel =
       UpdateControlPanelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateControlPanel where
             Prelude.<$> (x Core..?> "ControlPanel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateControlPanel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateControlPanel where
   hashWithSalt _salt UpdateControlPanel' {..} =

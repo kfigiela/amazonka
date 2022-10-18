@@ -170,10 +170,13 @@ createInterconnect_location = Lens.lens (\CreateInterconnect' {location} -> loca
 
 instance Core.AWSRequest CreateInterconnect where
   type AWSResponse CreateInterconnect = Interconnect
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateInterconnect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInterconnect where
   hashWithSalt _salt CreateInterconnect' {..} =

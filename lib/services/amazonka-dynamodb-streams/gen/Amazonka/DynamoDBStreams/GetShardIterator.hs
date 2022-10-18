@@ -181,7 +181,7 @@ instance Core.AWSRequest GetShardIterator where
   type
     AWSResponse GetShardIterator =
       GetShardIteratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest GetShardIterator where
             Prelude.<$> (x Core..?> "ShardIterator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetShardIterator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetShardIterator where
   hashWithSalt _salt GetShardIterator' {..} =

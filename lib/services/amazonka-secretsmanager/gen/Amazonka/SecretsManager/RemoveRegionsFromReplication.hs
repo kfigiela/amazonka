@@ -108,7 +108,7 @@ instance Core.AWSRequest RemoveRegionsFromReplication where
   type
     AWSResponse RemoveRegionsFromReplication =
       RemoveRegionsFromReplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest RemoveRegionsFromReplication where
             Prelude.<*> (x Core..?> "ARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveRegionsFromReplication where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

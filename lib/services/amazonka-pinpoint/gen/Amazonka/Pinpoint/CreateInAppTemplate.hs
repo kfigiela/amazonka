@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateInAppTemplate where
   type
     AWSResponse CreateInAppTemplate =
       CreateInAppTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateInAppTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateInAppTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInAppTemplate where
   hashWithSalt _salt CreateInAppTemplate' {..} =

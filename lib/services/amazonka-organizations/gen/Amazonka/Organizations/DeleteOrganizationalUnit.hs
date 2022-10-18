@@ -105,10 +105,13 @@ instance Core.AWSRequest DeleteOrganizationalUnit where
   type
     AWSResponse DeleteOrganizationalUnit =
       DeleteOrganizationalUnitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteOrganizationalUnitResponse'
+
+instance Core.AWSService DeleteOrganizationalUnit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOrganizationalUnit where
   hashWithSalt _salt DeleteOrganizationalUnit' {..} =

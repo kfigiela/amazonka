@@ -95,7 +95,7 @@ instance Core.AWSRequest CompleteMigration where
   type
     AWSResponse CompleteMigration =
       CompleteMigrationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CompleteMigrationResult"
@@ -104,6 +104,9 @@ instance Core.AWSRequest CompleteMigration where
             Prelude.<$> (x Core..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompleteMigration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteMigration where
   hashWithSalt _salt CompleteMigration' {..} =

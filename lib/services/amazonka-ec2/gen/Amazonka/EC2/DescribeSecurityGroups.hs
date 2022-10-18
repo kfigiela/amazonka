@@ -447,7 +447,7 @@ instance Core.AWSRequest DescribeSecurityGroups where
   type
     AWSResponse DescribeSecurityGroups =
       DescribeSecurityGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -459,6 +459,9 @@ instance Core.AWSRequest DescribeSecurityGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSecurityGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSecurityGroups where
   hashWithSalt _salt DescribeSecurityGroups' {..} =

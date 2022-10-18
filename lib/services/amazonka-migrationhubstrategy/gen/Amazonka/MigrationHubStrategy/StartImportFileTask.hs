@@ -152,7 +152,7 @@ instance Core.AWSRequest StartImportFileTask where
   type
     AWSResponse StartImportFileTask =
       StartImportFileTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest StartImportFileTask where
             Prelude.<$> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartImportFileTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartImportFileTask where
   hashWithSalt _salt StartImportFileTask' {..} =

@@ -395,7 +395,7 @@ decrypt_ciphertextBlob = Lens.lens (\Decrypt' {ciphertextBlob} -> ciphertextBlob
 
 instance Core.AWSRequest Decrypt where
   type AWSResponse Decrypt = DecryptResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -405,6 +405,9 @@ instance Core.AWSRequest Decrypt where
             Prelude.<*> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Decrypt where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Decrypt where
   hashWithSalt _salt Decrypt' {..} =

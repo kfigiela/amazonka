@@ -116,7 +116,7 @@ instance Core.AWSRequest ListScheduledAudits where
   type
     AWSResponse ListScheduledAudits =
       ListScheduledAuditsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListScheduledAudits where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListScheduledAudits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListScheduledAudits where
   hashWithSalt _salt ListScheduledAudits' {..} =

@@ -294,7 +294,7 @@ instance Core.AWSRequest CreateVpcEndpoint where
   type
     AWSResponse CreateVpcEndpoint =
       CreateVpcEndpointResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -303,6 +303,9 @@ instance Core.AWSRequest CreateVpcEndpoint where
             Prelude.<*> (x Core..@? "vpcEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVpcEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpcEndpoint where
   hashWithSalt _salt CreateVpcEndpoint' {..} =

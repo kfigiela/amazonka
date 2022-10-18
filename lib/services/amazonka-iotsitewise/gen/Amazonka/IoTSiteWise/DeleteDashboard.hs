@@ -94,13 +94,16 @@ instance Core.AWSRequest DeleteDashboard where
   type
     AWSResponse DeleteDashboard =
       DeleteDashboardResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDashboardResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDashboard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDashboard where
   hashWithSalt _salt DeleteDashboard' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest DeleteRateBasedRule where
   type
     AWSResponse DeleteRateBasedRule =
       DeleteRateBasedRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DeleteRateBasedRule where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRateBasedRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRateBasedRule where
   hashWithSalt _salt DeleteRateBasedRule' {..} =

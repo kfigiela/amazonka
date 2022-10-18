@@ -152,7 +152,7 @@ instance Core.AWSRequest ListPortfolioAccess where
   type
     AWSResponse ListPortfolioAccess =
       ListPortfolioAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListPortfolioAccess where
             Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPortfolioAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPortfolioAccess where
   hashWithSalt _salt ListPortfolioAccess' {..} =

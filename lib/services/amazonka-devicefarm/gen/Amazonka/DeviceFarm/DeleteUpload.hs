@@ -78,13 +78,16 @@ deleteUpload_arn = Lens.lens (\DeleteUpload' {arn} -> arn) (\s@DeleteUpload' {} 
 
 instance Core.AWSRequest DeleteUpload where
   type AWSResponse DeleteUpload = DeleteUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteUploadResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUpload where
   hashWithSalt _salt DeleteUpload' {..} =

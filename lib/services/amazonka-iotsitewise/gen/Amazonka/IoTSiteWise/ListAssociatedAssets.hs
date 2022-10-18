@@ -213,7 +213,7 @@ instance Core.AWSRequest ListAssociatedAssets where
   type
     AWSResponse ListAssociatedAssets =
       ListAssociatedAssetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -224,6 +224,9 @@ instance Core.AWSRequest ListAssociatedAssets where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAssociatedAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssociatedAssets where
   hashWithSalt _salt ListAssociatedAssets' {..} =

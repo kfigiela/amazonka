@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeModel where
   type
     AWSResponse DescribeModel =
       DescribeModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeModel where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "ModelArn")
       )
+
+instance Core.AWSService DescribeModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeModel where
   hashWithSalt _salt DescribeModel' {..} =

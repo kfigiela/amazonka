@@ -408,7 +408,7 @@ instance
   type
     AWSResponse CreateCloudFormationChangeSet =
       CreateCloudFormationChangeSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -419,6 +419,12 @@ instance
             Prelude.<*> (x Core..?> "applicationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateCloudFormationChangeSet
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

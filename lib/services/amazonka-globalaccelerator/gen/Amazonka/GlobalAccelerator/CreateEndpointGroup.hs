@@ -270,7 +270,7 @@ instance Core.AWSRequest CreateEndpointGroup where
   type
     AWSResponse CreateEndpointGroup =
       CreateEndpointGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,9 @@ instance Core.AWSRequest CreateEndpointGroup where
             Prelude.<$> (x Core..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEndpointGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEndpointGroup where
   hashWithSalt _salt CreateEndpointGroup' {..} =

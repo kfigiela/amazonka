@@ -138,7 +138,7 @@ instance
   type
     AWSResponse AddSourceIdentifierToSubscription =
       AddSourceIdentifierToSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AddSourceIdentifierToSubscriptionResult"
@@ -147,6 +147,12 @@ instance
             Prelude.<$> (x Core..@? "EventSubscription")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AddSourceIdentifierToSubscription
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

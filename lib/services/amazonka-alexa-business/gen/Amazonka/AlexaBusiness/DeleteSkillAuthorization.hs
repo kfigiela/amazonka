@@ -89,13 +89,16 @@ instance Core.AWSRequest DeleteSkillAuthorization where
   type
     AWSResponse DeleteSkillAuthorization =
       DeleteSkillAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSkillAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSkillAuthorization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSkillAuthorization where
   hashWithSalt _salt DeleteSkillAuthorization' {..} =

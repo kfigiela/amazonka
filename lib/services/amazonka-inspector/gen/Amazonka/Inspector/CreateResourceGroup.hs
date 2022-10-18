@@ -93,7 +93,7 @@ instance Core.AWSRequest CreateResourceGroup where
   type
     AWSResponse CreateResourceGroup =
       CreateResourceGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest CreateResourceGroup where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "resourceGroupArn")
       )
+
+instance Core.AWSService CreateResourceGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResourceGroup where
   hashWithSalt _salt CreateResourceGroup' {..} =

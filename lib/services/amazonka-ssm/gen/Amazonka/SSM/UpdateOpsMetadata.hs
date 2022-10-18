@@ -100,7 +100,7 @@ instance Core.AWSRequest UpdateOpsMetadata where
   type
     AWSResponse UpdateOpsMetadata =
       UpdateOpsMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest UpdateOpsMetadata where
             Prelude.<$> (x Core..?> "OpsMetadataArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOpsMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOpsMetadata where
   hashWithSalt _salt UpdateOpsMetadata' {..} =

@@ -148,7 +148,7 @@ instance Core.AWSRequest GetExpenseAnalysis where
   type
     AWSResponse GetExpenseAnalysis =
       GetExpenseAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest GetExpenseAnalysis where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetExpenseAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExpenseAnalysis where
   hashWithSalt _salt GetExpenseAnalysis' {..} =

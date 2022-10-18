@@ -86,10 +86,16 @@ instance
   type
     AWSResponse DeleteUserPermissionsBoundary =
       DeleteUserPermissionsBoundaryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteUserPermissionsBoundaryResponse'
+
+instance
+  Core.AWSService
+    DeleteUserPermissionsBoundary
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

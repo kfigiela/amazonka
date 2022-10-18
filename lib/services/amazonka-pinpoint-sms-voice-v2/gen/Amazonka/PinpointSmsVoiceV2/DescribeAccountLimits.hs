@@ -124,7 +124,7 @@ instance Core.AWSRequest DescribeAccountLimits where
   type
     AWSResponse DescribeAccountLimits =
       DescribeAccountLimitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DescribeAccountLimits where
             Prelude.<*> (x Core..?> "AccountLimits" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccountLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountLimits where
   hashWithSalt _salt DescribeAccountLimits' {..} =

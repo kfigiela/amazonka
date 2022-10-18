@@ -93,8 +93,11 @@ deleteRole_roleName = Lens.lens (\DeleteRole' {roleName} -> roleName) (\s@Delete
 
 instance Core.AWSRequest DeleteRole where
   type AWSResponse DeleteRole = DeleteRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeleteRoleResponse'
+
+instance Core.AWSService DeleteRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRole where
   hashWithSalt _salt DeleteRole' {..} =

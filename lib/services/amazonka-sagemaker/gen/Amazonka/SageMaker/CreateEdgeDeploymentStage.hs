@@ -86,10 +86,13 @@ instance Core.AWSRequest CreateEdgeDeploymentStage where
   type
     AWSResponse CreateEdgeDeploymentStage =
       CreateEdgeDeploymentStageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       CreateEdgeDeploymentStageResponse'
+
+instance Core.AWSService CreateEdgeDeploymentStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEdgeDeploymentStage where
   hashWithSalt _salt CreateEdgeDeploymentStage' {..} =

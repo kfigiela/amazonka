@@ -104,7 +104,7 @@ prepareQuery_queryString = Lens.lens (\PrepareQuery' {queryString} -> queryStrin
 
 instance Core.AWSRequest PrepareQuery where
   type AWSResponse PrepareQuery = PrepareQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest PrepareQuery where
             Prelude.<*> (x Core..?> "Columns" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService PrepareQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PrepareQuery where
   hashWithSalt _salt PrepareQuery' {..} =

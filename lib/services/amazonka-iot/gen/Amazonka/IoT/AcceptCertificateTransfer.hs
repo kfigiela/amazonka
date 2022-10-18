@@ -99,10 +99,13 @@ instance Core.AWSRequest AcceptCertificateTransfer where
   type
     AWSResponse AcceptCertificateTransfer =
       AcceptCertificateTransferResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull
       AcceptCertificateTransferResponse'
+
+instance Core.AWSService AcceptCertificateTransfer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptCertificateTransfer where
   hashWithSalt _salt AcceptCertificateTransfer' {..} =

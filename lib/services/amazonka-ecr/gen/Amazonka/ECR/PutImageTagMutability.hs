@@ -130,7 +130,7 @@ instance Core.AWSRequest PutImageTagMutability where
   type
     AWSResponse PutImageTagMutability =
       PutImageTagMutabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest PutImageTagMutability where
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutImageTagMutability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutImageTagMutability where
   hashWithSalt _salt PutImageTagMutability' {..} =

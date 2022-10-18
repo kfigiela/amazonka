@@ -174,7 +174,7 @@ instance Core.AWSRequest ListAuditTasks where
   type
     AWSResponse ListAuditTasks =
       ListAuditTasksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest ListAuditTasks where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAuditTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAuditTasks where
   hashWithSalt _salt ListAuditTasks' {..} =

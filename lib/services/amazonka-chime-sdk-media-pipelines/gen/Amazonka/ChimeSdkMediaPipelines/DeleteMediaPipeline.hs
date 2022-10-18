@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteMediaPipeline where
   type
     AWSResponse DeleteMediaPipeline =
       DeleteMediaPipelineResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMediaPipelineResponse'
+
+instance Core.AWSService DeleteMediaPipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMediaPipeline where
   hashWithSalt _salt DeleteMediaPipeline' {..} =

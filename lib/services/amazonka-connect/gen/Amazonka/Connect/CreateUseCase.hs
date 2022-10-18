@@ -127,7 +127,7 @@ instance Core.AWSRequest CreateUseCase where
   type
     AWSResponse CreateUseCase =
       CreateUseCaseResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateUseCase where
             Prelude.<*> (x Core..?> "UseCaseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUseCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUseCase where
   hashWithSalt _salt CreateUseCase' {..} =

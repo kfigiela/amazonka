@@ -175,7 +175,7 @@ instance Core.AWSPager GetTables where
 
 instance Core.AWSRequest GetTables where
   type AWSResponse GetTables = GetTablesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest GetTables where
             Prelude.<*> (x Core..?> "TableList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTables where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTables where
   hashWithSalt _salt GetTables' {..} =

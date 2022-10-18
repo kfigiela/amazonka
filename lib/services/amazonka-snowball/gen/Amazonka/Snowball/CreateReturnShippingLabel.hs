@@ -103,7 +103,7 @@ instance Core.AWSRequest CreateReturnShippingLabel where
   type
     AWSResponse CreateReturnShippingLabel =
       CreateReturnShippingLabelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest CreateReturnShippingLabel where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateReturnShippingLabel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReturnShippingLabel where
   hashWithSalt _salt CreateReturnShippingLabel' {..} =

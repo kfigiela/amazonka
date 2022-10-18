@@ -141,7 +141,7 @@ instance Core.AWSRequest RemoveTargets where
   type
     AWSResponse RemoveTargets =
       RemoveTargetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest RemoveTargets where
             Prelude.<*> (x Core..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTargets where
   hashWithSalt _salt RemoveTargets' {..} =

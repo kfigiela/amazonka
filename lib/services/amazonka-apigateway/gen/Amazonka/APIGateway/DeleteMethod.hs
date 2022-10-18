@@ -99,9 +99,12 @@ deleteMethod_httpMethod = Lens.lens (\DeleteMethod' {httpMethod} -> httpMethod) 
 
 instance Core.AWSRequest DeleteMethod where
   type AWSResponse DeleteMethod = DeleteMethodResponse'
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteMethodResponse''
+
+instance Core.AWSService DeleteMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMethod where
   hashWithSalt _salt DeleteMethod' {..} =

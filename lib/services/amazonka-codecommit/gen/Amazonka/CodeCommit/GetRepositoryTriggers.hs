@@ -83,7 +83,7 @@ instance Core.AWSRequest GetRepositoryTriggers where
   type
     AWSResponse GetRepositoryTriggers =
       GetRepositoryTriggersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetRepositoryTriggers where
             Prelude.<*> (x Core..?> "configurationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRepositoryTriggers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRepositoryTriggers where
   hashWithSalt _salt GetRepositoryTriggers' {..} =

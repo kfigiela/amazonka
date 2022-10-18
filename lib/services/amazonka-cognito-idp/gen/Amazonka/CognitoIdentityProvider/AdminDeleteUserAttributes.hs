@@ -124,13 +124,16 @@ instance Core.AWSRequest AdminDeleteUserAttributes where
   type
     AWSResponse AdminDeleteUserAttributes =
       AdminDeleteUserAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminDeleteUserAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminDeleteUserAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminDeleteUserAttributes where
   hashWithSalt _salt AdminDeleteUserAttributes' {..} =

@@ -77,13 +77,16 @@ deleteMap_mapName = Lens.lens (\DeleteMap' {mapName} -> mapName) (\s@DeleteMap' 
 
 instance Core.AWSRequest DeleteMap where
   type AWSResponse DeleteMap = DeleteMapResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMapResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMap where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMap where
   hashWithSalt _salt DeleteMap' {..} =

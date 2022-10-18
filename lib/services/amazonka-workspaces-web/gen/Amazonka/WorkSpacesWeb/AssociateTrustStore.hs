@@ -92,7 +92,7 @@ instance Core.AWSRequest AssociateTrustStore where
   type
     AWSResponse AssociateTrustStore =
       AssociateTrustStoreResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest AssociateTrustStore where
             Prelude.<*> (x Core..:> "portalArn")
             Prelude.<*> (x Core..:> "trustStoreArn")
       )
+
+instance Core.AWSService AssociateTrustStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateTrustStore where
   hashWithSalt _salt AssociateTrustStore' {..} =

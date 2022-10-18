@@ -154,9 +154,12 @@ attachVolume_volumeId = Lens.lens (\AttachVolume' {volumeId} -> volumeId) (\s@At
 
 instance Core.AWSRequest AttachVolume where
   type AWSResponse AttachVolume = VolumeAttachment
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML (\s h x -> Core.parseXML x)
+
+instance Core.AWSService AttachVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =

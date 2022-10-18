@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateBGPPeer where
   type
     AWSResponse CreateBGPPeer =
       CreateBGPPeerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateBGPPeer where
             Prelude.<$> (x Core..?> "virtualInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBGPPeer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBGPPeer where
   hashWithSalt _salt CreateBGPPeer' {..} =

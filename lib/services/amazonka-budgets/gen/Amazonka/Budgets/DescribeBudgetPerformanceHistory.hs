@@ -155,7 +155,7 @@ instance
   type
     AWSResponse DescribeBudgetPerformanceHistory =
       DescribeBudgetPerformanceHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,12 @@ instance
             Prelude.<*> (x Core..?> "BudgetPerformanceHistory")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeBudgetPerformanceHistory
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

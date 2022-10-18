@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeWorkspaceSnapshots where
   type
     AWSResponse DescribeWorkspaceSnapshots =
       DescribeWorkspaceSnapshotsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest DescribeWorkspaceSnapshots where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorkspaceSnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorkspaceSnapshots where
   hashWithSalt _salt DescribeWorkspaceSnapshots' {..} =

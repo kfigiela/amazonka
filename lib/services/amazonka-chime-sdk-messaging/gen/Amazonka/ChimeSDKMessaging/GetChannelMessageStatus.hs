@@ -153,7 +153,7 @@ instance Core.AWSRequest GetChannelMessageStatus where
   type
     AWSResponse GetChannelMessageStatus =
       GetChannelMessageStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest GetChannelMessageStatus where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChannelMessageStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChannelMessageStatus where
   hashWithSalt _salt GetChannelMessageStatus' {..} =

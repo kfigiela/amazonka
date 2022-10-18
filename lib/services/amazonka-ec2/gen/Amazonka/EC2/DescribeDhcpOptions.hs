@@ -224,7 +224,7 @@ instance Core.AWSRequest DescribeDhcpOptions where
   type
     AWSResponse DescribeDhcpOptions =
       DescribeDhcpOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -235,6 +235,9 @@ instance Core.AWSRequest DescribeDhcpOptions where
             Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDhcpOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDhcpOptions where
   hashWithSalt _salt DescribeDhcpOptions' {..} =

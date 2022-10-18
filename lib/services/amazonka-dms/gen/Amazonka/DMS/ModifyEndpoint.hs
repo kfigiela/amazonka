@@ -722,7 +722,7 @@ instance Core.AWSRequest ModifyEndpoint where
   type
     AWSResponse ModifyEndpoint =
       ModifyEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -730,6 +730,9 @@ instance Core.AWSRequest ModifyEndpoint where
             Prelude.<$> (x Core..?> "Endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyEndpoint where
   hashWithSalt _salt ModifyEndpoint' {..} =

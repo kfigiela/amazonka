@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeFirewall where
   type
     AWSResponse DescribeFirewall =
       DescribeFirewallResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest DescribeFirewall where
             Prelude.<*> (x Core..?> "FirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFirewall where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFirewall where
   hashWithSalt _salt DescribeFirewall' {..} =

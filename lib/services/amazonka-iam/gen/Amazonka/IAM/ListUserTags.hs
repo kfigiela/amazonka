@@ -173,7 +173,7 @@ instance Core.AWSPager ListUserTags where
 
 instance Core.AWSRequest ListUserTags where
   type AWSResponse ListUserTags = ListUserTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListUserTagsResult"
@@ -186,6 +186,9 @@ instance Core.AWSRequest ListUserTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListUserTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUserTags where
   hashWithSalt _salt ListUserTags' {..} =

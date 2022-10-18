@@ -113,7 +113,7 @@ instance Core.AWSRequest DescribeVcenterClients where
   type
     AWSResponse DescribeVcenterClients =
       DescribeVcenterClientsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeVcenterClients where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVcenterClients where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVcenterClients where
   hashWithSalt _salt DescribeVcenterClients' {..} =

@@ -99,7 +99,7 @@ instance Core.AWSRequest GroupResources where
   type
     AWSResponse GroupResources =
       GroupResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GroupResources where
             Prelude.<*> (x Core..?> "Pending" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GroupResources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GroupResources where
   hashWithSalt _salt GroupResources' {..} =

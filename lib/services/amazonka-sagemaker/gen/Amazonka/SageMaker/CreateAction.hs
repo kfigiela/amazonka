@@ -157,7 +157,7 @@ createAction_actionType = Lens.lens (\CreateAction' {actionType} -> actionType) 
 
 instance Core.AWSRequest CreateAction where
   type AWSResponse CreateAction = CreateActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest CreateAction where
             Prelude.<$> (x Core..?> "ActionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAction where
   hashWithSalt _salt CreateAction' {..} =

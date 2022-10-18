@@ -200,7 +200,7 @@ instance Core.AWSRequest CreateResolverEndpoint where
   type
     AWSResponse CreateResolverEndpoint =
       CreateResolverEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -208,6 +208,9 @@ instance Core.AWSRequest CreateResolverEndpoint where
             Prelude.<$> (x Core..?> "ResolverEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResolverEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResolverEndpoint where
   hashWithSalt _salt CreateResolverEndpoint' {..} =

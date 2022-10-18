@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateDomainEntry where
   type
     AWSResponse UpdateDomainEntry =
       UpdateDomainEntryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateDomainEntry where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDomainEntry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainEntry where
   hashWithSalt _salt UpdateDomainEntry' {..} =

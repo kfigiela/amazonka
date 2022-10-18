@@ -80,8 +80,11 @@ deleteLayer_layerId = Lens.lens (\DeleteLayer' {layerId} -> layerId) (\s@DeleteL
 
 instance Core.AWSRequest DeleteLayer where
   type AWSResponse DeleteLayer = DeleteLayerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteLayerResponse'
+
+instance Core.AWSService DeleteLayer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLayer where
   hashWithSalt _salt DeleteLayer' {..} =

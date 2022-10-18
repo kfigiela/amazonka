@@ -200,7 +200,7 @@ instance Core.AWSRequest GetParametersForImport where
   type
     AWSResponse GetParametersForImport =
       GetParametersForImportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest GetParametersForImport where
             Prelude.<*> (x Core..?> "ParametersValidTo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetParametersForImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetParametersForImport where
   hashWithSalt _salt GetParametersForImport' {..} =

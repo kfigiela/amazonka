@@ -95,7 +95,7 @@ listIndices_maxResults = Lens.lens (\ListIndices' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListIndices where
   type AWSResponse ListIndices = ListIndicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest ListIndices where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIndices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIndices where
   hashWithSalt _salt ListIndices' {..} =

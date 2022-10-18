@@ -96,7 +96,7 @@ instance Core.AWSRequest AssociateRoleToGroup where
   type
     AWSResponse AssociateRoleToGroup =
       AssociateRoleToGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest AssociateRoleToGroup where
             Prelude.<$> (x Core..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateRoleToGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateRoleToGroup where
   hashWithSalt _salt AssociateRoleToGroup' {..} =

@@ -112,7 +112,7 @@ instance Core.AWSRequest DeleteAppAssessment where
   type
     AWSResponse DeleteAppAssessment =
       DeleteAppAssessmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DeleteAppAssessment where
             Prelude.<*> (x Core..:> "assessmentArn")
             Prelude.<*> (x Core..:> "assessmentStatus")
       )
+
+instance Core.AWSService DeleteAppAssessment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAppAssessment where
   hashWithSalt _salt DeleteAppAssessment' {..} =

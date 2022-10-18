@@ -112,7 +112,7 @@ updateStage_stageName = Lens.lens (\UpdateStage' {stageName} -> stageName) (\s@U
 
 instance Core.AWSRequest UpdateStage where
   type AWSResponse UpdateStage = UpdateStageResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateStage where
             Prelude.<$> (x Core..?> "Stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStage where
   hashWithSalt _salt UpdateStage' {..} =

@@ -145,9 +145,12 @@ instance Core.AWSRequest CreateDeviceFleet where
   type
     AWSResponse CreateDeviceFleet =
       CreateDeviceFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreateDeviceFleetResponse'
+
+instance Core.AWSService CreateDeviceFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDeviceFleet where
   hashWithSalt _salt CreateDeviceFleet' {..} =

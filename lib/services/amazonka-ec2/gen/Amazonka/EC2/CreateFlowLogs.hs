@@ -409,7 +409,7 @@ instance Core.AWSRequest CreateFlowLogs where
   type
     AWSResponse CreateFlowLogs =
       CreateFlowLogsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -423,6 +423,9 @@ instance Core.AWSRequest CreateFlowLogs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFlowLogs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFlowLogs where
   hashWithSalt _salt CreateFlowLogs' {..} =

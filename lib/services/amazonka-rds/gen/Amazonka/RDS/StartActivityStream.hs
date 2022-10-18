@@ -159,7 +159,7 @@ instance Core.AWSRequest StartActivityStream where
   type
     AWSResponse StartActivityStream =
       StartActivityStreamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartActivityStreamResult"
@@ -173,6 +173,9 @@ instance Core.AWSRequest StartActivityStream where
             Prelude.<*> (x Core..@? "KmsKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartActivityStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartActivityStream where
   hashWithSalt _salt StartActivityStream' {..} =

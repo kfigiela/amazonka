@@ -131,7 +131,7 @@ instance Core.AWSRequest PutPipelineDefinition where
   type
     AWSResponse PutPipelineDefinition =
       PutPipelineDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest PutPipelineDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "errored")
       )
+
+instance Core.AWSService PutPipelineDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPipelineDefinition where
   hashWithSalt _salt PutPipelineDefinition' {..} =

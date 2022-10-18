@@ -332,7 +332,7 @@ instance Core.AWSPager ListTypes where
 
 instance Core.AWSRequest ListTypes where
   type AWSResponse ListTypes = ListTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTypesResult"
@@ -344,6 +344,9 @@ instance Core.AWSRequest ListTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTypes where
   hashWithSalt _salt ListTypes' {..} =

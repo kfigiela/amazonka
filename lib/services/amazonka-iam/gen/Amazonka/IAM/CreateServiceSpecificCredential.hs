@@ -143,7 +143,7 @@ instance
   type
     AWSResponse CreateServiceSpecificCredential =
       CreateServiceSpecificCredentialResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateServiceSpecificCredentialResult"
@@ -152,6 +152,12 @@ instance
             Prelude.<$> (x Core..@? "ServiceSpecificCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateServiceSpecificCredential
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

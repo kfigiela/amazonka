@@ -66,7 +66,7 @@ instance
   type
     AWSResponse DescribeMetricCollectionTypes =
       DescribeMetricCollectionTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeMetricCollectionTypesResult"
@@ -80,6 +80,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeMetricCollectionTypes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

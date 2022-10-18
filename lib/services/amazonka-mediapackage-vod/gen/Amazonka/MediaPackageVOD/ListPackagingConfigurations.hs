@@ -127,7 +127,7 @@ instance Core.AWSRequest ListPackagingConfigurations where
   type
     AWSResponse ListPackagingConfigurations =
       ListPackagingConfigurationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListPackagingConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPackagingConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPackagingConfigurations where
   hashWithSalt _salt ListPackagingConfigurations' {..} =

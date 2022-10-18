@@ -242,7 +242,7 @@ instance Core.AWSRequest CreateProduct where
   type
     AWSResponse CreateProduct =
       CreateProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -252,6 +252,9 @@ instance Core.AWSRequest CreateProduct where
             Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProduct where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProduct where
   hashWithSalt _salt CreateProduct' {..} =

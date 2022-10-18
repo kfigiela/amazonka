@@ -130,7 +130,7 @@ instance Core.AWSRequest ListApplicationVersions where
   type
     AWSResponse ListApplicationVersions =
       ListApplicationVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListApplicationVersions where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListApplicationVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApplicationVersions where
   hashWithSalt _salt ListApplicationVersions' {..} =

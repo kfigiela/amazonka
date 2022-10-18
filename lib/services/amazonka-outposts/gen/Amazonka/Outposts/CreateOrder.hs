@@ -114,7 +114,7 @@ createOrder_paymentOption = Lens.lens (\CreateOrder' {paymentOption} -> paymentO
 
 instance Core.AWSRequest CreateOrder where
   type AWSResponse CreateOrder = CreateOrderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest CreateOrder where
             Prelude.<$> (x Core..?> "Order")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOrder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOrder where
   hashWithSalt _salt CreateOrder' {..} =

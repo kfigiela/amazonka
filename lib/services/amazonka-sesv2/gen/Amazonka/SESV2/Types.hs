@@ -653,6 +653,7 @@ defaultService =
       Core._serviceEndpointPrefix = "email",
       Core._serviceSigningName = "ses",
       Core._serviceVersion = "2019-09-27",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

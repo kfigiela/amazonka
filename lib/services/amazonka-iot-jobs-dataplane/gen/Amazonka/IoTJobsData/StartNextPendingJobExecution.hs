@@ -128,7 +128,7 @@ instance Core.AWSRequest StartNextPendingJobExecution where
   type
     AWSResponse StartNextPendingJobExecution =
       StartNextPendingJobExecutionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest StartNextPendingJobExecution where
             Prelude.<$> (x Core..?> "execution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartNextPendingJobExecution where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

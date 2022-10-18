@@ -368,7 +368,7 @@ instance Core.AWSRequest CreateDocumentClassifier where
   type
     AWSResponse CreateDocumentClassifier =
       CreateDocumentClassifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -376,6 +376,9 @@ instance Core.AWSRequest CreateDocumentClassifier where
             Prelude.<$> (x Core..?> "DocumentClassifierArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDocumentClassifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDocumentClassifier where
   hashWithSalt _salt CreateDocumentClassifier' {..} =

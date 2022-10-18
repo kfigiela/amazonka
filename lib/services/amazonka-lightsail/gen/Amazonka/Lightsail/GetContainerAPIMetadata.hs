@@ -62,7 +62,7 @@ instance Core.AWSRequest GetContainerAPIMetadata where
   type
     AWSResponse GetContainerAPIMetadata =
       GetContainerAPIMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetContainerAPIMetadata where
             Prelude.<$> (x Core..?> "metadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetContainerAPIMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContainerAPIMetadata where
   hashWithSalt _salt _ =

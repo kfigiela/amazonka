@@ -99,7 +99,7 @@ updateInput_inputDefinition = Lens.lens (\UpdateInput' {inputDefinition} -> inpu
 
 instance Core.AWSRequest UpdateInput where
   type AWSResponse UpdateInput = UpdateInputResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateInput where
             Prelude.<$> (x Core..?> "inputConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateInput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInput where
   hashWithSalt _salt UpdateInput' {..} =

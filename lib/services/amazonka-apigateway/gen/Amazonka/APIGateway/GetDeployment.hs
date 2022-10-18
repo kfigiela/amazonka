@@ -130,10 +130,13 @@ getDeployment_deploymentId = Lens.lens (\GetDeployment' {deploymentId} -> deploy
 
 instance Core.AWSRequest GetDeployment where
   type AWSResponse GetDeployment = Deployment
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeployment where
   hashWithSalt _salt GetDeployment' {..} =

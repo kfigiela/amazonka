@@ -121,7 +121,7 @@ instance Core.AWSRequest DescribeWorkflowType where
   type
     AWSResponse DescribeWorkflowType =
       DescribeWorkflowTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest DescribeWorkflowType where
             Prelude.<*> (x Core..:> "typeInfo")
             Prelude.<*> (x Core..:> "configuration")
       )
+
+instance Core.AWSService DescribeWorkflowType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorkflowType where
   hashWithSalt _salt DescribeWorkflowType' {..} =

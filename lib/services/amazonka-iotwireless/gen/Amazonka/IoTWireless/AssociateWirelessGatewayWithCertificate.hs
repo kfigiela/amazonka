@@ -98,7 +98,7 @@ instance
     AWSResponse
       AssociateWirelessGatewayWithCertificate =
       AssociateWirelessGatewayWithCertificateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,12 @@ instance
             Prelude.<$> (x Core..?> "IotCertificateId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateWirelessGatewayWithCertificate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

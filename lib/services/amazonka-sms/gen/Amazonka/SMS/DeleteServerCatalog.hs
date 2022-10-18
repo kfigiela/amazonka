@@ -60,13 +60,16 @@ instance Core.AWSRequest DeleteServerCatalog where
   type
     AWSResponse DeleteServerCatalog =
       DeleteServerCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteServerCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteServerCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteServerCatalog where
   hashWithSalt _salt _ =

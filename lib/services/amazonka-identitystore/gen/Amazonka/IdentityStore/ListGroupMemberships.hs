@@ -155,7 +155,7 @@ instance Core.AWSRequest ListGroupMemberships where
   type
     AWSResponse ListGroupMemberships =
       ListGroupMembershipsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest ListGroupMemberships where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListGroupMemberships where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGroupMemberships where
   hashWithSalt _salt ListGroupMemberships' {..} =

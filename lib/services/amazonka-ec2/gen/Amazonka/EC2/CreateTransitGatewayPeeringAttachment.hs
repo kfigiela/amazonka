@@ -177,7 +177,7 @@ instance
     AWSResponse
       CreateTransitGatewayPeeringAttachment =
       CreateTransitGatewayPeeringAttachmentResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -185,6 +185,12 @@ instance
             Prelude.<$> (x Core..@? "transitGatewayPeeringAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateTransitGatewayPeeringAttachment
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

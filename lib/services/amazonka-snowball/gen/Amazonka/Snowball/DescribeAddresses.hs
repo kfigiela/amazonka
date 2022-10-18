@@ -123,7 +123,7 @@ instance Core.AWSRequest DescribeAddresses where
   type
     AWSResponse DescribeAddresses =
       DescribeAddressesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest DescribeAddresses where
             Prelude.<*> (x Core..?> "Addresses" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAddresses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAddresses where
   hashWithSalt _salt DescribeAddresses' {..} =

@@ -85,13 +85,19 @@ instance
   type
     AWSResponse RemoveKnowledgeBaseTemplateUri =
       RemoveKnowledgeBaseTemplateUriResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveKnowledgeBaseTemplateUriResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RemoveKnowledgeBaseTemplateUri
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

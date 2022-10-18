@@ -124,7 +124,7 @@ listApps_appArn = Lens.lens (\ListApps' {appArn} -> appArn) (\s@ListApps' {} a -
 
 instance Core.AWSRequest ListApps where
   type AWSResponse ListApps = ListAppsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListApps where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "appSummaries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListApps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApps where
   hashWithSalt _salt ListApps' {..} =

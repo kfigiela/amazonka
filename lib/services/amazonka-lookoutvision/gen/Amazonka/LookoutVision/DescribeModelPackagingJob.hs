@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeModelPackagingJob where
   type
     AWSResponse DescribeModelPackagingJob =
       DescribeModelPackagingJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeModelPackagingJob where
             Prelude.<$> (x Core..?> "ModelPackagingDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeModelPackagingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeModelPackagingJob where
   hashWithSalt _salt DescribeModelPackagingJob' {..} =

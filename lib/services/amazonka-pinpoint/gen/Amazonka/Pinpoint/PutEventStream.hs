@@ -94,7 +94,7 @@ instance Core.AWSRequest PutEventStream where
   type
     AWSResponse PutEventStream =
       PutEventStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest PutEventStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService PutEventStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEventStream where
   hashWithSalt _salt PutEventStream' {..} =

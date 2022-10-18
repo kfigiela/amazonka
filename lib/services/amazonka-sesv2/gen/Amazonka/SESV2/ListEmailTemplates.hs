@@ -114,7 +114,7 @@ instance Core.AWSRequest ListEmailTemplates where
   type
     AWSResponse ListEmailTemplates =
       ListEmailTemplatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListEmailTemplates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEmailTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEmailTemplates where
   hashWithSalt _salt ListEmailTemplates' {..} =

@@ -120,7 +120,7 @@ instance Core.AWSRequest CreateServiceProfile where
   type
     AWSResponse CreateServiceProfile =
       CreateServiceProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest CreateServiceProfile where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateServiceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateServiceProfile where
   hashWithSalt _salt CreateServiceProfile' {..} =

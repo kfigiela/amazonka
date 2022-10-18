@@ -126,7 +126,7 @@ instance Core.AWSRequest ListCompatibleImages where
   type
     AWSResponse ListCompatibleImages =
       ListCompatibleImagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListCompatibleImages where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCompatibleImages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCompatibleImages where
   hashWithSalt _salt ListCompatibleImages' {..} =

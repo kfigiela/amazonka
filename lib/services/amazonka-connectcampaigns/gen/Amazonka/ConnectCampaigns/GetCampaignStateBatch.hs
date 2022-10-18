@@ -82,7 +82,7 @@ instance Core.AWSRequest GetCampaignStateBatch where
   type
     AWSResponse GetCampaignStateBatch =
       GetCampaignStateBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetCampaignStateBatch where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCampaignStateBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCampaignStateBatch where
   hashWithSalt _salt GetCampaignStateBatch' {..} =

@@ -142,7 +142,7 @@ instance Core.AWSRequest ListSnapshots where
   type
     AWSResponse ListSnapshots =
       ListSnapshotsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListSnapshots where
             Prelude.<*> (x Core..?> "Snapshots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSnapshots where
   hashWithSalt _salt ListSnapshots' {..} =

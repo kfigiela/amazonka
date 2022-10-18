@@ -188,7 +188,7 @@ instance Core.AWSRequest ListChangedBlocks where
   type
     AWSResponse ListChangedBlocks =
       ListChangedBlocksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest ListChangedBlocks where
             Prelude.<*> (x Core..?> "BlockSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChangedBlocks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChangedBlocks where
   hashWithSalt _salt ListChangedBlocks' {..} =

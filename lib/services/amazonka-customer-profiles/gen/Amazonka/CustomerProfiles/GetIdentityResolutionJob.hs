@@ -107,7 +107,7 @@ instance Core.AWSRequest GetIdentityResolutionJob where
   type
     AWSResponse GetIdentityResolutionJob =
       GetIdentityResolutionJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetIdentityResolutionJob where
             Prelude.<*> (x Core..?> "JobExpirationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIdentityResolutionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIdentityResolutionJob where
   hashWithSalt _salt GetIdentityResolutionJob' {..} =

@@ -163,7 +163,7 @@ instance Core.AWSRequest ConnectDirectory where
   type
     AWSResponse ConnectDirectory =
       ConnectDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest ConnectDirectory where
             Prelude.<$> (x Core..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConnectDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConnectDirectory where
   hashWithSalt _salt ConnectDirectory' {..} =

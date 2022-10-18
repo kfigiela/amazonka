@@ -109,7 +109,7 @@ instance Core.AWSRequest ActivateNetworkSite where
   type
     AWSResponse ActivateNetworkSite =
       ActivateNetworkSiteResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest ActivateNetworkSite where
             Prelude.<$> (x Core..?> "networkSite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ActivateNetworkSite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateNetworkSite where
   hashWithSalt _salt ActivateNetworkSite' {..} =

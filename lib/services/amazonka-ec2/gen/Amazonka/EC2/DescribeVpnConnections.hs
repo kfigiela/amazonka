@@ -239,7 +239,7 @@ instance Core.AWSRequest DescribeVpnConnections where
   type
     AWSResponse DescribeVpnConnections =
       DescribeVpnConnectionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest DescribeVpnConnections where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVpnConnections where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVpnConnections where
   hashWithSalt _salt DescribeVpnConnections' {..} =

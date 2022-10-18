@@ -136,7 +136,7 @@ instance Core.AWSRequest CreateWorkspaceApiKey where
   type
     AWSResponse CreateWorkspaceApiKey =
       CreateWorkspaceApiKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest CreateWorkspaceApiKey where
             Prelude.<*> (x Core..:> "keyName")
             Prelude.<*> (x Core..:> "workspaceId")
       )
+
+instance Core.AWSService CreateWorkspaceApiKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkspaceApiKey where
   hashWithSalt _salt CreateWorkspaceApiKey' {..} =

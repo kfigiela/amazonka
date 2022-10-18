@@ -112,7 +112,7 @@ instance Core.AWSRequest ListCostCategoryDefinitions where
   type
     AWSResponse ListCostCategoryDefinitions =
       ListCostCategoryDefinitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ListCostCategoryDefinitions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCostCategoryDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCostCategoryDefinitions where
   hashWithSalt _salt ListCostCategoryDefinitions' {..} =

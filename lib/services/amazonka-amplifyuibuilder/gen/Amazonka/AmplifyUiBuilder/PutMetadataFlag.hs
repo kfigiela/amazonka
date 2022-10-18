@@ -115,9 +115,12 @@ instance Core.AWSRequest PutMetadataFlag where
   type
     AWSResponse PutMetadataFlag =
       PutMetadataFlagResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull PutMetadataFlagResponse'
+
+instance Core.AWSService PutMetadataFlag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMetadataFlag where
   hashWithSalt _salt PutMetadataFlag' {..} =

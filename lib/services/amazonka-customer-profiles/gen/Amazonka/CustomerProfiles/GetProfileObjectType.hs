@@ -102,7 +102,7 @@ instance Core.AWSRequest GetProfileObjectType where
   type
     AWSResponse GetProfileObjectType =
       GetProfileObjectTypeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetProfileObjectType where
             Prelude.<*> (x Core..:> "ObjectTypeName")
             Prelude.<*> (x Core..:> "Description")
       )
+
+instance Core.AWSService GetProfileObjectType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetProfileObjectType where
   hashWithSalt _salt GetProfileObjectType' {..} =

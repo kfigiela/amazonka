@@ -107,7 +107,7 @@ updatePreset_name = Lens.lens (\UpdatePreset' {name} -> name) (\s@UpdatePreset' 
 
 instance Core.AWSRequest UpdatePreset where
   type AWSResponse UpdatePreset = UpdatePresetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdatePreset where
             Prelude.<$> (x Core..?> "preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePreset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePreset where
   hashWithSalt _salt UpdatePreset' {..} =

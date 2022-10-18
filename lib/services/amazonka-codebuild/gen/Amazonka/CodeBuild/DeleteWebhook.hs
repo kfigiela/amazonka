@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteWebhook where
   type
     AWSResponse DeleteWebhook =
       DeleteWebhookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWebhookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWebhook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWebhook where
   hashWithSalt _salt DeleteWebhook' {..} =

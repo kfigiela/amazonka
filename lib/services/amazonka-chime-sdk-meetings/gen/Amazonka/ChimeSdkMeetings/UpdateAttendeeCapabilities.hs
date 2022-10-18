@@ -131,7 +131,7 @@ instance Core.AWSRequest UpdateAttendeeCapabilities where
   type
     AWSResponse UpdateAttendeeCapabilities =
       UpdateAttendeeCapabilitiesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest UpdateAttendeeCapabilities where
             Prelude.<$> (x Core..?> "Attendee")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAttendeeCapabilities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAttendeeCapabilities where
   hashWithSalt _salt UpdateAttendeeCapabilities' {..} =

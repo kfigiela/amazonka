@@ -169,7 +169,7 @@ instance Core.AWSRequest CreateNamedQuery where
   type
     AWSResponse CreateNamedQuery =
       CreateNamedQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest CreateNamedQuery where
             Prelude.<$> (x Core..?> "NamedQueryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNamedQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNamedQuery where
   hashWithSalt _salt CreateNamedQuery' {..} =

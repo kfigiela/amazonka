@@ -136,7 +136,7 @@ instance Core.AWSRequest CreateDBSubnetGroup where
   type
     AWSResponse CreateDBSubnetGroup =
       CreateDBSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBSubnetGroupResult"
@@ -145,6 +145,9 @@ instance Core.AWSRequest CreateDBSubnetGroup where
             Prelude.<$> (x Core..@? "DBSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBSubnetGroup where
   hashWithSalt _salt CreateDBSubnetGroup' {..} =

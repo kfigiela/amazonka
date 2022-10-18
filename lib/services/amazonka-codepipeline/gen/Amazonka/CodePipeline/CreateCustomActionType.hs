@@ -190,7 +190,7 @@ instance Core.AWSRequest CreateCustomActionType where
   type
     AWSResponse CreateCustomActionType =
       CreateCustomActionTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest CreateCustomActionType where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "actionType")
       )
+
+instance Core.AWSService CreateCustomActionType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomActionType where
   hashWithSalt _salt CreateCustomActionType' {..} =

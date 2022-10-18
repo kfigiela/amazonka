@@ -98,7 +98,7 @@ instance
     AWSResponse
       StopDBInstanceAutomatedBackupsReplication =
       StopDBInstanceAutomatedBackupsReplicationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopDBInstanceAutomatedBackupsReplicationResult"
@@ -107,6 +107,12 @@ instance
             Prelude.<$> (x Core..@? "DBInstanceAutomatedBackup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StopDBInstanceAutomatedBackupsReplication
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -146,7 +146,7 @@ instance Core.AWSRequest UpdateVirtualNode where
   type
     AWSResponse UpdateVirtualNode =
       UpdateVirtualNodeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest UpdateVirtualNode where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateVirtualNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVirtualNode where
   hashWithSalt _salt UpdateVirtualNode' {..} =

@@ -89,7 +89,7 @@ instance
   type
     AWSResponse DescribeOrganizationConfiguration =
       DescribeOrganizationConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,12 @@ instance
               Prelude.<*> (x Core..:> "autoEnable")
               Prelude.<*> (x Core..:> "memberAccountLimitReached")
       )
+
+instance
+  Core.AWSService
+    DescribeOrganizationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

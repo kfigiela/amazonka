@@ -86,7 +86,7 @@ instance
   type
     AWSResponse DescribeDetectorModelAnalysis =
       DescribeDetectorModelAnalysisResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,12 @@ instance
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeDetectorModelAnalysis
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

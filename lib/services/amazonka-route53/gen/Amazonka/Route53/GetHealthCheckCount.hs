@@ -65,7 +65,7 @@ instance Core.AWSRequest GetHealthCheckCount where
   type
     AWSResponse GetHealthCheckCount =
       GetHealthCheckCountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest GetHealthCheckCount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "HealthCheckCount")
       )
+
+instance Core.AWSService GetHealthCheckCount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHealthCheckCount where
   hashWithSalt _salt _ =

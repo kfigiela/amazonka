@@ -130,7 +130,7 @@ instance Core.AWSRequest CreateVPCEConfiguration where
   type
     AWSResponse CreateVPCEConfiguration =
       CreateVPCEConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateVPCEConfiguration where
             Prelude.<$> (x Core..?> "vpceConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVPCEConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVPCEConfiguration where
   hashWithSalt _salt CreateVPCEConfiguration' {..} =

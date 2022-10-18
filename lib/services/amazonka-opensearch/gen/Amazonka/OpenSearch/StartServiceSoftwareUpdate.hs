@@ -88,7 +88,7 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
   type
     AWSResponse StartServiceSoftwareUpdate =
       StartServiceSoftwareUpdateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest StartServiceSoftwareUpdate where
             Prelude.<$> (x Core..?> "ServiceSoftwareOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartServiceSoftwareUpdate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartServiceSoftwareUpdate where
   hashWithSalt _salt StartServiceSoftwareUpdate' {..} =

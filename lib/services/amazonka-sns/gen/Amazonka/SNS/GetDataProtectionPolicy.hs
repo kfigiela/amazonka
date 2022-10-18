@@ -93,7 +93,7 @@ instance Core.AWSRequest GetDataProtectionPolicy where
   type
     AWSResponse GetDataProtectionPolicy =
       GetDataProtectionPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetDataProtectionPolicyResult"
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetDataProtectionPolicy where
             Prelude.<$> (x Core..@? "DataProtectionPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataProtectionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataProtectionPolicy where
   hashWithSalt _salt GetDataProtectionPolicy' {..} =

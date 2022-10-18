@@ -102,7 +102,7 @@ instance Core.AWSRequest UpdateAppInstanceUser where
   type
     AWSResponse UpdateAppInstanceUser =
       UpdateAppInstanceUserResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest UpdateAppInstanceUser where
             Prelude.<$> (x Core..?> "AppInstanceUserArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAppInstanceUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAppInstanceUser where
   hashWithSalt _salt UpdateAppInstanceUser' {..} =

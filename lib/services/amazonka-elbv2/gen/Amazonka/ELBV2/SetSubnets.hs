@@ -219,7 +219,7 @@ setSubnets_loadBalancerArn = Lens.lens (\SetSubnets' {loadBalancerArn} -> loadBa
 
 instance Core.AWSRequest SetSubnets where
   type AWSResponse SetSubnets = SetSubnetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetSubnetsResult"
@@ -232,6 +232,9 @@ instance Core.AWSRequest SetSubnets where
             Prelude.<*> (x Core..@? "IpAddressType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetSubnets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetSubnets where
   hashWithSalt _salt SetSubnets' {..} =

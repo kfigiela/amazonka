@@ -80,7 +80,7 @@ instance Core.AWSRequest GetApplicationPolicy where
   type
     AWSResponse GetApplicationPolicy =
       GetApplicationPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetApplicationPolicy where
             Prelude.<$> (x Core..?> "statements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApplicationPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplicationPolicy where
   hashWithSalt _salt GetApplicationPolicy' {..} =

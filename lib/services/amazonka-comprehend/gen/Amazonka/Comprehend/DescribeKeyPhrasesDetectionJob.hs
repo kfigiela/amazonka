@@ -84,7 +84,7 @@ instance
   type
     AWSResponse DescribeKeyPhrasesDetectionJob =
       DescribeKeyPhrasesDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,12 @@ instance
             Prelude.<$> (x Core..?> "KeyPhrasesDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeKeyPhrasesDetectionJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

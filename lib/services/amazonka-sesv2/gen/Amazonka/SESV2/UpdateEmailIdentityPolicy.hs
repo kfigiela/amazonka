@@ -145,13 +145,16 @@ instance Core.AWSRequest UpdateEmailIdentityPolicy where
   type
     AWSResponse UpdateEmailIdentityPolicy =
       UpdateEmailIdentityPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEmailIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEmailIdentityPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEmailIdentityPolicy where
   hashWithSalt _salt UpdateEmailIdentityPolicy' {..} =

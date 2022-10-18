@@ -101,7 +101,7 @@ instance Core.AWSRequest CancelChangeSet where
   type
     AWSResponse CancelChangeSet =
       CancelChangeSetResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CancelChangeSet where
             Prelude.<*> (x Core..?> "ChangeSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelChangeSet where
   hashWithSalt _salt CancelChangeSet' {..} =

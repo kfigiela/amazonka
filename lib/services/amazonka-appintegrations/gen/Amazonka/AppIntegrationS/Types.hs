@@ -94,6 +94,7 @@ defaultService =
       Core._serviceEndpointPrefix = "app-integrations",
       Core._serviceSigningName = "app-integrations",
       Core._serviceVersion = "2020-07-29",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

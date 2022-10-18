@@ -173,9 +173,12 @@ instance Core.AWSRequest ExecutePolicy where
   type
     AWSResponse ExecutePolicy =
       ExecutePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ExecutePolicyResponse'
+
+instance Core.AWSService ExecutePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecutePolicy where
   hashWithSalt _salt ExecutePolicy' {..} =

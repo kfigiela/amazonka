@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeLabelGroup where
   type
     AWSResponse DescribeLabelGroup =
       DescribeLabelGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeLabelGroup where
             Prelude.<*> (x Core..?> "LabelGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLabelGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLabelGroup where
   hashWithSalt _salt DescribeLabelGroup' {..} =

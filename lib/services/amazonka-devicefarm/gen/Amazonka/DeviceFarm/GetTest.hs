@@ -76,7 +76,7 @@ getTest_arn = Lens.lens (\GetTest' {arn} -> arn) (\s@GetTest' {} a -> s {arn = a
 
 instance Core.AWSRequest GetTest where
   type AWSResponse GetTest = GetTestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetTest where
             Prelude.<$> (x Core..?> "test")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTest where
   hashWithSalt _salt GetTest' {..} =

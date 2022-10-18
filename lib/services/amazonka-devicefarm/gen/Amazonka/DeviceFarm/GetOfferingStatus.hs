@@ -122,7 +122,7 @@ instance Core.AWSRequest GetOfferingStatus where
   type
     AWSResponse GetOfferingStatus =
       GetOfferingStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest GetOfferingStatus where
             Prelude.<*> (x Core..?> "current" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOfferingStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOfferingStatus where
   hashWithSalt _salt GetOfferingStatus' {..} =

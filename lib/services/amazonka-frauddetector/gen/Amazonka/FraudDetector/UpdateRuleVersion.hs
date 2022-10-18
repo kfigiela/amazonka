@@ -140,7 +140,7 @@ instance Core.AWSRequest UpdateRuleVersion where
   type
     AWSResponse UpdateRuleVersion =
       UpdateRuleVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest UpdateRuleVersion where
             Prelude.<$> (x Core..?> "rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRuleVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRuleVersion where
   hashWithSalt _salt UpdateRuleVersion' {..} =

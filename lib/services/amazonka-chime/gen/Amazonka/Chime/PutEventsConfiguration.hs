@@ -114,7 +114,7 @@ instance Core.AWSRequest PutEventsConfiguration where
   type
     AWSResponse PutEventsConfiguration =
       PutEventsConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest PutEventsConfiguration where
             Prelude.<$> (x Core..?> "EventsConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutEventsConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutEventsConfiguration where
   hashWithSalt _salt PutEventsConfiguration' {..} =

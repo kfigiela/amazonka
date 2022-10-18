@@ -176,7 +176,7 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
   type
     AWSResponse SearchAvailablePhoneNumbers =
       SearchAvailablePhoneNumbersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest SearchAvailablePhoneNumbers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchAvailablePhoneNumbers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchAvailablePhoneNumbers where
   hashWithSalt _salt SearchAvailablePhoneNumbers' {..} =

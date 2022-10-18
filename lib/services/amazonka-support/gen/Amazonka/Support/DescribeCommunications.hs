@@ -181,7 +181,7 @@ instance Core.AWSRequest DescribeCommunications where
   type
     AWSResponse DescribeCommunications =
       DescribeCommunicationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest DescribeCommunications where
             Prelude.<*> (x Core..?> "communications" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCommunications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCommunications where
   hashWithSalt _salt DescribeCommunications' {..} =

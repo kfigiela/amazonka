@@ -282,7 +282,7 @@ instance Core.AWSRequest CreateInstances where
   type
     AWSResponse CreateInstances =
       CreateInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -290,6 +290,9 @@ instance Core.AWSRequest CreateInstances where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInstances where
   hashWithSalt _salt CreateInstances' {..} =

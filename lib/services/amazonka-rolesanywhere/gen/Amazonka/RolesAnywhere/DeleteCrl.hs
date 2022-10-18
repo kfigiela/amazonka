@@ -75,10 +75,13 @@ deleteCrl_crlId = Lens.lens (\DeleteCrl' {crlId} -> crlId) (\s@DeleteCrl' {} a -
 
 instance Core.AWSRequest DeleteCrl where
   type AWSResponse DeleteCrl = CrlDetailResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteCrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCrl where
   hashWithSalt _salt DeleteCrl' {..} =

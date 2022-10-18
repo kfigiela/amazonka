@@ -87,7 +87,7 @@ getWebACL_webACLId = Lens.lens (\GetWebACL' {webACLId} -> webACLId) (\s@GetWebAC
 
 instance Core.AWSRequest GetWebACL where
   type AWSResponse GetWebACL = GetWebACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetWebACL where
             Prelude.<$> (x Core..?> "WebACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWebACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWebACL where
   hashWithSalt _salt GetWebACL' {..} =

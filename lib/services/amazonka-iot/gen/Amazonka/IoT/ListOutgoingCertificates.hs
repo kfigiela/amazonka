@@ -131,7 +131,7 @@ instance Core.AWSRequest ListOutgoingCertificates where
   type
     AWSResponse ListOutgoingCertificates =
       ListOutgoingCertificatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest ListOutgoingCertificates where
             Prelude.<*> (x Core..?> "nextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOutgoingCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOutgoingCertificates where
   hashWithSalt _salt ListOutgoingCertificates' {..} =

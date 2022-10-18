@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteUsageLimit where
   type
     AWSResponse DeleteUsageLimit =
       DeleteUsageLimitResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteUsageLimitResponse'
+
+instance Core.AWSService DeleteUsageLimit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUsageLimit where
   hashWithSalt _salt DeleteUsageLimit' {..} =

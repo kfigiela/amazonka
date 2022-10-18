@@ -103,13 +103,16 @@ untagStream_tagKeyList = Lens.lens (\UntagStream' {tagKeyList} -> tagKeyList) (\
 
 instance Core.AWSRequest UntagStream where
   type AWSResponse UntagStream = UntagStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UntagStreamResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UntagStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagStream where
   hashWithSalt _salt UntagStream' {..} =

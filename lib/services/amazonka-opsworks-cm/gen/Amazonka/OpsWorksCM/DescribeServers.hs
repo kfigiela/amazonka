@@ -129,7 +129,7 @@ instance Core.AWSRequest DescribeServers where
   type
     AWSResponse DescribeServers =
       DescribeServersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest DescribeServers where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeServers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeServers where
   hashWithSalt _salt DescribeServers' {..} =

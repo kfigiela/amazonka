@@ -329,7 +329,7 @@ putSession_userId = Lens.lens (\PutSession' {userId} -> userId) (\s@PutSession' 
 
 instance Core.AWSRequest PutSession where
   type AWSResponse PutSession = PutSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -348,6 +348,9 @@ instance Core.AWSRequest PutSession where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService PutSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSession where
   hashWithSalt _salt PutSession' {..} =

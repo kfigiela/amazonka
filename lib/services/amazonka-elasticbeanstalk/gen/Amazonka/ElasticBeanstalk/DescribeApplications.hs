@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeApplications where
   type
     AWSResponse DescribeApplications =
       DescribeApplicationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeApplicationsResult"
@@ -94,6 +94,9 @@ instance Core.AWSRequest DescribeApplications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeApplications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeApplications where
   hashWithSalt _salt DescribeApplications' {..} =

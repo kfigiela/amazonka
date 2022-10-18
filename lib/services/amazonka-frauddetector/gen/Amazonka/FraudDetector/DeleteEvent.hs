@@ -104,13 +104,16 @@ deleteEvent_eventTypeName = Lens.lens (\DeleteEvent' {eventTypeName} -> eventTyp
 
 instance Core.AWSRequest DeleteEvent where
   type AWSResponse DeleteEvent = DeleteEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEventResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEvent where
   hashWithSalt _salt DeleteEvent' {..} =

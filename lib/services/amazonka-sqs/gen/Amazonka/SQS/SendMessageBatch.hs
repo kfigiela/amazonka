@@ -130,7 +130,7 @@ instance Core.AWSRequest SendMessageBatch where
   type
     AWSResponse SendMessageBatch =
       SendMessageBatchResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendMessageBatchResult"
@@ -140,6 +140,9 @@ instance Core.AWSRequest SendMessageBatch where
             Prelude.<*> (Core.parseXMLList "SendMessageBatchResultEntry" x)
             Prelude.<*> (Core.parseXMLList "BatchResultErrorEntry" x)
       )
+
+instance Core.AWSService SendMessageBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendMessageBatch where
   hashWithSalt _salt SendMessageBatch' {..} =

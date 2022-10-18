@@ -113,9 +113,12 @@ instance Core.AWSRequest DeregisterImage where
   type
     AWSResponse DeregisterImage =
       DeregisterImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeregisterImageResponse'
+
+instance Core.AWSService DeregisterImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterImage where
   hashWithSalt _salt DeregisterImage' {..} =

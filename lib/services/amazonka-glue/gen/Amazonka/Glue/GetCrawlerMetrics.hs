@@ -122,7 +122,7 @@ instance Core.AWSRequest GetCrawlerMetrics where
   type
     AWSResponse GetCrawlerMetrics =
       GetCrawlerMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest GetCrawlerMetrics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCrawlerMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCrawlerMetrics where
   hashWithSalt _salt GetCrawlerMetrics' {..} =

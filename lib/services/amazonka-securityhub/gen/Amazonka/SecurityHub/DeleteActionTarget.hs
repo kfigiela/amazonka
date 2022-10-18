@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteActionTarget where
   type
     AWSResponse DeleteActionTarget =
       DeleteActionTargetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteActionTarget where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ActionTargetArn")
       )
+
+instance Core.AWSService DeleteActionTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteActionTarget where
   hashWithSalt _salt DeleteActionTarget' {..} =

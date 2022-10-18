@@ -109,7 +109,7 @@ instance Core.AWSRequest RedactChannelMessage where
   type
     AWSResponse RedactChannelMessage =
       RedactChannelMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest RedactChannelMessage where
             Prelude.<*> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RedactChannelMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RedactChannelMessage where
   hashWithSalt _salt RedactChannelMessage' {..} =

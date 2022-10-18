@@ -113,13 +113,16 @@ instance Core.AWSRequest UpdateWorkGroup where
   type
     AWSResponse UpdateWorkGroup =
       UpdateWorkGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateWorkGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWorkGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkGroup where
   hashWithSalt _salt UpdateWorkGroup' {..} =

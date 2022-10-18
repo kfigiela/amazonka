@@ -116,10 +116,16 @@ instance
   type
     AWSResponse DisassociateInstanceStorageConfig =
       DisassociateInstanceStorageConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateInstanceStorageConfigResponse'
+
+instance
+  Core.AWSService
+    DisassociateInstanceStorageConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -103,7 +103,7 @@ describeRule_name = Lens.lens (\DescribeRule' {name} -> name) (\s@DescribeRule' 
 
 instance Core.AWSRequest DescribeRule where
   type AWSResponse DescribeRule = DescribeRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest DescribeRule where
             Prelude.<*> (x Core..?> "ManagedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRule where
   hashWithSalt _salt DescribeRule' {..} =

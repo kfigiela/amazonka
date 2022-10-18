@@ -399,7 +399,7 @@ instance Core.AWSRequest CreateNetworkInterface where
   type
     AWSResponse CreateNetworkInterface =
       CreateNetworkInterfaceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -408,6 +408,9 @@ instance Core.AWSRequest CreateNetworkInterface where
             Prelude.<*> (x Core..@? "networkInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNetworkInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNetworkInterface where
   hashWithSalt _salt CreateNetworkInterface' {..} =

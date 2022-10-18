@@ -61,7 +61,7 @@ instance Core.AWSRequest DescribeSubscription where
   type
     AWSResponse DescribeSubscription =
       DescribeSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest DescribeSubscription where
             Prelude.<$> (x Core..?> "Subscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSubscription where
   hashWithSalt _salt _ =

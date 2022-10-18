@@ -128,7 +128,7 @@ instance Core.AWSRequest CreatePublishingDestination where
   type
     AWSResponse CreatePublishingDestination =
       CreatePublishingDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreatePublishingDestination where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "destinationId")
       )
+
+instance Core.AWSService CreatePublishingDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePublishingDestination where
   hashWithSalt _salt CreatePublishingDestination' {..} =

@@ -96,7 +96,7 @@ instance Core.AWSRequest DeleteVocabulary where
   type
     AWSResponse DeleteVocabulary =
       DeleteVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteVocabulary where
             Prelude.<*> (x Core..:> "VocabularyId")
             Prelude.<*> (x Core..:> "State")
       )
+
+instance Core.AWSService DeleteVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVocabulary where
   hashWithSalt _salt DeleteVocabulary' {..} =

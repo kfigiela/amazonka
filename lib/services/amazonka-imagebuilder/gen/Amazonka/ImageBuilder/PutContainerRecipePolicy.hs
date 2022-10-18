@@ -106,7 +106,7 @@ instance Core.AWSRequest PutContainerRecipePolicy where
   type
     AWSResponse PutContainerRecipePolicy =
       PutContainerRecipePolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest PutContainerRecipePolicy where
             Prelude.<*> (x Core..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutContainerRecipePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutContainerRecipePolicy where
   hashWithSalt _salt PutContainerRecipePolicy' {..} =

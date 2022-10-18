@@ -140,7 +140,7 @@ instance Core.AWSRequest ListRevisionAssets where
   type
     AWSResponse ListRevisionAssets =
       ListRevisionAssetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListRevisionAssets where
             Prelude.<*> (x Core..?> "Assets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRevisionAssets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRevisionAssets where
   hashWithSalt _salt ListRevisionAssets' {..} =

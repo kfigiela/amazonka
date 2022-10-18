@@ -79,13 +79,16 @@ instance Core.AWSRequest DisassociateDeviceFromRoom where
   type
     AWSResponse DisassociateDeviceFromRoom =
       DisassociateDeviceFromRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateDeviceFromRoomResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateDeviceFromRoom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateDeviceFromRoom where
   hashWithSalt _salt DisassociateDeviceFromRoom' {..} =

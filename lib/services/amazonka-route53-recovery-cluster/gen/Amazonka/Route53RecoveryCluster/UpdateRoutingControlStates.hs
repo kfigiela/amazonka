@@ -140,13 +140,16 @@ instance Core.AWSRequest UpdateRoutingControlStates where
   type
     AWSResponse UpdateRoutingControlStates =
       UpdateRoutingControlStatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateRoutingControlStatesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRoutingControlStates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRoutingControlStates where
   hashWithSalt _salt UpdateRoutingControlStates' {..} =

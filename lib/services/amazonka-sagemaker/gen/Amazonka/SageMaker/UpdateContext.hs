@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateContext where
   type
     AWSResponse UpdateContext =
       UpdateContextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest UpdateContext where
             Prelude.<$> (x Core..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContext where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContext where
   hashWithSalt _salt UpdateContext' {..} =

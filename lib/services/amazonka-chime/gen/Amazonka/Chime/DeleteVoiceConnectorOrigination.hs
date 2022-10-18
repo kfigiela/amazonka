@@ -83,10 +83,16 @@ instance
   type
     AWSResponse DeleteVoiceConnectorOrigination =
       DeleteVoiceConnectorOriginationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteVoiceConnectorOriginationResponse'
+
+instance
+  Core.AWSService
+    DeleteVoiceConnectorOrigination
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

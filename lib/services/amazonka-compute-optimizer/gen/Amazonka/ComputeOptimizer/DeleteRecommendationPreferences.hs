@@ -162,13 +162,19 @@ instance
   type
     AWSResponse DeleteRecommendationPreferences =
       DeleteRecommendationPreferencesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRecommendationPreferencesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteRecommendationPreferences
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

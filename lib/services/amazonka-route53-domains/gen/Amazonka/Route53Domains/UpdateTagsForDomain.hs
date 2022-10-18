@@ -100,13 +100,16 @@ instance Core.AWSRequest UpdateTagsForDomain where
   type
     AWSResponse UpdateTagsForDomain =
       UpdateTagsForDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateTagsForDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTagsForDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTagsForDomain where
   hashWithSalt _salt UpdateTagsForDomain' {..} =

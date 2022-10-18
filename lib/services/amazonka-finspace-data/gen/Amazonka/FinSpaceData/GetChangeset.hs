@@ -106,7 +106,7 @@ getChangeset_changesetId = Lens.lens (\GetChangeset' {changesetId} -> changesetI
 
 instance Core.AWSRequest GetChangeset where
   type AWSResponse GetChangeset = GetChangesetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest GetChangeset where
             Prelude.<*> (x Core..?> "errorInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetChangeset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChangeset where
   hashWithSalt _salt GetChangeset' {..} =

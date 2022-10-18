@@ -103,13 +103,16 @@ instance Core.AWSRequest CreatePlacement where
   type
     AWSResponse CreatePlacement =
       CreatePlacementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreatePlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePlacement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePlacement where
   hashWithSalt _salt CreatePlacement' {..} =

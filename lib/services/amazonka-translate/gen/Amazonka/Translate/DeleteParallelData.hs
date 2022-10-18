@@ -78,7 +78,7 @@ instance Core.AWSRequest DeleteParallelData where
   type
     AWSResponse DeleteParallelData =
       DeleteParallelDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest DeleteParallelData where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteParallelData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteParallelData where
   hashWithSalt _salt DeleteParallelData' {..} =

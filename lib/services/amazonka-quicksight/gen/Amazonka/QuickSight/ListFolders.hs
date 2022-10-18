@@ -102,7 +102,7 @@ listFolders_awsAccountId = Lens.lens (\ListFolders' {awsAccountId} -> awsAccount
 
 instance Core.AWSRequest ListFolders where
   type AWSResponse ListFolders = ListFoldersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest ListFolders where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFolders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFolders where
   hashWithSalt _salt ListFolders' {..} =

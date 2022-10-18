@@ -64,7 +64,7 @@ instance Core.AWSRequest GetAccountAlias where
   type
     AWSResponse GetAccountAlias =
       GetAccountAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetAccountAlias where
             Prelude.<$> (x Core..?> "accountAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountAlias where
   hashWithSalt _salt _ =

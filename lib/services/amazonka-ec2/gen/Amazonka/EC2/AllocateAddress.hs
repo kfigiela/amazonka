@@ -250,7 +250,7 @@ instance Core.AWSRequest AllocateAddress where
   type
     AWSResponse AllocateAddress =
       AllocateAddressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -265,6 +265,9 @@ instance Core.AWSRequest AllocateAddress where
             Prelude.<*> (x Core..@? "publicIpv4Pool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AllocateAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AllocateAddress where
   hashWithSalt _salt AllocateAddress' {..} =

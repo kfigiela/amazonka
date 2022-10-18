@@ -114,7 +114,7 @@ instance Core.AWSRequest RegisterDBProxyTargets where
   type
     AWSResponse RegisterDBProxyTargets =
       RegisterDBProxyTargetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RegisterDBProxyTargetsResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest RegisterDBProxyTargets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterDBProxyTargets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterDBProxyTargets where
   hashWithSalt _salt RegisterDBProxyTargets' {..} =

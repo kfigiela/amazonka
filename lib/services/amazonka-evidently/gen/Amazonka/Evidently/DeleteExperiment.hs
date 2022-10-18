@@ -94,13 +94,16 @@ instance Core.AWSRequest DeleteExperiment where
   type
     AWSResponse DeleteExperiment =
       DeleteExperimentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteExperimentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteExperiment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExperiment where
   hashWithSalt _salt DeleteExperiment' {..} =

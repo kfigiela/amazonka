@@ -230,7 +230,7 @@ instance Core.AWSRequest CreateResolverRule where
   type
     AWSResponse CreateResolverRule =
       CreateResolverRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -238,6 +238,9 @@ instance Core.AWSRequest CreateResolverRule where
             Prelude.<$> (x Core..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResolverRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResolverRule where
   hashWithSalt _salt CreateResolverRule' {..} =

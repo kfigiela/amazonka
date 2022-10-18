@@ -74,7 +74,7 @@ getEula_eulaId = Lens.lens (\GetEula' {eulaId} -> eulaId) (\s@GetEula' {} a -> s
 
 instance Core.AWSRequest GetEula where
   type AWSResponse GetEula = GetEulaResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetEula where
             Prelude.<$> (x Core..?> "eula")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEula where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEula where
   hashWithSalt _salt GetEula' {..} =

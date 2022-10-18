@@ -216,7 +216,7 @@ instance
   type
     AWSResponse ModifyDBClusterSnapshotAttribute =
       ModifyDBClusterSnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBClusterSnapshotAttributeResult"
@@ -225,6 +225,12 @@ instance
             Prelude.<$> (x Core..@? "DBClusterSnapshotAttributesResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyDBClusterSnapshotAttribute
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -117,7 +117,7 @@ instance Core.AWSRequest AdminListDevices where
   type
     AWSResponse AdminListDevices =
       AdminListDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest AdminListDevices where
             Prelude.<*> (x Core..?> "PaginationToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminListDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminListDevices where
   hashWithSalt _salt AdminListDevices' {..} =

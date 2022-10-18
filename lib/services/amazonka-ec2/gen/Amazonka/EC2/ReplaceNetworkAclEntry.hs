@@ -229,10 +229,13 @@ instance Core.AWSRequest ReplaceNetworkAclEntry where
   type
     AWSResponse ReplaceNetworkAclEntry =
       ReplaceNetworkAclEntryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ReplaceNetworkAclEntryResponse'
+
+instance Core.AWSService ReplaceNetworkAclEntry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReplaceNetworkAclEntry where
   hashWithSalt _salt ReplaceNetworkAclEntry' {..} =

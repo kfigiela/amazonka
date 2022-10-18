@@ -131,7 +131,7 @@ instance Core.AWSRequest ListConnectorEntities where
   type
     AWSResponse ListConnectorEntities =
       ListConnectorEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListConnectorEntities where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListConnectorEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListConnectorEntities where
   hashWithSalt _salt ListConnectorEntities' {..} =

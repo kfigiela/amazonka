@@ -146,7 +146,7 @@ instance Core.AWSRequest ModifyPrivateDnsNameOptions where
   type
     AWSResponse ModifyPrivateDnsNameOptions =
       ModifyPrivateDnsNameOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ModifyPrivateDnsNameOptions where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyPrivateDnsNameOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyPrivateDnsNameOptions where
   hashWithSalt _salt ModifyPrivateDnsNameOptions' {..} =

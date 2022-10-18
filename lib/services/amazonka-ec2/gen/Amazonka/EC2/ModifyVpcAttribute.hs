@@ -151,9 +151,12 @@ instance Core.AWSRequest ModifyVpcAttribute where
   type
     AWSResponse ModifyVpcAttribute =
       ModifyVpcAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ModifyVpcAttributeResponse'
+
+instance Core.AWSService ModifyVpcAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyVpcAttribute where
   hashWithSalt _salt ModifyVpcAttribute' {..} =

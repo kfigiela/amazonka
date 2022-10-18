@@ -142,7 +142,7 @@ instance
   type
     AWSResponse CreateLBCookieStickinessPolicy =
       CreateLBCookieStickinessPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateLBCookieStickinessPolicyResult"
@@ -150,6 +150,12 @@ instance
           CreateLBCookieStickinessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateLBCookieStickinessPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

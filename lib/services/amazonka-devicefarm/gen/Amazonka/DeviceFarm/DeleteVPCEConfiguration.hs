@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteVPCEConfiguration where
   type
     AWSResponse DeleteVPCEConfiguration =
       DeleteVPCEConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVPCEConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVPCEConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVPCEConfiguration where
   hashWithSalt _salt DeleteVPCEConfiguration' {..} =

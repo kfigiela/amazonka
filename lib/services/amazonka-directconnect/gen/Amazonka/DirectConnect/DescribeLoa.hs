@@ -115,7 +115,7 @@ describeLoa_connectionId = Lens.lens (\DescribeLoa' {connectionId} -> connection
 
 instance Core.AWSRequest DescribeLoa where
   type AWSResponse DescribeLoa = DescribeLoaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DescribeLoa where
             Prelude.<*> (x Core..?> "loaContentType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLoa where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLoa where
   hashWithSalt _salt DescribeLoa' {..} =

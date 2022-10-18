@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeRxNormInferenceJob where
   type
     AWSResponse DescribeRxNormInferenceJob =
       DescribeRxNormInferenceJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DescribeRxNormInferenceJob where
             Prelude.<$> (x Core..?> "ComprehendMedicalAsyncJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRxNormInferenceJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRxNormInferenceJob where
   hashWithSalt _salt DescribeRxNormInferenceJob' {..} =

@@ -134,7 +134,7 @@ updateSite_siteId = Lens.lens (\UpdateSite' {siteId} -> siteId) (\s@UpdateSite' 
 
 instance Core.AWSRequest UpdateSite where
   type AWSResponse UpdateSite = UpdateSiteResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest UpdateSite where
             Prelude.<$> (x Core..?> "Site")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSite where
   hashWithSalt _salt UpdateSite' {..} =

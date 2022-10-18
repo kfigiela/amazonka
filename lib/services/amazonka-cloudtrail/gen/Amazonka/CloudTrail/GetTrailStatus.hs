@@ -114,7 +114,7 @@ instance Core.AWSRequest GetTrailStatus where
   type
     AWSResponse GetTrailStatus =
       GetTrailStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetTrailStatus where
             Prelude.<*> (x Core..?> "LatestDeliveryAttemptSucceeded")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTrailStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTrailStatus where
   hashWithSalt _salt GetTrailStatus' {..} =

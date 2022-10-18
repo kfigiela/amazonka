@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeSlotType where
   type
     AWSResponse DescribeSlotType =
       DescribeSlotTypeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest DescribeSlotType where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSlotType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSlotType where
   hashWithSalt _salt DescribeSlotType' {..} =

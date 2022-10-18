@@ -149,7 +149,7 @@ instance Core.AWSRequest CompleteSnapshot where
   type
     AWSResponse CompleteSnapshot =
       CompleteSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest CompleteSnapshot where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompleteSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteSnapshot where
   hashWithSalt _salt CompleteSnapshot' {..} =

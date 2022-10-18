@@ -204,7 +204,7 @@ createBot_idleSessionTTLInSeconds = Lens.lens (\CreateBot' {idleSessionTTLInSeco
 
 instance Core.AWSRequest CreateBot where
   type AWSResponse CreateBot = CreateBotResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest CreateBot where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBot where
   hashWithSalt _salt CreateBot' {..} =

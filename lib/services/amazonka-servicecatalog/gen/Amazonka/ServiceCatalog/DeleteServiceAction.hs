@@ -107,13 +107,16 @@ instance Core.AWSRequest DeleteServiceAction where
   type
     AWSResponse DeleteServiceAction =
       DeleteServiceActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteServiceActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteServiceAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteServiceAction where
   hashWithSalt _salt DeleteServiceAction' {..} =

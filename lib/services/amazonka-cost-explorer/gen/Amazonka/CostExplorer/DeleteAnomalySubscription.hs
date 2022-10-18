@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteAnomalySubscription where
   type
     AWSResponse DeleteAnomalySubscription =
       DeleteAnomalySubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAnomalySubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAnomalySubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAnomalySubscription where
   hashWithSalt _salt DeleteAnomalySubscription' {..} =

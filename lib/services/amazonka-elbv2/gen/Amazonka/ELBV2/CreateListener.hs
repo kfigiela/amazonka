@@ -255,7 +255,7 @@ instance Core.AWSRequest CreateListener where
   type
     AWSResponse CreateListener =
       CreateListenerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateListenerResult"
@@ -266,6 +266,9 @@ instance Core.AWSRequest CreateListener where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateListener where
   hashWithSalt _salt CreateListener' {..} =

@@ -84,7 +84,7 @@ instance Core.AWSRequest ListPolicyVersions where
   type
     AWSResponse ListPolicyVersions =
       ListPolicyVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest ListPolicyVersions where
             Prelude.<$> (x Core..?> "policyVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPolicyVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPolicyVersions where
   hashWithSalt _salt ListPolicyVersions' {..} =

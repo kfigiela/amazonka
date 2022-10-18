@@ -115,7 +115,7 @@ instance Core.AWSRequest ModifyDBProxyEndpoint where
   type
     AWSResponse ModifyDBProxyEndpoint =
       ModifyDBProxyEndpointResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyDBProxyEndpointResult"
@@ -124,6 +124,9 @@ instance Core.AWSRequest ModifyDBProxyEndpoint where
             Prelude.<$> (x Core..@? "DBProxyEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyDBProxyEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyDBProxyEndpoint where
   hashWithSalt _salt ModifyDBProxyEndpoint' {..} =

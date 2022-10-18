@@ -151,7 +151,7 @@ getMatches_domainName = Lens.lens (\GetMatches' {domainName} -> domainName) (\s@
 
 instance Core.AWSRequest GetMatches where
   type AWSResponse GetMatches = GetMatchesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest GetMatches where
             Prelude.<*> (x Core..?> "MatchGenerationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMatches where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMatches where
   hashWithSalt _salt GetMatches' {..} =

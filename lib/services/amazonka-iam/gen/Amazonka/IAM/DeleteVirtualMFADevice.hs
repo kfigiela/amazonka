@@ -98,10 +98,13 @@ instance Core.AWSRequest DeleteVirtualMFADevice where
   type
     AWSResponse DeleteVirtualMFADevice =
       DeleteVirtualMFADeviceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteVirtualMFADeviceResponse'
+
+instance Core.AWSService DeleteVirtualMFADevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVirtualMFADevice where
   hashWithSalt _salt DeleteVirtualMFADevice' {..} =

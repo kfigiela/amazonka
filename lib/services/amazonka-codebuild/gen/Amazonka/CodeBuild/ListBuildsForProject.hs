@@ -179,7 +179,7 @@ instance Core.AWSRequest ListBuildsForProject where
   type
     AWSResponse ListBuildsForProject =
       ListBuildsForProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest ListBuildsForProject where
             Prelude.<*> (x Core..?> "ids")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBuildsForProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBuildsForProject where
   hashWithSalt _salt ListBuildsForProject' {..} =

@@ -264,7 +264,7 @@ instance Core.AWSRequest ImportComponent where
   type
     AWSResponse ImportComponent =
       ImportComponentResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -274,6 +274,9 @@ instance Core.AWSRequest ImportComponent where
             Prelude.<*> (x Core..?> "componentBuildVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportComponent where
   hashWithSalt _salt ImportComponent' {..} =

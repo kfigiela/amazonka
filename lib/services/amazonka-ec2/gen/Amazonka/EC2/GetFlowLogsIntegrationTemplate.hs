@@ -147,7 +147,7 @@ instance
   type
     AWSResponse GetFlowLogsIntegrationTemplate =
       GetFlowLogsIntegrationTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -155,6 +155,12 @@ instance
             Prelude.<$> (x Core..@? "result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetFlowLogsIntegrationTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

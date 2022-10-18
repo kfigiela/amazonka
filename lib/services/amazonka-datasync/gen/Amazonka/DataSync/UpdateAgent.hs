@@ -88,13 +88,16 @@ updateAgent_agentArn = Lens.lens (\UpdateAgent' {agentArn} -> agentArn) (\s@Upda
 
 instance Core.AWSRequest UpdateAgent where
   type AWSResponse UpdateAgent = UpdateAgentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAgentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAgent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAgent where
   hashWithSalt _salt UpdateAgent' {..} =

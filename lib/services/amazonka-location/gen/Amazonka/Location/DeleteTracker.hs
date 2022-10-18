@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteTracker where
   type
     AWSResponse DeleteTracker =
       DeleteTrackerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTrackerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTracker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTracker where
   hashWithSalt _salt DeleteTracker' {..} =

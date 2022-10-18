@@ -90,7 +90,7 @@ instance Core.AWSRequest ListAllowedNodeTypeUpdates where
   type
     AWSResponse ListAllowedNodeTypeUpdates =
       ListAllowedNodeTypeUpdatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ListAllowedNodeTypeUpdates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAllowedNodeTypeUpdates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAllowedNodeTypeUpdates where
   hashWithSalt _salt ListAllowedNodeTypeUpdates' {..} =

@@ -111,7 +111,7 @@ instance Core.AWSRequest GetIntegrationResponse where
   type
     AWSResponse GetIntegrationResponse =
       GetIntegrationResponseResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest GetIntegrationResponse where
             Prelude.<*> (x Core..?> "integrationResponseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIntegrationResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIntegrationResponse where
   hashWithSalt _salt GetIntegrationResponse' {..} =

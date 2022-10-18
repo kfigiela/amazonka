@@ -124,7 +124,7 @@ instance Core.AWSRequest ListSecurityPolicies where
   type
     AWSResponse ListSecurityPolicies =
       ListSecurityPoliciesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListSecurityPolicies where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListSecurityPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSecurityPolicies where
   hashWithSalt _salt ListSecurityPolicies' {..} =

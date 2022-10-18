@@ -202,7 +202,7 @@ instance Core.AWSRequest ListCodeRepositories where
   type
     AWSResponse ListCodeRepositories =
       ListCodeRepositoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -213,6 +213,9 @@ instance Core.AWSRequest ListCodeRepositories where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListCodeRepositories where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCodeRepositories where
   hashWithSalt _salt ListCodeRepositories' {..} =

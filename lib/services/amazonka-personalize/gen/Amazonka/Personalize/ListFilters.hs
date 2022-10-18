@@ -120,7 +120,7 @@ instance Core.AWSPager ListFilters where
 
 instance Core.AWSRequest ListFilters where
   type AWSResponse ListFilters = ListFiltersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListFilters where
             Prelude.<*> (x Core..?> "Filters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFilters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFilters where
   hashWithSalt _salt ListFilters' {..} =

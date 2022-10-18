@@ -106,10 +106,16 @@ instance
   type
     AWSResponse UpdateSourceServerReplicationType =
       SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    UpdateSourceServerReplicationType
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

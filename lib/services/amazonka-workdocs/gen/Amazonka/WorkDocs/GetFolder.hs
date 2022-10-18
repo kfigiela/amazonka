@@ -101,7 +101,7 @@ getFolder_folderId = Lens.lens (\GetFolder' {folderId} -> folderId) (\s@GetFolde
 
 instance Core.AWSRequest GetFolder where
   type AWSResponse GetFolder = GetFolderResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetFolder where
             Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =

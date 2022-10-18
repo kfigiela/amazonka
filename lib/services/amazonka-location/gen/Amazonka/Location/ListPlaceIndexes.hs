@@ -127,7 +127,7 @@ instance Core.AWSRequest ListPlaceIndexes where
   type
     AWSResponse ListPlaceIndexes =
       ListPlaceIndexesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListPlaceIndexes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entries" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListPlaceIndexes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPlaceIndexes where
   hashWithSalt _salt ListPlaceIndexes' {..} =

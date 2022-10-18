@@ -111,7 +111,7 @@ instance Core.AWSRequest DeleteEventDestination where
   type
     AWSResponse DeleteEventDestination =
       DeleteEventDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DeleteEventDestination where
             Prelude.<*> (x Core..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEventDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventDestination where
   hashWithSalt _salt DeleteEventDestination' {..} =

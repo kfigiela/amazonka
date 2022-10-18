@@ -344,10 +344,13 @@ instance Core.AWSRequest ListClosedWorkflowExecutions where
   type
     AWSResponse ListClosedWorkflowExecutions =
       WorkflowExecutionInfos
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ListClosedWorkflowExecutions where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

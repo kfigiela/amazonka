@@ -122,7 +122,7 @@ instance Core.AWSRequest ListEntityPersonas where
   type
     AWSResponse ListEntityPersonas =
       ListEntityPersonasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListEntityPersonas where
             Prelude.<*> (x Core..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEntityPersonas where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEntityPersonas where
   hashWithSalt _salt ListEntityPersonas' {..} =

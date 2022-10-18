@@ -75,7 +75,7 @@ getKeyPair_keyPairName = Lens.lens (\GetKeyPair' {keyPairName} -> keyPairName) (
 
 instance Core.AWSRequest GetKeyPair where
   type AWSResponse GetKeyPair = GetKeyPairResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetKeyPair where
             Prelude.<$> (x Core..?> "keyPair")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKeyPair where
   hashWithSalt _salt GetKeyPair' {..} =

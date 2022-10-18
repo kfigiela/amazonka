@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeAppVersionTemplate where
   type
     AWSResponse DescribeAppVersionTemplate =
       DescribeAppVersionTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeAppVersionTemplate where
             Prelude.<*> (x Core..:> "appTemplateBody")
             Prelude.<*> (x Core..:> "appVersion")
       )
+
+instance Core.AWSService DescribeAppVersionTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAppVersionTemplate where
   hashWithSalt _salt DescribeAppVersionTemplate' {..} =

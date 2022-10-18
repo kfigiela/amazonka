@@ -93,7 +93,7 @@ instance Core.AWSRequest DeleteQueryDefinition where
   type
     AWSResponse DeleteQueryDefinition =
       DeleteQueryDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DeleteQueryDefinition where
             Prelude.<$> (x Core..?> "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteQueryDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQueryDefinition where
   hashWithSalt _salt DeleteQueryDefinition' {..} =

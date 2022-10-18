@@ -86,13 +86,16 @@ instance Core.AWSRequest ImportAppCatalog where
   type
     AWSResponse ImportAppCatalog =
       ImportAppCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ImportAppCatalogResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportAppCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportAppCatalog where
   hashWithSalt _salt ImportAppCatalog' {..} =

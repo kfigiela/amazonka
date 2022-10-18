@@ -115,7 +115,7 @@ instance Core.AWSRequest CreateDeployment where
   type
     AWSResponse CreateDeployment =
       CreateDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest CreateDeployment where
             Prelude.<*> (x Core..?> "fileUploadUrls" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "zipUploadUrl")
       )
+
+instance Core.AWSService CreateDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDeployment where
   hashWithSalt _salt CreateDeployment' {..} =

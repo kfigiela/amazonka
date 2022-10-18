@@ -109,7 +109,7 @@ instance Core.AWSRequest GetBackendAPIModels where
   type
     AWSResponse GetBackendAPIModels =
       GetBackendAPIModelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetBackendAPIModels where
             Prelude.<*> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackendAPIModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackendAPIModels where
   hashWithSalt _salt GetBackendAPIModels' {..} =

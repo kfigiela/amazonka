@@ -150,7 +150,7 @@ instance Core.AWSRequest ListAccountAliases where
   type
     AWSResponse ListAccountAliases =
       ListAccountAliasesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListAccountAliasesResult"
@@ -163,6 +163,9 @@ instance Core.AWSRequest ListAccountAliases where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListAccountAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountAliases where
   hashWithSalt _salt ListAccountAliases' {..} =

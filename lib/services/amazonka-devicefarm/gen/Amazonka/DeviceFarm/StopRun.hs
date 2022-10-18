@@ -84,7 +84,7 @@ stopRun_arn = Lens.lens (\StopRun' {arn} -> arn) (\s@StopRun' {} a -> s {arn = a
 
 instance Core.AWSRequest StopRun where
   type AWSResponse StopRun = StopRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest StopRun where
             Prelude.<$> (x Core..?> "run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopRun where
   hashWithSalt _salt StopRun' {..} =

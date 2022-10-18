@@ -217,7 +217,7 @@ instance Core.AWSRequest SetTypeConfiguration where
   type
     AWSResponse SetTypeConfiguration =
       SetTypeConfigurationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetTypeConfigurationResult"
@@ -226,6 +226,9 @@ instance Core.AWSRequest SetTypeConfiguration where
             Prelude.<$> (x Core..@? "ConfigurationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetTypeConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTypeConfiguration where
   hashWithSalt _salt SetTypeConfiguration' {..} =

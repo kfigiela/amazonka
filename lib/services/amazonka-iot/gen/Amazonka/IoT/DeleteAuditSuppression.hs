@@ -94,13 +94,16 @@ instance Core.AWSRequest DeleteAuditSuppression where
   type
     AWSResponse DeleteAuditSuppression =
       DeleteAuditSuppressionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAuditSuppressionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAuditSuppression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAuditSuppression where
   hashWithSalt _salt DeleteAuditSuppression' {..} =

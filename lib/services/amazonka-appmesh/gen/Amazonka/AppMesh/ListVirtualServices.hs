@@ -174,7 +174,7 @@ instance Core.AWSRequest ListVirtualServices where
   type
     AWSResponse ListVirtualServices =
       ListVirtualServicesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest ListVirtualServices where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListVirtualServices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVirtualServices where
   hashWithSalt _salt ListVirtualServices' {..} =

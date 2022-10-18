@@ -122,7 +122,7 @@ instance
   type
     AWSResponse CreateContainerServiceDeployment =
       CreateContainerServiceDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,12 @@ instance
             Prelude.<$> (x Core..?> "containerService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateContainerServiceDeployment
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

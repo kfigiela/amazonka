@@ -1036,6 +1036,7 @@ defaultService =
       Core._serviceEndpointPrefix = "dms",
       Core._serviceSigningName = "dms",
       Core._serviceVersion = "2016-01-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -145,7 +145,7 @@ instance Core.AWSRequest ListResourceDelegates where
   type
     AWSResponse ListResourceDelegates =
       ListResourceDelegatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListResourceDelegates where
             Prelude.<*> (x Core..?> "Delegates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListResourceDelegates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResourceDelegates where
   hashWithSalt _salt ListResourceDelegates' {..} =

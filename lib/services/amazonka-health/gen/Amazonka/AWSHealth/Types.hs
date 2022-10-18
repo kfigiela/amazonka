@@ -239,6 +239,7 @@ defaultService =
       Core._serviceEndpointPrefix = "health",
       Core._serviceSigningName = "health",
       Core._serviceVersion = "2016-08-04",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -134,7 +134,7 @@ createObject_schemaFacets = Lens.lens (\CreateObject' {schemaFacets} -> schemaFa
 
 instance Core.AWSRequest CreateObject where
   type AWSResponse CreateObject = CreateObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateObject where
             Prelude.<$> (x Core..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateObject where
   hashWithSalt _salt CreateObject' {..} =

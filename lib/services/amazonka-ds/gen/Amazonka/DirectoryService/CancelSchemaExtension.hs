@@ -96,13 +96,16 @@ instance Core.AWSRequest CancelSchemaExtension where
   type
     AWSResponse CancelSchemaExtension =
       CancelSchemaExtensionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelSchemaExtensionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelSchemaExtension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelSchemaExtension where
   hashWithSalt _salt CancelSchemaExtension' {..} =

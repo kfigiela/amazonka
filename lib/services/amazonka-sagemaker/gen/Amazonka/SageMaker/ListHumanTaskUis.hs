@@ -160,7 +160,7 @@ instance Core.AWSRequest ListHumanTaskUis where
   type
     AWSResponse ListHumanTaskUis =
       ListHumanTaskUisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest ListHumanTaskUis where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListHumanTaskUis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHumanTaskUis where
   hashWithSalt _salt ListHumanTaskUis' {..} =

@@ -103,7 +103,7 @@ instance Core.AWSRequest DeleteCarrierGateway where
   type
     AWSResponse DeleteCarrierGateway =
       DeleteCarrierGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DeleteCarrierGateway where
             Prelude.<$> (x Core..@? "carrierGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCarrierGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCarrierGateway where
   hashWithSalt _salt DeleteCarrierGateway' {..} =

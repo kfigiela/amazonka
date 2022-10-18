@@ -126,7 +126,7 @@ instance Core.AWSRequest CreateBackendAuth where
   type
     AWSResponse CreateBackendAuth =
       CreateBackendAuthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest CreateBackendAuth where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBackendAuth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBackendAuth where
   hashWithSalt _salt CreateBackendAuth' {..} =

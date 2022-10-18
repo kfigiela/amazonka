@@ -104,7 +104,7 @@ listGraphs_maxResults = Lens.lens (\ListGraphs' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListGraphs where
   type AWSResponse ListGraphs = ListGraphsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest ListGraphs where
             Prelude.<*> (x Core..?> "GraphList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGraphs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGraphs where
   hashWithSalt _salt ListGraphs' {..} =

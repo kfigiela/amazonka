@@ -65,6 +65,7 @@ defaultService =
       Core._serviceEndpointPrefix = "controltower",
       Core._serviceSigningName = "controltower",
       Core._serviceVersion = "2018-05-10",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

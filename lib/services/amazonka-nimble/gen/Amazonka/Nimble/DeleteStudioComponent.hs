@@ -113,7 +113,7 @@ instance Core.AWSRequest DeleteStudioComponent where
   type
     AWSResponse DeleteStudioComponent =
       DeleteStudioComponentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DeleteStudioComponent where
             Prelude.<$> (x Core..?> "studioComponent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStudioComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStudioComponent where
   hashWithSalt _salt DeleteStudioComponent' {..} =

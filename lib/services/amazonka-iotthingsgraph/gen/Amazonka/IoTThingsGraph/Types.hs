@@ -42,6 +42,7 @@ defaultService =
       Core._serviceEndpointPrefix = "iotthingsgraph",
       Core._serviceSigningName = "iotthingsgraph",
       Core._serviceVersion = "2018-09-06",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

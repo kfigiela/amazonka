@@ -106,13 +106,16 @@ instance Core.AWSRequest PutInvitationConfiguration where
   type
     AWSResponse PutInvitationConfiguration =
       PutInvitationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutInvitationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutInvitationConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutInvitationConfiguration where
   hashWithSalt _salt PutInvitationConfiguration' {..} =

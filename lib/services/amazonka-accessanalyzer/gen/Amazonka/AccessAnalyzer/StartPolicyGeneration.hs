@@ -130,7 +130,7 @@ instance Core.AWSRequest StartPolicyGeneration where
   type
     AWSResponse StartPolicyGeneration =
       StartPolicyGenerationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest StartPolicyGeneration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "jobId")
       )
+
+instance Core.AWSService StartPolicyGeneration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartPolicyGeneration where
   hashWithSalt _salt StartPolicyGeneration' {..} =

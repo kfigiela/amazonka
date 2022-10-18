@@ -118,7 +118,7 @@ instance Core.AWSRequest DeleteBotLocale where
   type
     AWSResponse DeleteBotLocale =
       DeleteBotLocaleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DeleteBotLocale where
             Prelude.<*> (x Core..?> "botLocaleStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBotLocale where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBotLocale where
   hashWithSalt _salt DeleteBotLocale' {..} =

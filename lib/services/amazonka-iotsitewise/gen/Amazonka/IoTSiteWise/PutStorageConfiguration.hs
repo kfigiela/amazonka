@@ -185,7 +185,7 @@ instance Core.AWSRequest PutStorageConfiguration where
   type
     AWSResponse PutStorageConfiguration =
       PutStorageConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest PutStorageConfiguration where
             Prelude.<*> (x Core..:> "storageType")
             Prelude.<*> (x Core..:> "configurationStatus")
       )
+
+instance Core.AWSService PutStorageConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutStorageConfiguration where
   hashWithSalt _salt PutStorageConfiguration' {..} =

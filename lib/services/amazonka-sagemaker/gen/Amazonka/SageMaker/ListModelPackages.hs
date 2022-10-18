@@ -240,7 +240,7 @@ instance Core.AWSRequest ListModelPackages where
   type
     AWSResponse ListModelPackages =
       ListModelPackagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -251,6 +251,9 @@ instance Core.AWSRequest ListModelPackages where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListModelPackages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListModelPackages where
   hashWithSalt _salt ListModelPackages' {..} =

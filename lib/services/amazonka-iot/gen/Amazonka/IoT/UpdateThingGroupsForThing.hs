@@ -120,13 +120,16 @@ instance Core.AWSRequest UpdateThingGroupsForThing where
   type
     AWSResponse UpdateThingGroupsForThing =
       UpdateThingGroupsForThingResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateThingGroupsForThingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateThingGroupsForThing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThingGroupsForThing where
   hashWithSalt _salt UpdateThingGroupsForThing' {..} =

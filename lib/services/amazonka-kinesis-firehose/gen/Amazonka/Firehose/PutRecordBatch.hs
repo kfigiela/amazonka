@@ -158,7 +158,7 @@ instance Core.AWSRequest PutRecordBatch where
   type
     AWSResponse PutRecordBatch =
       PutRecordBatchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -168,6 +168,9 @@ instance Core.AWSRequest PutRecordBatch where
             Prelude.<*> (x Core..:> "FailedPutCount")
             Prelude.<*> (x Core..:> "RequestResponses")
       )
+
+instance Core.AWSService PutRecordBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRecordBatch where
   hashWithSalt _salt PutRecordBatch' {..} =

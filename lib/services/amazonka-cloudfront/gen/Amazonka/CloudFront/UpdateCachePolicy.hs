@@ -127,7 +127,7 @@ instance Core.AWSRequest UpdateCachePolicy where
   type
     AWSResponse UpdateCachePolicy =
       UpdateCachePolicyResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest UpdateCachePolicy where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCachePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCachePolicy where
   hashWithSalt _salt UpdateCachePolicy' {..} =

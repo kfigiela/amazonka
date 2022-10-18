@@ -381,11 +381,14 @@ instance Core.AWSRequest CreateEnvironment where
   type
     AWSResponse CreateEnvironment =
       EnvironmentDescription
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateEnvironmentResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEnvironment where
   hashWithSalt _salt CreateEnvironment' {..} =

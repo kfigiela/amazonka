@@ -99,13 +99,16 @@ instance Core.AWSRequest UpdateMacieSession where
   type
     AWSResponse UpdateMacieSession =
       UpdateMacieSessionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateMacieSessionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMacieSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMacieSession where
   hashWithSalt _salt UpdateMacieSession' {..} =

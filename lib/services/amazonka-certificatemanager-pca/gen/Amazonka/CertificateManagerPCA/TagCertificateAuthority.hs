@@ -113,10 +113,13 @@ instance Core.AWSRequest TagCertificateAuthority where
   type
     AWSResponse TagCertificateAuthority =
       TagCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       TagCertificateAuthorityResponse'
+
+instance Core.AWSService TagCertificateAuthority where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagCertificateAuthority where
   hashWithSalt _salt TagCertificateAuthority' {..} =

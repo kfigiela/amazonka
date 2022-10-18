@@ -89,10 +89,13 @@ instance Core.AWSRequest RemoveAllResourcePermissions where
   type
     AWSResponse RemoveAllResourcePermissions =
       RemoveAllResourcePermissionsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       RemoveAllResourcePermissionsResponse'
+
+instance Core.AWSService RemoveAllResourcePermissions where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

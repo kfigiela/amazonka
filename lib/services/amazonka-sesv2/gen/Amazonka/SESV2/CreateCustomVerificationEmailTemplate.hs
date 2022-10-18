@@ -178,13 +178,19 @@ instance
     AWSResponse
       CreateCustomVerificationEmailTemplate =
       CreateCustomVerificationEmailTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateCustomVerificationEmailTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateCustomVerificationEmailTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

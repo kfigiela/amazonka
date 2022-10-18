@@ -142,13 +142,16 @@ instance Core.AWSRequest UpdateImpersonationRole where
   type
     AWSResponse UpdateImpersonationRole =
       UpdateImpersonationRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateImpersonationRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateImpersonationRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateImpersonationRole where
   hashWithSalt _salt UpdateImpersonationRole' {..} =

@@ -200,7 +200,7 @@ instance Core.AWSRequest AssociateMacSecKey where
   type
     AWSResponse AssociateMacSecKey =
       AssociateMacSecKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest AssociateMacSecKey where
             Prelude.<*> (x Core..?> "connectionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateMacSecKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateMacSecKey where
   hashWithSalt _salt AssociateMacSecKey' {..} =

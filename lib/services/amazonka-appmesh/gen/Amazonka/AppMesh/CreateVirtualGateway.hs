@@ -176,7 +176,7 @@ instance Core.AWSRequest CreateVirtualGateway where
   type
     AWSResponse CreateVirtualGateway =
       CreateVirtualGatewayResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest CreateVirtualGateway where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateVirtualGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVirtualGateway where
   hashWithSalt _salt CreateVirtualGateway' {..} =

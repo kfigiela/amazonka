@@ -101,7 +101,7 @@ getResolver_fieldName = Lens.lens (\GetResolver' {fieldName} -> fieldName) (\s@G
 
 instance Core.AWSRequest GetResolver where
   type AWSResponse GetResolver = GetResolverResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetResolver where
             Prelude.<$> (x Core..?> "resolver")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResolver where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResolver where
   hashWithSalt _salt GetResolver' {..} =

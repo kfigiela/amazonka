@@ -88,7 +88,7 @@ instance Core.AWSRequest GetBucketStatistics where
   type
     AWSResponse GetBucketStatistics =
       GetBucketStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetBucketStatistics where
             Prelude.<*> (x Core..?> "bucketCountByEncryptionType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBucketStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBucketStatistics where
   hashWithSalt _salt GetBucketStatistics' {..} =

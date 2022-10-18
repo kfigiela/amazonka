@@ -96,7 +96,7 @@ instance Core.AWSRequest AddInstanceFleet where
   type
     AWSResponse AddInstanceFleet =
       AddInstanceFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest AddInstanceFleet where
             Prelude.<*> (x Core..?> "ClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddInstanceFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddInstanceFleet where
   hashWithSalt _salt AddInstanceFleet' {..} =

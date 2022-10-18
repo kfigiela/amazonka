@@ -95,7 +95,7 @@ instance Core.AWSRequest GetDataSetImportTask where
   type
     AWSResponse GetDataSetImportTask =
       GetDataSetImportTaskResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetDataSetImportTask where
             Prelude.<*> (x Core..:> "status")
             Prelude.<*> (x Core..:> "taskId")
       )
+
+instance Core.AWSService GetDataSetImportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataSetImportTask where
   hashWithSalt _salt GetDataSetImportTask' {..} =

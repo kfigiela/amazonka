@@ -95,9 +95,12 @@ instance Core.AWSRequest DeleteAccelerator where
   type
     AWSResponse DeleteAccelerator =
       DeleteAcceleratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAcceleratorResponse'
+
+instance Core.AWSService DeleteAccelerator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccelerator where
   hashWithSalt _salt DeleteAccelerator' {..} =

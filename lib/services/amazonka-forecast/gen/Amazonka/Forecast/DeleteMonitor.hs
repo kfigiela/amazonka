@@ -75,9 +75,12 @@ instance Core.AWSRequest DeleteMonitor where
   type
     AWSResponse DeleteMonitor =
       DeleteMonitorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteMonitorResponse'
+
+instance Core.AWSService DeleteMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMonitor where
   hashWithSalt _salt DeleteMonitor' {..} =

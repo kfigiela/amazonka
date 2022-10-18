@@ -161,7 +161,7 @@ instance
   type
     AWSResponse AddApplicationVpcConfiguration =
       AddApplicationVpcConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,12 @@ instance
             Prelude.<*> (x Core..?> "VpcConfigurationDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AddApplicationVpcConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

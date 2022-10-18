@@ -86,7 +86,7 @@ listChannels_maxResults = Lens.lens (\ListChannels' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListChannels where
   type AWSResponse ListChannels = ListChannelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest ListChannels where
             Prelude.<*> (x Core..?> "Channels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannels where
   hashWithSalt _salt ListChannels' {..} =

@@ -153,7 +153,7 @@ instance Core.AWSRequest ListInstanceProfileTags where
   type
     AWSResponse ListInstanceProfileTags =
       ListInstanceProfileTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListInstanceProfileTagsResult"
@@ -166,6 +166,9 @@ instance Core.AWSRequest ListInstanceProfileTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListInstanceProfileTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInstanceProfileTags where
   hashWithSalt _salt ListInstanceProfileTags' {..} =

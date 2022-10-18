@@ -248,7 +248,7 @@ instance Core.AWSRequest DescribeVolumesModifications where
   type
     AWSResponse DescribeVolumesModifications =
       DescribeVolumesModificationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -260,6 +260,9 @@ instance Core.AWSRequest DescribeVolumesModifications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVolumesModifications where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

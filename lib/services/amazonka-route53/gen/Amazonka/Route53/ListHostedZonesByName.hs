@@ -220,7 +220,7 @@ instance Core.AWSRequest ListHostedZonesByName where
   type
     AWSResponse ListHostedZonesByName =
       ListHostedZonesByNameResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -236,6 +236,9 @@ instance Core.AWSRequest ListHostedZonesByName where
             Prelude.<*> (x Core..@ "IsTruncated")
             Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance Core.AWSService ListHostedZonesByName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHostedZonesByName where
   hashWithSalt _salt ListHostedZonesByName' {..} =

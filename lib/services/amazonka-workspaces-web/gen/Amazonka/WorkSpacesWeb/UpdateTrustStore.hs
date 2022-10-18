@@ -131,7 +131,7 @@ instance Core.AWSRequest UpdateTrustStore where
   type
     AWSResponse UpdateTrustStore =
       UpdateTrustStoreResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest UpdateTrustStore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "trustStoreArn")
       )
+
+instance Core.AWSService UpdateTrustStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTrustStore where
   hashWithSalt _salt UpdateTrustStore' {..} =

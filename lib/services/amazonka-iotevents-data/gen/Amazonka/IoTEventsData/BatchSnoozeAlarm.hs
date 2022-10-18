@@ -84,7 +84,7 @@ instance Core.AWSRequest BatchSnoozeAlarm where
   type
     AWSResponse BatchSnoozeAlarm =
       BatchSnoozeAlarmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest BatchSnoozeAlarm where
             Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchSnoozeAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchSnoozeAlarm where
   hashWithSalt _salt BatchSnoozeAlarm' {..} =

@@ -121,7 +121,7 @@ instance Core.AWSRequest CreateProject where
   type
     AWSResponse CreateProject =
       CreateProjectResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest CreateProject where
             Prelude.<$> (x Core..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProject where
   hashWithSalt _salt CreateProject' {..} =

@@ -84,13 +84,16 @@ instance Core.AWSRequest DisassociateConnectionAlias where
   type
     AWSResponse DisassociateConnectionAlias =
       DisassociateConnectionAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateConnectionAliasResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateConnectionAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateConnectionAlias where
   hashWithSalt _salt DisassociateConnectionAlias' {..} =

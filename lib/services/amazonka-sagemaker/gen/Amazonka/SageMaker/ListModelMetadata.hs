@@ -140,7 +140,7 @@ instance Core.AWSRequest ListModelMetadata where
   type
     AWSResponse ListModelMetadata =
       ListModelMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListModelMetadata where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListModelMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListModelMetadata where
   hashWithSalt _salt ListModelMetadata' {..} =

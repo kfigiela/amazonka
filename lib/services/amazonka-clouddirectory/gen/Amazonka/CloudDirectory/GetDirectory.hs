@@ -75,7 +75,7 @@ getDirectory_directoryArn = Lens.lens (\GetDirectory' {directoryArn} -> director
 
 instance Core.AWSRequest GetDirectory where
   type AWSResponse GetDirectory = GetDirectoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetDirectory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Directory")
       )
+
+instance Core.AWSService GetDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDirectory where
   hashWithSalt _salt GetDirectory' {..} =

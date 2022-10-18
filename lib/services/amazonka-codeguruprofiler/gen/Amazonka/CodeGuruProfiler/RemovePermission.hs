@@ -130,7 +130,7 @@ instance Core.AWSRequest RemovePermission where
   type
     AWSResponse RemovePermission =
       RemovePermissionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest RemovePermission where
             Prelude.<*> (x Core..:> "policy")
             Prelude.<*> (x Core..:> "revisionId")
       )
+
+instance Core.AWSService RemovePermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemovePermission where
   hashWithSalt _salt RemovePermission' {..} =

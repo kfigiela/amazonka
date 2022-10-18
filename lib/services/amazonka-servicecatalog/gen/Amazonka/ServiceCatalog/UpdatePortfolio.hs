@@ -160,7 +160,7 @@ instance Core.AWSRequest UpdatePortfolio where
   type
     AWSResponse UpdatePortfolio =
       UpdatePortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest UpdatePortfolio where
             Prelude.<*> (x Core..?> "PortfolioDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePortfolio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePortfolio where
   hashWithSalt _salt UpdatePortfolio' {..} =

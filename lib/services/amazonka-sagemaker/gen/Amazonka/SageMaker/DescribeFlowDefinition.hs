@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeFlowDefinition where
   type
     AWSResponse DescribeFlowDefinition =
       DescribeFlowDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeFlowDefinition where
             Prelude.<*> (x Core..:> "OutputConfig")
             Prelude.<*> (x Core..:> "RoleArn")
       )
+
+instance Core.AWSService DescribeFlowDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFlowDefinition where
   hashWithSalt _salt DescribeFlowDefinition' {..} =

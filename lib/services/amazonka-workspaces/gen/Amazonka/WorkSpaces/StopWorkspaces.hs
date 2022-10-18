@@ -83,7 +83,7 @@ instance Core.AWSRequest StopWorkspaces where
   type
     AWSResponse StopWorkspaces =
       StopWorkspacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest StopWorkspaces where
             Prelude.<$> (x Core..?> "FailedRequests" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopWorkspaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopWorkspaces where
   hashWithSalt _salt StopWorkspaces' {..} =

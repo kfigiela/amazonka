@@ -77,7 +77,7 @@ instance Core.AWSRequest DeleteAttachment where
   type
     AWSResponse DeleteAttachment =
       DeleteAttachmentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteAttachment where
             Prelude.<$> (x Core..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAttachment where
   hashWithSalt _salt DeleteAttachment' {..} =

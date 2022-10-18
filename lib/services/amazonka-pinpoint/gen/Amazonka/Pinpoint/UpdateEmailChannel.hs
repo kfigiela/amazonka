@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateEmailChannel where
   type
     AWSResponse UpdateEmailChannel =
       UpdateEmailChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateEmailChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateEmailChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEmailChannel where
   hashWithSalt _salt UpdateEmailChannel' {..} =

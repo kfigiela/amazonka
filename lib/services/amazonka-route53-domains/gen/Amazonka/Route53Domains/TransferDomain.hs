@@ -406,7 +406,7 @@ instance Core.AWSRequest TransferDomain where
   type
     AWSResponse TransferDomain =
       TransferDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -414,6 +414,9 @@ instance Core.AWSRequest TransferDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OperationId")
       )
+
+instance Core.AWSService TransferDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TransferDomain where
   hashWithSalt _salt TransferDomain' {..} =

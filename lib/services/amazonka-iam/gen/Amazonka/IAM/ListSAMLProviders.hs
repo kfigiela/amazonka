@@ -68,7 +68,7 @@ instance Core.AWSRequest ListSAMLProviders where
   type
     AWSResponse ListSAMLProviders =
       ListSAMLProvidersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSAMLProvidersResult"
@@ -80,6 +80,9 @@ instance Core.AWSRequest ListSAMLProviders where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSAMLProviders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSAMLProviders where
   hashWithSalt _salt _ =

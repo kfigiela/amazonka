@@ -228,7 +228,7 @@ instance
   type
     AWSResponse StartDocumentClassificationJob =
       StartDocumentClassificationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -238,6 +238,12 @@ instance
             Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartDocumentClassificationJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

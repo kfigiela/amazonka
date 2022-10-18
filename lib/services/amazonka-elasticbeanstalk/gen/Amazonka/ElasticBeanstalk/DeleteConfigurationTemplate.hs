@@ -97,10 +97,13 @@ instance Core.AWSRequest DeleteConfigurationTemplate where
   type
     AWSResponse DeleteConfigurationTemplate =
       DeleteConfigurationTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteConfigurationTemplateResponse'
+
+instance Core.AWSService DeleteConfigurationTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfigurationTemplate where
   hashWithSalt _salt DeleteConfigurationTemplate' {..} =

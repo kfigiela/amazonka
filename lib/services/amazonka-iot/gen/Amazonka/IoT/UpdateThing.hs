@@ -158,13 +158,16 @@ updateThing_thingName = Lens.lens (\UpdateThing' {thingName} -> thingName) (\s@U
 
 instance Core.AWSRequest UpdateThing where
   type AWSResponse UpdateThing = UpdateThingResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateThingResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateThing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateThing where
   hashWithSalt _salt UpdateThing' {..} =

@@ -83,7 +83,7 @@ instance Core.AWSRequest GetFindingsReportStatus where
   type
     AWSResponse GetFindingsReportStatus =
       GetFindingsReportStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetFindingsReportStatus where
             Prelude.<*> (x Core..?> "errorCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFindingsReportStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFindingsReportStatus where
   hashWithSalt _salt GetFindingsReportStatus' {..} =

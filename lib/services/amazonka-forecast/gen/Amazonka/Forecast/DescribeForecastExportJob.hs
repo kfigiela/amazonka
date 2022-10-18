@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeForecastExportJob where
   type
     AWSResponse DescribeForecastExportJob =
       DescribeForecastExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeForecastExportJob where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeForecastExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeForecastExportJob where
   hashWithSalt _salt DescribeForecastExportJob' {..} =

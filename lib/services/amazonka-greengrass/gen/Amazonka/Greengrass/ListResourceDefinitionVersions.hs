@@ -133,7 +133,7 @@ instance
   type
     AWSResponse ListResourceDefinitionVersions =
       ListResourceDefinitionVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,12 @@ instance
             Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListResourceDefinitionVersions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

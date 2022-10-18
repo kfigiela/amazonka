@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteCustomDataIdentifier where
   type
     AWSResponse DeleteCustomDataIdentifier =
       DeleteCustomDataIdentifierResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomDataIdentifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomDataIdentifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomDataIdentifier where
   hashWithSalt _salt DeleteCustomDataIdentifier' {..} =

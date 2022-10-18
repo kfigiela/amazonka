@@ -128,7 +128,7 @@ instance Core.AWSRequest CreateWorkflowStepGroup where
   type
     AWSResponse CreateWorkflowStepGroup =
       CreateWorkflowStepGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateWorkflowStepGroup where
             Prelude.<*> (x Core..?> "previous" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkflowStepGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkflowStepGroup where
   hashWithSalt _salt CreateWorkflowStepGroup' {..} =

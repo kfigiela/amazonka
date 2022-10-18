@@ -75,9 +75,12 @@ instance Core.AWSRequest ActivateEventSource where
   type
     AWSResponse ActivateEventSource =
       ActivateEventSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ActivateEventSourceResponse'
+
+instance Core.AWSService ActivateEventSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ActivateEventSource where
   hashWithSalt _salt ActivateEventSource' {..} =

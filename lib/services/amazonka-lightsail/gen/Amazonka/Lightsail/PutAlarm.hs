@@ -518,7 +518,7 @@ putAlarm_evaluationPeriods = Lens.lens (\PutAlarm' {evaluationPeriods} -> evalua
 
 instance Core.AWSRequest PutAlarm where
   type AWSResponse PutAlarm = PutAlarmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -526,6 +526,9 @@ instance Core.AWSRequest PutAlarm where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAlarm where
   hashWithSalt _salt PutAlarm' {..} =

@@ -165,7 +165,7 @@ instance Core.AWSRequest SendChannelMessage where
   type
     AWSResponse SendChannelMessage =
       SendChannelMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest SendChannelMessage where
             Prelude.<*> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendChannelMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendChannelMessage where
   hashWithSalt _salt SendChannelMessage' {..} =

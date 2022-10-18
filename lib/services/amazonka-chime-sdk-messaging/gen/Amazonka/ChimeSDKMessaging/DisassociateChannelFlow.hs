@@ -109,10 +109,13 @@ instance Core.AWSRequest DisassociateChannelFlow where
   type
     AWSResponse DisassociateChannelFlow =
       DisassociateChannelFlowResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DisassociateChannelFlowResponse'
+
+instance Core.AWSService DisassociateChannelFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateChannelFlow where
   hashWithSalt _salt DisassociateChannelFlow' {..} =

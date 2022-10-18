@@ -164,7 +164,7 @@ instance Core.AWSRequest UpdateFlowEntitlement where
   type
     AWSResponse UpdateFlowEntitlement =
       UpdateFlowEntitlementResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest UpdateFlowEntitlement where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFlowEntitlement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFlowEntitlement where
   hashWithSalt _salt UpdateFlowEntitlement' {..} =

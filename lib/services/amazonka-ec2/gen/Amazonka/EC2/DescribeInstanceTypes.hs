@@ -600,7 +600,7 @@ instance Core.AWSRequest DescribeInstanceTypes where
   type
     AWSResponse DescribeInstanceTypes =
       DescribeInstanceTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -611,6 +611,9 @@ instance Core.AWSRequest DescribeInstanceTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInstanceTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInstanceTypes where
   hashWithSalt _salt DescribeInstanceTypes' {..} =

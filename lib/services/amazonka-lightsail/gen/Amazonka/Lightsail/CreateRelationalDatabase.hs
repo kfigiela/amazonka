@@ -672,7 +672,7 @@ instance Core.AWSRequest CreateRelationalDatabase where
   type
     AWSResponse CreateRelationalDatabase =
       CreateRelationalDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -680,6 +680,9 @@ instance Core.AWSRequest CreateRelationalDatabase where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRelationalDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRelationalDatabase where
   hashWithSalt _salt CreateRelationalDatabase' {..} =

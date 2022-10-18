@@ -121,7 +121,7 @@ deleteTape_tapeARN = Lens.lens (\DeleteTape' {tapeARN} -> tapeARN) (\s@DeleteTap
 
 instance Core.AWSRequest DeleteTape where
   type AWSResponse DeleteTape = DeleteTapeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DeleteTape where
             Prelude.<$> (x Core..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTape where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTape where
   hashWithSalt _salt DeleteTape' {..} =

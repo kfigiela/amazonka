@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteFunctionDefinition where
   type
     AWSResponse DeleteFunctionDefinition =
       DeleteFunctionDefinitionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteFunctionDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFunctionDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFunctionDefinition where
   hashWithSalt _salt DeleteFunctionDefinition' {..} =

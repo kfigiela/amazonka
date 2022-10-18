@@ -200,7 +200,7 @@ instance
   type
     AWSResponse CreateInferenceRecommendationsJob =
       CreateInferenceRecommendationsJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -208,6 +208,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "JobArn")
       )
+
+instance
+  Core.AWSService
+    CreateInferenceRecommendationsJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

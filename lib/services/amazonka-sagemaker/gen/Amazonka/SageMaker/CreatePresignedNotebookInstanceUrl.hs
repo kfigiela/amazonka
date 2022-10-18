@@ -117,7 +117,7 @@ instance
   type
     AWSResponse CreatePresignedNotebookInstanceUrl =
       CreatePresignedNotebookInstanceUrlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,12 @@ instance
             Prelude.<$> (x Core..?> "AuthorizedUrl")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreatePresignedNotebookInstanceUrl
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

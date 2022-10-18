@@ -104,7 +104,7 @@ instance Core.AWSRequest CreatePartnerInput' where
   type
     AWSResponse CreatePartnerInput' =
       CreatePartnerInputResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest CreatePartnerInput' where
             Prelude.<$> (x Core..?> "input")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePartnerInput' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePartnerInput' where
   hashWithSalt _salt CreatePartnerInput'' {..} =

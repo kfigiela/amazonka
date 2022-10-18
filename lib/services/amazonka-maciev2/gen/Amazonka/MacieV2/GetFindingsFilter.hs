@@ -87,7 +87,7 @@ instance Core.AWSRequest GetFindingsFilter where
   type
     AWSResponse GetFindingsFilter =
       GetFindingsFilterResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetFindingsFilter where
             Prelude.<*> (x Core..?> "position")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFindingsFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFindingsFilter where
   hashWithSalt _salt GetFindingsFilter' {..} =

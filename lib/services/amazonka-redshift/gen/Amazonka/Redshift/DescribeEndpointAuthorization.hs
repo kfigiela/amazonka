@@ -179,7 +179,7 @@ instance
   type
     AWSResponse DescribeEndpointAuthorization =
       DescribeEndpointAuthorizationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEndpointAuthorizationResult"
@@ -192,6 +192,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEndpointAuthorization
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

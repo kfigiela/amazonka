@@ -683,7 +683,7 @@ runTask_taskDefinition = Lens.lens (\RunTask' {taskDefinition} -> taskDefinition
 
 instance Core.AWSRequest RunTask where
   type AWSResponse RunTask = RunTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -692,6 +692,9 @@ instance Core.AWSRequest RunTask where
             Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RunTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RunTask where
   hashWithSalt _salt RunTask' {..} =

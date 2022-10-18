@@ -130,7 +130,7 @@ instance Core.AWSRequest ListMitigationActions where
   type
     AWSResponse ListMitigationActions =
       ListMitigationActionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListMitigationActions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMitigationActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMitigationActions where
   hashWithSalt _salt ListMitigationActions' {..} =

@@ -81,13 +81,16 @@ instance Core.AWSRequest CancelCluster where
   type
     AWSResponse CancelCluster =
       CancelClusterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelClusterResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelCluster where
   hashWithSalt _salt CancelCluster' {..} =

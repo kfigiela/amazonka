@@ -107,7 +107,7 @@ instance Core.AWSRequest PutStoredQuery where
   type
     AWSResponse PutStoredQuery =
       PutStoredQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest PutStoredQuery where
             Prelude.<$> (x Core..?> "QueryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutStoredQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutStoredQuery where
   hashWithSalt _salt PutStoredQuery' {..} =

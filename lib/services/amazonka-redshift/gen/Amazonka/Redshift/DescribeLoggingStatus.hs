@@ -95,11 +95,14 @@ instance Core.AWSRequest DescribeLoggingStatus where
   type
     AWSResponse DescribeLoggingStatus =
       LoggingStatus
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLoggingStatusResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DescribeLoggingStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLoggingStatus where
   hashWithSalt _salt DescribeLoggingStatus' {..} =

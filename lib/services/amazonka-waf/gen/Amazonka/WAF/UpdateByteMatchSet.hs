@@ -189,7 +189,7 @@ instance Core.AWSRequest UpdateByteMatchSet where
   type
     AWSResponse UpdateByteMatchSet =
       UpdateByteMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest UpdateByteMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateByteMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateByteMatchSet where
   hashWithSalt _salt UpdateByteMatchSet' {..} =

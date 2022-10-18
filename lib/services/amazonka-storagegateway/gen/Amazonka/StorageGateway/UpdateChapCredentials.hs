@@ -166,7 +166,7 @@ instance Core.AWSRequest UpdateChapCredentials where
   type
     AWSResponse UpdateChapCredentials =
       UpdateChapCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest UpdateChapCredentials where
             Prelude.<*> (x Core..?> "TargetARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateChapCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateChapCredentials where
   hashWithSalt _salt UpdateChapCredentials' {..} =

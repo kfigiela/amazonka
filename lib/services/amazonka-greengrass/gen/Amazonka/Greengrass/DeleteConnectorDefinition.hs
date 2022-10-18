@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteConnectorDefinition where
   type
     AWSResponse DeleteConnectorDefinition =
       DeleteConnectorDefinitionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConnectorDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConnectorDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnectorDefinition where
   hashWithSalt _salt DeleteConnectorDefinition' {..} =

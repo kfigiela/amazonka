@@ -93,7 +93,7 @@ instance Core.AWSRequest GetSiteAddress where
   type
     AWSResponse GetSiteAddress =
       GetSiteAddressResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetSiteAddress where
             Prelude.<*> (x Core..?> "Address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSiteAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSiteAddress where
   hashWithSalt _salt GetSiteAddress' {..} =

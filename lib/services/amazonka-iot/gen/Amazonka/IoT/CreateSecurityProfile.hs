@@ -180,7 +180,7 @@ instance Core.AWSRequest CreateSecurityProfile where
   type
     AWSResponse CreateSecurityProfile =
       CreateSecurityProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest CreateSecurityProfile where
             Prelude.<*> (x Core..?> "securityProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSecurityProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSecurityProfile where
   hashWithSalt _salt CreateSecurityProfile' {..} =

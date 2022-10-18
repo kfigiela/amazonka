@@ -151,7 +151,7 @@ instance Core.AWSRequest CreateStreamingImage where
   type
     AWSResponse CreateStreamingImage =
       CreateStreamingImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest CreateStreamingImage where
             Prelude.<$> (x Core..?> "streamingImage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStreamingImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStreamingImage where
   hashWithSalt _salt CreateStreamingImage' {..} =

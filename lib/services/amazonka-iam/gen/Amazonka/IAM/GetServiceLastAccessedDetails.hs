@@ -204,7 +204,7 @@ instance
   type
     AWSResponse GetServiceLastAccessedDetails =
       GetServiceLastAccessedDetailsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetServiceLastAccessedDetailsResult"
@@ -223,6 +223,12 @@ instance
                         )
             Prelude.<*> (x Core..@ "JobCompletionDate")
       )
+
+instance
+  Core.AWSService
+    GetServiceLastAccessedDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

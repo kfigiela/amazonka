@@ -78,7 +78,7 @@ stopWorkflow_id = Lens.lens (\StopWorkflow' {id} -> id) (\s@StopWorkflow' {} a -
 
 instance Core.AWSRequest StopWorkflow where
   type AWSResponse StopWorkflow = StopWorkflowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest StopWorkflow where
             Prelude.<*> (x Core..?> "statusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopWorkflow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopWorkflow where
   hashWithSalt _salt StopWorkflow' {..} =

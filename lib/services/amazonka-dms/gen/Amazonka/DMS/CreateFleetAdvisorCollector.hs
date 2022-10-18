@@ -130,7 +130,7 @@ instance Core.AWSRequest CreateFleetAdvisorCollector where
   type
     AWSResponse CreateFleetAdvisorCollector =
       CreateFleetAdvisorCollectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateFleetAdvisorCollector where
             Prelude.<*> (x Core..?> "CollectorReferencedId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFleetAdvisorCollector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFleetAdvisorCollector where
   hashWithSalt _salt CreateFleetAdvisorCollector' {..} =

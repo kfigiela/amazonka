@@ -127,7 +127,7 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
   type
     AWSResponse ListSMSSandboxPhoneNumbers =
       ListSMSSandboxPhoneNumbersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSMSSandboxPhoneNumbersResult"
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListSMSSandboxPhoneNumbers where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListSMSSandboxPhoneNumbers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSMSSandboxPhoneNumbers where
   hashWithSalt _salt ListSMSSandboxPhoneNumbers' {..} =

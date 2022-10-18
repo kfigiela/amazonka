@@ -151,7 +151,7 @@ instance Core.AWSRequest CreateBulkImportJob where
   type
     AWSResponse CreateBulkImportJob =
       CreateBulkImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateBulkImportJob where
             Prelude.<*> (x Core..:> "jobName")
             Prelude.<*> (x Core..:> "jobStatus")
       )
+
+instance Core.AWSService CreateBulkImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBulkImportJob where
   hashWithSalt _salt CreateBulkImportJob' {..} =

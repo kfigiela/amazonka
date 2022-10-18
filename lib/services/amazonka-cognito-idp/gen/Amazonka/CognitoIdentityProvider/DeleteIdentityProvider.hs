@@ -87,10 +87,13 @@ instance Core.AWSRequest DeleteIdentityProvider where
   type
     AWSResponse DeleteIdentityProvider =
       DeleteIdentityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteIdentityProviderResponse'
+
+instance Core.AWSService DeleteIdentityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIdentityProvider where
   hashWithSalt _salt DeleteIdentityProvider' {..} =

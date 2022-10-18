@@ -79,10 +79,13 @@ instance Core.AWSRequest EnableProfile where
   type
     AWSResponse EnableProfile =
       ProfileDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService EnableProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableProfile where
   hashWithSalt _salt EnableProfile' {..} =

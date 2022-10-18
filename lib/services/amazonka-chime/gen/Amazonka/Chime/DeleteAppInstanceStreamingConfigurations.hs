@@ -81,10 +81,16 @@ instance
     AWSResponse
       DeleteAppInstanceStreamingConfigurations =
       DeleteAppInstanceStreamingConfigurationsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteAppInstanceStreamingConfigurationsResponse'
+
+instance
+  Core.AWSService
+    DeleteAppInstanceStreamingConfigurations
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

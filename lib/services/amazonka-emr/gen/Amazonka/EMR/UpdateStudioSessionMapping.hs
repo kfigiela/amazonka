@@ -160,10 +160,13 @@ instance Core.AWSRequest UpdateStudioSessionMapping where
   type
     AWSResponse UpdateStudioSessionMapping =
       UpdateStudioSessionMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateStudioSessionMappingResponse'
+
+instance Core.AWSService UpdateStudioSessionMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStudioSessionMapping where
   hashWithSalt _salt UpdateStudioSessionMapping' {..} =

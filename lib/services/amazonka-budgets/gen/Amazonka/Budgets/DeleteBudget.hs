@@ -96,13 +96,16 @@ deleteBudget_budgetName = Lens.lens (\DeleteBudget' {budgetName} -> budgetName) 
 
 instance Core.AWSRequest DeleteBudget where
   type AWSResponse DeleteBudget = DeleteBudgetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteBudgetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBudget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBudget where
   hashWithSalt _salt DeleteBudget' {..} =

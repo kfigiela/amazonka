@@ -111,7 +111,7 @@ instance Core.AWSRequest ListResponsePlans where
   type
     AWSResponse ListResponsePlans =
       ListResponsePlansResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListResponsePlans where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListResponsePlans where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResponsePlans where
   hashWithSalt _salt ListResponsePlans' {..} =

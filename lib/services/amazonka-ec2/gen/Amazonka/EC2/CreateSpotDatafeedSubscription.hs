@@ -127,7 +127,7 @@ instance
   type
     AWSResponse CreateSpotDatafeedSubscription =
       CreateSpotDatafeedSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -135,6 +135,12 @@ instance
             Prelude.<$> (x Core..@? "spotDatafeedSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateSpotDatafeedSubscription
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

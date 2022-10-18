@@ -81,10 +81,13 @@ instance Core.AWSRequest DeleteDatasetImportJob where
   type
     AWSResponse DeleteDatasetImportJob =
       DeleteDatasetImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteDatasetImportJobResponse'
+
+instance Core.AWSService DeleteDatasetImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDatasetImportJob where
   hashWithSalt _salt DeleteDatasetImportJob' {..} =

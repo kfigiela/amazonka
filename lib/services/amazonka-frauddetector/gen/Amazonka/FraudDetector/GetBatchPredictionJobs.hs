@@ -105,7 +105,7 @@ instance Core.AWSRequest GetBatchPredictionJobs where
   type
     AWSResponse GetBatchPredictionJobs =
       GetBatchPredictionJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest GetBatchPredictionJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBatchPredictionJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBatchPredictionJobs where
   hashWithSalt _salt GetBatchPredictionJobs' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetSchemaAsJson where
   type
     AWSResponse GetSchemaAsJson =
       GetSchemaAsJsonResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetSchemaAsJson where
             Prelude.<*> (x Core..?> "Document")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSchemaAsJson where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSchemaAsJson where
   hashWithSalt _salt GetSchemaAsJson' {..} =

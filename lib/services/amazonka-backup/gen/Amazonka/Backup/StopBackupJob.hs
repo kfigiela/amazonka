@@ -73,9 +73,12 @@ instance Core.AWSRequest StopBackupJob where
   type
     AWSResponse StopBackupJob =
       StopBackupJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopBackupJobResponse'
+
+instance Core.AWSService StopBackupJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopBackupJob where
   hashWithSalt _salt StopBackupJob' {..} =

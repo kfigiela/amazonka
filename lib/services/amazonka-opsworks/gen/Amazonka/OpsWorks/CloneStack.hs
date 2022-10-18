@@ -846,7 +846,7 @@ cloneStack_serviceRoleArn = Lens.lens (\CloneStack' {serviceRoleArn} -> serviceR
 
 instance Core.AWSRequest CloneStack where
   type AWSResponse CloneStack = CloneStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -854,6 +854,9 @@ instance Core.AWSRequest CloneStack where
             Prelude.<$> (x Core..?> "StackId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CloneStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CloneStack where
   hashWithSalt _salt CloneStack' {..} =

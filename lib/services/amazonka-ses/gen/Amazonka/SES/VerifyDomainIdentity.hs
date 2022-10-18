@@ -89,7 +89,7 @@ instance Core.AWSRequest VerifyDomainIdentity where
   type
     AWSResponse VerifyDomainIdentity =
       VerifyDomainIdentityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "VerifyDomainIdentityResult"
@@ -98,6 +98,9 @@ instance Core.AWSRequest VerifyDomainIdentity where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "VerificationToken")
       )
+
+instance Core.AWSService VerifyDomainIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyDomainIdentity where
   hashWithSalt _salt VerifyDomainIdentity' {..} =

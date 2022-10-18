@@ -119,7 +119,7 @@ instance Core.AWSRequest PutSchemaVersionMetadata where
   type
     AWSResponse PutSchemaVersionMetadata =
       PutSchemaVersionMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest PutSchemaVersionMetadata where
             Prelude.<*> (x Core..?> "SchemaVersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSchemaVersionMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSchemaVersionMetadata where
   hashWithSalt _salt PutSchemaVersionMetadata' {..} =

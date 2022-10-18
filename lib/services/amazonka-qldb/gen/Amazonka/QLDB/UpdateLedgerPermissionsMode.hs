@@ -176,7 +176,7 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
   type
     AWSResponse UpdateLedgerPermissionsMode =
       UpdateLedgerPermissionsModeResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest UpdateLedgerPermissionsMode where
             Prelude.<*> (x Core..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLedgerPermissionsMode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLedgerPermissionsMode where
   hashWithSalt _salt UpdateLedgerPermissionsMode' {..} =

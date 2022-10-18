@@ -62,13 +62,16 @@ instance Core.AWSRequest ResetAllResourceLogLevels where
   type
     AWSResponse ResetAllResourceLogLevels =
       ResetAllResourceLogLevelsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ResetAllResourceLogLevelsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetAllResourceLogLevels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetAllResourceLogLevels where
   hashWithSalt _salt _ =

@@ -996,6 +996,7 @@ defaultService =
       Core._serviceEndpointPrefix = "elasticmapreduce",
       Core._serviceSigningName = "elasticmapreduce",
       Core._serviceVersion = "2009-03-31",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

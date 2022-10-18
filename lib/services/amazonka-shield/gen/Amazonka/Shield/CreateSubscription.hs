@@ -68,13 +68,16 @@ instance Core.AWSRequest CreateSubscription where
   type
     AWSResponse CreateSubscription =
       CreateSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSubscription where
   hashWithSalt _salt _ =

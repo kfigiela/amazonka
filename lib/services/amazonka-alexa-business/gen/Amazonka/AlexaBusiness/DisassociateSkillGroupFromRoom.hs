@@ -94,13 +94,19 @@ instance
   type
     AWSResponse DisassociateSkillGroupFromRoom =
       DisassociateSkillGroupFromRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateSkillGroupFromRoomResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateSkillGroupFromRoom
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -114,7 +114,7 @@ instance Core.AWSRequest CreateNetworkAcl where
   type
     AWSResponse CreateNetworkAcl =
       CreateNetworkAclResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest CreateNetworkAcl where
             Prelude.<$> (x Core..@? "networkAcl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNetworkAcl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNetworkAcl where
   hashWithSalt _salt CreateNetworkAcl' {..} =

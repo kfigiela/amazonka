@@ -258,7 +258,7 @@ instance Core.AWSRequest CreateFirewall where
   type
     AWSResponse CreateFirewall =
       CreateFirewallResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -267,6 +267,9 @@ instance Core.AWSRequest CreateFirewall where
             Prelude.<*> (x Core..?> "FirewallStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFirewall where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFirewall where
   hashWithSalt _salt CreateFirewall' {..} =

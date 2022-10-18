@@ -273,7 +273,7 @@ instance Core.AWSRequest GetSpotPlacementScores where
   type
     AWSResponse GetSpotPlacementScores =
       GetSpotPlacementScoresResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -285,6 +285,9 @@ instance Core.AWSRequest GetSpotPlacementScores where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSpotPlacementScores where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSpotPlacementScores where
   hashWithSalt _salt GetSpotPlacementScores' {..} =

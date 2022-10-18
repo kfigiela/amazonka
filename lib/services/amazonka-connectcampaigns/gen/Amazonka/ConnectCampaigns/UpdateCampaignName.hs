@@ -84,9 +84,12 @@ instance Core.AWSRequest UpdateCampaignName where
   type
     AWSResponse UpdateCampaignName =
       UpdateCampaignNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateCampaignNameResponse'
+
+instance Core.AWSService UpdateCampaignName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCampaignName where
   hashWithSalt _salt UpdateCampaignName' {..} =

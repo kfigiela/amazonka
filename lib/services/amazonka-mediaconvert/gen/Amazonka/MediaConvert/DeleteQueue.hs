@@ -73,13 +73,16 @@ deleteQueue_name = Lens.lens (\DeleteQueue' {name} -> name) (\s@DeleteQueue' {} 
 
 instance Core.AWSRequest DeleteQueue where
   type AWSResponse DeleteQueue = DeleteQueueResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueueResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQueue where
   hashWithSalt _salt DeleteQueue' {..} =

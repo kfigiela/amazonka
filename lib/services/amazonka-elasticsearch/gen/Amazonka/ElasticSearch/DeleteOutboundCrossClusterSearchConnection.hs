@@ -89,7 +89,7 @@ instance
     AWSResponse
       DeleteOutboundCrossClusterSearchConnection =
       DeleteOutboundCrossClusterSearchConnectionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,12 @@ instance
             Prelude.<$> (x Core..?> "CrossClusterSearchConnection")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteOutboundCrossClusterSearchConnection
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -109,9 +109,12 @@ instance Core.AWSRequest DisassociateLexBot where
   type
     AWSResponse DisassociateLexBot =
       DisassociateLexBotResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DisassociateLexBotResponse'
+
+instance Core.AWSService DisassociateLexBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateLexBot where
   hashWithSalt _salt DisassociateLexBot' {..} =

@@ -153,9 +153,9 @@ instance Core.AWSRequest InitiateVaultLock where
   type
     AWSResponse InitiateVaultLock =
       InitiateVaultLockResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest InitiateVaultLock where
             Prelude.<$> (h Core..#? "x-amz-lock-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InitiateVaultLock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitiateVaultLock where
   hashWithSalt _salt InitiateVaultLock' {..} =

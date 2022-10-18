@@ -180,7 +180,7 @@ instance Core.AWSRequest DescribeAccountCustomization where
   type
     AWSResponse DescribeAccountCustomization =
       DescribeAccountCustomizationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -192,6 +192,9 @@ instance Core.AWSRequest DescribeAccountCustomization where
             Prelude.<*> (x Core..?> "AccountCustomization")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccountCustomization where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

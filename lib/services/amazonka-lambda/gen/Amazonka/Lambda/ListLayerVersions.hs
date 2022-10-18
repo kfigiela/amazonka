@@ -154,7 +154,7 @@ instance Core.AWSRequest ListLayerVersions where
   type
     AWSResponse ListLayerVersions =
       ListLayerVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest ListLayerVersions where
             Prelude.<*> (x Core..?> "LayerVersions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLayerVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLayerVersions where
   hashWithSalt _salt ListLayerVersions' {..} =

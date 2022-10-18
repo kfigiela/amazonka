@@ -94,7 +94,7 @@ instance Core.AWSRequest UpdateRecommender where
   type
     AWSResponse UpdateRecommender =
       UpdateRecommenderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest UpdateRecommender where
             Prelude.<$> (x Core..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRecommender where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRecommender where
   hashWithSalt _salt UpdateRecommender' {..} =

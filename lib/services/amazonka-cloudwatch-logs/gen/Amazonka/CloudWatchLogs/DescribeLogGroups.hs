@@ -137,7 +137,7 @@ instance Core.AWSRequest DescribeLogGroups where
   type
     AWSResponse DescribeLogGroups =
       DescribeLogGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest DescribeLogGroups where
             Prelude.<*> (x Core..?> "logGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLogGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLogGroups where
   hashWithSalt _salt DescribeLogGroups' {..} =

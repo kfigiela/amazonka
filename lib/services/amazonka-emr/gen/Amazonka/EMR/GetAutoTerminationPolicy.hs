@@ -80,7 +80,7 @@ instance Core.AWSRequest GetAutoTerminationPolicy where
   type
     AWSResponse GetAutoTerminationPolicy =
       GetAutoTerminationPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetAutoTerminationPolicy where
             Prelude.<$> (x Core..?> "AutoTerminationPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAutoTerminationPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAutoTerminationPolicy where
   hashWithSalt _salt GetAutoTerminationPolicy' {..} =

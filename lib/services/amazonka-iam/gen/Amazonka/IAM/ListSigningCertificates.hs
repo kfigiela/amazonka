@@ -183,7 +183,7 @@ instance Core.AWSRequest ListSigningCertificates where
   type
     AWSResponse ListSigningCertificates =
       ListSigningCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSigningCertificatesResult"
@@ -196,6 +196,9 @@ instance Core.AWSRequest ListSigningCertificates where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListSigningCertificates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSigningCertificates where
   hashWithSalt _salt ListSigningCertificates' {..} =

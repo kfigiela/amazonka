@@ -88,7 +88,7 @@ instance Core.AWSRequest GetContactChannel where
   type
     AWSResponse GetContactChannel =
       GetContactChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetContactChannel where
             Prelude.<*> (x Core..:> "Type")
             Prelude.<*> (x Core..:> "DeliveryAddress")
       )
+
+instance Core.AWSService GetContactChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContactChannel where
   hashWithSalt _salt GetContactChannel' {..} =

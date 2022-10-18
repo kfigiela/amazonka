@@ -156,7 +156,7 @@ instance
   type
     AWSResponse DescribeGlobalReplicationGroups =
       DescribeGlobalReplicationGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeGlobalReplicationGroupsResult"
@@ -170,6 +170,12 @@ instance
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeGlobalReplicationGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

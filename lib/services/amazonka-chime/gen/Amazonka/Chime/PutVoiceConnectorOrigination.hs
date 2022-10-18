@@ -98,7 +98,7 @@ instance Core.AWSRequest PutVoiceConnectorOrigination where
   type
     AWSResponse PutVoiceConnectorOrigination =
       PutVoiceConnectorOriginationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest PutVoiceConnectorOrigination where
             Prelude.<$> (x Core..?> "Origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutVoiceConnectorOrigination where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

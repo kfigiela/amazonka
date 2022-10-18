@@ -680,7 +680,7 @@ instance Core.AWSRequest CreateChangeSet where
   type
     AWSResponse CreateChangeSet =
       CreateChangeSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateChangeSetResult"
@@ -690,6 +690,9 @@ instance Core.AWSRequest CreateChangeSet where
             Prelude.<*> (x Core..@? "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChangeSet where
   hashWithSalt _salt CreateChangeSet' {..} =

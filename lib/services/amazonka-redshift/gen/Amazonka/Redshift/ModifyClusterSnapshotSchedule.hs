@@ -108,10 +108,16 @@ instance
   type
     AWSResponse ModifyClusterSnapshotSchedule =
       ModifyClusterSnapshotScheduleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifyClusterSnapshotScheduleResponse'
+
+instance
+  Core.AWSService
+    ModifyClusterSnapshotSchedule
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -151,10 +151,13 @@ instance Core.AWSRequest DetachNetworkInterface where
   type
     AWSResponse DetachNetworkInterface =
       DetachNetworkInterfaceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DetachNetworkInterfaceResponse'
+
+instance Core.AWSService DetachNetworkInterface where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachNetworkInterface where
   hashWithSalt _salt DetachNetworkInterface' {..} =

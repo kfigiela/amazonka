@@ -122,7 +122,7 @@ updateScene_workspaceId = Lens.lens (\UpdateScene' {workspaceId} -> workspaceId)
 
 instance Core.AWSRequest UpdateScene where
   type AWSResponse UpdateScene = UpdateSceneResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest UpdateScene where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "updateDateTime")
       )
+
+instance Core.AWSService UpdateScene where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateScene where
   hashWithSalt _salt UpdateScene' {..} =

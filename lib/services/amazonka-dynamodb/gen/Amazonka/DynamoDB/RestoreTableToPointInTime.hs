@@ -229,7 +229,7 @@ instance Core.AWSRequest RestoreTableToPointInTime where
   type
     AWSResponse RestoreTableToPointInTime =
       RestoreTableToPointInTimeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -237,6 +237,9 @@ instance Core.AWSRequest RestoreTableToPointInTime where
             Prelude.<$> (x Core..?> "TableDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreTableToPointInTime where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreTableToPointInTime where
   hashWithSalt _salt RestoreTableToPointInTime' {..} =

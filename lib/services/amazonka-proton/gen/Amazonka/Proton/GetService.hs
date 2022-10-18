@@ -74,7 +74,7 @@ getService_name = Lens.lens (\GetService' {name} -> name) (\s@GetService' {} a -
 
 instance Core.AWSRequest GetService where
   type AWSResponse GetService = GetServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,9 @@ instance Core.AWSRequest GetService where
             Prelude.<$> (x Core..?> "service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetService where
   hashWithSalt _salt GetService' {..} =

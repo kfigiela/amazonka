@@ -239,7 +239,7 @@ instance Core.AWSRequest DescribeHsmConfigurations where
   type
     AWSResponse DescribeHsmConfigurations =
       DescribeHsmConfigurationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeHsmConfigurationsResult"
@@ -252,6 +252,9 @@ instance Core.AWSRequest DescribeHsmConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHsmConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHsmConfigurations where
   hashWithSalt _salt DescribeHsmConfigurations' {..} =

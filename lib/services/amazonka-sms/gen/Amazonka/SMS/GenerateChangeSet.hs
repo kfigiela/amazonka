@@ -89,7 +89,7 @@ instance Core.AWSRequest GenerateChangeSet where
   type
     AWSResponse GenerateChangeSet =
       GenerateChangeSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GenerateChangeSet where
             Prelude.<$> (x Core..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GenerateChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateChangeSet where
   hashWithSalt _salt GenerateChangeSet' {..} =

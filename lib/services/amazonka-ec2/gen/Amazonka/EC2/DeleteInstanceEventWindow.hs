@@ -116,7 +116,7 @@ instance Core.AWSRequest DeleteInstanceEventWindow where
   type
     AWSResponse DeleteInstanceEventWindow =
       DeleteInstanceEventWindowResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DeleteInstanceEventWindow where
             Prelude.<$> (x Core..@? "instanceEventWindowState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInstanceEventWindow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInstanceEventWindow where
   hashWithSalt _salt DeleteInstanceEventWindow' {..} =

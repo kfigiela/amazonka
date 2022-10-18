@@ -87,7 +87,7 @@ resetCache_gatewayARN = Lens.lens (\ResetCache' {gatewayARN} -> gatewayARN) (\s@
 
 instance Core.AWSRequest ResetCache where
   type AWSResponse ResetCache = ResetCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest ResetCache where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetCache where
   hashWithSalt _salt ResetCache' {..} =

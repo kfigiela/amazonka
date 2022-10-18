@@ -100,7 +100,7 @@ instance Core.AWSRequest ListPublicKeys where
   type
     AWSResponse ListPublicKeys =
       ListPublicKeysResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ListPublicKeys where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPublicKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPublicKeys where
   hashWithSalt _salt ListPublicKeys' {..} =

@@ -176,7 +176,7 @@ instance Core.AWSRequest UpdateMetricSet where
   type
     AWSResponse UpdateMetricSet =
       UpdateMetricSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest UpdateMetricSet where
             Prelude.<$> (x Core..?> "MetricSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMetricSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMetricSet where
   hashWithSalt _salt UpdateMetricSet' {..} =

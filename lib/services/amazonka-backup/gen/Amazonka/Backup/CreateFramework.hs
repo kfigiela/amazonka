@@ -149,7 +149,7 @@ instance Core.AWSRequest CreateFramework where
   type
     AWSResponse CreateFramework =
       CreateFrameworkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest CreateFramework where
             Prelude.<*> (x Core..?> "FrameworkName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFramework where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFramework where
   hashWithSalt _salt CreateFramework' {..} =

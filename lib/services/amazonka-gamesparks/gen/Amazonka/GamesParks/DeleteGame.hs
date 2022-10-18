@@ -74,13 +74,16 @@ deleteGame_gameName = Lens.lens (\DeleteGame' {gameName} -> gameName) (\s@Delete
 
 instance Core.AWSRequest DeleteGame where
   type AWSResponse DeleteGame = DeleteGameResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGameResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGame where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGame where
   hashWithSalt _salt DeleteGame' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeIndex where
   type
     AWSResponse DescribeIndex =
       DescribeIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DescribeIndex where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIndex where
   hashWithSalt _salt DescribeIndex' {..} =

@@ -170,7 +170,7 @@ instance Core.AWSRequest CreateKnowledgeBase where
   type
     AWSResponse CreateKnowledgeBase =
       CreateKnowledgeBaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest CreateKnowledgeBase where
             Prelude.<$> (x Core..?> "knowledgeBase")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateKnowledgeBase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateKnowledgeBase where
   hashWithSalt _salt CreateKnowledgeBase' {..} =

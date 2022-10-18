@@ -183,7 +183,7 @@ instance Core.AWSRequest DescribeSnapshotSchedules where
   type
     AWSResponse DescribeSnapshotSchedules =
       DescribeSnapshotSchedulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSnapshotSchedulesResult"
@@ -196,6 +196,9 @@ instance Core.AWSRequest DescribeSnapshotSchedules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSnapshotSchedules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSnapshotSchedules where
   hashWithSalt _salt DescribeSnapshotSchedules' {..} =

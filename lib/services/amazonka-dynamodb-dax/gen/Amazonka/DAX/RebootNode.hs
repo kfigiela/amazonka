@@ -94,7 +94,7 @@ rebootNode_nodeId = Lens.lens (\RebootNode' {nodeId} -> nodeId) (\s@RebootNode' 
 
 instance Core.AWSRequest RebootNode where
   type AWSResponse RebootNode = RebootNodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest RebootNode where
             Prelude.<$> (x Core..?> "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootNode where
   hashWithSalt _salt RebootNode' {..} =

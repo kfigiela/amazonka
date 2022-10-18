@@ -87,7 +87,7 @@ instance Core.AWSRequest StartMLEvaluationTaskRun where
   type
     AWSResponse StartMLEvaluationTaskRun =
       StartMLEvaluationTaskRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest StartMLEvaluationTaskRun where
             Prelude.<$> (x Core..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMLEvaluationTaskRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMLEvaluationTaskRun where
   hashWithSalt _salt StartMLEvaluationTaskRun' {..} =

@@ -96,7 +96,7 @@ instance Core.AWSRequest GetLicenseConfiguration where
   type
     AWSResponse GetLicenseConfiguration =
       GetLicenseConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest GetLicenseConfiguration where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLicenseConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLicenseConfiguration where
   hashWithSalt _salt GetLicenseConfiguration' {..} =

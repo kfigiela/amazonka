@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdatePackagingGroup where
   type
     AWSResponse UpdatePackagingGroup =
       UpdatePackagingGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest UpdatePackagingGroup where
             Prelude.<*> (x Core..?> "egressAccessLogs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePackagingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePackagingGroup where
   hashWithSalt _salt UpdatePackagingGroup' {..} =

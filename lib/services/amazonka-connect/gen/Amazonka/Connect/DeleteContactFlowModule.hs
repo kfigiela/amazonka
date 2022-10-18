@@ -95,13 +95,16 @@ instance Core.AWSRequest DeleteContactFlowModule where
   type
     AWSResponse DeleteContactFlowModule =
       DeleteContactFlowModuleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteContactFlowModuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteContactFlowModule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContactFlowModule where
   hashWithSalt _salt DeleteContactFlowModule' {..} =

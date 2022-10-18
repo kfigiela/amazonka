@@ -168,7 +168,7 @@ instance Core.AWSRequest ListFunctionUrlConfigs where
   type
     AWSResponse ListFunctionUrlConfigs =
       ListFunctionUrlConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest ListFunctionUrlConfigs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListFunctionUrlConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFunctionUrlConfigs where
   hashWithSalt _salt ListFunctionUrlConfigs' {..} =

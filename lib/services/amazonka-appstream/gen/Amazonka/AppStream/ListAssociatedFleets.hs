@@ -118,7 +118,7 @@ instance Core.AWSRequest ListAssociatedFleets where
   type
     AWSResponse ListAssociatedFleets =
       ListAssociatedFleetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListAssociatedFleets where
             Prelude.<*> (x Core..?> "Names" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAssociatedFleets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAssociatedFleets where
   hashWithSalt _salt ListAssociatedFleets' {..} =

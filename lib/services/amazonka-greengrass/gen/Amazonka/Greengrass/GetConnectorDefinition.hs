@@ -87,7 +87,7 @@ instance Core.AWSRequest GetConnectorDefinition where
   type
     AWSResponse GetConnectorDefinition =
       GetConnectorDefinitionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetConnectorDefinition where
             Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConnectorDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConnectorDefinition where
   hashWithSalt _salt GetConnectorDefinition' {..} =

@@ -176,7 +176,7 @@ attachVolume_networkInterfaceId = Lens.lens (\AttachVolume' {networkInterfaceId}
 
 instance Core.AWSRequest AttachVolume where
   type AWSResponse AttachVolume = AttachVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest AttachVolume where
             Prelude.<*> (x Core..?> "VolumeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachVolume where
   hashWithSalt _salt AttachVolume' {..} =

@@ -97,7 +97,7 @@ listVersions_maxResults = Lens.lens (\ListVersions' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListVersions where
   type AWSResponse ListVersions = ListVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest ListVersions where
             Prelude.<*> (x Core..?> "Versions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVersions where
   hashWithSalt _salt ListVersions' {..} =

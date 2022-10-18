@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeSecurityProfile where
   type
     AWSResponse DescribeSecurityProfile =
       DescribeSecurityProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DescribeSecurityProfile where
             Prelude.<$> (x Core..?> "SecurityProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSecurityProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSecurityProfile where
   hashWithSalt _salt DescribeSecurityProfile' {..} =

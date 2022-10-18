@@ -164,7 +164,7 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
   type
     AWSResponse GetEBSVolumeRecommendations =
       GetEBSVolumeRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest GetEBSVolumeRecommendations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEBSVolumeRecommendations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEBSVolumeRecommendations where
   hashWithSalt _salt GetEBSVolumeRecommendations' {..} =

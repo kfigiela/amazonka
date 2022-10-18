@@ -109,7 +109,7 @@ instance
     AWSResponse
       CreateConfigurationSetTrackingOptions =
       CreateConfigurationSetTrackingOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateConfigurationSetTrackingOptionsResult"
@@ -117,6 +117,12 @@ instance
           CreateConfigurationSetTrackingOptionsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateConfigurationSetTrackingOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

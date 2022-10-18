@@ -84,7 +84,7 @@ tagProject_tags = Lens.lens (\TagProject' {tags} -> tags) (\s@TagProject' {} a -
 
 instance Core.AWSRequest TagProject where
   type AWSResponse TagProject = TagProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest TagProject where
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TagProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TagProject where
   hashWithSalt _salt TagProject' {..} =

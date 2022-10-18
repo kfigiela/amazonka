@@ -98,7 +98,7 @@ getLFTag_tagKey = Lens.lens (\GetLFTag' {tagKey} -> tagKey) (\s@GetLFTag' {} a -
 
 instance Core.AWSRequest GetLFTag where
   type AWSResponse GetLFTag = GetLFTagResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetLFTag where
             Prelude.<*> (x Core..?> "CatalogId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLFTag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLFTag where
   hashWithSalt _salt GetLFTag' {..} =

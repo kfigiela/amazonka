@@ -168,10 +168,13 @@ instance Core.AWSRequest ModifyIdentityIdFormat where
   type
     AWSResponse ModifyIdentityIdFormat =
       ModifyIdentityIdFormatResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifyIdentityIdFormatResponse'
+
+instance Core.AWSService ModifyIdentityIdFormat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyIdentityIdFormat where
   hashWithSalt _salt ModifyIdentityIdFormat' {..} =

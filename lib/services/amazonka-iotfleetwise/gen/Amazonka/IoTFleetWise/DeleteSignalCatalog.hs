@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteSignalCatalog where
   type
     AWSResponse DeleteSignalCatalog =
       DeleteSignalCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteSignalCatalog where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService DeleteSignalCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSignalCatalog where
   hashWithSalt _salt DeleteSignalCatalog' {..} =

@@ -99,13 +99,19 @@ instance
   type
     AWSResponse DisassociateBudgetFromResource =
       DisassociateBudgetFromResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateBudgetFromResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateBudgetFromResource
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

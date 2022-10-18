@@ -165,7 +165,7 @@ instance Core.AWSRequest AssignIpv6Addresses where
   type
     AWSResponse AssignIpv6Addresses =
       AssignIpv6AddressesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest AssignIpv6Addresses where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssignIpv6Addresses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssignIpv6Addresses where
   hashWithSalt _salt AssignIpv6Addresses' {..} =

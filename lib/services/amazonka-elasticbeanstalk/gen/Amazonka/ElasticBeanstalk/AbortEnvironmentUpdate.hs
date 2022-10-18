@@ -93,10 +93,13 @@ instance Core.AWSRequest AbortEnvironmentUpdate where
   type
     AWSResponse AbortEnvironmentUpdate =
       AbortEnvironmentUpdateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       AbortEnvironmentUpdateResponse'
+
+instance Core.AWSService AbortEnvironmentUpdate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AbortEnvironmentUpdate where
   hashWithSalt _salt AbortEnvironmentUpdate' {..} =

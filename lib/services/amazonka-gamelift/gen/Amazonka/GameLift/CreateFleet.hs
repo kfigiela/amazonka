@@ -609,7 +609,7 @@ createFleet_eC2InstanceType = Lens.lens (\CreateFleet' {eC2InstanceType} -> eC2I
 
 instance Core.AWSRequest CreateFleet where
   type AWSResponse CreateFleet = CreateFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -618,6 +618,9 @@ instance Core.AWSRequest CreateFleet where
             Prelude.<*> (x Core..?> "LocationStates" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFleet where
   hashWithSalt _salt CreateFleet' {..} =

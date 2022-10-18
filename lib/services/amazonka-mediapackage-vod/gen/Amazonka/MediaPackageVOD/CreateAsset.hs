@@ -146,7 +146,7 @@ createAsset_sourceRoleArn = Lens.lens (\CreateAsset' {sourceRoleArn} -> sourceRo
 
 instance Core.AWSRequest CreateAsset where
   type AWSResponse CreateAsset = CreateAssetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest CreateAsset where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAsset where
   hashWithSalt _salt CreateAsset' {..} =

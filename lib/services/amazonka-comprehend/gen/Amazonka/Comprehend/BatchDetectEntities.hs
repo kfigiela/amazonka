@@ -109,7 +109,7 @@ instance Core.AWSRequest BatchDetectEntities where
   type
     AWSResponse BatchDetectEntities =
       BatchDetectEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest BatchDetectEntities where
             Prelude.<*> (x Core..?> "ResultList" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "ErrorList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchDetectEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDetectEntities where
   hashWithSalt _salt BatchDetectEntities' {..} =

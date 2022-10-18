@@ -77,7 +77,7 @@ instance Core.AWSRequest ListTagsLogGroup where
   type
     AWSResponse ListTagsLogGroup =
       ListTagsLogGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest ListTagsLogGroup where
             Prelude.<$> (x Core..?> "tags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTagsLogGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsLogGroup where
   hashWithSalt _salt ListTagsLogGroup' {..} =

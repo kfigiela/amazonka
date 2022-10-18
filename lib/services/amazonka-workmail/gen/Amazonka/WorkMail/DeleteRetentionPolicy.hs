@@ -91,13 +91,16 @@ instance Core.AWSRequest DeleteRetentionPolicy where
   type
     AWSResponse DeleteRetentionPolicy =
       DeleteRetentionPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRetentionPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRetentionPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRetentionPolicy where
   hashWithSalt _salt DeleteRetentionPolicy' {..} =

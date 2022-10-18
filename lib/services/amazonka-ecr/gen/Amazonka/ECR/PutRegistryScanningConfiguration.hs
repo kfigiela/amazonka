@@ -130,7 +130,7 @@ instance
   type
     AWSResponse PutRegistryScanningConfiguration =
       PutRegistryScanningConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,12 @@ instance
             Prelude.<$> (x Core..?> "registryScanningConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutRegistryScanningConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

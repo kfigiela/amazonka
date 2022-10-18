@@ -99,7 +99,7 @@ getGroupId_alternateIdentifier = Lens.lens (\GetGroupId' {alternateIdentifier} -
 
 instance Core.AWSRequest GetGroupId where
   type AWSResponse GetGroupId = GetGroupIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetGroupId where
             Prelude.<*> (x Core..:> "GroupId")
             Prelude.<*> (x Core..:> "IdentityStoreId")
       )
+
+instance Core.AWSService GetGroupId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroupId where
   hashWithSalt _salt GetGroupId' {..} =

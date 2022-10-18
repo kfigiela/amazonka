@@ -94,7 +94,7 @@ instance Core.AWSRequest AssociatePricingRules where
   type
     AWSResponse AssociatePricingRules =
       AssociatePricingRulesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest AssociatePricingRules where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociatePricingRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociatePricingRules where
   hashWithSalt _salt AssociatePricingRules' {..} =

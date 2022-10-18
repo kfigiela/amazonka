@@ -90,13 +90,16 @@ instance Core.AWSRequest ModifyReportDefinition where
   type
     AWSResponse ModifyReportDefinition =
       ModifyReportDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyReportDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyReportDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyReportDefinition where
   hashWithSalt _salt ModifyReportDefinition' {..} =

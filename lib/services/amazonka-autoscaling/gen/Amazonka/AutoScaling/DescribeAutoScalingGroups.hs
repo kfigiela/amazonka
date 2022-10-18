@@ -161,7 +161,7 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
   type
     AWSResponse DescribeAutoScalingGroups =
       DescribeAutoScalingGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAutoScalingGroupsResult"
@@ -174,6 +174,9 @@ instance Core.AWSRequest DescribeAutoScalingGroups where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeAutoScalingGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAutoScalingGroups where
   hashWithSalt _salt DescribeAutoScalingGroups' {..} =

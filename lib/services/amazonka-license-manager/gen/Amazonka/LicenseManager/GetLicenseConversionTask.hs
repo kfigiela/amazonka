@@ -88,7 +88,7 @@ instance Core.AWSRequest GetLicenseConversionTask where
   type
     AWSResponse GetLicenseConversionTask =
       GetLicenseConversionTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetLicenseConversionTask where
             Prelude.<*> (x Core..?> "StartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLicenseConversionTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLicenseConversionTask where
   hashWithSalt _salt GetLicenseConversionTask' {..} =

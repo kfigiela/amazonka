@@ -84,7 +84,7 @@ instance Core.AWSRequest BatchUpdateDetector where
   type
     AWSResponse BatchUpdateDetector =
       BatchUpdateDetectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest BatchUpdateDetector where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchUpdateDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdateDetector where
   hashWithSalt _salt BatchUpdateDetector' {..} =

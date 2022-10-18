@@ -159,7 +159,7 @@ instance Core.AWSPager SearchUsers where
 
 instance Core.AWSRequest SearchUsers where
   type AWSResponse SearchUsers = SearchUsersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest SearchUsers where
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchUsers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchUsers where
   hashWithSalt _salt SearchUsers' {..} =

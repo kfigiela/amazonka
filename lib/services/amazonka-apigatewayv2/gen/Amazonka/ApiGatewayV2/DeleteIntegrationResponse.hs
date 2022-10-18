@@ -102,10 +102,13 @@ instance Core.AWSRequest DeleteIntegrationResponse where
   type
     AWSResponse DeleteIntegrationResponse =
       DeleteIntegrationResponseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteIntegrationResponseResponse'
+
+instance Core.AWSService DeleteIntegrationResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIntegrationResponse where
   hashWithSalt _salt DeleteIntegrationResponse' {..} =

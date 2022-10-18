@@ -93,7 +93,7 @@ instance Core.AWSRequest GetSearchSuggestions where
   type
     AWSResponse GetSearchSuggestions =
       GetSearchSuggestionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetSearchSuggestions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSearchSuggestions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSearchSuggestions where
   hashWithSalt _salt GetSearchSuggestions' {..} =

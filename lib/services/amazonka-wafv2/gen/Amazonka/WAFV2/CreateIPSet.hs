@@ -276,7 +276,7 @@ createIPSet_addresses = Lens.lens (\CreateIPSet' {addresses} -> addresses) (\s@C
 
 instance Core.AWSRequest CreateIPSet where
   type AWSResponse CreateIPSet = CreateIPSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -284,6 +284,9 @@ instance Core.AWSRequest CreateIPSet where
             Prelude.<$> (x Core..?> "Summary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIPSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIPSet where
   hashWithSalt _salt CreateIPSet' {..} =

@@ -96,7 +96,7 @@ instance Core.AWSRequest CreateTestGridUrl where
   type
     AWSResponse CreateTestGridUrl =
       CreateTestGridUrlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest CreateTestGridUrl where
             Prelude.<*> (x Core..?> "expires")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTestGridUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTestGridUrl where
   hashWithSalt _salt CreateTestGridUrl' {..} =

@@ -230,7 +230,7 @@ putRecord_partitionKey = Lens.lens (\PutRecord' {partitionKey} -> partitionKey) 
 
 instance Core.AWSRequest PutRecord where
   type AWSResponse PutRecord = PutRecordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -240,6 +240,9 @@ instance Core.AWSRequest PutRecord where
             Prelude.<*> (x Core..:> "ShardId")
             Prelude.<*> (x Core..:> "SequenceNumber")
       )
+
+instance Core.AWSService PutRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRecord where
   hashWithSalt _salt PutRecord' {..} =

@@ -132,7 +132,7 @@ instance Core.AWSRequest ListDocumentClassifiers where
   type
     AWSResponse ListDocumentClassifiers =
       ListDocumentClassifiersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ListDocumentClassifiers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDocumentClassifiers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDocumentClassifiers where
   hashWithSalt _salt ListDocumentClassifiers' {..} =

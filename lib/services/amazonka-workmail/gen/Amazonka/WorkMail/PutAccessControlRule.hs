@@ -215,13 +215,16 @@ instance Core.AWSRequest PutAccessControlRule where
   type
     AWSResponse PutAccessControlRule =
       PutAccessControlRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAccessControlRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAccessControlRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAccessControlRule where
   hashWithSalt _salt PutAccessControlRule' {..} =

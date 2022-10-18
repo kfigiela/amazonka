@@ -61,7 +61,7 @@ instance Core.AWSRequest GetEncryptionConfig where
   type
     AWSResponse GetEncryptionConfig =
       GetEncryptionConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest GetEncryptionConfig where
             Prelude.<$> (x Core..?> "EncryptionConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEncryptionConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEncryptionConfig where
   hashWithSalt _salt _ =

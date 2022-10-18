@@ -180,7 +180,7 @@ instance Core.AWSRequest UpdateGeoMatchSet where
   type
     AWSResponse UpdateGeoMatchSet =
       UpdateGeoMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest UpdateGeoMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGeoMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGeoMatchSet where
   hashWithSalt _salt UpdateGeoMatchSet' {..} =

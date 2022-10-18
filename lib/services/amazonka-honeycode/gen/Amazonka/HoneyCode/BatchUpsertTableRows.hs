@@ -195,7 +195,7 @@ instance Core.AWSRequest BatchUpsertTableRows where
   type
     AWSResponse BatchUpsertTableRows =
       BatchUpsertTableRowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest BatchUpsertTableRows where
             Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "workbookCursor")
       )
+
+instance Core.AWSService BatchUpsertTableRows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpsertTableRows where
   hashWithSalt _salt BatchUpsertTableRows' {..} =

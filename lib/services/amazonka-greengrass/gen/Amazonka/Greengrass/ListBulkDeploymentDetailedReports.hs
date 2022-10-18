@@ -136,7 +136,7 @@ instance
   type
     AWSResponse ListBulkDeploymentDetailedReports =
       ListBulkDeploymentDetailedReportsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,12 @@ instance
               Prelude.<*> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ListBulkDeploymentDetailedReports
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

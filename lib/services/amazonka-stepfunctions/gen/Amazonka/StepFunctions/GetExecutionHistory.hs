@@ -186,7 +186,7 @@ instance Core.AWSRequest GetExecutionHistory where
   type
     AWSResponse GetExecutionHistory =
       GetExecutionHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest GetExecutionHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetExecutionHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExecutionHistory where
   hashWithSalt _salt GetExecutionHistory' {..} =

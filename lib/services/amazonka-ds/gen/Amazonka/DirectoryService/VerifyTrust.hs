@@ -82,7 +82,7 @@ verifyTrust_trustId = Lens.lens (\VerifyTrust' {trustId} -> trustId) (\s@VerifyT
 
 instance Core.AWSRequest VerifyTrust where
   type AWSResponse VerifyTrust = VerifyTrustResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest VerifyTrust where
             Prelude.<$> (x Core..?> "TrustId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService VerifyTrust where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyTrust where
   hashWithSalt _salt VerifyTrust' {..} =

@@ -81,7 +81,7 @@ instance Core.AWSRequest GetGcmChannel where
   type
     AWSResponse GetGcmChannel =
       GetGcmChannelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetGcmChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetGcmChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGcmChannel where
   hashWithSalt _salt GetGcmChannel' {..} =

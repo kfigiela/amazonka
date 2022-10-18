@@ -108,7 +108,7 @@ instance Core.AWSPager GetDomains where
 
 instance Core.AWSRequest GetDomains where
   type AWSResponse GetDomains = GetDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetDomains where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomains where
   hashWithSalt _salt GetDomains' {..} =

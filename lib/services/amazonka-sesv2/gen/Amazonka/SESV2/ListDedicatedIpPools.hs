@@ -103,7 +103,7 @@ instance Core.AWSRequest ListDedicatedIpPools where
   type
     AWSResponse ListDedicatedIpPools =
       ListDedicatedIpPoolsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest ListDedicatedIpPools where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDedicatedIpPools where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDedicatedIpPools where
   hashWithSalt _salt ListDedicatedIpPools' {..} =

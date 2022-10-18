@@ -459,10 +459,13 @@ instance Core.AWSRequest CreateFileSystem where
   type
     AWSResponse CreateFileSystem =
       FileSystemDescription
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateFileSystem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFileSystem where
   hashWithSalt _salt CreateFileSystem' {..} =

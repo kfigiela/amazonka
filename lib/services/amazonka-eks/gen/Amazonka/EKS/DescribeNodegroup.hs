@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeNodegroup where
   type
     AWSResponse DescribeNodegroup =
       DescribeNodegroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeNodegroup where
             Prelude.<$> (x Core..?> "nodegroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeNodegroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNodegroup where
   hashWithSalt _salt DescribeNodegroup' {..} =

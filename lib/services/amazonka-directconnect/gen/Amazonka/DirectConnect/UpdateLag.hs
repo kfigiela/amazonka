@@ -156,10 +156,13 @@ updateLag_lagId = Lens.lens (\UpdateLag' {lagId} -> lagId) (\s@UpdateLag' {} a -
 
 instance Core.AWSRequest UpdateLag where
   type AWSResponse UpdateLag = Lag
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateLag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLag where
   hashWithSalt _salt UpdateLag' {..} =

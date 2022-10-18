@@ -273,6 +273,7 @@ defaultService =
       Core._serviceEndpointPrefix = "dlm",
       Core._serviceSigningName = "dlm",
       Core._serviceVersion = "2018-01-12",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

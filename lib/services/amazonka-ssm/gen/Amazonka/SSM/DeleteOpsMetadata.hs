@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteOpsMetadata where
   type
     AWSResponse DeleteOpsMetadata =
       DeleteOpsMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOpsMetadataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOpsMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOpsMetadata where
   hashWithSalt _salt DeleteOpsMetadata' {..} =

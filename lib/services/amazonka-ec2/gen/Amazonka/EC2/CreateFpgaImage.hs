@@ -167,7 +167,7 @@ instance Core.AWSRequest CreateFpgaImage where
   type
     AWSResponse CreateFpgaImage =
       CreateFpgaImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateFpgaImage where
             Prelude.<*> (x Core..@? "fpgaImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFpgaImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFpgaImage where
   hashWithSalt _salt CreateFpgaImage' {..} =

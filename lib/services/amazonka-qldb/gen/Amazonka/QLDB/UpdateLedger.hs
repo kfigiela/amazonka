@@ -234,7 +234,7 @@ updateLedger_name = Lens.lens (\UpdateLedger' {name} -> name) (\s@UpdateLedger' 
 
 instance Core.AWSRequest UpdateLedger where
   type AWSResponse UpdateLedger = UpdateLedgerResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -247,6 +247,9 @@ instance Core.AWSRequest UpdateLedger where
             Prelude.<*> (x Core..?> "DeletionProtection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLedger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLedger where
   hashWithSalt _salt UpdateLedger' {..} =

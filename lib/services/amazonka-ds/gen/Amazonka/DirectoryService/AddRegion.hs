@@ -106,13 +106,16 @@ addRegion_vPCSettings = Lens.lens (\AddRegion' {vPCSettings} -> vPCSettings) (\s
 
 instance Core.AWSRequest AddRegion where
   type AWSResponse AddRegion = AddRegionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddRegionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddRegion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddRegion where
   hashWithSalt _salt AddRegion' {..} =

@@ -129,7 +129,7 @@ instance Core.AWSRequest PutActionRevision where
   type
     AWSResponse PutActionRevision =
       PutActionRevisionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest PutActionRevision where
             Prelude.<*> (x Core..?> "pipelineExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutActionRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutActionRevision where
   hashWithSalt _salt PutActionRevision' {..} =

@@ -367,7 +367,7 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
   type
     AWSResponse CreateFileSystemFromBackup =
       CreateFileSystemFromBackupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -375,6 +375,9 @@ instance Core.AWSRequest CreateFileSystemFromBackup where
             Prelude.<$> (x Core..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFileSystemFromBackup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFileSystemFromBackup where
   hashWithSalt _salt CreateFileSystemFromBackup' {..} =

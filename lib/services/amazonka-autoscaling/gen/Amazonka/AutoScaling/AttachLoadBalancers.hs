@@ -109,7 +109,7 @@ instance Core.AWSRequest AttachLoadBalancers where
   type
     AWSResponse AttachLoadBalancers =
       AttachLoadBalancersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AttachLoadBalancersResult"
@@ -117,6 +117,9 @@ instance Core.AWSRequest AttachLoadBalancers where
           AttachLoadBalancersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachLoadBalancers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachLoadBalancers where
   hashWithSalt _salt AttachLoadBalancers' {..} =

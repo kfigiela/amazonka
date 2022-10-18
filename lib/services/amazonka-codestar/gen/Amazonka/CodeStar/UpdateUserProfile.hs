@@ -134,7 +134,7 @@ instance Core.AWSRequest UpdateUserProfile where
   type
     AWSResponse UpdateUserProfile =
       UpdateUserProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest UpdateUserProfile where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "userArn")
       )
+
+instance Core.AWSService UpdateUserProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserProfile where
   hashWithSalt _salt UpdateUserProfile' {..} =

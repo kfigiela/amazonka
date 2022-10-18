@@ -77,7 +77,7 @@ deleteExport_exportId = Lens.lens (\DeleteExport' {exportId} -> exportId) (\s@De
 
 instance Core.AWSRequest DeleteExport where
   type AWSResponse DeleteExport = DeleteExportResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteExport where
             Prelude.<*> (x Core..?> "exportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExport where
   hashWithSalt _salt DeleteExport' {..} =

@@ -457,6 +457,7 @@ defaultService =
       Core._serviceEndpointPrefix = "kafkaconnect",
       Core._serviceSigningName = "kafkaconnect",
       Core._serviceVersion = "2021-09-14",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

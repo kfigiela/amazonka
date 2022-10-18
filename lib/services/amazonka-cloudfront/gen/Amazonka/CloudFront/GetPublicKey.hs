@@ -75,7 +75,7 @@ getPublicKey_id = Lens.lens (\GetPublicKey' {id} -> id) (\s@GetPublicKey' {} a -
 
 instance Core.AWSRequest GetPublicKey where
   type AWSResponse GetPublicKey = GetPublicKeyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetPublicKey where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPublicKey where
   hashWithSalt _salt GetPublicKey' {..} =

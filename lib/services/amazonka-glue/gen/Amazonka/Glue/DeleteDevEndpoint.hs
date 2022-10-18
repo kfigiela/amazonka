@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteDevEndpoint where
   type
     AWSResponse DeleteDevEndpoint =
       DeleteDevEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDevEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDevEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDevEndpoint where
   hashWithSalt _salt DeleteDevEndpoint' {..} =

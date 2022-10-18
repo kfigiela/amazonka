@@ -198,13 +198,16 @@ instance Core.AWSRequest PutResourceAttributes where
   type
     AWSResponse PutResourceAttributes =
       PutResourceAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutResourceAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutResourceAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutResourceAttributes where
   hashWithSalt _salt PutResourceAttributes' {..} =

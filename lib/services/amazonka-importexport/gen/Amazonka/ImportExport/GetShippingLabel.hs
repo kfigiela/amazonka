@@ -178,7 +178,7 @@ instance Core.AWSRequest GetShippingLabel where
   type
     AWSResponse GetShippingLabel =
       GetShippingLabelResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetShippingLabelResult"
@@ -188,6 +188,9 @@ instance Core.AWSRequest GetShippingLabel where
             Prelude.<*> (x Core..@? "ShippingLabelURL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetShippingLabel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetShippingLabel where
   hashWithSalt _salt GetShippingLabel' {..} =

@@ -116,7 +116,7 @@ cancelSteps_stepIds = Lens.lens (\CancelSteps' {stepIds} -> stepIds) (\s@CancelS
 
 instance Core.AWSRequest CancelSteps where
   type AWSResponse CancelSteps = CancelStepsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CancelSteps where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelSteps where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelSteps where
   hashWithSalt _salt CancelSteps' {..} =

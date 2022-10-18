@@ -199,7 +199,7 @@ instance Core.AWSRequest SearchProvisionedProducts where
   type
     AWSResponse SearchProvisionedProducts =
       SearchProvisionedProductsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest SearchProvisionedProducts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchProvisionedProducts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchProvisionedProducts where
   hashWithSalt _salt SearchProvisionedProducts' {..} =

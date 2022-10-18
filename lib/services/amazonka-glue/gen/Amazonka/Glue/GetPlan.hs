@@ -152,7 +152,7 @@ getPlan_source = Lens.lens (\GetPlan' {source} -> source) (\s@GetPlan' {} a -> s
 
 instance Core.AWSRequest GetPlan where
   type AWSResponse GetPlan = GetPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest GetPlan where
             Prelude.<*> (x Core..?> "PythonScript")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPlan where
   hashWithSalt _salt GetPlan' {..} =

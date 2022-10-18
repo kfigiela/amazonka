@@ -76,10 +76,13 @@ cancelContact_contactId = Lens.lens (\CancelContact' {contactId} -> contactId) (
 
 instance Core.AWSRequest CancelContact where
   type AWSResponse CancelContact = ContactIdResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CancelContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelContact where
   hashWithSalt _salt CancelContact' {..} =

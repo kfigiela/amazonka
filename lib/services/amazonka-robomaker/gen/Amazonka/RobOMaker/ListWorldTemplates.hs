@@ -145,7 +145,7 @@ instance Core.AWSRequest ListWorldTemplates where
   type
     AWSResponse ListWorldTemplates =
       ListWorldTemplatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListWorldTemplates where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWorldTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorldTemplates where
   hashWithSalt _salt ListWorldTemplates' {..} =

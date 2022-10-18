@@ -102,7 +102,7 @@ instance Core.AWSRequest DeleteFileCache where
   type
     AWSResponse DeleteFileCache =
       DeleteFileCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DeleteFileCache where
             Prelude.<*> (x Core..?> "FileCacheId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFileCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFileCache where
   hashWithSalt _salt DeleteFileCache' {..} =

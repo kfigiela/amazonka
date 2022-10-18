@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteFpgaImage where
   type
     AWSResponse DeleteFpgaImage =
       DeleteFpgaImageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteFpgaImage where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteFpgaImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFpgaImage where
   hashWithSalt _salt DeleteFpgaImage' {..} =

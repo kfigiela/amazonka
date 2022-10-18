@@ -97,7 +97,7 @@ getBlueprint_name = Lens.lens (\GetBlueprint' {name} -> name) (\s@GetBlueprint' 
 
 instance Core.AWSRequest GetBlueprint where
   type AWSResponse GetBlueprint = GetBlueprintResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetBlueprint where
             Prelude.<$> (x Core..?> "Blueprint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBlueprint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBlueprint where
   hashWithSalt _salt GetBlueprint' {..} =

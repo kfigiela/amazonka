@@ -143,7 +143,7 @@ instance Core.AWSRequest UpdateResourcePolicy where
   type
     AWSResponse UpdateResourcePolicy =
       UpdateResourcePolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest UpdateResourcePolicy where
             Prelude.<*> (x Core..?> "resourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateResourcePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateResourcePolicy where
   hashWithSalt _salt UpdateResourcePolicy' {..} =

@@ -80,7 +80,7 @@ instance Core.AWSRequest GetUserSettings where
   type
     AWSResponse GetUserSettings =
       GetUserSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetUserSettings where
             Prelude.<$> (x Core..?> "userSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUserSettings where
   hashWithSalt _salt GetUserSettings' {..} =

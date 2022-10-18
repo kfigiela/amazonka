@@ -125,7 +125,7 @@ instance Core.AWSRequest CloneReceiptRuleSet where
   type
     AWSResponse CloneReceiptRuleSet =
       CloneReceiptRuleSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CloneReceiptRuleSetResult"
@@ -133,6 +133,9 @@ instance Core.AWSRequest CloneReceiptRuleSet where
           CloneReceiptRuleSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CloneReceiptRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CloneReceiptRuleSet where
   hashWithSalt _salt CloneReceiptRuleSet' {..} =

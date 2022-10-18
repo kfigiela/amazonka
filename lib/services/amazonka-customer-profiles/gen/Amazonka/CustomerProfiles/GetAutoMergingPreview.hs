@@ -141,7 +141,7 @@ instance Core.AWSRequest GetAutoMergingPreview where
   type
     AWSResponse GetAutoMergingPreview =
       GetAutoMergingPreviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetAutoMergingPreview where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DomainName")
       )
+
+instance Core.AWSService GetAutoMergingPreview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAutoMergingPreview where
   hashWithSalt _salt GetAutoMergingPreview' {..} =

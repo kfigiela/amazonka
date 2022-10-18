@@ -197,7 +197,7 @@ instance Core.AWSRequest CreateListener where
   type
     AWSResponse CreateListener =
       CreateListenerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,6 +205,9 @@ instance Core.AWSRequest CreateListener where
             Prelude.<$> (x Core..?> "Listener")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateListener where
   hashWithSalt _salt CreateListener' {..} =

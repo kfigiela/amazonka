@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteGatewayResponse where
   type
     AWSResponse DeleteGatewayResponse =
       DeleteGatewayResponseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteGatewayResponseResponse'
+
+instance Core.AWSService DeleteGatewayResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGatewayResponse where
   hashWithSalt _salt DeleteGatewayResponse' {..} =

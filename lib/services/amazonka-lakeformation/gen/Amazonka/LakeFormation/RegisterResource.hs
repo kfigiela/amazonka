@@ -135,13 +135,16 @@ instance Core.AWSRequest RegisterResource where
   type
     AWSResponse RegisterResource =
       RegisterResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterResourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterResource where
   hashWithSalt _salt RegisterResource' {..} =

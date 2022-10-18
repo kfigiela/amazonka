@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeLocationEfs where
   type
     AWSResponse DescribeLocationEfs =
       DescribeLocationEfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeLocationEfs where
             Prelude.<*> (x Core..?> "CreationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocationEfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocationEfs where
   hashWithSalt _salt DescribeLocationEfs' {..} =

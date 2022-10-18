@@ -201,11 +201,14 @@ instance Core.AWSRequest TerminateEnvironment where
   type
     AWSResponse TerminateEnvironment =
       EnvironmentDescription
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TerminateEnvironmentResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService TerminateEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateEnvironment where
   hashWithSalt _salt TerminateEnvironment' {..} =

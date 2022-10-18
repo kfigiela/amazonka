@@ -155,7 +155,7 @@ getClip_clipFragmentSelector = Lens.lens (\GetClip' {clipFragmentSelector} -> cl
 
 instance Core.AWSRequest GetClip where
   type AWSResponse GetClip = GetClipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest GetClip where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetClip where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetClip where
   hashWithSalt _salt GetClip' {..} =

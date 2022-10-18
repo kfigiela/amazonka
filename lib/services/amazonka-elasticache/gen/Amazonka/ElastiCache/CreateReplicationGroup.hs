@@ -1414,7 +1414,7 @@ instance Core.AWSRequest CreateReplicationGroup where
   type
     AWSResponse CreateReplicationGroup =
       CreateReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateReplicationGroupResult"
@@ -1423,6 +1423,9 @@ instance Core.AWSRequest CreateReplicationGroup where
             Prelude.<$> (x Core..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateReplicationGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReplicationGroup where
   hashWithSalt _salt CreateReplicationGroup' {..} =

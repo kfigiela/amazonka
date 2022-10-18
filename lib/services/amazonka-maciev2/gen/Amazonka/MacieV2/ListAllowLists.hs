@@ -95,7 +95,7 @@ instance Core.AWSRequest ListAllowLists where
   type
     AWSResponse ListAllowLists =
       ListAllowListsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest ListAllowLists where
             Prelude.<*> (x Core..?> "allowLists" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAllowLists where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAllowLists where
   hashWithSalt _salt ListAllowLists' {..} =

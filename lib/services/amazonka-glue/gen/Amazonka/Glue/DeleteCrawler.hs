@@ -77,13 +77,16 @@ instance Core.AWSRequest DeleteCrawler where
   type
     AWSResponse DeleteCrawler =
       DeleteCrawlerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCrawler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCrawler where
   hashWithSalt _salt DeleteCrawler' {..} =

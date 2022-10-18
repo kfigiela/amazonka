@@ -170,7 +170,7 @@ instance Core.AWSRequest CreatePortfolioShare where
   type
     AWSResponse CreatePortfolioShare =
       CreatePortfolioShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest CreatePortfolioShare where
             Prelude.<$> (x Core..?> "PortfolioShareToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePortfolioShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePortfolioShare where
   hashWithSalt _salt CreatePortfolioShare' {..} =

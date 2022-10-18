@@ -135,7 +135,7 @@ instance Core.AWSRequest AddCommunicationToCase where
   type
     AWSResponse AddCommunicationToCase =
       AddCommunicationToCaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest AddCommunicationToCase where
             Prelude.<$> (x Core..?> "result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddCommunicationToCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddCommunicationToCase where
   hashWithSalt _salt AddCommunicationToCase' {..} =

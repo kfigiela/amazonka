@@ -158,7 +158,7 @@ instance Core.AWSRequest CreateReusableDelegationSet where
   type
     AWSResponse CreateReusableDelegationSet =
       CreateReusableDelegationSetResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest CreateReusableDelegationSet where
             Prelude.<*> (x Core..@ "DelegationSet")
             Prelude.<*> (h Core..# "Location")
       )
+
+instance Core.AWSService CreateReusableDelegationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReusableDelegationSet where
   hashWithSalt _salt CreateReusableDelegationSet' {..} =

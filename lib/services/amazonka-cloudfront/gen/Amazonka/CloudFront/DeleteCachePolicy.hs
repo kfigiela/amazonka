@@ -102,9 +102,12 @@ instance Core.AWSRequest DeleteCachePolicy where
   type
     AWSResponse DeleteCachePolicy =
       DeleteCachePolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteCachePolicyResponse'
+
+instance Core.AWSService DeleteCachePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCachePolicy where
   hashWithSalt _salt DeleteCachePolicy' {..} =

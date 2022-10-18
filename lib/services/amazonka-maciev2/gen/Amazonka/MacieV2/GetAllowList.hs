@@ -85,7 +85,7 @@ getAllowList_id = Lens.lens (\GetAllowList' {id} -> id) (\s@GetAllowList' {} a -
 
 instance Core.AWSRequest GetAllowList where
   type AWSResponse GetAllowList = GetAllowListResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetAllowList where
             Prelude.<*> (x Core..?> "updatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAllowList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAllowList where
   hashWithSalt _salt GetAllowList' {..} =

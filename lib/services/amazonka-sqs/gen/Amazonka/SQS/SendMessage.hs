@@ -489,7 +489,7 @@ sendMessage_messageBody = Lens.lens (\SendMessage' {messageBody} -> messageBody)
 
 instance Core.AWSRequest SendMessage where
   type AWSResponse SendMessage = SendMessageResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendMessageResult"
@@ -502,6 +502,9 @@ instance Core.AWSRequest SendMessage where
             Prelude.<*> (x Core..@? "MD5OfMessageAttributes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendMessage where
   hashWithSalt _salt SendMessage' {..} =

@@ -97,7 +97,7 @@ instance Core.AWSRequest GetRepositoryCatalogData where
   type
     AWSResponse GetRepositoryCatalogData =
       GetRepositoryCatalogDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetRepositoryCatalogData where
             Prelude.<$> (x Core..?> "catalogData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRepositoryCatalogData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRepositoryCatalogData where
   hashWithSalt _salt GetRepositoryCatalogData' {..} =

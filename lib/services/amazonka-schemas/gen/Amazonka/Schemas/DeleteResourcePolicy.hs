@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteResourcePolicy where
   type
     AWSResponse DeleteResourcePolicy =
       DeleteResourcePolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteResourcePolicyResponse'
+
+instance Core.AWSService DeleteResourcePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourcePolicy where
   hashWithSalt _salt DeleteResourcePolicy' {..} =

@@ -103,7 +103,7 @@ instance Core.AWSRequest InstallToRemoteAccessSession where
   type
     AWSResponse InstallToRemoteAccessSession =
       InstallToRemoteAccessSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest InstallToRemoteAccessSession where
             Prelude.<$> (x Core..?> "appUpload")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InstallToRemoteAccessSession where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

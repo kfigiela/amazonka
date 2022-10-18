@@ -103,7 +103,7 @@ instance Core.AWSRequest CreateWebhook where
   type
     AWSResponse CreateWebhook =
       CreateWebhookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest CreateWebhook where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "webhook")
       )
+
+instance Core.AWSService CreateWebhook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWebhook where
   hashWithSalt _salt CreateWebhook' {..} =

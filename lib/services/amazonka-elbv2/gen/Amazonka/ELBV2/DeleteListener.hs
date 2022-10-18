@@ -79,7 +79,7 @@ instance Core.AWSRequest DeleteListener where
   type
     AWSResponse DeleteListener =
       DeleteListenerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteListenerResult"
@@ -87,6 +87,9 @@ instance Core.AWSRequest DeleteListener where
           DeleteListenerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteListener where
   hashWithSalt _salt DeleteListener' {..} =

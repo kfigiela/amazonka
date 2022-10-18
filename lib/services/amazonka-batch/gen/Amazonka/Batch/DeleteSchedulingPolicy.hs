@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteSchedulingPolicy where
   type
     AWSResponse DeleteSchedulingPolicy =
       DeleteSchedulingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSchedulingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSchedulingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSchedulingPolicy where
   hashWithSalt _salt DeleteSchedulingPolicy' {..} =

@@ -76,9 +76,12 @@ instance Core.AWSRequest CancelSigningProfile where
   type
     AWSResponse CancelSigningProfile =
       CancelSigningProfileResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull CancelSigningProfileResponse'
+
+instance Core.AWSService CancelSigningProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelSigningProfile where
   hashWithSalt _salt CancelSigningProfile' {..} =

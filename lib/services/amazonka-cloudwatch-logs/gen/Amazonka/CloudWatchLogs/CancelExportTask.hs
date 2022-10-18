@@ -75,9 +75,12 @@ instance Core.AWSRequest CancelExportTask where
   type
     AWSResponse CancelExportTask =
       CancelExportTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CancelExportTaskResponse'
+
+instance Core.AWSService CancelExportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelExportTask where
   hashWithSalt _salt CancelExportTask' {..} =

@@ -116,7 +116,7 @@ instance Core.AWSRequest CreateFirewallDomainList where
   type
     AWSResponse CreateFirewallDomainList =
       CreateFirewallDomainListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest CreateFirewallDomainList where
             Prelude.<$> (x Core..?> "FirewallDomainList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFirewallDomainList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFirewallDomainList where
   hashWithSalt _salt CreateFirewallDomainList' {..} =

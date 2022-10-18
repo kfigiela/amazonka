@@ -89,13 +89,16 @@ instance Core.AWSRequest DeleteAccount where
   type
     AWSResponse DeleteAccount =
       DeleteAccountResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccount where
   hashWithSalt _salt DeleteAccount' {..} =

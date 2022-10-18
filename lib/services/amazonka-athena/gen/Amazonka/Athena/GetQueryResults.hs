@@ -151,7 +151,7 @@ instance Core.AWSRequest GetQueryResults where
   type
     AWSResponse GetQueryResults =
       GetQueryResultsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest GetQueryResults where
             Prelude.<*> (x Core..?> "UpdateCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetQueryResults where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueryResults where
   hashWithSalt _salt GetQueryResults' {..} =

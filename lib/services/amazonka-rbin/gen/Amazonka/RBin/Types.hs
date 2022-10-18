@@ -79,6 +79,7 @@ defaultService =
       Core._serviceEndpointPrefix = "rbin",
       Core._serviceSigningName = "rbin",
       Core._serviceVersion = "2021-06-15",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

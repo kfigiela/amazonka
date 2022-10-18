@@ -411,7 +411,7 @@ subscribe_protocol = Lens.lens (\Subscribe' {protocol} -> protocol) (\s@Subscrib
 
 instance Core.AWSRequest Subscribe where
   type AWSResponse Subscribe = SubscribeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SubscribeResult"
@@ -420,6 +420,9 @@ instance Core.AWSRequest Subscribe where
             Prelude.<$> (x Core..@? "SubscriptionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Subscribe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Subscribe where
   hashWithSalt _salt Subscribe' {..} =

@@ -145,7 +145,7 @@ instance Core.AWSRequest GetLinkAssociations where
   type
     AWSResponse GetLinkAssociations =
       GetLinkAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest GetLinkAssociations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLinkAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLinkAssociations where
   hashWithSalt _salt GetLinkAssociations' {..} =

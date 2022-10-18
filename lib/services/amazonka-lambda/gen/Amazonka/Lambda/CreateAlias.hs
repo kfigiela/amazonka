@@ -177,10 +177,13 @@ createAlias_functionVersion = Lens.lens (\CreateAlias' {functionVersion} -> func
 
 instance Core.AWSRequest CreateAlias where
   type AWSResponse CreateAlias = AliasConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAlias where
   hashWithSalt _salt CreateAlias' {..} =

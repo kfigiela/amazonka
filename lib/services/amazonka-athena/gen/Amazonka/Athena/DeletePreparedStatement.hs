@@ -94,13 +94,16 @@ instance Core.AWSRequest DeletePreparedStatement where
   type
     AWSResponse DeletePreparedStatement =
       DeletePreparedStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePreparedStatementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePreparedStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePreparedStatement where
   hashWithSalt _salt DeletePreparedStatement' {..} =

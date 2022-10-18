@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteCustomPlugin where
   type
     AWSResponse DeleteCustomPlugin =
       DeleteCustomPluginResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DeleteCustomPlugin where
             Prelude.<*> (x Core..?> "customPluginArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomPlugin where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomPlugin where
   hashWithSalt _salt DeleteCustomPlugin' {..} =

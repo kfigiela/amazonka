@@ -353,7 +353,7 @@ instance Core.AWSRequest ListResourceRecordSets where
   type
     AWSResponse ListResourceRecordSets =
       ListResourceRecordSetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -369,6 +369,9 @@ instance Core.AWSRequest ListResourceRecordSets where
             Prelude.<*> (x Core..@ "IsTruncated")
             Prelude.<*> (x Core..@ "MaxItems")
       )
+
+instance Core.AWSService ListResourceRecordSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListResourceRecordSets where
   hashWithSalt _salt ListResourceRecordSets' {..} =

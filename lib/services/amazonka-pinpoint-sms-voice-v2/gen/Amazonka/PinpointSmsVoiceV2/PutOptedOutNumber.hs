@@ -101,7 +101,7 @@ instance Core.AWSRequest PutOptedOutNumber where
   type
     AWSResponse PutOptedOutNumber =
       PutOptedOutNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest PutOptedOutNumber where
             Prelude.<*> (x Core..?> "EndUserOptedOut")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutOptedOutNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutOptedOutNumber where
   hashWithSalt _salt PutOptedOutNumber' {..} =

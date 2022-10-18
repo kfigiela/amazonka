@@ -104,7 +104,7 @@ instance Core.AWSRequest ModifyReplicationSubnetGroup where
   type
     AWSResponse ModifyReplicationSubnetGroup =
       ModifyReplicationSubnetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ModifyReplicationSubnetGroup where
             Prelude.<$> (x Core..?> "ReplicationSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyReplicationSubnetGroup where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

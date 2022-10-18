@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteAssetModel where
   type
     AWSResponse DeleteAssetModel =
       DeleteAssetModelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteAssetModel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "assetModelStatus")
       )
+
+instance Core.AWSService DeleteAssetModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAssetModel where
   hashWithSalt _salt DeleteAssetModel' {..} =

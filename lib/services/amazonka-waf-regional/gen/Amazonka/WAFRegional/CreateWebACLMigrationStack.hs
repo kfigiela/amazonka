@@ -163,7 +163,7 @@ instance Core.AWSRequest CreateWebACLMigrationStack where
   type
     AWSResponse CreateWebACLMigrationStack =
       CreateWebACLMigrationStackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest CreateWebACLMigrationStack where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "S3ObjectUrl")
       )
+
+instance Core.AWSService CreateWebACLMigrationStack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWebACLMigrationStack where
   hashWithSalt _salt CreateWebACLMigrationStack' {..} =

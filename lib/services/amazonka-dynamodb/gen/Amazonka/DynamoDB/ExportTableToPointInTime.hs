@@ -233,7 +233,7 @@ instance Core.AWSRequest ExportTableToPointInTime where
   type
     AWSResponse ExportTableToPointInTime =
       ExportTableToPointInTimeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -241,6 +241,9 @@ instance Core.AWSRequest ExportTableToPointInTime where
             Prelude.<$> (x Core..?> "ExportDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportTableToPointInTime where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportTableToPointInTime where
   hashWithSalt _salt ExportTableToPointInTime' {..} =

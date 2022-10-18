@@ -91,7 +91,7 @@ disableAddOn_resourceName = Lens.lens (\DisableAddOn' {resourceName} -> resource
 
 instance Core.AWSRequest DisableAddOn where
   type AWSResponse DisableAddOn = DisableAddOnResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DisableAddOn where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableAddOn where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableAddOn where
   hashWithSalt _salt DisableAddOn' {..} =

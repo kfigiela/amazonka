@@ -112,7 +112,7 @@ instance Core.AWSRequest ListComponentTypes where
   type
     AWSResponse ListComponentTypes =
       ListComponentTypesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListComponentTypes where
                         )
             Prelude.<*> (x Core..:> "workspaceId")
       )
+
+instance Core.AWSService ListComponentTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListComponentTypes where
   hashWithSalt _salt ListComponentTypes' {..} =

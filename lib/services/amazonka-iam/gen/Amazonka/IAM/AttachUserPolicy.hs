@@ -129,9 +129,12 @@ instance Core.AWSRequest AttachUserPolicy where
   type
     AWSResponse AttachUserPolicy =
       AttachUserPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AttachUserPolicyResponse'
+
+instance Core.AWSService AttachUserPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachUserPolicy where
   hashWithSalt _salt AttachUserPolicy' {..} =

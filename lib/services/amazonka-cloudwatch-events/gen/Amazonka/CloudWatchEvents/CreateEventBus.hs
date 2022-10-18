@@ -126,7 +126,7 @@ instance Core.AWSRequest CreateEventBus where
   type
     AWSResponse CreateEventBus =
       CreateEventBusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateEventBus where
             Prelude.<$> (x Core..?> "EventBusArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEventBus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEventBus where
   hashWithSalt _salt CreateEventBus' {..} =

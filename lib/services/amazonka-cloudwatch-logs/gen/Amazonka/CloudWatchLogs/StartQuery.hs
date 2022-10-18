@@ -182,7 +182,7 @@ startQuery_queryString = Lens.lens (\StartQuery' {queryString} -> queryString) (
 
 instance Core.AWSRequest StartQuery where
   type AWSResponse StartQuery = StartQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -190,6 +190,9 @@ instance Core.AWSRequest StartQuery where
             Prelude.<$> (x Core..?> "queryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartQuery where
   hashWithSalt _salt StartQuery' {..} =

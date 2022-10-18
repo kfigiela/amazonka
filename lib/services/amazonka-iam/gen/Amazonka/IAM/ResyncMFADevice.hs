@@ -163,9 +163,12 @@ instance Core.AWSRequest ResyncMFADevice where
   type
     AWSResponse ResyncMFADevice =
       ResyncMFADeviceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull ResyncMFADeviceResponse'
+
+instance Core.AWSService ResyncMFADevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResyncMFADevice where
   hashWithSalt _salt ResyncMFADevice' {..} =

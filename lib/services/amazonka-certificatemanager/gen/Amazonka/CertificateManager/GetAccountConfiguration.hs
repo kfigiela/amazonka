@@ -62,7 +62,7 @@ instance Core.AWSRequest GetAccountConfiguration where
   type
     AWSResponse GetAccountConfiguration =
       GetAccountConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetAccountConfiguration where
             Prelude.<$> (x Core..?> "ExpiryEvents")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccountConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccountConfiguration where
   hashWithSalt _salt _ =

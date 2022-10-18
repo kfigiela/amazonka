@@ -133,7 +133,7 @@ instance Core.AWSRequest DescribeDirectoryConfigs where
   type
     AWSResponse DescribeDirectoryConfigs =
       DescribeDirectoryConfigsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest DescribeDirectoryConfigs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDirectoryConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDirectoryConfigs where
   hashWithSalt _salt DescribeDirectoryConfigs' {..} =

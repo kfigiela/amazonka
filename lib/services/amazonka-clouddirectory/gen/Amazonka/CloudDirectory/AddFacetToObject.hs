@@ -123,13 +123,16 @@ instance Core.AWSRequest AddFacetToObject where
   type
     AWSResponse AddFacetToObject =
       AddFacetToObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddFacetToObjectResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddFacetToObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddFacetToObject where
   hashWithSalt _salt AddFacetToObject' {..} =

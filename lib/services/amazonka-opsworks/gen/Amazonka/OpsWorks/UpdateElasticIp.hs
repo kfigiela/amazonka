@@ -93,9 +93,12 @@ instance Core.AWSRequest UpdateElasticIp where
   type
     AWSResponse UpdateElasticIp =
       UpdateElasticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateElasticIpResponse'
+
+instance Core.AWSService UpdateElasticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateElasticIp where
   hashWithSalt _salt UpdateElasticIp' {..} =

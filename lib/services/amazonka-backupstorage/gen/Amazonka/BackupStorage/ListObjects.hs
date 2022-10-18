@@ -144,7 +144,7 @@ listObjects_storageJobId = Lens.lens (\ListObjects' {storageJobId} -> storageJob
 
 instance Core.AWSRequest ListObjects where
   type AWSResponse ListObjects = ListObjectsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest ListObjects where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "ObjectList" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListObjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListObjects where
   hashWithSalt _salt ListObjects' {..} =

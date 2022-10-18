@@ -115,10 +115,13 @@ instance Core.AWSRequest UpdateUserIdentityInfo where
   type
     AWSResponse UpdateUserIdentityInfo =
       UpdateUserIdentityInfoResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserIdentityInfoResponse'
+
+instance Core.AWSService UpdateUserIdentityInfo where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserIdentityInfo where
   hashWithSalt _salt UpdateUserIdentityInfo' {..} =

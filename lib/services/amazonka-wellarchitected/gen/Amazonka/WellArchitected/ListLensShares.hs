@@ -120,7 +120,7 @@ instance Core.AWSRequest ListLensShares where
   type
     AWSResponse ListLensShares =
       ListLensSharesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListLensShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLensShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLensShares where
   hashWithSalt _salt ListLensShares' {..} =

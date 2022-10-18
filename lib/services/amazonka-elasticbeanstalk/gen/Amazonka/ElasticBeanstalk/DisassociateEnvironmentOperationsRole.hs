@@ -91,10 +91,16 @@ instance
     AWSResponse
       DisassociateEnvironmentOperationsRole =
       DisassociateEnvironmentOperationsRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DisassociateEnvironmentOperationsRoleResponse'
+
+instance
+  Core.AWSService
+    DisassociateEnvironmentOperationsRole
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

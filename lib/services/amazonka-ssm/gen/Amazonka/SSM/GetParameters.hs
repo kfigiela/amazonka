@@ -109,7 +109,7 @@ instance Core.AWSRequest GetParameters where
   type
     AWSResponse GetParameters =
       GetParametersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetParameters where
                         )
             Prelude.<*> (x Core..?> "Parameters" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetParameters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetParameters where
   hashWithSalt _salt GetParameters' {..} =

@@ -150,10 +150,16 @@ instance
   type
     AWSResponse UpdateVirtualInterfaceAttributes =
       VirtualInterface
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    UpdateVirtualInterfaceAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

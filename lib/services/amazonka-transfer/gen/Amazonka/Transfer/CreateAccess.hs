@@ -360,7 +360,7 @@ createAccess_externalId = Lens.lens (\CreateAccess' {externalId} -> externalId) 
 
 instance Core.AWSRequest CreateAccess where
   type AWSResponse CreateAccess = CreateAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -369,6 +369,9 @@ instance Core.AWSRequest CreateAccess where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..:> "ExternalId")
       )
+
+instance Core.AWSService CreateAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccess where
   hashWithSalt _salt CreateAccess' {..} =

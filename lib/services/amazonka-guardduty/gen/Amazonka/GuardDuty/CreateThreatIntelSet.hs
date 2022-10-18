@@ -166,7 +166,7 @@ instance Core.AWSRequest CreateThreatIntelSet where
   type
     AWSResponse CreateThreatIntelSet =
       CreateThreatIntelSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest CreateThreatIntelSet where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "threatIntelSetId")
       )
+
+instance Core.AWSService CreateThreatIntelSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateThreatIntelSet where
   hashWithSalt _salt CreateThreatIntelSet' {..} =

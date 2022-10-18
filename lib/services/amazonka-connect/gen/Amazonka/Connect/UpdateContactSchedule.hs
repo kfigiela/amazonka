@@ -114,13 +114,16 @@ instance Core.AWSRequest UpdateContactSchedule where
   type
     AWSResponse UpdateContactSchedule =
       UpdateContactScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateContactScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContactSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContactSchedule where
   hashWithSalt _salt UpdateContactSchedule' {..} =

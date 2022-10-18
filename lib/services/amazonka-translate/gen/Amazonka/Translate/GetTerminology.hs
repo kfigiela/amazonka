@@ -119,7 +119,7 @@ instance Core.AWSRequest GetTerminology where
   type
     AWSResponse GetTerminology =
       GetTerminologyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest GetTerminology where
             Prelude.<*> (x Core..?> "TerminologyProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTerminology where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTerminology where
   hashWithSalt _salt GetTerminology' {..} =

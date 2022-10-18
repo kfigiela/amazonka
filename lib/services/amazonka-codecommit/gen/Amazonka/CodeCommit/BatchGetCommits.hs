@@ -100,7 +100,7 @@ instance Core.AWSRequest BatchGetCommits where
   type
     AWSResponse BatchGetCommits =
       BatchGetCommitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest BatchGetCommits where
             Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetCommits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetCommits where
   hashWithSalt _salt BatchGetCommits' {..} =

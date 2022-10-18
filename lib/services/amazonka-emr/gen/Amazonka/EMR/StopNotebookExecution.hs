@@ -76,9 +76,12 @@ instance Core.AWSRequest StopNotebookExecution where
   type
     AWSResponse StopNotebookExecution =
       StopNotebookExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopNotebookExecutionResponse'
+
+instance Core.AWSService StopNotebookExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopNotebookExecution where
   hashWithSalt _salt StopNotebookExecution' {..} =

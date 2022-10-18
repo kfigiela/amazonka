@@ -89,7 +89,7 @@ associateApi_apiId = Lens.lens (\AssociateApi' {apiId} -> apiId) (\s@AssociateAp
 
 instance Core.AWSRequest AssociateApi where
   type AWSResponse AssociateApi = AssociateApiResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest AssociateApi where
             Prelude.<$> (x Core..?> "apiAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateApi where
   hashWithSalt _salt AssociateApi' {..} =

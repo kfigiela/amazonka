@@ -96,7 +96,7 @@ instance Core.AWSRequest StartFailbackLaunch where
   type
     AWSResponse StartFailbackLaunch =
       StartFailbackLaunchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest StartFailbackLaunch where
             Prelude.<$> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartFailbackLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFailbackLaunch where
   hashWithSalt _salt StartFailbackLaunch' {..} =

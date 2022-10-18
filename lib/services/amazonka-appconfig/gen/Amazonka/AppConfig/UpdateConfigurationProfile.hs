@@ -143,10 +143,13 @@ instance Core.AWSRequest UpdateConfigurationProfile where
   type
     AWSResponse UpdateConfigurationProfile =
       ConfigurationProfile
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateConfigurationProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConfigurationProfile where
   hashWithSalt _salt UpdateConfigurationProfile' {..} =

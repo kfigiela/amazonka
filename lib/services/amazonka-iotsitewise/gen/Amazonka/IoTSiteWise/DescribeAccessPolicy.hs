@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeAccessPolicy where
   type
     AWSResponse DescribeAccessPolicy =
       DescribeAccessPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeAccessPolicy where
             Prelude.<*> (x Core..:> "accessPolicyCreationDate")
             Prelude.<*> (x Core..:> "accessPolicyLastUpdateDate")
       )
+
+instance Core.AWSService DescribeAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccessPolicy where
   hashWithSalt _salt DescribeAccessPolicy' {..} =

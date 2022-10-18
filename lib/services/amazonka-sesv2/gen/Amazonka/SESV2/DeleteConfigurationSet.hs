@@ -87,13 +87,16 @@ instance Core.AWSRequest DeleteConfigurationSet where
   type
     AWSResponse DeleteConfigurationSet =
       DeleteConfigurationSetResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConfigurationSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConfigurationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfigurationSet where
   hashWithSalt _salt DeleteConfigurationSet' {..} =

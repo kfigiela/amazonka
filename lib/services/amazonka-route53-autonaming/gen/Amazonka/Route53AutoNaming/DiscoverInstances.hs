@@ -216,7 +216,7 @@ instance Core.AWSRequest DiscoverInstances where
   type
     AWSResponse DiscoverInstances =
       DiscoverInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -224,6 +224,9 @@ instance Core.AWSRequest DiscoverInstances where
             Prelude.<$> (x Core..?> "Instances" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DiscoverInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DiscoverInstances where
   hashWithSalt _salt DiscoverInstances' {..} =

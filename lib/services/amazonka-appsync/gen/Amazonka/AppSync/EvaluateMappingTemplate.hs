@@ -107,7 +107,7 @@ instance Core.AWSRequest EvaluateMappingTemplate where
   type
     AWSResponse EvaluateMappingTemplate =
       EvaluateMappingTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest EvaluateMappingTemplate where
             Prelude.<*> (x Core..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EvaluateMappingTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EvaluateMappingTemplate where
   hashWithSalt _salt EvaluateMappingTemplate' {..} =

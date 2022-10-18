@@ -71,13 +71,16 @@ launchApp_appId = Lens.lens (\LaunchApp' {appId} -> appId) (\s@LaunchApp' {} a -
 
 instance Core.AWSRequest LaunchApp where
   type AWSResponse LaunchApp = LaunchAppResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           LaunchAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService LaunchApp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable LaunchApp where
   hashWithSalt _salt LaunchApp' {..} =

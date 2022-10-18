@@ -83,7 +83,7 @@ instance Core.AWSRequest GetBootstrapBrokers where
   type
     AWSResponse GetBootstrapBrokers =
       GetBootstrapBrokersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetBootstrapBrokers where
             Prelude.<*> (x Core..?> "bootstrapBrokerStringSaslIam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBootstrapBrokers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBootstrapBrokers where
   hashWithSalt _salt GetBootstrapBrokers' {..} =

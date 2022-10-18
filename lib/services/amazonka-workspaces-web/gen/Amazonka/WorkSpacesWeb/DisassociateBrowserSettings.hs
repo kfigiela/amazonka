@@ -79,13 +79,16 @@ instance Core.AWSRequest DisassociateBrowserSettings where
   type
     AWSResponse DisassociateBrowserSettings =
       DisassociateBrowserSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateBrowserSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateBrowserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateBrowserSettings where
   hashWithSalt _salt DisassociateBrowserSettings' {..} =

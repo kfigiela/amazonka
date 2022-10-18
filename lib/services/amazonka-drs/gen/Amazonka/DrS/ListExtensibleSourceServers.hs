@@ -131,7 +131,7 @@ instance Core.AWSRequest ListExtensibleSourceServers where
   type
     AWSResponse ListExtensibleSourceServers =
       ListExtensibleSourceServersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListExtensibleSourceServers where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExtensibleSourceServers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExtensibleSourceServers where
   hashWithSalt _salt ListExtensibleSourceServers' {..} =

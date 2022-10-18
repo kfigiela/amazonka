@@ -145,7 +145,7 @@ instance Core.AWSRequest GetSnapshotBlock where
   type
     AWSResponse GetSnapshotBlock =
       GetSnapshotBlockResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest GetSnapshotBlock where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetSnapshotBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSnapshotBlock where
   hashWithSalt _salt GetSnapshotBlock' {..} =

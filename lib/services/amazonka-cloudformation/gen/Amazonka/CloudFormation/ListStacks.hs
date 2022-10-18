@@ -126,7 +126,7 @@ instance Core.AWSPager ListStacks where
 
 instance Core.AWSRequest ListStacks where
   type AWSResponse ListStacks = ListStacksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStacksResult"
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListStacks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStacks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStacks where
   hashWithSalt _salt ListStacks' {..} =

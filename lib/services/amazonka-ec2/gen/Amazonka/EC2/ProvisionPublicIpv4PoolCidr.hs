@@ -134,7 +134,7 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
   type
     AWSResponse ProvisionPublicIpv4PoolCidr =
       ProvisionPublicIpv4PoolCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ProvisionPublicIpv4PoolCidr where
             Prelude.<*> (x Core..@? "poolId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ProvisionPublicIpv4PoolCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ProvisionPublicIpv4PoolCidr where
   hashWithSalt _salt ProvisionPublicIpv4PoolCidr' {..} =

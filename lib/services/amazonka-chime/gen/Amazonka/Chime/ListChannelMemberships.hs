@@ -138,7 +138,7 @@ instance Core.AWSRequest ListChannelMemberships where
   type
     AWSResponse ListChannelMemberships =
       ListChannelMembershipsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListChannelMemberships where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChannelMemberships where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChannelMemberships where
   hashWithSalt _salt ListChannelMemberships' {..} =

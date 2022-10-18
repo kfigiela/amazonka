@@ -182,7 +182,7 @@ instance Core.AWSPager Search where
 
 instance Core.AWSRequest Search where
   type AWSResponse Search = SearchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest Search where
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Search where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Search where
   hashWithSalt _salt Search' {..} =

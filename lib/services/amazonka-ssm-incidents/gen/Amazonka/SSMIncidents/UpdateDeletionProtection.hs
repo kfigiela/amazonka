@@ -105,13 +105,16 @@ instance Core.AWSRequest UpdateDeletionProtection where
   type
     AWSResponse UpdateDeletionProtection =
       UpdateDeletionProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDeletionProtectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDeletionProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeletionProtection where
   hashWithSalt _salt UpdateDeletionProtection' {..} =

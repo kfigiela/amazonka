@@ -209,10 +209,13 @@ updateIdentityPool_allowUnauthenticatedIdentities = Lens.lens (\UpdateIdentityPo
 
 instance Core.AWSRequest UpdateIdentityPool where
   type AWSResponse UpdateIdentityPool = IdentityPool
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateIdentityPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIdentityPool where
   hashWithSalt _salt UpdateIdentityPool' {..} =

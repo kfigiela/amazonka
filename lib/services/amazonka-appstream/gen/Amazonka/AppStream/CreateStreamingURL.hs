@@ -161,7 +161,7 @@ instance Core.AWSRequest CreateStreamingURL where
   type
     AWSResponse CreateStreamingURL =
       CreateStreamingURLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest CreateStreamingURL where
             Prelude.<*> (x Core..?> "Expires")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStreamingURL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStreamingURL where
   hashWithSalt _salt CreateStreamingURL' {..} =

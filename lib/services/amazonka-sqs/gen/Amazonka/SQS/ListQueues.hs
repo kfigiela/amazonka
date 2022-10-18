@@ -150,7 +150,7 @@ instance Core.AWSPager ListQueues where
 
 instance Core.AWSRequest ListQueues where
   type AWSResponse ListQueues = ListQueuesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListQueuesResult"
@@ -160,6 +160,9 @@ instance Core.AWSRequest ListQueues where
             Prelude.<*> (Core.may (Core.parseXMLList "QueueUrl") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListQueues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListQueues where
   hashWithSalt _salt ListQueues' {..} =

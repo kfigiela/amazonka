@@ -449,7 +449,7 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
   type
     AWSResponse RestoreDBClusterFromSnapshot =
       RestoreDBClusterFromSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreDBClusterFromSnapshotResult"
@@ -458,6 +458,9 @@ instance Core.AWSRequest RestoreDBClusterFromSnapshot where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreDBClusterFromSnapshot where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

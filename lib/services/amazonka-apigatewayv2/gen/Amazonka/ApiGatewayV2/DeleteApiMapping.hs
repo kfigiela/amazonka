@@ -87,9 +87,12 @@ instance Core.AWSRequest DeleteApiMapping where
   type
     AWSResponse DeleteApiMapping =
       DeleteApiMappingResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteApiMappingResponse'
+
+instance Core.AWSService DeleteApiMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApiMapping where
   hashWithSalt _salt DeleteApiMapping' {..} =

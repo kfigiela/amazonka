@@ -101,7 +101,7 @@ instance Core.AWSRequest ConfigureHealthCheck where
   type
     AWSResponse ConfigureHealthCheck =
       ConfigureHealthCheckResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ConfigureHealthCheckResult"
@@ -110,6 +110,9 @@ instance Core.AWSRequest ConfigureHealthCheck where
             Prelude.<$> (x Core..@? "HealthCheck")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfigureHealthCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfigureHealthCheck where
   hashWithSalt _salt ConfigureHealthCheck' {..} =

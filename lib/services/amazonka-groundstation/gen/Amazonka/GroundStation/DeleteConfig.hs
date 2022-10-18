@@ -92,10 +92,13 @@ deleteConfig_configType = Lens.lens (\DeleteConfig' {configType} -> configType) 
 
 instance Core.AWSRequest DeleteConfig where
   type AWSResponse DeleteConfig = ConfigIdResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfig where
   hashWithSalt _salt DeleteConfig' {..} =

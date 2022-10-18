@@ -77,7 +77,7 @@ instance Core.AWSRequest DescribeAttack where
   type
     AWSResponse DescribeAttack =
       DescribeAttackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeAttack where
             Prelude.<$> (x Core..?> "Attack")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAttack where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAttack where
   hashWithSalt _salt DescribeAttack' {..} =

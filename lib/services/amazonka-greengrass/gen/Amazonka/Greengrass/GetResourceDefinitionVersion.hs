@@ -114,7 +114,7 @@ instance Core.AWSRequest GetResourceDefinitionVersion where
   type
     AWSResponse GetResourceDefinitionVersion =
       GetResourceDefinitionVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest GetResourceDefinitionVersion where
             Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceDefinitionVersion where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

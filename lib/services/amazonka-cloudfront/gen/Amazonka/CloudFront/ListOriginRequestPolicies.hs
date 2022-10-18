@@ -144,7 +144,7 @@ instance Core.AWSRequest ListOriginRequestPolicies where
   type
     AWSResponse ListOriginRequestPolicies =
       ListOriginRequestPoliciesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListOriginRequestPolicies where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOriginRequestPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOriginRequestPolicies where
   hashWithSalt _salt ListOriginRequestPolicies' {..} =

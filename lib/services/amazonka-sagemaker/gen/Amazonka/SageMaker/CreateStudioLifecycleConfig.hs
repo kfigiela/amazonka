@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateStudioLifecycleConfig where
   type
     AWSResponse CreateStudioLifecycleConfig =
       CreateStudioLifecycleConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest CreateStudioLifecycleConfig where
             Prelude.<$> (x Core..?> "StudioLifecycleConfigArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStudioLifecycleConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStudioLifecycleConfig where
   hashWithSalt _salt CreateStudioLifecycleConfig' {..} =

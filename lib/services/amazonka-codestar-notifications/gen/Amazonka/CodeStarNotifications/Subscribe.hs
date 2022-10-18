@@ -106,7 +106,7 @@ subscribe_target = Lens.lens (\Subscribe' {target} -> target) (\s@Subscribe' {} 
 
 instance Core.AWSRequest Subscribe where
   type AWSResponse Subscribe = SubscribeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest Subscribe where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService Subscribe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Subscribe where
   hashWithSalt _salt Subscribe' {..} =

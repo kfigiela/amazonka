@@ -94,7 +94,7 @@ instance Core.AWSRequest CreateSuiteDefinition where
   type
     AWSResponse CreateSuiteDefinition =
       CreateSuiteDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest CreateSuiteDefinition where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSuiteDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSuiteDefinition where
   hashWithSalt _salt CreateSuiteDefinition' {..} =

@@ -138,7 +138,7 @@ instance Core.AWSRequest ListComplianceSummaries where
   type
     AWSResponse ListComplianceSummaries =
       ListComplianceSummariesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListComplianceSummaries where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListComplianceSummaries where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListComplianceSummaries where
   hashWithSalt _salt ListComplianceSummaries' {..} =

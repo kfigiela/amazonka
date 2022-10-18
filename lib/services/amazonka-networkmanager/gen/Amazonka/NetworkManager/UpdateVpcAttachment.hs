@@ -109,7 +109,7 @@ instance Core.AWSRequest UpdateVpcAttachment where
   type
     AWSResponse UpdateVpcAttachment =
       UpdateVpcAttachmentResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateVpcAttachment where
             Prelude.<$> (x Core..?> "VpcAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVpcAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVpcAttachment where
   hashWithSalt _salt UpdateVpcAttachment' {..} =

@@ -78,13 +78,16 @@ instance Core.AWSRequest ExtendTransaction where
   type
     AWSResponse ExtendTransaction =
       ExtendTransactionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ExtendTransactionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExtendTransaction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExtendTransaction where
   hashWithSalt _salt ExtendTransaction' {..} =

@@ -99,13 +99,16 @@ instance Core.AWSRequest PutManagedScalingPolicy where
   type
     AWSResponse PutManagedScalingPolicy =
       PutManagedScalingPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutManagedScalingPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutManagedScalingPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutManagedScalingPolicy where
   hashWithSalt _salt PutManagedScalingPolicy' {..} =

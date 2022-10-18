@@ -135,7 +135,7 @@ instance Core.AWSRequest CreateWirelessGateway where
   type
     AWSResponse CreateWirelessGateway =
       CreateWirelessGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest CreateWirelessGateway where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWirelessGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWirelessGateway where
   hashWithSalt _salt CreateWirelessGateway' {..} =

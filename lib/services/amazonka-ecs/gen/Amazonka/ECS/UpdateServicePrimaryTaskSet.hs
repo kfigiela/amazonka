@@ -120,7 +120,7 @@ instance Core.AWSRequest UpdateServicePrimaryTaskSet where
   type
     AWSResponse UpdateServicePrimaryTaskSet =
       UpdateServicePrimaryTaskSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest UpdateServicePrimaryTaskSet where
             Prelude.<$> (x Core..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateServicePrimaryTaskSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServicePrimaryTaskSet where
   hashWithSalt _salt UpdateServicePrimaryTaskSet' {..} =

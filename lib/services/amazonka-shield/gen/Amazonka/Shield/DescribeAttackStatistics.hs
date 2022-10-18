@@ -76,7 +76,7 @@ instance Core.AWSRequest DescribeAttackStatistics where
   type
     AWSResponse DescribeAttackStatistics =
       DescribeAttackStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeAttackStatistics where
             Prelude.<*> (x Core..:> "TimeRange")
             Prelude.<*> (x Core..?> "DataItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeAttackStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAttackStatistics where
   hashWithSalt _salt _ =

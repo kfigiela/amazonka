@@ -106,7 +106,7 @@ instance Core.AWSRequest MigrateWorkspace where
   type
     AWSResponse MigrateWorkspace =
       MigrateWorkspaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest MigrateWorkspace where
             Prelude.<*> (x Core..?> "SourceWorkspaceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MigrateWorkspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MigrateWorkspace where
   hashWithSalt _salt MigrateWorkspace' {..} =

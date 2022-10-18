@@ -138,10 +138,13 @@ instance Core.AWSRequest AddRoleToInstanceProfile where
   type
     AWSResponse AddRoleToInstanceProfile =
       AddRoleToInstanceProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       AddRoleToInstanceProfileResponse'
+
+instance Core.AWSService AddRoleToInstanceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddRoleToInstanceProfile where
   hashWithSalt _salt AddRoleToInstanceProfile' {..} =

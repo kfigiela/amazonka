@@ -115,7 +115,7 @@ instance Core.AWSRequest CreateLoggerDefinition where
   type
     AWSResponse CreateLoggerDefinition =
       CreateLoggerDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest CreateLoggerDefinition where
             Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLoggerDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLoggerDefinition where
   hashWithSalt _salt CreateLoggerDefinition' {..} =

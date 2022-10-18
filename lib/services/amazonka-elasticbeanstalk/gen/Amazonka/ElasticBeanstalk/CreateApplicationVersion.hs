@@ -273,11 +273,14 @@ instance Core.AWSRequest CreateApplicationVersion where
   type
     AWSResponse CreateApplicationVersion =
       ApplicationVersionDescriptionMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateApplicationVersionResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateApplicationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApplicationVersion where
   hashWithSalt _salt CreateApplicationVersion' {..} =

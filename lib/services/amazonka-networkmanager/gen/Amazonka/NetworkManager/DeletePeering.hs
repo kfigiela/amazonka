@@ -77,7 +77,7 @@ instance Core.AWSRequest DeletePeering where
   type
     AWSResponse DeletePeering =
       DeletePeeringResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeletePeering where
             Prelude.<$> (x Core..?> "Peering")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePeering where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePeering where
   hashWithSalt _salt DeletePeering' {..} =

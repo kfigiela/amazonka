@@ -103,7 +103,7 @@ instance Core.AWSRequest ModifyCluster where
   type
     AWSResponse ModifyCluster =
       ModifyClusterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest ModifyCluster where
             Prelude.<$> (x Core..?> "StepConcurrencyLevel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCluster where
   hashWithSalt _salt ModifyCluster' {..} =

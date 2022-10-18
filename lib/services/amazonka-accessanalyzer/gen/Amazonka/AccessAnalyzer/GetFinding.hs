@@ -94,7 +94,7 @@ getFinding_id = Lens.lens (\GetFinding' {id} -> id) (\s@GetFinding' {} a -> s {i
 
 instance Core.AWSRequest GetFinding where
   type AWSResponse GetFinding = GetFindingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetFinding where
             Prelude.<$> (x Core..?> "finding")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFinding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFinding where
   hashWithSalt _salt GetFinding' {..} =

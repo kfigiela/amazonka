@@ -153,7 +153,7 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
   type
     AWSResponse CreateReplaceRootVolumeTask =
       CreateReplaceRootVolumeTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateReplaceRootVolumeTask where
             Prelude.<$> (x Core..@? "replaceRootVolumeTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateReplaceRootVolumeTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReplaceRootVolumeTask where
   hashWithSalt _salt CreateReplaceRootVolumeTask' {..} =

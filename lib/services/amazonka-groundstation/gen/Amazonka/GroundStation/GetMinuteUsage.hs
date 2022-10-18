@@ -94,7 +94,7 @@ instance Core.AWSRequest GetMinuteUsage where
   type
     AWSResponse GetMinuteUsage =
       GetMinuteUsageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetMinuteUsage where
             Prelude.<*> (x Core..?> "isReservedMinutesCustomer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMinuteUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMinuteUsage where
   hashWithSalt _salt GetMinuteUsage' {..} =

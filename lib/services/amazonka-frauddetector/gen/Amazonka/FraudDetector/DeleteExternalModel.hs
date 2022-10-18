@@ -83,13 +83,16 @@ instance Core.AWSRequest DeleteExternalModel where
   type
     AWSResponse DeleteExternalModel =
       DeleteExternalModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteExternalModelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteExternalModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExternalModel where
   hashWithSalt _salt DeleteExternalModel' {..} =

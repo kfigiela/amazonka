@@ -246,7 +246,7 @@ instance Core.AWSRequest TransactWriteItems where
   type
     AWSResponse TransactWriteItems =
       TransactWriteItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -259,6 +259,9 @@ instance Core.AWSRequest TransactWriteItems where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TransactWriteItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TransactWriteItems where
   hashWithSalt _salt TransactWriteItems' {..} =

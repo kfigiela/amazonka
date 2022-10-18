@@ -147,7 +147,7 @@ instance
   type
     AWSResponse DeleteApplicationVpcConfiguration =
       DeleteApplicationVpcConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,12 @@ instance
               Prelude.<*> (x Core..?> "ApplicationVersionId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteApplicationVpcConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

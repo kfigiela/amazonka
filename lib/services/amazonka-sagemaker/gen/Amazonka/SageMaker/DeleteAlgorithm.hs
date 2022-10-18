@@ -73,9 +73,12 @@ instance Core.AWSRequest DeleteAlgorithm where
   type
     AWSResponse DeleteAlgorithm =
       DeleteAlgorithmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteAlgorithmResponse'
+
+instance Core.AWSService DeleteAlgorithm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlgorithm where
   hashWithSalt _salt DeleteAlgorithm' {..} =

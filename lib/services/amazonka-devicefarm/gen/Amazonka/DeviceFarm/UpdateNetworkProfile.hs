@@ -226,7 +226,7 @@ instance Core.AWSRequest UpdateNetworkProfile where
   type
     AWSResponse UpdateNetworkProfile =
       UpdateNetworkProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,6 +234,9 @@ instance Core.AWSRequest UpdateNetworkProfile where
             Prelude.<$> (x Core..?> "networkProfile")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNetworkProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNetworkProfile where
   hashWithSalt _salt UpdateNetworkProfile' {..} =

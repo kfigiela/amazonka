@@ -139,7 +139,7 @@ instance Core.AWSRequest CreateComputer where
   type
     AWSResponse CreateComputer =
       CreateComputerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest CreateComputer where
             Prelude.<$> (x Core..?> "Computer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateComputer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateComputer where
   hashWithSalt _salt CreateComputer' {..} =

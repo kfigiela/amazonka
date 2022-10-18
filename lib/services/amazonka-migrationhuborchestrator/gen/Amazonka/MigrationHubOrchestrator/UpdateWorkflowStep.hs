@@ -203,7 +203,7 @@ instance Core.AWSRequest UpdateWorkflowStep where
   type
     AWSResponse UpdateWorkflowStep =
       UpdateWorkflowStepResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -214,6 +214,9 @@ instance Core.AWSRequest UpdateWorkflowStep where
             Prelude.<*> (x Core..?> "stepGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateWorkflowStep where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkflowStep where
   hashWithSalt _salt UpdateWorkflowStep' {..} =

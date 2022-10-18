@@ -126,7 +126,7 @@ instance Core.AWSRequest ListRoleAliases where
   type
     AWSResponse ListRoleAliases =
       ListRoleAliasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListRoleAliases where
             Prelude.<*> (x Core..?> "roleAliases" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListRoleAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRoleAliases where
   hashWithSalt _salt ListRoleAliases' {..} =

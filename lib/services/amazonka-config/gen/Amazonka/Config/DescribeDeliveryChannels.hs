@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeDeliveryChannels where
   type
     AWSResponse DescribeDeliveryChannels =
       DescribeDeliveryChannelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest DescribeDeliveryChannels where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDeliveryChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDeliveryChannels where
   hashWithSalt _salt DescribeDeliveryChannels' {..} =

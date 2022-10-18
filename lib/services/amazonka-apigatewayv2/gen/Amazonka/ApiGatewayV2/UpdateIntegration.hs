@@ -622,7 +622,7 @@ instance Core.AWSRequest UpdateIntegration where
   type
     AWSResponse UpdateIntegration =
       UpdateIntegrationResponse'
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -655,6 +655,9 @@ instance Core.AWSRequest UpdateIntegration where
             Prelude.<*> (x Core..?> "integrationSubtype")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIntegration where
   hashWithSalt _salt UpdateIntegration' {..} =

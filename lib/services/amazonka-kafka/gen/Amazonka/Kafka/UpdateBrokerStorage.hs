@@ -108,7 +108,7 @@ instance Core.AWSRequest UpdateBrokerStorage where
   type
     AWSResponse UpdateBrokerStorage =
       UpdateBrokerStorageResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest UpdateBrokerStorage where
             Prelude.<*> (x Core..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBrokerStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBrokerStorage where
   hashWithSalt _salt UpdateBrokerStorage' {..} =

@@ -158,7 +158,7 @@ detectFaces_image = Lens.lens (\DetectFaces' {image} -> image) (\s@DetectFaces' 
 
 instance Core.AWSRequest DetectFaces where
   type AWSResponse DetectFaces = DetectFacesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest DetectFaces where
             Prelude.<*> (x Core..?> "OrientationCorrection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectFaces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectFaces where
   hashWithSalt _salt DetectFaces' {..} =

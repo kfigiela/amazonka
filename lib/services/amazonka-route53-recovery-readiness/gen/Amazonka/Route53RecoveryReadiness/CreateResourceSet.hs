@@ -152,7 +152,7 @@ instance Core.AWSRequest CreateResourceSet where
   type
     AWSResponse CreateResourceSet =
       CreateResourceSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest CreateResourceSet where
             Prelude.<*> (x Core..?> "resourceSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResourceSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateResourceSet where
   hashWithSalt _salt CreateResourceSet' {..} =

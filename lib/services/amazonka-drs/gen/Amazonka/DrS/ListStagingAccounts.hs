@@ -113,7 +113,7 @@ instance Core.AWSRequest ListStagingAccounts where
   type
     AWSResponse ListStagingAccounts =
       ListStagingAccountsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest ListStagingAccounts where
             Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStagingAccounts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStagingAccounts where
   hashWithSalt _salt ListStagingAccounts' {..} =

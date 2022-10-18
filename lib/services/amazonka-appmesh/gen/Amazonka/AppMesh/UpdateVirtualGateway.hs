@@ -145,7 +145,7 @@ instance Core.AWSRequest UpdateVirtualGateway where
   type
     AWSResponse UpdateVirtualGateway =
       UpdateVirtualGatewayResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest UpdateVirtualGateway where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateVirtualGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVirtualGateway where
   hashWithSalt _salt UpdateVirtualGateway' {..} =

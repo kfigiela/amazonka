@@ -327,7 +327,7 @@ postText_inputText = Lens.lens (\PostText' {inputText} -> inputText) (\s@PostTex
 
 instance Core.AWSRequest PostText where
   type AWSResponse PostText = PostTextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -352,6 +352,9 @@ instance Core.AWSRequest PostText where
             Prelude.<*> (x Core..?> "slots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PostText where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PostText where
   hashWithSalt _salt PostText' {..} =

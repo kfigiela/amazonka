@@ -83,9 +83,12 @@ instance Core.AWSRequest DeleteDatasetGroup where
   type
     AWSResponse DeleteDatasetGroup =
       DeleteDatasetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteDatasetGroupResponse'
+
+instance Core.AWSService DeleteDatasetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDatasetGroup where
   hashWithSalt _salt DeleteDatasetGroup' {..} =

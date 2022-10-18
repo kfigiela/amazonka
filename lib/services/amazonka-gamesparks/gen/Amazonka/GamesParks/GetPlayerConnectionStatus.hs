@@ -110,7 +110,7 @@ instance Core.AWSRequest GetPlayerConnectionStatus where
   type
     AWSResponse GetPlayerConnectionStatus =
       GetPlayerConnectionStatusResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetPlayerConnectionStatus where
             Prelude.<$> (x Core..?> "Connections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPlayerConnectionStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPlayerConnectionStatus where
   hashWithSalt _salt GetPlayerConnectionStatus' {..} =

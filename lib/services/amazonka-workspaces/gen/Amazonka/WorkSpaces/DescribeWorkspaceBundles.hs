@@ -147,7 +147,7 @@ instance Core.AWSRequest DescribeWorkspaceBundles where
   type
     AWSResponse DescribeWorkspaceBundles =
       DescribeWorkspaceBundlesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest DescribeWorkspaceBundles where
             Prelude.<*> (x Core..?> "Bundles" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorkspaceBundles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorkspaceBundles where
   hashWithSalt _salt DescribeWorkspaceBundles' {..} =

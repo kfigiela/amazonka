@@ -174,11 +174,14 @@ instance Core.AWSRequest UpdateConfigurationTemplate where
   type
     AWSResponse UpdateConfigurationTemplate =
       ConfigurationSettingsDescription
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateConfigurationTemplateResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService UpdateConfigurationTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConfigurationTemplate where
   hashWithSalt _salt UpdateConfigurationTemplate' {..} =

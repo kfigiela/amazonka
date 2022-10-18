@@ -104,7 +104,7 @@ instance Core.AWSRequest GetEntityTypes where
   type
     AWSResponse GetEntityTypes =
       GetEntityTypesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetEntityTypes where
             Prelude.<*> (x Core..?> "entityTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEntityTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEntityTypes where
   hashWithSalt _salt GetEntityTypes' {..} =

@@ -99,7 +99,7 @@ describeHapg_hapgArn = Lens.lens (\DescribeHapg' {hapgArn} -> hapgArn) (\s@Descr
 
 instance Core.AWSRequest DescribeHapg where
   type AWSResponse DescribeHapg = DescribeHapgResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeHapg where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHapg where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHapg where
   hashWithSalt _salt DescribeHapg' {..} =

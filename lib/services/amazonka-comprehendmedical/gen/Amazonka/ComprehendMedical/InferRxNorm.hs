@@ -82,7 +82,7 @@ inferRxNorm_text = Lens.lens (\InferRxNorm' {text} -> text) (\s@InferRxNorm' {} 
 
 instance Core.AWSRequest InferRxNorm where
   type AWSResponse InferRxNorm = InferRxNormResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest InferRxNorm where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Entities" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService InferRxNorm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InferRxNorm where
   hashWithSalt _salt InferRxNorm' {..} =

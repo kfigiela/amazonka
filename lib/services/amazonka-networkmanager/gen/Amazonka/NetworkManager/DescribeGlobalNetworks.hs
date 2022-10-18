@@ -126,7 +126,7 @@ instance Core.AWSRequest DescribeGlobalNetworks where
   type
     AWSResponse DescribeGlobalNetworks =
       DescribeGlobalNetworksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DescribeGlobalNetworks where
             Prelude.<*> (x Core..?> "GlobalNetworks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeGlobalNetworks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeGlobalNetworks where
   hashWithSalt _salt DescribeGlobalNetworks' {..} =

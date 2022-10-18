@@ -99,7 +99,7 @@ getPipeline_name = Lens.lens (\GetPipeline' {name} -> name) (\s@GetPipeline' {} 
 
 instance Core.AWSRequest GetPipeline where
   type AWSResponse GetPipeline = GetPipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetPipeline where
             Prelude.<*> (x Core..?> "pipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPipeline where
   hashWithSalt _salt GetPipeline' {..} =

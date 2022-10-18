@@ -76,13 +76,16 @@ instance Core.AWSRequest DeleteApiDestination where
   type
     AWSResponse DeleteApiDestination =
       DeleteApiDestinationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteApiDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteApiDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApiDestination where
   hashWithSalt _salt DeleteApiDestination' {..} =

@@ -98,7 +98,7 @@ instance Core.AWSRequest ListControlDomainInsights where
   type
     AWSResponse ListControlDomainInsights =
       ListControlDomainInsightsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ListControlDomainInsights where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListControlDomainInsights where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListControlDomainInsights where
   hashWithSalt _salt ListControlDomainInsights' {..} =

@@ -119,7 +119,7 @@ createCase_templateId = Lens.lens (\CreateCase' {templateId} -> templateId) (\s@
 
 instance Core.AWSRequest CreateCase where
   type AWSResponse CreateCase = CreateCaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest CreateCase where
             Prelude.<*> (x Core..:> "caseArn")
             Prelude.<*> (x Core..:> "caseId")
       )
+
+instance Core.AWSService CreateCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =

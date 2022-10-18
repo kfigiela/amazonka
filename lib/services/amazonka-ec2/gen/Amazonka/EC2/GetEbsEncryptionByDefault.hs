@@ -92,7 +92,7 @@ instance Core.AWSRequest GetEbsEncryptionByDefault where
   type
     AWSResponse GetEbsEncryptionByDefault =
       GetEbsEncryptionByDefaultResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest GetEbsEncryptionByDefault where
             Prelude.<$> (x Core..@? "ebsEncryptionByDefault")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEbsEncryptionByDefault where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEbsEncryptionByDefault where
   hashWithSalt _salt GetEbsEncryptionByDefault' {..} =

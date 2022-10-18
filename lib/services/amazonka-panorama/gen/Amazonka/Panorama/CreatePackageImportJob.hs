@@ -129,7 +129,7 @@ instance Core.AWSRequest CreatePackageImportJob where
   type
     AWSResponse CreatePackageImportJob =
       CreatePackageImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest CreatePackageImportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "JobId")
       )
+
+instance Core.AWSService CreatePackageImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePackageImportJob where
   hashWithSalt _salt CreatePackageImportJob' {..} =

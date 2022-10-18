@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteNetwork where
   type
     AWSResponse DeleteNetwork =
       DeleteNetworkResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteNetwork where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "network")
       )
+
+instance Core.AWSService DeleteNetwork where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNetwork where
   hashWithSalt _salt DeleteNetwork' {..} =

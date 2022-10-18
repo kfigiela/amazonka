@@ -126,7 +126,7 @@ instance Core.AWSRequest CreateImageVersion where
   type
     AWSResponse CreateImageVersion =
       CreateImageVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateImageVersion where
             Prelude.<$> (x Core..?> "ImageVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateImageVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateImageVersion where
   hashWithSalt _salt CreateImageVersion' {..} =

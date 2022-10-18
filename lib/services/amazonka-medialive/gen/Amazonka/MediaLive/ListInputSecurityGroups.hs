@@ -113,7 +113,7 @@ instance Core.AWSRequest ListInputSecurityGroups where
   type
     AWSResponse ListInputSecurityGroups =
       ListInputSecurityGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListInputSecurityGroups where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInputSecurityGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInputSecurityGroups where
   hashWithSalt _salt ListInputSecurityGroups' {..} =

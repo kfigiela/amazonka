@@ -94,13 +94,19 @@ instance
   type
     AWSResponse PutAppReplicationConfiguration =
       PutAppReplicationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAppReplicationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutAppReplicationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

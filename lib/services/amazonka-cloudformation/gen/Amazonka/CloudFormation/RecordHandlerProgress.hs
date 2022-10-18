@@ -168,7 +168,7 @@ instance Core.AWSRequest RecordHandlerProgress where
   type
     AWSResponse RecordHandlerProgress =
       RecordHandlerProgressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RecordHandlerProgressResult"
@@ -176,6 +176,9 @@ instance Core.AWSRequest RecordHandlerProgress where
           RecordHandlerProgressResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RecordHandlerProgress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RecordHandlerProgress where
   hashWithSalt _salt RecordHandlerProgress' {..} =

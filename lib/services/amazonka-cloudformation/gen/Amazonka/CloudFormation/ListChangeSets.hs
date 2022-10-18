@@ -123,7 +123,7 @@ instance Core.AWSRequest ListChangeSets where
   type
     AWSResponse ListChangeSets =
       ListChangeSetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListChangeSetsResult"
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListChangeSets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChangeSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChangeSets where
   hashWithSalt _salt ListChangeSets' {..} =

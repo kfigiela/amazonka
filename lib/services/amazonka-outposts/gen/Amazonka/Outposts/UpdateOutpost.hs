@@ -107,7 +107,7 @@ instance Core.AWSRequest UpdateOutpost where
   type
     AWSResponse UpdateOutpost =
       UpdateOutpostResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdateOutpost where
             Prelude.<$> (x Core..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOutpost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOutpost where
   hashWithSalt _salt UpdateOutpost' {..} =

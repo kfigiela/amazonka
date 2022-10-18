@@ -149,13 +149,16 @@ instance Core.AWSRequest ConnectCustomKeyStore where
   type
     AWSResponse ConnectCustomKeyStore =
       ConnectCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConnectCustomKeyStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConnectCustomKeyStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConnectCustomKeyStore where
   hashWithSalt _salt ConnectCustomKeyStore' {..} =

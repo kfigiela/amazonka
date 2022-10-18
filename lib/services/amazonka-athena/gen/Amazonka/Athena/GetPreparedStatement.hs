@@ -93,7 +93,7 @@ instance Core.AWSRequest GetPreparedStatement where
   type
     AWSResponse GetPreparedStatement =
       GetPreparedStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetPreparedStatement where
             Prelude.<$> (x Core..?> "PreparedStatement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPreparedStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPreparedStatement where
   hashWithSalt _salt GetPreparedStatement' {..} =

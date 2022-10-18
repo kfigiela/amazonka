@@ -133,7 +133,7 @@ instance Core.AWSRequest ReportTaskRunnerHeartbeat where
   type
     AWSResponse ReportTaskRunnerHeartbeat =
       ReportTaskRunnerHeartbeatResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ReportTaskRunnerHeartbeat where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "terminate")
       )
+
+instance Core.AWSService ReportTaskRunnerHeartbeat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReportTaskRunnerHeartbeat where
   hashWithSalt _salt ReportTaskRunnerHeartbeat' {..} =

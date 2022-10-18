@@ -137,7 +137,7 @@ instance Core.AWSRequest StartFHIRExportJob where
   type
     AWSResponse StartFHIRExportJob =
       StartFHIRExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest StartFHIRExportJob where
             Prelude.<*> (x Core..:> "JobId")
             Prelude.<*> (x Core..:> "JobStatus")
       )
+
+instance Core.AWSService StartFHIRExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFHIRExportJob where
   hashWithSalt _salt StartFHIRExportJob' {..} =

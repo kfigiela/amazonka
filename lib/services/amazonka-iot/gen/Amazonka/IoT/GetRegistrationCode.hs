@@ -67,7 +67,7 @@ instance Core.AWSRequest GetRegistrationCode where
   type
     AWSResponse GetRegistrationCode =
       GetRegistrationCodeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -75,6 +75,9 @@ instance Core.AWSRequest GetRegistrationCode where
             Prelude.<$> (x Core..?> "registrationCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRegistrationCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRegistrationCode where
   hashWithSalt _salt _ =

@@ -93,9 +93,12 @@ instance Core.AWSRequest AddTagsToResource where
   type
     AWSResponse AddTagsToResource =
       AddTagsToResourceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AddTagsToResourceResponse'
+
+instance Core.AWSService AddTagsToResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddTagsToResource where
   hashWithSalt _salt AddTagsToResource' {..} =

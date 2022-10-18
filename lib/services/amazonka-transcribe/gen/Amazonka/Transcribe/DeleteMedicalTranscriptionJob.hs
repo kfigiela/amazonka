@@ -85,10 +85,16 @@ instance
   type
     AWSResponse DeleteMedicalTranscriptionJob =
       DeleteMedicalTranscriptionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteMedicalTranscriptionJobResponse'
+
+instance
+  Core.AWSService
+    DeleteMedicalTranscriptionJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

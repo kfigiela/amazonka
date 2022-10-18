@@ -143,7 +143,7 @@ instance Core.AWSRequest DetectAnomalies where
   type
     AWSResponse DetectAnomalies =
       DetectAnomaliesResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DetectAnomalies where
             Prelude.<$> (x Core..?> "DetectAnomalyResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectAnomalies where
+  service _proxy = defaultService
 
 instance Core.ToBody DetectAnomalies where
   toBody DetectAnomalies' {..} = Core.toBody body

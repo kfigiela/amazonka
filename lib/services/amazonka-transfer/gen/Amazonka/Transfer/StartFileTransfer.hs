@@ -95,7 +95,7 @@ instance Core.AWSRequest StartFileTransfer where
   type
     AWSResponse StartFileTransfer =
       StartFileTransferResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest StartFileTransfer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "TransferId")
       )
+
+instance Core.AWSService StartFileTransfer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFileTransfer where
   hashWithSalt _salt StartFileTransfer' {..} =

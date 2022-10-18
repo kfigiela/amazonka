@@ -93,7 +93,7 @@ instance Core.AWSRequest StartDataSourceSyncJob where
   type
     AWSResponse StartDataSourceSyncJob =
       StartDataSourceSyncJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest StartDataSourceSyncJob where
             Prelude.<$> (x Core..?> "ExecutionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDataSourceSyncJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDataSourceSyncJob where
   hashWithSalt _salt StartDataSourceSyncJob' {..} =

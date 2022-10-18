@@ -177,10 +177,13 @@ instance Core.AWSRequest UpdateInferenceScheduler where
   type
     AWSResponse UpdateInferenceScheduler =
       UpdateInferenceSchedulerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateInferenceSchedulerResponse'
+
+instance Core.AWSService UpdateInferenceScheduler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInferenceScheduler where
   hashWithSalt _salt UpdateInferenceScheduler' {..} =

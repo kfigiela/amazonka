@@ -98,7 +98,7 @@ instance Core.AWSRequest DescribeEntity where
   type
     AWSResponse DescribeEntity =
       DescribeEntityResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribeEntity where
             Prelude.<*> (x Core..?> "EntityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEntity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEntity where
   hashWithSalt _salt DescribeEntity' {..} =

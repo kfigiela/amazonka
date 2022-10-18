@@ -147,7 +147,7 @@ instance Core.AWSPager ListPeerings where
 
 instance Core.AWSRequest ListPeerings where
   type AWSResponse ListPeerings = ListPeeringsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListPeerings where
             Prelude.<*> (x Core..?> "Peerings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPeerings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPeerings where
   hashWithSalt _salt ListPeerings' {..} =

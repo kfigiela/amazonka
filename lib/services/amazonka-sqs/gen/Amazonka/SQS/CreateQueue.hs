@@ -728,7 +728,7 @@ createQueue_queueName = Lens.lens (\CreateQueue' {queueName} -> queueName) (\s@C
 
 instance Core.AWSRequest CreateQueue where
   type AWSResponse CreateQueue = CreateQueueResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateQueueResult"
@@ -737,6 +737,9 @@ instance Core.AWSRequest CreateQueue where
             Prelude.<$> (x Core..@? "QueueUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateQueue where
   hashWithSalt _salt CreateQueue' {..} =

@@ -98,7 +98,7 @@ instance Core.AWSRequest BatchCreateAttendee where
   type
     AWSResponse BatchCreateAttendee =
       BatchCreateAttendeeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest BatchCreateAttendee where
             Prelude.<*> (x Core..?> "Attendees" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchCreateAttendee where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchCreateAttendee where
   hashWithSalt _salt BatchCreateAttendee' {..} =

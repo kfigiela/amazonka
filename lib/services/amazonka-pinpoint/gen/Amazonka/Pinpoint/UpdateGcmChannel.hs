@@ -96,7 +96,7 @@ instance Core.AWSRequest UpdateGcmChannel where
   type
     AWSResponse UpdateGcmChannel =
       UpdateGcmChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest UpdateGcmChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateGcmChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGcmChannel where
   hashWithSalt _salt UpdateGcmChannel' {..} =

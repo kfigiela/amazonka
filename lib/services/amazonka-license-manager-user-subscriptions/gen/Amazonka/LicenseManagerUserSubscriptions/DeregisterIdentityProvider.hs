@@ -95,7 +95,7 @@ instance Core.AWSRequest DeregisterIdentityProvider where
   type
     AWSResponse DeregisterIdentityProvider =
       DeregisterIdentityProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DeregisterIdentityProvider where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "IdentityProviderSummary")
       )
+
+instance Core.AWSService DeregisterIdentityProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterIdentityProvider where
   hashWithSalt _salt DeregisterIdentityProvider' {..} =

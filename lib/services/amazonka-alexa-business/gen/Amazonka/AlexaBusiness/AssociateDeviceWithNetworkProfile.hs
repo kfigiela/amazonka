@@ -96,13 +96,19 @@ instance
   type
     AWSResponse AssociateDeviceWithNetworkProfile =
       AssociateDeviceWithNetworkProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateDeviceWithNetworkProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateDeviceWithNetworkProfile
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteStreamKey where
   type
     AWSResponse DeleteStreamKey =
       DeleteStreamKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteStreamKeyResponse'
+
+instance Core.AWSService DeleteStreamKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStreamKey where
   hashWithSalt _salt DeleteStreamKey' {..} =

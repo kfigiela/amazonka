@@ -169,7 +169,7 @@ instance Core.AWSRequest CreateKeyPair where
   type
     AWSResponse CreateKeyPair =
       CreateKeyPairResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest CreateKeyPair where
             Prelude.<*> (x Core..@ "keyFingerprint")
             Prelude.<*> (x Core..@ "keyMaterial")
       )
+
+instance Core.AWSService CreateKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateKeyPair where
   hashWithSalt _salt CreateKeyPair' {..} =

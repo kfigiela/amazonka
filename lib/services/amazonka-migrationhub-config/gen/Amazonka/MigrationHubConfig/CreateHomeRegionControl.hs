@@ -107,7 +107,7 @@ instance Core.AWSRequest CreateHomeRegionControl where
   type
     AWSResponse CreateHomeRegionControl =
       CreateHomeRegionControlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateHomeRegionControl where
             Prelude.<$> (x Core..?> "HomeRegionControl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHomeRegionControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHomeRegionControl where
   hashWithSalt _salt CreateHomeRegionControl' {..} =

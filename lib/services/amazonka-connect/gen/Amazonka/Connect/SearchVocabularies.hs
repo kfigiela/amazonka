@@ -170,7 +170,7 @@ instance Core.AWSRequest SearchVocabularies where
   type
     AWSResponse SearchVocabularies =
       SearchVocabulariesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest SearchVocabularies where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchVocabularies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchVocabularies where
   hashWithSalt _salt SearchVocabularies' {..} =

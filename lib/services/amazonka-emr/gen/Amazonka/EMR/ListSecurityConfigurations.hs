@@ -107,7 +107,7 @@ instance Core.AWSRequest ListSecurityConfigurations where
   type
     AWSResponse ListSecurityConfigurations =
       ListSecurityConfigurationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest ListSecurityConfigurations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSecurityConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSecurityConfigurations where
   hashWithSalt _salt ListSecurityConfigurations' {..} =

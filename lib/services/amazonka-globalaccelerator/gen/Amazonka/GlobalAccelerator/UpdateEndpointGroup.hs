@@ -239,7 +239,7 @@ instance Core.AWSRequest UpdateEndpointGroup where
   type
     AWSResponse UpdateEndpointGroup =
       UpdateEndpointGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -247,6 +247,9 @@ instance Core.AWSRequest UpdateEndpointGroup where
             Prelude.<$> (x Core..?> "EndpointGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEndpointGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEndpointGroup where
   hashWithSalt _salt UpdateEndpointGroup' {..} =

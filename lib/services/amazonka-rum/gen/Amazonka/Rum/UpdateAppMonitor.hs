@@ -156,13 +156,16 @@ instance Core.AWSRequest UpdateAppMonitor where
   type
     AWSResponse UpdateAppMonitor =
       UpdateAppMonitorResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAppMonitorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAppMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAppMonitor where
   hashWithSalt _salt UpdateAppMonitor' {..} =

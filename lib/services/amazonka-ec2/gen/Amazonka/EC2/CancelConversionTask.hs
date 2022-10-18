@@ -111,9 +111,12 @@ instance Core.AWSRequest CancelConversionTask where
   type
     AWSResponse CancelConversionTask =
       CancelConversionTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull CancelConversionTaskResponse'
+
+instance Core.AWSService CancelConversionTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelConversionTask where
   hashWithSalt _salt CancelConversionTask' {..} =

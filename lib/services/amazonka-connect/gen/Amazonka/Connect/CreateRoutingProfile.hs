@@ -165,7 +165,7 @@ instance Core.AWSRequest CreateRoutingProfile where
   type
     AWSResponse CreateRoutingProfile =
       CreateRoutingProfileResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest CreateRoutingProfile where
             Prelude.<*> (x Core..?> "RoutingProfileId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoutingProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoutingProfile where
   hashWithSalt _salt CreateRoutingProfile' {..} =

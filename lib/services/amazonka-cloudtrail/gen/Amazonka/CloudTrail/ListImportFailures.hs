@@ -124,7 +124,7 @@ instance Core.AWSRequest ListImportFailures where
   type
     AWSResponse ListImportFailures =
       ListImportFailuresResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListImportFailures where
             Prelude.<*> (x Core..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListImportFailures where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListImportFailures where
   hashWithSalt _salt ListImportFailures' {..} =

@@ -161,7 +161,7 @@ instance Core.AWSRequest UpdateScheduledAudit where
   type
     AWSResponse UpdateScheduledAudit =
       UpdateScheduledAuditResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest UpdateScheduledAudit where
             Prelude.<$> (x Core..?> "scheduledAuditArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateScheduledAudit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateScheduledAudit where
   hashWithSalt _salt UpdateScheduledAudit' {..} =

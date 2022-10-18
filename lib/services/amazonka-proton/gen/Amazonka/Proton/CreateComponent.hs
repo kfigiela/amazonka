@@ -231,7 +231,7 @@ instance Core.AWSRequest CreateComponent where
   type
     AWSResponse CreateComponent =
       CreateComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -239,6 +239,9 @@ instance Core.AWSRequest CreateComponent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "component")
       )
+
+instance Core.AWSService CreateComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateComponent where
   hashWithSalt _salt CreateComponent' {..} =

@@ -201,7 +201,7 @@ createNode_nodeConfiguration = Lens.lens (\CreateNode' {nodeConfiguration} -> no
 
 instance Core.AWSRequest CreateNode where
   type AWSResponse CreateNode = CreateNodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest CreateNode where
             Prelude.<$> (x Core..?> "NodeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNode where
   hashWithSalt _salt CreateNode' {..} =

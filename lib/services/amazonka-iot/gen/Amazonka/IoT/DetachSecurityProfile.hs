@@ -99,13 +99,16 @@ instance Core.AWSRequest DetachSecurityProfile where
   type
     AWSResponse DetachSecurityProfile =
       DetachSecurityProfileResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DetachSecurityProfileResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachSecurityProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachSecurityProfile where
   hashWithSalt _salt DetachSecurityProfile' {..} =

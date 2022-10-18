@@ -101,7 +101,7 @@ instance
     AWSResponse
       PutVoiceConnectorLoggingConfiguration =
       PutVoiceConnectorLoggingConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,12 @@ instance
             Prelude.<$> (x Core..?> "LoggingConfiguration")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutVoiceConnectorLoggingConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

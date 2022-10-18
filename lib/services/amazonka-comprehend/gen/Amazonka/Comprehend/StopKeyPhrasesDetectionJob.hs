@@ -90,7 +90,7 @@ instance Core.AWSRequest StopKeyPhrasesDetectionJob where
   type
     AWSResponse StopKeyPhrasesDetectionJob =
       StopKeyPhrasesDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest StopKeyPhrasesDetectionJob where
             Prelude.<*> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopKeyPhrasesDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopKeyPhrasesDetectionJob where
   hashWithSalt _salt StopKeyPhrasesDetectionJob' {..} =

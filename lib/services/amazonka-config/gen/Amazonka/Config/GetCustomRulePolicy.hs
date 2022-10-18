@@ -79,7 +79,7 @@ instance Core.AWSRequest GetCustomRulePolicy where
   type
     AWSResponse GetCustomRulePolicy =
       GetCustomRulePolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetCustomRulePolicy where
             Prelude.<$> (x Core..?> "PolicyText")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCustomRulePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCustomRulePolicy where
   hashWithSalt _salt GetCustomRulePolicy' {..} =

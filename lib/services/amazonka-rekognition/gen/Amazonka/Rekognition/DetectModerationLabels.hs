@@ -152,7 +152,7 @@ instance Core.AWSRequest DetectModerationLabels where
   type
     AWSResponse DetectModerationLabels =
       DetectModerationLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest DetectModerationLabels where
             Prelude.<*> (x Core..?> "ModerationModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectModerationLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectModerationLabels where
   hashWithSalt _salt DetectModerationLabels' {..} =

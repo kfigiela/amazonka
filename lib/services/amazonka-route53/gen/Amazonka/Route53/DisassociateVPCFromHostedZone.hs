@@ -153,7 +153,7 @@ instance
   type
     AWSResponse DisassociateVPCFromHostedZone =
       DisassociateVPCFromHostedZoneResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -161,6 +161,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance
+  Core.AWSService
+    DisassociateVPCFromHostedZone
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -107,7 +107,7 @@ instance Core.AWSRequest CreateDomainName where
   type
     AWSResponse CreateDomainName =
       CreateDomainNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateDomainName where
             Prelude.<$> (x Core..?> "domainNameConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDomainName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDomainName where
   hashWithSalt _salt CreateDomainName' {..} =

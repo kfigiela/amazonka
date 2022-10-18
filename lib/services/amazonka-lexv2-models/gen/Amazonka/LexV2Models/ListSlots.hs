@@ -198,7 +198,7 @@ listSlots_intentId = Lens.lens (\ListSlots' {intentId} -> intentId) (\s@ListSlot
 
 instance Core.AWSRequest ListSlots where
   type AWSResponse ListSlots = ListSlotsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest ListSlots where
             Prelude.<*> (x Core..?> "intentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSlots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSlots where
   hashWithSalt _salt ListSlots' {..} =

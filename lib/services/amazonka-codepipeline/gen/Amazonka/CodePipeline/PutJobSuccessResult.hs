@@ -149,9 +149,12 @@ instance Core.AWSRequest PutJobSuccessResult where
   type
     AWSResponse PutJobSuccessResult =
       PutJobSuccessResultResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutJobSuccessResultResponse'
+
+instance Core.AWSService PutJobSuccessResult where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutJobSuccessResult where
   hashWithSalt _salt PutJobSuccessResult' {..} =

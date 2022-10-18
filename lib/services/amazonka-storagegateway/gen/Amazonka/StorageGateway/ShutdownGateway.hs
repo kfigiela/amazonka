@@ -101,7 +101,7 @@ instance Core.AWSRequest ShutdownGateway where
   type
     AWSResponse ShutdownGateway =
       ShutdownGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ShutdownGateway where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ShutdownGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ShutdownGateway where
   hashWithSalt _salt ShutdownGateway' {..} =

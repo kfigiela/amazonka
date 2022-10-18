@@ -148,7 +148,7 @@ instance Core.AWSRequest GetIntentVersions where
   type
     AWSResponse GetIntentVersions =
       GetIntentVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest GetIntentVersions where
             Prelude.<*> (x Core..?> "intents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIntentVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIntentVersions where
   hashWithSalt _salt GetIntentVersions' {..} =

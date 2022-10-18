@@ -96,7 +96,7 @@ instance Core.AWSRequest DescribeUserImportJob where
   type
     AWSResponse DescribeUserImportJob =
       DescribeUserImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest DescribeUserImportJob where
             Prelude.<$> (x Core..?> "UserImportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUserImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUserImportJob where
   hashWithSalt _salt DescribeUserImportJob' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest EnableDirectory where
   type
     AWSResponse EnableDirectory =
       EnableDirectoryResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest EnableDirectory where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DirectoryArn")
       )
+
+instance Core.AWSService EnableDirectory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableDirectory where
   hashWithSalt _salt EnableDirectory' {..} =

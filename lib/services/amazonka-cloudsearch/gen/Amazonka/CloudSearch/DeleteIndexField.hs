@@ -100,7 +100,7 @@ instance Core.AWSRequest DeleteIndexField where
   type
     AWSResponse DeleteIndexField =
       DeleteIndexFieldResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteIndexFieldResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteIndexField where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "IndexField")
       )
+
+instance Core.AWSService DeleteIndexField where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteIndexField where
   hashWithSalt _salt DeleteIndexField' {..} =

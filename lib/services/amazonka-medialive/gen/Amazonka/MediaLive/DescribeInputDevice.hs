@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeInputDevice where
   type
     AWSResponse DescribeInputDevice =
       DescribeInputDeviceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest DescribeInputDevice where
             Prelude.<*> (x Core..?> "serialNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInputDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInputDevice where
   hashWithSalt _salt DescribeInputDevice' {..} =

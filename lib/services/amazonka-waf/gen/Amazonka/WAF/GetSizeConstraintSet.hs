@@ -95,7 +95,7 @@ instance Core.AWSRequest GetSizeConstraintSet where
   type
     AWSResponse GetSizeConstraintSet =
       GetSizeConstraintSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetSizeConstraintSet where
             Prelude.<$> (x Core..?> "SizeConstraintSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSizeConstraintSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSizeConstraintSet where
   hashWithSalt _salt GetSizeConstraintSet' {..} =

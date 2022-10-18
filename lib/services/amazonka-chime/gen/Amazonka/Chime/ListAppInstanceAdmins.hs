@@ -104,7 +104,7 @@ instance Core.AWSRequest ListAppInstanceAdmins where
   type
     AWSResponse ListAppInstanceAdmins =
       ListAppInstanceAdminsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListAppInstanceAdmins where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAppInstanceAdmins where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAppInstanceAdmins where
   hashWithSalt _salt ListAppInstanceAdmins' {..} =

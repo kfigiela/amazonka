@@ -97,13 +97,16 @@ instance Core.AWSRequest PutPortfolioPreferences where
   type
     AWSResponse PutPortfolioPreferences =
       PutPortfolioPreferencesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutPortfolioPreferencesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutPortfolioPreferences where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPortfolioPreferences where
   hashWithSalt _salt PutPortfolioPreferences' {..} =

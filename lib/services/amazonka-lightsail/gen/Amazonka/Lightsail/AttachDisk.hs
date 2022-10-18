@@ -110,7 +110,7 @@ attachDisk_diskPath = Lens.lens (\AttachDisk' {diskPath} -> diskPath) (\s@Attach
 
 instance Core.AWSRequest AttachDisk where
   type AWSResponse AttachDisk = AttachDiskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest AttachDisk where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachDisk where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachDisk where
   hashWithSalt _salt AttachDisk' {..} =

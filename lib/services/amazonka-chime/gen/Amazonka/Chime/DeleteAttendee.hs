@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteAttendee where
   type
     AWSResponse DeleteAttendee =
       DeleteAttendeeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteAttendeeResponse'
+
+instance Core.AWSService DeleteAttendee where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAttendee where
   hashWithSalt _salt DeleteAttendee' {..} =

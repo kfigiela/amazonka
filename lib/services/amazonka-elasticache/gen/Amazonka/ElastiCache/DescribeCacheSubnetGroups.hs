@@ -155,7 +155,7 @@ instance Core.AWSRequest DescribeCacheSubnetGroups where
   type
     AWSResponse DescribeCacheSubnetGroups =
       DescribeCacheSubnetGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeCacheSubnetGroupsResult"
@@ -168,6 +168,9 @@ instance Core.AWSRequest DescribeCacheSubnetGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCacheSubnetGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCacheSubnetGroups where
   hashWithSalt _salt DescribeCacheSubnetGroups' {..} =

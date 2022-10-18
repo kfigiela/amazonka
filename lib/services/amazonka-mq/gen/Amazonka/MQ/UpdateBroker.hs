@@ -206,7 +206,7 @@ updateBroker_brokerId = Lens.lens (\UpdateBroker' {brokerId} -> brokerId) (\s@Up
 
 instance Core.AWSRequest UpdateBroker where
   type AWSResponse UpdateBroker = UpdateBrokerResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest UpdateBroker where
             Prelude.<*> (x Core..?> "engineVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBroker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBroker where
   hashWithSalt _salt UpdateBroker' {..} =

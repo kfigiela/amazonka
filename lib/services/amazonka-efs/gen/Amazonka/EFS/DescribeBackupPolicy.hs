@@ -79,10 +79,13 @@ instance Core.AWSRequest DescribeBackupPolicy where
   type
     AWSResponse DescribeBackupPolicy =
       BackupPolicyDescription
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DescribeBackupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBackupPolicy where
   hashWithSalt _salt DescribeBackupPolicy' {..} =

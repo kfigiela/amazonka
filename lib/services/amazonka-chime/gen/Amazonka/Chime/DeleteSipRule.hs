@@ -74,9 +74,12 @@ instance Core.AWSRequest DeleteSipRule where
   type
     AWSResponse DeleteSipRule =
       DeleteSipRuleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteSipRuleResponse'
+
+instance Core.AWSService DeleteSipRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSipRule where
   hashWithSalt _salt DeleteSipRule' {..} =

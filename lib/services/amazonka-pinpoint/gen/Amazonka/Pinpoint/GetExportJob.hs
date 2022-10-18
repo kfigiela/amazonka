@@ -93,7 +93,7 @@ getExportJob_jobId = Lens.lens (\GetExportJob' {jobId} -> jobId) (\s@GetExportJo
 
 instance Core.AWSRequest GetExportJob where
   type AWSResponse GetExportJob = GetExportJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetExportJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExportJob where
   hashWithSalt _salt GetExportJob' {..} =

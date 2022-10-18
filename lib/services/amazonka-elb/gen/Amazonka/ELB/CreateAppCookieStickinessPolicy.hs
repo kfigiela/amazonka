@@ -133,7 +133,7 @@ instance
   type
     AWSResponse CreateAppCookieStickinessPolicy =
       CreateAppCookieStickinessPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateAppCookieStickinessPolicyResult"
@@ -141,6 +141,12 @@ instance
           CreateAppCookieStickinessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateAppCookieStickinessPolicy
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

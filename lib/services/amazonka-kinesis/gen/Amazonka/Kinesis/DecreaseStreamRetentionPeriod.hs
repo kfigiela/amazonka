@@ -105,10 +105,16 @@ instance
   type
     AWSResponse DecreaseStreamRetentionPeriod =
       DecreaseStreamRetentionPeriodResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DecreaseStreamRetentionPeriodResponse'
+
+instance
+  Core.AWSService
+    DecreaseStreamRetentionPeriod
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeQueryDefinitions where
   type
     AWSResponse DescribeQueryDefinitions =
       DescribeQueryDefinitionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeQueryDefinitions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeQueryDefinitions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeQueryDefinitions where
   hashWithSalt _salt DescribeQueryDefinitions' {..} =

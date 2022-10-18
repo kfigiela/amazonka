@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeWorkforce where
   type
     AWSResponse DescribeWorkforce =
       DescribeWorkforceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest DescribeWorkforce where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Workforce")
       )
+
+instance Core.AWSService DescribeWorkforce where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorkforce where
   hashWithSalt _salt DescribeWorkforce' {..} =

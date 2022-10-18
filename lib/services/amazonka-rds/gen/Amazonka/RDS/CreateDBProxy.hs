@@ -239,7 +239,7 @@ instance Core.AWSRequest CreateDBProxy where
   type
     AWSResponse CreateDBProxy =
       CreateDBProxyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBProxyResult"
@@ -248,6 +248,9 @@ instance Core.AWSRequest CreateDBProxy where
             Prelude.<$> (x Core..@? "DBProxy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBProxy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBProxy where
   hashWithSalt _salt CreateDBProxy' {..} =

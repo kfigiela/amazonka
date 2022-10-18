@@ -111,7 +111,7 @@ instance Core.AWSRequest ListPublishingDestinations where
   type
     AWSResponse ListPublishingDestinations =
       ListPublishingDestinationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest ListPublishingDestinations where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "destinations" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListPublishingDestinations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPublishingDestinations where
   hashWithSalt _salt ListPublishingDestinations' {..} =

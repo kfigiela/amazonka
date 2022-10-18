@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeResiliencyPolicy where
   type
     AWSResponse DescribeResiliencyPolicy =
       DescribeResiliencyPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeResiliencyPolicy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "policy")
       )
+
+instance Core.AWSService DescribeResiliencyPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeResiliencyPolicy where
   hashWithSalt _salt DescribeResiliencyPolicy' {..} =

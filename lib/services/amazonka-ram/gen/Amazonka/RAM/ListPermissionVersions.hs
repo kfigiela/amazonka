@@ -152,7 +152,7 @@ instance Core.AWSRequest ListPermissionVersions where
   type
     AWSResponse ListPermissionVersions =
       ListPermissionVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListPermissionVersions where
             Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPermissionVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPermissionVersions where
   hashWithSalt _salt ListPermissionVersions' {..} =

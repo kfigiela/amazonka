@@ -100,7 +100,7 @@ instance Core.AWSRequest DisassociateAttributeGroup where
   type
     AWSResponse DisassociateAttributeGroup =
       DisassociateAttributeGroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DisassociateAttributeGroup where
             Prelude.<*> (x Core..?> "attributeGroupArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateAttributeGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateAttributeGroup where
   hashWithSalt _salt DisassociateAttributeGroup' {..} =

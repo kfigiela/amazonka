@@ -125,7 +125,7 @@ instance Core.AWSRequest ListScramSecrets where
   type
     AWSResponse ListScramSecrets =
       ListScramSecretsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListScramSecrets where
             Prelude.<*> (x Core..?> "secretArnList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListScramSecrets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListScramSecrets where
   hashWithSalt _salt ListScramSecrets' {..} =

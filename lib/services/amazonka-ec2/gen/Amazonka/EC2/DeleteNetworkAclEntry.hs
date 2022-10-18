@@ -122,9 +122,12 @@ instance Core.AWSRequest DeleteNetworkAclEntry where
   type
     AWSResponse DeleteNetworkAclEntry =
       DeleteNetworkAclEntryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteNetworkAclEntryResponse'
+
+instance Core.AWSService DeleteNetworkAclEntry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNetworkAclEntry where
   hashWithSalt _salt DeleteNetworkAclEntry' {..} =

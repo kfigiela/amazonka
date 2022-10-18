@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeProblemObservations where
   type
     AWSResponse DescribeProblemObservations =
       DescribeProblemObservationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeProblemObservations where
             Prelude.<$> (x Core..?> "RelatedObservations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProblemObservations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProblemObservations where
   hashWithSalt _salt DescribeProblemObservations' {..} =

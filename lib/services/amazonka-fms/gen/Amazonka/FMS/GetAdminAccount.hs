@@ -63,7 +63,7 @@ instance Core.AWSRequest GetAdminAccount where
   type
     AWSResponse GetAdminAccount =
       GetAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetAdminAccount where
             Prelude.<*> (x Core..?> "RoleStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAdminAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAdminAccount where
   hashWithSalt _salt _ =

@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeInsightRules where
   type
     AWSResponse DescribeInsightRules =
       DescribeInsightRulesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeInsightRulesResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeInsightRules where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInsightRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInsightRules where
   hashWithSalt _salt DescribeInsightRules' {..} =

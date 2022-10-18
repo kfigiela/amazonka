@@ -270,10 +270,13 @@ putMethod_authorizationType = Lens.lens (\PutMethod' {authorizationType} -> auth
 
 instance Core.AWSRequest PutMethod where
   type AWSResponse PutMethod = Method
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMethod where
   hashWithSalt _salt PutMethod' {..} =

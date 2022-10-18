@@ -125,7 +125,7 @@ instance Core.AWSRequest CreateRegexPatternSet where
   type
     AWSResponse CreateRegexPatternSet =
       CreateRegexPatternSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateRegexPatternSet where
             Prelude.<*> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRegexPatternSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRegexPatternSet where
   hashWithSalt _salt CreateRegexPatternSet' {..} =

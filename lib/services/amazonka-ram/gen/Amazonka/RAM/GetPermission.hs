@@ -113,7 +113,7 @@ instance Core.AWSRequest GetPermission where
   type
     AWSResponse GetPermission =
       GetPermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest GetPermission where
             Prelude.<$> (x Core..?> "permission")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPermission where
   hashWithSalt _salt GetPermission' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest BatchGetWorkflows where
   type
     AWSResponse BatchGetWorkflows =
       BatchGetWorkflowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest BatchGetWorkflows where
             Prelude.<*> (x Core..?> "Workflows")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetWorkflows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetWorkflows where
   hashWithSalt _salt BatchGetWorkflows' {..} =

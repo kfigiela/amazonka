@@ -95,13 +95,16 @@ instance Core.AWSRequest StopApplication where
   type
     AWSResponse StopApplication =
       StopApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopApplication where
   hashWithSalt _salt StopApplication' {..} =

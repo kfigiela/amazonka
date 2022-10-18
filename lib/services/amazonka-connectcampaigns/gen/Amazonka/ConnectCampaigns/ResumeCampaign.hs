@@ -73,9 +73,12 @@ instance Core.AWSRequest ResumeCampaign where
   type
     AWSResponse ResumeCampaign =
       ResumeCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ResumeCampaignResponse'
+
+instance Core.AWSService ResumeCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeCampaign where
   hashWithSalt _salt ResumeCampaign' {..} =

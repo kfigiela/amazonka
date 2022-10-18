@@ -129,7 +129,7 @@ instance Core.AWSRequest ListBatchSegmentJobs where
   type
     AWSResponse ListBatchSegmentJobs =
       ListBatchSegmentJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListBatchSegmentJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBatchSegmentJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBatchSegmentJobs where
   hashWithSalt _salt ListBatchSegmentJobs' {..} =

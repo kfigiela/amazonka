@@ -141,7 +141,7 @@ instance Core.AWSRequest SubscribeToShard where
   type
     AWSResponse SubscribeToShard =
       SubscribeToShardResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest SubscribeToShard where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EventStream")
       )
+
+instance Core.AWSService SubscribeToShard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SubscribeToShard where
   hashWithSalt _salt SubscribeToShard' {..} =

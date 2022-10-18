@@ -109,7 +109,7 @@ instance Core.AWSRequest CreateAccessKey where
   type
     AWSResponse CreateAccessKey =
       CreateAccessKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateAccessKeyResult"
@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateAccessKey where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "AccessKey")
       )
+
+instance Core.AWSService CreateAccessKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccessKey where
   hashWithSalt _salt CreateAccessKey' {..} =

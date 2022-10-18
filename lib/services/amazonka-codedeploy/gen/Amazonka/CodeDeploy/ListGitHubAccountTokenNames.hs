@@ -108,7 +108,7 @@ instance Core.AWSRequest ListGitHubAccountTokenNames where
   type
     AWSResponse ListGitHubAccountTokenNames =
       ListGitHubAccountTokenNamesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest ListGitHubAccountTokenNames where
             Prelude.<*> (x Core..?> "tokenNameList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListGitHubAccountTokenNames where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListGitHubAccountTokenNames where
   hashWithSalt _salt ListGitHubAccountTokenNames' {..} =

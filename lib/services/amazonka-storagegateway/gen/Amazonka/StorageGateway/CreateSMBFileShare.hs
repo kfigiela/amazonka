@@ -729,7 +729,7 @@ instance Core.AWSRequest CreateSMBFileShare where
   type
     AWSResponse CreateSMBFileShare =
       CreateSMBFileShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -737,6 +737,9 @@ instance Core.AWSRequest CreateSMBFileShare where
             Prelude.<$> (x Core..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSMBFileShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSMBFileShare where
   hashWithSalt _salt CreateSMBFileShare' {..} =

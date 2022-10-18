@@ -142,7 +142,7 @@ instance Core.AWSRequest DescribeAutoScalingInstances where
   type
     AWSResponse DescribeAutoScalingInstances =
       DescribeAutoScalingInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAutoScalingInstancesResult"
@@ -155,6 +155,9 @@ instance Core.AWSRequest DescribeAutoScalingInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAutoScalingInstances where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

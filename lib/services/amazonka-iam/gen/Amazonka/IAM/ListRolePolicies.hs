@@ -182,7 +182,7 @@ instance Core.AWSRequest ListRolePolicies where
   type
     AWSResponse ListRolePolicies =
       ListRolePoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListRolePoliciesResult"
@@ -195,6 +195,9 @@ instance Core.AWSRequest ListRolePolicies where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListRolePolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListRolePolicies where
   hashWithSalt _salt ListRolePolicies' {..} =

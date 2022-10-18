@@ -78,7 +78,7 @@ instance Core.AWSRequest BatchDeleteBuilds where
   type
     AWSResponse BatchDeleteBuilds =
       BatchDeleteBuildsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest BatchDeleteBuilds where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteBuilds where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteBuilds where
   hashWithSalt _salt BatchDeleteBuilds' {..} =

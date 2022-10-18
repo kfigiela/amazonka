@@ -184,7 +184,7 @@ instance Core.AWSRequest DescribeTableStatistics where
   type
     AWSResponse DescribeTableStatistics =
       DescribeTableStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest DescribeTableStatistics where
             Prelude.<*> (x Core..?> "ReplicationTaskArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTableStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTableStatistics where
   hashWithSalt _salt DescribeTableStatistics' {..} =

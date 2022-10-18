@@ -120,10 +120,13 @@ instance Core.AWSRequest CreateRequestValidator where
   type
     AWSResponse CreateRequestValidator =
       RequestValidator
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateRequestValidator where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRequestValidator where
   hashWithSalt _salt CreateRequestValidator' {..} =

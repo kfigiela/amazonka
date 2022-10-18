@@ -89,7 +89,7 @@ instance Core.AWSRequest ListEventDataStores where
   type
     AWSResponse ListEventDataStores =
       ListEventDataStoresResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest ListEventDataStores where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEventDataStores where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEventDataStores where
   hashWithSalt _salt ListEventDataStores' {..} =

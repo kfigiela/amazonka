@@ -150,7 +150,7 @@ instance Core.AWSRequest DescribeComments where
   type
     AWSResponse DescribeComments =
       DescribeCommentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest DescribeComments where
             Prelude.<*> (x Core..?> "Comments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeComments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeComments where
   hashWithSalt _salt DescribeComments' {..} =

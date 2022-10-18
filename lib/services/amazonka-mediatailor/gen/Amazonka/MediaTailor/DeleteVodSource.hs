@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteVodSource where
   type
     AWSResponse DeleteVodSource =
       DeleteVodSourceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteVodSourceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteVodSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVodSource where
   hashWithSalt _salt DeleteVodSource' {..} =

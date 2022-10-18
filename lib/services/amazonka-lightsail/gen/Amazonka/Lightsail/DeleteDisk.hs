@@ -98,7 +98,7 @@ deleteDisk_diskName = Lens.lens (\DeleteDisk' {diskName} -> diskName) (\s@Delete
 
 instance Core.AWSRequest DeleteDisk where
   type AWSResponse DeleteDisk = DeleteDiskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DeleteDisk where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDisk where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDisk where
   hashWithSalt _salt DeleteDisk' {..} =

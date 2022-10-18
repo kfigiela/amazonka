@@ -103,7 +103,7 @@ getDataView_datasetId = Lens.lens (\GetDataView' {datasetId} -> datasetId) (\s@G
 
 instance Core.AWSRequest GetDataView where
   type AWSResponse GetDataView = GetDataViewResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest GetDataView where
             Prelude.<*> (x Core..?> "errorInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDataView where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDataView where
   hashWithSalt _salt GetDataView' {..} =

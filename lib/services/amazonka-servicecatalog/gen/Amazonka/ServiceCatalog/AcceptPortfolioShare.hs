@@ -153,13 +153,16 @@ instance Core.AWSRequest AcceptPortfolioShare where
   type
     AWSResponse AcceptPortfolioShare =
       AcceptPortfolioShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptPortfolioShareResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptPortfolioShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptPortfolioShare where
   hashWithSalt _salt AcceptPortfolioShare' {..} =

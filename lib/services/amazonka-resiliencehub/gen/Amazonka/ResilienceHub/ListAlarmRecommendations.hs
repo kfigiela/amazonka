@@ -122,7 +122,7 @@ instance Core.AWSRequest ListAlarmRecommendations where
   type
     AWSResponse ListAlarmRecommendations =
       ListAlarmRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListAlarmRecommendations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAlarmRecommendations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAlarmRecommendations where
   hashWithSalt _salt ListAlarmRecommendations' {..} =

@@ -97,7 +97,7 @@ instance
   type
     AWSResponse DescribeStateMachineForExecution =
       DescribeStateMachineForExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,12 @@ instance
             Prelude.<*> (x Core..:> "roleArn")
             Prelude.<*> (x Core..:> "updateDate")
       )
+
+instance
+  Core.AWSService
+    DescribeStateMachineForExecution
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -1013,6 +1013,7 @@ defaultService =
       Core._serviceEndpointPrefix = "swf",
       Core._serviceSigningName = "swf",
       Core._serviceVersion = "2012-01-25",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

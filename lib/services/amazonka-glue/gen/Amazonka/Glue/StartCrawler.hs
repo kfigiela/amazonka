@@ -75,13 +75,16 @@ startCrawler_name = Lens.lens (\StartCrawler' {name} -> name) (\s@StartCrawler' 
 
 instance Core.AWSRequest StartCrawler where
   type AWSResponse StartCrawler = StartCrawlerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartCrawler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCrawler where
   hashWithSalt _salt StartCrawler' {..} =

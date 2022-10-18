@@ -127,9 +127,12 @@ instance Core.AWSRequest DeleteGroupPolicy where
   type
     AWSResponse DeleteGroupPolicy =
       DeleteGroupPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteGroupPolicyResponse'
+
+instance Core.AWSService DeleteGroupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGroupPolicy where
   hashWithSalt _salt DeleteGroupPolicy' {..} =

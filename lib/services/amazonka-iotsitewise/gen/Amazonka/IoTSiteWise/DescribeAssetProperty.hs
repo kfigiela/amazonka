@@ -104,7 +104,7 @@ instance Core.AWSRequest DescribeAssetProperty where
   type
     AWSResponse DescribeAssetProperty =
       DescribeAssetPropertyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeAssetProperty where
             Prelude.<*> (x Core..:> "assetName")
             Prelude.<*> (x Core..:> "assetModelId")
       )
+
+instance Core.AWSService DescribeAssetProperty where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAssetProperty where
   hashWithSalt _salt DescribeAssetProperty' {..} =

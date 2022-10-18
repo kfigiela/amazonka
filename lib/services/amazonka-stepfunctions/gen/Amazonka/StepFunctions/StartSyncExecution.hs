@@ -152,7 +152,7 @@ instance Core.AWSRequest StartSyncExecution where
   type
     AWSResponse StartSyncExecution =
       StartSyncExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest StartSyncExecution where
             Prelude.<*> (x Core..:> "stopDate")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService StartSyncExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSyncExecution where
   hashWithSalt _salt StartSyncExecution' {..} =

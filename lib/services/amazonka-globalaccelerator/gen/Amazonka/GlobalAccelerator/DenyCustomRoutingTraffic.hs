@@ -186,10 +186,13 @@ instance Core.AWSRequest DenyCustomRoutingTraffic where
   type
     AWSResponse DenyCustomRoutingTraffic =
       DenyCustomRoutingTrafficResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DenyCustomRoutingTrafficResponse'
+
+instance Core.AWSService DenyCustomRoutingTraffic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DenyCustomRoutingTraffic where
   hashWithSalt _salt DenyCustomRoutingTraffic' {..} =

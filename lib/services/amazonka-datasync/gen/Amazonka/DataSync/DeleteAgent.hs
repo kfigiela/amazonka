@@ -86,13 +86,16 @@ deleteAgent_agentArn = Lens.lens (\DeleteAgent' {agentArn} -> agentArn) (\s@Dele
 
 instance Core.AWSRequest DeleteAgent where
   type AWSResponse DeleteAgent = DeleteAgentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAgentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAgent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAgent where
   hashWithSalt _salt DeleteAgent' {..} =

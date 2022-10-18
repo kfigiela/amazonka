@@ -94,7 +94,7 @@ instance Core.AWSRequest GetApiMapping where
   type
     AWSResponse GetApiMapping =
       GetApiMappingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetApiMapping where
             Prelude.<*> (x Core..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApiMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApiMapping where
   hashWithSalt _salt GetApiMapping' {..} =

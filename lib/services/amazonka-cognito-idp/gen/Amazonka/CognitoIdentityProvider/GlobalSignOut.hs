@@ -89,13 +89,16 @@ instance Core.AWSRequest GlobalSignOut where
   type
     AWSResponse GlobalSignOut =
       GlobalSignOutResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           GlobalSignOutResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GlobalSignOut where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GlobalSignOut where
   hashWithSalt _salt GlobalSignOut' {..} =

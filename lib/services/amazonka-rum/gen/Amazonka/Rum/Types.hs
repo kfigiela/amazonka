@@ -139,6 +139,7 @@ defaultService =
       Core._serviceEndpointPrefix = "rum",
       Core._serviceSigningName = "rum",
       Core._serviceVersion = "2018-05-10",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

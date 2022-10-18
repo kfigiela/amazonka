@@ -143,7 +143,7 @@ instance Core.AWSRequest ListPublicKeys where
   type
     AWSResponse ListPublicKeys =
       ListPublicKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListPublicKeys where
             Prelude.<*> (x Core..?> "PublicKeyList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPublicKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPublicKeys where
   hashWithSalt _salt ListPublicKeys' {..} =

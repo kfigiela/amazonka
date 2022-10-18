@@ -134,7 +134,7 @@ instance Core.AWSRequest DescribeActivations where
   type
     AWSResponse DescribeActivations =
       DescribeActivationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest DescribeActivations where
             Prelude.<*> (x Core..?> "ActivationList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeActivations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeActivations where
   hashWithSalt _salt DescribeActivations' {..} =

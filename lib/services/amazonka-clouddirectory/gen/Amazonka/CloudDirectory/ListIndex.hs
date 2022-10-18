@@ -158,7 +158,7 @@ instance Core.AWSPager ListIndex where
 
 instance Core.AWSRequest ListIndex where
   type AWSResponse ListIndex = ListIndexResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest ListIndex where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIndex where
   hashWithSalt _salt ListIndex' {..} =

@@ -123,7 +123,7 @@ instance Core.AWSPager ListAgents where
 
 instance Core.AWSRequest ListAgents where
   type AWSResponse ListAgents = ListAgentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListAgents where
             Prelude.<*> (x Core..?> "Agents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAgents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAgents where
   hashWithSalt _salt ListAgents' {..} =

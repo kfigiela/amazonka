@@ -145,7 +145,7 @@ instance Core.AWSRequest DescribeSSLPolicies where
   type
     AWSResponse DescribeSSLPolicies =
       DescribeSSLPoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSSLPoliciesResult"
@@ -157,6 +157,9 @@ instance Core.AWSRequest DescribeSSLPolicies where
             Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSSLPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSSLPolicies where
   hashWithSalt _salt DescribeSSLPolicies' {..} =

@@ -173,7 +173,7 @@ startCopyJob_iamRoleArn = Lens.lens (\StartCopyJob' {iamRoleArn} -> iamRoleArn) 
 
 instance Core.AWSRequest StartCopyJob where
   type AWSResponse StartCopyJob = StartCopyJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest StartCopyJob where
             Prelude.<*> (x Core..?> "CopyJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartCopyJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCopyJob where
   hashWithSalt _salt StartCopyJob' {..} =

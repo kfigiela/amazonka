@@ -183,7 +183,7 @@ instance Core.AWSRequest UpdateWorkteam where
   type
     AWSResponse UpdateWorkteam =
       UpdateWorkteamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest UpdateWorkteam where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Workteam")
       )
+
+instance Core.AWSService UpdateWorkteam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkteam where
   hashWithSalt _salt UpdateWorkteam' {..} =

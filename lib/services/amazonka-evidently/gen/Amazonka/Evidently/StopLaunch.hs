@@ -120,7 +120,7 @@ stopLaunch_project = Lens.lens (\StopLaunch' {project} -> project) (\s@StopLaunc
 
 instance Core.AWSRequest StopLaunch where
   type AWSResponse StopLaunch = StopLaunchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest StopLaunch where
             Prelude.<$> (x Core..?> "endedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopLaunch where
   hashWithSalt _salt StopLaunch' {..} =

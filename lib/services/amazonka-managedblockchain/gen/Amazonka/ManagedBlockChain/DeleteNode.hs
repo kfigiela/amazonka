@@ -134,13 +134,16 @@ deleteNode_nodeId = Lens.lens (\DeleteNode' {nodeId} -> nodeId) (\s@DeleteNode' 
 
 instance Core.AWSRequest DeleteNode where
   type AWSResponse DeleteNode = DeleteNodeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNode where
   hashWithSalt _salt DeleteNode' {..} =

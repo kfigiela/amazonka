@@ -201,7 +201,7 @@ getMapGlyphs_mapName = Lens.lens (\GetMapGlyphs' {mapName} -> mapName) (\s@GetMa
 
 instance Core.AWSRequest GetMapGlyphs where
   type AWSResponse GetMapGlyphs = GetMapGlyphsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -210,6 +210,9 @@ instance Core.AWSRequest GetMapGlyphs where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMapGlyphs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMapGlyphs where
   hashWithSalt _salt GetMapGlyphs' {..} =

@@ -91,13 +91,16 @@ instance Core.AWSRequest DeleteConnectClientAddIn where
   type
     AWSResponse DeleteConnectClientAddIn =
       DeleteConnectClientAddInResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConnectClientAddInResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConnectClientAddIn where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnectClientAddIn where
   hashWithSalt _salt DeleteConnectClientAddIn' {..} =

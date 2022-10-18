@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateConnectorProfile where
   type
     AWSResponse UpdateConnectorProfile =
       UpdateConnectorProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest UpdateConnectorProfile where
             Prelude.<$> (x Core..?> "connectorProfileArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateConnectorProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateConnectorProfile where
   hashWithSalt _salt UpdateConnectorProfile' {..} =

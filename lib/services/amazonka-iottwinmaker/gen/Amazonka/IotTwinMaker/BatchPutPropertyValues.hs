@@ -95,7 +95,7 @@ instance Core.AWSRequest BatchPutPropertyValues where
   type
     AWSResponse BatchPutPropertyValues =
       BatchPutPropertyValuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest BatchPutPropertyValues where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "errorEntries")
       )
+
+instance Core.AWSService BatchPutPropertyValues where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchPutPropertyValues where
   hashWithSalt _salt BatchPutPropertyValues' {..} =

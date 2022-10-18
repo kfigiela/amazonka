@@ -170,7 +170,7 @@ instance
   type
     AWSResponse StartDetectMitigationActionsTask =
       StartDetectMitigationActionsTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,12 @@ instance
             Prelude.<$> (x Core..?> "taskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartDetectMitigationActionsTask
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

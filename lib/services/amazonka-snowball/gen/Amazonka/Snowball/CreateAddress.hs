@@ -80,7 +80,7 @@ instance Core.AWSRequest CreateAddress where
   type
     AWSResponse CreateAddress =
       CreateAddressResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest CreateAddress where
             Prelude.<$> (x Core..?> "AddressId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAddress where
   hashWithSalt _salt CreateAddress' {..} =

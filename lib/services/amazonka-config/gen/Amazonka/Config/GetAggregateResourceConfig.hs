@@ -95,7 +95,7 @@ instance Core.AWSRequest GetAggregateResourceConfig where
   type
     AWSResponse GetAggregateResourceConfig =
       GetAggregateResourceConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetAggregateResourceConfig where
             Prelude.<$> (x Core..?> "ConfigurationItem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAggregateResourceConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAggregateResourceConfig where
   hashWithSalt _salt GetAggregateResourceConfig' {..} =

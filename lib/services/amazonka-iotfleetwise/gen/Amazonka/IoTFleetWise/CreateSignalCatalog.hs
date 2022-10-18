@@ -114,7 +114,7 @@ instance Core.AWSRequest CreateSignalCatalog where
   type
     AWSResponse CreateSignalCatalog =
       CreateSignalCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest CreateSignalCatalog where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateSignalCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSignalCatalog where
   hashWithSalt _salt CreateSignalCatalog' {..} =

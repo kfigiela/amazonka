@@ -272,7 +272,7 @@ instance Core.AWSRequest BatchWriteItem where
   type
     AWSResponse BatchWriteItem =
       BatchWriteItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -288,6 +288,9 @@ instance Core.AWSRequest BatchWriteItem where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService BatchWriteItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchWriteItem where
   hashWithSalt _salt BatchWriteItem' {..} =

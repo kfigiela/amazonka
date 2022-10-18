@@ -216,9 +216,9 @@ instance Core.AWSRequest UploadMultipartPart where
   type
     AWSResponse UploadMultipartPart =
       UploadMultipartPartResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.putBody defaultService
+      Prelude.. Request.putBody srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -226,6 +226,9 @@ instance Core.AWSRequest UploadMultipartPart where
             Prelude.<$> (h Core..#? "x-amz-sha256-tree-hash")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadMultipartPart where
+  service _proxy = defaultService
 
 instance Core.ToBody UploadMultipartPart where
   toBody UploadMultipartPart' {..} = Core.toBody body

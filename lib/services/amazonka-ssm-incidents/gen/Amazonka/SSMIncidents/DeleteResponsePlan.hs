@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteResponsePlan where
   type
     AWSResponse DeleteResponsePlan =
       DeleteResponsePlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResponsePlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResponsePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResponsePlan where
   hashWithSalt _salt DeleteResponsePlan' {..} =

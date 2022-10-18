@@ -123,7 +123,7 @@ instance Core.AWSRequest ListDelegatedAdminAccounts where
   type
     AWSResponse ListDelegatedAdminAccounts =
       ListDelegatedAdminAccountsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListDelegatedAdminAccounts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDelegatedAdminAccounts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDelegatedAdminAccounts where
   hashWithSalt _salt ListDelegatedAdminAccounts' {..} =

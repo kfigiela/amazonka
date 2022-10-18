@@ -201,9 +201,12 @@ instance Core.AWSRequest EnableKeyRotation where
   type
     AWSResponse EnableKeyRotation =
       EnableKeyRotationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull EnableKeyRotationResponse'
+
+instance Core.AWSService EnableKeyRotation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableKeyRotation where
   hashWithSalt _salt EnableKeyRotation' {..} =

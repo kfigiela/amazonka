@@ -88,7 +88,7 @@ getLaunch_project = Lens.lens (\GetLaunch' {project} -> project) (\s@GetLaunch' 
 
 instance Core.AWSRequest GetLaunch where
   type AWSResponse GetLaunch = GetLaunchResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetLaunch where
             Prelude.<$> (x Core..?> "launch")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLaunch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLaunch where
   hashWithSalt _salt GetLaunch' {..} =

@@ -113,7 +113,7 @@ instance Core.AWSRequest DeleteCustomVocabulary where
   type
     AWSResponse DeleteCustomVocabulary =
       DeleteCustomVocabularyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DeleteCustomVocabulary where
             Prelude.<*> (x Core..?> "botId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomVocabulary where
   hashWithSalt _salt DeleteCustomVocabulary' {..} =

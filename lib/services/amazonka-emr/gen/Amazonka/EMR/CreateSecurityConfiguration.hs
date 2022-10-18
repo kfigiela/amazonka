@@ -105,7 +105,7 @@ instance Core.AWSRequest CreateSecurityConfiguration where
   type
     AWSResponse CreateSecurityConfiguration =
       CreateSecurityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest CreateSecurityConfiguration where
             Prelude.<*> (x Core..:> "Name")
             Prelude.<*> (x Core..:> "CreationDateTime")
       )
+
+instance Core.AWSService CreateSecurityConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSecurityConfiguration where
   hashWithSalt _salt CreateSecurityConfiguration' {..} =

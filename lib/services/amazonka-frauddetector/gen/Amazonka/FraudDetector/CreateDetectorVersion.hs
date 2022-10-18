@@ -178,7 +178,7 @@ instance Core.AWSRequest CreateDetectorVersion where
   type
     AWSResponse CreateDetectorVersion =
       CreateDetectorVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest CreateDetectorVersion where
             Prelude.<*> (x Core..?> "detectorId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDetectorVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDetectorVersion where
   hashWithSalt _salt CreateDetectorVersion' {..} =

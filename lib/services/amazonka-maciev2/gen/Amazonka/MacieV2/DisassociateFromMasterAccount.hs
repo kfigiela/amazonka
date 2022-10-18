@@ -66,13 +66,19 @@ instance
   type
     AWSResponse DisassociateFromMasterAccount =
       DisassociateFromMasterAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateFromMasterAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateFromMasterAccount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

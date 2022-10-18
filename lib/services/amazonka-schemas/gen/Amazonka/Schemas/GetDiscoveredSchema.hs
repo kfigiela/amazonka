@@ -97,7 +97,7 @@ instance Core.AWSRequest GetDiscoveredSchema where
   type
     AWSResponse GetDiscoveredSchema =
       GetDiscoveredSchemaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetDiscoveredSchema where
             Prelude.<$> (x Core..?> "Content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDiscoveredSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDiscoveredSchema where
   hashWithSalt _salt GetDiscoveredSchema' {..} =

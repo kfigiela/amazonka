@@ -265,7 +265,7 @@ instance Core.AWSRequest DescribeOptionGroups where
   type
     AWSResponse DescribeOptionGroups =
       DescribeOptionGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeOptionGroupsResult"
@@ -278,6 +278,9 @@ instance Core.AWSRequest DescribeOptionGroups where
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeOptionGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOptionGroups where
   hashWithSalt _salt DescribeOptionGroups' {..} =

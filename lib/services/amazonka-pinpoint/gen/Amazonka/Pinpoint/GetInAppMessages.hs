@@ -94,7 +94,7 @@ instance Core.AWSRequest GetInAppMessages where
   type
     AWSResponse GetInAppMessages =
       GetInAppMessagesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetInAppMessages where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetInAppMessages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInAppMessages where
   hashWithSalt _salt GetInAppMessages' {..} =

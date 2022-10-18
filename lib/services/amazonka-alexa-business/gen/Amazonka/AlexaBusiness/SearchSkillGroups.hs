@@ -155,7 +155,7 @@ instance Core.AWSRequest SearchSkillGroups where
   type
     AWSResponse SearchSkillGroups =
       SearchSkillGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest SearchSkillGroups where
             Prelude.<*> (x Core..?> "TotalCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchSkillGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchSkillGroups where
   hashWithSalt _salt SearchSkillGroups' {..} =

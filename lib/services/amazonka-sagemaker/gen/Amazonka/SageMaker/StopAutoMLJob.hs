@@ -73,9 +73,12 @@ instance Core.AWSRequest StopAutoMLJob where
   type
     AWSResponse StopAutoMLJob =
       StopAutoMLJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StopAutoMLJobResponse'
+
+instance Core.AWSService StopAutoMLJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopAutoMLJob where
   hashWithSalt _salt StopAutoMLJob' {..} =

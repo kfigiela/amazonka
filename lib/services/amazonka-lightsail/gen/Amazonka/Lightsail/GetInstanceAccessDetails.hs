@@ -96,7 +96,7 @@ instance Core.AWSRequest GetInstanceAccessDetails where
   type
     AWSResponse GetInstanceAccessDetails =
       GetInstanceAccessDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetInstanceAccessDetails where
             Prelude.<$> (x Core..?> "accessDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstanceAccessDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstanceAccessDetails where
   hashWithSalt _salt GetInstanceAccessDetails' {..} =

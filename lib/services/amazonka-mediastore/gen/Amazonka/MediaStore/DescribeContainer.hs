@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeContainer where
   type
     AWSResponse DescribeContainer =
       DescribeContainerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeContainer where
             Prelude.<$> (x Core..?> "Container")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeContainer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeContainer where
   hashWithSalt _salt DescribeContainer' {..} =

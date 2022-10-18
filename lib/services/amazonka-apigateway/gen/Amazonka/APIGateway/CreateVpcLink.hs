@@ -132,10 +132,13 @@ createVpcLink_targetArns = Lens.lens (\CreateVpcLink' {targetArns} -> targetArns
 
 instance Core.AWSRequest CreateVpcLink where
   type AWSResponse CreateVpcLink = VpcLink
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateVpcLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVpcLink where
   hashWithSalt _salt CreateVpcLink' {..} =

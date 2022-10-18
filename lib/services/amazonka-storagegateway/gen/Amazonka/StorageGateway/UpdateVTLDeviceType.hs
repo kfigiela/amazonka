@@ -101,7 +101,7 @@ instance Core.AWSRequest UpdateVTLDeviceType where
   type
     AWSResponse UpdateVTLDeviceType =
       UpdateVTLDeviceTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UpdateVTLDeviceType where
             Prelude.<$> (x Core..?> "VTLDeviceARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVTLDeviceType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVTLDeviceType where
   hashWithSalt _salt UpdateVTLDeviceType' {..} =

@@ -341,7 +341,7 @@ instance Core.AWSRequest CreateDocument where
   type
     AWSResponse CreateDocument =
       CreateDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -349,6 +349,9 @@ instance Core.AWSRequest CreateDocument where
             Prelude.<$> (x Core..?> "DocumentDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDocument where
   hashWithSalt _salt CreateDocument' {..} =

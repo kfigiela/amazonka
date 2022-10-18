@@ -486,9 +486,12 @@ instance Core.AWSRequest PutCompositeAlarm where
   type
     AWSResponse PutCompositeAlarm =
       PutCompositeAlarmResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull PutCompositeAlarmResponse'
+
+instance Core.AWSService PutCompositeAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutCompositeAlarm where
   hashWithSalt _salt PutCompositeAlarm' {..} =

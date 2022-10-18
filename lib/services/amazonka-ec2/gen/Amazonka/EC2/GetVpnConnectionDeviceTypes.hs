@@ -170,7 +170,7 @@ instance Core.AWSRequest GetVpnConnectionDeviceTypes where
   type
     AWSResponse GetVpnConnectionDeviceTypes =
       GetVpnConnectionDeviceTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest GetVpnConnectionDeviceTypes where
             Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetVpnConnectionDeviceTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVpnConnectionDeviceTypes where
   hashWithSalt _salt GetVpnConnectionDeviceTypes' {..} =

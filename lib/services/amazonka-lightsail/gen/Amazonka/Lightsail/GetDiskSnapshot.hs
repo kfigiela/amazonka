@@ -80,7 +80,7 @@ instance Core.AWSRequest GetDiskSnapshot where
   type
     AWSResponse GetDiskSnapshot =
       GetDiskSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetDiskSnapshot where
             Prelude.<$> (x Core..?> "diskSnapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDiskSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDiskSnapshot where
   hashWithSalt _salt GetDiskSnapshot' {..} =

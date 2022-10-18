@@ -93,7 +93,7 @@ instance Core.AWSRequest AssociateLicense where
   type
     AWSResponse AssociateLicense =
       AssociateLicenseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest AssociateLicense where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "workspace")
       )
+
+instance Core.AWSService AssociateLicense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateLicense where
   hashWithSalt _salt AssociateLicense' {..} =

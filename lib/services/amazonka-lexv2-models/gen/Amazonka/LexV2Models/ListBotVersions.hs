@@ -140,7 +140,7 @@ instance Core.AWSRequest ListBotVersions where
   type
     AWSResponse ListBotVersions =
       ListBotVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListBotVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBotVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBotVersions where
   hashWithSalt _salt ListBotVersions' {..} =

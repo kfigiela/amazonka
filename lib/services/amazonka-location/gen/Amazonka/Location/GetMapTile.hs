@@ -121,7 +121,7 @@ getMapTile_z = Lens.lens (\GetMapTile' {z} -> z) (\s@GetMapTile' {} a -> s {z = 
 
 instance Core.AWSRequest GetMapTile where
   type AWSResponse GetMapTile = GetMapTileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest GetMapTile where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMapTile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMapTile where
   hashWithSalt _salt GetMapTile' {..} =

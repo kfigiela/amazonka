@@ -99,7 +99,7 @@ startObject_objectName = Lens.lens (\StartObject' {objectName} -> objectName) (\
 
 instance Core.AWSRequest StartObject where
   type AWSResponse StartObject = StartObjectResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest StartObject where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "UploadId")
       )
+
+instance Core.AWSService StartObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartObject where
   hashWithSalt _salt StartObject' {..} =

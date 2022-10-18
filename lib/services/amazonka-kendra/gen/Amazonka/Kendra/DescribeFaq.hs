@@ -97,7 +97,7 @@ describeFaq_indexId = Lens.lens (\DescribeFaq' {indexId} -> indexId) (\s@Describ
 
 instance Core.AWSRequest DescribeFaq where
   type AWSResponse DescribeFaq = DescribeFaqResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeFaq where
             Prelude.<*> (x Core..?> "FileFormat")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFaq where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFaq where
   hashWithSalt _salt DescribeFaq' {..} =

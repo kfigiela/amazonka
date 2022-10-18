@@ -168,7 +168,7 @@ instance Core.AWSRequest CompleteLifecycleAction where
   type
     AWSResponse CompleteLifecycleAction =
       CompleteLifecycleActionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CompleteLifecycleActionResult"
@@ -176,6 +176,9 @@ instance Core.AWSRequest CompleteLifecycleAction where
           CompleteLifecycleActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CompleteLifecycleAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CompleteLifecycleAction where
   hashWithSalt _salt CompleteLifecycleAction' {..} =

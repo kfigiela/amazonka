@@ -131,7 +131,7 @@ instance Core.AWSRequest UpdateApiMapping where
   type
     AWSResponse UpdateApiMapping =
       UpdateApiMappingResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest UpdateApiMapping where
             Prelude.<*> (x Core..?> "apiMappingId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateApiMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApiMapping where
   hashWithSalt _salt UpdateApiMapping' {..} =

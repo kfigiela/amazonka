@@ -115,7 +115,7 @@ instance Core.AWSRequest CreateDeviceDefinition where
   type
     AWSResponse CreateDeviceDefinition =
       CreateDeviceDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest CreateDeviceDefinition where
             Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDeviceDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDeviceDefinition where
   hashWithSalt _salt CreateDeviceDefinition' {..} =

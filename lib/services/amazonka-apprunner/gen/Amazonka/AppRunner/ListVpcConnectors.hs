@@ -116,7 +116,7 @@ instance Core.AWSRequest ListVpcConnectors where
   type
     AWSResponse ListVpcConnectors =
       ListVpcConnectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListVpcConnectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "VpcConnectors" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListVpcConnectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVpcConnectors where
   hashWithSalt _salt ListVpcConnectors' {..} =

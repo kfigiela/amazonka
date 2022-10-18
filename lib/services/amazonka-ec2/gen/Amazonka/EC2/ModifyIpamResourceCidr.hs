@@ -178,7 +178,7 @@ instance Core.AWSRequest ModifyIpamResourceCidr where
   type
     AWSResponse ModifyIpamResourceCidr =
       ModifyIpamResourceCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest ModifyIpamResourceCidr where
             Prelude.<$> (x Core..@? "ipamResourceCidr")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyIpamResourceCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyIpamResourceCidr where
   hashWithSalt _salt ModifyIpamResourceCidr' {..} =

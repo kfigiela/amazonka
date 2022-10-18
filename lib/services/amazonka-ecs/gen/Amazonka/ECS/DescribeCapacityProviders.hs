@@ -170,7 +170,7 @@ instance Core.AWSRequest DescribeCapacityProviders where
   type
     AWSResponse DescribeCapacityProviders =
       DescribeCapacityProvidersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest DescribeCapacityProviders where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCapacityProviders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCapacityProviders where
   hashWithSalt _salt DescribeCapacityProviders' {..} =

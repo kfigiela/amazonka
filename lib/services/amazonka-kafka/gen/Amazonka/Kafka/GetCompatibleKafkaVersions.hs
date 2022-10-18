@@ -78,7 +78,7 @@ instance Core.AWSRequest GetCompatibleKafkaVersions where
   type
     AWSResponse GetCompatibleKafkaVersions =
       GetCompatibleKafkaVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetCompatibleKafkaVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCompatibleKafkaVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCompatibleKafkaVersions where
   hashWithSalt _salt GetCompatibleKafkaVersions' {..} =

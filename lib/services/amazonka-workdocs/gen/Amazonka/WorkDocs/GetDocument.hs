@@ -102,7 +102,7 @@ getDocument_documentId = Lens.lens (\GetDocument' {documentId} -> documentId) (\
 
 instance Core.AWSRequest GetDocument where
   type AWSResponse GetDocument = GetDocumentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest GetDocument where
             Prelude.<*> (x Core..?> "CustomMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocument where
   hashWithSalt _salt GetDocument' {..} =

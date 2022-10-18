@@ -164,13 +164,16 @@ instance Core.AWSRequest UpdateDataRetention where
   type
     AWSResponse UpdateDataRetention =
       UpdateDataRetentionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDataRetentionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDataRetention where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDataRetention where
   hashWithSalt _salt UpdateDataRetention' {..} =

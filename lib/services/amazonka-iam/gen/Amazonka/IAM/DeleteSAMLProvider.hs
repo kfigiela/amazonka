@@ -84,9 +84,12 @@ instance Core.AWSRequest DeleteSAMLProvider where
   type
     AWSResponse DeleteSAMLProvider =
       DeleteSAMLProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteSAMLProviderResponse'
+
+instance Core.AWSService DeleteSAMLProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSAMLProvider where
   hashWithSalt _salt DeleteSAMLProvider' {..} =

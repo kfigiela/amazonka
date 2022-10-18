@@ -76,9 +76,12 @@ instance Core.AWSRequest UpdateActionType where
   type
     AWSResponse UpdateActionType =
       UpdateActionTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateActionTypeResponse'
+
+instance Core.AWSService UpdateActionType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateActionType where
   hashWithSalt _salt UpdateActionType' {..} =

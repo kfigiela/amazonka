@@ -137,10 +137,13 @@ instance Core.AWSRequest RespondDecisionTaskCompleted where
   type
     AWSResponse RespondDecisionTaskCompleted =
       RespondDecisionTaskCompletedResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RespondDecisionTaskCompletedResponse'
+
+instance Core.AWSService RespondDecisionTaskCompleted where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

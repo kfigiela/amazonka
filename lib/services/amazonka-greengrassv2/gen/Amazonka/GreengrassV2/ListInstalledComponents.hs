@@ -194,7 +194,7 @@ instance Core.AWSRequest ListInstalledComponents where
   type
     AWSResponse ListInstalledComponents =
       ListInstalledComponentsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,6 +205,9 @@ instance Core.AWSRequest ListInstalledComponents where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInstalledComponents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInstalledComponents where
   hashWithSalt _salt ListInstalledComponents' {..} =

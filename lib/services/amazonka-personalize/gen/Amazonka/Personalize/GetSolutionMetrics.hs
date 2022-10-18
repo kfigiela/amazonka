@@ -84,7 +84,7 @@ instance Core.AWSRequest GetSolutionMetrics where
   type
     AWSResponse GetSolutionMetrics =
       GetSolutionMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetSolutionMetrics where
             Prelude.<*> (x Core..?> "solutionVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSolutionMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSolutionMetrics where
   hashWithSalt _salt GetSolutionMetrics' {..} =

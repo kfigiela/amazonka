@@ -84,7 +84,7 @@ instance Core.AWSRequest DeleteDirectConnectGateway where
   type
     AWSResponse DeleteDirectConnectGateway =
       DeleteDirectConnectGatewayResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DeleteDirectConnectGateway where
             Prelude.<$> (x Core..?> "directConnectGateway")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDirectConnectGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDirectConnectGateway where
   hashWithSalt _salt DeleteDirectConnectGateway' {..} =

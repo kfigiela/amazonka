@@ -69,7 +69,7 @@ instance Core.AWSRequest ListOpenIDConnectProviders where
   type
     AWSResponse ListOpenIDConnectProviders =
       ListOpenIDConnectProvidersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListOpenIDConnectProvidersResult"
@@ -81,6 +81,9 @@ instance Core.AWSRequest ListOpenIDConnectProviders where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOpenIDConnectProviders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOpenIDConnectProviders where
   hashWithSalt _salt _ =

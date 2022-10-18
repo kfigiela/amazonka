@@ -97,7 +97,7 @@ instance Core.AWSRequest GetDeviceRegistration where
   type
     AWSResponse GetDeviceRegistration =
       GetDeviceRegistrationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetDeviceRegistration where
             Prelude.<*> (x Core..?> "CacheTTL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeviceRegistration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeviceRegistration where
   hashWithSalt _salt GetDeviceRegistration' {..} =

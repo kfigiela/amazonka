@@ -100,8 +100,11 @@ stopResource_resourceArn = Lens.lens (\StopResource' {resourceArn} -> resourceAr
 
 instance Core.AWSRequest StopResource where
   type AWSResponse StopResource = StopResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StopResourceResponse'
+
+instance Core.AWSService StopResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopResource where
   hashWithSalt _salt StopResource' {..} =

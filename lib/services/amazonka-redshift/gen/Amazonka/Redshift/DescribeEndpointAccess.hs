@@ -171,7 +171,7 @@ instance Core.AWSRequest DescribeEndpointAccess where
   type
     AWSResponse DescribeEndpointAccess =
       DescribeEndpointAccessResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEndpointAccessResult"
@@ -184,6 +184,9 @@ instance Core.AWSRequest DescribeEndpointAccess where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEndpointAccess where
   hashWithSalt _salt DescribeEndpointAccess' {..} =

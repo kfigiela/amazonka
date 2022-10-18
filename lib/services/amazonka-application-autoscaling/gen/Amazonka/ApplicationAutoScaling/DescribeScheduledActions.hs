@@ -585,7 +585,7 @@ instance Core.AWSRequest DescribeScheduledActions where
   type
     AWSResponse DescribeScheduledActions =
       DescribeScheduledActionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -596,6 +596,9 @@ instance Core.AWSRequest DescribeScheduledActions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeScheduledActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScheduledActions where
   hashWithSalt _salt DescribeScheduledActions' {..} =

@@ -123,7 +123,7 @@ instance Core.AWSRequest ListWorkloadShares where
   type
     AWSResponse ListWorkloadShares =
       ListWorkloadSharesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListWorkloadShares where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWorkloadShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorkloadShares where
   hashWithSalt _salt ListWorkloadShares' {..} =

@@ -95,13 +95,16 @@ instance Core.AWSRequest DeleteDeviceUsageData where
   type
     AWSResponse DeleteDeviceUsageData =
       DeleteDeviceUsageDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDeviceUsageDataResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDeviceUsageData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDeviceUsageData where
   hashWithSalt _salt DeleteDeviceUsageData' {..} =

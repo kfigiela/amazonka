@@ -158,7 +158,7 @@ instance Core.AWSRequest MergeDeveloperIdentities where
   type
     AWSResponse MergeDeveloperIdentities =
       MergeDeveloperIdentitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest MergeDeveloperIdentities where
             Prelude.<$> (x Core..?> "IdentityId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MergeDeveloperIdentities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MergeDeveloperIdentities where
   hashWithSalt _salt MergeDeveloperIdentities' {..} =

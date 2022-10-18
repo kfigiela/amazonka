@@ -95,10 +95,13 @@ instance Core.AWSRequest RemoveTagsFromResource where
   type
     AWSResponse RemoveTagsFromResource =
       RemoveTagsFromResourceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveTagsFromResourceResponse'
+
+instance Core.AWSService RemoveTagsFromResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveTagsFromResource where
   hashWithSalt _salt RemoveTagsFromResource' {..} =

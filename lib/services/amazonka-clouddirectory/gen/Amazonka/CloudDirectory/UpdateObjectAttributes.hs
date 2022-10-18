@@ -107,7 +107,7 @@ instance Core.AWSRequest UpdateObjectAttributes where
   type
     AWSResponse UpdateObjectAttributes =
       UpdateObjectAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdateObjectAttributes where
             Prelude.<$> (x Core..?> "ObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateObjectAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateObjectAttributes where
   hashWithSalt _salt UpdateObjectAttributes' {..} =

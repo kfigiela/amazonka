@@ -79,7 +79,7 @@ getContact_contactId = Lens.lens (\GetContact' {contactId} -> contactId) (\s@Get
 
 instance Core.AWSRequest GetContact where
   type AWSResponse GetContact = GetContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetContact where
             Prelude.<*> (x Core..:> "Type")
             Prelude.<*> (x Core..:> "Plan")
       )
+
+instance Core.AWSService GetContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetContact where
   hashWithSalt _salt GetContact' {..} =

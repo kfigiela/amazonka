@@ -93,7 +93,7 @@ instance Core.AWSRequest ListMulticastGroups where
   type
     AWSResponse ListMulticastGroups =
       ListMulticastGroupsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest ListMulticastGroups where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMulticastGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMulticastGroups where
   hashWithSalt _salt ListMulticastGroups' {..} =

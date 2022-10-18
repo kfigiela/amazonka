@@ -254,7 +254,7 @@ instance
   type
     AWSResponse DescribeNodeConfigurationOptions =
       DescribeNodeConfigurationOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeNodeConfigurationOptionsResult"
@@ -268,6 +268,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeNodeConfigurationOptions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -226,7 +226,7 @@ instance Core.AWSRequest GetPackageVersionAsset where
   type
     AWSResponse GetPackageVersionAsset =
       GetPackageVersionAssetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -237,6 +237,9 @@ instance Core.AWSRequest GetPackageVersionAsset where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetPackageVersionAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPackageVersionAsset where
   hashWithSalt _salt GetPackageVersionAsset' {..} =

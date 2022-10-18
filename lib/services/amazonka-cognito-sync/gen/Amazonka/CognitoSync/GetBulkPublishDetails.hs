@@ -96,7 +96,7 @@ instance Core.AWSRequest GetBulkPublishDetails where
   type
     AWSResponse GetBulkPublishDetails =
       GetBulkPublishDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest GetBulkPublishDetails where
             Prelude.<*> (x Core..?> "BulkPublishStartTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBulkPublishDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBulkPublishDetails where
   hashWithSalt _salt GetBulkPublishDetails' {..} =

@@ -97,7 +97,7 @@ updateFlow_flowArn = Lens.lens (\UpdateFlow' {flowArn} -> flowArn) (\s@UpdateFlo
 
 instance Core.AWSRequest UpdateFlow where
   type AWSResponse UpdateFlow = UpdateFlowResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateFlow where
             Prelude.<$> (x Core..?> "flow")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFlow where
   hashWithSalt _salt UpdateFlow' {..} =

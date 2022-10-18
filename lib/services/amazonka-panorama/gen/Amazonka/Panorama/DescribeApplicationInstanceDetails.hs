@@ -92,7 +92,7 @@ instance
   type
     AWSResponse DescribeApplicationInstanceDetails =
       DescribeApplicationInstanceDetailsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,12 @@ instance
               Prelude.<*> (x Core..?> "ApplicationInstanceId")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeApplicationInstanceDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

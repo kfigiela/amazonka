@@ -87,9 +87,12 @@ instance Core.AWSRequest DeregisterVolume where
   type
     AWSResponse DeregisterVolume =
       DeregisterVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeregisterVolumeResponse'
+
+instance Core.AWSService DeregisterVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterVolume where
   hashWithSalt _salt DeregisterVolume' {..} =

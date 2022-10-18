@@ -72,13 +72,16 @@ terminateApp_appId = Lens.lens (\TerminateApp' {appId} -> appId) (\s@TerminateAp
 
 instance Core.AWSRequest TerminateApp where
   type AWSResponse TerminateApp = TerminateAppResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           TerminateAppResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateApp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateApp where
   hashWithSalt _salt TerminateApp' {..} =

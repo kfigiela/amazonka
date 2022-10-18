@@ -85,7 +85,7 @@ instance Core.AWSRequest DomainMetadata where
   type
     AWSResponse DomainMetadata =
       DomainMetadataResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DomainMetadataResult"
@@ -100,6 +100,9 @@ instance Core.AWSRequest DomainMetadata where
             Prelude.<*> (x Core..@? "AttributeValuesSizeBytes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DomainMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DomainMetadata where
   hashWithSalt _salt DomainMetadata' {..} =

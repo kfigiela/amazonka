@@ -141,7 +141,7 @@ instance
   type
     AWSResponse UpdateGatewayCapabilityConfiguration =
       UpdateGatewayCapabilityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,12 @@ instance
               Prelude.<*> (x Core..:> "capabilityNamespace")
               Prelude.<*> (x Core..:> "capabilitySyncStatus")
       )
+
+instance
+  Core.AWSService
+    UpdateGatewayCapabilityConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

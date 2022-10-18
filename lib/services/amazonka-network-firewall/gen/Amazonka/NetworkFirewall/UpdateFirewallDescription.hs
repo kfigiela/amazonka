@@ -178,7 +178,7 @@ instance Core.AWSRequest UpdateFirewallDescription where
   type
     AWSResponse UpdateFirewallDescription =
       UpdateFirewallDescriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -189,6 +189,9 @@ instance Core.AWSRequest UpdateFirewallDescription where
             Prelude.<*> (x Core..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFirewallDescription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFirewallDescription where
   hashWithSalt _salt UpdateFirewallDescription' {..} =

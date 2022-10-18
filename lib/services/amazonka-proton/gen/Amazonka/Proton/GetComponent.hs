@@ -78,7 +78,7 @@ getComponent_name = Lens.lens (\GetComponent' {name} -> name) (\s@GetComponent' 
 
 instance Core.AWSRequest GetComponent where
   type AWSResponse GetComponent = GetComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetComponent where
             Prelude.<$> (x Core..?> "component")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetComponent where
   hashWithSalt _salt GetComponent' {..} =

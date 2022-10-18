@@ -101,7 +101,7 @@ instance Core.AWSRequest CancelBundleTask where
   type
     AWSResponse CancelBundleTask =
       CancelBundleTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest CancelBundleTask where
             Prelude.<$> (x Core..@? "bundleInstanceTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelBundleTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelBundleTask where
   hashWithSalt _salt CancelBundleTask' {..} =

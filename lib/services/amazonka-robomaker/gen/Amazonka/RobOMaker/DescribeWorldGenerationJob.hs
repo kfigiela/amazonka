@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeWorldGenerationJob where
   type
     AWSResponse DescribeWorldGenerationJob =
       DescribeWorldGenerationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeWorldGenerationJob where
             Prelude.<*> (x Core..?> "template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorldGenerationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeWorldGenerationJob where
   hashWithSalt _salt DescribeWorldGenerationJob' {..} =

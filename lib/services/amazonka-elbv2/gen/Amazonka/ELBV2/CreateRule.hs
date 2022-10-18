@@ -131,7 +131,7 @@ createRule_actions = Lens.lens (\CreateRule' {actions} -> actions) (\s@CreateRul
 
 instance Core.AWSRequest CreateRule where
   type AWSResponse CreateRule = CreateRuleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateRuleResult"
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateRule where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRule where
   hashWithSalt _salt CreateRule' {..} =

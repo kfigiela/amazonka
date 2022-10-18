@@ -78,13 +78,16 @@ instance Core.AWSRequest StartCrawlerSchedule where
   type
     AWSResponse StartCrawlerSchedule =
       StartCrawlerScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartCrawlerScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartCrawlerSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCrawlerSchedule where
   hashWithSalt _salt StartCrawlerSchedule' {..} =

@@ -113,7 +113,7 @@ instance Core.AWSRequest BatchGetTraces where
   type
     AWSResponse BatchGetTraces =
       BatchGetTracesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest BatchGetTraces where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetTraces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetTraces where
   hashWithSalt _salt BatchGetTraces' {..} =

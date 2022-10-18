@@ -89,13 +89,16 @@ instance Core.AWSRequest UpdateEventIntegration where
   type
     AWSResponse UpdateEventIntegration =
       UpdateEventIntegrationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEventIntegrationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEventIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEventIntegration where
   hashWithSalt _salt UpdateEventIntegration' {..} =

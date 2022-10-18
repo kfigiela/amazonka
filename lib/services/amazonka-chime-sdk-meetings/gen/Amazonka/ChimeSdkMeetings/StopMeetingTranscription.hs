@@ -73,10 +73,13 @@ instance Core.AWSRequest StopMeetingTranscription where
   type
     AWSResponse StopMeetingTranscription =
       StopMeetingTranscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopMeetingTranscriptionResponse'
+
+instance Core.AWSService StopMeetingTranscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopMeetingTranscription where
   hashWithSalt _salt StopMeetingTranscription' {..} =

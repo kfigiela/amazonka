@@ -78,10 +78,13 @@ instance Core.AWSRequest DeleteSnapshotCopyGrant where
   type
     AWSResponse DeleteSnapshotCopyGrant =
       DeleteSnapshotCopyGrantResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteSnapshotCopyGrantResponse'
+
+instance Core.AWSService DeleteSnapshotCopyGrant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSnapshotCopyGrant where
   hashWithSalt _salt DeleteSnapshotCopyGrant' {..} =

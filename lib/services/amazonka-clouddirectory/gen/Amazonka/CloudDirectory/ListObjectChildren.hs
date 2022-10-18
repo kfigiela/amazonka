@@ -140,7 +140,7 @@ instance Core.AWSRequest ListObjectChildren where
   type
     AWSResponse ListObjectChildren =
       ListObjectChildrenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ListObjectChildren where
             Prelude.<*> (x Core..?> "Children" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListObjectChildren where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListObjectChildren where
   hashWithSalt _salt ListObjectChildren' {..} =

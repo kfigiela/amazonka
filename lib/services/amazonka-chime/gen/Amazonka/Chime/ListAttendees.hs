@@ -103,7 +103,7 @@ instance Core.AWSRequest ListAttendees where
   type
     AWSResponse ListAttendees =
       ListAttendeesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ListAttendees where
             Prelude.<*> (x Core..?> "Attendees" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAttendees where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAttendees where
   hashWithSalt _salt ListAttendees' {..} =

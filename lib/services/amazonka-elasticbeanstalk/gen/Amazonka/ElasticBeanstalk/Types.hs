@@ -681,6 +681,7 @@ defaultService =
       Core._serviceEndpointPrefix = "elasticbeanstalk",
       Core._serviceSigningName = "elasticbeanstalk",
       Core._serviceVersion = "2010-12-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -89,7 +89,7 @@ getStage_stageName = Lens.lens (\GetStage' {stageName} -> stageName) (\s@GetStag
 
 instance Core.AWSRequest GetStage where
   type AWSResponse GetStage = GetStageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetStage where
             Prelude.<$> (x Core..?> "Stage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStage where
   hashWithSalt _salt GetStage' {..} =

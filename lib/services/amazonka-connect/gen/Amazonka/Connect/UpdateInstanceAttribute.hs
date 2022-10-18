@@ -117,10 +117,13 @@ instance Core.AWSRequest UpdateInstanceAttribute where
   type
     AWSResponse UpdateInstanceAttribute =
       UpdateInstanceAttributeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateInstanceAttributeResponse'
+
+instance Core.AWSService UpdateInstanceAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInstanceAttribute where
   hashWithSalt _salt UpdateInstanceAttribute' {..} =

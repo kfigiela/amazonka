@@ -135,7 +135,7 @@ instance Core.AWSRequest ListIdentities where
   type
     AWSResponse ListIdentities =
       ListIdentitiesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListIdentitiesResult"
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListIdentities where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListIdentities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentities where
   hashWithSalt _salt ListIdentities' {..} =

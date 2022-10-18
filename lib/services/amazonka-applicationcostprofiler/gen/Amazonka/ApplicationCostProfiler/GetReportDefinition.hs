@@ -84,7 +84,7 @@ instance Core.AWSRequest GetReportDefinition where
   type
     AWSResponse GetReportDefinition =
       GetReportDefinitionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetReportDefinition where
             Prelude.<*> (x Core..:> "createdAt")
             Prelude.<*> (x Core..:> "lastUpdated")
       )
+
+instance Core.AWSService GetReportDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReportDefinition where
   hashWithSalt _salt GetReportDefinition' {..} =

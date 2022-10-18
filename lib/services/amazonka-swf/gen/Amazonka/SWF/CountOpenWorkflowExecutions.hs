@@ -194,10 +194,13 @@ instance Core.AWSRequest CountOpenWorkflowExecutions where
   type
     AWSResponse CountOpenWorkflowExecutions =
       WorkflowExecutionCount
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CountOpenWorkflowExecutions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CountOpenWorkflowExecutions where
   hashWithSalt _salt CountOpenWorkflowExecutions' {..} =

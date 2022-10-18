@@ -332,7 +332,7 @@ createRole_assumeRolePolicyDocument = Lens.lens (\CreateRole' {assumeRolePolicyD
 
 instance Core.AWSRequest CreateRole where
   type AWSResponse CreateRole = CreateRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateRoleResult"
@@ -341,6 +341,9 @@ instance Core.AWSRequest CreateRole where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "Role")
       )
+
+instance Core.AWSService CreateRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRole where
   hashWithSalt _salt CreateRole' {..} =

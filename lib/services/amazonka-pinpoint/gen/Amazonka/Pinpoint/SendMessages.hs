@@ -91,7 +91,7 @@ sendMessages_messageRequest = Lens.lens (\SendMessages' {messageRequest} -> mess
 
 instance Core.AWSRequest SendMessages where
   type AWSResponse SendMessages = SendMessagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest SendMessages where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService SendMessages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendMessages where
   hashWithSalt _salt SendMessages' {..} =

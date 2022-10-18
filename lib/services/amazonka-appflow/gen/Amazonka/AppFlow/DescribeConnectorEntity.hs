@@ -117,7 +117,7 @@ instance Core.AWSRequest DescribeConnectorEntity where
   type
     AWSResponse DescribeConnectorEntity =
       DescribeConnectorEntityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest DescribeConnectorEntity where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DescribeConnectorEntity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConnectorEntity where
   hashWithSalt _salt DescribeConnectorEntity' {..} =

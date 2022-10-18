@@ -127,7 +127,7 @@ instance Core.AWSRequest ListTagOptions where
   type
     AWSResponse ListTagOptions =
       ListTagOptionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListTagOptions where
             Prelude.<*> (x Core..?> "PageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTagOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagOptions where
   hashWithSalt _salt ListTagOptions' {..} =

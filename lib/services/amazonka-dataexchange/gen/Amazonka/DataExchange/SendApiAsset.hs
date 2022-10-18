@@ -171,7 +171,7 @@ sendApiAsset_revisionId = Lens.lens (\SendApiAsset' {revisionId} -> revisionId) 
 
 instance Core.AWSRequest SendApiAsset where
   type AWSResponse SendApiAsset = SendApiAssetResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest SendApiAsset where
             Prelude.<*> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendApiAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendApiAsset where
   hashWithSalt _salt SendApiAsset' {..} =

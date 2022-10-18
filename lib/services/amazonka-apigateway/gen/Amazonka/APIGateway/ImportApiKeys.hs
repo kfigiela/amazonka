@@ -114,7 +114,7 @@ instance Core.AWSRequest ImportApiKeys where
   type
     AWSResponse ImportApiKeys =
       ImportApiKeysResponse
-  request = Request.postBody defaultService
+  request srv = Request.postBody srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest ImportApiKeys where
             Prelude.<*> (x Core..?> "warnings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportApiKeys where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportApiKeys where
   hashWithSalt _salt ImportApiKeys' {..} =

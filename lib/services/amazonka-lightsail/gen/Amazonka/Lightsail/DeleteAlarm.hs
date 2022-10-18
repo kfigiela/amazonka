@@ -81,7 +81,7 @@ deleteAlarm_alarmName = Lens.lens (\DeleteAlarm' {alarmName} -> alarmName) (\s@D
 
 instance Core.AWSRequest DeleteAlarm where
   type AWSResponse DeleteAlarm = DeleteAlarmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteAlarm where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlarm where
   hashWithSalt _salt DeleteAlarm' {..} =

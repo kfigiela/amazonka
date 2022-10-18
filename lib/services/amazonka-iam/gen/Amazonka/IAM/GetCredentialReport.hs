@@ -66,7 +66,7 @@ instance Core.AWSRequest GetCredentialReport where
   type
     AWSResponse GetCredentialReport =
       GetCredentialReportResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetCredentialReportResult"
@@ -77,6 +77,9 @@ instance Core.AWSRequest GetCredentialReport where
             Prelude.<*> (x Core..@? "GeneratedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCredentialReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCredentialReport where
   hashWithSalt _salt _ =

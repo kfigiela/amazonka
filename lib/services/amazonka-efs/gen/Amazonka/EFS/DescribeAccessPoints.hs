@@ -133,7 +133,7 @@ instance Core.AWSRequest DescribeAccessPoints where
   type
     AWSResponse DescribeAccessPoints =
       DescribeAccessPointsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest DescribeAccessPoints where
             Prelude.<*> (x Core..?> "AccessPoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccessPoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccessPoints where
   hashWithSalt _salt DescribeAccessPoints' {..} =

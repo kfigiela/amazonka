@@ -120,13 +120,16 @@ updateLFTag_tagKey = Lens.lens (\UpdateLFTag' {tagKey} -> tagKey) (\s@UpdateLFTa
 
 instance Core.AWSRequest UpdateLFTag where
   type AWSResponse UpdateLFTag = UpdateLFTagResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLFTagResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLFTag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLFTag where
   hashWithSalt _salt UpdateLFTag' {..} =

@@ -276,7 +276,7 @@ instance Core.AWSRequest CreateSimulationJob where
   type
     AWSResponse CreateSimulationJob =
       CreateSimulationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -301,6 +301,9 @@ instance Core.AWSRequest CreateSimulationJob where
             Prelude.<*> (x Core..?> "compute")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSimulationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSimulationJob where
   hashWithSalt _salt CreateSimulationJob' {..} =

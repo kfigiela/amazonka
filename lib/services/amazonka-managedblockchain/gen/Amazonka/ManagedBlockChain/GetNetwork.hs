@@ -77,7 +77,7 @@ getNetwork_networkId = Lens.lens (\GetNetwork' {networkId} -> networkId) (\s@Get
 
 instance Core.AWSRequest GetNetwork where
   type AWSResponse GetNetwork = GetNetworkResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetNetwork where
             Prelude.<$> (x Core..?> "Network")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNetwork where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetwork where
   hashWithSalt _salt GetNetwork' {..} =

@@ -125,13 +125,16 @@ instance Core.AWSRequest PutGroupConfiguration where
   type
     AWSResponse PutGroupConfiguration =
       PutGroupConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutGroupConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutGroupConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutGroupConfiguration where
   hashWithSalt _salt PutGroupConfiguration' {..} =

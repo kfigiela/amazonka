@@ -118,7 +118,7 @@ instance Core.AWSRequest CreateOutboundConnection where
   type
     AWSResponse CreateOutboundConnection =
       CreateOutboundConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest CreateOutboundConnection where
             Prelude.<*> (x Core..?> "ConnectionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOutboundConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOutboundConnection where
   hashWithSalt _salt CreateOutboundConnection' {..} =

@@ -96,7 +96,7 @@ instance Core.AWSRequest ListIdentityPoolUsage where
   type
     AWSResponse ListIdentityPoolUsage =
       ListIdentityPoolUsageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ListIdentityPoolUsage where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListIdentityPoolUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentityPoolUsage where
   hashWithSalt _salt ListIdentityPoolUsage' {..} =

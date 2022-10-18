@@ -147,7 +147,7 @@ instance Core.AWSRequest CreateGrantVersion where
   type
     AWSResponse CreateGrantVersion =
       CreateGrantVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest CreateGrantVersion where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGrantVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGrantVersion where
   hashWithSalt _salt CreateGrantVersion' {..} =

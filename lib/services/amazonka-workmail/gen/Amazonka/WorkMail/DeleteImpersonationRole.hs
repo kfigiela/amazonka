@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteImpersonationRole where
   type
     AWSResponse DeleteImpersonationRole =
       DeleteImpersonationRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteImpersonationRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImpersonationRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImpersonationRole where
   hashWithSalt _salt DeleteImpersonationRole' {..} =

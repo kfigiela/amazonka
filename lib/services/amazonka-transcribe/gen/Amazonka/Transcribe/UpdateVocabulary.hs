@@ -218,7 +218,7 @@ instance Core.AWSRequest UpdateVocabulary where
   type
     AWSResponse UpdateVocabulary =
       UpdateVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -229,6 +229,9 @@ instance Core.AWSRequest UpdateVocabulary where
             Prelude.<*> (x Core..?> "LanguageCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateVocabulary where
   hashWithSalt _salt UpdateVocabulary' {..} =

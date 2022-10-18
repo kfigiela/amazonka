@@ -166,7 +166,7 @@ instance Core.AWSRequest GetCommentsForComparedCommit where
   type
     AWSResponse GetCommentsForComparedCommit =
       GetCommentsForComparedCommitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest GetCommentsForComparedCommit where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCommentsForComparedCommit where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -88,13 +88,16 @@ instance Core.AWSRequest DeleteDocumentClassifier where
   type
     AWSResponse DeleteDocumentClassifier =
       DeleteDocumentClassifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDocumentClassifierResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDocumentClassifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDocumentClassifier where
   hashWithSalt _salt DeleteDocumentClassifier' {..} =

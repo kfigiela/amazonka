@@ -240,7 +240,7 @@ instance Core.AWSRequest UpdateSecurityProfile where
   type
     AWSResponse UpdateSecurityProfile =
       UpdateSecurityProfileResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -261,6 +261,9 @@ instance Core.AWSRequest UpdateSecurityProfile where
             Prelude.<*> (x Core..?> "behaviors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSecurityProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSecurityProfile where
   hashWithSalt _salt UpdateSecurityProfile' {..} =

@@ -87,13 +87,16 @@ instance Core.AWSRequest StopWorkflowRun where
   type
     AWSResponse StopWorkflowRun =
       StopWorkflowRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopWorkflowRunResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopWorkflowRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopWorkflowRun where
   hashWithSalt _salt StopWorkflowRun' {..} =

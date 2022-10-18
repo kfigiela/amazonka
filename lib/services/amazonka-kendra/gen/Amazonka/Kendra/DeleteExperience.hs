@@ -89,13 +89,16 @@ instance Core.AWSRequest DeleteExperience where
   type
     AWSResponse DeleteExperience =
       DeleteExperienceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteExperienceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteExperience where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteExperience where
   hashWithSalt _salt DeleteExperience' {..} =

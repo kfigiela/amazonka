@@ -132,7 +132,7 @@ instance Core.AWSRequest CreateArchive where
   type
     AWSResponse CreateArchive =
       CreateArchiveResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest CreateArchive where
             Prelude.<*> (x Core..?> "StateReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateArchive where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateArchive where
   hashWithSalt _salt CreateArchive' {..} =

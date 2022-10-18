@@ -75,7 +75,7 @@ cancelJob_jobArn = Lens.lens (\CancelJob' {jobArn} -> jobArn) (\s@CancelJob' {} 
 
 instance Core.AWSRequest CancelJob where
   type AWSResponse CancelJob = CancelJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest CancelJob where
             Prelude.<*> (x Core..:> "cancellationStatus")
             Prelude.<*> (x Core..:> "jobArn")
       )
+
+instance Core.AWSService CancelJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJob where
   hashWithSalt _salt CancelJob' {..} =

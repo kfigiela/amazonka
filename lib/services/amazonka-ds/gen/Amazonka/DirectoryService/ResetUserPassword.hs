@@ -125,13 +125,16 @@ instance Core.AWSRequest ResetUserPassword where
   type
     AWSResponse ResetUserPassword =
       ResetUserPasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ResetUserPasswordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetUserPassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetUserPassword where
   hashWithSalt _salt ResetUserPassword' {..} =

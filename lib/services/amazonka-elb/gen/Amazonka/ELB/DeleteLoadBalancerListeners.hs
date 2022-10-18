@@ -91,7 +91,7 @@ instance Core.AWSRequest DeleteLoadBalancerListeners where
   type
     AWSResponse DeleteLoadBalancerListeners =
       DeleteLoadBalancerListenersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteLoadBalancerListenersResult"
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteLoadBalancerListeners where
           DeleteLoadBalancerListenersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLoadBalancerListeners where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLoadBalancerListeners where
   hashWithSalt _salt DeleteLoadBalancerListeners' {..} =

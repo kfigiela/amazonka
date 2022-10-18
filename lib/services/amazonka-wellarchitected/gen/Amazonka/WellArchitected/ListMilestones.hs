@@ -100,7 +100,7 @@ instance Core.AWSRequest ListMilestones where
   type
     AWSResponse ListMilestones =
       ListMilestonesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest ListMilestones where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMilestones where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMilestones where
   hashWithSalt _salt ListMilestones' {..} =

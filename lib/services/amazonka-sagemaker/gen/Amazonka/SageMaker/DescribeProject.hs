@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeProject where
   type
     AWSResponse DescribeProject =
       DescribeProjectResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeProject where
             Prelude.<*> (x Core..:> "ProjectStatus")
             Prelude.<*> (x Core..:> "CreationTime")
       )
+
+instance Core.AWSService DescribeProject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProject where
   hashWithSalt _salt DescribeProject' {..} =

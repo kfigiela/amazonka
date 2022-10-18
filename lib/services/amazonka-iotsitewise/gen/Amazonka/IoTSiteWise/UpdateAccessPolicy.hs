@@ -144,13 +144,16 @@ instance Core.AWSRequest UpdateAccessPolicy where
   type
     AWSResponse UpdateAccessPolicy =
       UpdateAccessPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateAccessPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccessPolicy where
   hashWithSalt _salt UpdateAccessPolicy' {..} =

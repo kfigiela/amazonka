@@ -132,9 +132,12 @@ instance Core.AWSRequest UpdateDeviceFleet where
   type
     AWSResponse UpdateDeviceFleet =
       UpdateDeviceFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateDeviceFleetResponse'
+
+instance Core.AWSService UpdateDeviceFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeviceFleet where
   hashWithSalt _salt UpdateDeviceFleet' {..} =

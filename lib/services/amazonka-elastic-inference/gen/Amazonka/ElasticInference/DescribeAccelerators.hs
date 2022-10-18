@@ -160,7 +160,7 @@ instance Core.AWSRequest DescribeAccelerators where
   type
     AWSResponse DescribeAccelerators =
       DescribeAcceleratorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest DescribeAccelerators where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccelerators where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccelerators where
   hashWithSalt _salt DescribeAccelerators' {..} =

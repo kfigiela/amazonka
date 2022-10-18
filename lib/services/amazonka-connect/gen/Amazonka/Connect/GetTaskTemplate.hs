@@ -120,7 +120,7 @@ instance Core.AWSRequest GetTaskTemplate where
   type
     AWSResponse GetTaskTemplate =
       GetTaskTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest GetTaskTemplate where
             Prelude.<*> (x Core..:> "Arn")
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService GetTaskTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTaskTemplate where
   hashWithSalt _salt GetTaskTemplate' {..} =

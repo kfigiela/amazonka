@@ -117,7 +117,7 @@ instance Core.AWSRequest ListCustomDataIdentifiers where
   type
     AWSResponse ListCustomDataIdentifiers =
       ListCustomDataIdentifiersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListCustomDataIdentifiers where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCustomDataIdentifiers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCustomDataIdentifiers where
   hashWithSalt _salt ListCustomDataIdentifiers' {..} =

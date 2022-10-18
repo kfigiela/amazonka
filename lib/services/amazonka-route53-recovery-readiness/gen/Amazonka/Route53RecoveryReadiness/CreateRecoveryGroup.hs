@@ -103,7 +103,7 @@ instance Core.AWSRequest CreateRecoveryGroup where
   type
     AWSResponse CreateRecoveryGroup =
       CreateRecoveryGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest CreateRecoveryGroup where
             Prelude.<*> (x Core..?> "cells" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRecoveryGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRecoveryGroup where
   hashWithSalt _salt CreateRecoveryGroup' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest DescribeImageVersion where
   type
     AWSResponse DescribeImageVersion =
       DescribeImageVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeImageVersion where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImageVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImageVersion where
   hashWithSalt _salt DescribeImageVersion' {..} =

@@ -110,7 +110,7 @@ instance Core.AWSRequest AddLFTagsToResource where
   type
     AWSResponse AddLFTagsToResource =
       AddLFTagsToResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest AddLFTagsToResource where
             Prelude.<$> (x Core..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddLFTagsToResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddLFTagsToResource where
   hashWithSalt _salt AddLFTagsToResource' {..} =

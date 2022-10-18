@@ -113,7 +113,7 @@ instance Core.AWSRequest StartImageScan where
   type
     AWSResponse StartImageScan =
       StartImageScanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest StartImageScan where
             Prelude.<*> (x Core..?> "imageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartImageScan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartImageScan where
   hashWithSalt _salt StartImageScan' {..} =

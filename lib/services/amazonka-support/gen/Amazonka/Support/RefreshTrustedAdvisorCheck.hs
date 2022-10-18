@@ -105,7 +105,7 @@ instance Core.AWSRequest RefreshTrustedAdvisorCheck where
   type
     AWSResponse RefreshTrustedAdvisorCheck =
       RefreshTrustedAdvisorCheckResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest RefreshTrustedAdvisorCheck where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService RefreshTrustedAdvisorCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RefreshTrustedAdvisorCheck where
   hashWithSalt _salt RefreshTrustedAdvisorCheck' {..} =

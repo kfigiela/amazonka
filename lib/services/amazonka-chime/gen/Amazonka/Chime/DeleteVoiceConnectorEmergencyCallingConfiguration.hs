@@ -82,10 +82,16 @@ instance
     AWSResponse
       DeleteVoiceConnectorEmergencyCallingConfiguration =
       DeleteVoiceConnectorEmergencyCallingConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteVoiceConnectorEmergencyCallingConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteVoiceConnectorEmergencyCallingConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

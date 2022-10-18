@@ -145,7 +145,7 @@ instance Core.AWSRequest DescribeRecoverySnapshots where
   type
     AWSResponse DescribeRecoverySnapshots =
       DescribeRecoverySnapshotsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest DescribeRecoverySnapshots where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRecoverySnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRecoverySnapshots where
   hashWithSalt _salt DescribeRecoverySnapshots' {..} =

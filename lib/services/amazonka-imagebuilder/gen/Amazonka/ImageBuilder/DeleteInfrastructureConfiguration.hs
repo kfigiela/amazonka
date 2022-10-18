@@ -88,7 +88,7 @@ instance
   type
     AWSResponse DeleteInfrastructureConfiguration =
       DeleteInfrastructureConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,12 @@ instance
               Prelude.<*> (x Core..?> "infrastructureConfigurationArn")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteInfrastructureConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

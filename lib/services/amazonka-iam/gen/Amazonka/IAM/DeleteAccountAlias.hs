@@ -91,9 +91,12 @@ instance Core.AWSRequest DeleteAccountAlias where
   type
     AWSResponse DeleteAccountAlias =
       DeleteAccountAliasResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteAccountAliasResponse'
+
+instance Core.AWSService DeleteAccountAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccountAlias where
   hashWithSalt _salt DeleteAccountAlias' {..} =

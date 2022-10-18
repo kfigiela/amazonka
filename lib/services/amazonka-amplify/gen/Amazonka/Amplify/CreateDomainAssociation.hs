@@ -138,7 +138,7 @@ instance Core.AWSRequest CreateDomainAssociation where
   type
     AWSResponse CreateDomainAssociation =
       CreateDomainAssociationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest CreateDomainAssociation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "domainAssociation")
       )
+
+instance Core.AWSService CreateDomainAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDomainAssociation where
   hashWithSalt _salt CreateDomainAssociation' {..} =

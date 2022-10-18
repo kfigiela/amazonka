@@ -124,10 +124,13 @@ instance Core.AWSRequest ResetInstanceAttribute where
   type
     AWSResponse ResetInstanceAttribute =
       ResetInstanceAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ResetInstanceAttributeResponse'
+
+instance Core.AWSService ResetInstanceAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetInstanceAttribute where
   hashWithSalt _salt ResetInstanceAttribute' {..} =

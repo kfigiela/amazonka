@@ -80,7 +80,7 @@ instance Core.AWSRequest GetBrowserSettings where
   type
     AWSResponse GetBrowserSettings =
       GetBrowserSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetBrowserSettings where
             Prelude.<$> (x Core..?> "browserSettings")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBrowserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBrowserSettings where
   hashWithSalt _salt GetBrowserSettings' {..} =

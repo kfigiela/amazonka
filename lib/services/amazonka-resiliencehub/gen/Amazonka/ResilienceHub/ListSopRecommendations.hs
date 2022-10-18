@@ -123,7 +123,7 @@ instance Core.AWSRequest ListSopRecommendations where
   type
     AWSResponse ListSopRecommendations =
       ListSopRecommendationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListSopRecommendations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListSopRecommendations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSopRecommendations where
   hashWithSalt _salt ListSopRecommendations' {..} =

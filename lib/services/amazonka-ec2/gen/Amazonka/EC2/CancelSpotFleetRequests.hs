@@ -122,7 +122,7 @@ instance Core.AWSRequest CancelSpotFleetRequests where
   type
     AWSResponse CancelSpotFleetRequests =
       CancelSpotFleetRequestsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest CancelSpotFleetRequests where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelSpotFleetRequests where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelSpotFleetRequests where
   hashWithSalt _salt CancelSpotFleetRequests' {..} =

@@ -270,7 +270,7 @@ instance Core.AWSRequest StartOutboundVoiceContact where
   type
     AWSResponse StartOutboundVoiceContact =
       StartOutboundVoiceContactResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,9 @@ instance Core.AWSRequest StartOutboundVoiceContact where
             Prelude.<$> (x Core..?> "ContactId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartOutboundVoiceContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartOutboundVoiceContact where
   hashWithSalt _salt StartOutboundVoiceContact' {..} =

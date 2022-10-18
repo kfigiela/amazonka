@@ -124,7 +124,7 @@ instance Core.AWSRequest DeleteRegexMatchSet where
   type
     AWSResponse DeleteRegexMatchSet =
       DeleteRegexMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest DeleteRegexMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRegexMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRegexMatchSet where
   hashWithSalt _salt DeleteRegexMatchSet' {..} =

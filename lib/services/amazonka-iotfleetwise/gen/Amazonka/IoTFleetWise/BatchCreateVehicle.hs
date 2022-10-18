@@ -86,7 +86,7 @@ instance Core.AWSRequest BatchCreateVehicle where
   type
     AWSResponse BatchCreateVehicle =
       BatchCreateVehicleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest BatchCreateVehicle where
             Prelude.<*> (x Core..?> "errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchCreateVehicle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchCreateVehicle where
   hashWithSalt _salt BatchCreateVehicle' {..} =

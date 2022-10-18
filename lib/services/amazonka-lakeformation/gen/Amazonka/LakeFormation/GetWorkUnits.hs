@@ -131,7 +131,7 @@ instance Core.AWSPager GetWorkUnits where
 
 instance Core.AWSRequest GetWorkUnits where
   type AWSResponse GetWorkUnits = GetWorkUnitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest GetWorkUnits where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetWorkUnits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkUnits where
   hashWithSalt _salt GetWorkUnits' {..} =

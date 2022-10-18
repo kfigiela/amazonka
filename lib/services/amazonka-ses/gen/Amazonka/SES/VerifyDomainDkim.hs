@@ -116,7 +116,7 @@ instance Core.AWSRequest VerifyDomainDkim where
   type
     AWSResponse VerifyDomainDkim =
       VerifyDomainDkimResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "VerifyDomainDkimResult"
@@ -127,6 +127,9 @@ instance Core.AWSRequest VerifyDomainDkim where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService VerifyDomainDkim where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyDomainDkim where
   hashWithSalt _salt VerifyDomainDkim' {..} =

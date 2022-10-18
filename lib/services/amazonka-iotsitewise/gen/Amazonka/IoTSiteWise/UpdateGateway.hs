@@ -87,9 +87,12 @@ instance Core.AWSRequest UpdateGateway where
   type
     AWSResponse UpdateGateway =
       UpdateGatewayResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateGatewayResponse'
+
+instance Core.AWSService UpdateGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGateway where
   hashWithSalt _salt UpdateGateway' {..} =

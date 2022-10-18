@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteCodeRepository where
   type
     AWSResponse DeleteCodeRepository =
       DeleteCodeRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteCodeRepositoryResponse'
+
+instance Core.AWSService DeleteCodeRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCodeRepository where
   hashWithSalt _salt DeleteCodeRepository' {..} =

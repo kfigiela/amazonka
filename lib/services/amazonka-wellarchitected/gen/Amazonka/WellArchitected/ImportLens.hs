@@ -127,7 +127,7 @@ importLens_clientRequestToken = Lens.lens (\ImportLens' {clientRequestToken} -> 
 
 instance Core.AWSRequest ImportLens where
   type AWSResponse ImportLens = ImportLensResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ImportLens where
             Prelude.<*> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportLens where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportLens where
   hashWithSalt _salt ImportLens' {..} =

@@ -228,7 +228,7 @@ instance Core.AWSRequest CreateAutoMLJob where
   type
     AWSResponse CreateAutoMLJob =
       CreateAutoMLJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -236,6 +236,9 @@ instance Core.AWSRequest CreateAutoMLJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AutoMLJobArn")
       )
+
+instance Core.AWSService CreateAutoMLJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAutoMLJob where
   hashWithSalt _salt CreateAutoMLJob' {..} =

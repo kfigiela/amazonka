@@ -107,7 +107,7 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
   type
     AWSResponse PutDraftAppVersionTemplate =
       PutDraftAppVersionTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest PutDraftAppVersionTemplate where
             Prelude.<*> (x Core..?> "appArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDraftAppVersionTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDraftAppVersionTemplate where
   hashWithSalt _salt PutDraftAppVersionTemplate' {..} =

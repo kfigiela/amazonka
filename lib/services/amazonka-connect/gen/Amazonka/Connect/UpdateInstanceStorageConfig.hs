@@ -125,10 +125,13 @@ instance Core.AWSRequest UpdateInstanceStorageConfig where
   type
     AWSResponse UpdateInstanceStorageConfig =
       UpdateInstanceStorageConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateInstanceStorageConfigResponse'
+
+instance Core.AWSService UpdateInstanceStorageConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInstanceStorageConfig where
   hashWithSalt _salt UpdateInstanceStorageConfig' {..} =

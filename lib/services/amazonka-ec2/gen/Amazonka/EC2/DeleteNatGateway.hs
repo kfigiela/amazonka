@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteNatGateway where
   type
     AWSResponse DeleteNatGateway =
       DeleteNatGatewayResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteNatGateway where
             Prelude.<$> (x Core..@? "natGatewayId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNatGateway where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNatGateway where
   hashWithSalt _salt DeleteNatGateway' {..} =

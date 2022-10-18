@@ -94,7 +94,7 @@ instance Core.AWSRequest GetTranscriptionJob where
   type
     AWSResponse GetTranscriptionJob =
       GetTranscriptionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetTranscriptionJob where
             Prelude.<$> (x Core..?> "TranscriptionJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTranscriptionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTranscriptionJob where
   hashWithSalt _salt GetTranscriptionJob' {..} =

@@ -109,10 +109,13 @@ updateCrl_crlId = Lens.lens (\UpdateCrl' {crlId} -> crlId) (\s@UpdateCrl' {} a -
 
 instance Core.AWSRequest UpdateCrl where
   type AWSResponse UpdateCrl = CrlDetailResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateCrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCrl where
   hashWithSalt _salt UpdateCrl' {..} =

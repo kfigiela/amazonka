@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribeAnalysis where
   type
     AWSResponse DescribeAnalysis =
       DescribeAnalysisResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribeAnalysis where
             Prelude.<*> (x Core..?> "Analysis")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAnalysis where
   hashWithSalt _salt DescribeAnalysis' {..} =

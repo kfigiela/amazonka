@@ -123,7 +123,7 @@ instance Core.AWSRequest ListDetectors where
   type
     AWSResponse ListDetectors =
       ListDetectorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListDetectors where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "detectorIds" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListDetectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDetectors where
   hashWithSalt _salt ListDetectors' {..} =

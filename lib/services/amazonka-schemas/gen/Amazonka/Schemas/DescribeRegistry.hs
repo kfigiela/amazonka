@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeRegistry where
   type
     AWSResponse DescribeRegistry =
       DescribeRegistryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeRegistry where
             Prelude.<*> (x Core..?> "RegistryArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRegistry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRegistry where
   hashWithSalt _salt DescribeRegistry' {..} =

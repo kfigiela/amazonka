@@ -95,7 +95,7 @@ getTemplate_templateId = Lens.lens (\GetTemplate' {templateId} -> templateId) (\
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetTemplate where
             Prelude.<*> (x Core..:> "templateArn")
             Prelude.<*> (x Core..:> "templateId")
       )
+
+instance Core.AWSService GetTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTemplate where
   hashWithSalt _salt GetTemplate' {..} =

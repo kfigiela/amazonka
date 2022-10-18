@@ -94,9 +94,12 @@ instance Core.AWSRequest DeleteV2LoggingLevel where
   type
     AWSResponse DeleteV2LoggingLevel =
       DeleteV2LoggingLevelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteV2LoggingLevelResponse'
+
+instance Core.AWSService DeleteV2LoggingLevel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteV2LoggingLevel where
   hashWithSalt _salt DeleteV2LoggingLevel' {..} =

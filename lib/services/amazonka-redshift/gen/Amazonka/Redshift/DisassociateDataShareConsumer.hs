@@ -132,11 +132,17 @@ instance
   type
     AWSResponse DisassociateDataShareConsumer =
       DataShare
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DisassociateDataShareConsumerResult"
       (\s h x -> Core.parseXML x)
+
+instance
+  Core.AWSService
+    DisassociateDataShareConsumer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

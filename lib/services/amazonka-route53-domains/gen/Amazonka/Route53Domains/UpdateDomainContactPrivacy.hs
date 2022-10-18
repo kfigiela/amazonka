@@ -209,7 +209,7 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
   type
     AWSResponse UpdateDomainContactPrivacy =
       UpdateDomainContactPrivacyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest UpdateDomainContactPrivacy where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OperationId")
       )
+
+instance Core.AWSService UpdateDomainContactPrivacy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDomainContactPrivacy where
   hashWithSalt _salt UpdateDomainContactPrivacy' {..} =

@@ -95,13 +95,16 @@ instance Core.AWSRequest DeletePrefetchSchedule where
   type
     AWSResponse DeletePrefetchSchedule =
       DeletePrefetchScheduleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePrefetchScheduleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePrefetchSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePrefetchSchedule where
   hashWithSalt _salt DeletePrefetchSchedule' {..} =

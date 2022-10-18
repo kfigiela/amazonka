@@ -90,13 +90,16 @@ instance Core.AWSRequest PutChannelPolicy where
   type
     AWSResponse PutChannelPolicy =
       PutChannelPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutChannelPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutChannelPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutChannelPolicy where
   hashWithSalt _salt PutChannelPolicy' {..} =

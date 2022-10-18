@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteRetentionConfiguration where
   type
     AWSResponse DeleteRetentionConfiguration =
       DeleteRetentionConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteRetentionConfigurationResponse'
+
+instance Core.AWSService DeleteRetentionConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

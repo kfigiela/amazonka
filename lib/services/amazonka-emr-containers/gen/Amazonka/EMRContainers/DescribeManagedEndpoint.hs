@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeManagedEndpoint where
   type
     AWSResponse DescribeManagedEndpoint =
       DescribeManagedEndpointResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeManagedEndpoint where
             Prelude.<$> (x Core..?> "endpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeManagedEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeManagedEndpoint where
   hashWithSalt _salt DescribeManagedEndpoint' {..} =

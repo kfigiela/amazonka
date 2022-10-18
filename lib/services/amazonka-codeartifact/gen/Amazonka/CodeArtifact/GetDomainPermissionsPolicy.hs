@@ -98,7 +98,7 @@ instance Core.AWSRequest GetDomainPermissionsPolicy where
   type
     AWSResponse GetDomainPermissionsPolicy =
       GetDomainPermissionsPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetDomainPermissionsPolicy where
             Prelude.<$> (x Core..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDomainPermissionsPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomainPermissionsPolicy where
   hashWithSalt _salt GetDomainPermissionsPolicy' {..} =

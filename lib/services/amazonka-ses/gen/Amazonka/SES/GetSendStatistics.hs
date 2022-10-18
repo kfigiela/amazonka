@@ -66,7 +66,7 @@ instance Core.AWSRequest GetSendStatistics where
   type
     AWSResponse GetSendStatistics =
       GetSendStatisticsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetSendStatisticsResult"
@@ -77,6 +77,9 @@ instance Core.AWSRequest GetSendStatistics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSendStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSendStatistics where
   hashWithSalt _salt _ =

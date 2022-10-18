@@ -189,10 +189,13 @@ instance Core.AWSRequest PutLifecycleConfiguration where
   type
     AWSResponse PutLifecycleConfiguration =
       LifecycleConfigurationDescription
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutLifecycleConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLifecycleConfiguration where
   hashWithSalt _salt PutLifecycleConfiguration' {..} =

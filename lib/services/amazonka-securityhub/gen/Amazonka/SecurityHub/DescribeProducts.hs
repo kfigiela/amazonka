@@ -140,7 +140,7 @@ instance Core.AWSRequest DescribeProducts where
   type
     AWSResponse DescribeProducts =
       DescribeProductsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest DescribeProducts where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Products" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeProducts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProducts where
   hashWithSalt _salt DescribeProducts' {..} =

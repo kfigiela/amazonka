@@ -161,7 +161,7 @@ instance Core.AWSRequest PutSigningProfile where
   type
     AWSResponse PutSigningProfile =
       PutSigningProfileResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest PutSigningProfile where
             Prelude.<*> (x Core..?> "profileVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSigningProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSigningProfile where
   hashWithSalt _salt PutSigningProfile' {..} =

@@ -153,13 +153,16 @@ instance Core.AWSRequest RejectPortfolioShare where
   type
     AWSResponse RejectPortfolioShare =
       RejectPortfolioShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RejectPortfolioShareResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectPortfolioShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectPortfolioShare where
   hashWithSalt _salt RejectPortfolioShare' {..} =

@@ -106,10 +106,13 @@ instance Core.AWSRequest UpdateUserRoutingProfile where
   type
     AWSResponse UpdateUserRoutingProfile =
       UpdateUserRoutingProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateUserRoutingProfileResponse'
+
+instance Core.AWSService UpdateUserRoutingProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserRoutingProfile where
   hashWithSalt _salt UpdateUserRoutingProfile' {..} =

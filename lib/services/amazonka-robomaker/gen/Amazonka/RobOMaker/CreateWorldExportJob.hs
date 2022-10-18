@@ -144,7 +144,7 @@ instance Core.AWSRequest CreateWorldExportJob where
   type
     AWSResponse CreateWorldExportJob =
       CreateWorldExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest CreateWorldExportJob where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorldExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorldExportJob where
   hashWithSalt _salt CreateWorldExportJob' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest DeregisterCluster where
   type
     AWSResponse DeregisterCluster =
       DeregisterClusterResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeregisterCluster where
             Prelude.<$> (x Core..?> "cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterCluster where
   hashWithSalt _salt DeregisterCluster' {..} =

@@ -142,7 +142,7 @@ instance Core.AWSRequest GetResourceCollection where
   type
     AWSResponse GetResourceCollection =
       GetResourceCollectionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetResourceCollection where
             Prelude.<*> (x Core..?> "ResourceCollection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResourceCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResourceCollection where
   hashWithSalt _salt GetResourceCollection' {..} =

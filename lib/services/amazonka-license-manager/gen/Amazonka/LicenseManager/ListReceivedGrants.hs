@@ -138,7 +138,7 @@ instance Core.AWSRequest ListReceivedGrants where
   type
     AWSResponse ListReceivedGrants =
       ListReceivedGrantsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListReceivedGrants where
             Prelude.<*> (x Core..?> "Grants" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReceivedGrants where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReceivedGrants where
   hashWithSalt _salt ListReceivedGrants' {..} =

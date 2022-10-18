@@ -192,7 +192,7 @@ instance Core.AWSRequest StartInstanceRefresh where
   type
     AWSResponse StartInstanceRefresh =
       StartInstanceRefreshResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartInstanceRefreshResult"
@@ -201,6 +201,9 @@ instance Core.AWSRequest StartInstanceRefresh where
             Prelude.<$> (x Core..@? "InstanceRefreshId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartInstanceRefresh where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartInstanceRefresh where
   hashWithSalt _salt StartInstanceRefresh' {..} =

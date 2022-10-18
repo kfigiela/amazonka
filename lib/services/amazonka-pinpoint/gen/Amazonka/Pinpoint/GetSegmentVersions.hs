@@ -125,7 +125,7 @@ instance Core.AWSRequest GetSegmentVersions where
   type
     AWSResponse GetSegmentVersions =
       GetSegmentVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest GetSegmentVersions where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetSegmentVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSegmentVersions where
   hashWithSalt _salt GetSegmentVersions' {..} =

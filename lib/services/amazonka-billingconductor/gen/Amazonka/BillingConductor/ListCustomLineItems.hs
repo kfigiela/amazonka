@@ -143,7 +143,7 @@ instance Core.AWSRequest ListCustomLineItems where
   type
     AWSResponse ListCustomLineItems =
       ListCustomLineItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest ListCustomLineItems where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCustomLineItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCustomLineItems where
   hashWithSalt _salt ListCustomLineItems' {..} =

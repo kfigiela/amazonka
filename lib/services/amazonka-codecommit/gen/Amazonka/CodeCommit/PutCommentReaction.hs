@@ -102,9 +102,12 @@ instance Core.AWSRequest PutCommentReaction where
   type
     AWSResponse PutCommentReaction =
       PutCommentReactionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutCommentReactionResponse'
+
+instance Core.AWSService PutCommentReaction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutCommentReaction where
   hashWithSalt _salt PutCommentReaction' {..} =

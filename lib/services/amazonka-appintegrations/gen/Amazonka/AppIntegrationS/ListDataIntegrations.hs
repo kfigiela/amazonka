@@ -100,7 +100,7 @@ instance Core.AWSRequest ListDataIntegrations where
   type
     AWSResponse ListDataIntegrations =
       ListDataIntegrationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ListDataIntegrations where
             Prelude.<*> (x Core..?> "DataIntegrations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataIntegrations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataIntegrations where
   hashWithSalt _salt ListDataIntegrations' {..} =

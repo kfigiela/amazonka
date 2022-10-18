@@ -82,7 +82,7 @@ instance Core.AWSRequest DeleteConnection where
   type
     AWSResponse DeleteConnection =
       DeleteConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteConnection where
             Prelude.<$> (x Core..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConnection where
   hashWithSalt _salt DeleteConnection' {..} =

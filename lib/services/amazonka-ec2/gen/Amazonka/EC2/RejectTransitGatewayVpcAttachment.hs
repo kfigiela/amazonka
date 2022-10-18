@@ -109,7 +109,7 @@ instance
   type
     AWSResponse RejectTransitGatewayVpcAttachment =
       RejectTransitGatewayVpcAttachmentResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -117,6 +117,12 @@ instance
             Prelude.<$> (x Core..@? "transitGatewayVpcAttachment")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RejectTransitGatewayVpcAttachment
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

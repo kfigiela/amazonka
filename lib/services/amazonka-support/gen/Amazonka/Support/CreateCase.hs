@@ -278,7 +278,7 @@ createCase_communicationBody = Lens.lens (\CreateCase' {communicationBody} -> co
 
 instance Core.AWSRequest CreateCase where
   type AWSResponse CreateCase = CreateCaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -286,6 +286,9 @@ instance Core.AWSRequest CreateCase where
             Prelude.<$> (x Core..?> "caseId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCase where
   hashWithSalt _salt CreateCase' {..} =

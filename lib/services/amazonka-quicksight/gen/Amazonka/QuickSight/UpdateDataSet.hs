@@ -222,7 +222,7 @@ instance Core.AWSRequest UpdateDataSet where
   type
     AWSResponse UpdateDataSet =
       UpdateDataSetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,6 +234,9 @@ instance Core.AWSRequest UpdateDataSet where
             Prelude.<*> (x Core..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDataSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDataSet where
   hashWithSalt _salt UpdateDataSet' {..} =

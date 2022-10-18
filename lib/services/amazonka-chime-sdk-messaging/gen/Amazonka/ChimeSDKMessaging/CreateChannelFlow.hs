@@ -148,7 +148,7 @@ instance Core.AWSRequest CreateChannelFlow where
   type
     AWSResponse CreateChannelFlow =
       CreateChannelFlowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest CreateChannelFlow where
             Prelude.<$> (x Core..?> "ChannelFlowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChannelFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChannelFlow where
   hashWithSalt _salt CreateChannelFlow' {..} =

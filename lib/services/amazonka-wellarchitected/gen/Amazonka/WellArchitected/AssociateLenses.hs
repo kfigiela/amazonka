@@ -97,9 +97,12 @@ instance Core.AWSRequest AssociateLenses where
   type
     AWSResponse AssociateLenses =
       AssociateLensesResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveNull AssociateLensesResponse'
+
+instance Core.AWSService AssociateLenses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateLenses where
   hashWithSalt _salt AssociateLenses' {..} =

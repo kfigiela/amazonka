@@ -107,7 +107,7 @@ instance Core.AWSRequest GetLaunchProfileMember where
   type
     AWSResponse GetLaunchProfileMember =
       GetLaunchProfileMemberResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest GetLaunchProfileMember where
             Prelude.<$> (x Core..?> "member")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLaunchProfileMember where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLaunchProfileMember where
   hashWithSalt _salt GetLaunchProfileMember' {..} =

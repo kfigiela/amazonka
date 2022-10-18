@@ -100,9 +100,12 @@ instance Core.AWSRequest DeleteInstanceProfile where
   type
     AWSResponse DeleteInstanceProfile =
       DeleteInstanceProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteInstanceProfileResponse'
+
+instance Core.AWSService DeleteInstanceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInstanceProfile where
   hashWithSalt _salt DeleteInstanceProfile' {..} =

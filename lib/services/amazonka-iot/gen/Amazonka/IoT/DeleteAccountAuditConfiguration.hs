@@ -86,13 +86,19 @@ instance
   type
     AWSResponse DeleteAccountAuditConfiguration =
       DeleteAccountAuditConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAccountAuditConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteAccountAuditConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

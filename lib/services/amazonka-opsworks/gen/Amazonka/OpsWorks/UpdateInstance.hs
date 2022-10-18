@@ -407,9 +407,12 @@ instance Core.AWSRequest UpdateInstance where
   type
     AWSResponse UpdateInstance =
       UpdateInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateInstanceResponse'
+
+instance Core.AWSService UpdateInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateInstance where
   hashWithSalt _salt UpdateInstance' {..} =

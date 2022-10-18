@@ -113,7 +113,7 @@ instance
   type
     AWSResponse UpdateAssessmentFrameworkShare =
       UpdateAssessmentFrameworkShareResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,12 @@ instance
             Prelude.<$> (x Core..?> "assessmentFrameworkShareRequest")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateAssessmentFrameworkShare
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

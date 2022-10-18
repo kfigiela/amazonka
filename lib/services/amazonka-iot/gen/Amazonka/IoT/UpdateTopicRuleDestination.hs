@@ -170,13 +170,16 @@ instance Core.AWSRequest UpdateTopicRuleDestination where
   type
     AWSResponse UpdateTopicRuleDestination =
       UpdateTopicRuleDestinationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateTopicRuleDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTopicRuleDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTopicRuleDestination where
   hashWithSalt _salt UpdateTopicRuleDestination' {..} =

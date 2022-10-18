@@ -97,7 +97,7 @@ instance Core.AWSRequest DeleteDataSource where
   type
     AWSResponse DeleteDataSource =
       DeleteDataSourceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DeleteDataSource where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDataSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDataSource where
   hashWithSalt _salt DeleteDataSource' {..} =

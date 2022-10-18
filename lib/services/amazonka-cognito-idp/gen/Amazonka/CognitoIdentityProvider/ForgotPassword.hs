@@ -270,7 +270,7 @@ instance Core.AWSRequest ForgotPassword where
   type
     AWSResponse ForgotPassword =
       ForgotPasswordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -278,6 +278,9 @@ instance Core.AWSRequest ForgotPassword where
             Prelude.<$> (x Core..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ForgotPassword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ForgotPassword where
   hashWithSalt _salt ForgotPassword' {..} =

@@ -189,7 +189,7 @@ instance Core.AWSRequest ListForecasts where
   type
     AWSResponse ListForecasts =
       ListForecastsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest ListForecasts where
             Prelude.<*> (x Core..?> "Forecasts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListForecasts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListForecasts where
   hashWithSalt _salt ListForecasts' {..} =

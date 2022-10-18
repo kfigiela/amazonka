@@ -166,7 +166,7 @@ instance Core.AWSRequest ListConstraintsForPortfolio where
   type
     AWSResponse ListConstraintsForPortfolio =
       ListConstraintsForPortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest ListConstraintsForPortfolio where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListConstraintsForPortfolio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListConstraintsForPortfolio where
   hashWithSalt _salt ListConstraintsForPortfolio' {..} =

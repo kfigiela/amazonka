@@ -103,9 +103,12 @@ instance Core.AWSRequest UpdateUserSettings where
   type
     AWSResponse UpdateUserSettings =
       UpdateUserSettingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull UpdateUserSettingsResponse'
+
+instance Core.AWSService UpdateUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserSettings where
   hashWithSalt _salt UpdateUserSettings' {..} =

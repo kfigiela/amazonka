@@ -112,7 +112,7 @@ instance Core.AWSRequest ListDataSources where
   type
     AWSResponse ListDataSources =
       ListDataSourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest ListDataSources where
             Prelude.<*> (x Core..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataSources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataSources where
   hashWithSalt _salt ListDataSources' {..} =

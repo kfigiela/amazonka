@@ -120,7 +120,7 @@ instance Core.AWSRequest ListPhoneNumbersOptedOut where
   type
     AWSResponse ListPhoneNumbersOptedOut =
       ListPhoneNumbersOptedOutResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPhoneNumbersOptedOutResult"
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListPhoneNumbersOptedOut where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPhoneNumbersOptedOut where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPhoneNumbersOptedOut where
   hashWithSalt _salt ListPhoneNumbersOptedOut' {..} =

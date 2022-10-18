@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeDatasetImportJob where
   type
     AWSResponse DescribeDatasetImportJob =
       DescribeDatasetImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DescribeDatasetImportJob where
             Prelude.<$> (x Core..?> "datasetImportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDatasetImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDatasetImportJob where
   hashWithSalt _salt DescribeDatasetImportJob' {..} =

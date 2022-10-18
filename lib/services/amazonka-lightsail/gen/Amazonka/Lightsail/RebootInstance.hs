@@ -82,7 +82,7 @@ instance Core.AWSRequest RebootInstance where
   type
     AWSResponse RebootInstance =
       RebootInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest RebootInstance where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootInstance where
   hashWithSalt _salt RebootInstance' {..} =

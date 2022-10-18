@@ -99,7 +99,7 @@ instance Core.AWSRequest SetIpAddressType where
   type
     AWSResponse SetIpAddressType =
       SetIpAddressTypeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIpAddressTypeResult"
@@ -108,6 +108,9 @@ instance Core.AWSRequest SetIpAddressType where
             Prelude.<$> (x Core..@? "IpAddressType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetIpAddressType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetIpAddressType where
   hashWithSalt _salt SetIpAddressType' {..} =

@@ -86,7 +86,7 @@ getUser_userId = Lens.lens (\GetUser' {userId} -> userId) (\s@GetUser' {} a -> s
 
 instance Core.AWSRequest GetUser where
   type AWSResponse GetUser = GetUserResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GetUser where
             Prelude.<*> (x Core..?> "apiAccessPrincipalArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUser where
   hashWithSalt _salt GetUser' {..} =

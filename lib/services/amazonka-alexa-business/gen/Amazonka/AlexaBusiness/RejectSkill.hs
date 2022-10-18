@@ -77,13 +77,16 @@ rejectSkill_skillId = Lens.lens (\RejectSkill' {skillId} -> skillId) (\s@RejectS
 
 instance Core.AWSRequest RejectSkill where
   type AWSResponse RejectSkill = RejectSkillResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RejectSkillResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectSkill where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectSkill where
   hashWithSalt _salt RejectSkill' {..} =

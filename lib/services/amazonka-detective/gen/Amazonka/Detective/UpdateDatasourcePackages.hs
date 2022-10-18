@@ -90,10 +90,13 @@ instance Core.AWSRequest UpdateDatasourcePackages where
   type
     AWSResponse UpdateDatasourcePackages =
       UpdateDatasourcePackagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateDatasourcePackagesResponse'
+
+instance Core.AWSService UpdateDatasourcePackages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDatasourcePackages where
   hashWithSalt _salt UpdateDatasourcePackages' {..} =

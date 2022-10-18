@@ -141,10 +141,13 @@ putFunctionConcurrency_reservedConcurrentExecutions = Lens.lens (\PutFunctionCon
 
 instance Core.AWSRequest PutFunctionConcurrency where
   type AWSResponse PutFunctionConcurrency = Concurrency
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService PutFunctionConcurrency where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutFunctionConcurrency where
   hashWithSalt _salt PutFunctionConcurrency' {..} =

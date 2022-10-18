@@ -102,7 +102,7 @@ getMLTaskRun_taskRunId = Lens.lens (\GetMLTaskRun' {taskRunId} -> taskRunId) (\s
 
 instance Core.AWSRequest GetMLTaskRun where
   type AWSResponse GetMLTaskRun = GetMLTaskRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetMLTaskRun where
             Prelude.<*> (x Core..?> "LogGroupName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMLTaskRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMLTaskRun where
   hashWithSalt _salt GetMLTaskRun' {..} =

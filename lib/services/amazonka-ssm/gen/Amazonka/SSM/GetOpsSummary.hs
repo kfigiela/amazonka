@@ -166,7 +166,7 @@ instance Core.AWSRequest GetOpsSummary where
   type
     AWSResponse GetOpsSummary =
       GetOpsSummaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest GetOpsSummary where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOpsSummary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOpsSummary where
   hashWithSalt _salt GetOpsSummary' {..} =

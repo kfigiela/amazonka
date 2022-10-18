@@ -162,7 +162,7 @@ updateBucket_bucketName = Lens.lens (\UpdateBucket' {bucketName} -> bucketName) 
 
 instance Core.AWSRequest UpdateBucket where
   type AWSResponse UpdateBucket = UpdateBucketResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest UpdateBucket where
             Prelude.<*> (x Core..?> "bucket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBucket where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBucket where
   hashWithSalt _salt UpdateBucket' {..} =

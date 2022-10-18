@@ -113,7 +113,7 @@ instance
   type
     AWSResponse FailoverGlobalReplicationGroup =
       FailoverGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "FailoverGlobalReplicationGroupResult"
@@ -122,6 +122,12 @@ instance
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    FailoverGlobalReplicationGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

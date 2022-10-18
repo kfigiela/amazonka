@@ -426,7 +426,7 @@ instance Core.AWSRequest CreateTaskSet where
   type
     AWSResponse CreateTaskSet =
       CreateTaskSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -434,6 +434,9 @@ instance Core.AWSRequest CreateTaskSet where
             Prelude.<$> (x Core..?> "taskSet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTaskSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTaskSet where
   hashWithSalt _salt CreateTaskSet' {..} =

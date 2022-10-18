@@ -85,7 +85,7 @@ instance Core.AWSRequest GetControlOperation where
   type
     AWSResponse GetControlOperation =
       GetControlOperationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetControlOperation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "controlOperation")
       )
+
+instance Core.AWSService GetControlOperation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetControlOperation where
   hashWithSalt _salt GetControlOperation' {..} =

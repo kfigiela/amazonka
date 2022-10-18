@@ -141,7 +141,7 @@ instance Core.AWSRequest UpdateBackendJob where
   type
     AWSResponse UpdateBackendJob =
       UpdateBackendJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest UpdateBackendJob where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBackendJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBackendJob where
   hashWithSalt _salt UpdateBackendJob' {..} =

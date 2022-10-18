@@ -172,7 +172,7 @@ instance Core.AWSRequest CreatePricingRule where
   type
     AWSResponse CreatePricingRule =
       CreatePricingRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest CreatePricingRule where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePricingRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePricingRule where
   hashWithSalt _salt CreatePricingRule' {..} =

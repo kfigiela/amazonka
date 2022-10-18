@@ -138,7 +138,7 @@ instance Core.AWSRequest ReplaceTransitGatewayRoute where
   type
     AWSResponse ReplaceTransitGatewayRoute =
       ReplaceTransitGatewayRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ReplaceTransitGatewayRoute where
             Prelude.<$> (x Core..@? "route")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReplaceTransitGatewayRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReplaceTransitGatewayRoute where
   hashWithSalt _salt ReplaceTransitGatewayRoute' {..} =

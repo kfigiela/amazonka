@@ -98,10 +98,13 @@ updateUsagePlan_usagePlanId = Lens.lens (\UpdateUsagePlan' {usagePlanId} -> usag
 
 instance Core.AWSRequest UpdateUsagePlan where
   type AWSResponse UpdateUsagePlan = UsagePlan
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateUsagePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUsagePlan where
   hashWithSalt _salt UpdateUsagePlan' {..} =

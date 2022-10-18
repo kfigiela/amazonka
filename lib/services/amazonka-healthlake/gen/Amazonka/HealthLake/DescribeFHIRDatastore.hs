@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeFHIRDatastore where
   type
     AWSResponse DescribeFHIRDatastore =
       DescribeFHIRDatastoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DescribeFHIRDatastore where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "DatastoreProperties")
       )
+
+instance Core.AWSService DescribeFHIRDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFHIRDatastore where
   hashWithSalt _salt DescribeFHIRDatastore' {..} =

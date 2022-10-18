@@ -181,7 +181,7 @@ instance
   type
     AWSResponse UpdateMaintenanceWindowTarget =
       UpdateMaintenanceWindowTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -194,6 +194,12 @@ instance
             Prelude.<*> (x Core..?> "OwnerInformation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateMaintenanceWindowTarget
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

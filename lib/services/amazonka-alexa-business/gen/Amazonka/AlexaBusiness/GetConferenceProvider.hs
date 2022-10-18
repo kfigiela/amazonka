@@ -80,7 +80,7 @@ instance Core.AWSRequest GetConferenceProvider where
   type
     AWSResponse GetConferenceProvider =
       GetConferenceProviderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetConferenceProvider where
             Prelude.<$> (x Core..?> "ConferenceProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConferenceProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConferenceProvider where
   hashWithSalt _salt GetConferenceProvider' {..} =

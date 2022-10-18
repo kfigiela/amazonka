@@ -390,7 +390,7 @@ instance Core.AWSRequest CreateClassificationJob where
   type
     AWSResponse CreateClassificationJob =
       CreateClassificationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -399,6 +399,9 @@ instance Core.AWSRequest CreateClassificationJob where
             Prelude.<*> (x Core..?> "jobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClassificationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClassificationJob where
   hashWithSalt _salt CreateClassificationJob' {..} =

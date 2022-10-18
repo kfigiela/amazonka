@@ -203,13 +203,16 @@ instance Core.AWSRequest UpdateReplicationJob where
   type
     AWSResponse UpdateReplicationJob =
       UpdateReplicationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateReplicationJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateReplicationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateReplicationJob where
   hashWithSalt _salt UpdateReplicationJob' {..} =

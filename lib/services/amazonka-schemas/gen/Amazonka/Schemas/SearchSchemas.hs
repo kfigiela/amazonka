@@ -141,7 +141,7 @@ instance Core.AWSRequest SearchSchemas where
   type
     AWSResponse SearchSchemas =
       SearchSchemasResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest SearchSchemas where
             Prelude.<*> (x Core..?> "Schemas" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchSchemas where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchSchemas where
   hashWithSalt _salt SearchSchemas' {..} =

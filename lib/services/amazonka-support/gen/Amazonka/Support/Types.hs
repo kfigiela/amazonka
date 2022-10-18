@@ -185,6 +185,7 @@ defaultService =
       Core._serviceEndpointPrefix = "support",
       Core._serviceSigningName = "support",
       Core._serviceVersion = "2013-04-15",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

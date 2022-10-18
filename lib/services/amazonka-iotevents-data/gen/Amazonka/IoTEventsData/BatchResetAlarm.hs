@@ -84,7 +84,7 @@ instance Core.AWSRequest BatchResetAlarm where
   type
     AWSResponse BatchResetAlarm =
       BatchResetAlarmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest BatchResetAlarm where
             Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchResetAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchResetAlarm where
   hashWithSalt _salt BatchResetAlarm' {..} =

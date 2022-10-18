@@ -128,7 +128,7 @@ instance
   type
     AWSResponse AuthorizeCacheSecurityGroupIngress =
       AuthorizeCacheSecurityGroupIngressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AuthorizeCacheSecurityGroupIngressResult"
@@ -137,6 +137,12 @@ instance
             Prelude.<$> (x Core..@? "CacheSecurityGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AuthorizeCacheSecurityGroupIngress
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

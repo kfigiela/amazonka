@@ -99,10 +99,13 @@ disconnectFromService_sourceServerID = Lens.lens (\DisconnectFromService' {sourc
 
 instance Core.AWSRequest DisconnectFromService where
   type AWSResponse DisconnectFromService = SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DisconnectFromService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisconnectFromService where
   hashWithSalt _salt DisconnectFromService' {..} =

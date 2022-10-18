@@ -128,13 +128,19 @@ instance
     AWSResponse
       CreateInstanceAccessControlAttributeConfiguration =
       CreateInstanceAccessControlAttributeConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateInstanceAccessControlAttributeConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    CreateInstanceAccessControlAttributeConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -94,7 +94,7 @@ instance Core.AWSRequest ProvideAnomalyFeedback where
   type
     AWSResponse ProvideAnomalyFeedback =
       ProvideAnomalyFeedbackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest ProvideAnomalyFeedback where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "AnomalyId")
       )
+
+instance Core.AWSService ProvideAnomalyFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ProvideAnomalyFeedback where
   hashWithSalt _salt ProvideAnomalyFeedback' {..} =

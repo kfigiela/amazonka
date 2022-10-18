@@ -91,7 +91,7 @@ instance Core.AWSRequest GetWorkflowRunProperties where
   type
     AWSResponse GetWorkflowRunProperties =
       GetWorkflowRunPropertiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetWorkflowRunProperties where
             Prelude.<$> (x Core..?> "RunProperties" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorkflowRunProperties where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkflowRunProperties where
   hashWithSalt _salt GetWorkflowRunProperties' {..} =

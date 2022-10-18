@@ -102,7 +102,7 @@ getStage_apiId = Lens.lens (\GetStage' {apiId} -> apiId) (\s@GetStage' {} a -> s
 
 instance Core.AWSRequest GetStage where
   type AWSResponse GetStage = GetStageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetStage where
             Prelude.<*> (x Core..?> "routeSettings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStage where
   hashWithSalt _salt GetStage' {..} =

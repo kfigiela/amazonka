@@ -81,7 +81,7 @@ instance Core.AWSRequest DescribeEntityRecognizer where
   type
     AWSResponse DescribeEntityRecognizer =
       DescribeEntityRecognizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeEntityRecognizer where
             Prelude.<$> (x Core..?> "EntityRecognizerProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEntityRecognizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEntityRecognizer where
   hashWithSalt _salt DescribeEntityRecognizer' {..} =

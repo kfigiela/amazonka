@@ -112,7 +112,7 @@ instance Core.AWSRequest ListExperiences where
   type
     AWSResponse ListExperiences =
       ListExperiencesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest ListExperiences where
             Prelude.<*> (x Core..?> "SummaryItems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExperiences where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExperiences where
   hashWithSalt _salt ListExperiences' {..} =

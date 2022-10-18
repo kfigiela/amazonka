@@ -134,7 +134,7 @@ instance Core.AWSRequest ClaimPhoneNumber where
   type
     AWSResponse ClaimPhoneNumber =
       ClaimPhoneNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest ClaimPhoneNumber where
             Prelude.<*> (x Core..?> "PhoneNumberId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ClaimPhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClaimPhoneNumber where
   hashWithSalt _salt ClaimPhoneNumber' {..} =

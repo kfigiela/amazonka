@@ -131,7 +131,7 @@ instance Core.AWSRequest DescribeLoadBalancers where
   type
     AWSResponse DescribeLoadBalancers =
       DescribeLoadBalancersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeLoadBalancersResult"
@@ -144,6 +144,9 @@ instance Core.AWSRequest DescribeLoadBalancers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLoadBalancers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLoadBalancers where
   hashWithSalt _salt DescribeLoadBalancers' {..} =

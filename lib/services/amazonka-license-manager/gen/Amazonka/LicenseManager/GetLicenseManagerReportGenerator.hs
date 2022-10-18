@@ -84,7 +84,7 @@ instance
   type
     AWSResponse GetLicenseManagerReportGenerator =
       GetLicenseManagerReportGeneratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,12 @@ instance
             Prelude.<$> (x Core..?> "ReportGenerator")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetLicenseManagerReportGenerator
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

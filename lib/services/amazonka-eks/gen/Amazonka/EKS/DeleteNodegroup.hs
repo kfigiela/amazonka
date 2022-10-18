@@ -94,7 +94,7 @@ instance Core.AWSRequest DeleteNodegroup where
   type
     AWSResponse DeleteNodegroup =
       DeleteNodegroupResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DeleteNodegroup where
             Prelude.<$> (x Core..?> "nodegroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNodegroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNodegroup where
   hashWithSalt _salt DeleteNodegroup' {..} =

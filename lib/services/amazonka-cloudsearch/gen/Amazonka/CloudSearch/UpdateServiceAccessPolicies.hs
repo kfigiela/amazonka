@@ -102,7 +102,7 @@ instance Core.AWSRequest UpdateServiceAccessPolicies where
   type
     AWSResponse UpdateServiceAccessPolicies =
       UpdateServiceAccessPoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateServiceAccessPoliciesResult"
@@ -111,6 +111,9 @@ instance Core.AWSRequest UpdateServiceAccessPolicies where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "AccessPolicies")
       )
+
+instance Core.AWSService UpdateServiceAccessPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateServiceAccessPolicies where
   hashWithSalt _salt UpdateServiceAccessPolicies' {..} =

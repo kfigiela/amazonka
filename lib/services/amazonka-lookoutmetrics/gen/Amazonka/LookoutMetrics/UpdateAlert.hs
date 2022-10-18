@@ -120,7 +120,7 @@ updateAlert_alertArn = Lens.lens (\UpdateAlert' {alertArn} -> alertArn) (\s@Upda
 
 instance Core.AWSRequest UpdateAlert where
   type AWSResponse UpdateAlert = UpdateAlertResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest UpdateAlert where
             Prelude.<$> (x Core..?> "AlertArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateAlert where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAlert where
   hashWithSalt _salt UpdateAlert' {..} =

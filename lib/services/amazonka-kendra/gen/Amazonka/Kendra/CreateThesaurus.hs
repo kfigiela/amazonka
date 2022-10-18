@@ -168,7 +168,7 @@ instance Core.AWSRequest CreateThesaurus where
   type
     AWSResponse CreateThesaurus =
       CreateThesaurusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest CreateThesaurus where
             Prelude.<$> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateThesaurus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateThesaurus where
   hashWithSalt _salt CreateThesaurus' {..} =

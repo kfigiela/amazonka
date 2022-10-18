@@ -174,7 +174,7 @@ instance Core.AWSRequest ModifyVpnConnection where
   type
     AWSResponse ModifyVpnConnection =
       ModifyVpnConnectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest ModifyVpnConnection where
             Prelude.<$> (x Core..@? "vpnConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyVpnConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyVpnConnection where
   hashWithSalt _salt ModifyVpnConnection' {..} =

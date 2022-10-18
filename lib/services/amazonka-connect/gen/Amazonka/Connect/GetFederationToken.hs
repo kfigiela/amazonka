@@ -86,7 +86,7 @@ instance Core.AWSRequest GetFederationToken where
   type
     AWSResponse GetFederationToken =
       GetFederationTokenResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetFederationToken where
             Prelude.<$> (x Core..?> "Credentials")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFederationToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFederationToken where
   hashWithSalt _salt GetFederationToken' {..} =

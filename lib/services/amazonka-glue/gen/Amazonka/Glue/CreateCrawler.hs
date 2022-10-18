@@ -273,13 +273,16 @@ instance Core.AWSRequest CreateCrawler where
   type
     AWSResponse CreateCrawler =
       CreateCrawlerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateCrawlerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCrawler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCrawler where
   hashWithSalt _salt CreateCrawler' {..} =

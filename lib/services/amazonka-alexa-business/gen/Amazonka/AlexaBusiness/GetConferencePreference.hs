@@ -61,7 +61,7 @@ instance Core.AWSRequest GetConferencePreference where
   type
     AWSResponse GetConferencePreference =
       GetConferencePreferenceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -69,6 +69,9 @@ instance Core.AWSRequest GetConferencePreference where
             Prelude.<$> (x Core..?> "Preference")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConferencePreference where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConferencePreference where
   hashWithSalt _salt _ =

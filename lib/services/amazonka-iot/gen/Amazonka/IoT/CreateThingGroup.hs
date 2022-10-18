@@ -119,7 +119,7 @@ instance Core.AWSRequest CreateThingGroup where
   type
     AWSResponse CreateThingGroup =
       CreateThingGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest CreateThingGroup where
             Prelude.<*> (x Core..?> "thingGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateThingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateThingGroup where
   hashWithSalt _salt CreateThingGroup' {..} =

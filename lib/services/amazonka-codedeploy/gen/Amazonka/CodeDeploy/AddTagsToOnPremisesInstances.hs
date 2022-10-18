@@ -96,10 +96,13 @@ instance Core.AWSRequest AddTagsToOnPremisesInstances where
   type
     AWSResponse AddTagsToOnPremisesInstances =
       AddTagsToOnPremisesInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AddTagsToOnPremisesInstancesResponse'
+
+instance Core.AWSService AddTagsToOnPremisesInstances where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -147,7 +147,7 @@ instance Core.AWSRequest ListMailboxPermissions where
   type
     AWSResponse ListMailboxPermissions =
       ListMailboxPermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListMailboxPermissions where
             Prelude.<*> (x Core..?> "Permissions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMailboxPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMailboxPermissions where
   hashWithSalt _salt ListMailboxPermissions' {..} =

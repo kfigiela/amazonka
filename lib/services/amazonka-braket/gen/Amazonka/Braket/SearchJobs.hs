@@ -120,7 +120,7 @@ instance Core.AWSPager SearchJobs where
 
 instance Core.AWSRequest SearchJobs where
   type AWSResponse SearchJobs = SearchJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest SearchJobs where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "jobs" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService SearchJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchJobs where
   hashWithSalt _salt SearchJobs' {..} =

@@ -115,7 +115,7 @@ instance Core.AWSRequest DeleteUserByPrincipalId where
   type
     AWSResponse DeleteUserByPrincipalId =
       DeleteUserByPrincipalIdResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DeleteUserByPrincipalId where
             Prelude.<$> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteUserByPrincipalId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserByPrincipalId where
   hashWithSalt _salt DeleteUserByPrincipalId' {..} =

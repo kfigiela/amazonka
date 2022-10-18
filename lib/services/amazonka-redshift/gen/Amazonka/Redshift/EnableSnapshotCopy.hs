@@ -187,7 +187,7 @@ instance Core.AWSRequest EnableSnapshotCopy where
   type
     AWSResponse EnableSnapshotCopy =
       EnableSnapshotCopyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "EnableSnapshotCopyResult"
@@ -196,6 +196,9 @@ instance Core.AWSRequest EnableSnapshotCopy where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableSnapshotCopy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableSnapshotCopy where
   hashWithSalt _salt EnableSnapshotCopy' {..} =

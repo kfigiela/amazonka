@@ -114,7 +114,7 @@ instance Core.AWSPager ListPortals where
 
 instance Core.AWSRequest ListPortals where
   type AWSResponse ListPortals = ListPortalsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListPortals where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPortals where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPortals where
   hashWithSalt _salt ListPortals' {..} =

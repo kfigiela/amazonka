@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteResourcesByExternalId where
   type
     AWSResponse DeleteResourcesByExternalId =
       DeleteResourcesByExternalIdResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResourcesByExternalIdResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResourcesByExternalId where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourcesByExternalId where
   hashWithSalt _salt DeleteResourcesByExternalId' {..} =

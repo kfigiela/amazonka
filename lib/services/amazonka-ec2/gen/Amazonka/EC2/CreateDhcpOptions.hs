@@ -151,7 +151,7 @@ instance Core.AWSRequest CreateDhcpOptions where
   type
     AWSResponse CreateDhcpOptions =
       CreateDhcpOptionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest CreateDhcpOptions where
             Prelude.<$> (x Core..@? "dhcpOptions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDhcpOptions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDhcpOptions where
   hashWithSalt _salt CreateDhcpOptions' {..} =

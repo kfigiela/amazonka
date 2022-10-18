@@ -131,7 +131,7 @@ instance Core.AWSRequest ListAccountPermissions where
   type
     AWSResponse ListAccountPermissions =
       ListAccountPermissionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListAccountPermissions where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "permissions" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListAccountPermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountPermissions where
   hashWithSalt _salt ListAccountPermissions' {..} =

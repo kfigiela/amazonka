@@ -155,7 +155,7 @@ instance Core.AWSRequest ExecuteChangeSet where
   type
     AWSResponse ExecuteChangeSet =
       ExecuteChangeSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ExecuteChangeSetResult"
@@ -163,6 +163,9 @@ instance Core.AWSRequest ExecuteChangeSet where
           ExecuteChangeSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExecuteChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExecuteChangeSet where
   hashWithSalt _salt ExecuteChangeSet' {..} =

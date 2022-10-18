@@ -170,13 +170,16 @@ instance Core.AWSRequest AddApplicationOutput where
   type
     AWSResponse AddApplicationOutput =
       AddApplicationOutputResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationOutputResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddApplicationOutput where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddApplicationOutput where
   hashWithSalt _salt AddApplicationOutput' {..} =

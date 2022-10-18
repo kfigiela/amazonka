@@ -79,7 +79,7 @@ instance Core.AWSRequest DescribeDomains where
   type
     AWSResponse DescribeDomains =
       DescribeDomainsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DescribeDomains where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DescribeDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDomains where
   hashWithSalt _salt DescribeDomains' {..} =

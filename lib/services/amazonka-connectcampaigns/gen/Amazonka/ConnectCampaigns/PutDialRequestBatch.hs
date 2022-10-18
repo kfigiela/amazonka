@@ -94,7 +94,7 @@ instance Core.AWSRequest PutDialRequestBatch where
   type
     AWSResponse PutDialRequestBatch =
       PutDialRequestBatchResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest PutDialRequestBatch where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDialRequestBatch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDialRequestBatch where
   hashWithSalt _salt PutDialRequestBatch' {..} =

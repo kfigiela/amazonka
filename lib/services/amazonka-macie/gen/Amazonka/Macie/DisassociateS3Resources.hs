@@ -99,7 +99,7 @@ instance Core.AWSRequest DisassociateS3Resources where
   type
     AWSResponse DisassociateS3Resources =
       DisassociateS3ResourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DisassociateS3Resources where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateS3Resources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateS3Resources where
   hashWithSalt _salt DisassociateS3Resources' {..} =

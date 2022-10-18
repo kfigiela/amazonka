@@ -134,7 +134,7 @@ instance Core.AWSRequest CreateAssistantAssociation where
   type
     AWSResponse CreateAssistantAssociation =
       CreateAssistantAssociationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateAssistantAssociation where
             Prelude.<$> (x Core..?> "assistantAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAssistantAssociation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAssistantAssociation where
   hashWithSalt _salt CreateAssistantAssociation' {..} =

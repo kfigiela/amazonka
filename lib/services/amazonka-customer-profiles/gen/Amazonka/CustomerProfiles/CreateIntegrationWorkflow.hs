@@ -152,7 +152,7 @@ instance Core.AWSRequest CreateIntegrationWorkflow where
   type
     AWSResponse CreateIntegrationWorkflow =
       CreateIntegrationWorkflowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest CreateIntegrationWorkflow where
             Prelude.<*> (x Core..:> "WorkflowId")
             Prelude.<*> (x Core..:> "Message")
       )
+
+instance Core.AWSService CreateIntegrationWorkflow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIntegrationWorkflow where
   hashWithSalt _salt CreateIntegrationWorkflow' {..} =

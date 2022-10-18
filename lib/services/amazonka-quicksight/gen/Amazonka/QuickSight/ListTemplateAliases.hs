@@ -143,7 +143,7 @@ instance Core.AWSRequest ListTemplateAliases where
   type
     AWSResponse ListTemplateAliases =
       ListTemplateAliasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ListTemplateAliases where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTemplateAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTemplateAliases where
   hashWithSalt _salt ListTemplateAliases' {..} =

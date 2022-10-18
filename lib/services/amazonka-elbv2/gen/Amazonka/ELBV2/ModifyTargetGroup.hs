@@ -241,7 +241,7 @@ instance Core.AWSRequest ModifyTargetGroup where
   type
     AWSResponse ModifyTargetGroup =
       ModifyTargetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyTargetGroupResult"
@@ -252,6 +252,9 @@ instance Core.AWSRequest ModifyTargetGroup where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyTargetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyTargetGroup where
   hashWithSalt _salt ModifyTargetGroup' {..} =

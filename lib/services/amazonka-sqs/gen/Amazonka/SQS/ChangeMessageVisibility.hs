@@ -170,10 +170,13 @@ instance Core.AWSRequest ChangeMessageVisibility where
   type
     AWSResponse ChangeMessageVisibility =
       ChangeMessageVisibilityResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ChangeMessageVisibilityResponse'
+
+instance Core.AWSService ChangeMessageVisibility where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChangeMessageVisibility where
   hashWithSalt _salt ChangeMessageVisibility' {..} =

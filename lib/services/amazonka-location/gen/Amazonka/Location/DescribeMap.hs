@@ -83,7 +83,7 @@ describeMap_mapName = Lens.lens (\DescribeMap' {mapName} -> mapName) (\s@Describ
 
 instance Core.AWSRequest DescribeMap where
   type AWSResponse DescribeMap = DescribeMapResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeMap where
             Prelude.<*> (x Core..:> "MapName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService DescribeMap where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMap where
   hashWithSalt _salt DescribeMap' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest GetLaunchProfileDetails where
   type
     AWSResponse GetLaunchProfileDetails =
       GetLaunchProfileDetailsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest GetLaunchProfileDetails where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLaunchProfileDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLaunchProfileDetails where
   hashWithSalt _salt GetLaunchProfileDetails' {..} =

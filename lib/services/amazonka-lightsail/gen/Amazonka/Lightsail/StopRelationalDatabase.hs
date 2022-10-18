@@ -98,7 +98,7 @@ instance Core.AWSRequest StopRelationalDatabase where
   type
     AWSResponse StopRelationalDatabase =
       StopRelationalDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest StopRelationalDatabase where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopRelationalDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopRelationalDatabase where
   hashWithSalt _salt StopRelationalDatabase' {..} =

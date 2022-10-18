@@ -265,7 +265,7 @@ instance Core.AWSRequest CreateProjectVersion where
   type
     AWSResponse CreateProjectVersion =
       CreateProjectVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -273,6 +273,9 @@ instance Core.AWSRequest CreateProjectVersion where
             Prelude.<$> (x Core..?> "ProjectVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProjectVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProjectVersion where
   hashWithSalt _salt CreateProjectVersion' {..} =

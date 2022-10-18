@@ -104,7 +104,7 @@ instance Core.AWSRequest GetExternalModels where
   type
     AWSResponse GetExternalModels =
       GetExternalModelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetExternalModels where
             Prelude.<*> (x Core..?> "externalModels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetExternalModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExternalModels where
   hashWithSalt _salt GetExternalModels' {..} =

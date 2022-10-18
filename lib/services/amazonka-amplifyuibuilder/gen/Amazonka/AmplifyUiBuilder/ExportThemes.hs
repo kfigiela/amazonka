@@ -120,7 +120,7 @@ instance Core.AWSPager ExportThemes where
 
 instance Core.AWSRequest ExportThemes where
   type AWSResponse ExportThemes = ExportThemesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ExportThemes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "entities" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ExportThemes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportThemes where
   hashWithSalt _salt ExportThemes' {..} =

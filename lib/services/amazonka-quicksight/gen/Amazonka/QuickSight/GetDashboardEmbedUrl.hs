@@ -305,7 +305,7 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
   type
     AWSResponse GetDashboardEmbedUrl =
       GetDashboardEmbedUrlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -314,6 +314,9 @@ instance Core.AWSRequest GetDashboardEmbedUrl where
             Prelude.<*> (x Core..?> "EmbedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDashboardEmbedUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDashboardEmbedUrl where
   hashWithSalt _salt GetDashboardEmbedUrl' {..} =

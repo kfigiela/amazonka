@@ -150,7 +150,7 @@ getMedia_startSelector = Lens.lens (\GetMedia' {startSelector} -> startSelector)
 
 instance Core.AWSRequest GetMedia where
   type AWSResponse GetMedia = GetMediaResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest GetMedia where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetMedia where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMedia where
   hashWithSalt _salt GetMedia' {..} =

@@ -80,13 +80,16 @@ instance Core.AWSRequest StopThingRegistrationTask where
   type
     AWSResponse StopThingRegistrationTask =
       StopThingRegistrationTaskResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopThingRegistrationTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopThingRegistrationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopThingRegistrationTask where
   hashWithSalt _salt StopThingRegistrationTask' {..} =

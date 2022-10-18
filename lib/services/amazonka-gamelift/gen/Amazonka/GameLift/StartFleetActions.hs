@@ -140,7 +140,7 @@ instance Core.AWSRequest StartFleetActions where
   type
     AWSResponse StartFleetActions =
       StartFleetActionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest StartFleetActions where
             Prelude.<*> (x Core..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartFleetActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartFleetActions where
   hashWithSalt _salt StartFleetActions' {..} =

@@ -77,7 +77,7 @@ instance Core.AWSRequest DescribeEventsDetectionJob where
   type
     AWSResponse DescribeEventsDetectionJob =
       DescribeEventsDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeEventsDetectionJob where
             Prelude.<$> (x Core..?> "EventsDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEventsDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEventsDetectionJob where
   hashWithSalt _salt DescribeEventsDetectionJob' {..} =

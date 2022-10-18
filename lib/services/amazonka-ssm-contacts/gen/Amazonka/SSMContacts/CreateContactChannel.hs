@@ -195,7 +195,7 @@ instance Core.AWSRequest CreateContactChannel where
   type
     AWSResponse CreateContactChannel =
       CreateContactChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -203,6 +203,9 @@ instance Core.AWSRequest CreateContactChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ContactChannelArn")
       )
+
+instance Core.AWSService CreateContactChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateContactChannel where
   hashWithSalt _salt CreateContactChannel' {..} =

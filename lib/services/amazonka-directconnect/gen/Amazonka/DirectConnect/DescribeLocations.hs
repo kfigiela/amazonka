@@ -63,7 +63,7 @@ instance Core.AWSRequest DescribeLocations where
   type
     AWSResponse DescribeLocations =
       DescribeLocationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest DescribeLocations where
             Prelude.<$> (x Core..?> "locations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLocations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLocations where
   hashWithSalt _salt _ =

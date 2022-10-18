@@ -125,7 +125,7 @@ instance Core.AWSRequest GetBackendAPI where
   type
     AWSResponse GetBackendAPI =
       GetBackendAPIResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest GetBackendAPI where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackendAPI where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackendAPI where
   hashWithSalt _salt GetBackendAPI' {..} =

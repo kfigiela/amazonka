@@ -93,7 +93,7 @@ instance Core.AWSRequest PutReplicationConfiguration where
   type
     AWSResponse PutReplicationConfiguration =
       PutReplicationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest PutReplicationConfiguration where
             Prelude.<$> (x Core..?> "replicationConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutReplicationConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutReplicationConfiguration where
   hashWithSalt _salt PutReplicationConfiguration' {..} =

@@ -92,9 +92,12 @@ instance Core.AWSRequest DeleteBackupSelection where
   type
     AWSResponse DeleteBackupSelection =
       DeleteBackupSelectionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteBackupSelectionResponse'
+
+instance Core.AWSService DeleteBackupSelection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBackupSelection where
   hashWithSalt _salt DeleteBackupSelection' {..} =

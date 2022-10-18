@@ -142,7 +142,7 @@ listBots_maxResults = Lens.lens (\ListBots' {maxResults} -> maxResults) (\s@List
 
 instance Core.AWSRequest ListBots where
   type AWSResponse ListBots = ListBotsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListBots where
             Prelude.<*> (x Core..?> "botSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBots where
   hashWithSalt _salt ListBots' {..} =

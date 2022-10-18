@@ -520,13 +520,16 @@ instance Core.AWSRequest DeleteScheduledAction where
   type
     AWSResponse DeleteScheduledAction =
       DeleteScheduledActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteScheduledActionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteScheduledAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteScheduledAction where
   hashWithSalt _salt DeleteScheduledAction' {..} =

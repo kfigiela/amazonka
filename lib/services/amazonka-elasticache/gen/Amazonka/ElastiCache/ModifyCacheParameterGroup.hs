@@ -100,11 +100,14 @@ instance Core.AWSRequest ModifyCacheParameterGroup where
   type
     AWSResponse ModifyCacheParameterGroup =
       CacheParameterGroupNameMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyCacheParameterGroupResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyCacheParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyCacheParameterGroup where
   hashWithSalt _salt ModifyCacheParameterGroup' {..} =

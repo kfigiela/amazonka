@@ -111,7 +111,7 @@ instance Core.AWSRequest UpdatePrivateDnsNamespace where
   type
     AWSResponse UpdatePrivateDnsNamespace =
       UpdatePrivateDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdatePrivateDnsNamespace where
             Prelude.<$> (x Core..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePrivateDnsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePrivateDnsNamespace where
   hashWithSalt _salt UpdatePrivateDnsNamespace' {..} =

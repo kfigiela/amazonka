@@ -80,10 +80,13 @@ instance Core.AWSRequest DisableProfile where
   type
     AWSResponse DisableProfile =
       ProfileDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DisableProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableProfile where
   hashWithSalt _salt DisableProfile' {..} =

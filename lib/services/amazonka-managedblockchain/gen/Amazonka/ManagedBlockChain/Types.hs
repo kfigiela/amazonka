@@ -392,6 +392,7 @@ defaultService =
       Core._serviceEndpointPrefix = "managedblockchain",
       Core._serviceSigningName = "managedblockchain",
       Core._serviceVersion = "2018-09-24",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

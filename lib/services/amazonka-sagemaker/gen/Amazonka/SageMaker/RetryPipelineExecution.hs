@@ -113,7 +113,7 @@ instance Core.AWSRequest RetryPipelineExecution where
   type
     AWSResponse RetryPipelineExecution =
       RetryPipelineExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest RetryPipelineExecution where
             Prelude.<$> (x Core..?> "PipelineExecutionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RetryPipelineExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetryPipelineExecution where
   hashWithSalt _salt RetryPipelineExecution' {..} =

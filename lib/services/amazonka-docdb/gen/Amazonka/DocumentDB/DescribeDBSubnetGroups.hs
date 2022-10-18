@@ -163,7 +163,7 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
   type
     AWSResponse DescribeDBSubnetGroups =
       DescribeDBSubnetGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBSubnetGroupsResult"
@@ -175,6 +175,9 @@ instance Core.AWSRequest DescribeDBSubnetGroups where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBSubnetGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBSubnetGroups where
   hashWithSalt _salt DescribeDBSubnetGroups' {..} =

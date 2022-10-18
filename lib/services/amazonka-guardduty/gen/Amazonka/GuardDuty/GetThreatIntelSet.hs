@@ -98,7 +98,7 @@ instance Core.AWSRequest GetThreatIntelSet where
   type
     AWSResponse GetThreatIntelSet =
       GetThreatIntelSetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest GetThreatIntelSet where
             Prelude.<*> (x Core..:> "location")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetThreatIntelSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetThreatIntelSet where
   hashWithSalt _salt GetThreatIntelSet' {..} =

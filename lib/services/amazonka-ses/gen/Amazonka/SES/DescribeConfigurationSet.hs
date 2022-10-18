@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeConfigurationSet where
   type
     AWSResponse DescribeConfigurationSet =
       DescribeConfigurationSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeConfigurationSetResult"
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeConfigurationSet where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConfigurationSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConfigurationSet where
   hashWithSalt _salt DescribeConfigurationSet' {..} =

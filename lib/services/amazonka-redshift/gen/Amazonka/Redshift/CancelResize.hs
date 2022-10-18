@@ -95,11 +95,14 @@ cancelResize_clusterIdentifier = Lens.lens (\CancelResize' {clusterIdentifier} -
 
 instance Core.AWSRequest CancelResize where
   type AWSResponse CancelResize = ResizeProgressMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CancelResizeResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CancelResize where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelResize where
   hashWithSalt _salt CancelResize' {..} =

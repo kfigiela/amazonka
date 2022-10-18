@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateHostedZoneComment where
   type
     AWSResponse UpdateHostedZoneComment =
       UpdateHostedZoneCommentResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateHostedZoneComment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "HostedZone")
       )
+
+instance Core.AWSService UpdateHostedZoneComment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateHostedZoneComment where
   hashWithSalt _salt UpdateHostedZoneComment' {..} =

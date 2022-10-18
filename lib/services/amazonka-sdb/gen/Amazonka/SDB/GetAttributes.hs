@@ -129,7 +129,7 @@ instance Core.AWSRequest GetAttributes where
   type
     AWSResponse GetAttributes =
       GetAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAttributesResult"
@@ -138,6 +138,9 @@ instance Core.AWSRequest GetAttributes where
             Prelude.<$> (Core.may (Core.parseXMLList "Attribute") x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAttributes where
   hashWithSalt _salt GetAttributes' {..} =

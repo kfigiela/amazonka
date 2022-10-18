@@ -117,7 +117,7 @@ instance Core.AWSRequest UpdateStorageVirtualMachine where
   type
     AWSResponse UpdateStorageVirtualMachine =
       UpdateStorageVirtualMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdateStorageVirtualMachine where
             Prelude.<$> (x Core..?> "StorageVirtualMachine")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateStorageVirtualMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStorageVirtualMachine where
   hashWithSalt _salt UpdateStorageVirtualMachine' {..} =

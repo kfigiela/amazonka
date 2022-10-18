@@ -171,7 +171,7 @@ instance Core.AWSRequest DescribeFileSystems where
   type
     AWSResponse DescribeFileSystems =
       DescribeFileSystemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -180,6 +180,9 @@ instance Core.AWSRequest DescribeFileSystems where
             Prelude.<*> (x Core..?> "FileSystems" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFileSystems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFileSystems where
   hashWithSalt _salt DescribeFileSystems' {..} =

@@ -190,7 +190,7 @@ instance Core.AWSRequest ListFeatureGroups where
   type
     AWSResponse ListFeatureGroups =
       ListFeatureGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest ListFeatureGroups where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListFeatureGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFeatureGroups where
   hashWithSalt _salt ListFeatureGroups' {..} =

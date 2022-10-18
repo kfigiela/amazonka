@@ -106,7 +106,7 @@ instance Core.AWSRequest RetryWorkflowStep where
   type
     AWSResponse RetryWorkflowStep =
       RetryWorkflowStepResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest RetryWorkflowStep where
             Prelude.<*> (x Core..?> "stepGroupId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RetryWorkflowStep where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RetryWorkflowStep where
   hashWithSalt _salt RetryWorkflowStep' {..} =

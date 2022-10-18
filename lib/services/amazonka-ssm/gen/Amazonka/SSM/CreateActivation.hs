@@ -270,7 +270,7 @@ instance Core.AWSRequest CreateActivation where
   type
     AWSResponse CreateActivation =
       CreateActivationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -279,6 +279,9 @@ instance Core.AWSRequest CreateActivation where
             Prelude.<*> (x Core..?> "ActivationCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateActivation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateActivation where
   hashWithSalt _salt CreateActivation' {..} =

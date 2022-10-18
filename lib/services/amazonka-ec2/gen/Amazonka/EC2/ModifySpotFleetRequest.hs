@@ -179,7 +179,7 @@ instance Core.AWSRequest ModifySpotFleetRequest where
   type
     AWSResponse ModifySpotFleetRequest =
       ModifySpotFleetRequestResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest ModifySpotFleetRequest where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifySpotFleetRequest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifySpotFleetRequest where
   hashWithSalt _salt ModifySpotFleetRequest' {..} =

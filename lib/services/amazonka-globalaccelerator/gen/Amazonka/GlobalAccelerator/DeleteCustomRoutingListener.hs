@@ -76,10 +76,13 @@ instance Core.AWSRequest DeleteCustomRoutingListener where
   type
     AWSResponse DeleteCustomRoutingListener =
       DeleteCustomRoutingListenerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteCustomRoutingListenerResponse'
+
+instance Core.AWSService DeleteCustomRoutingListener where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomRoutingListener where
   hashWithSalt _salt DeleteCustomRoutingListener' {..} =

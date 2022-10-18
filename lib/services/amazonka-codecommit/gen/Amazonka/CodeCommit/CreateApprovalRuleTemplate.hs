@@ -225,7 +225,7 @@ instance Core.AWSRequest CreateApprovalRuleTemplate where
   type
     AWSResponse CreateApprovalRuleTemplate =
       CreateApprovalRuleTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -233,6 +233,9 @@ instance Core.AWSRequest CreateApprovalRuleTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "approvalRuleTemplate")
       )
+
+instance Core.AWSService CreateApprovalRuleTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApprovalRuleTemplate where
   hashWithSalt _salt CreateApprovalRuleTemplate' {..} =

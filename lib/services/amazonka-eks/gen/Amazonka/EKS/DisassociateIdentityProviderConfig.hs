@@ -114,7 +114,7 @@ instance
   type
     AWSResponse DisassociateIdentityProviderConfig =
       DisassociateIdentityProviderConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,12 @@ instance
             Prelude.<$> (x Core..?> "update")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateIdentityProviderConfig
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

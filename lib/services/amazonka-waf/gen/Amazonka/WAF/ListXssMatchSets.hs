@@ -148,7 +148,7 @@ instance Core.AWSRequest ListXssMatchSets where
   type
     AWSResponse ListXssMatchSets =
       ListXssMatchSetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListXssMatchSets where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListXssMatchSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListXssMatchSets where
   hashWithSalt _salt ListXssMatchSets' {..} =

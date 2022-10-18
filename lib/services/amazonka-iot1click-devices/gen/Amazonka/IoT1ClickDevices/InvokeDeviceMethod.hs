@@ -101,7 +101,7 @@ instance Core.AWSRequest InvokeDeviceMethod where
   type
     AWSResponse InvokeDeviceMethod =
       InvokeDeviceMethodResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest InvokeDeviceMethod where
             Prelude.<$> (x Core..?> "deviceMethodResponse")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InvokeDeviceMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InvokeDeviceMethod where
   hashWithSalt _salt InvokeDeviceMethod' {..} =

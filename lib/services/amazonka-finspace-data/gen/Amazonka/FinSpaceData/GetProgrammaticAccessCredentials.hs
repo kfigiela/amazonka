@@ -96,7 +96,7 @@ instance
   type
     AWSResponse GetProgrammaticAccessCredentials =
       GetProgrammaticAccessCredentialsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,12 @@ instance
             Prelude.<*> (x Core..?> "durationInMinutes")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetProgrammaticAccessCredentials
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

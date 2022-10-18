@@ -216,7 +216,7 @@ instance Core.AWSRequest PromoteReadReplica where
   type
     AWSResponse PromoteReadReplica =
       PromoteReadReplicaResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PromoteReadReplicaResult"
@@ -225,6 +225,9 @@ instance Core.AWSRequest PromoteReadReplica where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PromoteReadReplica where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PromoteReadReplica where
   hashWithSalt _salt PromoteReadReplica' {..} =

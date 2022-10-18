@@ -108,13 +108,16 @@ putDetector_eventTypeName = Lens.lens (\PutDetector' {eventTypeName} -> eventTyp
 
 instance Core.AWSRequest PutDetector where
   type AWSResponse PutDetector = PutDetectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutDetectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDetector where
   hashWithSalt _salt PutDetector' {..} =

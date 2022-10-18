@@ -97,13 +97,16 @@ putLabel_name = Lens.lens (\PutLabel' {name} -> name) (\s@PutLabel' {} a -> s {n
 
 instance Core.AWSRequest PutLabel where
   type AWSResponse PutLabel = PutLabelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutLabelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLabel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLabel where
   hashWithSalt _salt PutLabel' {..} =

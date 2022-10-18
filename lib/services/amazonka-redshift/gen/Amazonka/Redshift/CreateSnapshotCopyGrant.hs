@@ -155,7 +155,7 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
   type
     AWSResponse CreateSnapshotCopyGrant =
       CreateSnapshotCopyGrantResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateSnapshotCopyGrantResult"
@@ -164,6 +164,9 @@ instance Core.AWSRequest CreateSnapshotCopyGrant where
             Prelude.<$> (x Core..@? "SnapshotCopyGrant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSnapshotCopyGrant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSnapshotCopyGrant where
   hashWithSalt _salt CreateSnapshotCopyGrant' {..} =

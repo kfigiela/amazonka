@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeListeners where
   type
     AWSResponse DescribeListeners =
       DescribeListenersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeListenersResult"
@@ -150,6 +150,9 @@ instance Core.AWSRequest DescribeListeners where
             Prelude.<*> (x Core..@? "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeListeners where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeListeners where
   hashWithSalt _salt DescribeListeners' {..} =

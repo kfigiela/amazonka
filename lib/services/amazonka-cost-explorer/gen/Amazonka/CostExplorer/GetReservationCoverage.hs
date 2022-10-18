@@ -498,7 +498,7 @@ instance Core.AWSRequest GetReservationCoverage where
   type
     AWSResponse GetReservationCoverage =
       GetReservationCoverageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -510,6 +510,9 @@ instance Core.AWSRequest GetReservationCoverage where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetReservationCoverage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReservationCoverage where
   hashWithSalt _salt GetReservationCoverage' {..} =

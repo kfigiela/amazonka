@@ -153,7 +153,7 @@ instance Core.AWSRequest CreateAccessPolicy where
   type
     AWSResponse CreateAccessPolicy =
       CreateAccessPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest CreateAccessPolicy where
             Prelude.<*> (x Core..:> "accessPolicyId")
             Prelude.<*> (x Core..:> "accessPolicyArn")
       )
+
+instance Core.AWSService CreateAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAccessPolicy where
   hashWithSalt _salt CreateAccessPolicy' {..} =

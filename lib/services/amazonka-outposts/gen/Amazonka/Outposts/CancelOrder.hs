@@ -74,13 +74,16 @@ cancelOrder_orderId = Lens.lens (\CancelOrder' {orderId} -> orderId) (\s@CancelO
 
 instance Core.AWSRequest CancelOrder where
   type AWSResponse CancelOrder = CancelOrderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelOrderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelOrder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelOrder where
   hashWithSalt _salt CancelOrder' {..} =

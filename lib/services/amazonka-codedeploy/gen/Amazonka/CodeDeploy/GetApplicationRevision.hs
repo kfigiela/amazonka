@@ -101,7 +101,7 @@ instance Core.AWSRequest GetApplicationRevision where
   type
     AWSResponse GetApplicationRevision =
       GetApplicationRevisionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest GetApplicationRevision where
             Prelude.<*> (x Core..?> "applicationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetApplicationRevision where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplicationRevision where
   hashWithSalt _salt GetApplicationRevision' {..} =

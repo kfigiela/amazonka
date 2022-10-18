@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteSubscriptionDefinition where
   type
     AWSResponse DeleteSubscriptionDefinition =
       DeleteSubscriptionDefinitionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSubscriptionDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSubscriptionDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -202,7 +202,7 @@ instance Core.AWSRequest ListFindingsReports where
   type
     AWSResponse ListFindingsReports =
       ListFindingsReportsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -213,6 +213,9 @@ instance Core.AWSRequest ListFindingsReports where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListFindingsReports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFindingsReports where
   hashWithSalt _salt ListFindingsReports' {..} =

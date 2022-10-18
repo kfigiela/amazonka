@@ -123,7 +123,7 @@ instance Core.AWSRequest UpdateParallelData where
   type
     AWSResponse UpdateParallelData =
       UpdateParallelDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest UpdateParallelData where
             Prelude.<*> (x Core..?> "LatestUpdateAttemptAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateParallelData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateParallelData where
   hashWithSalt _salt UpdateParallelData' {..} =

@@ -82,7 +82,7 @@ getTopicRule_ruleName = Lens.lens (\GetTopicRule' {ruleName} -> ruleName) (\s@Ge
 
 instance Core.AWSRequest GetTopicRule where
   type AWSResponse GetTopicRule = GetTopicRuleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetTopicRule where
             Prelude.<*> (x Core..?> "rule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTopicRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTopicRule where
   hashWithSalt _salt GetTopicRule' {..} =

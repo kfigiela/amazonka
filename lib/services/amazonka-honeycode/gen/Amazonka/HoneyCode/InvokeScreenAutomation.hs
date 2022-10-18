@@ -196,7 +196,7 @@ instance Core.AWSRequest InvokeScreenAutomation where
   type
     AWSResponse InvokeScreenAutomation =
       InvokeScreenAutomationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest InvokeScreenAutomation where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "workbookCursor")
       )
+
+instance Core.AWSService InvokeScreenAutomation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InvokeScreenAutomation where
   hashWithSalt _salt InvokeScreenAutomation' {..} =

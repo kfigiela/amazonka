@@ -109,13 +109,16 @@ instance Core.AWSRequest UpdatePrimaryEmailAddress where
   type
     AWSResponse UpdatePrimaryEmailAddress =
       UpdatePrimaryEmailAddressResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePrimaryEmailAddressResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePrimaryEmailAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePrimaryEmailAddress where
   hashWithSalt _salt UpdatePrimaryEmailAddress' {..} =

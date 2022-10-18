@@ -158,7 +158,7 @@ instance Core.AWSRequest UploadSSHPublicKey where
   type
     AWSResponse UploadSSHPublicKey =
       UploadSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UploadSSHPublicKeyResult"
@@ -167,6 +167,9 @@ instance Core.AWSRequest UploadSSHPublicKey where
             Prelude.<$> (x Core..@? "SSHPublicKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UploadSSHPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UploadSSHPublicKey where
   hashWithSalt _salt UploadSSHPublicKey' {..} =

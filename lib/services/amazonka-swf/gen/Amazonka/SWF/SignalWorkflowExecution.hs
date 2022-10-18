@@ -159,10 +159,13 @@ instance Core.AWSRequest SignalWorkflowExecution where
   type
     AWSResponse SignalWorkflowExecution =
       SignalWorkflowExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       SignalWorkflowExecutionResponse'
+
+instance Core.AWSService SignalWorkflowExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SignalWorkflowExecution where
   hashWithSalt _salt SignalWorkflowExecution' {..} =

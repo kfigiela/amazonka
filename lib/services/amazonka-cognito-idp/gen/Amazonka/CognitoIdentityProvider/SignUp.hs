@@ -299,7 +299,7 @@ signUp_password = Lens.lens (\SignUp' {password} -> password) (\s@SignUp' {} a -
 
 instance Core.AWSRequest SignUp where
   type AWSResponse SignUp = SignUpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -309,6 +309,9 @@ instance Core.AWSRequest SignUp where
             Prelude.<*> (x Core..:> "UserConfirmed")
             Prelude.<*> (x Core..:> "UserSub")
       )
+
+instance Core.AWSService SignUp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SignUp where
   hashWithSalt _salt SignUp' {..} =

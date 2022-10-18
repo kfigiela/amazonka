@@ -147,7 +147,7 @@ instance Core.AWSRequest ListBuiltInIntents where
   type
     AWSResponse ListBuiltInIntents =
       ListBuiltInIntentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListBuiltInIntents where
             Prelude.<*> (x Core..?> "localeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBuiltInIntents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBuiltInIntents where
   hashWithSalt _salt ListBuiltInIntents' {..} =

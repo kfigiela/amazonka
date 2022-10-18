@@ -155,7 +155,7 @@ instance
   type
     AWSResponse RevokeClusterSecurityGroupIngress =
       RevokeClusterSecurityGroupIngressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RevokeClusterSecurityGroupIngressResult"
@@ -164,6 +164,12 @@ instance
             Prelude.<$> (x Core..@? "ClusterSecurityGroup")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RevokeClusterSecurityGroupIngress
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -104,8 +104,11 @@ untagRole_tagKeys = Lens.lens (\UntagRole' {tagKeys} -> tagKeys) (\s@UntagRole' 
 
 instance Core.AWSRequest UntagRole where
   type AWSResponse UntagRole = UntagRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull UntagRoleResponse'
+
+instance Core.AWSService UntagRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagRole where
   hashWithSalt _salt UntagRole' {..} =

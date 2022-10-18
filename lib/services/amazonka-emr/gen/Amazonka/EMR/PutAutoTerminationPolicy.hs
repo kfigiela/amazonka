@@ -100,13 +100,16 @@ instance Core.AWSRequest PutAutoTerminationPolicy where
   type
     AWSResponse PutAutoTerminationPolicy =
       PutAutoTerminationPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAutoTerminationPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAutoTerminationPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAutoTerminationPolicy where
   hashWithSalt _salt PutAutoTerminationPolicy' {..} =

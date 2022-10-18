@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeMitigationAction where
   type
     AWSResponse DescribeMitigationAction =
       DescribeMitigationActionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest DescribeMitigationAction where
             Prelude.<*> (x Core..?> "actionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMitigationAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMitigationAction where
   hashWithSalt _salt DescribeMitigationAction' {..} =

@@ -109,7 +109,7 @@ instance Core.AWSRequest RunPipelineActivity where
   type
     AWSResponse RunPipelineActivity =
       RunPipelineActivityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest RunPipelineActivity where
             Prelude.<*> (x Core..?> "logResult")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RunPipelineActivity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RunPipelineActivity where
   hashWithSalt _salt RunPipelineActivity' {..} =

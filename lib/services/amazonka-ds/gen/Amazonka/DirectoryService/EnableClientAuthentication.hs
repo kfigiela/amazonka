@@ -101,13 +101,16 @@ instance Core.AWSRequest EnableClientAuthentication where
   type
     AWSResponse EnableClientAuthentication =
       EnableClientAuthenticationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableClientAuthenticationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableClientAuthentication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableClientAuthentication where
   hashWithSalt _salt EnableClientAuthentication' {..} =

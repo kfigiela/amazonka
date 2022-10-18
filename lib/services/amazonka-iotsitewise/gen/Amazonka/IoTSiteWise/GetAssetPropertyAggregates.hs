@@ -259,7 +259,7 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
   type
     AWSResponse GetAssetPropertyAggregates =
       GetAssetPropertyAggregatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -270,6 +270,9 @@ instance Core.AWSRequest GetAssetPropertyAggregates where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetAssetPropertyAggregates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssetPropertyAggregates where
   hashWithSalt _salt GetAssetPropertyAggregates' {..} =

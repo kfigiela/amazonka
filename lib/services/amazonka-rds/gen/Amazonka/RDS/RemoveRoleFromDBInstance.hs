@@ -113,10 +113,13 @@ instance Core.AWSRequest RemoveRoleFromDBInstance where
   type
     AWSResponse RemoveRoleFromDBInstance =
       RemoveRoleFromDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       RemoveRoleFromDBInstanceResponse'
+
+instance Core.AWSService RemoveRoleFromDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveRoleFromDBInstance where
   hashWithSalt _salt RemoveRoleFromDBInstance' {..} =

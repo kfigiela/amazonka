@@ -136,7 +136,7 @@ instance Core.AWSRequest ListSignalCatalogs where
   type
     AWSResponse ListSignalCatalogs =
       ListSignalCatalogsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest ListSignalCatalogs where
             Prelude.<*> (x Core..?> "summaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSignalCatalogs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSignalCatalogs where
   hashWithSalt _salt ListSignalCatalogs' {..} =

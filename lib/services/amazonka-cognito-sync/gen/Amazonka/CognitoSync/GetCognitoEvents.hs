@@ -87,7 +87,7 @@ instance Core.AWSRequest GetCognitoEvents where
   type
     AWSResponse GetCognitoEvents =
       GetCognitoEventsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetCognitoEvents where
             Prelude.<$> (x Core..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCognitoEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCognitoEvents where
   hashWithSalt _salt GetCognitoEvents' {..} =

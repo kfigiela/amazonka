@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeStreamProcessor where
   type
     AWSResponse DescribeStreamProcessor =
       DescribeStreamProcessorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeStreamProcessor where
             Prelude.<*> (x Core..?> "NotificationChannel")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStreamProcessor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStreamProcessor where
   hashWithSalt _salt DescribeStreamProcessor' {..} =

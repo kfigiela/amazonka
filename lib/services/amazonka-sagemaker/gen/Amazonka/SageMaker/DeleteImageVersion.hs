@@ -91,13 +91,16 @@ instance Core.AWSRequest DeleteImageVersion where
   type
     AWSResponse DeleteImageVersion =
       DeleteImageVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteImageVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImageVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImageVersion where
   hashWithSalt _salt DeleteImageVersion' {..} =

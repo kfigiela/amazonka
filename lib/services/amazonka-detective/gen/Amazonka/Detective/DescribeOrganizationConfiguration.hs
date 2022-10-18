@@ -88,7 +88,7 @@ instance
   type
     AWSResponse DescribeOrganizationConfiguration =
       DescribeOrganizationConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,12 @@ instance
             Prelude.<$> (x Core..?> "AutoEnable")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeOrganizationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

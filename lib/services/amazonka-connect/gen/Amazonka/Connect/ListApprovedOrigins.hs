@@ -137,7 +137,7 @@ instance Core.AWSRequest ListApprovedOrigins where
   type
     AWSResponse ListApprovedOrigins =
       ListApprovedOriginsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest ListApprovedOrigins where
             Prelude.<*> (x Core..?> "Origins" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListApprovedOrigins where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApprovedOrigins where
   hashWithSalt _salt ListApprovedOrigins' {..} =

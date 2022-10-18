@@ -167,7 +167,7 @@ instance Core.AWSRequest TestCustomDataIdentifier where
   type
     AWSResponse TestCustomDataIdentifier =
       TestCustomDataIdentifierResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest TestCustomDataIdentifier where
             Prelude.<$> (x Core..?> "matchCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestCustomDataIdentifier where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestCustomDataIdentifier where
   hashWithSalt _salt TestCustomDataIdentifier' {..} =

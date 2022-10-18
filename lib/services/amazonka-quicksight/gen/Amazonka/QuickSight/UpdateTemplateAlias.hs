@@ -135,7 +135,7 @@ instance Core.AWSRequest UpdateTemplateAlias where
   type
     AWSResponse UpdateTemplateAlias =
       UpdateTemplateAliasResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -144,6 +144,9 @@ instance Core.AWSRequest UpdateTemplateAlias where
             Prelude.<*> (x Core..?> "TemplateAlias")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTemplateAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTemplateAlias where
   hashWithSalt _salt UpdateTemplateAlias' {..} =

@@ -197,7 +197,7 @@ instance Core.AWSRequest CreateModelBiasJobDefinition where
   type
     AWSResponse CreateModelBiasJobDefinition =
       CreateModelBiasJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,6 +205,9 @@ instance Core.AWSRequest CreateModelBiasJobDefinition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "JobDefinitionArn")
       )
+
+instance Core.AWSService CreateModelBiasJobDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

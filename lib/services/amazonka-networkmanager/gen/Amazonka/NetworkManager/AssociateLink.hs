@@ -108,7 +108,7 @@ instance Core.AWSRequest AssociateLink where
   type
     AWSResponse AssociateLink =
       AssociateLinkResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest AssociateLink where
             Prelude.<$> (x Core..?> "LinkAssociation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateLink where
   hashWithSalt _salt AssociateLink' {..} =

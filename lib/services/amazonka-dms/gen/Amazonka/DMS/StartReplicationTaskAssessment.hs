@@ -101,7 +101,7 @@ instance
   type
     AWSResponse StartReplicationTaskAssessment =
       StartReplicationTaskAssessmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,12 @@ instance
             Prelude.<$> (x Core..?> "ReplicationTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    StartReplicationTaskAssessment
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

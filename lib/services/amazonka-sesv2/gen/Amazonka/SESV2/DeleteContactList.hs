@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteContactList where
   type
     AWSResponse DeleteContactList =
       DeleteContactListResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteContactListResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteContactList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContactList where
   hashWithSalt _salt DeleteContactList' {..} =

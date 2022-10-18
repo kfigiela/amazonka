@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteGroupMembership where
   type
     AWSResponse DeleteGroupMembership =
       DeleteGroupMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGroupMembershipResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGroupMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGroupMembership where
   hashWithSalt _salt DeleteGroupMembership' {..} =

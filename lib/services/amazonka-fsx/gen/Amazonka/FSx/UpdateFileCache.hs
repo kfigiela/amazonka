@@ -100,7 +100,7 @@ instance Core.AWSRequest UpdateFileCache where
   type
     AWSResponse UpdateFileCache =
       UpdateFileCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest UpdateFileCache where
             Prelude.<$> (x Core..?> "FileCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFileCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFileCache where
   hashWithSalt _salt UpdateFileCache' {..} =

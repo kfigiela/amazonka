@@ -126,7 +126,7 @@ instance Core.AWSRequest DeleteResourceShare where
   type
     AWSResponse DeleteResourceShare =
       DeleteResourceShareResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DeleteResourceShare where
             Prelude.<*> (x Core..?> "returnValue")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResourceShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResourceShare where
   hashWithSalt _salt DeleteResourceShare' {..} =

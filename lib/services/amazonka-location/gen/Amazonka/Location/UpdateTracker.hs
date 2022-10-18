@@ -199,7 +199,7 @@ instance Core.AWSRequest UpdateTracker where
   type
     AWSResponse UpdateTracker =
       UpdateTrackerResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest UpdateTracker where
             Prelude.<*> (x Core..:> "TrackerName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService UpdateTracker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTracker where
   hashWithSalt _salt UpdateTracker' {..} =

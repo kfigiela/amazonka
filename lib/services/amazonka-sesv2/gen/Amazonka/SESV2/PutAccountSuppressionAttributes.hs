@@ -112,13 +112,19 @@ instance
   type
     AWSResponse PutAccountSuppressionAttributes =
       PutAccountSuppressionAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAccountSuppressionAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutAccountSuppressionAttributes
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -94,7 +94,7 @@ instance Core.AWSRequest GetCelebrityInfo where
   type
     AWSResponse GetCelebrityInfo =
       GetCelebrityInfoResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetCelebrityInfo where
             Prelude.<*> (x Core..?> "Urls" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCelebrityInfo where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCelebrityInfo where
   hashWithSalt _salt GetCelebrityInfo' {..} =

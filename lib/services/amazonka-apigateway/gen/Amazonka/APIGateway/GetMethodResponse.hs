@@ -120,10 +120,13 @@ getMethodResponse_statusCode = Lens.lens (\GetMethodResponse' {statusCode} -> st
 
 instance Core.AWSRequest GetMethodResponse where
   type AWSResponse GetMethodResponse = MethodResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetMethodResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMethodResponse where
   hashWithSalt _salt GetMethodResponse' {..} =

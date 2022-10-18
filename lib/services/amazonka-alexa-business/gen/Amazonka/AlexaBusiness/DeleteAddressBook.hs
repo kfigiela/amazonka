@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteAddressBook where
   type
     AWSResponse DeleteAddressBook =
       DeleteAddressBookResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAddressBookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAddressBook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAddressBook where
   hashWithSalt _salt DeleteAddressBook' {..} =

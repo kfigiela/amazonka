@@ -221,7 +221,7 @@ instance Core.AWSRequest DescribeHosts where
   type
     AWSResponse DescribeHosts =
       DescribeHostsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -232,6 +232,9 @@ instance Core.AWSRequest DescribeHosts where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHosts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHosts where
   hashWithSalt _salt DescribeHosts' {..} =

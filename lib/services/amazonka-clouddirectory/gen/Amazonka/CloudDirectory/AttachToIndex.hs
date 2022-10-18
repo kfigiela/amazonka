@@ -109,7 +109,7 @@ instance Core.AWSRequest AttachToIndex where
   type
     AWSResponse AttachToIndex =
       AttachToIndexResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest AttachToIndex where
             Prelude.<$> (x Core..?> "AttachedObjectIdentifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AttachToIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachToIndex where
   hashWithSalt _salt AttachToIndex' {..} =

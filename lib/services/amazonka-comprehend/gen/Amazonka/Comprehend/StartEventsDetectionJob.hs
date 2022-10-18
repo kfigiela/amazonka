@@ -181,7 +181,7 @@ instance Core.AWSRequest StartEventsDetectionJob where
   type
     AWSResponse StartEventsDetectionJob =
       StartEventsDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest StartEventsDetectionJob where
             Prelude.<*> (x Core..?> "JobArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartEventsDetectionJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartEventsDetectionJob where
   hashWithSalt _salt StartEventsDetectionJob' {..} =

@@ -107,7 +107,7 @@ instance Core.AWSRequest RestoreAddressToClassic where
   type
     AWSResponse RestoreAddressToClassic =
       RestoreAddressToClassicResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest RestoreAddressToClassic where
             Prelude.<*> (x Core..@? "publicIp")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreAddressToClassic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreAddressToClassic where
   hashWithSalt _salt RestoreAddressToClassic' {..} =

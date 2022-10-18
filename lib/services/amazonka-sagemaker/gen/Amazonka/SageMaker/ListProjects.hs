@@ -151,7 +151,7 @@ listProjects_creationTimeAfter = Lens.lens (\ListProjects' {creationTimeAfter} -
 
 instance Core.AWSRequest ListProjects where
   type AWSResponse ListProjects = ListProjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest ListProjects where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListProjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProjects where
   hashWithSalt _salt ListProjects' {..} =

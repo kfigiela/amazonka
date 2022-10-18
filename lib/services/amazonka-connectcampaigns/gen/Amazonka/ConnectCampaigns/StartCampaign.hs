@@ -73,9 +73,12 @@ instance Core.AWSRequest StartCampaign where
   type
     AWSResponse StartCampaign =
       StartCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull StartCampaignResponse'
+
+instance Core.AWSService StartCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCampaign where
   hashWithSalt _salt StartCampaign' {..} =

@@ -150,7 +150,7 @@ instance Core.AWSRequest CreateBrowserSettings where
   type
     AWSResponse CreateBrowserSettings =
       CreateBrowserSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest CreateBrowserSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "browserSettingsArn")
       )
+
+instance Core.AWSService CreateBrowserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBrowserSettings where
   hashWithSalt _salt CreateBrowserSettings' {..} =

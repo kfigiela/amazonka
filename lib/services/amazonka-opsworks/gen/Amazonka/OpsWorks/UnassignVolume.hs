@@ -81,9 +81,12 @@ instance Core.AWSRequest UnassignVolume where
   type
     AWSResponse UnassignVolume =
       UnassignVolumeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UnassignVolumeResponse'
+
+instance Core.AWSService UnassignVolume where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnassignVolume where
   hashWithSalt _salt UnassignVolume' {..} =

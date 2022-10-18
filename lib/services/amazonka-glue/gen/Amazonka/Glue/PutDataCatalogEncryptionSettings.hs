@@ -99,13 +99,19 @@ instance
   type
     AWSResponse PutDataCatalogEncryptionSettings =
       PutDataCatalogEncryptionSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutDataCatalogEncryptionSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutDataCatalogEncryptionSettings
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

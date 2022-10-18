@@ -106,7 +106,7 @@ instance Core.AWSRequest TestRenderEmailTemplate where
   type
     AWSResponse TestRenderEmailTemplate =
       TestRenderEmailTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest TestRenderEmailTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "RenderedTemplate")
       )
+
+instance Core.AWSService TestRenderEmailTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestRenderEmailTemplate where
   hashWithSalt _salt TestRenderEmailTemplate' {..} =

@@ -94,7 +94,7 @@ instance Core.AWSRequest GetAuthorizationToken where
   type
     AWSResponse GetAuthorizationToken =
       GetAuthorizationTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetAuthorizationToken where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAuthorizationToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAuthorizationToken where
   hashWithSalt _salt GetAuthorizationToken' {..} =

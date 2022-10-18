@@ -115,7 +115,7 @@ instance Core.AWSRequest DescribeSuggesters where
   type
     AWSResponse DescribeSuggesters =
       DescribeSuggestersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeSuggestersResult"
@@ -126,6 +126,9 @@ instance Core.AWSRequest DescribeSuggesters where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeSuggesters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSuggesters where
   hashWithSalt _salt DescribeSuggesters' {..} =

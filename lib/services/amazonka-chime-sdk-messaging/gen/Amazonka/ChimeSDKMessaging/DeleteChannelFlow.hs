@@ -83,9 +83,12 @@ instance Core.AWSRequest DeleteChannelFlow where
   type
     AWSResponse DeleteChannelFlow =
       DeleteChannelFlowResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteChannelFlowResponse'
+
+instance Core.AWSService DeleteChannelFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChannelFlow where
   hashWithSalt _salt DeleteChannelFlow' {..} =

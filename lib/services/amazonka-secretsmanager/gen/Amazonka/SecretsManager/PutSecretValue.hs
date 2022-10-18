@@ -347,7 +347,7 @@ instance Core.AWSRequest PutSecretValue where
   type
     AWSResponse PutSecretValue =
       PutSecretValueResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -358,6 +358,9 @@ instance Core.AWSRequest PutSecretValue where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSecretValue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSecretValue where
   hashWithSalt _salt PutSecretValue' {..} =

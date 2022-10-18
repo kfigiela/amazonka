@@ -346,7 +346,7 @@ instance Core.AWSRequest PutMetricStream where
   type
     AWSResponse PutMetricStream =
       PutMetricStreamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutMetricStreamResult"
@@ -355,6 +355,9 @@ instance Core.AWSRequest PutMetricStream where
             Prelude.<$> (x Core..@? "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutMetricStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMetricStream where
   hashWithSalt _salt PutMetricStream' {..} =

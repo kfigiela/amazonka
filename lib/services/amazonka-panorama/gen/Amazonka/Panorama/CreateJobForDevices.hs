@@ -107,7 +107,7 @@ instance Core.AWSRequest CreateJobForDevices where
   type
     AWSResponse CreateJobForDevices =
       CreateJobForDevicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest CreateJobForDevices where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService CreateJobForDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateJobForDevices where
   hashWithSalt _salt CreateJobForDevices' {..} =

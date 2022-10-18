@@ -153,10 +153,16 @@ instance
   type
     AWSResponse PutThirdPartyJobSuccessResult =
       PutThirdPartyJobSuccessResultResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       PutThirdPartyJobSuccessResultResponse'
+
+instance
+  Core.AWSService
+    PutThirdPartyJobSuccessResult
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

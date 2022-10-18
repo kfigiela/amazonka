@@ -225,7 +225,7 @@ instance
   type
     AWSResponse ModifyTrafficMirrorFilterRule =
       ModifyTrafficMirrorFilterRuleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -233,6 +233,12 @@ instance
             Prelude.<$> (x Core..@? "trafficMirrorFilterRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ModifyTrafficMirrorFilterRule
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

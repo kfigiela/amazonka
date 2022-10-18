@@ -144,7 +144,7 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
   type
     AWSResponse ListCallAnalyticsJobs =
       ListCallAnalyticsJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListCallAnalyticsJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCallAnalyticsJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCallAnalyticsJobs where
   hashWithSalt _salt ListCallAnalyticsJobs' {..} =

@@ -85,7 +85,7 @@ instance Core.AWSRequest CreatePublicKey where
   type
     AWSResponse CreatePublicKey =
       CreatePublicKeyResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest CreatePublicKey where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePublicKey where
   hashWithSalt _salt CreatePublicKey' {..} =

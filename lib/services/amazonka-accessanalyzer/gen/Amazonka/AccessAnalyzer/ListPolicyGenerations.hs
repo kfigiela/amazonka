@@ -127,7 +127,7 @@ instance Core.AWSRequest ListPolicyGenerations where
   type
     AWSResponse ListPolicyGenerations =
       ListPolicyGenerationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListPolicyGenerations where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListPolicyGenerations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPolicyGenerations where
   hashWithSalt _salt ListPolicyGenerations' {..} =

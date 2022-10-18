@@ -107,13 +107,16 @@ instance Core.AWSRequest PutSkillAuthorization where
   type
     AWSResponse PutSkillAuthorization =
       PutSkillAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutSkillAuthorizationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutSkillAuthorization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutSkillAuthorization where
   hashWithSalt _salt PutSkillAuthorization' {..} =

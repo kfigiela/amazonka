@@ -101,13 +101,16 @@ instance Core.AWSRequest UpdatePosition where
   type
     AWSResponse UpdatePosition =
       UpdatePositionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePositionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePosition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePosition where
   hashWithSalt _salt UpdatePosition' {..} =

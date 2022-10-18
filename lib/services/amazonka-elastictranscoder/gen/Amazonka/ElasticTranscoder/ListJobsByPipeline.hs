@@ -142,7 +142,7 @@ instance Core.AWSRequest ListJobsByPipeline where
   type
     AWSResponse ListJobsByPipeline =
       ListJobsByPipelineResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest ListJobsByPipeline where
             Prelude.<*> (x Core..?> "Jobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListJobsByPipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListJobsByPipeline where
   hashWithSalt _salt ListJobsByPipeline' {..} =

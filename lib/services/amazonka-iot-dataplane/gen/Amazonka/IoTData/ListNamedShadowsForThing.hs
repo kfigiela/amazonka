@@ -106,7 +106,7 @@ instance Core.AWSRequest ListNamedShadowsForThing where
   type
     AWSResponse ListNamedShadowsForThing =
       ListNamedShadowsForThingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListNamedShadowsForThing where
             Prelude.<*> (x Core..?> "results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNamedShadowsForThing where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNamedShadowsForThing where
   hashWithSalt _salt ListNamedShadowsForThing' {..} =

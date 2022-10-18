@@ -118,7 +118,7 @@ instance Core.AWSRequest ListTagsForStream where
   type
     AWSResponse ListTagsForStream =
       ListTagsForStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest ListTagsForStream where
             Prelude.<*> (x Core..?> "Tags" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "HasMoreTags")
       )
+
+instance Core.AWSService ListTagsForStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTagsForStream where
   hashWithSalt _salt ListTagsForStream' {..} =

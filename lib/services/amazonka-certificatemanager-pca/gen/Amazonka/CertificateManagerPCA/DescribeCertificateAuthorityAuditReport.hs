@@ -124,7 +124,7 @@ instance
     AWSResponse
       DescribeCertificateAuthorityAuditReport =
       DescribeCertificateAuthorityAuditReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,12 @@ instance
               Prelude.<*> (x Core..?> "AuditReportStatus")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeCertificateAuthorityAuditReport
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

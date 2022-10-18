@@ -85,7 +85,7 @@ instance Core.AWSRequest ImportApplicationUsage where
   type
     AWSResponse ImportApplicationUsage =
       ImportApplicationUsageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest ImportApplicationUsage where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "importId")
       )
+
+instance Core.AWSService ImportApplicationUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportApplicationUsage where
   hashWithSalt _salt ImportApplicationUsage' {..} =

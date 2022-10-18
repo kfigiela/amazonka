@@ -122,7 +122,7 @@ instance Core.AWSPager ListAnalyses where
 
 instance Core.AWSRequest ListAnalyses where
   type AWSResponse ListAnalyses = ListAnalysesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListAnalyses where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAnalyses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAnalyses where
   hashWithSalt _salt ListAnalyses' {..} =

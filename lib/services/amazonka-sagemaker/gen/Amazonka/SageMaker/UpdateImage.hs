@@ -124,7 +124,7 @@ updateImage_imageName = Lens.lens (\UpdateImage' {imageName} -> imageName) (\s@U
 
 instance Core.AWSRequest UpdateImage where
   type AWSResponse UpdateImage = UpdateImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest UpdateImage where
             Prelude.<$> (x Core..?> "ImageArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateImage where
   hashWithSalt _salt UpdateImage' {..} =

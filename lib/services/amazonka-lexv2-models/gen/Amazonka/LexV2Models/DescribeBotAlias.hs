@@ -102,7 +102,7 @@ instance Core.AWSRequest DescribeBotAlias where
   type
     AWSResponse DescribeBotAlias =
       DescribeBotAliasResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DescribeBotAlias where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBotAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBotAlias where
   hashWithSalt _salt DescribeBotAlias' {..} =

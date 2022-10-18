@@ -190,7 +190,7 @@ instance Core.AWSRequest UpdateDevicePool where
   type
     AWSResponse UpdateDevicePool =
       UpdateDevicePoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -198,6 +198,9 @@ instance Core.AWSRequest UpdateDevicePool where
             Prelude.<$> (x Core..?> "devicePool")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDevicePool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDevicePool where
   hashWithSalt _salt UpdateDevicePool' {..} =

@@ -76,10 +76,13 @@ instance Core.AWSRequest DeleteModelBiasJobDefinition where
   type
     AWSResponse DeleteModelBiasJobDefinition =
       DeleteModelBiasJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteModelBiasJobDefinitionResponse'
+
+instance Core.AWSService DeleteModelBiasJobDefinition where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

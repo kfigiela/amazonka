@@ -137,7 +137,7 @@ instance Core.AWSRequest ListBackupPlans where
   type
     AWSResponse ListBackupPlans =
       ListBackupPlansResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest ListBackupPlans where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBackupPlans where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBackupPlans where
   hashWithSalt _salt ListBackupPlans' {..} =

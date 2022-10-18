@@ -98,13 +98,16 @@ instance Core.AWSRequest UnregisterConnector where
   type
     AWSResponse UnregisterConnector =
       UnregisterConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UnregisterConnectorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UnregisterConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnregisterConnector where
   hashWithSalt _salt UnregisterConnector' {..} =

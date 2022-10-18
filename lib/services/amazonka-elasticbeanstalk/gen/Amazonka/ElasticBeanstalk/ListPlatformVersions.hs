@@ -147,7 +147,7 @@ instance Core.AWSRequest ListPlatformVersions where
   type
     AWSResponse ListPlatformVersions =
       ListPlatformVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPlatformVersionsResult"
@@ -160,6 +160,9 @@ instance Core.AWSRequest ListPlatformVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPlatformVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPlatformVersions where
   hashWithSalt _salt ListPlatformVersions' {..} =

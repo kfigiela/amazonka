@@ -138,7 +138,7 @@ instance Core.AWSRequest PutReportDefinition where
   type
     AWSResponse PutReportDefinition =
       PutReportDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -146,6 +146,9 @@ instance Core.AWSRequest PutReportDefinition where
             Prelude.<$> (x Core..?> "reportId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutReportDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutReportDefinition where
   hashWithSalt _salt PutReportDefinition' {..} =

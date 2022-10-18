@@ -750,6 +750,7 @@ defaultService =
       Core._serviceEndpointPrefix = "networkmanager",
       Core._serviceSigningName = "networkmanager",
       Core._serviceVersion = "2019-07-05",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

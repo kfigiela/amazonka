@@ -84,7 +84,7 @@ instance
   type
     AWSResponse DescribePiiEntitiesDetectionJob =
       DescribePiiEntitiesDetectionJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,12 @@ instance
             Prelude.<$> (x Core..?> "PiiEntitiesDetectionJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribePiiEntitiesDetectionJob
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -263,7 +263,7 @@ createSlot_intentId = Lens.lens (\CreateSlot' {intentId} -> intentId) (\s@Create
 
 instance Core.AWSRequest CreateSlot where
   type AWSResponse CreateSlot = CreateSlotResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -283,6 +283,9 @@ instance Core.AWSRequest CreateSlot where
             Prelude.<*> (x Core..?> "slotTypeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSlot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSlot where
   hashWithSalt _salt CreateSlot' {..} =

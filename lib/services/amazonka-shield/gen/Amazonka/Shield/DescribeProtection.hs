@@ -99,7 +99,7 @@ instance Core.AWSRequest DescribeProtection where
   type
     AWSResponse DescribeProtection =
       DescribeProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeProtection where
             Prelude.<$> (x Core..?> "Protection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProtection where
   hashWithSalt _salt DescribeProtection' {..} =

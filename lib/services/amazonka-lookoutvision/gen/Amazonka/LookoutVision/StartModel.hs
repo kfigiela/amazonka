@@ -191,7 +191,7 @@ startModel_minInferenceUnits = Lens.lens (\StartModel' {minInferenceUnits} -> mi
 
 instance Core.AWSRequest StartModel where
   type AWSResponse StartModel = StartModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -199,6 +199,9 @@ instance Core.AWSRequest StartModel where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartModel where
   hashWithSalt _salt StartModel' {..} =

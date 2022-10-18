@@ -159,7 +159,7 @@ instance
   type
     AWSResponse DescribeBudgetActionHistories =
       DescribeBudgetActionHistoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,12 @@ instance
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance
+  Core.AWSService
+    DescribeBudgetActionHistories
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

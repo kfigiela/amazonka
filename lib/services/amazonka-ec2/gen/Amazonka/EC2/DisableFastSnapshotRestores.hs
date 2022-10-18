@@ -109,7 +109,7 @@ instance Core.AWSRequest DisableFastSnapshotRestores where
   type
     AWSResponse DisableFastSnapshotRestores =
       DisableFastSnapshotRestoresResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DisableFastSnapshotRestores where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisableFastSnapshotRestores where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableFastSnapshotRestores where
   hashWithSalt _salt DisableFastSnapshotRestores' {..} =

@@ -209,7 +209,7 @@ queryLineage_includeEdges = Lens.lens (\QueryLineage' {includeEdges} -> includeE
 
 instance Core.AWSRequest QueryLineage where
   type AWSResponse QueryLineage = QueryLineageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,6 +219,9 @@ instance Core.AWSRequest QueryLineage where
             Prelude.<*> (x Core..?> "Vertices" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService QueryLineage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable QueryLineage where
   hashWithSalt _salt QueryLineage' {..} =

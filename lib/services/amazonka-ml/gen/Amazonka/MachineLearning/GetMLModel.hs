@@ -122,7 +122,7 @@ getMLModel_mLModelId = Lens.lens (\GetMLModel' {mLModelId} -> mLModelId) (\s@Get
 
 instance Core.AWSRequest GetMLModel where
   type AWSResponse GetMLModel = GetMLModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetMLModel where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMLModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMLModel where
   hashWithSalt _salt GetMLModel' {..} =

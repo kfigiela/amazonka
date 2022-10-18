@@ -79,7 +79,7 @@ instance Core.AWSRequest GetAssignment where
   type
     AWSResponse GetAssignment =
       GetAssignmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetAssignment where
             Prelude.<*> (x Core..?> "Assignment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssignment where
   hashWithSalt _salt GetAssignment' {..} =

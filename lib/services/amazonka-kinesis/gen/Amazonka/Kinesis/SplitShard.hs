@@ -173,8 +173,11 @@ splitShard_newStartingHashKey = Lens.lens (\SplitShard' {newStartingHashKey'} ->
 
 instance Core.AWSRequest SplitShard where
   type AWSResponse SplitShard = SplitShardResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull SplitShardResponse'
+
+instance Core.AWSService SplitShard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SplitShard where
   hashWithSalt _salt SplitShard' {..} =

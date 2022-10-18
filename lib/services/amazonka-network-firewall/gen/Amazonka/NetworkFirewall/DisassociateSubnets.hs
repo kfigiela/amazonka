@@ -175,7 +175,7 @@ instance Core.AWSRequest DisassociateSubnets where
   type
     AWSResponse DisassociateSubnets =
       DisassociateSubnetsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -186,6 +186,9 @@ instance Core.AWSRequest DisassociateSubnets where
             Prelude.<*> (x Core..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateSubnets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateSubnets where
   hashWithSalt _salt DisassociateSubnets' {..} =

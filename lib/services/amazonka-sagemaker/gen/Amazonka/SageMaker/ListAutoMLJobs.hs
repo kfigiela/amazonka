@@ -193,7 +193,7 @@ instance Core.AWSRequest ListAutoMLJobs where
   type
     AWSResponse ListAutoMLJobs =
       ListAutoMLJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest ListAutoMLJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListAutoMLJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAutoMLJobs where
   hashWithSalt _salt ListAutoMLJobs' {..} =

@@ -252,7 +252,7 @@ instance Core.AWSRequest DescribeDBInstances where
   type
     AWSResponse DescribeDBInstances =
       DescribeDBInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBInstancesResult"
@@ -264,6 +264,9 @@ instance Core.AWSRequest DescribeDBInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBInstances where
   hashWithSalt _salt DescribeDBInstances' {..} =

@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateSipRule where
   type
     AWSResponse UpdateSipRule =
       UpdateSipRuleResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest UpdateSipRule where
             Prelude.<$> (x Core..?> "SipRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSipRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSipRule where
   hashWithSalt _salt UpdateSipRule' {..} =

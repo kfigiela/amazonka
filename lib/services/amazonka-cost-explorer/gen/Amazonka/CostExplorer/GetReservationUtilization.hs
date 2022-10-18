@@ -392,7 +392,7 @@ instance Core.AWSRequest GetReservationUtilization where
   type
     AWSResponse GetReservationUtilization =
       GetReservationUtilizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -404,6 +404,9 @@ instance Core.AWSRequest GetReservationUtilization where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetReservationUtilization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReservationUtilization where
   hashWithSalt _salt GetReservationUtilization' {..} =

@@ -89,7 +89,7 @@ instance Core.AWSRequest RebootCluster where
   type
     AWSResponse RebootCluster =
       RebootClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RebootClusterResult"
@@ -98,6 +98,9 @@ instance Core.AWSRequest RebootCluster where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RebootCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RebootCluster where
   hashWithSalt _salt RebootCluster' {..} =

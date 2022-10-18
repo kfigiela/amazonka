@@ -106,13 +106,16 @@ enableUser_authenticationType = Lens.lens (\EnableUser' {authenticationType} -> 
 
 instance Core.AWSRequest EnableUser where
   type AWSResponse EnableUser = EnableUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           EnableUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableUser where
   hashWithSalt _salt EnableUser' {..} =

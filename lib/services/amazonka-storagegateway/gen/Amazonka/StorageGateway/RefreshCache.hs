@@ -178,7 +178,7 @@ refreshCache_fileShareARN = Lens.lens (\RefreshCache' {fileShareARN} -> fileShar
 
 instance Core.AWSRequest RefreshCache where
   type AWSResponse RefreshCache = RefreshCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest RefreshCache where
             Prelude.<*> (x Core..?> "NotificationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RefreshCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RefreshCache where
   hashWithSalt _salt RefreshCache' {..} =

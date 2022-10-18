@@ -577,6 +577,7 @@ defaultService =
       Core._serviceEndpointPrefix = "proton",
       Core._serviceSigningName = "proton",
       Core._serviceVersion = "2020-07-20",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

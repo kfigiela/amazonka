@@ -127,7 +127,7 @@ instance Core.AWSRequest UpdateChannelMessage where
   type
     AWSResponse UpdateChannelMessage =
       UpdateChannelMessageResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest UpdateChannelMessage where
             Prelude.<*> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateChannelMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateChannelMessage where
   hashWithSalt _salt UpdateChannelMessage' {..} =

@@ -102,7 +102,7 @@ instance Core.AWSRequest GetBatchJobExecution where
   type
     AWSResponse GetBatchJobExecution =
       GetBatchJobExecutionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest GetBatchJobExecution where
             Prelude.<*> (x Core..:> "startTime")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService GetBatchJobExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBatchJobExecution where
   hashWithSalt _salt GetBatchJobExecution' {..} =

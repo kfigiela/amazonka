@@ -77,7 +77,7 @@ instance Core.AWSRequest RemoveBackendConfig where
   type
     AWSResponse RemoveBackendConfig =
       RemoveBackendConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest RemoveBackendConfig where
             Prelude.<$> (x Core..?> "error")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveBackendConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveBackendConfig where
   hashWithSalt _salt RemoveBackendConfig' {..} =

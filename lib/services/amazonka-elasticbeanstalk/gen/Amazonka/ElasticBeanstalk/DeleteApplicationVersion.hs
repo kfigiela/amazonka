@@ -111,10 +111,13 @@ instance Core.AWSRequest DeleteApplicationVersion where
   type
     AWSResponse DeleteApplicationVersion =
       DeleteApplicationVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteApplicationVersionResponse'
+
+instance Core.AWSService DeleteApplicationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApplicationVersion where
   hashWithSalt _salt DeleteApplicationVersion' {..} =

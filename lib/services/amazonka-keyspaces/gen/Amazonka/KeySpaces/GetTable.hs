@@ -104,7 +104,7 @@ getTable_tableName = Lens.lens (\GetTable' {tableName} -> tableName) (\s@GetTabl
 
 instance Core.AWSRequest GetTable where
   type AWSResponse GetTable = GetTableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetTable where
             Prelude.<*> (x Core..:> "tableName")
             Prelude.<*> (x Core..:> "resourceArn")
       )
+
+instance Core.AWSService GetTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTable where
   hashWithSalt _salt GetTable' {..} =

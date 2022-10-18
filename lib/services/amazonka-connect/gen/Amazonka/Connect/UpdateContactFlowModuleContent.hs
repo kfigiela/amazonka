@@ -112,13 +112,19 @@ instance
   type
     AWSResponse UpdateContactFlowModuleContent =
       UpdateContactFlowModuleContentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateContactFlowModuleContentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateContactFlowModuleContent
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

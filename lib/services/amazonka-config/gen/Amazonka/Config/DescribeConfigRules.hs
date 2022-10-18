@@ -120,7 +120,7 @@ instance Core.AWSRequest DescribeConfigRules where
   type
     AWSResponse DescribeConfigRules =
       DescribeConfigRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DescribeConfigRules where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConfigRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConfigRules where
   hashWithSalt _salt DescribeConfigRules' {..} =

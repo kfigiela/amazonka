@@ -106,7 +106,7 @@ instance Core.AWSRequest AcceptVpcPeeringConnection where
   type
     AWSResponse AcceptVpcPeeringConnection =
       AcceptVpcPeeringConnectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest AcceptVpcPeeringConnection where
             Prelude.<$> (x Core..@? "vpcPeeringConnection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptVpcPeeringConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptVpcPeeringConnection where
   hashWithSalt _salt AcceptVpcPeeringConnection' {..} =

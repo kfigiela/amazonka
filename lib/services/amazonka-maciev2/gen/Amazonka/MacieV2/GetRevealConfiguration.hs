@@ -62,7 +62,7 @@ instance Core.AWSRequest GetRevealConfiguration where
   type
     AWSResponse GetRevealConfiguration =
       GetRevealConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -70,6 +70,9 @@ instance Core.AWSRequest GetRevealConfiguration where
             Prelude.<$> (x Core..?> "configuration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRevealConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRevealConfiguration where
   hashWithSalt _salt _ =

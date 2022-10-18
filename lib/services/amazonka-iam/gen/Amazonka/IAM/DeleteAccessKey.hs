@@ -122,9 +122,12 @@ instance Core.AWSRequest DeleteAccessKey where
   type
     AWSResponse DeleteAccessKey =
       DeleteAccessKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteAccessKeyResponse'
+
+instance Core.AWSService DeleteAccessKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccessKey where
   hashWithSalt _salt DeleteAccessKey' {..} =

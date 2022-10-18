@@ -77,7 +77,7 @@ deleteTrial_trialName = Lens.lens (\DeleteTrial' {trialName} -> trialName) (\s@D
 
 instance Core.AWSRequest DeleteTrial where
   type AWSResponse DeleteTrial = DeleteTrialResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DeleteTrial where
             Prelude.<$> (x Core..?> "TrialArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTrial where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTrial where
   hashWithSalt _salt DeleteTrial' {..} =

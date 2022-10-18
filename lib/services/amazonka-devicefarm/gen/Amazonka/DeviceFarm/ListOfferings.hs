@@ -110,7 +110,7 @@ instance Core.AWSRequest ListOfferings where
   type
     AWSResponse ListOfferings =
       ListOfferingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ListOfferings where
             Prelude.<*> (x Core..?> "offerings" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListOfferings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOfferings where
   hashWithSalt _salt ListOfferings' {..} =

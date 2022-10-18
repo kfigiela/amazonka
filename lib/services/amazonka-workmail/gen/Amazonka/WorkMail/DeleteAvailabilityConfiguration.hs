@@ -100,13 +100,19 @@ instance
   type
     AWSResponse DeleteAvailabilityConfiguration =
       DeleteAvailabilityConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAvailabilityConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteAvailabilityConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

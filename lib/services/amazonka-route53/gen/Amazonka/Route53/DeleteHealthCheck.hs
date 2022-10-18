@@ -94,13 +94,16 @@ instance Core.AWSRequest DeleteHealthCheck where
   type
     AWSResponse DeleteHealthCheck =
       DeleteHealthCheckResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteHealthCheckResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteHealthCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteHealthCheck where
   hashWithSalt _salt DeleteHealthCheck' {..} =

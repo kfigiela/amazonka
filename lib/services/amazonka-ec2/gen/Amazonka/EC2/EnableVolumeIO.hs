@@ -95,9 +95,12 @@ instance Core.AWSRequest EnableVolumeIO where
   type
     AWSResponse EnableVolumeIO =
       EnableVolumeIOResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull EnableVolumeIOResponse'
+
+instance Core.AWSService EnableVolumeIO where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableVolumeIO where
   hashWithSalt _salt EnableVolumeIO' {..} =

@@ -223,10 +223,13 @@ instance Core.AWSRequest UpdateDeploymentStrategy where
   type
     AWSResponse UpdateDeploymentStrategy =
       DeploymentStrategy
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateDeploymentStrategy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeploymentStrategy where
   hashWithSalt _salt UpdateDeploymentStrategy' {..} =

@@ -141,7 +141,7 @@ updateFilter_filterName = Lens.lens (\UpdateFilter' {filterName} -> filterName) 
 
 instance Core.AWSRequest UpdateFilter where
   type AWSResponse UpdateFilter = UpdateFilterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest UpdateFilter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "name")
       )
+
+instance Core.AWSService UpdateFilter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFilter where
   hashWithSalt _salt UpdateFilter' {..} =

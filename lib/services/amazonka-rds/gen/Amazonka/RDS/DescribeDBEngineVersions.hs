@@ -492,7 +492,7 @@ instance Core.AWSRequest DescribeDBEngineVersions where
   type
     AWSResponse DescribeDBEngineVersions =
       DescribeDBEngineVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBEngineVersionsResult"
@@ -505,6 +505,9 @@ instance Core.AWSRequest DescribeDBEngineVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBEngineVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBEngineVersions where
   hashWithSalt _salt DescribeDBEngineVersions' {..} =

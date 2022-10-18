@@ -121,7 +121,7 @@ instance Core.AWSRequest DeleteCacheCluster where
   type
     AWSResponse DeleteCacheCluster =
       DeleteCacheClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteCacheClusterResult"
@@ -130,6 +130,9 @@ instance Core.AWSRequest DeleteCacheCluster where
             Prelude.<$> (x Core..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCacheCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCacheCluster where
   hashWithSalt _salt DeleteCacheCluster' {..} =

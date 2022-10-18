@@ -114,7 +114,7 @@ instance Core.AWSRequest PutRepositoryCatalogData where
   type
     AWSResponse PutRepositoryCatalogData =
       PutRepositoryCatalogDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest PutRepositoryCatalogData where
             Prelude.<$> (x Core..?> "catalogData")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRepositoryCatalogData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRepositoryCatalogData where
   hashWithSalt _salt PutRepositoryCatalogData' {..} =

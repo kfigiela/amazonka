@@ -126,7 +126,7 @@ instance Core.AWSRequest PutCoreNetworkPolicy where
   type
     AWSResponse PutCoreNetworkPolicy =
       PutCoreNetworkPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest PutCoreNetworkPolicy where
             Prelude.<$> (x Core..?> "CoreNetworkPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutCoreNetworkPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutCoreNetworkPolicy where
   hashWithSalt _salt PutCoreNetworkPolicy' {..} =

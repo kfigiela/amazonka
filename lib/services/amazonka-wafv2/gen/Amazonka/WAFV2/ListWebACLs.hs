@@ -150,7 +150,7 @@ listWebACLs_scope = Lens.lens (\ListWebACLs' {scope} -> scope) (\s@ListWebACLs' 
 
 instance Core.AWSRequest ListWebACLs where
   type AWSResponse ListWebACLs = ListWebACLsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListWebACLs where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWebACLs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWebACLs where
   hashWithSalt _salt ListWebACLs' {..} =

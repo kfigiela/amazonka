@@ -99,7 +99,7 @@ instance Core.AWSRequest StartMonitoringMembers where
   type
     AWSResponse StartMonitoringMembers =
       StartMonitoringMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest StartMonitoringMembers where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService StartMonitoringMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMonitoringMembers where
   hashWithSalt _salt StartMonitoringMembers' {..} =

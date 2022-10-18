@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeRepository where
   type
     AWSResponse DescribeRepository =
       DescribeRepositoryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeRepository where
             Prelude.<$> (x Core..?> "repository")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRepository where
   hashWithSalt _salt DescribeRepository' {..} =

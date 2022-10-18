@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteNetworkSettings where
   type
     AWSResponse DeleteNetworkSettings =
       DeleteNetworkSettingsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteNetworkSettingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteNetworkSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteNetworkSettings where
   hashWithSalt _salt DeleteNetworkSettings' {..} =

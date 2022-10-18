@@ -82,13 +82,16 @@ instance Core.AWSRequest DeleteQueryLoggingConfig where
   type
     AWSResponse DeleteQueryLoggingConfig =
       DeleteQueryLoggingConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteQueryLoggingConfigResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteQueryLoggingConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteQueryLoggingConfig where
   hashWithSalt _salt DeleteQueryLoggingConfig' {..} =

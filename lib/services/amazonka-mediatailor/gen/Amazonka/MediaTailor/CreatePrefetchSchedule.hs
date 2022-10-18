@@ -169,7 +169,7 @@ instance Core.AWSRequest CreatePrefetchSchedule where
   type
     AWSResponse CreatePrefetchSchedule =
       CreatePrefetchScheduleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest CreatePrefetchSchedule where
             Prelude.<*> (x Core..?> "Consumption")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePrefetchSchedule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePrefetchSchedule where
   hashWithSalt _salt CreatePrefetchSchedule' {..} =

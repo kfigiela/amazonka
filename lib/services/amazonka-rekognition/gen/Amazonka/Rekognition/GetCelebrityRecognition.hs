@@ -189,7 +189,7 @@ instance Core.AWSRequest GetCelebrityRecognition where
   type
     AWSResponse GetCelebrityRecognition =
       GetCelebrityRecognitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -201,6 +201,9 @@ instance Core.AWSRequest GetCelebrityRecognition where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCelebrityRecognition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCelebrityRecognition where
   hashWithSalt _salt GetCelebrityRecognition' {..} =

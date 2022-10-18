@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteTopicRuleDestination where
   type
     AWSResponse DeleteTopicRuleDestination =
       DeleteTopicRuleDestinationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTopicRuleDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTopicRuleDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTopicRuleDestination where
   hashWithSalt _salt DeleteTopicRuleDestination' {..} =

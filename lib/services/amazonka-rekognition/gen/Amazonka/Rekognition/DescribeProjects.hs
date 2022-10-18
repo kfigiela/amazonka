@@ -146,7 +146,7 @@ instance Core.AWSRequest DescribeProjects where
   type
     AWSResponse DescribeProjects =
       DescribeProjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest DescribeProjects where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeProjects where
   hashWithSalt _salt DescribeProjects' {..} =

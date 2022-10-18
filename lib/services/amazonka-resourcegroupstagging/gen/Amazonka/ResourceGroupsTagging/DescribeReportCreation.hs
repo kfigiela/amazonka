@@ -66,7 +66,7 @@ instance Core.AWSRequest DescribeReportCreation where
   type
     AWSResponse DescribeReportCreation =
       DescribeReportCreationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -76,6 +76,9 @@ instance Core.AWSRequest DescribeReportCreation where
             Prelude.<*> (x Core..?> "S3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReportCreation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReportCreation where
   hashWithSalt _salt _ =

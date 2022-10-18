@@ -88,9 +88,12 @@ instance Core.AWSRequest DeleteSlotType where
   type
     AWSResponse DeleteSlotType =
       DeleteSlotTypeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteSlotTypeResponse'
+
+instance Core.AWSService DeleteSlotType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSlotType where
   hashWithSalt _salt DeleteSlotType' {..} =

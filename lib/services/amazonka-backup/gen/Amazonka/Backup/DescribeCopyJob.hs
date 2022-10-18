@@ -77,7 +77,7 @@ instance Core.AWSRequest DescribeCopyJob where
   type
     AWSResponse DescribeCopyJob =
       DescribeCopyJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest DescribeCopyJob where
             Prelude.<$> (x Core..?> "CopyJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCopyJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCopyJob where
   hashWithSalt _salt DescribeCopyJob' {..} =

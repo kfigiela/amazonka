@@ -125,7 +125,7 @@ instance Core.AWSRequest ListSensorStatistics where
   type
     AWSResponse ListSensorStatistics =
       ListSensorStatisticsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListSensorStatistics where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSensorStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSensorStatistics where
   hashWithSalt _salt ListSensorStatistics' {..} =

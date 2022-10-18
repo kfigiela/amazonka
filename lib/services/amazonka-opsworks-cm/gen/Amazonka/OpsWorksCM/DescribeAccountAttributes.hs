@@ -64,7 +64,7 @@ instance Core.AWSRequest DescribeAccountAttributes where
   type
     AWSResponse DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest DescribeAccountAttributes where
             Prelude.<$> (x Core..?> "Attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAccountAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountAttributes where
   hashWithSalt _salt _ =

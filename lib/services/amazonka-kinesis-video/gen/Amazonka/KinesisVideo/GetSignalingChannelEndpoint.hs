@@ -110,7 +110,7 @@ instance Core.AWSRequest GetSignalingChannelEndpoint where
   type
     AWSResponse GetSignalingChannelEndpoint =
       GetSignalingChannelEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetSignalingChannelEndpoint where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSignalingChannelEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSignalingChannelEndpoint where
   hashWithSalt _salt GetSignalingChannelEndpoint' {..} =

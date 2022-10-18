@@ -214,7 +214,7 @@ instance Core.AWSRequest CreateDataRepositoryTask where
   type
     AWSResponse CreateDataRepositoryTask =
       CreateDataRepositoryTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -222,6 +222,9 @@ instance Core.AWSRequest CreateDataRepositoryTask where
             Prelude.<$> (x Core..?> "DataRepositoryTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDataRepositoryTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDataRepositoryTask where
   hashWithSalt _salt CreateDataRepositoryTask' {..} =

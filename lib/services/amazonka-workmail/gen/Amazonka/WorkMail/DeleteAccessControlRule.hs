@@ -95,13 +95,16 @@ instance Core.AWSRequest DeleteAccessControlRule where
   type
     AWSResponse DeleteAccessControlRule =
       DeleteAccessControlRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAccessControlRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccessControlRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccessControlRule where
   hashWithSalt _salt DeleteAccessControlRule' {..} =

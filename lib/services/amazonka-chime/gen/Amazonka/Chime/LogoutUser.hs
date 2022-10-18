@@ -89,13 +89,16 @@ logoutUser_userId = Lens.lens (\LogoutUser' {userId} -> userId) (\s@LogoutUser' 
 
 instance Core.AWSRequest LogoutUser where
   type AWSResponse LogoutUser = LogoutUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           LogoutUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService LogoutUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable LogoutUser where
   hashWithSalt _salt LogoutUser' {..} =

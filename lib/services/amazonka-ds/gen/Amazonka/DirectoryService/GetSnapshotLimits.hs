@@ -79,7 +79,7 @@ instance Core.AWSRequest GetSnapshotLimits where
   type
     AWSResponse GetSnapshotLimits =
       GetSnapshotLimitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetSnapshotLimits where
             Prelude.<$> (x Core..?> "SnapshotLimits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSnapshotLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSnapshotLimits where
   hashWithSalt _salt GetSnapshotLimits' {..} =

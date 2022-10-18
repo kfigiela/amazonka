@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteEndpointGroup where
   type
     AWSResponse DeleteEndpointGroup =
       DeleteEndpointGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteEndpointGroupResponse'
+
+instance Core.AWSService DeleteEndpointGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEndpointGroup where
   hashWithSalt _salt DeleteEndpointGroup' {..} =

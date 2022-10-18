@@ -121,7 +121,7 @@ instance Core.AWSRequest PostCommentReply where
   type
     AWSResponse PostCommentReply =
       PostCommentReplyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest PostCommentReply where
             Prelude.<$> (x Core..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PostCommentReply where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PostCommentReply where
   hashWithSalt _salt PostCommentReply' {..} =

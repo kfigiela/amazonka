@@ -150,7 +150,7 @@ testFunction_eventObject = Lens.lens (\TestFunction' {eventObject} -> eventObjec
 
 instance Core.AWSRequest TestFunction where
   type AWSResponse TestFunction = TestFunctionResponse
-  request = Request.postXML defaultService
+  request srv = Request.postXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest TestFunction where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TestFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TestFunction where
   hashWithSalt _salt TestFunction' {..} =

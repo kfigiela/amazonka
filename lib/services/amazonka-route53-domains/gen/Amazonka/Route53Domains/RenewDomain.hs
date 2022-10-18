@@ -132,7 +132,7 @@ renewDomain_currentExpiryYear = Lens.lens (\RenewDomain' {currentExpiryYear} -> 
 
 instance Core.AWSRequest RenewDomain where
   type AWSResponse RenewDomain = RenewDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest RenewDomain where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "OperationId")
       )
+
+instance Core.AWSService RenewDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RenewDomain where
   hashWithSalt _salt RenewDomain' {..} =

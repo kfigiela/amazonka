@@ -96,7 +96,7 @@ instance
   type
     AWSResponse BatchPutScheduledUpdateGroupAction =
       BatchPutScheduledUpdateGroupActionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "BatchPutScheduledUpdateGroupActionResult"
@@ -108,6 +108,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    BatchPutScheduledUpdateGroupAction
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

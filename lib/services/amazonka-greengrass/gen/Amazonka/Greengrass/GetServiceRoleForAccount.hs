@@ -63,7 +63,7 @@ instance Core.AWSRequest GetServiceRoleForAccount where
   type
     AWSResponse GetServiceRoleForAccount =
       GetServiceRoleForAccountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetServiceRoleForAccount where
             Prelude.<*> (x Core..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServiceRoleForAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServiceRoleForAccount where
   hashWithSalt _salt _ =

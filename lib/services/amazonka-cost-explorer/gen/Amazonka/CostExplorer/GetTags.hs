@@ -239,7 +239,7 @@ getTags_timePeriod = Lens.lens (\GetTags' {timePeriod} -> timePeriod) (\s@GetTag
 
 instance Core.AWSRequest GetTags where
   type AWSResponse GetTags = GetTagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest GetTags where
             Prelude.<*> (x Core..:> "ReturnSize")
             Prelude.<*> (x Core..:> "TotalSize")
       )
+
+instance Core.AWSService GetTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTags where
   hashWithSalt _salt GetTags' {..} =

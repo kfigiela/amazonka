@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeLunaClient where
   type
     AWSResponse DescribeLunaClient =
       DescribeLunaClientResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest DescribeLunaClient where
             Prelude.<*> (x Core..?> "CertificateFingerprint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLunaClient where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLunaClient where
   hashWithSalt _salt DescribeLunaClient' {..} =

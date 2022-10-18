@@ -103,9 +103,12 @@ instance Core.AWSRequest DeleteRouteResponse where
   type
     AWSResponse DeleteRouteResponse =
       DeleteRouteResponseResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteRouteResponseResponse'
+
+instance Core.AWSService DeleteRouteResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRouteResponse where
   hashWithSalt _salt DeleteRouteResponse' {..} =

@@ -132,7 +132,7 @@ instance Core.AWSRequest RegisterPublisher where
   type
     AWSResponse RegisterPublisher =
       RegisterPublisherResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RegisterPublisherResult"
@@ -141,6 +141,9 @@ instance Core.AWSRequest RegisterPublisher where
             Prelude.<$> (x Core..@? "PublisherId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterPublisher where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterPublisher where
   hashWithSalt _salt RegisterPublisher' {..} =

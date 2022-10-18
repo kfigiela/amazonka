@@ -299,7 +299,7 @@ instance Core.AWSRequest PutLifecycleHook where
   type
     AWSResponse PutLifecycleHook =
       PutLifecycleHookResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutLifecycleHookResult"
@@ -307,6 +307,9 @@ instance Core.AWSRequest PutLifecycleHook where
           PutLifecycleHookResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLifecycleHook where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLifecycleHook where
   hashWithSalt _salt PutLifecycleHook' {..} =

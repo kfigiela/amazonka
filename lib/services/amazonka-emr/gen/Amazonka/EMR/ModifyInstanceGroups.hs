@@ -88,9 +88,12 @@ instance Core.AWSRequest ModifyInstanceGroups where
   type
     AWSResponse ModifyInstanceGroups =
       ModifyInstanceGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ModifyInstanceGroupsResponse'
+
+instance Core.AWSService ModifyInstanceGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyInstanceGroups where
   hashWithSalt _salt ModifyInstanceGroups' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeDevice where
   type
     AWSResponse DescribeDevice =
       DescribeDeviceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeDevice where
             Prelude.<$> (x Core..?> "deviceDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDevice where
   hashWithSalt _salt DescribeDevice' {..} =

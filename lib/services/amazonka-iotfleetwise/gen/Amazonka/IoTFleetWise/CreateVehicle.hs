@@ -163,7 +163,7 @@ instance Core.AWSRequest CreateVehicle where
   type
     AWSResponse CreateVehicle =
       CreateVehicleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest CreateVehicle where
             Prelude.<*> (x Core..?> "vehicleName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVehicle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVehicle where
   hashWithSalt _salt CreateVehicle' {..} =

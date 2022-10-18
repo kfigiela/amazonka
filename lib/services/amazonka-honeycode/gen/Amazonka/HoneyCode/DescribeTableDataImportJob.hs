@@ -141,7 +141,7 @@ instance Core.AWSRequest DescribeTableDataImportJob where
   type
     AWSResponse DescribeTableDataImportJob =
       DescribeTableDataImportJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest DescribeTableDataImportJob where
             Prelude.<*> (x Core..:> "message")
             Prelude.<*> (x Core..:> "jobMetadata")
       )
+
+instance Core.AWSService DescribeTableDataImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTableDataImportJob where
   hashWithSalt _salt DescribeTableDataImportJob' {..} =

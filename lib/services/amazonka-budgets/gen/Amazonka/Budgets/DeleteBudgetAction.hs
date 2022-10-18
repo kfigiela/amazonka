@@ -106,7 +106,7 @@ instance Core.AWSRequest DeleteBudgetAction where
   type
     AWSResponse DeleteBudgetAction =
       DeleteBudgetActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DeleteBudgetAction where
             Prelude.<*> (x Core..:> "BudgetName")
             Prelude.<*> (x Core..:> "Action")
       )
+
+instance Core.AWSService DeleteBudgetAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBudgetAction where
   hashWithSalt _salt DeleteBudgetAction' {..} =

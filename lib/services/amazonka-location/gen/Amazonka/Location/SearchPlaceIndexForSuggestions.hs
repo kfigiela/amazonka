@@ -315,7 +315,7 @@ instance
   type
     AWSResponse SearchPlaceIndexForSuggestions =
       SearchPlaceIndexForSuggestionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -324,6 +324,12 @@ instance
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "Summary")
       )
+
+instance
+  Core.AWSService
+    SearchPlaceIndexForSuggestions
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

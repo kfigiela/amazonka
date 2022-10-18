@@ -137,7 +137,7 @@ instance Core.AWSRequest StartStreamProcessor where
   type
     AWSResponse StartStreamProcessor =
       StartStreamProcessorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest StartStreamProcessor where
             Prelude.<$> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartStreamProcessor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartStreamProcessor where
   hashWithSalt _salt StartStreamProcessor' {..} =

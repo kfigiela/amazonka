@@ -72,7 +72,7 @@ instance
     AWSResponse
       DescribeDefaultEncryptionConfiguration =
       DescribeDefaultEncryptionConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -82,6 +82,12 @@ instance
               Prelude.<*> (x Core..:> "encryptionType")
               Prelude.<*> (x Core..:> "configurationStatus")
       )
+
+instance
+  Core.AWSService
+    DescribeDefaultEncryptionConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

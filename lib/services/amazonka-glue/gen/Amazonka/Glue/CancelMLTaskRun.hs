@@ -97,7 +97,7 @@ instance Core.AWSRequest CancelMLTaskRun where
   type
     AWSResponse CancelMLTaskRun =
       CancelMLTaskRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest CancelMLTaskRun where
             Prelude.<*> (x Core..?> "TaskRunId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelMLTaskRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelMLTaskRun where
   hashWithSalt _salt CancelMLTaskRun' {..} =

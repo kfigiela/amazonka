@@ -141,7 +141,7 @@ instance Core.AWSRequest ImportInstance where
   type
     AWSResponse ImportInstance =
       ImportInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest ImportInstance where
             Prelude.<$> (x Core..@? "conversionTask")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportInstance where
   hashWithSalt _salt ImportInstance' {..} =

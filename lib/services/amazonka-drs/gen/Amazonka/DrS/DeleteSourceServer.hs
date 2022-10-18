@@ -80,13 +80,16 @@ instance Core.AWSRequest DeleteSourceServer where
   type
     AWSResponse DeleteSourceServer =
       DeleteSourceServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSourceServerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSourceServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSourceServer where
   hashWithSalt _salt DeleteSourceServer' {..} =

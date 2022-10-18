@@ -92,9 +92,9 @@ instance Core.AWSRequest PurchaseProvisionedCapacity where
   type
     AWSResponse PurchaseProvisionedCapacity =
       PurchaseProvisionedCapacityResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.postJSON defaultService
+      Prelude.. Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest PurchaseProvisionedCapacity where
             Prelude.<$> (h Core..#? "x-amz-capacity-id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PurchaseProvisionedCapacity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PurchaseProvisionedCapacity where
   hashWithSalt _salt PurchaseProvisionedCapacity' {..} =

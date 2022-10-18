@@ -140,13 +140,16 @@ instance Core.AWSRequest PutMetricPolicy where
   type
     AWSResponse PutMetricPolicy =
       PutMetricPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutMetricPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutMetricPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutMetricPolicy where
   hashWithSalt _salt PutMetricPolicy' {..} =

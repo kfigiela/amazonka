@@ -189,7 +189,7 @@ instance
     AWSResponse
       DescribeEngineDefaultClusterParameters =
       DescribeEngineDefaultClusterParametersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEngineDefaultClusterParametersResult"
@@ -198,6 +198,12 @@ instance
             Prelude.<$> (x Core..@? "EngineDefaults")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeEngineDefaultClusterParameters
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

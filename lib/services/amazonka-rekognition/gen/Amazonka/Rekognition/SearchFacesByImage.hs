@@ -232,7 +232,7 @@ instance Core.AWSRequest SearchFacesByImage where
   type
     AWSResponse SearchFacesByImage =
       SearchFacesByImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -243,6 +243,9 @@ instance Core.AWSRequest SearchFacesByImage where
             Prelude.<*> (x Core..?> "FaceModelVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchFacesByImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchFacesByImage where
   hashWithSalt _salt SearchFacesByImage' {..} =

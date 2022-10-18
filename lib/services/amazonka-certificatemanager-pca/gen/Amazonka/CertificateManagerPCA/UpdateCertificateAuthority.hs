@@ -137,10 +137,13 @@ instance Core.AWSRequest UpdateCertificateAuthority where
   type
     AWSResponse UpdateCertificateAuthority =
       UpdateCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateCertificateAuthorityResponse'
+
+instance Core.AWSService UpdateCertificateAuthority where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCertificateAuthority where
   hashWithSalt _salt UpdateCertificateAuthority' {..} =

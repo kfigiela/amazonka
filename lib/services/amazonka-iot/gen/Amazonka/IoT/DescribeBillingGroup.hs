@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeBillingGroup where
   type
     AWSResponse DescribeBillingGroup =
       DescribeBillingGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeBillingGroup where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBillingGroup where
   hashWithSalt _salt DescribeBillingGroup' {..} =

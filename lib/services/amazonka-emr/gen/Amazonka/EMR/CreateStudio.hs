@@ -299,7 +299,7 @@ createStudio_defaultS3Location = Lens.lens (\CreateStudio' {defaultS3Location} -
 
 instance Core.AWSRequest CreateStudio where
   type AWSResponse CreateStudio = CreateStudioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -308,6 +308,9 @@ instance Core.AWSRequest CreateStudio where
             Prelude.<*> (x Core..?> "Url")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStudio where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStudio where
   hashWithSalt _salt CreateStudio' {..} =

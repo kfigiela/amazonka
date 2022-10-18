@@ -140,7 +140,7 @@ instance Core.AWSRequest GetGeneratedPolicy where
   type
     AWSResponse GetGeneratedPolicy =
       GetGeneratedPolicyResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest GetGeneratedPolicy where
             Prelude.<*> (x Core..:> "jobDetails")
             Prelude.<*> (x Core..:> "generatedPolicyResult")
       )
+
+instance Core.AWSService GetGeneratedPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGeneratedPolicy where
   hashWithSalt _salt GetGeneratedPolicy' {..} =

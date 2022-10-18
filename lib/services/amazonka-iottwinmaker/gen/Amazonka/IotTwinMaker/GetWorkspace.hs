@@ -81,7 +81,7 @@ getWorkspace_workspaceId = Lens.lens (\GetWorkspace' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest GetWorkspace where
   type AWSResponse GetWorkspace = GetWorkspaceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest GetWorkspace where
             Prelude.<*> (x Core..:> "updateDateTime")
             Prelude.<*> (x Core..:> "workspaceId")
       )
+
+instance Core.AWSService GetWorkspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkspace where
   hashWithSalt _salt GetWorkspace' {..} =

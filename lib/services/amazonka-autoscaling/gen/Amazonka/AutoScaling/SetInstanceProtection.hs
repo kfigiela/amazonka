@@ -115,7 +115,7 @@ instance Core.AWSRequest SetInstanceProtection where
   type
     AWSResponse SetInstanceProtection =
       SetInstanceProtectionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetInstanceProtectionResult"
@@ -123,6 +123,9 @@ instance Core.AWSRequest SetInstanceProtection where
           SetInstanceProtectionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetInstanceProtection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetInstanceProtection where
   hashWithSalt _salt SetInstanceProtection' {..} =

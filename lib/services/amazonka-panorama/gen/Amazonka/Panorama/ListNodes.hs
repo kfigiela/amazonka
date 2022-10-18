@@ -139,7 +139,7 @@ listNodes_ownerAccount = Lens.lens (\ListNodes' {ownerAccount} -> ownerAccount) 
 
 instance Core.AWSRequest ListNodes where
   type AWSResponse ListNodes = ListNodesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest ListNodes where
             Prelude.<*> (x Core..?> "Nodes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNodes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNodes where
   hashWithSalt _salt ListNodes' {..} =

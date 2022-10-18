@@ -113,7 +113,7 @@ instance
   type
     AWSResponse DescribeQuerySuggestionsBlockList =
       DescribeQuerySuggestionsBlockListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,12 @@ instance
               Prelude.<*> (x Core..?> "UpdatedAt")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeQuerySuggestionsBlockList
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

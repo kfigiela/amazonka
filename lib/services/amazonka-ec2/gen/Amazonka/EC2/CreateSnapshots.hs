@@ -207,7 +207,7 @@ instance Core.AWSRequest CreateSnapshots where
   type
     AWSResponse CreateSnapshots =
       CreateSnapshotsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest CreateSnapshots where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSnapshots where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSnapshots where
   hashWithSalt _salt CreateSnapshots' {..} =

@@ -101,7 +101,7 @@ instance Core.AWSRequest DeleteSubnetCidrReservation where
   type
     AWSResponse DeleteSubnetCidrReservation =
       DeleteSubnetCidrReservationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteSubnetCidrReservation where
             Prelude.<$> (x Core..@? "deletedSubnetCidrReservation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSubnetCidrReservation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSubnetCidrReservation where
   hashWithSalt _salt DeleteSubnetCidrReservation' {..} =

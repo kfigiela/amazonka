@@ -80,7 +80,7 @@ getRule_identifier = Lens.lens (\GetRule' {identifier} -> identifier) (\s@GetRul
 
 instance Core.AWSRequest GetRule where
   type AWSResponse GetRule = GetRuleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetRule where
             Prelude.<*> (x Core..?> "Identifier")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRule where
   hashWithSalt _salt GetRule' {..} =

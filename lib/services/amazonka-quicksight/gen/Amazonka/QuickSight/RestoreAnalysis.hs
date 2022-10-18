@@ -93,7 +93,7 @@ instance Core.AWSRequest RestoreAnalysis where
   type
     AWSResponse RestoreAnalysis =
       RestoreAnalysisResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest RestoreAnalysis where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreAnalysis where
   hashWithSalt _salt RestoreAnalysis' {..} =

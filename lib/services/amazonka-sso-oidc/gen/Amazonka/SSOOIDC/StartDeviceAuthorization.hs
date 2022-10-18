@@ -127,7 +127,7 @@ instance Core.AWSRequest StartDeviceAuthorization where
   type
     AWSResponse StartDeviceAuthorization =
       StartDeviceAuthorizationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest StartDeviceAuthorization where
             Prelude.<*> (x Core..?> "verificationUri")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDeviceAuthorization where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDeviceAuthorization where
   hashWithSalt _salt StartDeviceAuthorization' {..} =

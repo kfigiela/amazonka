@@ -131,7 +131,7 @@ instance Core.AWSRequest ListExtensionAssociations where
   type
     AWSResponse ListExtensionAssociations =
       ListExtensionAssociationsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest ListExtensionAssociations where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExtensionAssociations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExtensionAssociations where
   hashWithSalt _salt ListExtensionAssociations' {..} =

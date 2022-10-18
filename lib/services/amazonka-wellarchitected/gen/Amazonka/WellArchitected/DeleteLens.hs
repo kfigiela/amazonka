@@ -112,8 +112,11 @@ deleteLens_lensStatus = Lens.lens (\DeleteLens' {lensStatus} -> lensStatus) (\s@
 
 instance Core.AWSRequest DeleteLens where
   type AWSResponse DeleteLens = DeleteLensResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteLensResponse'
+
+instance Core.AWSService DeleteLens where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLens where
   hashWithSalt _salt DeleteLens' {..} =

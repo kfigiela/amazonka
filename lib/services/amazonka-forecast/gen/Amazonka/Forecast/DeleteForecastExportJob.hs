@@ -79,10 +79,13 @@ instance Core.AWSRequest DeleteForecastExportJob where
   type
     AWSResponse DeleteForecastExportJob =
       DeleteForecastExportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteForecastExportJobResponse'
+
+instance Core.AWSService DeleteForecastExportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteForecastExportJob where
   hashWithSalt _salt DeleteForecastExportJob' {..} =

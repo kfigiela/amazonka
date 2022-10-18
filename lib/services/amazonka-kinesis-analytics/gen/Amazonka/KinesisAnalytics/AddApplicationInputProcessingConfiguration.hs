@@ -171,13 +171,19 @@ instance
     AWSResponse
       AddApplicationInputProcessingConfiguration =
       AddApplicationInputProcessingConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddApplicationInputProcessingConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AddApplicationInputProcessingConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

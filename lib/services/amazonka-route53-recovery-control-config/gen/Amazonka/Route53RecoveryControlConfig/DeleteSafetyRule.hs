@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteSafetyRule where
   type
     AWSResponse DeleteSafetyRule =
       DeleteSafetyRuleResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSafetyRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSafetyRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSafetyRule where
   hashWithSalt _salt DeleteSafetyRule' {..} =

@@ -115,9 +115,12 @@ instance Core.AWSRequest SetStackPolicy where
   type
     AWSResponse SetStackPolicy =
       SetStackPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetStackPolicyResponse'
+
+instance Core.AWSService SetStackPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetStackPolicy where
   hashWithSalt _salt SetStackPolicy' {..} =

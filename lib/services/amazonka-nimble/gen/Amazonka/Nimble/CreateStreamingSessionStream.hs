@@ -126,7 +126,7 @@ instance Core.AWSRequest CreateStreamingSessionStream where
   type
     AWSResponse CreateStreamingSessionStream =
       CreateStreamingSessionStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest CreateStreamingSessionStream where
             Prelude.<$> (x Core..?> "stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStreamingSessionStream where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

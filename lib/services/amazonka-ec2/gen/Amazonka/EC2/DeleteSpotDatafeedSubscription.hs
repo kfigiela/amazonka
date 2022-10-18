@@ -88,10 +88,16 @@ instance
   type
     AWSResponse DeleteSpotDatafeedSubscription =
       DeleteSpotDatafeedSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteSpotDatafeedSubscriptionResponse'
+
+instance
+  Core.AWSService
+    DeleteSpotDatafeedSubscription
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

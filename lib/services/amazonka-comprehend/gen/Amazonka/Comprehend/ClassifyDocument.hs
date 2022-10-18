@@ -101,7 +101,7 @@ instance Core.AWSRequest ClassifyDocument where
   type
     AWSResponse ClassifyDocument =
       ClassifyDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest ClassifyDocument where
             Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ClassifyDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClassifyDocument where
   hashWithSalt _salt ClassifyDocument' {..} =

@@ -98,7 +98,7 @@ instance Core.AWSRequest ListFrameworks where
   type
     AWSResponse ListFrameworks =
       ListFrameworksResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest ListFrameworks where
             Prelude.<*> (x Core..?> "Frameworks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFrameworks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFrameworks where
   hashWithSalt _salt ListFrameworks' {..} =

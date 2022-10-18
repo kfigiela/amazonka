@@ -79,7 +79,7 @@ instance Core.AWSRequest ConfirmCustomerAgreement where
   type
     AWSResponse ConfirmCustomerAgreement =
       ConfirmCustomerAgreementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest ConfirmCustomerAgreement where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmCustomerAgreement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmCustomerAgreement where
   hashWithSalt _salt ConfirmCustomerAgreement' {..} =

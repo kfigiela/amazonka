@@ -163,7 +163,7 @@ instance Core.AWSRequest GetInstancesHealthStatus where
   type
     AWSResponse GetInstancesHealthStatus =
       GetInstancesHealthStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest GetInstancesHealthStatus where
             Prelude.<*> (x Core..?> "Status" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInstancesHealthStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInstancesHealthStatus where
   hashWithSalt _salt GetInstancesHealthStatus' {..} =

@@ -79,9 +79,12 @@ instance Core.AWSRequest UpdateMyUserProfile where
   type
     AWSResponse UpdateMyUserProfile =
       UpdateMyUserProfileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateMyUserProfileResponse'
+
+instance Core.AWSService UpdateMyUserProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMyUserProfile where
   hashWithSalt _salt UpdateMyUserProfile' {..} =

@@ -109,7 +109,7 @@ getBot_versionOrAlias = Lens.lens (\GetBot' {versionOrAlias} -> versionOrAlias) 
 
 instance Core.AWSRequest GetBot where
   type AWSResponse GetBot = GetBotResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest GetBot where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBot where
   hashWithSalt _salt GetBot' {..} =

@@ -271,7 +271,7 @@ instance Core.AWSRequest StartBackupJob where
   type
     AWSResponse StartBackupJob =
       StartBackupJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -281,6 +281,9 @@ instance Core.AWSRequest StartBackupJob where
             Prelude.<*> (x Core..?> "BackupJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartBackupJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBackupJob where
   hashWithSalt _salt StartBackupJob' {..} =

@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateHumanTaskUi where
   type
     AWSResponse CreateHumanTaskUi =
       CreateHumanTaskUiResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest CreateHumanTaskUi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "HumanTaskUiArn")
       )
+
+instance Core.AWSService CreateHumanTaskUi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHumanTaskUi where
   hashWithSalt _salt CreateHumanTaskUi' {..} =

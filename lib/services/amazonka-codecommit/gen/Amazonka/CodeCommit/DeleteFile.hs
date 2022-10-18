@@ -210,7 +210,7 @@ deleteFile_parentCommitId = Lens.lens (\DeleteFile' {parentCommitId} -> parentCo
 
 instance Core.AWSRequest DeleteFile where
   type AWSResponse DeleteFile = DeleteFileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -221,6 +221,9 @@ instance Core.AWSRequest DeleteFile where
             Prelude.<*> (x Core..:> "treeId")
             Prelude.<*> (x Core..:> "filePath")
       )
+
+instance Core.AWSService DeleteFile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFile where
   hashWithSalt _salt DeleteFile' {..} =

@@ -159,7 +159,7 @@ instance Core.AWSRequest DescribePortfolioShares where
   type
     AWSResponse DescribePortfolioShares =
       DescribePortfolioSharesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest DescribePortfolioShares where
             Prelude.<*> (x Core..?> "NextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePortfolioShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePortfolioShares where
   hashWithSalt _salt DescribePortfolioShares' {..} =

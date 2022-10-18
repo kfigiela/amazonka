@@ -198,7 +198,7 @@ instance Core.AWSRequest SearchPlaceIndexForPosition where
   type
     AWSResponse SearchPlaceIndexForPosition =
       SearchPlaceIndexForPositionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest SearchPlaceIndexForPosition where
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "Summary")
       )
+
+instance Core.AWSService SearchPlaceIndexForPosition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchPlaceIndexForPosition where
   hashWithSalt _salt SearchPlaceIndexForPosition' {..} =

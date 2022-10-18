@@ -114,13 +114,19 @@ instance
   type
     AWSResponse DisassociateQualificationFromWorker =
       DisassociateQualificationFromWorkerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateQualificationFromWorkerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateQualificationFromWorker
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

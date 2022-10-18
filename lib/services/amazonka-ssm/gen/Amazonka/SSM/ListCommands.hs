@@ -162,7 +162,7 @@ instance Core.AWSPager ListCommands where
 
 instance Core.AWSRequest ListCommands where
   type AWSResponse ListCommands = ListCommandsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest ListCommands where
             Prelude.<*> (x Core..?> "Commands" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCommands where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCommands where
   hashWithSalt _salt ListCommands' {..} =

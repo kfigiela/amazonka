@@ -117,10 +117,13 @@ instance Core.AWSRequest UntagServerCertificate where
   type
     AWSResponse UntagServerCertificate =
       UntagServerCertificateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UntagServerCertificateResponse'
+
+instance Core.AWSService UntagServerCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagServerCertificate where
   hashWithSalt _salt UntagServerCertificate' {..} =

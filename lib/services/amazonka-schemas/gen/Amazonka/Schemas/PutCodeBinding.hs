@@ -119,7 +119,7 @@ instance Core.AWSRequest PutCodeBinding where
   type
     AWSResponse PutCodeBinding =
       PutCodeBindingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest PutCodeBinding where
             Prelude.<*> (x Core..?> "SchemaVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutCodeBinding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutCodeBinding where
   hashWithSalt _salt PutCodeBinding' {..} =

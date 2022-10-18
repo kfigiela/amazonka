@@ -79,7 +79,7 @@ instance Core.AWSRequest TerminateSession where
   type
     AWSResponse TerminateSession =
       TerminateSessionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest TerminateSession where
             Prelude.<$> (x Core..?> "SessionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateSession where
   hashWithSalt _salt TerminateSession' {..} =

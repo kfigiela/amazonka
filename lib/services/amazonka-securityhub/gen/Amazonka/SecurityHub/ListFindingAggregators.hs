@@ -121,7 +121,7 @@ instance Core.AWSRequest ListFindingAggregators where
   type
     AWSResponse ListFindingAggregators =
       ListFindingAggregatorsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListFindingAggregators where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFindingAggregators where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFindingAggregators where
   hashWithSalt _salt ListFindingAggregators' {..} =

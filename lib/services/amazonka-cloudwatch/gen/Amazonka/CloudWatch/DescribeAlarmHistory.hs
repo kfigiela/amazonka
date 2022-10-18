@@ -201,7 +201,7 @@ instance Core.AWSRequest DescribeAlarmHistory where
   type
     AWSResponse DescribeAlarmHistory =
       DescribeAlarmHistoryResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAlarmHistoryResult"
@@ -214,6 +214,9 @@ instance Core.AWSRequest DescribeAlarmHistory where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAlarmHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAlarmHistory where
   hashWithSalt _salt DescribeAlarmHistory' {..} =

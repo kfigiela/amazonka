@@ -99,13 +99,16 @@ instance Core.AWSRequest DeleteConditionalForwarder where
   type
     AWSResponse DeleteConditionalForwarder =
       DeleteConditionalForwarderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteConditionalForwarderResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteConditionalForwarder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConditionalForwarder where
   hashWithSalt _salt DeleteConditionalForwarder' {..} =

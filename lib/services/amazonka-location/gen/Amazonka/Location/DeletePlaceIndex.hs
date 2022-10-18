@@ -78,13 +78,16 @@ instance Core.AWSRequest DeletePlaceIndex where
   type
     AWSResponse DeletePlaceIndex =
       DeletePlaceIndexResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePlaceIndexResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePlaceIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlaceIndex where
   hashWithSalt _salt DeletePlaceIndex' {..} =

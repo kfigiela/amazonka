@@ -270,10 +270,16 @@ instance
   type
     AWSResponse UpdateReplicationConfiguration =
       ReplicationConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    UpdateReplicationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

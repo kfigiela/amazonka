@@ -117,7 +117,7 @@ instance Core.AWSRequest GetCodeBindingSource where
   type
     AWSResponse GetCodeBindingSource =
       GetCodeBindingSourceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest GetCodeBindingSource where
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCodeBindingSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCodeBindingSource where
   hashWithSalt _salt GetCodeBindingSource' {..} =

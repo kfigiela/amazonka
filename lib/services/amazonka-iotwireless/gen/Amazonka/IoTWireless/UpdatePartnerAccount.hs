@@ -105,13 +105,16 @@ instance Core.AWSRequest UpdatePartnerAccount where
   type
     AWSResponse UpdatePartnerAccount =
       UpdatePartnerAccountResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePartnerAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePartnerAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePartnerAccount where
   hashWithSalt _salt UpdatePartnerAccount' {..} =

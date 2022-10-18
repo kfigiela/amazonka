@@ -76,9 +76,12 @@ instance Core.AWSRequest DeleteDeviceFleet where
   type
     AWSResponse DeleteDeviceFleet =
       DeleteDeviceFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteDeviceFleetResponse'
+
+instance Core.AWSService DeleteDeviceFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDeviceFleet where
   hashWithSalt _salt DeleteDeviceFleet' {..} =

@@ -116,7 +116,7 @@ getFeedback_anomalyGroupTimeSeriesFeedback = Lens.lens (\GetFeedback' {anomalyGr
 
 instance Core.AWSRequest GetFeedback where
   type AWSResponse GetFeedback = GetFeedbackResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest GetFeedback where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFeedback where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFeedback where
   hashWithSalt _salt GetFeedback' {..} =

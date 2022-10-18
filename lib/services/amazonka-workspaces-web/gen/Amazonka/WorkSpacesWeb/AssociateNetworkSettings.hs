@@ -95,7 +95,7 @@ instance Core.AWSRequest AssociateNetworkSettings where
   type
     AWSResponse AssociateNetworkSettings =
       AssociateNetworkSettingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest AssociateNetworkSettings where
             Prelude.<*> (x Core..:> "networkSettingsArn")
             Prelude.<*> (x Core..:> "portalArn")
       )
+
+instance Core.AWSService AssociateNetworkSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateNetworkSettings where
   hashWithSalt _salt AssociateNetworkSettings' {..} =

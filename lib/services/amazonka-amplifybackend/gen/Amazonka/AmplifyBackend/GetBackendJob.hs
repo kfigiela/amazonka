@@ -113,7 +113,7 @@ instance Core.AWSRequest GetBackendJob where
   type
     AWSResponse GetBackendJob =
       GetBackendJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest GetBackendJob where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBackendJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackendJob where
   hashWithSalt _salt GetBackendJob' {..} =

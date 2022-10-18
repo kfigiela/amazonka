@@ -89,13 +89,16 @@ instance Core.AWSRequest DeleteSimulationApplication where
   type
     AWSResponse DeleteSimulationApplication =
       DeleteSimulationApplicationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteSimulationApplicationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteSimulationApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteSimulationApplication where
   hashWithSalt _salt DeleteSimulationApplication' {..} =

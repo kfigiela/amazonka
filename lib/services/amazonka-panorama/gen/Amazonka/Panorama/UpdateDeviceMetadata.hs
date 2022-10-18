@@ -90,7 +90,7 @@ instance Core.AWSRequest UpdateDeviceMetadata where
   type
     AWSResponse UpdateDeviceMetadata =
       UpdateDeviceMetadataResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest UpdateDeviceMetadata where
             Prelude.<$> (x Core..?> "DeviceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDeviceMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeviceMetadata where
   hashWithSalt _salt UpdateDeviceMetadata' {..} =

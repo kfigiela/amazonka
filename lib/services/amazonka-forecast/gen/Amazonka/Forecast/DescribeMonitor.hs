@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeMonitor where
   type
     AWSResponse DescribeMonitor =
       DescribeMonitorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeMonitor where
             Prelude.<*> (x Core..?> "ResourceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMonitor where
   hashWithSalt _salt DescribeMonitor' {..} =

@@ -67,7 +67,7 @@ instance Core.AWSRequest DescribeAccountHealth where
   type
     AWSResponse DescribeAccountHealth =
       DescribeAccountHealthResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -78,6 +78,9 @@ instance Core.AWSRequest DescribeAccountHealth where
             Prelude.<*> (x Core..:> "MetricsAnalyzed")
             Prelude.<*> (x Core..:> "ResourceHours")
       )
+
+instance Core.AWSService DescribeAccountHealth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountHealth where
   hashWithSalt _salt _ =

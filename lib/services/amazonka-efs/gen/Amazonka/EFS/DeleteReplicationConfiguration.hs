@@ -86,10 +86,16 @@ instance
   type
     AWSResponse DeleteReplicationConfiguration =
       DeleteReplicationConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteReplicationConfigurationResponse'
+
+instance
+  Core.AWSService
+    DeleteReplicationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

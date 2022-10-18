@@ -430,10 +430,13 @@ instance Core.AWSRequest ModifyInstanceAttribute where
   type
     AWSResponse ModifyInstanceAttribute =
       ModifyInstanceAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifyInstanceAttributeResponse'
+
+instance Core.AWSService ModifyInstanceAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyInstanceAttribute where
   hashWithSalt _salt ModifyInstanceAttribute' {..} =

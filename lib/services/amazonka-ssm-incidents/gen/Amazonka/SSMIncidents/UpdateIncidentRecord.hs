@@ -218,13 +218,16 @@ instance Core.AWSRequest UpdateIncidentRecord where
   type
     AWSResponse UpdateIncidentRecord =
       UpdateIncidentRecordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateIncidentRecordResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateIncidentRecord where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateIncidentRecord where
   hashWithSalt _salt UpdateIncidentRecord' {..} =

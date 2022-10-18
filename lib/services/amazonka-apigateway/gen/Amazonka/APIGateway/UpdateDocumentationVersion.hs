@@ -110,10 +110,13 @@ instance Core.AWSRequest UpdateDocumentationVersion where
   type
     AWSResponse UpdateDocumentationVersion =
       DocumentationVersion
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateDocumentationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDocumentationVersion where
   hashWithSalt _salt UpdateDocumentationVersion' {..} =

@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdatePhoneNumber where
   type
     AWSResponse UpdatePhoneNumber =
       UpdatePhoneNumberResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest UpdatePhoneNumber where
             Prelude.<$> (x Core..?> "PhoneNumber")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePhoneNumber where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePhoneNumber where
   hashWithSalt _salt UpdatePhoneNumber' {..} =

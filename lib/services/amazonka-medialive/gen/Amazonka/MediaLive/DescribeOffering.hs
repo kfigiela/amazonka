@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeOffering where
   type
     AWSResponse DescribeOffering =
       DescribeOfferingResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeOffering where
             Prelude.<*> (x Core..?> "usagePrice")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeOffering where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOffering where
   hashWithSalt _salt DescribeOffering' {..} =

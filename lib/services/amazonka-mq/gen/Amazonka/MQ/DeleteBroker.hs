@@ -75,7 +75,7 @@ deleteBroker_brokerId = Lens.lens (\DeleteBroker' {brokerId} -> brokerId) (\s@De
 
 instance Core.AWSRequest DeleteBroker where
   type AWSResponse DeleteBroker = DeleteBrokerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest DeleteBroker where
             Prelude.<$> (x Core..?> "brokerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBroker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBroker where
   hashWithSalt _salt DeleteBroker' {..} =

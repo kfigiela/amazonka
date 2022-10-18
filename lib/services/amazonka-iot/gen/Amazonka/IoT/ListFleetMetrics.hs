@@ -119,7 +119,7 @@ instance Core.AWSRequest ListFleetMetrics where
   type
     AWSResponse ListFleetMetrics =
       ListFleetMetricsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -128,6 +128,9 @@ instance Core.AWSRequest ListFleetMetrics where
             Prelude.<*> (x Core..?> "fleetMetrics" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListFleetMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListFleetMetrics where
   hashWithSalt _salt ListFleetMetrics' {..} =

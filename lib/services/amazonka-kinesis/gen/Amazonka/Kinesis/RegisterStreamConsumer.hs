@@ -117,7 +117,7 @@ instance Core.AWSRequest RegisterStreamConsumer where
   type
     AWSResponse RegisterStreamConsumer =
       RegisterStreamConsumerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest RegisterStreamConsumer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Consumer")
       )
+
+instance Core.AWSService RegisterStreamConsumer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterStreamConsumer where
   hashWithSalt _salt RegisterStreamConsumer' {..} =

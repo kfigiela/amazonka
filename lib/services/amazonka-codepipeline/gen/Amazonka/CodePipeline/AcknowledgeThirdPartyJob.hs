@@ -121,7 +121,7 @@ instance Core.AWSRequest AcknowledgeThirdPartyJob where
   type
     AWSResponse AcknowledgeThirdPartyJob =
       AcknowledgeThirdPartyJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest AcknowledgeThirdPartyJob where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcknowledgeThirdPartyJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcknowledgeThirdPartyJob where
   hashWithSalt _salt AcknowledgeThirdPartyJob' {..} =

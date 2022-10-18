@@ -86,13 +86,16 @@ instance Core.AWSRequest DeleteCustomMetric where
   type
     AWSResponse DeleteCustomMetric =
       DeleteCustomMetricResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomMetricResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomMetric where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomMetric where
   hashWithSalt _salt DeleteCustomMetric' {..} =

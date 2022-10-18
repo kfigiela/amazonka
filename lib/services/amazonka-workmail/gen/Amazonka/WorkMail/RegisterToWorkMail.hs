@@ -119,13 +119,16 @@ instance Core.AWSRequest RegisterToWorkMail where
   type
     AWSResponse RegisterToWorkMail =
       RegisterToWorkMailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RegisterToWorkMailResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterToWorkMail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterToWorkMail where
   hashWithSalt _salt RegisterToWorkMail' {..} =

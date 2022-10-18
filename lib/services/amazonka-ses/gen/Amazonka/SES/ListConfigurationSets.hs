@@ -135,7 +135,7 @@ instance Core.AWSRequest ListConfigurationSets where
   type
     AWSResponse ListConfigurationSets =
       ListConfigurationSetsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListConfigurationSetsResult"
@@ -148,6 +148,9 @@ instance Core.AWSRequest ListConfigurationSets where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListConfigurationSets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListConfigurationSets where
   hashWithSalt _salt ListConfigurationSets' {..} =

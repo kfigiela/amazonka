@@ -156,10 +156,13 @@ instance Core.AWSRequest UpdateAssumeRolePolicy where
   type
     AWSResponse UpdateAssumeRolePolicy =
       UpdateAssumeRolePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateAssumeRolePolicyResponse'
+
+instance Core.AWSService UpdateAssumeRolePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAssumeRolePolicy where
   hashWithSalt _salt UpdateAssumeRolePolicy' {..} =

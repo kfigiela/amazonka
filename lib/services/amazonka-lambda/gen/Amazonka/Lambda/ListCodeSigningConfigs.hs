@@ -118,7 +118,7 @@ instance Core.AWSRequest ListCodeSigningConfigs where
   type
     AWSResponse ListCodeSigningConfigs =
       ListCodeSigningConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListCodeSigningConfigs where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCodeSigningConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCodeSigningConfigs where
   hashWithSalt _salt ListCodeSigningConfigs' {..} =

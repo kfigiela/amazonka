@@ -120,7 +120,7 @@ instance Core.AWSRequest ListProgressUpdateStreams where
   type
     AWSResponse ListProgressUpdateStreams =
       ListProgressUpdateStreamsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest ListProgressUpdateStreams where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProgressUpdateStreams where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProgressUpdateStreams where
   hashWithSalt _salt ListProgressUpdateStreams' {..} =

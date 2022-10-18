@@ -124,7 +124,7 @@ listReplays_namePrefix = Lens.lens (\ListReplays' {namePrefix} -> namePrefix) (\
 
 instance Core.AWSRequest ListReplays where
   type AWSResponse ListReplays = ListReplaysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListReplays where
             Prelude.<*> (x Core..?> "Replays" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReplays where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReplays where
   hashWithSalt _salt ListReplays' {..} =

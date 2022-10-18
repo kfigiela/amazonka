@@ -149,7 +149,7 @@ instance Core.AWSRequest DeleteAnalysis where
   type
     AWSResponse DeleteAnalysis =
       DeleteAnalysisResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest DeleteAnalysis where
             Prelude.<*> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAnalysis where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAnalysis where
   hashWithSalt _salt DeleteAnalysis' {..} =

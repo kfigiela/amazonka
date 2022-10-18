@@ -105,7 +105,7 @@ instance Core.AWSRequest ListKeywordsForDataSource where
   type
     AWSResponse ListKeywordsForDataSource =
       ListKeywordsForDataSourceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest ListKeywordsForDataSource where
             Prelude.<*> (x Core..?> "keywords" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListKeywordsForDataSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListKeywordsForDataSource where
   hashWithSalt _salt ListKeywordsForDataSource' {..} =

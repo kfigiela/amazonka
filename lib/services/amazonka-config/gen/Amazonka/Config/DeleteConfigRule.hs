@@ -86,9 +86,12 @@ instance Core.AWSRequest DeleteConfigRule where
   type
     AWSResponse DeleteConfigRule =
       DeleteConfigRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteConfigRuleResponse'
+
+instance Core.AWSService DeleteConfigRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteConfigRule where
   hashWithSalt _salt DeleteConfigRule' {..} =

@@ -101,13 +101,16 @@ instance Core.AWSRequest CreateDatabase where
   type
     AWSResponse CreateDatabase =
       CreateDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateDatabaseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDatabase where
   hashWithSalt _salt CreateDatabase' {..} =

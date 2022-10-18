@@ -111,7 +111,7 @@ listTables_maxResults = Lens.lens (\ListTables' {maxResults} -> maxResults) (\s@
 
 instance Core.AWSRequest ListTables where
   type AWSResponse ListTables = ListTablesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest ListTables where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTables where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTables where
   hashWithSalt _salt ListTables' {..} =

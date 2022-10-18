@@ -104,7 +104,7 @@ instance Core.AWSRequest PutAttributes where
   type
     AWSResponse PutAttributes =
       PutAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest PutAttributes where
             Prelude.<$> (x Core..?> "attributes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAttributes where
   hashWithSalt _salt PutAttributes' {..} =

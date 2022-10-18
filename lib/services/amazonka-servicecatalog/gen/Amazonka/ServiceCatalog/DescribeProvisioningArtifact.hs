@@ -149,7 +149,7 @@ instance Core.AWSRequest DescribeProvisioningArtifact where
   type
     AWSResponse DescribeProvisioningArtifact =
       DescribeProvisioningArtifactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest DescribeProvisioningArtifact where
             Prelude.<*> (x Core..?> "ProvisioningArtifactDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeProvisioningArtifact where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

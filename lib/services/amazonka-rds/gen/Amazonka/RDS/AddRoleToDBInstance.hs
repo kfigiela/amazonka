@@ -118,9 +118,12 @@ instance Core.AWSRequest AddRoleToDBInstance where
   type
     AWSResponse AddRoleToDBInstance =
       AddRoleToDBInstanceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull AddRoleToDBInstanceResponse'
+
+instance Core.AWSService AddRoleToDBInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddRoleToDBInstance where
   hashWithSalt _salt AddRoleToDBInstance' {..} =

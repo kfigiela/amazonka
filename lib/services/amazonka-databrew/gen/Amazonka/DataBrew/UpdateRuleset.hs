@@ -104,7 +104,7 @@ instance Core.AWSRequest UpdateRuleset where
   type
     AWSResponse UpdateRuleset =
       UpdateRulesetResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest UpdateRuleset where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService UpdateRuleset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRuleset where
   hashWithSalt _salt UpdateRuleset' {..} =

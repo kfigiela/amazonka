@@ -147,7 +147,7 @@ createRoom_maximumMessageLength = Lens.lens (\CreateRoom' {maximumMessageLength}
 
 instance Core.AWSRequest CreateRoom where
   type AWSResponse CreateRoom = CreateRoomResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest CreateRoom where
             Prelude.<*> (x Core..?> "createTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoom where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoom where
   hashWithSalt _salt CreateRoom' {..} =

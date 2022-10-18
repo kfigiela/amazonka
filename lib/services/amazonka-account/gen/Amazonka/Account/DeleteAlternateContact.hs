@@ -169,10 +169,13 @@ instance Core.AWSRequest DeleteAlternateContact where
   type
     AWSResponse DeleteAlternateContact =
       DeleteAlternateContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteAlternateContactResponse'
+
+instance Core.AWSService DeleteAlternateContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAlternateContact where
   hashWithSalt _salt DeleteAlternateContact' {..} =

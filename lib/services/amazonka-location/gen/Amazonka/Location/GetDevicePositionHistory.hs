@@ -228,7 +228,7 @@ instance Core.AWSRequest GetDevicePositionHistory where
   type
     AWSResponse GetDevicePositionHistory =
       GetDevicePositionHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -239,6 +239,9 @@ instance Core.AWSRequest GetDevicePositionHistory where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetDevicePositionHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDevicePositionHistory where
   hashWithSalt _salt GetDevicePositionHistory' {..} =

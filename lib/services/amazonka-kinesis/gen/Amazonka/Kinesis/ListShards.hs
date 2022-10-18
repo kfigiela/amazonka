@@ -357,7 +357,7 @@ instance Core.AWSPager ListShards where
 
 instance Core.AWSRequest ListShards where
   type AWSResponse ListShards = ListShardsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -366,6 +366,9 @@ instance Core.AWSRequest ListShards where
             Prelude.<*> (x Core..?> "Shards" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListShards where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListShards where
   hashWithSalt _salt ListShards' {..} =

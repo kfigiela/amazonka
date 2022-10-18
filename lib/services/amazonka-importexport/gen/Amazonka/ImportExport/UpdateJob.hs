@@ -130,7 +130,7 @@ updateJob_validateOnly = Lens.lens (\UpdateJob' {validateOnly} -> validateOnly) 
 
 instance Core.AWSRequest UpdateJob where
   type AWSResponse UpdateJob = UpdateJobResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateJobResult"
@@ -143,6 +143,9 @@ instance Core.AWSRequest UpdateJob where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateJob where
   hashWithSalt _salt UpdateJob' {..} =

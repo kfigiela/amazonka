@@ -114,7 +114,7 @@ instance Core.AWSRequest ListIdentityPolicies where
   type
     AWSResponse ListIdentityPolicies =
       ListIdentityPoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListIdentityPoliciesResult"
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListIdentityPolicies where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListIdentityPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListIdentityPolicies where
   hashWithSalt _salt ListIdentityPolicies' {..} =

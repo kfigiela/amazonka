@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeTextTranslationJob where
   type
     AWSResponse DescribeTextTranslationJob =
       DescribeTextTranslationJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribeTextTranslationJob where
             Prelude.<$> (x Core..?> "TextTranslationJobProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTextTranslationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTextTranslationJob where
   hashWithSalt _salt DescribeTextTranslationJob' {..} =

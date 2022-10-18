@@ -80,7 +80,7 @@ instance Core.AWSRequest UpdateTemplate where
   type
     AWSResponse UpdateTemplate =
       UpdateTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "UpdateTemplateResult"
@@ -88,6 +88,9 @@ instance Core.AWSRequest UpdateTemplate where
           UpdateTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTemplate where
   hashWithSalt _salt UpdateTemplate' {..} =

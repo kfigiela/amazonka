@@ -142,7 +142,7 @@ instance Core.AWSRequest GetMediaForFragmentList where
   type
     AWSResponse GetMediaForFragmentList =
       GetMediaForFragmentListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveBody
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest GetMediaForFragmentList where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Prelude.pure x)
       )
+
+instance Core.AWSService GetMediaForFragmentList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMediaForFragmentList where
   hashWithSalt _salt GetMediaForFragmentList' {..} =

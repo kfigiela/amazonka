@@ -1076,7 +1076,7 @@ instance Core.AWSRequest CreateCacheCluster where
   type
     AWSResponse CreateCacheCluster =
       CreateCacheClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateCacheClusterResult"
@@ -1085,6 +1085,9 @@ instance Core.AWSRequest CreateCacheCluster where
             Prelude.<$> (x Core..@? "CacheCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCacheCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCacheCluster where
   hashWithSalt _salt CreateCacheCluster' {..} =

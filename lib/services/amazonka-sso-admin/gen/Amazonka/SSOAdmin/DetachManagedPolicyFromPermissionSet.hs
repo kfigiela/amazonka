@@ -119,13 +119,19 @@ instance
   type
     AWSResponse DetachManagedPolicyFromPermissionSet =
       DetachManagedPolicyFromPermissionSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DetachManagedPolicyFromPermissionSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DetachManagedPolicyFromPermissionSet
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

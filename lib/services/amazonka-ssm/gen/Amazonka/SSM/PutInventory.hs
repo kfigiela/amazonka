@@ -91,7 +91,7 @@ putInventory_items = Lens.lens (\PutInventory' {items} -> items) (\s@PutInventor
 
 instance Core.AWSRequest PutInventory where
   type AWSResponse PutInventory = PutInventoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest PutInventory where
             Prelude.<$> (x Core..?> "Message")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutInventory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutInventory where
   hashWithSalt _salt PutInventory' {..} =

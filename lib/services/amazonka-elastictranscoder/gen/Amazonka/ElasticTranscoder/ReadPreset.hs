@@ -79,7 +79,7 @@ readPreset_id = Lens.lens (\ReadPreset' {id} -> id) (\s@ReadPreset' {} a -> s {i
 
 instance Core.AWSRequest ReadPreset where
   type AWSResponse ReadPreset = ReadPresetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest ReadPreset where
             Prelude.<$> (x Core..?> "Preset")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReadPreset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReadPreset where
   hashWithSalt _salt ReadPreset' {..} =

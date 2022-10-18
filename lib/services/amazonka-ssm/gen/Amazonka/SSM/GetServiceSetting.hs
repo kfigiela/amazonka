@@ -141,7 +141,7 @@ instance Core.AWSRequest GetServiceSetting where
   type
     AWSResponse GetServiceSetting =
       GetServiceSettingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest GetServiceSetting where
             Prelude.<$> (x Core..?> "ServiceSetting")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetServiceSetting where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetServiceSetting where
   hashWithSalt _salt GetServiceSetting' {..} =

@@ -85,7 +85,7 @@ instance
   type
     AWSResponse GetRecommendationReportDetails =
       GetRecommendationReportDetailsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,12 @@ instance
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetRecommendationReportDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

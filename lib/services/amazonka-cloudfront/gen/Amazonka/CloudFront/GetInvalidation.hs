@@ -96,7 +96,7 @@ instance Core.AWSRequest GetInvalidation where
   type
     AWSResponse GetInvalidation =
       GetInvalidationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetInvalidation where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInvalidation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInvalidation where
   hashWithSalt _salt GetInvalidation' {..} =

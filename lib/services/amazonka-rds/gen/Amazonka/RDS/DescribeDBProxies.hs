@@ -164,7 +164,7 @@ instance Core.AWSRequest DescribeDBProxies where
   type
     AWSResponse DescribeDBProxies =
       DescribeDBProxiesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBProxiesResult"
@@ -176,6 +176,9 @@ instance Core.AWSRequest DescribeDBProxies where
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBProxies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBProxies where
   hashWithSalt _salt DescribeDBProxies' {..} =

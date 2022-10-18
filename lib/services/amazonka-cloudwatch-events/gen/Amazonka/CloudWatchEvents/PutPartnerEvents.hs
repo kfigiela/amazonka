@@ -82,7 +82,7 @@ instance Core.AWSRequest PutPartnerEvents where
   type
     AWSResponse PutPartnerEvents =
       PutPartnerEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest PutPartnerEvents where
             Prelude.<*> (x Core..?> "FailedEntryCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutPartnerEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutPartnerEvents where
   hashWithSalt _salt PutPartnerEvents' {..} =

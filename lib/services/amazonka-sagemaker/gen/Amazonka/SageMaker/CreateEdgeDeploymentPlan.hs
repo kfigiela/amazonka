@@ -127,7 +127,7 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
   type
     AWSResponse CreateEdgeDeploymentPlan =
       CreateEdgeDeploymentPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest CreateEdgeDeploymentPlan where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "EdgeDeploymentPlanArn")
       )
+
+instance Core.AWSService CreateEdgeDeploymentPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEdgeDeploymentPlan where
   hashWithSalt _salt CreateEdgeDeploymentPlan' {..} =

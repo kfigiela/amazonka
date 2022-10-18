@@ -133,7 +133,7 @@ instance Core.AWSRequest DisassociateNode where
   type
     AWSResponse DisassociateNode =
       DisassociateNodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest DisassociateNode where
             Prelude.<$> (x Core..?> "NodeAssociationStatusToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateNode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateNode where
   hashWithSalt _salt DisassociateNode' {..} =

@@ -112,10 +112,13 @@ getMethod_httpMethod = Lens.lens (\GetMethod' {httpMethod} -> httpMethod) (\s@Ge
 
 instance Core.AWSRequest GetMethod where
   type AWSResponse GetMethod = Method
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMethod where
   hashWithSalt _salt GetMethod' {..} =

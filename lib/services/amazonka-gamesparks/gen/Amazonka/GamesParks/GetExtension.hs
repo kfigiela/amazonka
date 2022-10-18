@@ -89,7 +89,7 @@ getExtension_namespace = Lens.lens (\GetExtension' {namespace} -> namespace) (\s
 
 instance Core.AWSRequest GetExtension where
   type AWSResponse GetExtension = GetExtensionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetExtension where
             Prelude.<$> (x Core..?> "Extension")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetExtension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetExtension where
   hashWithSalt _salt GetExtension' {..} =

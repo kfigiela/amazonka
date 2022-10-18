@@ -106,8 +106,11 @@ deletePolicy_policyArn = Lens.lens (\DeletePolicy' {policyArn} -> policyArn) (\s
 
 instance Core.AWSRequest DeletePolicy where
   type AWSResponse DeletePolicy = DeletePolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull DeletePolicyResponse'
+
+instance Core.AWSService DeletePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePolicy where
   hashWithSalt _salt DeletePolicy' {..} =

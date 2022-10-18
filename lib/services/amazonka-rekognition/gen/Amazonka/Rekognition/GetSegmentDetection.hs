@@ -154,7 +154,7 @@ instance Core.AWSRequest GetSegmentDetection where
   type
     AWSResponse GetSegmentDetection =
       GetSegmentDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest GetSegmentDetection where
             Prelude.<*> (x Core..?> "AudioMetadata" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSegmentDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSegmentDetection where
   hashWithSalt _salt GetSegmentDetection' {..} =

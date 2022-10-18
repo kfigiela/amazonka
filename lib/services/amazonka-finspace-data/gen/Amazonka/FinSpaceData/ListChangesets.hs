@@ -128,7 +128,7 @@ instance Core.AWSRequest ListChangesets where
   type
     AWSResponse ListChangesets =
       ListChangesetsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListChangesets where
             Prelude.<*> (x Core..?> "changesets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListChangesets where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListChangesets where
   hashWithSalt _salt ListChangesets' {..} =

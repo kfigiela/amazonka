@@ -155,7 +155,7 @@ putImage_imageManifest = Lens.lens (\PutImage' {imageManifest} -> imageManifest)
 
 instance Core.AWSRequest PutImage where
   type AWSResponse PutImage = PutImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest PutImage where
             Prelude.<$> (x Core..?> "image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutImage where
   hashWithSalt _salt PutImage' {..} =

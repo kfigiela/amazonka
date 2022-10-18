@@ -222,7 +222,7 @@ instance Core.AWSRequest UpdateRegexPatternSet where
   type
     AWSResponse UpdateRegexPatternSet =
       UpdateRegexPatternSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest UpdateRegexPatternSet where
             Prelude.<$> (x Core..?> "NextLockToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRegexPatternSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRegexPatternSet where
   hashWithSalt _salt UpdateRegexPatternSet' {..} =

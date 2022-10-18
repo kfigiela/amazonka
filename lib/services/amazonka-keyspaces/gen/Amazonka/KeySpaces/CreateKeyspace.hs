@@ -111,7 +111,7 @@ instance Core.AWSRequest CreateKeyspace where
   type
     AWSResponse CreateKeyspace =
       CreateKeyspaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest CreateKeyspace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "resourceArn")
       )
+
+instance Core.AWSService CreateKeyspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateKeyspace where
   hashWithSalt _salt CreateKeyspace' {..} =

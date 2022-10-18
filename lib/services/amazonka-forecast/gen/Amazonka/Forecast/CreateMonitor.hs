@@ -110,7 +110,7 @@ instance Core.AWSRequest CreateMonitor where
   type
     AWSResponse CreateMonitor =
       CreateMonitorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CreateMonitor where
             Prelude.<$> (x Core..?> "MonitorArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMonitor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMonitor where
   hashWithSalt _salt CreateMonitor' {..} =

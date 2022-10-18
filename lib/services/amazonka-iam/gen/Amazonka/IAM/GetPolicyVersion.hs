@@ -146,7 +146,7 @@ instance Core.AWSRequest GetPolicyVersion where
   type
     AWSResponse GetPolicyVersion =
       GetPolicyVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetPolicyVersionResult"
@@ -155,6 +155,9 @@ instance Core.AWSRequest GetPolicyVersion where
             Prelude.<$> (x Core..@? "PolicyVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPolicyVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPolicyVersion where
   hashWithSalt _salt GetPolicyVersion' {..} =

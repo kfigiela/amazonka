@@ -142,9 +142,12 @@ instance Core.AWSRequest UpdateKeyDescription where
   type
     AWSResponse UpdateKeyDescription =
       UpdateKeyDescriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateKeyDescriptionResponse'
+
+instance Core.AWSService UpdateKeyDescription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateKeyDescription where
   hashWithSalt _salt UpdateKeyDescription' {..} =

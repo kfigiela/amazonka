@@ -85,13 +85,16 @@ instance Core.AWSRequest CancelBatchImportJob where
   type
     AWSResponse CancelBatchImportJob =
       CancelBatchImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CancelBatchImportJobResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelBatchImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelBatchImportJob where
   hashWithSalt _salt CancelBatchImportJob' {..} =

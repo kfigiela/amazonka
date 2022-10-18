@@ -143,7 +143,7 @@ instance Core.AWSRequest CopyWorkspaceImage where
   type
     AWSResponse CopyWorkspaceImage =
       CopyWorkspaceImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest CopyWorkspaceImage where
             Prelude.<$> (x Core..?> "ImageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyWorkspaceImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyWorkspaceImage where
   hashWithSalt _salt CopyWorkspaceImage' {..} =

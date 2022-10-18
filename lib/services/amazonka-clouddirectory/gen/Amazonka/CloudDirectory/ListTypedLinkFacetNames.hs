@@ -130,7 +130,7 @@ instance Core.AWSRequest ListTypedLinkFacetNames where
   type
     AWSResponse ListTypedLinkFacetNames =
       ListTypedLinkFacetNamesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListTypedLinkFacetNames where
             Prelude.<*> (x Core..?> "FacetNames" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTypedLinkFacetNames where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTypedLinkFacetNames where
   hashWithSalt _salt ListTypedLinkFacetNames' {..} =

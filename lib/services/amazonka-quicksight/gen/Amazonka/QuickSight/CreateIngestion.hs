@@ -129,7 +129,7 @@ instance Core.AWSRequest CreateIngestion where
   type
     AWSResponse CreateIngestion =
       CreateIngestionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest CreateIngestion where
             Prelude.<*> (x Core..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIngestion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIngestion where
   hashWithSalt _salt CreateIngestion' {..} =

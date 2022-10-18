@@ -158,7 +158,7 @@ instance Core.AWSRequest StartMatchmaking where
   type
     AWSResponse StartMatchmaking =
       StartMatchmakingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest StartMatchmaking where
             Prelude.<$> (x Core..?> "MatchmakingTicket")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMatchmaking where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMatchmaking where
   hashWithSalt _salt StartMatchmaking' {..} =

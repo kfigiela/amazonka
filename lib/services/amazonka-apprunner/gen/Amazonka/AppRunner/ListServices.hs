@@ -114,7 +114,7 @@ listServices_maxResults = Lens.lens (\ListServices' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListServices where
   type AWSResponse ListServices = ListServicesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest ListServices where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListServices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServices where
   hashWithSalt _salt ListServices' {..} =

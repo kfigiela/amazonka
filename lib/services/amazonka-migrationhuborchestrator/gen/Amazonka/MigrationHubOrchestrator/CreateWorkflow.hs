@@ -160,7 +160,7 @@ instance Core.AWSRequest CreateWorkflow where
   type
     AWSResponse CreateWorkflow =
       CreateWorkflowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -178,6 +178,9 @@ instance Core.AWSRequest CreateWorkflow where
             Prelude.<*> (x Core..?> "workflowInputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkflow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkflow where
   hashWithSalt _salt CreateWorkflow' {..} =

@@ -103,13 +103,16 @@ instance Core.AWSRequest ModifyAccount where
   type
     AWSResponse ModifyAccount =
       ModifyAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ModifyAccountResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyAccount where
   hashWithSalt _salt ModifyAccount' {..} =

@@ -123,7 +123,7 @@ instance Core.AWSRequest ListDataViews where
   type
     AWSResponse ListDataViews =
       ListDataViewsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListDataViews where
             Prelude.<*> (x Core..?> "dataViews" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataViews where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataViews where
   hashWithSalt _salt ListDataViews' {..} =

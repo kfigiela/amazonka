@@ -89,7 +89,7 @@ instance Core.AWSRequest DescribeVpcConnector where
   type
     AWSResponse DescribeVpcConnector =
       DescribeVpcConnectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest DescribeVpcConnector where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "VpcConnector")
       )
+
+instance Core.AWSService DescribeVpcConnector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVpcConnector where
   hashWithSalt _salt DescribeVpcConnector' {..} =

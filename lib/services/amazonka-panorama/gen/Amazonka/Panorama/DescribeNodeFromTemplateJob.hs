@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeNodeFromTemplateJob where
   type
     AWSResponse DescribeNodeFromTemplateJob =
       DescribeNodeFromTemplateJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DescribeNodeFromTemplateJob where
                         )
             Prelude.<*> (x Core..:> "TemplateType")
       )
+
+instance Core.AWSService DescribeNodeFromTemplateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNodeFromTemplateJob where
   hashWithSalt _salt DescribeNodeFromTemplateJob' {..} =

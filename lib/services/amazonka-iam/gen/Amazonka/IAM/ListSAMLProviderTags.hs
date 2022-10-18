@@ -159,7 +159,7 @@ instance Core.AWSRequest ListSAMLProviderTags where
   type
     AWSResponse ListSAMLProviderTags =
       ListSAMLProviderTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListSAMLProviderTagsResult"
@@ -172,6 +172,9 @@ instance Core.AWSRequest ListSAMLProviderTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListSAMLProviderTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSAMLProviderTags where
   hashWithSalt _salt ListSAMLProviderTags' {..} =

@@ -124,7 +124,7 @@ instance Core.AWSRequest UpdateBackendStorage where
   type
     AWSResponse UpdateBackendStorage =
       UpdateBackendStorageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest UpdateBackendStorage where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBackendStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBackendStorage where
   hashWithSalt _salt UpdateBackendStorage' {..} =

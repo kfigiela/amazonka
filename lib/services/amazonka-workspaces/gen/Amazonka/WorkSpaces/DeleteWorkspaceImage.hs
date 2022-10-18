@@ -78,13 +78,16 @@ instance Core.AWSRequest DeleteWorkspaceImage where
   type
     AWSResponse DeleteWorkspaceImage =
       DeleteWorkspaceImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteWorkspaceImageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteWorkspaceImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkspaceImage where
   hashWithSalt _salt DeleteWorkspaceImage' {..} =

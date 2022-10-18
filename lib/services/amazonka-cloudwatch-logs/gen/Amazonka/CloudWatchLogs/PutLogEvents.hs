@@ -172,7 +172,7 @@ putLogEvents_logEvents = Lens.lens (\PutLogEvents' {logEvents} -> logEvents) (\s
 
 instance Core.AWSRequest PutLogEvents where
   type AWSResponse PutLogEvents = PutLogEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest PutLogEvents where
             Prelude.<*> (x Core..?> "rejectedLogEventsInfo")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLogEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLogEvents where
   hashWithSalt _salt PutLogEvents' {..} =

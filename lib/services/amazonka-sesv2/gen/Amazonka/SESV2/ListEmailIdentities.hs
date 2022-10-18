@@ -118,7 +118,7 @@ instance Core.AWSRequest ListEmailIdentities where
   type
     AWSResponse ListEmailIdentities =
       ListEmailIdentitiesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListEmailIdentities where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEmailIdentities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEmailIdentities where
   hashWithSalt _salt ListEmailIdentities' {..} =

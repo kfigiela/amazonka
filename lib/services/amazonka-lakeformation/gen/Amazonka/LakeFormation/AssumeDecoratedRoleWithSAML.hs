@@ -155,7 +155,7 @@ instance Core.AWSRequest AssumeDecoratedRoleWithSAML where
   type
     AWSResponse AssumeDecoratedRoleWithSAML =
       AssumeDecoratedRoleWithSAMLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest AssumeDecoratedRoleWithSAML where
             Prelude.<*> (x Core..?> "AccessKeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssumeDecoratedRoleWithSAML where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssumeDecoratedRoleWithSAML where
   hashWithSalt _salt AssumeDecoratedRoleWithSAML' {..} =

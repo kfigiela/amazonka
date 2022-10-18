@@ -100,7 +100,7 @@ instance Core.AWSRequest DeleteRecommendationTemplate where
   type
     AWSResponse DeleteRecommendationTemplate =
       DeleteRecommendationTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest DeleteRecommendationTemplate where
             Prelude.<*> (x Core..:> "recommendationTemplateArn")
             Prelude.<*> (x Core..:> "status")
       )
+
+instance Core.AWSService DeleteRecommendationTemplate where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -65,7 +65,7 @@ instance Core.AWSRequest GetHostedZoneCount where
   type
     AWSResponse GetHostedZoneCount =
       GetHostedZoneCountResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest GetHostedZoneCount where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "HostedZoneCount")
       )
+
+instance Core.AWSService GetHostedZoneCount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHostedZoneCount where
   hashWithSalt _salt _ =

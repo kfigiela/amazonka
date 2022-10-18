@@ -207,7 +207,7 @@ instance Core.AWSRequest CreateLocationObjectStorage where
   type
     AWSResponse CreateLocationObjectStorage =
       CreateLocationObjectStorageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -215,6 +215,9 @@ instance Core.AWSRequest CreateLocationObjectStorage where
             Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocationObjectStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocationObjectStorage where
   hashWithSalt _salt CreateLocationObjectStorage' {..} =

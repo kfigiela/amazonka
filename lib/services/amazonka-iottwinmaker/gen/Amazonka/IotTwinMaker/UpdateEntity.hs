@@ -133,7 +133,7 @@ updateEntity_workspaceId = Lens.lens (\UpdateEntity' {workspaceId} -> workspaceI
 
 instance Core.AWSRequest UpdateEntity where
   type AWSResponse UpdateEntity = UpdateEntityResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest UpdateEntity where
             Prelude.<*> (x Core..:> "state")
             Prelude.<*> (x Core..:> "updateDateTime")
       )
+
+instance Core.AWSService UpdateEntity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEntity where
   hashWithSalt _salt UpdateEntity' {..} =

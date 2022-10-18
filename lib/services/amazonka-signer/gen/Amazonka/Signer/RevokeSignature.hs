@@ -98,9 +98,12 @@ instance Core.AWSRequest RevokeSignature where
   type
     AWSResponse RevokeSignature =
       RevokeSignatureResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull RevokeSignatureResponse'
+
+instance Core.AWSService RevokeSignature where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeSignature where
   hashWithSalt _salt RevokeSignature' {..} =

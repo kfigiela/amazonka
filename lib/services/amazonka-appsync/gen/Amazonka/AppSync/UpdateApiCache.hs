@@ -253,7 +253,7 @@ instance Core.AWSRequest UpdateApiCache where
   type
     AWSResponse UpdateApiCache =
       UpdateApiCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -261,6 +261,9 @@ instance Core.AWSRequest UpdateApiCache where
             Prelude.<$> (x Core..?> "apiCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateApiCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateApiCache where
   hashWithSalt _salt UpdateApiCache' {..} =

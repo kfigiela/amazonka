@@ -112,10 +112,16 @@ instance
   type
     AWSResponse RegisterDelegatedAdministrator =
       RegisterDelegatedAdministratorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RegisterDelegatedAdministratorResponse'
+
+instance
+  Core.AWSService
+    RegisterDelegatedAdministrator
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

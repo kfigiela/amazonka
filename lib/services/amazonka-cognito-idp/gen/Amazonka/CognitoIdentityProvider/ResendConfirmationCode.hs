@@ -259,7 +259,7 @@ instance Core.AWSRequest ResendConfirmationCode where
   type
     AWSResponse ResendConfirmationCode =
       ResendConfirmationCodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -267,6 +267,9 @@ instance Core.AWSRequest ResendConfirmationCode where
             Prelude.<$> (x Core..?> "CodeDeliveryDetails")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResendConfirmationCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResendConfirmationCode where
   hashWithSalt _salt ResendConfirmationCode' {..} =

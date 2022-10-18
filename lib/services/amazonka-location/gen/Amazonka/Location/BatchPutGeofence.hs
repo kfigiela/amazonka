@@ -95,7 +95,7 @@ instance Core.AWSRequest BatchPutGeofence where
   type
     AWSResponse BatchPutGeofence =
       BatchPutGeofenceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest BatchPutGeofence where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "Successes" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchPutGeofence where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchPutGeofence where
   hashWithSalt _salt BatchPutGeofence' {..} =

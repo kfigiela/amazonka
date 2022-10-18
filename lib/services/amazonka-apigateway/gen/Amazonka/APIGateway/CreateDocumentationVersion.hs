@@ -117,10 +117,13 @@ instance Core.AWSRequest CreateDocumentationVersion where
   type
     AWSResponse CreateDocumentationVersion =
       DocumentationVersion
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateDocumentationVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDocumentationVersion where
   hashWithSalt _salt CreateDocumentationVersion' {..} =

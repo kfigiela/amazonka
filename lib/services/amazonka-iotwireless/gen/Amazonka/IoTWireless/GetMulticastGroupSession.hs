@@ -76,7 +76,7 @@ instance Core.AWSRequest GetMulticastGroupSession where
   type
     AWSResponse GetMulticastGroupSession =
       GetMulticastGroupSessionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest GetMulticastGroupSession where
             Prelude.<$> (x Core..?> "LoRaWAN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMulticastGroupSession where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMulticastGroupSession where
   hashWithSalt _salt GetMulticastGroupSession' {..} =

@@ -111,7 +111,7 @@ instance Core.AWSRequest MoveAddressToVpc where
   type
     AWSResponse MoveAddressToVpc =
       MoveAddressToVpcResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest MoveAddressToVpc where
             Prelude.<*> (x Core..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService MoveAddressToVpc where
+  service _proxy = defaultService
 
 instance Prelude.Hashable MoveAddressToVpc where
   hashWithSalt _salt MoveAddressToVpc' {..} =

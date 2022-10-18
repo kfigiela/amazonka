@@ -128,7 +128,7 @@ instance Core.AWSRequest CreateSizeConstraintSet where
   type
     AWSResponse CreateSizeConstraintSet =
       CreateSizeConstraintSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest CreateSizeConstraintSet where
             Prelude.<*> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSizeConstraintSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSizeConstraintSet where
   hashWithSalt _salt CreateSizeConstraintSet' {..} =

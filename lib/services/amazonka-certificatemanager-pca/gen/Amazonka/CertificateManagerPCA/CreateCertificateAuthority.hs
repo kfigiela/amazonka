@@ -259,7 +259,7 @@ instance Core.AWSRequest CreateCertificateAuthority where
   type
     AWSResponse CreateCertificateAuthority =
       CreateCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -267,6 +267,9 @@ instance Core.AWSRequest CreateCertificateAuthority where
             Prelude.<$> (x Core..?> "CertificateAuthorityArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCertificateAuthority where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCertificateAuthority where
   hashWithSalt _salt CreateCertificateAuthority' {..} =

@@ -89,7 +89,7 @@ instance Core.AWSRequest UpdateSettings where
   type
     AWSResponse UpdateSettings =
       UpdateSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest UpdateSettings where
             Prelude.<$> (x Core..?> "DirectoryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSettings where
   hashWithSalt _salt UpdateSettings' {..} =

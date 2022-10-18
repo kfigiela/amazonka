@@ -83,7 +83,7 @@ instance Core.AWSRequest GetApplicationSettings where
   type
     AWSResponse GetApplicationSettings =
       GetApplicationSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetApplicationSettings where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetApplicationSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplicationSettings where
   hashWithSalt _salt GetApplicationSettings' {..} =

@@ -143,7 +143,7 @@ instance Core.AWSPager GetSlotTypes where
 
 instance Core.AWSRequest GetSlotTypes where
   type AWSResponse GetSlotTypes = GetSlotTypesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest GetSlotTypes where
             Prelude.<*> (x Core..?> "slotTypes" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSlotTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSlotTypes where
   hashWithSalt _salt GetSlotTypes' {..} =

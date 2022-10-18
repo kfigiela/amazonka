@@ -185,7 +185,7 @@ instance Core.AWSRequest GetDomainSuggestions where
   type
     AWSResponse GetDomainSuggestions =
       GetDomainSuggestionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest GetDomainSuggestions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDomainSuggestions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDomainSuggestions where
   hashWithSalt _salt GetDomainSuggestions' {..} =

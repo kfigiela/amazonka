@@ -151,7 +151,7 @@ instance Core.AWSRequest ListBonusPayments where
   type
     AWSResponse ListBonusPayments =
       ListBonusPaymentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListBonusPayments where
             Prelude.<*> (x Core..?> "BonusPayments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListBonusPayments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListBonusPayments where
   hashWithSalt _salt ListBonusPayments' {..} =

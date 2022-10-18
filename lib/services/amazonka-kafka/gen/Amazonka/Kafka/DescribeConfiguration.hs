@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeConfiguration where
   type
     AWSResponse DescribeConfiguration =
       DescribeConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest DescribeConfiguration where
             Prelude.<*> (x Core..?> "creationTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeConfiguration where
   hashWithSalt _salt DescribeConfiguration' {..} =

@@ -73,13 +73,16 @@ stopFleet_name = Lens.lens (\StopFleet' {name} -> name) (\s@StopFleet' {} a -> s
 
 instance Core.AWSRequest StopFleet where
   type AWSResponse StopFleet = StopFleetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopFleetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopFleet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopFleet where
   hashWithSalt _salt StopFleet' {..} =

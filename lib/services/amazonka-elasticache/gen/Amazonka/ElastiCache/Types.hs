@@ -886,6 +886,7 @@ defaultService =
       Core._serviceEndpointPrefix = "elasticache",
       Core._serviceSigningName = "elasticache",
       Core._serviceVersion = "2015-02-02",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

@@ -162,8 +162,11 @@ attachPolicy_targetId = Lens.lens (\AttachPolicy' {targetId} -> targetId) (\s@At
 
 instance Core.AWSRequest AttachPolicy where
   type AWSResponse AttachPolicy = AttachPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull AttachPolicyResponse'
+
+instance Core.AWSService AttachPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AttachPolicy where
   hashWithSalt _salt AttachPolicy' {..} =

@@ -125,7 +125,7 @@ instance Core.AWSRequest ListCidrCollections where
   type
     AWSResponse ListCidrCollections =
       ListCidrCollectionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest ListCidrCollections where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListCidrCollections where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListCidrCollections where
   hashWithSalt _salt ListCidrCollections' {..} =

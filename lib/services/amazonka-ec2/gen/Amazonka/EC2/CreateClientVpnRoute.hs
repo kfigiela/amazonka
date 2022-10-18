@@ -203,7 +203,7 @@ instance Core.AWSRequest CreateClientVpnRoute where
   type
     AWSResponse CreateClientVpnRoute =
       CreateClientVpnRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest CreateClientVpnRoute where
             Prelude.<$> (x Core..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClientVpnRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClientVpnRoute where
   hashWithSalt _salt CreateClientVpnRoute' {..} =

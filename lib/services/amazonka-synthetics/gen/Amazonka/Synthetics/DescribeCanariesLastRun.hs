@@ -156,7 +156,7 @@ instance Core.AWSRequest DescribeCanariesLastRun where
   type
     AWSResponse DescribeCanariesLastRun =
       DescribeCanariesLastRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest DescribeCanariesLastRun where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCanariesLastRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCanariesLastRun where
   hashWithSalt _salt DescribeCanariesLastRun' {..} =

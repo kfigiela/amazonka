@@ -190,7 +190,7 @@ instance Core.AWSRequest DecreaseReplicaCount where
   type
     AWSResponse DecreaseReplicaCount =
       DecreaseReplicaCountResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DecreaseReplicaCountResult"
@@ -199,6 +199,9 @@ instance Core.AWSRequest DecreaseReplicaCount where
             Prelude.<$> (x Core..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DecreaseReplicaCount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DecreaseReplicaCount where
   hashWithSalt _salt DecreaseReplicaCount' {..} =

@@ -97,7 +97,7 @@ updateACL_aCLName = Lens.lens (\UpdateACL' {aCLName} -> aCLName) (\s@UpdateACL' 
 
 instance Core.AWSRequest UpdateACL where
   type AWSResponse UpdateACL = UpdateACLResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateACL where
             Prelude.<$> (x Core..?> "ACL")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateACL where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateACL where
   hashWithSalt _salt UpdateACL' {..} =

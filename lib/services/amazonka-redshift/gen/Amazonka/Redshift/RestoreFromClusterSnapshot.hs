@@ -826,7 +826,7 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
   type
     AWSResponse RestoreFromClusterSnapshot =
       RestoreFromClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "RestoreFromClusterSnapshotResult"
@@ -835,6 +835,9 @@ instance Core.AWSRequest RestoreFromClusterSnapshot where
             Prelude.<$> (x Core..@? "Cluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreFromClusterSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreFromClusterSnapshot where
   hashWithSalt _salt RestoreFromClusterSnapshot' {..} =

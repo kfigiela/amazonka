@@ -105,7 +105,7 @@ instance Core.AWSPager ListExports where
 
 instance Core.AWSRequest ListExports where
   type AWSResponse ListExports = ListExportsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListExportsResult"
@@ -117,6 +117,9 @@ instance Core.AWSRequest ListExports where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExports where
   hashWithSalt _salt ListExports' {..} =

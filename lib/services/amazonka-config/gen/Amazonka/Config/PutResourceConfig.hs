@@ -188,9 +188,12 @@ instance Core.AWSRequest PutResourceConfig where
   type
     AWSResponse PutResourceConfig =
       PutResourceConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PutResourceConfigResponse'
+
+instance Core.AWSService PutResourceConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutResourceConfig where
   hashWithSalt _salt PutResourceConfig' {..} =

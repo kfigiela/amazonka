@@ -161,7 +161,7 @@ instance Core.AWSRequest ListServerCertificateTags where
   type
     AWSResponse ListServerCertificateTags =
       ListServerCertificateTagsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListServerCertificateTagsResult"
@@ -174,6 +174,9 @@ instance Core.AWSRequest ListServerCertificateTags where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListServerCertificateTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListServerCertificateTags where
   hashWithSalt _salt ListServerCertificateTags' {..} =

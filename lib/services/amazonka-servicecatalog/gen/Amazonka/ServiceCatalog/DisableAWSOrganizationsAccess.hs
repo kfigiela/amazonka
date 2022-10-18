@@ -82,13 +82,19 @@ instance
   type
     AWSResponse DisableAWSOrganizationsAccess =
       DisableAWSOrganizationsAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisableAWSOrganizationsAccessResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisableAWSOrganizationsAccess
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

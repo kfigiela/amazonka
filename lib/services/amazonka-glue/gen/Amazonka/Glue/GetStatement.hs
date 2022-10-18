@@ -99,7 +99,7 @@ getStatement_id = Lens.lens (\GetStatement' {id} -> id) (\s@GetStatement' {} a -
 
 instance Core.AWSRequest GetStatement where
   type AWSResponse GetStatement = GetStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest GetStatement where
             Prelude.<$> (x Core..?> "Statement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStatement where
   hashWithSalt _salt GetStatement' {..} =

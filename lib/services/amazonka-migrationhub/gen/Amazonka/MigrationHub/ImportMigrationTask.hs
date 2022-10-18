@@ -113,13 +113,16 @@ instance Core.AWSRequest ImportMigrationTask where
   type
     AWSResponse ImportMigrationTask =
       ImportMigrationTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ImportMigrationTaskResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportMigrationTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportMigrationTask where
   hashWithSalt _salt ImportMigrationTask' {..} =

@@ -66,7 +66,7 @@ instance
   type
     AWSResponse DisassociateServiceRoleFromAccount =
       DisassociateServiceRoleFromAccountResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -74,6 +74,12 @@ instance
             Prelude.<$> (x Core..?> "DisassociatedAt")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociateServiceRoleFromAccount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

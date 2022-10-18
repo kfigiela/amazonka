@@ -137,10 +137,13 @@ instance Core.AWSRequest SetLoadBasedAutoScaling where
   type
     AWSResponse SetLoadBasedAutoScaling =
       SetLoadBasedAutoScalingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       SetLoadBasedAutoScalingResponse'
+
+instance Core.AWSService SetLoadBasedAutoScaling where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetLoadBasedAutoScaling where
   hashWithSalt _salt SetLoadBasedAutoScaling' {..} =

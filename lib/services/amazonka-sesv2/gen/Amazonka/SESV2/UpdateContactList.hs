@@ -102,13 +102,16 @@ instance Core.AWSRequest UpdateContactList where
   type
     AWSResponse UpdateContactList =
       UpdateContactListResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateContactListResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContactList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContactList where
   hashWithSalt _salt UpdateContactList' {..} =

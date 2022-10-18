@@ -159,7 +159,7 @@ instance Core.AWSRequest CreateDBSecurityGroup where
   type
     AWSResponse CreateDBSecurityGroup =
       CreateDBSecurityGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateDBSecurityGroupResult"
@@ -168,6 +168,9 @@ instance Core.AWSRequest CreateDBSecurityGroup where
             Prelude.<$> (x Core..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDBSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDBSecurityGroup where
   hashWithSalt _salt CreateDBSecurityGroup' {..} =

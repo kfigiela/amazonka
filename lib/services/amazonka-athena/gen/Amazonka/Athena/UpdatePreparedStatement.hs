@@ -116,13 +116,16 @@ instance Core.AWSRequest UpdatePreparedStatement where
   type
     AWSResponse UpdatePreparedStatement =
       UpdatePreparedStatementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdatePreparedStatementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePreparedStatement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePreparedStatement where
   hashWithSalt _salt UpdatePreparedStatement' {..} =

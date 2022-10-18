@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeQuickConnect where
   type
     AWSResponse DescribeQuickConnect =
       DescribeQuickConnectResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeQuickConnect where
             Prelude.<$> (x Core..?> "QuickConnect")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeQuickConnect where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeQuickConnect where
   hashWithSalt _salt DescribeQuickConnect' {..} =

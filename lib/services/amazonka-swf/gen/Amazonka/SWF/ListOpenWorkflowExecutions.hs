@@ -280,10 +280,13 @@ instance Core.AWSRequest ListOpenWorkflowExecutions where
   type
     AWSResponse ListOpenWorkflowExecutions =
       WorkflowExecutionInfos
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ListOpenWorkflowExecutions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListOpenWorkflowExecutions where
   hashWithSalt _salt ListOpenWorkflowExecutions' {..} =

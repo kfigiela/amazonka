@@ -115,7 +115,7 @@ instance Core.AWSRequest UpdatePlaceIndex where
   type
     AWSResponse UpdatePlaceIndex =
       UpdatePlaceIndexResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdatePlaceIndex where
             Prelude.<*> (x Core..:> "IndexName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService UpdatePlaceIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePlaceIndex where
   hashWithSalt _salt UpdatePlaceIndex' {..} =

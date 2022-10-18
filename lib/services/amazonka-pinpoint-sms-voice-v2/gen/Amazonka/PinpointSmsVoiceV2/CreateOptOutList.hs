@@ -122,7 +122,7 @@ instance Core.AWSRequest CreateOptOutList where
   type
     AWSResponse CreateOptOutList =
       CreateOptOutListResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest CreateOptOutList where
             Prelude.<*> (x Core..?> "OptOutListName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOptOutList where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOptOutList where
   hashWithSalt _salt CreateOptOutList' {..} =

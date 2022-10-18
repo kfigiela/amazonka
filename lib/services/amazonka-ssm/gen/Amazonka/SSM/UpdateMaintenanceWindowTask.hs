@@ -577,7 +577,7 @@ instance Core.AWSRequest UpdateMaintenanceWindowTask where
   type
     AWSResponse UpdateMaintenanceWindowTask =
       UpdateMaintenanceWindowTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -599,6 +599,9 @@ instance Core.AWSRequest UpdateMaintenanceWindowTask where
             Prelude.<*> (x Core..?> "CutoffBehavior")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMaintenanceWindowTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMaintenanceWindowTask where
   hashWithSalt _salt UpdateMaintenanceWindowTask' {..} =

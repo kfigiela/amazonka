@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribeImage where
   type
     AWSResponse DescribeImage =
       DescribeImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeImage where
             Prelude.<*> (x Core..?> "ImageName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImage where
   hashWithSalt _salt DescribeImage' {..} =

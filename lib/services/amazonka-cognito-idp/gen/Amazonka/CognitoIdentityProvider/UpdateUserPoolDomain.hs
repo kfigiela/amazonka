@@ -161,7 +161,7 @@ instance Core.AWSRequest UpdateUserPoolDomain where
   type
     AWSResponse UpdateUserPoolDomain =
       UpdateUserPoolDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest UpdateUserPoolDomain where
             Prelude.<$> (x Core..?> "CloudFrontDomain")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateUserPoolDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserPoolDomain where
   hashWithSalt _salt UpdateUserPoolDomain' {..} =

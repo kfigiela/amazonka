@@ -221,7 +221,7 @@ instance Core.AWSRequest ListStackSetOperationResults where
   type
     AWSResponse ListStackSetOperationResults =
       ListStackSetOperationResultsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListStackSetOperationResultsResult"
@@ -233,6 +233,9 @@ instance Core.AWSRequest ListStackSetOperationResults where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStackSetOperationResults where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

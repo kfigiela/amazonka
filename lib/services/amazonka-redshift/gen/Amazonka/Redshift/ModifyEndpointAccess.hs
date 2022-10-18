@@ -101,11 +101,14 @@ instance Core.AWSRequest ModifyEndpointAccess where
   type
     AWSResponse ModifyEndpointAccess =
       EndpointAccess
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyEndpointAccessResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService ModifyEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyEndpointAccess where
   hashWithSalt _salt ModifyEndpointAccess' {..} =

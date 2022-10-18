@@ -161,10 +161,13 @@ instance Core.AWSRequest ModifySnapshotAttribute where
   type
     AWSResponse ModifySnapshotAttribute =
       ModifySnapshotAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifySnapshotAttributeResponse'
+
+instance Core.AWSService ModifySnapshotAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifySnapshotAttribute where
   hashWithSalt _salt ModifySnapshotAttribute' {..} =

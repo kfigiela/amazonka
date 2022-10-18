@@ -78,7 +78,7 @@ getAssistant_assistantId = Lens.lens (\GetAssistant' {assistantId} -> assistantI
 
 instance Core.AWSRequest GetAssistant where
   type AWSResponse GetAssistant = GetAssistantResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetAssistant where
             Prelude.<$> (x Core..?> "assistant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssistant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssistant where
   hashWithSalt _salt GetAssistant' {..} =

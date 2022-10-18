@@ -102,7 +102,7 @@ instance Core.AWSRequest DetachLoadBalancers where
   type
     AWSResponse DetachLoadBalancers =
       DetachLoadBalancersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DetachLoadBalancersResult"
@@ -110,6 +110,9 @@ instance Core.AWSRequest DetachLoadBalancers where
           DetachLoadBalancersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachLoadBalancers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachLoadBalancers where
   hashWithSalt _salt DetachLoadBalancers' {..} =

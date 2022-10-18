@@ -173,6 +173,7 @@ defaultService =
       Core._serviceEndpointPrefix = "resource-groups",
       Core._serviceSigningName = "resource-groups",
       Core._serviceVersion = "2017-11-27",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

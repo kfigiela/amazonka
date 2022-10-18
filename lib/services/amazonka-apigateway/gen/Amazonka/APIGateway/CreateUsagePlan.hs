@@ -144,10 +144,13 @@ createUsagePlan_name = Lens.lens (\CreateUsagePlan' {name} -> name) (\s@CreateUs
 
 instance Core.AWSRequest CreateUsagePlan where
   type AWSResponse CreateUsagePlan = UsagePlan
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService CreateUsagePlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUsagePlan where
   hashWithSalt _salt CreateUsagePlan' {..} =

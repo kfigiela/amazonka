@@ -106,13 +106,16 @@ updateCase_fields = Lens.lens (\UpdateCase' {fields} -> fields) (\s@UpdateCase' 
 
 instance Core.AWSRequest UpdateCase where
   type AWSResponse UpdateCase = UpdateCaseResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateCaseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateCase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCase where
   hashWithSalt _salt UpdateCase' {..} =

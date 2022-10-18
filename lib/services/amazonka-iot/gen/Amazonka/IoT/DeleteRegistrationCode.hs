@@ -66,13 +66,16 @@ instance Core.AWSRequest DeleteRegistrationCode where
   type
     AWSResponse DeleteRegistrationCode =
       DeleteRegistrationCodeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteRegistrationCodeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteRegistrationCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteRegistrationCode where
   hashWithSalt _salt _ =

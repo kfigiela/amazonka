@@ -77,7 +77,7 @@ getDNSSEC_hostedZoneId = Lens.lens (\GetDNSSEC' {hostedZoneId} -> hostedZoneId) 
 
 instance Core.AWSRequest GetDNSSEC where
   type AWSResponse GetDNSSEC = GetDNSSECResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest GetDNSSEC where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService GetDNSSEC where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDNSSEC where
   hashWithSalt _salt GetDNSSEC' {..} =

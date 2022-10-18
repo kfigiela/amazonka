@@ -115,11 +115,14 @@ instance Core.AWSRequest DescribeResize where
   type
     AWSResponse DescribeResize =
       ResizeProgressMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeResizeResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DescribeResize where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeResize where
   hashWithSalt _salt DescribeResize' {..} =

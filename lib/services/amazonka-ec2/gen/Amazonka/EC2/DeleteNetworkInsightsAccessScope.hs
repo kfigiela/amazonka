@@ -104,7 +104,7 @@ instance
   type
     AWSResponse DeleteNetworkInsightsAccessScope =
       DeleteNetworkInsightsAccessScopeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -112,6 +112,12 @@ instance
             Prelude.<$> (x Core..@? "networkInsightsAccessScopeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteNetworkInsightsAccessScope
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

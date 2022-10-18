@@ -134,7 +134,7 @@ createStream_roleArn = Lens.lens (\CreateStream' {roleArn} -> roleArn) (\s@Creat
 
 instance Core.AWSRequest CreateStream where
   type AWSResponse CreateStream = CreateStreamResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest CreateStream where
             Prelude.<*> (x Core..?> "streamArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStream where
   hashWithSalt _salt CreateStream' {..} =

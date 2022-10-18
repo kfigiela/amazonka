@@ -144,7 +144,7 @@ stopModel_modelVersion = Lens.lens (\StopModel' {modelVersion} -> modelVersion) 
 
 instance Core.AWSRequest StopModel where
   type AWSResponse StopModel = StopModelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest StopModel where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopModel where
   hashWithSalt _salt StopModel' {..} =

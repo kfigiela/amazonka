@@ -105,7 +105,7 @@ instance Core.AWSRequest DescribeJournalKinesisStream where
   type
     AWSResponse DescribeJournalKinesisStream =
       DescribeJournalKinesisStreamResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribeJournalKinesisStream where
             Prelude.<$> (x Core..?> "Stream")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJournalKinesisStream where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

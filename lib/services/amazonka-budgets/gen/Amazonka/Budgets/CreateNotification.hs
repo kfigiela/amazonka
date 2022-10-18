@@ -133,13 +133,16 @@ instance Core.AWSRequest CreateNotification where
   type
     AWSResponse CreateNotification =
       CreateNotificationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateNotificationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNotification where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNotification where
   hashWithSalt _salt CreateNotification' {..} =

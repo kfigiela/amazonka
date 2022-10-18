@@ -114,7 +114,7 @@ instance Core.AWSRequest UpdateTableStorageOptimizer where
   type
     AWSResponse UpdateTableStorageOptimizer =
       UpdateTableStorageOptimizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest UpdateTableStorageOptimizer where
             Prelude.<$> (x Core..?> "Result")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTableStorageOptimizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTableStorageOptimizer where
   hashWithSalt _salt UpdateTableStorageOptimizer' {..} =

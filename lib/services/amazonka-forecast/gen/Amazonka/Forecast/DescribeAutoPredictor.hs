@@ -98,7 +98,7 @@ instance Core.AWSRequest DescribeAutoPredictor where
   type
     AWSResponse DescribeAutoPredictor =
       DescribeAutoPredictorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DescribeAutoPredictor where
             Prelude.<*> (x Core..?> "ForecastFrequency")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAutoPredictor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAutoPredictor where
   hashWithSalt _salt DescribeAutoPredictor' {..} =

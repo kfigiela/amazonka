@@ -91,7 +91,7 @@ instance Core.AWSRequest BatchDeleteConnection where
   type
     AWSResponse BatchDeleteConnection =
       BatchDeleteConnectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest BatchDeleteConnection where
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteConnection where
   hashWithSalt _salt BatchDeleteConnection' {..} =

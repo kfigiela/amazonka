@@ -81,7 +81,7 @@ instance Core.AWSRequest BatchDescribeModelPackage where
   type
     AWSResponse BatchDescribeModelPackage =
       BatchDescribeModelPackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest BatchDescribeModelPackage where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDescribeModelPackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDescribeModelPackage where
   hashWithSalt _salt BatchDescribeModelPackage' {..} =

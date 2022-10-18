@@ -139,7 +139,7 @@ instance Core.AWSRequest CreateOutpost where
   type
     AWSResponse CreateOutpost =
       CreateOutpostResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest CreateOutpost where
             Prelude.<$> (x Core..?> "Outpost")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateOutpost where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateOutpost where
   hashWithSalt _salt CreateOutpost' {..} =

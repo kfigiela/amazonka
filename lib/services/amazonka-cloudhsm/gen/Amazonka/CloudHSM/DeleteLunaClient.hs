@@ -91,7 +91,7 @@ instance Core.AWSRequest DeleteLunaClient where
   type
     AWSResponse DeleteLunaClient =
       DeleteLunaClientResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DeleteLunaClient where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Status")
       )
+
+instance Core.AWSService DeleteLunaClient where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLunaClient where
   hashWithSalt _salt DeleteLunaClient' {..} =

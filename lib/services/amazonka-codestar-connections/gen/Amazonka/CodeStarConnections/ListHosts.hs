@@ -95,7 +95,7 @@ listHosts_maxResults = Lens.lens (\ListHosts' {maxResults} -> maxResults) (\s@Li
 
 instance Core.AWSRequest ListHosts where
   type AWSResponse ListHosts = ListHostsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest ListHosts where
             Prelude.<*> (x Core..?> "Hosts" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListHosts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHosts where
   hashWithSalt _salt ListHosts' {..} =

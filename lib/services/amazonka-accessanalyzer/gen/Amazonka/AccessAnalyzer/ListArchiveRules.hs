@@ -123,7 +123,7 @@ instance Core.AWSRequest ListArchiveRules where
   type
     AWSResponse ListArchiveRules =
       ListArchiveRulesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ListArchiveRules where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "archiveRules" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListArchiveRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListArchiveRules where
   hashWithSalt _salt ListArchiveRules' {..} =

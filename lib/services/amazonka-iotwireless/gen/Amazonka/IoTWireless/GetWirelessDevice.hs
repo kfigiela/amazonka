@@ -100,7 +100,7 @@ instance Core.AWSRequest GetWirelessDevice where
   type
     AWSResponse GetWirelessDevice =
       GetWirelessDeviceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetWirelessDevice where
             Prelude.<*> (x Core..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWirelessDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWirelessDevice where
   hashWithSalt _salt GetWirelessDevice' {..} =

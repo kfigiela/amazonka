@@ -87,7 +87,7 @@ instance Core.AWSRequest BatchGetProjects where
   type
     AWSResponse BatchGetProjects =
       BatchGetProjectsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest BatchGetProjects where
             Prelude.<*> (x Core..?> "projectsNotFound")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetProjects where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetProjects where
   hashWithSalt _salt BatchGetProjects' {..} =

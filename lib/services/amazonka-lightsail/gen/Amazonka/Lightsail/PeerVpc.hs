@@ -59,7 +59,7 @@ newPeerVpc = PeerVpc'
 
 instance Core.AWSRequest PeerVpc where
   type AWSResponse PeerVpc = PeerVpcResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -67,6 +67,9 @@ instance Core.AWSRequest PeerVpc where
             Prelude.<$> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PeerVpc where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PeerVpc where
   hashWithSalt _salt _ =

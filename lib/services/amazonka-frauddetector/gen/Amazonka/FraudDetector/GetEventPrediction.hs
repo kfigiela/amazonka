@@ -244,7 +244,7 @@ instance Core.AWSRequest GetEventPrediction where
   type
     AWSResponse GetEventPrediction =
       GetEventPredictionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -256,6 +256,9 @@ instance Core.AWSRequest GetEventPrediction where
             Prelude.<*> (x Core..?> "ruleResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEventPrediction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEventPrediction where
   hashWithSalt _salt GetEventPrediction' {..} =

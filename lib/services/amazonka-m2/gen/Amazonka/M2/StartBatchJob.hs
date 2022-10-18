@@ -109,7 +109,7 @@ instance Core.AWSRequest StartBatchJob where
   type
     AWSResponse StartBatchJob =
       StartBatchJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest StartBatchJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "executionId")
       )
+
+instance Core.AWSService StartBatchJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBatchJob where
   hashWithSalt _salt StartBatchJob' {..} =

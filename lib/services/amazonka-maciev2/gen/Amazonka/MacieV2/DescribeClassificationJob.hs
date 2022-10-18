@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeClassificationJob where
   type
     AWSResponse DescribeClassificationJob =
       DescribeClassificationJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest DescribeClassificationJob where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClassificationJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClassificationJob where
   hashWithSalt _salt DescribeClassificationJob' {..} =

@@ -109,13 +109,16 @@ deleteLabels_resourceId = Lens.lens (\DeleteLabels' {resourceId} -> resourceId) 
 
 instance Core.AWSRequest DeleteLabels where
   type AWSResponse DeleteLabels = DeleteLabelsResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLabelsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLabels where
   hashWithSalt _salt DeleteLabels' {..} =

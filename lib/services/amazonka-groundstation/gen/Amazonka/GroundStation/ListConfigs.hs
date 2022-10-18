@@ -112,7 +112,7 @@ instance Core.AWSPager ListConfigs where
 
 instance Core.AWSRequest ListConfigs where
   type AWSResponse ListConfigs = ListConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest ListConfigs where
             Prelude.<*> (x Core..?> "configList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListConfigs where
   hashWithSalt _salt ListConfigs' {..} =

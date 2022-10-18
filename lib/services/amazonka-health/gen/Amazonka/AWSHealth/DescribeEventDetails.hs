@@ -113,7 +113,7 @@ instance Core.AWSRequest DescribeEventDetails where
   type
     AWSResponse DescribeEventDetails =
       DescribeEventDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeEventDetails where
             Prelude.<*> (x Core..?> "failedSet" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEventDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEventDetails where
   hashWithSalt _salt DescribeEventDetails' {..} =

@@ -83,10 +83,16 @@ instance
   type
     AWSResponse RegisterCrossAccountAccessRole =
       RegisterCrossAccountAccessRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       RegisterCrossAccountAccessRoleResponse'
+
+instance
+  Core.AWSService
+    RegisterCrossAccountAccessRole
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

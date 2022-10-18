@@ -102,7 +102,7 @@ getDetectors_detectorId = Lens.lens (\GetDetectors' {detectorId} -> detectorId) 
 
 instance Core.AWSRequest GetDetectors where
   type AWSResponse GetDetectors = GetDetectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest GetDetectors where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDetectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDetectors where
   hashWithSalt _salt GetDetectors' {..} =

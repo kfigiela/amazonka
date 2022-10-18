@@ -81,7 +81,7 @@ deleteMesh_meshName = Lens.lens (\DeleteMesh' {meshName} -> meshName) (\s@Delete
 
 instance Core.AWSRequest DeleteMesh where
   type AWSResponse DeleteMesh = DeleteMeshResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteMesh where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteMesh where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMesh where
   hashWithSalt _salt DeleteMesh' {..} =

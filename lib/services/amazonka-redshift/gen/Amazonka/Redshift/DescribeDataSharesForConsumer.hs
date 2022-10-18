@@ -173,7 +173,7 @@ instance
   type
     AWSResponse DescribeDataSharesForConsumer =
       DescribeDataSharesForConsumerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDataSharesForConsumerResult"
@@ -185,6 +185,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeDataSharesForConsumer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

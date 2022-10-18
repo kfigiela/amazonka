@@ -126,7 +126,7 @@ instance Core.AWSRequest CreateMulticastGroup where
   type
     AWSResponse CreateMulticastGroup =
       CreateMulticastGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest CreateMulticastGroup where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMulticastGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMulticastGroup where
   hashWithSalt _salt CreateMulticastGroup' {..} =

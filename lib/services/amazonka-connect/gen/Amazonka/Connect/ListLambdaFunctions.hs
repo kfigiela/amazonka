@@ -137,7 +137,7 @@ instance Core.AWSRequest ListLambdaFunctions where
   type
     AWSResponse ListLambdaFunctions =
       ListLambdaFunctionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -148,6 +148,9 @@ instance Core.AWSRequest ListLambdaFunctions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListLambdaFunctions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListLambdaFunctions where
   hashWithSalt _salt ListLambdaFunctions' {..} =

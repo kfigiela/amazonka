@@ -93,10 +93,16 @@ instance
     AWSResponse
       PutVoiceConnectorTerminationCredentials =
       PutVoiceConnectorTerminationCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       PutVoiceConnectorTerminationCredentialsResponse'
+
+instance
+  Core.AWSService
+    PutVoiceConnectorTerminationCredentials
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

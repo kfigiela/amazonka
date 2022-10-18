@@ -94,7 +94,7 @@ instance Core.AWSRequest StartInstanceOnboardingJob where
   type
     AWSResponse StartInstanceOnboardingJob =
       StartInstanceOnboardingJobResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest StartInstanceOnboardingJob where
             Prelude.<$> (x Core..?> "connectInstanceOnboardingJobStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartInstanceOnboardingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartInstanceOnboardingJob where
   hashWithSalt _salt StartInstanceOnboardingJob' {..} =

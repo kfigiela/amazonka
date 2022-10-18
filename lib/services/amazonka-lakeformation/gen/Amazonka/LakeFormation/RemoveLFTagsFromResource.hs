@@ -116,7 +116,7 @@ instance Core.AWSRequest RemoveLFTagsFromResource where
   type
     AWSResponse RemoveLFTagsFromResource =
       RemoveLFTagsFromResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest RemoveLFTagsFromResource where
             Prelude.<$> (x Core..?> "Failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveLFTagsFromResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveLFTagsFromResource where
   hashWithSalt _salt RemoveLFTagsFromResource' {..} =

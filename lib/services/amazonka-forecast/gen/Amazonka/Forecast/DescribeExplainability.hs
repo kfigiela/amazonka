@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeExplainability where
   type
     AWSResponse DescribeExplainability =
       DescribeExplainabilityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest DescribeExplainability where
             Prelude.<*> (x Core..?> "EndDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeExplainability where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExplainability where
   hashWithSalt _salt DescribeExplainability' {..} =

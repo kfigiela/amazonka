@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeContext where
   type
     AWSResponse DescribeContext =
       DescribeContextResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeContext where
             Prelude.<*> (x Core..?> "ContextArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeContext where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeContext where
   hashWithSalt _salt DescribeContext' {..} =

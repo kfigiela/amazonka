@@ -110,7 +110,7 @@ getAsset_revisionId = Lens.lens (\GetAsset' {revisionId} -> revisionId) (\s@GetA
 
 instance Core.AWSRequest GetAsset where
   type AWSResponse GetAsset = GetAssetResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -127,6 +127,9 @@ instance Core.AWSRequest GetAsset where
             Prelude.<*> (x Core..?> "UpdatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAsset where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAsset where
   hashWithSalt _salt GetAsset' {..} =

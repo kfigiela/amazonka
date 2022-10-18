@@ -151,7 +151,7 @@ instance Core.AWSRequest DescribeResourcePermissions where
   type
     AWSResponse DescribeResourcePermissions =
       DescribeResourcePermissionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest DescribeResourcePermissions where
             Prelude.<*> (x Core..?> "Principals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeResourcePermissions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeResourcePermissions where
   hashWithSalt _salt DescribeResourcePermissions' {..} =

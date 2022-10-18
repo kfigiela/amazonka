@@ -129,7 +129,7 @@ instance Core.AWSRequest UpdateEnvironmentMembership where
   type
     AWSResponse UpdateEnvironmentMembership =
       UpdateEnvironmentMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest UpdateEnvironmentMembership where
             Prelude.<$> (x Core..?> "membership")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEnvironmentMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEnvironmentMembership where
   hashWithSalt _salt UpdateEnvironmentMembership' {..} =

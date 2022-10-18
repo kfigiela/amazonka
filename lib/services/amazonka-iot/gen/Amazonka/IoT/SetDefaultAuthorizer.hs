@@ -86,7 +86,7 @@ instance Core.AWSRequest SetDefaultAuthorizer where
   type
     AWSResponse SetDefaultAuthorizer =
       SetDefaultAuthorizerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,9 @@ instance Core.AWSRequest SetDefaultAuthorizer where
             Prelude.<*> (x Core..?> "authorizerName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetDefaultAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetDefaultAuthorizer where
   hashWithSalt _salt SetDefaultAuthorizer' {..} =

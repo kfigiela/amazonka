@@ -110,7 +110,7 @@ instance Core.AWSRequest GetGroupVersion where
   type
     AWSResponse GetGroupVersion =
       GetGroupVersionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest GetGroupVersion where
             Prelude.<*> (x Core..?> "Definition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGroupVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGroupVersion where
   hashWithSalt _salt GetGroupVersion' {..} =

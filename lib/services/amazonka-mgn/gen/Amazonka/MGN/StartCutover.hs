@@ -90,7 +90,7 @@ startCutover_sourceServerIDs = Lens.lens (\StartCutover' {sourceServerIDs} -> so
 
 instance Core.AWSRequest StartCutover where
   type AWSResponse StartCutover = StartCutoverResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest StartCutover where
             Prelude.<$> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartCutover where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCutover where
   hashWithSalt _salt StartCutover' {..} =

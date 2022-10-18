@@ -149,7 +149,7 @@ instance Core.AWSRequest CreateMediaCapturePipeline where
   type
     AWSResponse CreateMediaCapturePipeline =
       CreateMediaCapturePipelineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest CreateMediaCapturePipeline where
             Prelude.<$> (x Core..?> "MediaCapturePipeline")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMediaCapturePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMediaCapturePipeline where
   hashWithSalt _salt CreateMediaCapturePipeline' {..} =

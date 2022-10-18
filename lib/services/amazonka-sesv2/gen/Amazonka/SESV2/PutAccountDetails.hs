@@ -181,13 +181,16 @@ instance Core.AWSRequest PutAccountDetails where
   type
     AWSResponse PutAccountDetails =
       PutAccountDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAccountDetailsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAccountDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAccountDetails where
   hashWithSalt _salt PutAccountDetails' {..} =

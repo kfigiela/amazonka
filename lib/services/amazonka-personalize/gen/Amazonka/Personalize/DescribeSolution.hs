@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeSolution where
   type
     AWSResponse DescribeSolution =
       DescribeSolutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeSolution where
             Prelude.<$> (x Core..?> "solution")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSolution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSolution where
   hashWithSalt _salt DescribeSolution' {..} =

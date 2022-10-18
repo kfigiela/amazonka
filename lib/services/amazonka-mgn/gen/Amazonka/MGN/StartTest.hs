@@ -90,7 +90,7 @@ startTest_sourceServerIDs = Lens.lens (\StartTest' {sourceServerIDs} -> sourceSe
 
 instance Core.AWSRequest StartTest where
   type AWSResponse StartTest = StartTestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest StartTest where
             Prelude.<$> (x Core..?> "job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartTest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartTest where
   hashWithSalt _salt StartTest' {..} =

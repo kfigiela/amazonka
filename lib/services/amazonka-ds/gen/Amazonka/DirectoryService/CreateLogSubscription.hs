@@ -98,13 +98,16 @@ instance Core.AWSRequest CreateLogSubscription where
   type
     AWSResponse CreateLogSubscription =
       CreateLogSubscriptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateLogSubscriptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLogSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLogSubscription where
   hashWithSalt _salt CreateLogSubscription' {..} =

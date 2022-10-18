@@ -113,7 +113,7 @@ instance Core.AWSRequest DescribeLDAPSSettings where
   type
     AWSResponse DescribeLDAPSSettings =
       DescribeLDAPSSettingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest DescribeLDAPSSettings where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLDAPSSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLDAPSSettings where
   hashWithSalt _salt DescribeLDAPSSettings' {..} =

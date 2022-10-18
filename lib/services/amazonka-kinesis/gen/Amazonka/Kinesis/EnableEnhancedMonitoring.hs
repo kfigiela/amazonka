@@ -162,10 +162,13 @@ instance Core.AWSRequest EnableEnhancedMonitoring where
   type
     AWSResponse EnableEnhancedMonitoring =
       EnhancedMonitoringOutput
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService EnableEnhancedMonitoring where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableEnhancedMonitoring where
   hashWithSalt _salt EnableEnhancedMonitoring' {..} =

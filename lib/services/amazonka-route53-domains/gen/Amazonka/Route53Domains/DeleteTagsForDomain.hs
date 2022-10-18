@@ -93,13 +93,16 @@ instance Core.AWSRequest DeleteTagsForDomain where
   type
     AWSResponse DeleteTagsForDomain =
       DeleteTagsForDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTagsForDomainResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTagsForDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTagsForDomain where
   hashWithSalt _salt DeleteTagsForDomain' {..} =

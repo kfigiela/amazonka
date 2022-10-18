@@ -164,7 +164,7 @@ instance Core.AWSRequest CreateGraphqlApi where
   type
     AWSResponse CreateGraphqlApi =
       CreateGraphqlApiResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest CreateGraphqlApi where
             Prelude.<$> (x Core..?> "graphqlApi")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGraphqlApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGraphqlApi where
   hashWithSalt _salt CreateGraphqlApi' {..} =

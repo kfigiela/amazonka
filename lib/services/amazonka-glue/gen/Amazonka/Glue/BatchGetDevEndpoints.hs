@@ -88,7 +88,7 @@ instance Core.AWSRequest BatchGetDevEndpoints where
   type
     AWSResponse BatchGetDevEndpoints =
       BatchGetDevEndpointsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest BatchGetDevEndpoints where
             Prelude.<*> (x Core..?> "DevEndpoints" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetDevEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetDevEndpoints where
   hashWithSalt _salt BatchGetDevEndpoints' {..} =

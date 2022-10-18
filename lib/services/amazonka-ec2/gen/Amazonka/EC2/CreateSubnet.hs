@@ -256,7 +256,7 @@ createSubnet_vpcId = Lens.lens (\CreateSubnet' {vpcId} -> vpcId) (\s@CreateSubne
 
 instance Core.AWSRequest CreateSubnet where
   type AWSResponse CreateSubnet = CreateSubnetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -264,6 +264,9 @@ instance Core.AWSRequest CreateSubnet where
             Prelude.<$> (x Core..@? "subnet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSubnet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSubnet where
   hashWithSalt _salt CreateSubnet' {..} =

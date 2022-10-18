@@ -211,7 +211,7 @@ instance Core.AWSRequest DescribeClusterVersions where
   type
     AWSResponse DescribeClusterVersions =
       DescribeClusterVersionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeClusterVersionsResult"
@@ -223,6 +223,9 @@ instance Core.AWSRequest DescribeClusterVersions where
             Prelude.<*> (x Core..@? "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClusterVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClusterVersions where
   hashWithSalt _salt DescribeClusterVersions' {..} =

@@ -161,7 +161,7 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
   type
     AWSResponse SetUserPoolMfaConfig =
       SetUserPoolMfaConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest SetUserPoolMfaConfig where
             Prelude.<*> (x Core..?> "SmsMfaConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetUserPoolMfaConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetUserPoolMfaConfig where
   hashWithSalt _salt SetUserPoolMfaConfig' {..} =

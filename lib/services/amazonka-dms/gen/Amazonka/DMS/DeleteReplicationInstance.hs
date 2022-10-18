@@ -88,7 +88,7 @@ instance Core.AWSRequest DeleteReplicationInstance where
   type
     AWSResponse DeleteReplicationInstance =
       DeleteReplicationInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DeleteReplicationInstance where
             Prelude.<$> (x Core..?> "ReplicationInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteReplicationInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteReplicationInstance where
   hashWithSalt _salt DeleteReplicationInstance' {..} =

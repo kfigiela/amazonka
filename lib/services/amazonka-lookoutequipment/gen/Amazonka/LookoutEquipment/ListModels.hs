@@ -120,7 +120,7 @@ listModels_datasetNameBeginsWith = Lens.lens (\ListModels' {datasetNameBeginsWit
 
 instance Core.AWSRequest ListModels where
   type AWSResponse ListModels = ListModelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ListModels where
             Prelude.<*> (x Core..?> "ModelSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListModels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListModels where
   hashWithSalt _salt ListModels' {..} =

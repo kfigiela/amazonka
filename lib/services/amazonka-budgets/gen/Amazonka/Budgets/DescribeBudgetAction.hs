@@ -106,7 +106,7 @@ instance Core.AWSRequest DescribeBudgetAction where
   type
     AWSResponse DescribeBudgetAction =
       DescribeBudgetActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeBudgetAction where
             Prelude.<*> (x Core..:> "BudgetName")
             Prelude.<*> (x Core..:> "Action")
       )
+
+instance Core.AWSService DescribeBudgetAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBudgetAction where
   hashWithSalt _salt DescribeBudgetAction' {..} =

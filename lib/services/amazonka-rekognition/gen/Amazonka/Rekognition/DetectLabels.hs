@@ -209,7 +209,7 @@ detectLabels_image = Lens.lens (\DetectLabels' {image} -> image) (\s@DetectLabel
 
 instance Core.AWSRequest DetectLabels where
   type AWSResponse DetectLabels = DetectLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -219,6 +219,9 @@ instance Core.AWSRequest DetectLabels where
             Prelude.<*> (x Core..?> "Labels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectLabels where
   hashWithSalt _salt DetectLabels' {..} =

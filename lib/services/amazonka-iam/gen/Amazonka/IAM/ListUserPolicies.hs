@@ -182,7 +182,7 @@ instance Core.AWSRequest ListUserPolicies where
   type
     AWSResponse ListUserPolicies =
       ListUserPoliciesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListUserPoliciesResult"
@@ -195,6 +195,9 @@ instance Core.AWSRequest ListUserPolicies where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListUserPolicies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUserPolicies where
   hashWithSalt _salt ListUserPolicies' {..} =

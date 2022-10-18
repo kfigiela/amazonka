@@ -127,13 +127,16 @@ instance Core.AWSRequest DeleteTableVersion where
   type
     AWSResponse DeleteTableVersion =
       DeleteTableVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteTableVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteTableVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteTableVersion where
   hashWithSalt _salt DeleteTableVersion' {..} =

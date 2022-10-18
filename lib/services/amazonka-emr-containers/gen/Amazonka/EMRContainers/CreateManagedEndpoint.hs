@@ -186,7 +186,7 @@ instance Core.AWSRequest CreateManagedEndpoint where
   type
     AWSResponse CreateManagedEndpoint =
       CreateManagedEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest CreateManagedEndpoint where
             Prelude.<*> (x Core..?> "virtualClusterId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateManagedEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateManagedEndpoint where
   hashWithSalt _salt CreateManagedEndpoint' {..} =

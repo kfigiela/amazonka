@@ -81,7 +81,7 @@ instance Core.AWSRequest ListMobileDeviceAccessRules where
   type
     AWSResponse ListMobileDeviceAccessRules =
       ListMobileDeviceAccessRulesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest ListMobileDeviceAccessRules where
             Prelude.<$> (x Core..?> "Rules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMobileDeviceAccessRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMobileDeviceAccessRules where
   hashWithSalt _salt ListMobileDeviceAccessRules' {..} =

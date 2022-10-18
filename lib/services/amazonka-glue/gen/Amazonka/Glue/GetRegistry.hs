@@ -83,7 +83,7 @@ getRegistry_registryId = Lens.lens (\GetRegistry' {registryId} -> registryId) (\
 
 instance Core.AWSRequest GetRegistry where
   type AWSResponse GetRegistry = GetRegistryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest GetRegistry where
             Prelude.<*> (x Core..?> "UpdatedTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRegistry where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRegistry where
   hashWithSalt _salt GetRegistry' {..} =

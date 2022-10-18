@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteImagePipeline where
   type
     AWSResponse DeleteImagePipeline =
       DeleteImagePipelineResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteImagePipeline where
             Prelude.<*> (x Core..?> "imagePipelineArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImagePipeline where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImagePipeline where
   hashWithSalt _salt DeleteImagePipeline' {..} =

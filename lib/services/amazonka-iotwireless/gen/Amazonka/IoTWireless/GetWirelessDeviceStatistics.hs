@@ -83,7 +83,7 @@ instance Core.AWSRequest GetWirelessDeviceStatistics where
   type
     AWSResponse GetWirelessDeviceStatistics =
       GetWirelessDeviceStatisticsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetWirelessDeviceStatistics where
             Prelude.<*> (x Core..?> "Sidewalk")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWirelessDeviceStatistics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWirelessDeviceStatistics where
   hashWithSalt _salt GetWirelessDeviceStatistics' {..} =

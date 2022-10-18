@@ -138,7 +138,7 @@ instance Core.AWSRequest CreateIntentVersion where
   type
     AWSResponse CreateIntentVersion =
       CreateIntentVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -165,6 +165,9 @@ instance Core.AWSRequest CreateIntentVersion where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIntentVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIntentVersion where
   hashWithSalt _salt CreateIntentVersion' {..} =

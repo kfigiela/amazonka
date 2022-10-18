@@ -173,10 +173,16 @@ instance
   type
     AWSResponse ModifyNetworkInterfaceAttribute =
       ModifyNetworkInterfaceAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       ModifyNetworkInterfaceAttributeResponse'
+
+instance
+  Core.AWSService
+    ModifyNetworkInterfaceAttribute
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

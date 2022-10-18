@@ -98,10 +98,13 @@ instance Core.AWSRequest DeleteClusterParameterGroup where
   type
     AWSResponse DeleteClusterParameterGroup =
       DeleteClusterParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteClusterParameterGroupResponse'
+
+instance Core.AWSService DeleteClusterParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteClusterParameterGroup where
   hashWithSalt _salt DeleteClusterParameterGroup' {..} =

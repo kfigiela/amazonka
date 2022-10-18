@@ -83,7 +83,7 @@ instance Core.AWSRequest BatchGetAccountStatus where
   type
     AWSResponse BatchGetAccountStatus =
       BatchGetAccountStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest BatchGetAccountStatus where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchGetAccountStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetAccountStatus where
   hashWithSalt _salt BatchGetAccountStatus' {..} =

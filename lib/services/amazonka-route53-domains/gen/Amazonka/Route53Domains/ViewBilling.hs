@@ -178,7 +178,7 @@ instance Core.AWSPager ViewBilling where
 
 instance Core.AWSRequest ViewBilling where
   type AWSResponse ViewBilling = ViewBillingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -187,6 +187,9 @@ instance Core.AWSRequest ViewBilling where
             Prelude.<*> (x Core..?> "NextPageMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ViewBilling where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ViewBilling where
   hashWithSalt _salt ViewBilling' {..} =

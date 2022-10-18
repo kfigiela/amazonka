@@ -93,7 +93,7 @@ instance Core.AWSRequest BatchDisassociateScramSecret where
   type
     AWSResponse BatchDisassociateScramSecret =
       BatchDisassociateScramSecretResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest BatchDisassociateScramSecret where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDisassociateScramSecret where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

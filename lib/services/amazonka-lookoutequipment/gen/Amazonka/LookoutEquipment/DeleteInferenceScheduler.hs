@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteInferenceScheduler where
   type
     AWSResponse DeleteInferenceScheduler =
       DeleteInferenceSchedulerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteInferenceSchedulerResponse'
+
+instance Core.AWSService DeleteInferenceScheduler where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInferenceScheduler where
   hashWithSalt _salt DeleteInferenceScheduler' {..} =

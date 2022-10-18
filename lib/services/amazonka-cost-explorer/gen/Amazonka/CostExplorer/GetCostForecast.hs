@@ -343,7 +343,7 @@ instance Core.AWSRequest GetCostForecast where
   type
     AWSResponse GetCostForecast =
       GetCostForecastResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -354,6 +354,9 @@ instance Core.AWSRequest GetCostForecast where
             Prelude.<*> (x Core..?> "Total")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCostForecast where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCostForecast where
   hashWithSalt _salt GetCostForecast' {..} =

@@ -215,13 +215,16 @@ instance Core.AWSRequest UpdateLocationSmb where
   type
     AWSResponse UpdateLocationSmb =
       UpdateLocationSmbResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLocationSmbResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLocationSmb where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLocationSmb where
   hashWithSalt _salt UpdateLocationSmb' {..} =

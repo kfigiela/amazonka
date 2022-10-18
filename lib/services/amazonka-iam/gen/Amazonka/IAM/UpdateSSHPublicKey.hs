@@ -145,9 +145,12 @@ instance Core.AWSRequest UpdateSSHPublicKey where
   type
     AWSResponse UpdateSSHPublicKey =
       UpdateSSHPublicKeyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UpdateSSHPublicKeyResponse'
+
+instance Core.AWSService UpdateSSHPublicKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSSHPublicKey where
   hashWithSalt _salt UpdateSSHPublicKey' {..} =

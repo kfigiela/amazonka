@@ -165,7 +165,7 @@ instance Core.AWSRequest ListDeviceEvents where
   type
     AWSResponse ListDeviceEvents =
       ListDeviceEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest ListDeviceEvents where
             Prelude.<*> (x Core..?> "DeviceEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDeviceEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDeviceEvents where
   hashWithSalt _salt ListDeviceEvents' {..} =

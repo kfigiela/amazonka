@@ -78,7 +78,7 @@ instance Core.AWSRequest DeletePlatformVersion where
   type
     AWSResponse DeletePlatformVersion =
       DeletePlatformVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeletePlatformVersionResult"
@@ -87,6 +87,9 @@ instance Core.AWSRequest DeletePlatformVersion where
             Prelude.<$> (x Core..@? "PlatformSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePlatformVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlatformVersion where
   hashWithSalt _salt DeletePlatformVersion' {..} =

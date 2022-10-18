@@ -196,7 +196,7 @@ updateDevice_deviceId = Lens.lens (\UpdateDevice' {deviceId} -> deviceId) (\s@Up
 
 instance Core.AWSRequest UpdateDevice where
   type AWSResponse UpdateDevice = UpdateDeviceResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest UpdateDevice where
             Prelude.<$> (x Core..?> "Device")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDevice where
   hashWithSalt _salt UpdateDevice' {..} =

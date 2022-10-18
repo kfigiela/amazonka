@@ -654,7 +654,7 @@ instance Core.AWSRequest CreateStackSet where
   type
     AWSResponse CreateStackSet =
       CreateStackSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateStackSetResult"
@@ -663,6 +663,9 @@ instance Core.AWSRequest CreateStackSet where
             Prelude.<$> (x Core..@? "StackSetId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStackSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStackSet where
   hashWithSalt _salt CreateStackSet' {..} =

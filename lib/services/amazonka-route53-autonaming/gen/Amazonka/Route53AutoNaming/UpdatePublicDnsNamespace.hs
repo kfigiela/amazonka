@@ -111,7 +111,7 @@ instance Core.AWSRequest UpdatePublicDnsNamespace where
   type
     AWSResponse UpdatePublicDnsNamespace =
       UpdatePublicDnsNamespaceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest UpdatePublicDnsNamespace where
             Prelude.<$> (x Core..?> "OperationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdatePublicDnsNamespace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePublicDnsNamespace where
   hashWithSalt _salt UpdatePublicDnsNamespace' {..} =

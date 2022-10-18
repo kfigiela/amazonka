@@ -124,7 +124,7 @@ instance Core.AWSRequest BatchDeleteTableVersion where
   type
     AWSResponse BatchDeleteTableVersion =
       BatchDeleteTableVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest BatchDeleteTableVersion where
             Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteTableVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteTableVersion where
   hashWithSalt _salt BatchDeleteTableVersion' {..} =

@@ -102,7 +102,7 @@ instance Core.AWSRequest CreateVoiceTemplate where
   type
     AWSResponse CreateVoiceTemplate =
       CreateVoiceTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest CreateVoiceTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService CreateVoiceTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVoiceTemplate where
   hashWithSalt _salt CreateVoiceTemplate' {..} =

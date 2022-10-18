@@ -358,7 +358,7 @@ batchGetItem_requestItems = Lens.lens (\BatchGetItem' {requestItems} -> requestI
 
 instance Core.AWSRequest BatchGetItem where
   type AWSResponse BatchGetItem = BatchGetItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -372,6 +372,9 @@ instance Core.AWSRequest BatchGetItem where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService BatchGetItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetItem where
   hashWithSalt _salt BatchGetItem' {..} =

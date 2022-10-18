@@ -159,7 +159,7 @@ instance Core.AWSRequest ModifyLaunchTemplate where
   type
     AWSResponse ModifyLaunchTemplate =
       ModifyLaunchTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest ModifyLaunchTemplate where
             Prelude.<$> (x Core..@? "launchTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyLaunchTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyLaunchTemplate where
   hashWithSalt _salt ModifyLaunchTemplate' {..} =

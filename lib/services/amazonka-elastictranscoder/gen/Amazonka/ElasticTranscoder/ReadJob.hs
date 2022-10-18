@@ -79,7 +79,7 @@ readJob_id = Lens.lens (\ReadJob' {id} -> id) (\s@ReadJob' {} a -> s {id = a} ::
 
 instance Core.AWSRequest ReadJob where
   type AWSResponse ReadJob = ReadJobResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest ReadJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Job")
       )
+
+instance Core.AWSService ReadJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReadJob where
   hashWithSalt _salt ReadJob' {..} =

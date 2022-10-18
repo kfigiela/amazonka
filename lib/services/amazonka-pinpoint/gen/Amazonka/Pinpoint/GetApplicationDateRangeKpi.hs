@@ -189,7 +189,7 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
   type
     AWSResponse GetApplicationDateRangeKpi =
       GetApplicationDateRangeKpiResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest GetApplicationDateRangeKpi where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetApplicationDateRangeKpi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetApplicationDateRangeKpi where
   hashWithSalt _salt GetApplicationDateRangeKpi' {..} =

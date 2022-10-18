@@ -171,7 +171,7 @@ instance Core.AWSRequest ListHumanLoops where
   type
     AWSResponse ListHumanLoops =
       ListHumanLoopsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest ListHumanLoops where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListHumanLoops where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHumanLoops where
   hashWithSalt _salt ListHumanLoops' {..} =

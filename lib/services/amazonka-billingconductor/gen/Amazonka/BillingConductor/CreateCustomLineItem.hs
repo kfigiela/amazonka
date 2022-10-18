@@ -167,7 +167,7 @@ instance Core.AWSRequest CreateCustomLineItem where
   type
     AWSResponse CreateCustomLineItem =
       CreateCustomLineItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -175,6 +175,9 @@ instance Core.AWSRequest CreateCustomLineItem where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCustomLineItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomLineItem where
   hashWithSalt _salt CreateCustomLineItem' {..} =

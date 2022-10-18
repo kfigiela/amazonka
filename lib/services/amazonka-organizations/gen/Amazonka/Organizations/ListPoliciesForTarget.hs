@@ -256,7 +256,7 @@ instance Core.AWSRequest ListPoliciesForTarget where
   type
     AWSResponse ListPoliciesForTarget =
       ListPoliciesForTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -265,6 +265,9 @@ instance Core.AWSRequest ListPoliciesForTarget where
             Prelude.<*> (x Core..?> "Policies" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPoliciesForTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPoliciesForTarget where
   hashWithSalt _salt ListPoliciesForTarget' {..} =

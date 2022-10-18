@@ -111,7 +111,7 @@ instance Core.AWSRequest ResetAddressAttribute where
   type
     AWSResponse ResetAddressAttribute =
       ResetAddressAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest ResetAddressAttribute where
             Prelude.<$> (x Core..@? "address")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ResetAddressAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResetAddressAttribute where
   hashWithSalt _salt ResetAddressAttribute' {..} =

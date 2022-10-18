@@ -130,7 +130,7 @@ instance Core.AWSRequest CreateCodeRepository where
   type
     AWSResponse CreateCodeRepository =
       CreateCodeRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest CreateCodeRepository where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CodeRepositoryArn")
       )
+
+instance Core.AWSService CreateCodeRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCodeRepository where
   hashWithSalt _salt CreateCodeRepository' {..} =

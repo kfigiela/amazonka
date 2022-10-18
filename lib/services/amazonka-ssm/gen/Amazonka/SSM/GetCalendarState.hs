@@ -120,7 +120,7 @@ instance Core.AWSRequest GetCalendarState where
   type
     AWSResponse GetCalendarState =
       GetCalendarStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest GetCalendarState where
             Prelude.<*> (x Core..?> "AtTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCalendarState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCalendarState where
   hashWithSalt _salt GetCalendarState' {..} =

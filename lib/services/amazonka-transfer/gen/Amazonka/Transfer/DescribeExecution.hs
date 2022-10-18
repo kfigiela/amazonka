@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeExecution where
   type
     AWSResponse DescribeExecution =
       DescribeExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeExecution where
             Prelude.<*> (x Core..:> "WorkflowId")
             Prelude.<*> (x Core..:> "Execution")
       )
+
+instance Core.AWSService DescribeExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExecution where
   hashWithSalt _salt DescribeExecution' {..} =

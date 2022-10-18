@@ -66,7 +66,7 @@ instance
   type
     AWSResponse GetRegistryScanningConfiguration =
       GetRegistryScanningConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -75,6 +75,12 @@ instance
             Prelude.<*> (x Core..?> "registryId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetRegistryScanningConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

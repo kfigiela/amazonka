@@ -101,7 +101,7 @@ instance Core.AWSRequest GetUpgradeHistory where
   type
     AWSResponse GetUpgradeHistory =
       GetUpgradeHistoryResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest GetUpgradeHistory where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetUpgradeHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetUpgradeHistory where
   hashWithSalt _salt GetUpgradeHistory' {..} =

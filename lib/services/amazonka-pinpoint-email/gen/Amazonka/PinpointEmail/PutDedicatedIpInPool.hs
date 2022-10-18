@@ -107,13 +107,16 @@ instance Core.AWSRequest PutDedicatedIpInPool where
   type
     AWSResponse PutDedicatedIpInPool =
       PutDedicatedIpInPoolResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutDedicatedIpInPoolResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDedicatedIpInPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDedicatedIpInPool where
   hashWithSalt _salt PutDedicatedIpInPool' {..} =

@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeAnomalyDetector where
   type
     AWSResponse DescribeAnomalyDetector =
       DescribeAnomalyDetectorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DescribeAnomalyDetector where
             Prelude.<*> (x Core..?> "FailureReason")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAnomalyDetector where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAnomalyDetector where
   hashWithSalt _salt DescribeAnomalyDetector' {..} =

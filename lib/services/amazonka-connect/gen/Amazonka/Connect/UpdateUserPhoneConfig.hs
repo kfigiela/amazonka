@@ -105,9 +105,12 @@ instance Core.AWSRequest UpdateUserPhoneConfig where
   type
     AWSResponse UpdateUserPhoneConfig =
       UpdateUserPhoneConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateUserPhoneConfigResponse'
+
+instance Core.AWSService UpdateUserPhoneConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateUserPhoneConfig where
   hashWithSalt _salt UpdateUserPhoneConfig' {..} =

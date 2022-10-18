@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteContactFlow where
   type
     AWSResponse DeleteContactFlow =
       DeleteContactFlowResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteContactFlowResponse'
+
+instance Core.AWSService DeleteContactFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContactFlow where
   hashWithSalt _salt DeleteContactFlow' {..} =

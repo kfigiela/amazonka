@@ -93,7 +93,7 @@ instance Core.AWSRequest StartMigration where
   type
     AWSResponse StartMigration =
       StartMigrationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StartMigrationResult"
@@ -102,6 +102,9 @@ instance Core.AWSRequest StartMigration where
             Prelude.<$> (x Core..@? "ReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartMigration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartMigration where
   hashWithSalt _salt StartMigration' {..} =

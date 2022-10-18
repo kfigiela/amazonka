@@ -122,7 +122,7 @@ instance Core.AWSRequest DeleteByteMatchSet where
   type
     AWSResponse DeleteByteMatchSet =
       DeleteByteMatchSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest DeleteByteMatchSet where
             Prelude.<$> (x Core..?> "ChangeToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteByteMatchSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteByteMatchSet where
   hashWithSalt _salt DeleteByteMatchSet' {..} =

@@ -77,13 +77,16 @@ instance Core.AWSRequest StopStreamProcessor where
   type
     AWSResponse StopStreamProcessor =
       StopStreamProcessorResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopStreamProcessorResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopStreamProcessor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopStreamProcessor where
   hashWithSalt _salt StopStreamProcessor' {..} =

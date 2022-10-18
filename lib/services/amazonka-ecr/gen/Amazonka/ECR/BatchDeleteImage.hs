@@ -123,7 +123,7 @@ instance Core.AWSRequest BatchDeleteImage where
   type
     AWSResponse BatchDeleteImage =
       BatchDeleteImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest BatchDeleteImage where
             Prelude.<*> (x Core..?> "failures" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchDeleteImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteImage where
   hashWithSalt _salt BatchDeleteImage' {..} =

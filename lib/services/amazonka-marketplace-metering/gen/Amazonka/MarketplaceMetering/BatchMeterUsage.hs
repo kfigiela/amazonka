@@ -131,7 +131,7 @@ instance Core.AWSRequest BatchMeterUsage where
   type
     AWSResponse BatchMeterUsage =
       BatchMeterUsageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest BatchMeterUsage where
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchMeterUsage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchMeterUsage where
   hashWithSalt _salt BatchMeterUsage' {..} =

@@ -173,7 +173,7 @@ instance Core.AWSPager ListAliases where
 
 instance Core.AWSRequest ListAliases where
   type AWSResponse ListAliases = ListAliasesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest ListAliases where
             Prelude.<*> (x Core..?> "NextMarker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAliases where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAliases where
   hashWithSalt _salt ListAliases' {..} =

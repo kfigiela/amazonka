@@ -134,13 +134,16 @@ instance Core.AWSRequest DeleteCustomKeyStore where
   type
     AWSResponse DeleteCustomKeyStore =
       DeleteCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteCustomKeyStoreResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCustomKeyStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCustomKeyStore where
   hashWithSalt _salt DeleteCustomKeyStore' {..} =

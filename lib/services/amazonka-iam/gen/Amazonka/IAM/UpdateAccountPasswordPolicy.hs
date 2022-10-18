@@ -347,10 +347,13 @@ instance Core.AWSRequest UpdateAccountPasswordPolicy where
   type
     AWSResponse UpdateAccountPasswordPolicy =
       UpdateAccountPasswordPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateAccountPasswordPolicyResponse'
+
+instance Core.AWSService UpdateAccountPasswordPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccountPasswordPolicy where
   hashWithSalt _salt UpdateAccountPasswordPolicy' {..} =

@@ -110,7 +110,7 @@ instance Core.AWSRequest RejectVpcEndpointConnections where
   type
     AWSResponse RejectVpcEndpointConnections =
       RejectVpcEndpointConnectionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest RejectVpcEndpointConnections where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectVpcEndpointConnections where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

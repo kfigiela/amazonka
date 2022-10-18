@@ -164,7 +164,7 @@ instance Core.AWSPager ListThemes where
 
 instance Core.AWSRequest ListThemes where
   type AWSResponse ListThemes = ListThemesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest ListThemes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListThemes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListThemes where
   hashWithSalt _salt ListThemes' {..} =

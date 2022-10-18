@@ -119,7 +119,7 @@ instance
   type
     AWSResponse TerminateInstanceInAutoScalingGroup =
       TerminateInstanceInAutoScalingGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "TerminateInstanceInAutoScalingGroupResult"
@@ -128,6 +128,12 @@ instance
             Prelude.<$> (x Core..@? "Activity")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    TerminateInstanceInAutoScalingGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

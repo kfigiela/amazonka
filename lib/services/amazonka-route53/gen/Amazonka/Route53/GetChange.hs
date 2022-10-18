@@ -90,7 +90,7 @@ getChange_id = Lens.lens (\GetChange' {id} -> id) (\s@GetChange' {} a -> s {id =
 
 instance Core.AWSRequest GetChange where
   type AWSResponse GetChange = GetChangeResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetChange where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "ChangeInfo")
       )
+
+instance Core.AWSService GetChange where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetChange where
   hashWithSalt _salt GetChange' {..} =

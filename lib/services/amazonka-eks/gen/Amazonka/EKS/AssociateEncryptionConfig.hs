@@ -111,7 +111,7 @@ instance Core.AWSRequest AssociateEncryptionConfig where
   type
     AWSResponse AssociateEncryptionConfig =
       AssociateEncryptionConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest AssociateEncryptionConfig where
             Prelude.<$> (x Core..?> "update")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateEncryptionConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateEncryptionConfig where
   hashWithSalt _salt AssociateEncryptionConfig' {..} =

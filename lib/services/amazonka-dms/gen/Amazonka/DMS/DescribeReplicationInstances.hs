@@ -162,7 +162,7 @@ instance Core.AWSRequest DescribeReplicationInstances where
   type
     AWSResponse DescribeReplicationInstances =
       DescribeReplicationInstancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest DescribeReplicationInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReplicationInstances where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

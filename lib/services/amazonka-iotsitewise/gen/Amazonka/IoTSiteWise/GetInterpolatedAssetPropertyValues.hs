@@ -436,7 +436,7 @@ instance
   type
     AWSResponse GetInterpolatedAssetPropertyValues =
       GetInterpolatedAssetPropertyValuesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -447,6 +447,12 @@ instance
                               Core..!@ Prelude.mempty
                           )
       )
+
+instance
+  Core.AWSService
+    GetInterpolatedAssetPropertyValues
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

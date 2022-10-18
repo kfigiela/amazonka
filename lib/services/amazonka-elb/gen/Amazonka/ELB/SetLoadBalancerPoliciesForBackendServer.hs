@@ -131,7 +131,7 @@ instance
     AWSResponse
       SetLoadBalancerPoliciesForBackendServer =
       SetLoadBalancerPoliciesForBackendServerResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetLoadBalancerPoliciesForBackendServerResult"
@@ -139,6 +139,12 @@ instance
           SetLoadBalancerPoliciesForBackendServerResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    SetLoadBalancerPoliciesForBackendServer
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

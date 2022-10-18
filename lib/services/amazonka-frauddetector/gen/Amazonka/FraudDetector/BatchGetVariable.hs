@@ -81,7 +81,7 @@ instance Core.AWSRequest BatchGetVariable where
   type
     AWSResponse BatchGetVariable =
       BatchGetVariableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest BatchGetVariable where
             Prelude.<*> (x Core..?> "variables" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetVariable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetVariable where
   hashWithSalt _salt BatchGetVariable' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest SwitchoverReadReplica where
   type
     AWSResponse SwitchoverReadReplica =
       SwitchoverReadReplicaResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SwitchoverReadReplicaResult"
@@ -109,6 +109,9 @@ instance Core.AWSRequest SwitchoverReadReplica where
             Prelude.<$> (x Core..@? "DBInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SwitchoverReadReplica where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SwitchoverReadReplica where
   hashWithSalt _salt SwitchoverReadReplica' {..} =

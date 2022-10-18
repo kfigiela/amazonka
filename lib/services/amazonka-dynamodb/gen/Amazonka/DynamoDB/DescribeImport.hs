@@ -80,7 +80,7 @@ instance Core.AWSRequest DescribeImport where
   type
     AWSResponse DescribeImport =
       DescribeImportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DescribeImport where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ImportTableDescription")
       )
+
+instance Core.AWSService DescribeImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeImport where
   hashWithSalt _salt DescribeImport' {..} =

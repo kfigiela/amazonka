@@ -102,9 +102,12 @@ instance Core.AWSRequest AssignInstance where
   type
     AWSResponse AssignInstance =
       AssignInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssignInstanceResponse'
+
+instance Core.AWSService AssignInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssignInstance where
   hashWithSalt _salt AssignInstance' {..} =

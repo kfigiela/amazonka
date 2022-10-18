@@ -126,13 +126,16 @@ instance Core.AWSRequest UpdateModelVersionStatus where
   type
     AWSResponse UpdateModelVersionStatus =
       UpdateModelVersionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateModelVersionStatusResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateModelVersionStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateModelVersionStatus where
   hashWithSalt _salt UpdateModelVersionStatus' {..} =

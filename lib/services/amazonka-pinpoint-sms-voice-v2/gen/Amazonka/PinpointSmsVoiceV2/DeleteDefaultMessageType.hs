@@ -98,7 +98,7 @@ instance Core.AWSRequest DeleteDefaultMessageType where
   type
     AWSResponse DeleteDefaultMessageType =
       DeleteDefaultMessageTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DeleteDefaultMessageType where
             Prelude.<*> (x Core..?> "ConfigurationSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDefaultMessageType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDefaultMessageType where
   hashWithSalt _salt DeleteDefaultMessageType' {..} =

@@ -80,7 +80,7 @@ stopQuery_queryId = Lens.lens (\StopQuery' {queryId} -> queryId) (\s@StopQuery' 
 
 instance Core.AWSRequest StopQuery where
   type AWSResponse StopQuery = StopQueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest StopQuery where
             Prelude.<$> (x Core..?> "success")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopQuery where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopQuery where
   hashWithSalt _salt StopQuery' {..} =

@@ -158,13 +158,16 @@ acceptPage_acceptCode = Lens.lens (\AcceptPage' {acceptCode} -> acceptCode) (\s@
 
 instance Core.AWSRequest AcceptPage where
   type AWSResponse AcceptPage = AcceptPageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AcceptPageResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptPage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptPage where
   hashWithSalt _salt AcceptPage' {..} =

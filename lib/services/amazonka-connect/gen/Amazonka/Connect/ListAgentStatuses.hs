@@ -146,7 +146,7 @@ instance Core.AWSRequest ListAgentStatuses where
   type
     AWSResponse ListAgentStatuses =
       ListAgentStatusesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListAgentStatuses where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAgentStatuses where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAgentStatuses where
   hashWithSalt _salt ListAgentStatuses' {..} =

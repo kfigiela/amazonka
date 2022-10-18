@@ -86,10 +86,13 @@ instance Core.AWSRequest UpdateAccountSendingEnabled where
   type
     AWSResponse UpdateAccountSendingEnabled =
       UpdateAccountSendingEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateAccountSendingEnabledResponse'
+
+instance Core.AWSService UpdateAccountSendingEnabled where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAccountSendingEnabled where
   hashWithSalt _salt UpdateAccountSendingEnabled' {..} =

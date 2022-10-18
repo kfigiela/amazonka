@@ -96,10 +96,13 @@ instance Core.AWSRequest DeleteOriginAccessControl where
   type
     AWSResponse DeleteOriginAccessControl =
       DeleteOriginAccessControlResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteOriginAccessControlResponse'
+
+instance Core.AWSService DeleteOriginAccessControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOriginAccessControl where
   hashWithSalt _salt DeleteOriginAccessControl' {..} =

@@ -110,7 +110,7 @@ instance Core.AWSRequest EvaluateExpression where
   type
     AWSResponse EvaluateExpression =
       EvaluateExpressionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest EvaluateExpression where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "evaluatedExpression")
       )
+
+instance Core.AWSService EvaluateExpression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EvaluateExpression where
   hashWithSalt _salt EvaluateExpression' {..} =

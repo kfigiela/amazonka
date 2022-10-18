@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeLoadBasedAutoScaling where
   type
     AWSResponse DescribeLoadBasedAutoScaling =
       DescribeLoadBasedAutoScalingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeLoadBasedAutoScaling where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLoadBasedAutoScaling where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

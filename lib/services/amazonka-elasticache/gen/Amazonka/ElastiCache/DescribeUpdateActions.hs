@@ -208,7 +208,7 @@ instance Core.AWSRequest DescribeUpdateActions where
   type
     AWSResponse DescribeUpdateActions =
       DescribeUpdateActionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeUpdateActionsResult"
@@ -220,6 +220,9 @@ instance Core.AWSRequest DescribeUpdateActions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUpdateActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUpdateActions where
   hashWithSalt _salt DescribeUpdateActions' {..} =

@@ -101,7 +101,7 @@ exportLens_lensAlias = Lens.lens (\ExportLens' {lensAlias} -> lensAlias) (\s@Exp
 
 instance Core.AWSRequest ExportLens where
   type AWSResponse ExportLens = ExportLensResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest ExportLens where
             Prelude.<$> (x Core..?> "LensJSON")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportLens where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportLens where
   hashWithSalt _salt ExportLens' {..} =

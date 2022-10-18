@@ -150,7 +150,7 @@ instance Core.AWSRequest ListAuditSuppressions where
   type
     AWSResponse ListAuditSuppressions =
       ListAuditSuppressionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest ListAuditSuppressions where
             Prelude.<*> (x Core..?> "suppressions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAuditSuppressions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAuditSuppressions where
   hashWithSalt _salt ListAuditSuppressions' {..} =

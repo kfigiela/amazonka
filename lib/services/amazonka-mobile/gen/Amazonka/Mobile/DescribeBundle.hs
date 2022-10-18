@@ -79,7 +79,7 @@ instance Core.AWSRequest DescribeBundle where
   type
     AWSResponse DescribeBundle =
       DescribeBundleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest DescribeBundle where
             Prelude.<$> (x Core..?> "details")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBundle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBundle where
   hashWithSalt _salt DescribeBundle' {..} =

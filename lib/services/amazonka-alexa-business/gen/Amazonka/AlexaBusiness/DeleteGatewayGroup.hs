@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteGatewayGroup where
   type
     AWSResponse DeleteGatewayGroup =
       DeleteGatewayGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteGatewayGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteGatewayGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteGatewayGroup where
   hashWithSalt _salt DeleteGatewayGroup' {..} =

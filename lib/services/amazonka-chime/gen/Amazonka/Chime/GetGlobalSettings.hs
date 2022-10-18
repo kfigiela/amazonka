@@ -63,7 +63,7 @@ instance Core.AWSRequest GetGlobalSettings where
   type
     AWSResponse GetGlobalSettings =
       GetGlobalSettingsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -72,6 +72,9 @@ instance Core.AWSRequest GetGlobalSettings where
             Prelude.<*> (x Core..?> "BusinessCalling")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGlobalSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGlobalSettings where
   hashWithSalt _salt _ =

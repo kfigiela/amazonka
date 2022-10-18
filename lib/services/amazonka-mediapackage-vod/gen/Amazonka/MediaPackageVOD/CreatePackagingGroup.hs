@@ -113,7 +113,7 @@ instance Core.AWSRequest CreatePackagingGroup where
   type
     AWSResponse CreatePackagingGroup =
       CreatePackagingGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreatePackagingGroup where
             Prelude.<*> (x Core..?> "egressAccessLogs")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePackagingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePackagingGroup where
   hashWithSalt _salt CreatePackagingGroup' {..} =

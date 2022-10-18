@@ -76,7 +76,7 @@ describeHub_hubArn = Lens.lens (\DescribeHub' {hubArn} -> hubArn) (\s@DescribeHu
 
 instance Core.AWSRequest DescribeHub where
   type AWSResponse DescribeHub = DescribeHubResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeHub where
             Prelude.<*> (x Core..?> "SubscribedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeHub where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHub where
   hashWithSalt _salt DescribeHub' {..} =

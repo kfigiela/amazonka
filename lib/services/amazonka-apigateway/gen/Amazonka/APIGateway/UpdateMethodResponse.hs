@@ -136,10 +136,13 @@ instance Core.AWSRequest UpdateMethodResponse where
   type
     AWSResponse UpdateMethodResponse =
       MethodResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateMethodResponse where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMethodResponse where
   hashWithSalt _salt UpdateMethodResponse' {..} =

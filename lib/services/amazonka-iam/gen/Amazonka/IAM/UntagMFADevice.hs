@@ -112,9 +112,12 @@ instance Core.AWSRequest UntagMFADevice where
   type
     AWSResponse UntagMFADevice =
       UntagMFADeviceResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UntagMFADeviceResponse'
+
+instance Core.AWSService UntagMFADevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagMFADevice where
   hashWithSalt _salt UntagMFADevice' {..} =

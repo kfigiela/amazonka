@@ -94,8 +94,11 @@ purgeQueue_queueUrl = Lens.lens (\PurgeQueue' {queueUrl} -> queueUrl) (\s@PurgeQ
 
 instance Core.AWSRequest PurgeQueue where
   type AWSResponse PurgeQueue = PurgeQueueResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response = Response.receiveNull PurgeQueueResponse'
+
+instance Core.AWSService PurgeQueue where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PurgeQueue where
   hashWithSalt _salt PurgeQueue' {..} =

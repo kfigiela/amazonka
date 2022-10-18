@@ -254,7 +254,7 @@ instance Core.AWSRequest DescribeExportTasks where
   type
     AWSResponse DescribeExportTasks =
       DescribeExportTasksResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeExportTasksResult"
@@ -266,6 +266,9 @@ instance Core.AWSRequest DescribeExportTasks where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeExportTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =

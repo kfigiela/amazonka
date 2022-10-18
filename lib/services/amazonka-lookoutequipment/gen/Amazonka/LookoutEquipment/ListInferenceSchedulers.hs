@@ -113,7 +113,7 @@ instance Core.AWSRequest ListInferenceSchedulers where
   type
     AWSResponse ListInferenceSchedulers =
       ListInferenceSchedulersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListInferenceSchedulers where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInferenceSchedulers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInferenceSchedulers where
   hashWithSalt _salt ListInferenceSchedulers' {..} =

@@ -233,7 +233,7 @@ instance Core.AWSRequest ListStreamConsumers where
   type
     AWSResponse ListStreamConsumers =
       ListStreamConsumersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -242,6 +242,9 @@ instance Core.AWSRequest ListStreamConsumers where
             Prelude.<*> (x Core..?> "Consumers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStreamConsumers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStreamConsumers where
   hashWithSalt _salt ListStreamConsumers' {..} =

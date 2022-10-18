@@ -306,7 +306,7 @@ instance Core.AWSRequest CreateFileCache where
   type
     AWSResponse CreateFileCache =
       CreateFileCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -314,6 +314,9 @@ instance Core.AWSRequest CreateFileCache where
             Prelude.<$> (x Core..?> "FileCache")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFileCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFileCache where
   hashWithSalt _salt CreateFileCache' {..} =

@@ -90,10 +90,13 @@ instance Core.AWSRequest DeleteCacheSubnetGroup where
   type
     AWSResponse DeleteCacheSubnetGroup =
       DeleteCacheSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteCacheSubnetGroupResponse'
+
+instance Core.AWSService DeleteCacheSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCacheSubnetGroup where
   hashWithSalt _salt DeleteCacheSubnetGroup' {..} =

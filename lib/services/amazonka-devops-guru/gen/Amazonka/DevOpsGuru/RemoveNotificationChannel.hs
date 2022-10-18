@@ -78,13 +78,16 @@ instance Core.AWSRequest RemoveNotificationChannel where
   type
     AWSResponse RemoveNotificationChannel =
       RemoveNotificationChannelResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveNotificationChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveNotificationChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveNotificationChannel where
   hashWithSalt _salt RemoveNotificationChannel' {..} =

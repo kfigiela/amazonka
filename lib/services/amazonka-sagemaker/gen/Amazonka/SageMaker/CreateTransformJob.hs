@@ -396,7 +396,7 @@ instance Core.AWSRequest CreateTransformJob where
   type
     AWSResponse CreateTransformJob =
       CreateTransformJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -404,6 +404,9 @@ instance Core.AWSRequest CreateTransformJob where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "TransformJobArn")
       )
+
+instance Core.AWSService CreateTransformJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTransformJob where
   hashWithSalt _salt CreateTransformJob' {..} =

@@ -525,7 +525,7 @@ instance Core.AWSRequest GetQueueAttributes where
   type
     AWSResponse GetQueueAttributes =
       GetQueueAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetQueueAttributesResult"
@@ -537,6 +537,9 @@ instance Core.AWSRequest GetQueueAttributes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetQueueAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetQueueAttributes where
   hashWithSalt _salt GetQueueAttributes' {..} =

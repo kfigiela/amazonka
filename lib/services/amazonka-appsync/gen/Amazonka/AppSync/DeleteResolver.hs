@@ -102,13 +102,16 @@ instance Core.AWSRequest DeleteResolver where
   type
     AWSResponse DeleteResolver =
       DeleteResolverResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteResolverResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteResolver where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteResolver where
   hashWithSalt _salt DeleteResolver' {..} =

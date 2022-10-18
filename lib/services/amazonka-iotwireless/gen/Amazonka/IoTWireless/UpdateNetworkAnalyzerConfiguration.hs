@@ -165,13 +165,19 @@ instance
   type
     AWSResponse UpdateNetworkAnalyzerConfiguration =
       UpdateNetworkAnalyzerConfigurationResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNetworkAnalyzerConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateNetworkAnalyzerConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

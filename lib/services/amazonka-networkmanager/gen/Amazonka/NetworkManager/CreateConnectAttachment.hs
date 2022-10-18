@@ -145,7 +145,7 @@ instance Core.AWSRequest CreateConnectAttachment where
   type
     AWSResponse CreateConnectAttachment =
       CreateConnectAttachmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest CreateConnectAttachment where
             Prelude.<$> (x Core..?> "ConnectAttachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateConnectAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateConnectAttachment where
   hashWithSalt _salt CreateConnectAttachment' {..} =

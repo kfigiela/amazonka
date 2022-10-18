@@ -135,7 +135,7 @@ instance Core.AWSRequest GetViolationDetails where
   type
     AWSResponse GetViolationDetails =
       GetViolationDetailsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -143,6 +143,9 @@ instance Core.AWSRequest GetViolationDetails where
             Prelude.<$> (x Core..?> "ViolationDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetViolationDetails where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetViolationDetails where
   hashWithSalt _salt GetViolationDetails' {..} =

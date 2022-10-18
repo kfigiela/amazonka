@@ -88,7 +88,7 @@ instance Core.AWSRequest DeleteLoadBalancer where
   type
     AWSResponse DeleteLoadBalancer =
       DeleteLoadBalancerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DeleteLoadBalancer where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLoadBalancer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLoadBalancer where
   hashWithSalt _salt DeleteLoadBalancer' {..} =

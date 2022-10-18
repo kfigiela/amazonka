@@ -176,7 +176,7 @@ sendEmail_content = Lens.lens (\SendEmail' {content} -> content) (\s@SendEmail' 
 
 instance Core.AWSRequest SendEmail where
   type AWSResponse SendEmail = SendEmailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest SendEmail where
             Prelude.<$> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendEmail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendEmail where
   hashWithSalt _salt SendEmail' {..} =

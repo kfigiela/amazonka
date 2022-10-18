@@ -153,7 +153,7 @@ instance Core.AWSRequest UpdateDynamicThingGroup where
   type
     AWSResponse UpdateDynamicThingGroup =
       UpdateDynamicThingGroupResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest UpdateDynamicThingGroup where
             Prelude.<$> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDynamicThingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDynamicThingGroup where
   hashWithSalt _salt UpdateDynamicThingGroup' {..} =

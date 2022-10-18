@@ -94,7 +94,7 @@ instance Core.AWSRequest ListDeviceProfiles where
   type
     AWSResponse ListDeviceProfiles =
       ListDeviceProfilesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest ListDeviceProfiles where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDeviceProfiles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDeviceProfiles where
   hashWithSalt _salt ListDeviceProfiles' {..} =

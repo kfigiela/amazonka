@@ -144,7 +144,7 @@ instance Core.AWSRequest ListClustersV2 where
   type
     AWSResponse ListClustersV2 =
       ListClustersV2Response
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest ListClustersV2 where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListClustersV2 where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListClustersV2 where
   hashWithSalt _salt ListClustersV2' {..} =

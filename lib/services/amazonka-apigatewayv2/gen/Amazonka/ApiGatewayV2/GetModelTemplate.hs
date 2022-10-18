@@ -91,7 +91,7 @@ instance Core.AWSRequest GetModelTemplate where
   type
     AWSResponse GetModelTemplate =
       GetModelTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetModelTemplate where
             Prelude.<$> (x Core..?> "value")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetModelTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetModelTemplate where
   hashWithSalt _salt GetModelTemplate' {..} =

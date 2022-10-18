@@ -95,7 +95,7 @@ instance Core.AWSRequest GetPlaybackConfiguration where
   type
     AWSResponse GetPlaybackConfiguration =
       GetPlaybackConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetPlaybackConfiguration where
             Prelude.<*> (x Core..?> "PersonalizationThresholdSeconds")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPlaybackConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPlaybackConfiguration where
   hashWithSalt _salt GetPlaybackConfiguration' {..} =

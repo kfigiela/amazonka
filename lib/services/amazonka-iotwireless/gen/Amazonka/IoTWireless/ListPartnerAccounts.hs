@@ -94,7 +94,7 @@ instance Core.AWSRequest ListPartnerAccounts where
   type
     AWSResponse ListPartnerAccounts =
       ListPartnerAccountsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest ListPartnerAccounts where
             Prelude.<*> (x Core..?> "Sidewalk" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPartnerAccounts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPartnerAccounts where
   hashWithSalt _salt ListPartnerAccounts' {..} =

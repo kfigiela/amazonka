@@ -81,13 +81,16 @@ instance Core.AWSRequest UpdateEventConfigurations where
   type
     AWSResponse UpdateEventConfigurations =
       UpdateEventConfigurationsResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEventConfigurationsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEventConfigurations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEventConfigurations where
   hashWithSalt _salt UpdateEventConfigurations' {..} =

@@ -99,10 +99,13 @@ getAuthorizer_authorizerId = Lens.lens (\GetAuthorizer' {authorizerId} -> author
 
 instance Core.AWSRequest GetAuthorizer where
   type AWSResponse GetAuthorizer = Authorizer
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetAuthorizer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAuthorizer where
   hashWithSalt _salt GetAuthorizer' {..} =

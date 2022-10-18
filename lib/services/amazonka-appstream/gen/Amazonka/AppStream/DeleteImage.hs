@@ -76,7 +76,7 @@ deleteImage_name = Lens.lens (\DeleteImage' {name} -> name) (\s@DeleteImage' {} 
 
 instance Core.AWSRequest DeleteImage where
   type AWSResponse DeleteImage = DeleteImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest DeleteImage where
             Prelude.<$> (x Core..?> "Image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImage where
   hashWithSalt _salt DeleteImage' {..} =

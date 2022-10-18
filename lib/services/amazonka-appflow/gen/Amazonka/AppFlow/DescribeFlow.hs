@@ -93,7 +93,7 @@ describeFlow_flowName = Lens.lens (\DescribeFlow' {flowName} -> flowName) (\s@De
 
 instance Core.AWSRequest DescribeFlow where
   type AWSResponse DescribeFlow = DescribeFlowResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DescribeFlow where
             Prelude.<*> (x Core..?> "lastUpdatedBy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFlow where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFlow where
   hashWithSalt _salt DescribeFlow' {..} =

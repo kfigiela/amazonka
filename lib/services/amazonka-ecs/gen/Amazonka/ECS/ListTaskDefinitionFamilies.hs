@@ -218,7 +218,7 @@ instance Core.AWSRequest ListTaskDefinitionFamilies where
   type
     AWSResponse ListTaskDefinitionFamilies =
       ListTaskDefinitionFamiliesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -227,6 +227,9 @@ instance Core.AWSRequest ListTaskDefinitionFamilies where
             Prelude.<*> (x Core..?> "families" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTaskDefinitionFamilies where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTaskDefinitionFamilies where
   hashWithSalt _salt ListTaskDefinitionFamilies' {..} =

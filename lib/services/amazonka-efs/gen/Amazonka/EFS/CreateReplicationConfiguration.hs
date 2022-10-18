@@ -170,10 +170,16 @@ instance
   type
     AWSResponse CreateReplicationConfiguration =
       ReplicationConfigurationDescription
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance
+  Core.AWSService
+    CreateReplicationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

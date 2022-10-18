@@ -207,7 +207,7 @@ instance
   type
     AWSResponse GetRateBasedStatementManagedKeys =
       GetRateBasedStatementManagedKeysResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -216,6 +216,12 @@ instance
             Prelude.<*> (x Core..?> "ManagedKeysIPV4")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetRateBasedStatementManagedKeys
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

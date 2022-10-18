@@ -103,7 +103,7 @@ instance Core.AWSRequest GetMLTransform where
   type
     AWSResponse GetMLTransform =
       GetMLTransformResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest GetMLTransform where
             Prelude.<*> (x Core..?> "Parameters")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMLTransform where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMLTransform where
   hashWithSalt _salt GetMLTransform' {..} =

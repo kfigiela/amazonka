@@ -83,7 +83,7 @@ instance Core.AWSRequest DescribeIpRestriction where
   type
     AWSResponse DescribeIpRestriction =
       DescribeIpRestrictionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeIpRestriction where
             Prelude.<*> (x Core..?> "Enabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeIpRestriction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIpRestriction where
   hashWithSalt _salt DescribeIpRestriction' {..} =

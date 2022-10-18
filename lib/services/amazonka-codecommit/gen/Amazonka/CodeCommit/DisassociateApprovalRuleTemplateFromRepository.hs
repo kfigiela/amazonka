@@ -102,10 +102,16 @@ instance
     AWSResponse
       DisassociateApprovalRuleTemplateFromRepository =
       DisassociateApprovalRuleTemplateFromRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateApprovalRuleTemplateFromRepositoryResponse'
+
+instance
+  Core.AWSService
+    DisassociateApprovalRuleTemplateFromRepository
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

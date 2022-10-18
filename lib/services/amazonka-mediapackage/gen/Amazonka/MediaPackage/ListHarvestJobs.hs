@@ -138,7 +138,7 @@ instance Core.AWSRequest ListHarvestJobs where
   type
     AWSResponse ListHarvestJobs =
       ListHarvestJobsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest ListHarvestJobs where
             Prelude.<*> (x Core..?> "harvestJobs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListHarvestJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListHarvestJobs where
   hashWithSalt _salt ListHarvestJobs' {..} =

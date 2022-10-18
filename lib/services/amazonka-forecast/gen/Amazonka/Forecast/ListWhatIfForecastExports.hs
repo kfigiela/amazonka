@@ -197,7 +197,7 @@ instance Core.AWSRequest ListWhatIfForecastExports where
   type
     AWSResponse ListWhatIfForecastExports =
       ListWhatIfForecastExportsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -208,6 +208,9 @@ instance Core.AWSRequest ListWhatIfForecastExports where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWhatIfForecastExports where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWhatIfForecastExports where
   hashWithSalt _salt ListWhatIfForecastExports' {..} =

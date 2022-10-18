@@ -118,13 +118,16 @@ instance Core.AWSRequest PutAppLaunchConfiguration where
   type
     AWSResponse PutAppLaunchConfiguration =
       PutAppLaunchConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAppLaunchConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAppLaunchConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAppLaunchConfiguration where
   hashWithSalt _salt PutAppLaunchConfiguration' {..} =

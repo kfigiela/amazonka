@@ -124,7 +124,7 @@ listArchives_namePrefix = Lens.lens (\ListArchives' {namePrefix} -> namePrefix) 
 
 instance Core.AWSRequest ListArchives where
   type AWSResponse ListArchives = ListArchivesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest ListArchives where
             Prelude.<*> (x Core..?> "Archives" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListArchives where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListArchives where
   hashWithSalt _salt ListArchives' {..} =

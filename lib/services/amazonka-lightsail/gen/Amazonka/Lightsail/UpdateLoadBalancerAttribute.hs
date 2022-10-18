@@ -209,7 +209,7 @@ instance Core.AWSRequest UpdateLoadBalancerAttribute where
   type
     AWSResponse UpdateLoadBalancerAttribute =
       UpdateLoadBalancerAttributeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -217,6 +217,9 @@ instance Core.AWSRequest UpdateLoadBalancerAttribute where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLoadBalancerAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLoadBalancerAttribute where
   hashWithSalt _salt UpdateLoadBalancerAttribute' {..} =

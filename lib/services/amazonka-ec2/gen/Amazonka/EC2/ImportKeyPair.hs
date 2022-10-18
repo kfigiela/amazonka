@@ -145,7 +145,7 @@ instance Core.AWSRequest ImportKeyPair where
   type
     AWSResponse ImportKeyPair =
       ImportKeyPairResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest ImportKeyPair where
             Prelude.<*> (x Core..@? "keyPairId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportKeyPair where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportKeyPair where
   hashWithSalt _salt ImportKeyPair' {..} =

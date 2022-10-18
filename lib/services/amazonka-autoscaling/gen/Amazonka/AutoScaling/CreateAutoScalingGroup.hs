@@ -816,10 +816,13 @@ instance Core.AWSRequest CreateAutoScalingGroup where
   type
     AWSResponse CreateAutoScalingGroup =
       CreateAutoScalingGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       CreateAutoScalingGroupResponse'
+
+instance Core.AWSService CreateAutoScalingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAutoScalingGroup where
   hashWithSalt _salt CreateAutoScalingGroup' {..} =

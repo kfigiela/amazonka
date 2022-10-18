@@ -101,7 +101,7 @@ instance Core.AWSRequest ListTestGridSessionActions where
   type
     AWSResponse ListTestGridSessionActions =
       ListTestGridSessionActionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest ListTestGridSessionActions where
             Prelude.<*> (x Core..?> "actions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTestGridSessionActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTestGridSessionActions where
   hashWithSalt _salt ListTestGridSessionActions' {..} =

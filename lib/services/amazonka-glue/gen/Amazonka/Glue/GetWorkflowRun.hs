@@ -101,7 +101,7 @@ instance Core.AWSRequest GetWorkflowRun where
   type
     AWSResponse GetWorkflowRun =
       GetWorkflowRunResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest GetWorkflowRun where
             Prelude.<$> (x Core..?> "Run")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWorkflowRun where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkflowRun where
   hashWithSalt _salt GetWorkflowRun' {..} =

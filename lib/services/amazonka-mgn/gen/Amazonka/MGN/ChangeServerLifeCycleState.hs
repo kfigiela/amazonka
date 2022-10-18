@@ -108,10 +108,13 @@ instance Core.AWSRequest ChangeServerLifeCycleState where
   type
     AWSResponse ChangeServerLifeCycleState =
       SourceServer
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService ChangeServerLifeCycleState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ChangeServerLifeCycleState where
   hashWithSalt _salt ChangeServerLifeCycleState' {..} =

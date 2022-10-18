@@ -101,7 +101,7 @@ instance Core.AWSRequest DescribePublisher where
   type
     AWSResponse DescribePublisher =
       DescribePublisherResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePublisherResult"
@@ -113,6 +113,9 @@ instance Core.AWSRequest DescribePublisher where
             Prelude.<*> (x Core..@? "IdentityProvider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePublisher where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePublisher where
   hashWithSalt _salt DescribePublisher' {..} =

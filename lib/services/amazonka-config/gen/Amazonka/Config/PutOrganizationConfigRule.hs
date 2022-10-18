@@ -229,7 +229,7 @@ instance Core.AWSRequest PutOrganizationConfigRule where
   type
     AWSResponse PutOrganizationConfigRule =
       PutOrganizationConfigRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -237,6 +237,9 @@ instance Core.AWSRequest PutOrganizationConfigRule where
             Prelude.<$> (x Core..?> "OrganizationConfigRuleArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutOrganizationConfigRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutOrganizationConfigRule where
   hashWithSalt _salt PutOrganizationConfigRule' {..} =

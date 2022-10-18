@@ -113,7 +113,7 @@ instance
   type
     AWSResponse DeleteDataRepositoryAssociation =
       DeleteDataRepositoryAssociationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,12 @@ instance
             Prelude.<*> (x Core..?> "AssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteDataRepositoryAssociation
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

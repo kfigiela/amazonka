@@ -63,7 +63,7 @@ instance Core.AWSRequest DescribeScalingProcessTypes where
   type
     AWSResponse DescribeScalingProcessTypes =
       DescribeScalingProcessTypesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeScalingProcessTypesResult"
@@ -74,6 +74,9 @@ instance Core.AWSRequest DescribeScalingProcessTypes where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeScalingProcessTypes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeScalingProcessTypes where
   hashWithSalt _salt _ =

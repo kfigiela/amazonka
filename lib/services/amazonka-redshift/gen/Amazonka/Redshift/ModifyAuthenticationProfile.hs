@@ -102,7 +102,7 @@ instance Core.AWSRequest ModifyAuthenticationProfile where
   type
     AWSResponse ModifyAuthenticationProfile =
       ModifyAuthenticationProfileResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ModifyAuthenticationProfileResult"
@@ -112,6 +112,9 @@ instance Core.AWSRequest ModifyAuthenticationProfile where
             Prelude.<*> (x Core..@? "AuthenticationProfileContent")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyAuthenticationProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyAuthenticationProfile where
   hashWithSalt _salt ModifyAuthenticationProfile' {..} =

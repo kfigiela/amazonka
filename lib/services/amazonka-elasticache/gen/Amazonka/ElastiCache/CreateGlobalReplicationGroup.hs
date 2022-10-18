@@ -154,7 +154,7 @@ instance Core.AWSRequest CreateGlobalReplicationGroup where
   type
     AWSResponse CreateGlobalReplicationGroup =
       CreateGlobalReplicationGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateGlobalReplicationGroupResult"
@@ -163,6 +163,9 @@ instance Core.AWSRequest CreateGlobalReplicationGroup where
             Prelude.<$> (x Core..@? "GlobalReplicationGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGlobalReplicationGroup where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

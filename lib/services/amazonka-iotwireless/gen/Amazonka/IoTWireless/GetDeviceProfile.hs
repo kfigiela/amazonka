@@ -80,7 +80,7 @@ instance Core.AWSRequest GetDeviceProfile where
   type
     AWSResponse GetDeviceProfile =
       GetDeviceProfileResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest GetDeviceProfile where
             Prelude.<*> (x Core..?> "Id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeviceProfile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeviceProfile where
   hashWithSalt _salt GetDeviceProfile' {..} =

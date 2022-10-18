@@ -180,7 +180,7 @@ instance Core.AWSRequest CreateExperimentTemplate where
   type
     AWSResponse CreateExperimentTemplate =
       CreateExperimentTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest CreateExperimentTemplate where
             Prelude.<$> (x Core..?> "experimentTemplate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateExperimentTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateExperimentTemplate where
   hashWithSalt _salt CreateExperimentTemplate' {..} =

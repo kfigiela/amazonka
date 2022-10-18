@@ -132,7 +132,7 @@ instance Core.AWSRequest PutDomainPermissionsPolicy where
   type
     AWSResponse PutDomainPermissionsPolicy =
       PutDomainPermissionsPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest PutDomainPermissionsPolicy where
             Prelude.<$> (x Core..?> "policy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDomainPermissionsPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDomainPermissionsPolicy where
   hashWithSalt _salt PutDomainPermissionsPolicy' {..} =

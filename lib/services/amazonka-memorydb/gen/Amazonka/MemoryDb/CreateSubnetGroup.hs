@@ -118,7 +118,7 @@ instance Core.AWSRequest CreateSubnetGroup where
   type
     AWSResponse CreateSubnetGroup =
       CreateSubnetGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateSubnetGroup where
             Prelude.<$> (x Core..?> "SubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSubnetGroup where
   hashWithSalt _salt CreateSubnetGroup' {..} =

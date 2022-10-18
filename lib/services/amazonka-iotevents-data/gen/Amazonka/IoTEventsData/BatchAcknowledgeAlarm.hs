@@ -84,7 +84,7 @@ instance Core.AWSRequest BatchAcknowledgeAlarm where
   type
     AWSResponse BatchAcknowledgeAlarm =
       BatchAcknowledgeAlarmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest BatchAcknowledgeAlarm where
             Prelude.<$> (x Core..?> "errorEntries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchAcknowledgeAlarm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchAcknowledgeAlarm where
   hashWithSalt _salt BatchAcknowledgeAlarm' {..} =

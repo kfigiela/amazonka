@@ -96,9 +96,12 @@ instance Core.AWSRequest UntagLogGroup where
   type
     AWSResponse UntagLogGroup =
       UntagLogGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UntagLogGroupResponse'
+
+instance Core.AWSService UntagLogGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagLogGroup where
   hashWithSalt _salt UntagLogGroup' {..} =

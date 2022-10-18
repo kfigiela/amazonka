@@ -227,11 +227,14 @@ instance Core.AWSRequest DescribeEnvironments where
   type
     AWSResponse DescribeEnvironments =
       EnvironmentDescriptionsMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentsResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DescribeEnvironments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEnvironments where
   hashWithSalt _salt DescribeEnvironments' {..} =

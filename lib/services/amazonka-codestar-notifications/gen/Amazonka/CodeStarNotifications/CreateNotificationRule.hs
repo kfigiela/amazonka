@@ -225,7 +225,7 @@ instance Core.AWSRequest CreateNotificationRule where
   type
     AWSResponse CreateNotificationRule =
       CreateNotificationRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -233,6 +233,9 @@ instance Core.AWSRequest CreateNotificationRule where
             Prelude.<$> (x Core..?> "Arn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNotificationRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNotificationRule where
   hashWithSalt _salt CreateNotificationRule' {..} =

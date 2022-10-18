@@ -106,7 +106,7 @@ instance Core.AWSRequest UpdateMultiplexProgram' where
   type
     AWSResponse UpdateMultiplexProgram' =
       UpdateMultiplexProgramResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest UpdateMultiplexProgram' where
             Prelude.<$> (x Core..?> "multiplexProgram")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMultiplexProgram' where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMultiplexProgram' where
   hashWithSalt _salt UpdateMultiplexProgram'' {..} =

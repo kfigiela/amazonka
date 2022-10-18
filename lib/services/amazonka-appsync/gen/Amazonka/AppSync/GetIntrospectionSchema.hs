@@ -105,7 +105,7 @@ instance Core.AWSRequest GetIntrospectionSchema where
   type
     AWSResponse GetIntrospectionSchema =
       GetIntrospectionSchemaResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveBytes
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetIntrospectionSchema where
             Prelude.<$> (Prelude.pure (Prelude.Just (Prelude.coerce x)))
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIntrospectionSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIntrospectionSchema where
   hashWithSalt _salt GetIntrospectionSchema' {..} =

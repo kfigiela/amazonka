@@ -139,7 +139,7 @@ listEntities_entityType = Lens.lens (\ListEntities' {entityType} -> entityType) 
 
 instance Core.AWSRequest ListEntities where
   type AWSResponse ListEntities = ListEntitiesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -150,6 +150,9 @@ instance Core.AWSRequest ListEntities where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListEntities where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEntities where
   hashWithSalt _salt ListEntities' {..} =

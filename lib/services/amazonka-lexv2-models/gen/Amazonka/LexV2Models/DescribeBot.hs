@@ -83,7 +83,7 @@ describeBot_botId = Lens.lens (\DescribeBot' {botId} -> botId) (\s@DescribeBot' 
 
 instance Core.AWSRequest DescribeBot where
   type AWSResponse DescribeBot = DescribeBotResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeBot where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeBot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeBot where
   hashWithSalt _salt DescribeBot' {..} =

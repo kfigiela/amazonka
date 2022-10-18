@@ -121,7 +121,7 @@ instance Core.AWSRequest ModifyVpcTenancy where
   type
     AWSResponse ModifyVpcTenancy =
       ModifyVpcTenancyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest ModifyVpcTenancy where
             Prelude.<$> (x Core..@? "return")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ModifyVpcTenancy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ModifyVpcTenancy where
   hashWithSalt _salt ModifyVpcTenancy' {..} =

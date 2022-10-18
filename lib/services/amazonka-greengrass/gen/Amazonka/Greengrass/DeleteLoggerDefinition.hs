@@ -79,13 +79,16 @@ instance Core.AWSRequest DeleteLoggerDefinition where
   type
     AWSResponse DeleteLoggerDefinition =
       DeleteLoggerDefinitionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteLoggerDefinitionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteLoggerDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLoggerDefinition where
   hashWithSalt _salt DeleteLoggerDefinition' {..} =

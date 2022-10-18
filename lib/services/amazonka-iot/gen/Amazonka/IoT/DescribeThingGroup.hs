@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeThingGroup where
   type
     AWSResponse DescribeThingGroup =
       DescribeThingGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest DescribeThingGroup where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeThingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeThingGroup where
   hashWithSalt _salt DescribeThingGroup' {..} =

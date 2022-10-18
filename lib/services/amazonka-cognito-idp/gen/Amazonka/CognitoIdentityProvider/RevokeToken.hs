@@ -103,13 +103,16 @@ revokeToken_clientId = Lens.lens (\RevokeToken' {clientId} -> clientId) (\s@Revo
 
 instance Core.AWSRequest RevokeToken where
   type AWSResponse RevokeToken = RevokeTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RevokeTokenResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RevokeToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RevokeToken where
   hashWithSalt _salt RevokeToken' {..} =

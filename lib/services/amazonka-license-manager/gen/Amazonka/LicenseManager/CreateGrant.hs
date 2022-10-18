@@ -150,7 +150,7 @@ createGrant_allowedOperations = Lens.lens (\CreateGrant' {allowedOperations} -> 
 
 instance Core.AWSRequest CreateGrant where
   type AWSResponse CreateGrant = CreateGrantResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest CreateGrant where
             Prelude.<*> (x Core..?> "Version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateGrant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateGrant where
   hashWithSalt _salt CreateGrant' {..} =

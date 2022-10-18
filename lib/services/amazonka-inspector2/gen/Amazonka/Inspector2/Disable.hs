@@ -88,7 +88,7 @@ disable_resourceTypes = Lens.lens (\Disable' {resourceTypes} -> resourceTypes) (
 
 instance Core.AWSRequest Disable where
   type AWSResponse Disable = DisableResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest Disable where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "accounts" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService Disable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Disable where
   hashWithSalt _salt Disable' {..} =

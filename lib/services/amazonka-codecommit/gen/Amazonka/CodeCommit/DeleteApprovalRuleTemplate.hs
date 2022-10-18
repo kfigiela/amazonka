@@ -83,7 +83,7 @@ instance Core.AWSRequest DeleteApprovalRuleTemplate where
   type
     AWSResponse DeleteApprovalRuleTemplate =
       DeleteApprovalRuleTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest DeleteApprovalRuleTemplate where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "approvalRuleTemplateId")
       )
+
+instance Core.AWSService DeleteApprovalRuleTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApprovalRuleTemplate where
   hashWithSalt _salt DeleteApprovalRuleTemplate' {..} =

@@ -196,7 +196,7 @@ instance Core.AWSRequest PostCommentForPullRequest where
   type
     AWSResponse PostCommentForPullRequest =
       PostCommentForPullRequestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -211,6 +211,9 @@ instance Core.AWSRequest PostCommentForPullRequest where
             Prelude.<*> (x Core..?> "afterBlobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PostCommentForPullRequest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PostCommentForPullRequest where
   hashWithSalt _salt PostCommentForPullRequest' {..} =

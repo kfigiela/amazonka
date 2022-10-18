@@ -114,7 +114,7 @@ instance Core.AWSRequest DescribeEnvironmentResources where
   type
     AWSResponse DescribeEnvironmentResources =
       DescribeEnvironmentResourcesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeEnvironmentResourcesResult"
@@ -123,6 +123,9 @@ instance Core.AWSRequest DescribeEnvironmentResources where
             Prelude.<$> (x Core..@? "EnvironmentResources")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEnvironmentResources where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

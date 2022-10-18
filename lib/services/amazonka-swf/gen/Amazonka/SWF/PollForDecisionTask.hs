@@ -290,7 +290,7 @@ instance Core.AWSRequest PollForDecisionTask where
   type
     AWSResponse PollForDecisionTask =
       PollForDecisionTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -304,6 +304,9 @@ instance Core.AWSRequest PollForDecisionTask where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "startedEventId")
       )
+
+instance Core.AWSService PollForDecisionTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PollForDecisionTask where
   hashWithSalt _salt PollForDecisionTask' {..} =

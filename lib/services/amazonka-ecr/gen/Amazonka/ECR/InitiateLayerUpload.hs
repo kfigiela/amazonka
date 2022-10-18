@@ -105,7 +105,7 @@ instance Core.AWSRequest InitiateLayerUpload where
   type
     AWSResponse InitiateLayerUpload =
       InitiateLayerUploadResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest InitiateLayerUpload where
             Prelude.<*> (x Core..?> "partSize")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InitiateLayerUpload where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitiateLayerUpload where
   hashWithSalt _salt InitiateLayerUpload' {..} =

@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeAddon where
   type
     AWSResponse DescribeAddon =
       DescribeAddonResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeAddon where
             Prelude.<$> (x Core..?> "addon")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAddon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAddon where
   hashWithSalt _salt DescribeAddon' {..} =

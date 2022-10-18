@@ -218,7 +218,7 @@ instance Core.AWSRequest DescribeCarrierGateways where
   type
     AWSResponse DescribeCarrierGateways =
       DescribeCarrierGatewaysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -230,6 +230,9 @@ instance Core.AWSRequest DescribeCarrierGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCarrierGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCarrierGateways where
   hashWithSalt _salt DescribeCarrierGateways' {..} =

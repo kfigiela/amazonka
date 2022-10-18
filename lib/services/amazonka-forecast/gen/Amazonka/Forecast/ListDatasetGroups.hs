@@ -125,7 +125,7 @@ instance Core.AWSRequest ListDatasetGroups where
   type
     AWSResponse ListDatasetGroups =
       ListDatasetGroupsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListDatasetGroups where
             Prelude.<*> (x Core..?> "DatasetGroups" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatasetGroups where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatasetGroups where
   hashWithSalt _salt ListDatasetGroups' {..} =

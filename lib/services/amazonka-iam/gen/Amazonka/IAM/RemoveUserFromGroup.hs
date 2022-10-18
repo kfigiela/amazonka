@@ -117,9 +117,12 @@ instance Core.AWSRequest RemoveUserFromGroup where
   type
     AWSResponse RemoveUserFromGroup =
       RemoveUserFromGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull RemoveUserFromGroupResponse'
+
+instance Core.AWSService RemoveUserFromGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveUserFromGroup where
   hashWithSalt _salt RemoveUserFromGroup' {..} =

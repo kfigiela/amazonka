@@ -94,7 +94,7 @@ instance Core.AWSRequest GetDeployments where
   type
     AWSResponse GetDeployments =
       GetDeploymentsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetDeployments where
             Prelude.<$> (x Core..?> "Deployments" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDeployments where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeployments where
   hashWithSalt _salt GetDeployments' {..} =

@@ -413,7 +413,7 @@ updateTrail_name = Lens.lens (\UpdateTrail' {name} -> name) (\s@UpdateTrail' {} 
 
 instance Core.AWSRequest UpdateTrail where
   type AWSResponse UpdateTrail = UpdateTrailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -433,6 +433,9 @@ instance Core.AWSRequest UpdateTrail where
             Prelude.<*> (x Core..?> "TrailARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateTrail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateTrail where
   hashWithSalt _salt UpdateTrail' {..} =

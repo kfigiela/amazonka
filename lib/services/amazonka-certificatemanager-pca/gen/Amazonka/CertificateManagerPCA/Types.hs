@@ -336,6 +336,7 @@ defaultService =
       Core._serviceEndpointPrefix = "acm-pca",
       Core._serviceSigningName = "acm-pca",
       Core._serviceVersion = "2017-08-22",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

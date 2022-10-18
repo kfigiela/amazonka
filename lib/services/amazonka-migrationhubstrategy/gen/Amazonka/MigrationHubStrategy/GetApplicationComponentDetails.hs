@@ -90,7 +90,7 @@ instance
   type
     AWSResponse GetApplicationComponentDetails =
       GetApplicationComponentDetailsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,12 @@ instance
             Prelude.<*> (x Core..?> "moreApplicationResource")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetApplicationComponentDetails
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

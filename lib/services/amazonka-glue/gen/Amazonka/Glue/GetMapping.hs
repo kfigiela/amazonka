@@ -97,7 +97,7 @@ getMapping_source = Lens.lens (\GetMapping' {source} -> source) (\s@GetMapping' 
 
 instance Core.AWSRequest GetMapping where
   type AWSResponse GetMapping = GetMappingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetMapping where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Mapping" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetMapping where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMapping where
   hashWithSalt _salt GetMapping' {..} =

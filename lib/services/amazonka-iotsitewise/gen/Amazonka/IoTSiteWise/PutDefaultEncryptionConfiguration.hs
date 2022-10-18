@@ -101,7 +101,7 @@ instance
   type
     AWSResponse PutDefaultEncryptionConfiguration =
       PutDefaultEncryptionConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,12 @@ instance
               Prelude.<*> (x Core..:> "encryptionType")
               Prelude.<*> (x Core..:> "configurationStatus")
       )
+
+instance
+  Core.AWSService
+    PutDefaultEncryptionConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

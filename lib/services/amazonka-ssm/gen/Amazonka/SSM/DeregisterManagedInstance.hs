@@ -85,13 +85,16 @@ instance Core.AWSRequest DeregisterManagedInstance where
   type
     AWSResponse DeregisterManagedInstance =
       DeregisterManagedInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeregisterManagedInstanceResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeregisterManagedInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeregisterManagedInstance where
   hashWithSalt _salt DeregisterManagedInstance' {..} =

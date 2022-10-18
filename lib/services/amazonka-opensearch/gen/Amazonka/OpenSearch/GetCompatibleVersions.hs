@@ -83,7 +83,7 @@ instance Core.AWSRequest GetCompatibleVersions where
   type
     AWSResponse GetCompatibleVersions =
       GetCompatibleVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetCompatibleVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCompatibleVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCompatibleVersions where
   hashWithSalt _salt GetCompatibleVersions' {..} =

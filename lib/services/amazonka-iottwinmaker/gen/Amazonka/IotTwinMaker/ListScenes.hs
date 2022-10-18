@@ -98,7 +98,7 @@ listScenes_workspaceId = Lens.lens (\ListScenes' {workspaceId} -> workspaceId) (
 
 instance Core.AWSRequest ListScenes where
   type AWSResponse ListScenes = ListScenesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest ListScenes where
             Prelude.<*> (x Core..?> "sceneSummaries" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListScenes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListScenes where
   hashWithSalt _salt ListScenes' {..} =

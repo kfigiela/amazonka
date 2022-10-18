@@ -92,9 +92,12 @@ instance Core.AWSRequest BatchDeleteAttributes where
   type
     AWSResponse BatchDeleteAttributes =
       BatchDeleteAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull BatchDeleteAttributesResponse'
+
+instance Core.AWSService BatchDeleteAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteAttributes where
   hashWithSalt _salt BatchDeleteAttributes' {..} =

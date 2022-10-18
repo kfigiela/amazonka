@@ -338,7 +338,7 @@ instance Core.AWSRequest DescribeDataSources where
   type
     AWSResponse DescribeDataSources =
       DescribeDataSourcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -347,6 +347,9 @@ instance Core.AWSRequest DescribeDataSources where
             Prelude.<*> (x Core..?> "Results" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDataSources where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDataSources where
   hashWithSalt _salt DescribeDataSources' {..} =

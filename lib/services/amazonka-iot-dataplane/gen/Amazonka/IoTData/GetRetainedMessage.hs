@@ -94,7 +94,7 @@ instance Core.AWSRequest GetRetainedMessage where
   type
     AWSResponse GetRetainedMessage =
       GetRetainedMessageResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest GetRetainedMessage where
             Prelude.<*> (x Core..?> "topic")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRetainedMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRetainedMessage where
   hashWithSalt _salt GetRetainedMessage' {..} =

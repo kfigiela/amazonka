@@ -60,10 +60,13 @@ instance Core.AWSRequest DisassociateAdminAccount where
   type
     AWSResponse DisassociateAdminAccount =
       DisassociateAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateAdminAccountResponse'
+
+instance Core.AWSService DisassociateAdminAccount where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateAdminAccount where
   hashWithSalt _salt _ =

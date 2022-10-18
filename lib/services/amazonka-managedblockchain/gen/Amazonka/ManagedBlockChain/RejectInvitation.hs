@@ -80,13 +80,16 @@ instance Core.AWSRequest RejectInvitation where
   type
     AWSResponse RejectInvitation =
       RejectInvitationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RejectInvitationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectInvitation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectInvitation where
   hashWithSalt _salt RejectInvitation' {..} =

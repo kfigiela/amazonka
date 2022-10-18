@@ -99,7 +99,7 @@ instance
   type
     AWSResponse DescribeAppInstanceUserEndpoint =
       DescribeAppInstanceUserEndpointResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,12 @@ instance
             Prelude.<$> (x Core..?> "AppInstanceUserEndpoint")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeAppInstanceUserEndpoint
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

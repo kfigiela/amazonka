@@ -123,7 +123,7 @@ instance Core.AWSRequest CreateVirtualCluster where
   type
     AWSResponse CreateVirtualCluster =
       CreateVirtualClusterResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest CreateVirtualCluster where
             Prelude.<*> (x Core..?> "id")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateVirtualCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVirtualCluster where
   hashWithSalt _salt CreateVirtualCluster' {..} =

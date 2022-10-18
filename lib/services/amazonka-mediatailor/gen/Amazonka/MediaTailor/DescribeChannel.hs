@@ -86,7 +86,7 @@ instance Core.AWSRequest DescribeChannel where
   type
     AWSResponse DescribeChannel =
       DescribeChannelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeChannel where
             Prelude.<*> (x Core..?> "ChannelState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeChannel where
   hashWithSalt _salt DescribeChannel' {..} =

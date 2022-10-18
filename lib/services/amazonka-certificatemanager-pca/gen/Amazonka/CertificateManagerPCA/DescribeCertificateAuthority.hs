@@ -118,7 +118,7 @@ instance Core.AWSRequest DescribeCertificateAuthority where
   type
     AWSResponse DescribeCertificateAuthority =
       DescribeCertificateAuthorityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest DescribeCertificateAuthority where
             Prelude.<$> (x Core..?> "CertificateAuthority")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCertificateAuthority where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

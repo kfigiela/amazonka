@@ -81,7 +81,7 @@ instance Core.AWSRequest ExportBackupPlanTemplate where
   type
     AWSResponse ExportBackupPlanTemplate =
       ExportBackupPlanTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest ExportBackupPlanTemplate where
             Prelude.<$> (x Core..?> "BackupPlanTemplateJson")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportBackupPlanTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportBackupPlanTemplate where
   hashWithSalt _salt ExportBackupPlanTemplate' {..} =

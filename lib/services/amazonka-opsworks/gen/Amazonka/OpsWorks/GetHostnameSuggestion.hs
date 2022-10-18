@@ -85,7 +85,7 @@ instance Core.AWSRequest GetHostnameSuggestion where
   type
     AWSResponse GetHostnameSuggestion =
       GetHostnameSuggestionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetHostnameSuggestion where
             Prelude.<*> (x Core..?> "LayerId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetHostnameSuggestion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHostnameSuggestion where
   hashWithSalt _salt GetHostnameSuggestion' {..} =

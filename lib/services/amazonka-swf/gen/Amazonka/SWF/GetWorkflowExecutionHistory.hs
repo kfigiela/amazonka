@@ -204,7 +204,7 @@ instance Core.AWSRequest GetWorkflowExecutionHistory where
   type
     AWSResponse GetWorkflowExecutionHistory =
       GetWorkflowExecutionHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -213,6 +213,9 @@ instance Core.AWSRequest GetWorkflowExecutionHistory where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "events" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService GetWorkflowExecutionHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWorkflowExecutionHistory where
   hashWithSalt _salt GetWorkflowExecutionHistory' {..} =

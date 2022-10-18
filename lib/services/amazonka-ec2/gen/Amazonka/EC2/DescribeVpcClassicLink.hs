@@ -150,7 +150,7 @@ instance Core.AWSRequest DescribeVpcClassicLink where
   type
     AWSResponse DescribeVpcClassicLink =
       DescribeVpcClassicLinkResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest DescribeVpcClassicLink where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeVpcClassicLink where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVpcClassicLink where
   hashWithSalt _salt DescribeVpcClassicLink' {..} =

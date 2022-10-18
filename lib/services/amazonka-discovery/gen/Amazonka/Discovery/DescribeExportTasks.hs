@@ -163,7 +163,7 @@ instance Core.AWSRequest DescribeExportTasks where
   type
     AWSResponse DescribeExportTasks =
       DescribeExportTasksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest DescribeExportTasks where
             Prelude.<*> (x Core..?> "exportsInfo" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeExportTasks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeExportTasks where
   hashWithSalt _salt DescribeExportTasks' {..} =

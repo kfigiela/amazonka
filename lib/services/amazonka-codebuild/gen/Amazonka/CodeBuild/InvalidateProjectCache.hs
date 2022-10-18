@@ -79,13 +79,16 @@ instance Core.AWSRequest InvalidateProjectCache where
   type
     AWSResponse InvalidateProjectCache =
       InvalidateProjectCacheResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           InvalidateProjectCacheResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InvalidateProjectCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InvalidateProjectCache where
   hashWithSalt _salt InvalidateProjectCache' {..} =

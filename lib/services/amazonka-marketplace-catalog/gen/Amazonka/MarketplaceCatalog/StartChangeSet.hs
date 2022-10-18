@@ -130,7 +130,7 @@ instance Core.AWSRequest StartChangeSet where
   type
     AWSResponse StartChangeSet =
       StartChangeSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest StartChangeSet where
             Prelude.<*> (x Core..?> "ChangeSetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartChangeSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartChangeSet where
   hashWithSalt _salt StartChangeSet' {..} =

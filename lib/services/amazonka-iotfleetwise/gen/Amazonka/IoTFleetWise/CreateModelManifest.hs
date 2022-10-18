@@ -127,7 +127,7 @@ instance Core.AWSRequest CreateModelManifest where
   type
     AWSResponse CreateModelManifest =
       CreateModelManifestResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateModelManifest where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService CreateModelManifest where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateModelManifest where
   hashWithSalt _salt CreateModelManifest' {..} =

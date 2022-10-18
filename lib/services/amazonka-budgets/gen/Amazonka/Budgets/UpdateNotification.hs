@@ -123,13 +123,16 @@ instance Core.AWSRequest UpdateNotification where
   type
     AWSResponse UpdateNotification =
       UpdateNotificationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateNotificationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNotification where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNotification where
   hashWithSalt _salt UpdateNotification' {..} =

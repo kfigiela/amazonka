@@ -98,13 +98,16 @@ instance Core.AWSRequest AddCustomAttributes where
   type
     AWSResponse AddCustomAttributes =
       AddCustomAttributesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AddCustomAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddCustomAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddCustomAttributes where
   hashWithSalt _salt AddCustomAttributes' {..} =

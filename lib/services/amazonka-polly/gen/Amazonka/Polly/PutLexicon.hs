@@ -101,13 +101,16 @@ putLexicon_content = Lens.lens (\PutLexicon' {content} -> content) (\s@PutLexico
 
 instance Core.AWSRequest PutLexicon where
   type AWSResponse PutLexicon = PutLexiconResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutLexiconResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutLexicon where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutLexicon where
   hashWithSalt _salt PutLexicon' {..} =

@@ -90,7 +90,7 @@ instance Core.AWSRequest DescribeJobTemplate where
   type
     AWSResponse DescribeJobTemplate =
       DescribeJobTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest DescribeJobTemplate where
             Prelude.<*> (x Core..?> "createdAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJobTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJobTemplate where
   hashWithSalt _salt DescribeJobTemplate' {..} =

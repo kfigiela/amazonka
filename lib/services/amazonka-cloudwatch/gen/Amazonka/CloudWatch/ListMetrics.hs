@@ -190,7 +190,7 @@ instance Core.AWSPager ListMetrics where
 
 instance Core.AWSRequest ListMetrics where
   type AWSResponse ListMetrics = ListMetricsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListMetricsResult"
@@ -202,6 +202,9 @@ instance Core.AWSRequest ListMetrics where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMetrics where
   hashWithSalt _salt ListMetrics' {..} =

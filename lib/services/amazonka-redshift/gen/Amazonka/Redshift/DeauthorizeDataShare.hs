@@ -105,11 +105,14 @@ deauthorizeDataShare_consumerIdentifier = Lens.lens (\DeauthorizeDataShare' {con
 
 instance Core.AWSRequest DeauthorizeDataShare where
   type AWSResponse DeauthorizeDataShare = DataShare
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeauthorizeDataShareResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DeauthorizeDataShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeauthorizeDataShare where
   hashWithSalt _salt DeauthorizeDataShare' {..} =

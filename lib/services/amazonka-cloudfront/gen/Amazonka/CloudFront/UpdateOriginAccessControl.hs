@@ -112,7 +112,7 @@ instance Core.AWSRequest UpdateOriginAccessControl where
   type
     AWSResponse UpdateOriginAccessControl =
       UpdateOriginAccessControlResponse
-  request = Request.putXML defaultService
+  request srv = Request.putXML srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest UpdateOriginAccessControl where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOriginAccessControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOriginAccessControl where
   hashWithSalt _salt UpdateOriginAccessControl' {..} =

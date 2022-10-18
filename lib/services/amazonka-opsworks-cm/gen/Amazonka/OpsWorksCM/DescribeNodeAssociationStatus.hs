@@ -107,7 +107,7 @@ instance
   type
     AWSResponse DescribeNodeAssociationStatus =
       DescribeNodeAssociationStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,12 @@ instance
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "NodeAssociationStatus")
       )
+
+instance
+  Core.AWSService
+    DescribeNodeAssociationStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

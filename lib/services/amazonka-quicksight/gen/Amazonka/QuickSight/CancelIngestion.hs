@@ -108,7 +108,7 @@ instance Core.AWSRequest CancelIngestion where
   type
     AWSResponse CancelIngestion =
       CancelIngestionResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CancelIngestion where
             Prelude.<*> (x Core..?> "IngestionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelIngestion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelIngestion where
   hashWithSalt _salt CancelIngestion' {..} =

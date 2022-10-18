@@ -171,7 +171,7 @@ createIpam_tagSpecifications = Lens.lens (\CreateIpam' {tagSpecifications} -> ta
 
 instance Core.AWSRequest CreateIpam where
   type AWSResponse CreateIpam = CreateIpamResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -179,6 +179,9 @@ instance Core.AWSRequest CreateIpam where
             Prelude.<$> (x Core..@? "ipam")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateIpam where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateIpam where
   hashWithSalt _salt CreateIpam' {..} =

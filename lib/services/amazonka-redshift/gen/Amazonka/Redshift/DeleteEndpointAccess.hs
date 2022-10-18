@@ -88,11 +88,14 @@ instance Core.AWSRequest DeleteEndpointAccess where
   type
     AWSResponse DeleteEndpointAccess =
       EndpointAccess
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteEndpointAccessResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DeleteEndpointAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEndpointAccess where
   hashWithSalt _salt DeleteEndpointAccess' {..} =

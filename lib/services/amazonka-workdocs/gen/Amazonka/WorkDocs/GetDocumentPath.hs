@@ -131,7 +131,7 @@ instance Core.AWSRequest GetDocumentPath where
   type
     AWSResponse GetDocumentPath =
       GetDocumentPathResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetDocumentPath where
             Prelude.<$> (x Core..?> "Path")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDocumentPath where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocumentPath where
   hashWithSalt _salt GetDocumentPath' {..} =

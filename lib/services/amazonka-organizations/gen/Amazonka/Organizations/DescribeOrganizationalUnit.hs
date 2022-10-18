@@ -108,7 +108,7 @@ instance Core.AWSRequest DescribeOrganizationalUnit where
   type
     AWSResponse DescribeOrganizationalUnit =
       DescribeOrganizationalUnitResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest DescribeOrganizationalUnit where
             Prelude.<$> (x Core..?> "OrganizationalUnit")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeOrganizationalUnit where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeOrganizationalUnit where
   hashWithSalt _salt DescribeOrganizationalUnit' {..} =

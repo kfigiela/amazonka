@@ -89,13 +89,16 @@ instance Core.AWSRequest CheckInLicense where
   type
     AWSResponse CheckInLicense =
       CheckInLicenseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CheckInLicenseResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CheckInLicense where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CheckInLicense where
   hashWithSalt _salt CheckInLicense' {..} =

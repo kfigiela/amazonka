@@ -160,7 +160,7 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
   type
     AWSResponse DescribeAlarmsForMetric =
       DescribeAlarmsForMetricResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAlarmsForMetricResult"
@@ -171,6 +171,9 @@ instance Core.AWSRequest DescribeAlarmsForMetric where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAlarmsForMetric where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAlarmsForMetric where
   hashWithSalt _salt DescribeAlarmsForMetric' {..} =

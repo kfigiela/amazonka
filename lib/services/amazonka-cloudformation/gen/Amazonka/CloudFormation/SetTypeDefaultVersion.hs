@@ -134,7 +134,7 @@ instance Core.AWSRequest SetTypeDefaultVersion where
   type
     AWSResponse SetTypeDefaultVersion =
       SetTypeDefaultVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetTypeDefaultVersionResult"
@@ -142,6 +142,9 @@ instance Core.AWSRequest SetTypeDefaultVersion where
           SetTypeDefaultVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SetTypeDefaultVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTypeDefaultVersion where
   hashWithSalt _salt SetTypeDefaultVersion' {..} =

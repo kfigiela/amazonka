@@ -105,7 +105,7 @@ instance Core.AWSRequest PublishFunction where
   type
     AWSResponse PublishFunction =
       PublishFunctionResponse
-  request = Request.post defaultService
+  request srv = Request.post srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest PublishFunction where
             Prelude.<$> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PublishFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishFunction where
   hashWithSalt _salt PublishFunction' {..} =

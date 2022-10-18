@@ -75,9 +75,12 @@ instance Core.AWSRequest DeleteDomainName where
   type
     AWSResponse DeleteDomainName =
       DeleteDomainNameResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteDomainNameResponse'
+
+instance Core.AWSService DeleteDomainName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDomainName where
   hashWithSalt _salt DeleteDomainName' {..} =

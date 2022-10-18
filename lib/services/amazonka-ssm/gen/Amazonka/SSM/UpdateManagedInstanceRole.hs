@@ -94,13 +94,16 @@ instance Core.AWSRequest UpdateManagedInstanceRole where
   type
     AWSResponse UpdateManagedInstanceRole =
       UpdateManagedInstanceRoleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateManagedInstanceRoleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateManagedInstanceRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateManagedInstanceRole where
   hashWithSalt _salt UpdateManagedInstanceRole' {..} =

@@ -160,7 +160,7 @@ instance Core.AWSRequest CreateClusterSubnetGroup where
   type
     AWSResponse CreateClusterSubnetGroup =
       CreateClusterSubnetGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateClusterSubnetGroupResult"
@@ -169,6 +169,9 @@ instance Core.AWSRequest CreateClusterSubnetGroup where
             Prelude.<$> (x Core..@? "ClusterSubnetGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateClusterSubnetGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateClusterSubnetGroup where
   hashWithSalt _salt CreateClusterSubnetGroup' {..} =

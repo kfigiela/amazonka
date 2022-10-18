@@ -438,7 +438,7 @@ instance Core.AWSRequest CreateNotebookInstance where
   type
     AWSResponse CreateNotebookInstance =
       CreateNotebookInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -446,6 +446,9 @@ instance Core.AWSRequest CreateNotebookInstance where
             Prelude.<$> (x Core..?> "NotebookInstanceArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateNotebookInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateNotebookInstance where
   hashWithSalt _salt CreateNotebookInstance' {..} =

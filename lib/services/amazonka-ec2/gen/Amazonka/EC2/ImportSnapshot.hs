@@ -293,7 +293,7 @@ instance Core.AWSRequest ImportSnapshot where
   type
     AWSResponse ImportSnapshot =
       ImportSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -306,6 +306,9 @@ instance Core.AWSRequest ImportSnapshot where
             Prelude.<*> (x Core..@? "snapshotTaskDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportSnapshot where
   hashWithSalt _salt ImportSnapshot' {..} =

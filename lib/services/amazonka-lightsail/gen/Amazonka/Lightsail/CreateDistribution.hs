@@ -225,7 +225,7 @@ instance Core.AWSRequest CreateDistribution where
   type
     AWSResponse CreateDistribution =
       CreateDistributionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -234,6 +234,9 @@ instance Core.AWSRequest CreateDistribution where
             Prelude.<*> (x Core..?> "operation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDistribution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDistribution where
   hashWithSalt _salt CreateDistribution' {..} =

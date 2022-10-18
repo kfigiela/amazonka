@@ -94,10 +94,13 @@ deleteLag_lagId = Lens.lens (\DeleteLag' {lagId} -> lagId) (\s@DeleteLag' {} a -
 
 instance Core.AWSRequest DeleteLag where
   type AWSResponse DeleteLag = Lag
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteLag where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLag where
   hashWithSalt _salt DeleteLag' {..} =

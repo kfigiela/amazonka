@@ -456,7 +456,7 @@ initiateAuth_clientId = Lens.lens (\InitiateAuth' {clientId} -> clientId) (\s@In
 
 instance Core.AWSRequest InitiateAuth where
   type AWSResponse InitiateAuth = InitiateAuthResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -469,6 +469,9 @@ instance Core.AWSRequest InitiateAuth where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService InitiateAuth where
+  service _proxy = defaultService
 
 instance Prelude.Hashable InitiateAuth where
   hashWithSalt _salt InitiateAuth' {..} =

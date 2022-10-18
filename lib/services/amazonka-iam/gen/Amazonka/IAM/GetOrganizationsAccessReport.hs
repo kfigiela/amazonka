@@ -183,7 +183,7 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
   type
     AWSResponse GetOrganizationsAccessReport =
       GetOrganizationsAccessReportResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetOrganizationsAccessReportResult"
@@ -202,6 +202,9 @@ instance Core.AWSRequest GetOrganizationsAccessReport where
             Prelude.<*> (x Core..@ "JobStatus")
             Prelude.<*> (x Core..@ "JobCreationDate")
       )
+
+instance Core.AWSService GetOrganizationsAccessReport where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

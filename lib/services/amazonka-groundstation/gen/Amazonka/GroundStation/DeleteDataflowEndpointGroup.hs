@@ -82,10 +82,13 @@ instance Core.AWSRequest DeleteDataflowEndpointGroup where
   type
     AWSResponse DeleteDataflowEndpointGroup =
       DataflowEndpointGroupIdResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DeleteDataflowEndpointGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDataflowEndpointGroup where
   hashWithSalt _salt DeleteDataflowEndpointGroup' {..} =

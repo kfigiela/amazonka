@@ -262,7 +262,7 @@ instance Core.AWSRequest CreateEventSubscription where
   type
     AWSResponse CreateEventSubscription =
       CreateEventSubscriptionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateEventSubscriptionResult"
@@ -271,6 +271,9 @@ instance Core.AWSRequest CreateEventSubscription where
             Prelude.<$> (x Core..@? "EventSubscription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEventSubscription where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEventSubscription where
   hashWithSalt _salt CreateEventSubscription' {..} =

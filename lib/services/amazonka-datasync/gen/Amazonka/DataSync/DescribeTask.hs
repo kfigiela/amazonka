@@ -92,7 +92,7 @@ describeTask_taskArn = Lens.lens (\DescribeTask' {taskArn} -> taskArn) (\s@Descr
 
 instance Core.AWSRequest DescribeTask where
   type AWSResponse DescribeTask = DescribeTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeTask where
             Prelude.<*> (x Core..?> "ErrorDetail")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTask where
   hashWithSalt _salt DescribeTask' {..} =

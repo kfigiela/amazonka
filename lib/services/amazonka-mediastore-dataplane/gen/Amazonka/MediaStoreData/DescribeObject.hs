@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribeObject where
   type
     AWSResponse DescribeObject =
       DescribeObjectResponse
-  request = Request.head' defaultService
+  request srv = Request.head' srv
   response =
     Response.receiveEmpty
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest DescribeObject where
             Prelude.<*> (h Core..#? "Content-Type")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeObject where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeObject where
   hashWithSalt _salt DescribeObject' {..} =

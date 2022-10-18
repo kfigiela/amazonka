@@ -95,7 +95,7 @@ instance Core.AWSRequest ListExperimentTemplates where
   type
     AWSResponse ListExperimentTemplates =
       ListExperimentTemplatesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest ListExperimentTemplates where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListExperimentTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListExperimentTemplates where
   hashWithSalt _salt ListExperimentTemplates' {..} =

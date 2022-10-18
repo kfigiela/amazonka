@@ -173,9 +173,12 @@ instance Core.AWSRequest CancelJobExecution where
   type
     AWSResponse CancelJobExecution =
       CancelJobExecutionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveNull CancelJobExecutionResponse'
+
+instance Core.AWSService CancelJobExecution where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelJobExecution where
   hashWithSalt _salt CancelJobExecution' {..} =

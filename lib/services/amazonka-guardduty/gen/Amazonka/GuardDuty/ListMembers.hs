@@ -148,7 +148,7 @@ instance Core.AWSPager ListMembers where
 
 instance Core.AWSRequest ListMembers where
   type AWSResponse ListMembers = ListMembersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -157,6 +157,9 @@ instance Core.AWSRequest ListMembers where
             Prelude.<*> (x Core..?> "members" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMembers where
   hashWithSalt _salt ListMembers' {..} =

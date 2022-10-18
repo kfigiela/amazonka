@@ -292,7 +292,7 @@ instance Core.AWSRequest CreateElasticsearchDomain where
   type
     AWSResponse CreateElasticsearchDomain =
       CreateElasticsearchDomainResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -300,6 +300,9 @@ instance Core.AWSRequest CreateElasticsearchDomain where
             Prelude.<$> (x Core..?> "DomainStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateElasticsearchDomain where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateElasticsearchDomain where
   hashWithSalt _salt CreateElasticsearchDomain' {..} =

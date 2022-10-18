@@ -86,7 +86,7 @@ instance Core.AWSRequest GetRepository where
   type
     AWSResponse GetRepository =
       GetRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetRepository where
             Prelude.<$> (x Core..?> "repositoryMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetRepository where
   hashWithSalt _salt GetRepository' {..} =

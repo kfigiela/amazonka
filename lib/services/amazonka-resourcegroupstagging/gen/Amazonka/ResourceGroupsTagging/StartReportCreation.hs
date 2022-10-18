@@ -104,13 +104,16 @@ instance Core.AWSRequest StartReportCreation where
   type
     AWSResponse StartReportCreation =
       StartReportCreationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartReportCreationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartReportCreation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartReportCreation where
   hashWithSalt _salt StartReportCreation' {..} =

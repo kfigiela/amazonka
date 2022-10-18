@@ -99,13 +99,19 @@ instance
   type
     AWSResponse DeleteAssessmentFrameworkShare =
       DeleteAssessmentFrameworkShareResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteAssessmentFrameworkShareResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteAssessmentFrameworkShare
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

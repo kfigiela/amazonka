@@ -127,7 +127,7 @@ instance Core.AWSRequest DeleteClientVpnRoute where
   type
     AWSResponse DeleteClientVpnRoute =
       DeleteClientVpnRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest DeleteClientVpnRoute where
             Prelude.<$> (x Core..@? "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteClientVpnRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteClientVpnRoute where
   hashWithSalt _salt DeleteClientVpnRoute' {..} =

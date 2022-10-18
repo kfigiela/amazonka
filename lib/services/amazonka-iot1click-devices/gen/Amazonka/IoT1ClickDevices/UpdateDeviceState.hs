@@ -89,13 +89,16 @@ instance Core.AWSRequest UpdateDeviceState where
   type
     AWSResponse UpdateDeviceState =
       UpdateDeviceStateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDeviceStateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDeviceState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDeviceState where
   hashWithSalt _salt UpdateDeviceState' {..} =

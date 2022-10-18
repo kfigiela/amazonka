@@ -120,13 +120,16 @@ instance Core.AWSRequest DeleteEmailIdentityPolicy where
   type
     AWSResponse DeleteEmailIdentityPolicy =
       DeleteEmailIdentityPolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteEmailIdentityPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteEmailIdentityPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEmailIdentityPolicy where
   hashWithSalt _salt DeleteEmailIdentityPolicy' {..} =

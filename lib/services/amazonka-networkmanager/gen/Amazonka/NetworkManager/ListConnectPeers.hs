@@ -132,7 +132,7 @@ instance Core.AWSRequest ListConnectPeers where
   type
     AWSResponse ListConnectPeers =
       ListConnectPeersResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListConnectPeers where
             Prelude.<*> (x Core..?> "ConnectPeers" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListConnectPeers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListConnectPeers where
   hashWithSalt _salt ListConnectPeers' {..} =

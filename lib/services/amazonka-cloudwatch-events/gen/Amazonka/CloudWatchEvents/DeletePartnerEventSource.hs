@@ -94,10 +94,13 @@ instance Core.AWSRequest DeletePartnerEventSource where
   type
     AWSResponse DeletePartnerEventSource =
       DeletePartnerEventSourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeletePartnerEventSourceResponse'
+
+instance Core.AWSService DeletePartnerEventSource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePartnerEventSource where
   hashWithSalt _salt DeletePartnerEventSource' {..} =

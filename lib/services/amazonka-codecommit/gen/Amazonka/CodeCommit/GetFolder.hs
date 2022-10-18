@@ -126,7 +126,7 @@ getFolder_folderPath = Lens.lens (\GetFolder' {folderPath} -> folderPath) (\s@Ge
 
 instance Core.AWSRequest GetFolder where
   type AWSResponse GetFolder = GetFolderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -140,6 +140,9 @@ instance Core.AWSRequest GetFolder where
             Prelude.<*> (x Core..:> "commitId")
             Prelude.<*> (x Core..:> "folderPath")
       )
+
+instance Core.AWSService GetFolder where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFolder where
   hashWithSalt _salt GetFolder' {..} =

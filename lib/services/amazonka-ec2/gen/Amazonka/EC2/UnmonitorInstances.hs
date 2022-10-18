@@ -99,7 +99,7 @@ instance Core.AWSRequest UnmonitorInstances where
   type
     AWSResponse UnmonitorInstances =
       UnmonitorInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest UnmonitorInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UnmonitorInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UnmonitorInstances where
   hashWithSalt _salt UnmonitorInstances' {..} =

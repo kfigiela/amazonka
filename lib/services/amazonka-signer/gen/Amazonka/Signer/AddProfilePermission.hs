@@ -143,7 +143,7 @@ instance Core.AWSRequest AddProfilePermission where
   type
     AWSResponse AddProfilePermission =
       AddProfilePermissionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest AddProfilePermission where
             Prelude.<$> (x Core..?> "revisionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AddProfilePermission where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AddProfilePermission where
   hashWithSalt _salt AddProfilePermission' {..} =

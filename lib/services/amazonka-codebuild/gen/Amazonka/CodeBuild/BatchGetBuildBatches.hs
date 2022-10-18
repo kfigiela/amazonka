@@ -76,7 +76,7 @@ instance Core.AWSRequest BatchGetBuildBatches where
   type
     AWSResponse BatchGetBuildBatches =
       BatchGetBuildBatchesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest BatchGetBuildBatches where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchGetBuildBatches where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchGetBuildBatches where
   hashWithSalt _salt BatchGetBuildBatches' {..} =

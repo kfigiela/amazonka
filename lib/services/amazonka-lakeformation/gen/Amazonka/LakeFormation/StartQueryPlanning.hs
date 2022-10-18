@@ -98,7 +98,7 @@ instance Core.AWSRequest StartQueryPlanning where
   type
     AWSResponse StartQueryPlanning =
       StartQueryPlanningResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest StartQueryPlanning where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "QueryId")
       )
+
+instance Core.AWSService StartQueryPlanning where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartQueryPlanning where
   hashWithSalt _salt StartQueryPlanning' {..} =

@@ -204,7 +204,7 @@ instance Core.AWSRequest CreateCustomKeyStore where
   type
     AWSResponse CreateCustomKeyStore =
       CreateCustomKeyStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -212,6 +212,9 @@ instance Core.AWSRequest CreateCustomKeyStore where
             Prelude.<$> (x Core..?> "CustomKeyStoreId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCustomKeyStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCustomKeyStore where
   hashWithSalt _salt CreateCustomKeyStore' {..} =

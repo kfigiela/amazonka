@@ -101,7 +101,7 @@ instance Core.AWSRequest StartSchemaCreation where
   type
     AWSResponse StartSchemaCreation =
       StartSchemaCreationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -109,6 +109,9 @@ instance Core.AWSRequest StartSchemaCreation where
             Prelude.<$> (x Core..?> "status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSchemaCreation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSchemaCreation where
   hashWithSalt _salt StartSchemaCreation' {..} =

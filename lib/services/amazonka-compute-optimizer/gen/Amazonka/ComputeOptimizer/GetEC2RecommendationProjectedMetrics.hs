@@ -160,7 +160,7 @@ instance
   type
     AWSResponse GetEC2RecommendationProjectedMetrics =
       GetEC2RecommendationProjectedMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,12 @@ instance
                         )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetEC2RecommendationProjectedMetrics
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

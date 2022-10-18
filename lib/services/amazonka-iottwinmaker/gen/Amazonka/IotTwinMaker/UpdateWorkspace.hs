@@ -99,7 +99,7 @@ instance Core.AWSRequest UpdateWorkspace where
   type
     AWSResponse UpdateWorkspace =
       UpdateWorkspaceResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest UpdateWorkspace where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "updateDateTime")
       )
+
+instance Core.AWSService UpdateWorkspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateWorkspace where
   hashWithSalt _salt UpdateWorkspace' {..} =

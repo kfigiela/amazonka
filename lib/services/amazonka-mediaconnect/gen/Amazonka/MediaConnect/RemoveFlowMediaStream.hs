@@ -93,7 +93,7 @@ instance Core.AWSRequest RemoveFlowMediaStream where
   type
     AWSResponse RemoveFlowMediaStream =
       RemoveFlowMediaStreamResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest RemoveFlowMediaStream where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveFlowMediaStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveFlowMediaStream where
   hashWithSalt _salt RemoveFlowMediaStream' {..} =

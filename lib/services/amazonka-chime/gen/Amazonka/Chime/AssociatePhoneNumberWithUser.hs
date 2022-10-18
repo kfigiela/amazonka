@@ -107,13 +107,16 @@ instance Core.AWSRequest AssociatePhoneNumberWithUser where
   type
     AWSResponse AssociatePhoneNumberWithUser =
       AssociatePhoneNumberWithUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociatePhoneNumberWithUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociatePhoneNumberWithUser where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

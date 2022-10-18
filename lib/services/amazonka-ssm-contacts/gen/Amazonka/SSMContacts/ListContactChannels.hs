@@ -123,7 +123,7 @@ instance Core.AWSRequest ListContactChannels where
   type
     AWSResponse ListContactChannels =
       ListContactChannelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest ListContactChannels where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListContactChannels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListContactChannels where
   hashWithSalt _salt ListContactChannels' {..} =

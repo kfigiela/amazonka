@@ -170,7 +170,7 @@ instance Core.AWSRequest DescribeClientVpnEndpoints where
   type
     AWSResponse DescribeClientVpnEndpoints =
       DescribeClientVpnEndpointsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -182,6 +182,9 @@ instance Core.AWSRequest DescribeClientVpnEndpoints where
             Prelude.<*> (x Core..@? "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeClientVpnEndpoints where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeClientVpnEndpoints where
   hashWithSalt _salt DescribeClientVpnEndpoints' {..} =

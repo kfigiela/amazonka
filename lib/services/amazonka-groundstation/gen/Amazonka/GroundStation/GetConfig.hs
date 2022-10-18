@@ -98,7 +98,7 @@ getConfig_configType = Lens.lens (\GetConfig' {configType} -> configType) (\s@Ge
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest GetConfig where
             Prelude.<*> (x Core..:> "configId")
             Prelude.<*> (x Core..:> "name")
       )
+
+instance Core.AWSService GetConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConfig where
   hashWithSalt _salt GetConfig' {..} =

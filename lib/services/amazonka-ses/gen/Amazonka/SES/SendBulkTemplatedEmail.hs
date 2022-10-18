@@ -425,7 +425,7 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
   type
     AWSResponse SendBulkTemplatedEmail =
       SendBulkTemplatedEmailResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SendBulkTemplatedEmailResult"
@@ -436,6 +436,9 @@ instance Core.AWSRequest SendBulkTemplatedEmail where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService SendBulkTemplatedEmail where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendBulkTemplatedEmail where
   hashWithSalt _salt SendBulkTemplatedEmail' {..} =

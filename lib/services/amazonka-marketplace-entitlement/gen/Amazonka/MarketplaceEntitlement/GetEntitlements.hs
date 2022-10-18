@@ -163,7 +163,7 @@ instance Core.AWSRequest GetEntitlements where
   type
     AWSResponse GetEntitlements =
       GetEntitlementsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -172,6 +172,9 @@ instance Core.AWSRequest GetEntitlements where
             Prelude.<*> (x Core..?> "Entitlements" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetEntitlements where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetEntitlements where
   hashWithSalt _salt GetEntitlements' {..} =

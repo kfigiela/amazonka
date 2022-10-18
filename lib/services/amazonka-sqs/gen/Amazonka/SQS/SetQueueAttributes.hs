@@ -548,9 +548,12 @@ instance Core.AWSRequest SetQueueAttributes where
   type
     AWSResponse SetQueueAttributes =
       SetQueueAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SetQueueAttributesResponse'
+
+instance Core.AWSService SetQueueAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetQueueAttributes where
   hashWithSalt _salt SetQueueAttributes' {..} =

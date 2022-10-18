@@ -109,7 +109,7 @@ instance Core.AWSRequest CreateReadinessCheck where
   type
     AWSResponse CreateReadinessCheck =
       CreateReadinessCheckResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateReadinessCheck where
             Prelude.<*> (x Core..?> "readinessCheckArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateReadinessCheck where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateReadinessCheck where
   hashWithSalt _salt CreateReadinessCheck' {..} =

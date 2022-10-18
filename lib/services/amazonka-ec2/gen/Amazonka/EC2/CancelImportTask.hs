@@ -108,7 +108,7 @@ instance Core.AWSRequest CancelImportTask where
   type
     AWSResponse CancelImportTask =
       CancelImportTaskResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest CancelImportTask where
             Prelude.<*> (x Core..@? "importTaskId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelImportTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelImportTask where
   hashWithSalt _salt CancelImportTask' {..} =

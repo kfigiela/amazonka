@@ -90,9 +90,12 @@ instance Core.AWSRequest DeleteWorkspace where
   type
     AWSResponse DeleteWorkspace =
       DeleteWorkspaceResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteWorkspaceResponse'
+
+instance Core.AWSService DeleteWorkspace where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteWorkspace where
   hashWithSalt _salt DeleteWorkspace' {..} =

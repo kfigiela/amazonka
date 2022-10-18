@@ -252,13 +252,16 @@ instance Core.AWSRequest PutComplianceItems where
   type
     AWSResponse PutComplianceItems =
       PutComplianceItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutComplianceItemsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutComplianceItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutComplianceItems where
   hashWithSalt _salt PutComplianceItems' {..} =

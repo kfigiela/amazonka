@@ -215,7 +215,7 @@ instance Core.AWSRequest SendVoiceMessage where
   type
     AWSResponse SendVoiceMessage =
       SendVoiceMessageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -223,6 +223,9 @@ instance Core.AWSRequest SendVoiceMessage where
             Prelude.<$> (x Core..?> "MessageId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendVoiceMessage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendVoiceMessage where
   hashWithSalt _salt SendVoiceMessage' {..} =

@@ -94,10 +94,13 @@ instance Core.AWSRequest SetTimeBasedAutoScaling where
   type
     AWSResponse SetTimeBasedAutoScaling =
       SetTimeBasedAutoScalingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       SetTimeBasedAutoScalingResponse'
+
+instance Core.AWSService SetTimeBasedAutoScaling where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetTimeBasedAutoScaling where
   hashWithSalt _salt SetTimeBasedAutoScaling' {..} =

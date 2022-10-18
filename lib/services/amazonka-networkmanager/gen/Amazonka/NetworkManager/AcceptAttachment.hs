@@ -80,7 +80,7 @@ instance Core.AWSRequest AcceptAttachment where
   type
     AWSResponse AcceptAttachment =
       AcceptAttachmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest AcceptAttachment where
             Prelude.<$> (x Core..?> "Attachment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AcceptAttachment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AcceptAttachment where
   hashWithSalt _salt AcceptAttachment' {..} =

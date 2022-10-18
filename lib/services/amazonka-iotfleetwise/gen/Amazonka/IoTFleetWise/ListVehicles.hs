@@ -145,7 +145,7 @@ instance Core.AWSPager ListVehicles where
 
 instance Core.AWSRequest ListVehicles where
   type AWSResponse ListVehicles = ListVehiclesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListVehicles where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListVehicles where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVehicles where
   hashWithSalt _salt ListVehicles' {..} =

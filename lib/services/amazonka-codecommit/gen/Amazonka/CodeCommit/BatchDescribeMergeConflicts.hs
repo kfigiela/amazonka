@@ -225,7 +225,7 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
   type
     AWSResponse BatchDescribeMergeConflicts =
       BatchDescribeMergeConflictsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -238,6 +238,9 @@ instance Core.AWSRequest BatchDescribeMergeConflicts where
             Prelude.<*> (x Core..:> "destinationCommitId")
             Prelude.<*> (x Core..:> "sourceCommitId")
       )
+
+instance Core.AWSService BatchDescribeMergeConflicts where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDescribeMergeConflicts where
   hashWithSalt _salt BatchDescribeMergeConflicts' {..} =

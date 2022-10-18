@@ -95,11 +95,14 @@ instance Core.AWSRequest DeleteDBClusterEndpoint where
   type
     AWSResponse DeleteDBClusterEndpoint =
       DBClusterEndpoint
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteDBClusterEndpointResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService DeleteDBClusterEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBClusterEndpoint where
   hashWithSalt _salt DeleteDBClusterEndpoint' {..} =

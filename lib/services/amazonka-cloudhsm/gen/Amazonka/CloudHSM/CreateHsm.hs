@@ -201,7 +201,7 @@ createHsm_subscriptionType = Lens.lens (\CreateHsm' {subscriptionType} -> subscr
 
 instance Core.AWSRequest CreateHsm where
   type AWSResponse CreateHsm = CreateHsmResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -209,6 +209,9 @@ instance Core.AWSRequest CreateHsm where
             Prelude.<$> (x Core..?> "HsmArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateHsm where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateHsm where
   hashWithSalt _salt CreateHsm' {..} =

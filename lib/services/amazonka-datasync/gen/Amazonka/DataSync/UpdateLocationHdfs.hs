@@ -261,13 +261,16 @@ instance Core.AWSRequest UpdateLocationHdfs where
   type
     AWSResponse UpdateLocationHdfs =
       UpdateLocationHdfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateLocationHdfsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateLocationHdfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateLocationHdfs where
   hashWithSalt _salt UpdateLocationHdfs' {..} =

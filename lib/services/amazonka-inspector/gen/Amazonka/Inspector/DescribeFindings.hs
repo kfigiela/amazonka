@@ -93,7 +93,7 @@ instance Core.AWSRequest DescribeFindings where
   type
     AWSResponse DescribeFindings =
       DescribeFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeFindings where
             Prelude.<*> (x Core..?> "findings" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFindings where
   hashWithSalt _salt DescribeFindings' {..} =

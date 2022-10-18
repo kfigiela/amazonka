@@ -113,7 +113,7 @@ instance Core.AWSRequest DeleteBGPPeer where
   type
     AWSResponse DeleteBGPPeer =
       DeleteBGPPeerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest DeleteBGPPeer where
             Prelude.<$> (x Core..?> "virtualInterface")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteBGPPeer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteBGPPeer where
   hashWithSalt _salt DeleteBGPPeer' {..} =

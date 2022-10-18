@@ -110,12 +110,15 @@ instance Core.AWSRequest DeleteVaultAccessPolicy where
   type
     AWSResponse DeleteVaultAccessPolicy =
       DeleteVaultAccessPolicyResponse
-  request =
+  request srv =
     Request.glacierVersionHeader (Core._serviceVersion defaultService)
-      Prelude.. Request.delete defaultService
+      Prelude.. Request.delete srv
   response =
     Response.receiveNull
       DeleteVaultAccessPolicyResponse'
+
+instance Core.AWSService DeleteVaultAccessPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVaultAccessPolicy where
   hashWithSalt _salt DeleteVaultAccessPolicy' {..} =

@@ -176,10 +176,13 @@ instance Core.AWSRequest CreateEdgePackagingJob where
   type
     AWSResponse CreateEdgePackagingJob =
       CreateEdgePackagingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       CreateEdgePackagingJobResponse'
+
+instance Core.AWSService CreateEdgePackagingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEdgePackagingJob where
   hashWithSalt _salt CreateEdgePackagingJob' {..} =

@@ -63,7 +63,7 @@ instance Core.AWSRequest GetDirectoryLimits where
   type
     AWSResponse GetDirectoryLimits =
       GetDirectoryLimitsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -71,6 +71,9 @@ instance Core.AWSRequest GetDirectoryLimits where
             Prelude.<$> (x Core..?> "DirectoryLimits")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDirectoryLimits where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDirectoryLimits where
   hashWithSalt _salt _ =

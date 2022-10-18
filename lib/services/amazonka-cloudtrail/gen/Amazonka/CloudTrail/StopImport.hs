@@ -83,7 +83,7 @@ stopImport_importId = Lens.lens (\StopImport' {importId} -> importId) (\s@StopIm
 
 instance Core.AWSRequest StopImport where
   type AWSResponse StopImport = StopImportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest StopImport where
             Prelude.<*> (x Core..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopImport where
   hashWithSalt _salt StopImport' {..} =

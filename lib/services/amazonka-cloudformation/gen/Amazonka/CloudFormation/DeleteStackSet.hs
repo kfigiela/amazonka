@@ -138,7 +138,7 @@ instance Core.AWSRequest DeleteStackSet where
   type
     AWSResponse DeleteStackSet =
       DeleteStackSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DeleteStackSetResult"
@@ -146,6 +146,9 @@ instance Core.AWSRequest DeleteStackSet where
           DeleteStackSetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteStackSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteStackSet where
   hashWithSalt _salt DeleteStackSet' {..} =

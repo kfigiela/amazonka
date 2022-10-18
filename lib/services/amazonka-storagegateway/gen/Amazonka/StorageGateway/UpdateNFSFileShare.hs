@@ -408,7 +408,7 @@ instance Core.AWSRequest UpdateNFSFileShare where
   type
     AWSResponse UpdateNFSFileShare =
       UpdateNFSFileShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -416,6 +416,9 @@ instance Core.AWSRequest UpdateNFSFileShare where
             Prelude.<$> (x Core..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateNFSFileShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateNFSFileShare where
   hashWithSalt _salt UpdateNFSFileShare' {..} =

@@ -89,7 +89,7 @@ instance Core.AWSRequest CreateInputSecurityGroup where
   type
     AWSResponse CreateInputSecurityGroup =
       CreateInputSecurityGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest CreateInputSecurityGroup where
             Prelude.<$> (x Core..?> "securityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateInputSecurityGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateInputSecurityGroup where
   hashWithSalt _salt CreateInputSecurityGroup' {..} =

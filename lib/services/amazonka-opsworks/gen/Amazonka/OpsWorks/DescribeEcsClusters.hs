@@ -174,7 +174,7 @@ instance Core.AWSRequest DescribeEcsClusters where
   type
     AWSResponse DescribeEcsClusters =
       DescribeEcsClustersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest DescribeEcsClusters where
             Prelude.<*> (x Core..?> "EcsClusters" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEcsClusters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEcsClusters where
   hashWithSalt _salt DescribeEcsClusters' {..} =

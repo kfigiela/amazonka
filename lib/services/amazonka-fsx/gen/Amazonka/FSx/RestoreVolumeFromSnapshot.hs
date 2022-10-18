@@ -146,7 +146,7 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
   type
     AWSResponse RestoreVolumeFromSnapshot =
       RestoreVolumeFromSnapshotResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -155,6 +155,9 @@ instance Core.AWSRequest RestoreVolumeFromSnapshot where
             Prelude.<*> (x Core..?> "VolumeId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RestoreVolumeFromSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RestoreVolumeFromSnapshot where
   hashWithSalt _salt RestoreVolumeFromSnapshot' {..} =

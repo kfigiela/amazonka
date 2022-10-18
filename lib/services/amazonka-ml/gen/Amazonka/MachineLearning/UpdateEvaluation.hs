@@ -97,7 +97,7 @@ instance Core.AWSRequest UpdateEvaluation where
   type
     AWSResponse UpdateEvaluation =
       UpdateEvaluationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest UpdateEvaluation where
             Prelude.<$> (x Core..?> "EvaluationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEvaluation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEvaluation where
   hashWithSalt _salt UpdateEvaluation' {..} =

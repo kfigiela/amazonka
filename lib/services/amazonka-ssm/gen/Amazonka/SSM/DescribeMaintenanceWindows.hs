@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
   type
     AWSResponse DescribeMaintenanceWindows =
       DescribeMaintenanceWindowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -149,6 +149,9 @@ instance Core.AWSRequest DescribeMaintenanceWindows where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMaintenanceWindows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMaintenanceWindows where
   hashWithSalt _salt DescribeMaintenanceWindows' {..} =

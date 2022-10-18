@@ -110,7 +110,7 @@ instance Core.AWSRequest DescribeFeatureGroup where
   type
     AWSResponse DescribeFeatureGroup =
       DescribeFeatureGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -134,6 +134,9 @@ instance Core.AWSRequest DescribeFeatureGroup where
             Prelude.<*> (x Core..:> "CreationTime")
             Prelude.<*> (x Core..:> "NextToken")
       )
+
+instance Core.AWSService DescribeFeatureGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFeatureGroup where
   hashWithSalt _salt DescribeFeatureGroup' {..} =

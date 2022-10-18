@@ -76,7 +76,7 @@ instance Core.AWSRequest StopExperiment where
   type
     AWSResponse StopExperiment =
       StopExperimentResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -84,6 +84,9 @@ instance Core.AWSRequest StopExperiment where
             Prelude.<$> (x Core..?> "experiment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopExperiment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopExperiment where
   hashWithSalt _salt StopExperiment' {..} =

@@ -141,7 +141,7 @@ instance Core.AWSRequest CreateFHIRDatastore where
   type
     AWSResponse CreateFHIRDatastore =
       CreateFHIRDatastoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest CreateFHIRDatastore where
             Prelude.<*> (x Core..:> "DatastoreStatus")
             Prelude.<*> (x Core..:> "DatastoreEndpoint")
       )
+
+instance Core.AWSService CreateFHIRDatastore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFHIRDatastore where
   hashWithSalt _salt CreateFHIRDatastore' {..} =

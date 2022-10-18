@@ -129,9 +129,12 @@ instance Core.AWSRequest CreateTopicRule where
   type
     AWSResponse CreateTopicRule =
       CreateTopicRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull CreateTopicRuleResponse'
+
+instance Core.AWSService CreateTopicRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTopicRule where
   hashWithSalt _salt CreateTopicRule' {..} =

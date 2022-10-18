@@ -179,7 +179,7 @@ instance Core.AWSRequest GetSubnetCidrReservations where
   type
     AWSResponse GetSubnetCidrReservations =
       GetSubnetCidrReservationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest GetSubnetCidrReservations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetSubnetCidrReservations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSubnetCidrReservations where
   hashWithSalt _salt GetSubnetCidrReservations' {..} =

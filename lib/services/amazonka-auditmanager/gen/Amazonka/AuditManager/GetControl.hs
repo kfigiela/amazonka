@@ -75,7 +75,7 @@ getControl_controlId = Lens.lens (\GetControl' {controlId} -> controlId) (\s@Get
 
 instance Core.AWSRequest GetControl where
   type AWSResponse GetControl = GetControlResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest GetControl where
             Prelude.<$> (x Core..?> "control")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetControl where
   hashWithSalt _salt GetControl' {..} =

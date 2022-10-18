@@ -684,7 +684,7 @@ instance Core.AWSRequest GetMetricData where
   type
     AWSResponse GetMetricData =
       GetMetricDataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -693,6 +693,9 @@ instance Core.AWSRequest GetMetricData where
             Prelude.<*> (x Core..?> "MetricResults" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetMetricData where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMetricData where
   hashWithSalt _salt GetMetricData' {..} =

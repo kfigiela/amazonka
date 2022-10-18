@@ -104,7 +104,7 @@ instance Core.AWSRequest GetLensVersionDifference where
   type
     AWSResponse GetLensVersionDifference =
       GetLensVersionDifferenceResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetLensVersionDifference where
             Prelude.<*> (x Core..?> "LatestLensVersion")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetLensVersionDifference where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetLensVersionDifference where
   hashWithSalt _salt GetLensVersionDifference' {..} =

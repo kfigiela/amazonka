@@ -128,7 +128,7 @@ stopTask_task = Lens.lens (\StopTask' {task} -> task) (\s@StopTask' {} a -> s {t
 
 instance Core.AWSRequest StopTask where
   type AWSResponse StopTask = StopTaskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest StopTask where
             Prelude.<$> (x Core..?> "task")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopTask where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopTask where
   hashWithSalt _salt StopTask' {..} =

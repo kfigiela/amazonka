@@ -92,7 +92,7 @@ instance Core.AWSRequest DescribeRulesPackages where
   type
     AWSResponse DescribeRulesPackages =
       DescribeRulesPackagesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribeRulesPackages where
             Prelude.<*> (x Core..?> "rulesPackages" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..?> "failedItems" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService DescribeRulesPackages where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeRulesPackages where
   hashWithSalt _salt DescribeRulesPackages' {..} =

@@ -92,7 +92,7 @@ instance Core.AWSRequest PublishRecipe where
   type
     AWSResponse PublishRecipe =
       PublishRecipeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -100,6 +100,9 @@ instance Core.AWSRequest PublishRecipe where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Name")
       )
+
+instance Core.AWSService PublishRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PublishRecipe where
   hashWithSalt _salt PublishRecipe' {..} =

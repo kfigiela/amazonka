@@ -147,7 +147,7 @@ instance Core.AWSRequest StartBulkDeployment where
   type
     AWSResponse StartBulkDeployment =
       StartBulkDeploymentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest StartBulkDeployment where
             Prelude.<*> (x Core..?> "BulkDeploymentId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartBulkDeployment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBulkDeployment where
   hashWithSalt _salt StartBulkDeployment' {..} =

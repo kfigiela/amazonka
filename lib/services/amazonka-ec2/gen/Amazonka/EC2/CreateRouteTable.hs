@@ -113,7 +113,7 @@ instance Core.AWSRequest CreateRouteTable where
   type
     AWSResponse CreateRouteTable =
       CreateRouteTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -121,6 +121,9 @@ instance Core.AWSRequest CreateRouteTable where
             Prelude.<$> (x Core..@? "routeTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRouteTable where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRouteTable where
   hashWithSalt _salt CreateRouteTable' {..} =

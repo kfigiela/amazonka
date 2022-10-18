@@ -110,7 +110,7 @@ instance Core.AWSRequest UpdateDimension where
   type
     AWSResponse UpdateDimension =
       UpdateDimensionResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest UpdateDimension where
             Prelude.<*> (x Core..?> "creationDate")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDimension where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDimension where
   hashWithSalt _salt UpdateDimension' {..} =

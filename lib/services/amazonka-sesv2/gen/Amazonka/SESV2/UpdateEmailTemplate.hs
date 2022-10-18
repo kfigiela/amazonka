@@ -104,13 +104,16 @@ instance Core.AWSRequest UpdateEmailTemplate where
   type
     AWSResponse UpdateEmailTemplate =
       UpdateEmailTemplateResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateEmailTemplateResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateEmailTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateEmailTemplate where
   hashWithSalt _salt UpdateEmailTemplate' {..} =

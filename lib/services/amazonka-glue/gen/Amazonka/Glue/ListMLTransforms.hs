@@ -126,7 +126,7 @@ instance Core.AWSRequest ListMLTransforms where
   type
     AWSResponse ListMLTransforms =
       ListMLTransformsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListMLTransforms where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "TransformIds" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListMLTransforms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMLTransforms where
   hashWithSalt _salt ListMLTransforms' {..} =

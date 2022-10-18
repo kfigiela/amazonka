@@ -119,7 +119,7 @@ instance
   type
     AWSResponse AssociateTransitGatewayRouteTable =
       AssociateTransitGatewayRouteTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -127,6 +127,12 @@ instance
             Prelude.<$> (x Core..@? "association")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateTransitGatewayRouteTable
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

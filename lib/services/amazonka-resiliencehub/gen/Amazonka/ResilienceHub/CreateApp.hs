@@ -163,7 +163,7 @@ createApp_name = Lens.lens (\CreateApp' {name} -> name) (\s@CreateApp' {} a -> s
 
 instance Core.AWSRequest CreateApp where
   type AWSResponse CreateApp = CreateAppResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest CreateApp where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "app")
       )
+
+instance Core.AWSService CreateApp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApp where
   hashWithSalt _salt CreateApp' {..} =

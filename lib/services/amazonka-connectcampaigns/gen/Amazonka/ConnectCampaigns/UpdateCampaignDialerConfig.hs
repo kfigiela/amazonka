@@ -88,10 +88,13 @@ instance Core.AWSRequest UpdateCampaignDialerConfig where
   type
     AWSResponse UpdateCampaignDialerConfig =
       UpdateCampaignDialerConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateCampaignDialerConfigResponse'
+
+instance Core.AWSService UpdateCampaignDialerConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCampaignDialerConfig where
   hashWithSalt _salt UpdateCampaignDialerConfig' {..} =

@@ -107,7 +107,7 @@ instance Core.AWSRequest UpdateCodeRepository where
   type
     AWSResponse UpdateCodeRepository =
       UpdateCodeRepositoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest UpdateCodeRepository where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "CodeRepositoryArn")
       )
+
+instance Core.AWSService UpdateCodeRepository where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateCodeRepository where
   hashWithSalt _salt UpdateCodeRepository' {..} =

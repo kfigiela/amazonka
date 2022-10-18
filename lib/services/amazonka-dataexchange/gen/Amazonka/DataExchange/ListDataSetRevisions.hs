@@ -128,7 +128,7 @@ instance Core.AWSRequest ListDataSetRevisions where
   type
     AWSResponse ListDataSetRevisions =
       ListDataSetRevisionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -137,6 +137,9 @@ instance Core.AWSRequest ListDataSetRevisions where
             Prelude.<*> (x Core..?> "Revisions" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDataSetRevisions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDataSetRevisions where
   hashWithSalt _salt ListDataSetRevisions' {..} =

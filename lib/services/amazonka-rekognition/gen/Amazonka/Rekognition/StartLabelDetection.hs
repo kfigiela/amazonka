@@ -192,7 +192,7 @@ instance Core.AWSRequest StartLabelDetection where
   type
     AWSResponse StartLabelDetection =
       StartLabelDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest StartLabelDetection where
             Prelude.<$> (x Core..?> "JobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartLabelDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartLabelDetection where
   hashWithSalt _salt StartLabelDetection' {..} =

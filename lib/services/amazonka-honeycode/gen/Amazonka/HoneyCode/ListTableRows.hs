@@ -183,7 +183,7 @@ instance Core.AWSRequest ListTableRows where
   type
     AWSResponse ListTableRows =
       ListTableRowsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -195,6 +195,9 @@ instance Core.AWSRequest ListTableRows where
             Prelude.<*> (x Core..?> "rows" Core..!@ Prelude.mempty)
             Prelude.<*> (x Core..:> "workbookCursor")
       )
+
+instance Core.AWSService ListTableRows where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTableRows where
   hashWithSalt _salt ListTableRows' {..} =

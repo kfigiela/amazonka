@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteContainerRecipe where
   type
     AWSResponse DeleteContainerRecipe =
       DeleteContainerRecipeResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest DeleteContainerRecipe where
             Prelude.<*> (x Core..?> "containerRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteContainerRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContainerRecipe where
   hashWithSalt _salt DeleteContainerRecipe' {..} =

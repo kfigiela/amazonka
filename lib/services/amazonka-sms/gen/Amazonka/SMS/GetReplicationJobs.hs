@@ -128,7 +128,7 @@ instance Core.AWSRequest GetReplicationJobs where
   type
     AWSResponse GetReplicationJobs =
       GetReplicationJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest GetReplicationJobs where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetReplicationJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReplicationJobs where
   hashWithSalt _salt GetReplicationJobs' {..} =

@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeReceiptRuleSet where
   type
     AWSResponse DescribeReceiptRuleSet =
       DescribeReceiptRuleSetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReceiptRuleSetResult"
@@ -103,6 +103,9 @@ instance Core.AWSRequest DescribeReceiptRuleSet where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeReceiptRuleSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeReceiptRuleSet where
   hashWithSalt _salt DescribeReceiptRuleSet' {..} =

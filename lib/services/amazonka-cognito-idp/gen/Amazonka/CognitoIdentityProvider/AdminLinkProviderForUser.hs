@@ -236,13 +236,16 @@ instance Core.AWSRequest AdminLinkProviderForUser where
   type
     AWSResponse AdminLinkProviderForUser =
       AdminLinkProviderForUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AdminLinkProviderForUserResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AdminLinkProviderForUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminLinkProviderForUser where
   hashWithSalt _salt AdminLinkProviderForUser' {..} =

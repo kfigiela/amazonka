@@ -83,7 +83,7 @@ instance Core.AWSRequest GetDistributionConfig where
   type
     AWSResponse GetDistributionConfig =
       GetDistributionConfigResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetDistributionConfig where
             Prelude.<*> (Core.parseXML x)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetDistributionConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDistributionConfig where
   hashWithSalt _salt GetDistributionConfig' {..} =

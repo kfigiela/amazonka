@@ -185,13 +185,16 @@ instance Core.AWSRequest UpdateDevEndpoint where
   type
     AWSResponse UpdateDevEndpoint =
       UpdateDevEndpointResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateDevEndpointResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateDevEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateDevEndpoint where
   hashWithSalt _salt UpdateDevEndpoint' {..} =

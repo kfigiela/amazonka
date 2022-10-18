@@ -114,7 +114,7 @@ instance
     AWSResponse
       PurchaseReservedElasticsearchInstanceOffering =
       PurchaseReservedElasticsearchInstanceOfferingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,12 @@ instance
               Prelude.<*> (x Core..?> "ReservationName")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PurchaseReservedElasticsearchInstanceOffering
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

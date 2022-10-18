@@ -77,10 +77,13 @@ instance Core.AWSRequest DeleteAssessmentTarget where
   type
     AWSResponse DeleteAssessmentTarget =
       DeleteAssessmentTargetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DeleteAssessmentTargetResponse'
+
+instance Core.AWSService DeleteAssessmentTarget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAssessmentTarget where
   hashWithSalt _salt DeleteAssessmentTarget' {..} =

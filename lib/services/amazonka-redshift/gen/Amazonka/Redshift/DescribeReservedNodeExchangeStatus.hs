@@ -172,7 +172,7 @@ instance
   type
     AWSResponse DescribeReservedNodeExchangeStatus =
       DescribeReservedNodeExchangeStatusResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeReservedNodeExchangeStatusResult"
@@ -186,6 +186,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeReservedNodeExchangeStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

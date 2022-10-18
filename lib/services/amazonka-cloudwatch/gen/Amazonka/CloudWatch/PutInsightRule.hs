@@ -165,7 +165,7 @@ instance Core.AWSRequest PutInsightRule where
   type
     AWSResponse PutInsightRule =
       PutInsightRuleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutInsightRuleResult"
@@ -173,6 +173,9 @@ instance Core.AWSRequest PutInsightRule where
           PutInsightRuleResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutInsightRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutInsightRule where
   hashWithSalt _salt PutInsightRule' {..} =

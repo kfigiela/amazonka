@@ -101,7 +101,7 @@ instance Core.AWSRequest ListSafetyRules where
   type
     AWSResponse ListSafetyRules =
       ListSafetyRulesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -110,6 +110,9 @@ instance Core.AWSRequest ListSafetyRules where
             Prelude.<*> (x Core..?> "SafetyRules" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSafetyRules where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSafetyRules where
   hashWithSalt _salt ListSafetyRules' {..} =

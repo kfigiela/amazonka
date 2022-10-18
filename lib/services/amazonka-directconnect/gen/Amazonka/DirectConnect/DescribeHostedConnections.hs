@@ -82,10 +82,13 @@ instance Core.AWSRequest DescribeHostedConnections where
   type
     AWSResponse DescribeHostedConnections =
       Connections
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DescribeHostedConnections where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeHostedConnections where
   hashWithSalt _salt DescribeHostedConnections' {..} =

@@ -165,7 +165,7 @@ instance Core.AWSRequest RegisterInstance where
   type
     AWSResponse RegisterInstance =
       RegisterInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest RegisterInstance where
             Prelude.<$> (x Core..?> "InstanceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterInstance where
   hashWithSalt _salt RegisterInstance' {..} =

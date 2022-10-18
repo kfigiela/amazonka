@@ -113,8 +113,11 @@ deleteApp_appName = Lens.lens (\DeleteApp' {appName} -> appName) (\s@DeleteApp' 
 
 instance Core.AWSRequest DeleteApp where
   type AWSResponse DeleteApp = DeleteAppResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull DeleteAppResponse'
+
+instance Core.AWSService DeleteApp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteApp where
   hashWithSalt _salt DeleteApp' {..} =

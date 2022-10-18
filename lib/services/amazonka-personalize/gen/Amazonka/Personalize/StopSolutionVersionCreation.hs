@@ -93,10 +93,13 @@ instance Core.AWSRequest StopSolutionVersionCreation where
   type
     AWSResponse StopSolutionVersionCreation =
       StopSolutionVersionCreationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       StopSolutionVersionCreationResponse'
+
+instance Core.AWSService StopSolutionVersionCreation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopSolutionVersionCreation where
   hashWithSalt _salt StopSolutionVersionCreation' {..} =

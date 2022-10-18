@@ -90,13 +90,16 @@ instance Core.AWSRequest ConfirmTopicRuleDestination where
   type
     AWSResponse ConfirmTopicRuleDestination =
       ConfirmTopicRuleDestinationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ConfirmTopicRuleDestinationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ConfirmTopicRuleDestination where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ConfirmTopicRuleDestination where
   hashWithSalt _salt ConfirmTopicRuleDestination' {..} =

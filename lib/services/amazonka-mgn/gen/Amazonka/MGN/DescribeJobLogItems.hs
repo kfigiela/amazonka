@@ -124,7 +124,7 @@ instance Core.AWSRequest DescribeJobLogItems where
   type
     AWSResponse DescribeJobLogItems =
       DescribeJobLogItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest DescribeJobLogItems where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeJobLogItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeJobLogItems where
   hashWithSalt _salt DescribeJobLogItems' {..} =

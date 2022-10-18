@@ -238,7 +238,7 @@ instance Core.AWSRequest AllocateIpamPoolCidr where
   type
     AWSResponse AllocateIpamPoolCidr =
       AllocateIpamPoolCidrResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -246,6 +246,9 @@ instance Core.AWSRequest AllocateIpamPoolCidr where
             Prelude.<$> (x Core..@? "ipamPoolAllocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AllocateIpamPoolCidr where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AllocateIpamPoolCidr where
   hashWithSalt _salt AllocateIpamPoolCidr' {..} =

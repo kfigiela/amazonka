@@ -107,7 +107,7 @@ instance Core.AWSPager ListInputs where
 
 instance Core.AWSRequest ListInputs where
   type AWSResponse ListInputs = ListInputsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest ListInputs where
             Prelude.<*> (x Core..?> "inputs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInputs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInputs where
   hashWithSalt _salt ListInputs' {..} =

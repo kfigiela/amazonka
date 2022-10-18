@@ -117,7 +117,7 @@ instance Core.AWSRequest GetOperations where
   type
     AWSResponse GetOperations =
       GetOperationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest GetOperations where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetOperations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetOperations where
   hashWithSalt _salt GetOperations' {..} =

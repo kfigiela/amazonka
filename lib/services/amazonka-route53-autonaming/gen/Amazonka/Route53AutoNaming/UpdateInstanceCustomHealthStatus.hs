@@ -119,10 +119,16 @@ instance
   type
     AWSResponse UpdateInstanceCustomHealthStatus =
       UpdateInstanceCustomHealthStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       UpdateInstanceCustomHealthStatusResponse'
+
+instance
+  Core.AWSService
+    UpdateInstanceCustomHealthStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

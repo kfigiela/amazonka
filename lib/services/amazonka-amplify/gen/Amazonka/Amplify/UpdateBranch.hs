@@ -269,7 +269,7 @@ updateBranch_branchName = Lens.lens (\UpdateBranch' {branchName} -> branchName) 
 
 instance Core.AWSRequest UpdateBranch where
   type AWSResponse UpdateBranch = UpdateBranchResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -277,6 +277,9 @@ instance Core.AWSRequest UpdateBranch where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "branch")
       )
+
+instance Core.AWSService UpdateBranch where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBranch where
   hashWithSalt _salt UpdateBranch' {..} =

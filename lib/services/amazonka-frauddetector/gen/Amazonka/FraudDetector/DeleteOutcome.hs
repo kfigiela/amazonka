@@ -81,13 +81,16 @@ instance Core.AWSRequest DeleteOutcome where
   type
     AWSResponse DeleteOutcome =
       DeleteOutcomeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteOutcomeResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteOutcome where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteOutcome where
   hashWithSalt _salt DeleteOutcome' {..} =

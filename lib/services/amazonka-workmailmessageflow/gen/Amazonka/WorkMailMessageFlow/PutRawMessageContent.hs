@@ -103,13 +103,16 @@ instance Core.AWSRequest PutRawMessageContent where
   type
     AWSResponse PutRawMessageContent =
       PutRawMessageContentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutRawMessageContentResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutRawMessageContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutRawMessageContent where
   hashWithSalt _salt PutRawMessageContent' {..} =

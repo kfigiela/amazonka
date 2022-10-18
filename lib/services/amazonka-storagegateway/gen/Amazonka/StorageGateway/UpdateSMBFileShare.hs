@@ -518,7 +518,7 @@ instance Core.AWSRequest UpdateSMBFileShare where
   type
     AWSResponse UpdateSMBFileShare =
       UpdateSMBFileShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -526,6 +526,9 @@ instance Core.AWSRequest UpdateSMBFileShare where
             Prelude.<$> (x Core..?> "FileShareARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSMBFileShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSMBFileShare where
   hashWithSalt _salt UpdateSMBFileShare' {..} =

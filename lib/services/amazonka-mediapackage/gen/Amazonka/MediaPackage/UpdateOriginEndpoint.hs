@@ -229,7 +229,7 @@ instance Core.AWSRequest UpdateOriginEndpoint where
   type
     AWSResponse UpdateOriginEndpoint =
       UpdateOriginEndpointResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -252,6 +252,9 @@ instance Core.AWSRequest UpdateOriginEndpoint where
             Prelude.<*> (x Core..?> "origination")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateOriginEndpoint where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateOriginEndpoint where
   hashWithSalt _salt UpdateOriginEndpoint' {..} =

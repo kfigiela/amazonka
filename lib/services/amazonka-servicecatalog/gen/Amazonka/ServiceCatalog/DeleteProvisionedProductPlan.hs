@@ -120,13 +120,16 @@ instance Core.AWSRequest DeleteProvisionedProductPlan where
   type
     AWSResponse DeleteProvisionedProductPlan =
       DeleteProvisionedProductPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteProvisionedProductPlanResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteProvisionedProductPlan where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

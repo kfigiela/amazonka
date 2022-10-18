@@ -164,7 +164,7 @@ instance Core.AWSRequest TerminateInstances where
   type
     AWSResponse TerminateInstances =
       TerminateInstancesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -174,6 +174,9 @@ instance Core.AWSRequest TerminateInstances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TerminateInstances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TerminateInstances where
   hashWithSalt _salt TerminateInstances' {..} =

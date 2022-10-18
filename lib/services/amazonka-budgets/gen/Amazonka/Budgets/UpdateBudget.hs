@@ -103,13 +103,16 @@ updateBudget_newBudget = Lens.lens (\UpdateBudget' {newBudget'} -> newBudget') (
 
 instance Core.AWSRequest UpdateBudget where
   type AWSResponse UpdateBudget = UpdateBudgetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateBudgetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBudget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBudget where
   hashWithSalt _salt UpdateBudget' {..} =

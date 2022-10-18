@@ -96,7 +96,7 @@ instance Core.AWSRequest UpdateSmsChannel where
   type
     AWSResponse UpdateSmsChannel =
       UpdateSmsChannelResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest UpdateSmsChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService UpdateSmsChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSmsChannel where
   hashWithSalt _salt UpdateSmsChannel' {..} =

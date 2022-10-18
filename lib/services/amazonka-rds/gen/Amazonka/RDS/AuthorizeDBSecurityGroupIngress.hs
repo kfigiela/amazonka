@@ -185,7 +185,7 @@ instance
   type
     AWSResponse AuthorizeDBSecurityGroupIngress =
       AuthorizeDBSecurityGroupIngressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "AuthorizeDBSecurityGroupIngressResult"
@@ -194,6 +194,12 @@ instance
             Prelude.<$> (x Core..@? "DBSecurityGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AuthorizeDBSecurityGroupIngress
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

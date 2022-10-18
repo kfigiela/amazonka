@@ -103,10 +103,13 @@ instance Core.AWSRequest DeleteDBParameterGroup where
   type
     AWSResponse DeleteDBParameterGroup =
       DeleteDBParameterGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteDBParameterGroupResponse'
+
+instance Core.AWSService DeleteDBParameterGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDBParameterGroup where
   hashWithSalt _salt DeleteDBParameterGroup' {..} =

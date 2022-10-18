@@ -85,7 +85,7 @@ instance Core.AWSRequest DetectDominantLanguage where
   type
     AWSResponse DetectDominantLanguage =
       DetectDominantLanguageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DetectDominantLanguage where
             Prelude.<$> (x Core..?> "Languages" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetectDominantLanguage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetectDominantLanguage where
   hashWithSalt _salt DetectDominantLanguage' {..} =

@@ -196,7 +196,7 @@ createDevice_globalNetworkId = Lens.lens (\CreateDevice' {globalNetworkId} -> gl
 
 instance Core.AWSRequest CreateDevice where
   type AWSResponse CreateDevice = CreateDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -204,6 +204,9 @@ instance Core.AWSRequest CreateDevice where
             Prelude.<$> (x Core..?> "Device")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDevice where
   hashWithSalt _salt CreateDevice' {..} =

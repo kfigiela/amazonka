@@ -181,7 +181,7 @@ instance Core.AWSRequest CreateVocabulary where
   type
     AWSResponse CreateVocabulary =
       CreateVocabularyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest CreateVocabulary where
             Prelude.<*> (x Core..:> "VocabularyId")
             Prelude.<*> (x Core..:> "State")
       )
+
+instance Core.AWSService CreateVocabulary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateVocabulary where
   hashWithSalt _salt CreateVocabulary' {..} =

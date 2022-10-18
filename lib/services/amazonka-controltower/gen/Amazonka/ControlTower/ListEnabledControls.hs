@@ -127,7 +127,7 @@ instance Core.AWSRequest ListEnabledControls where
   type
     AWSResponse ListEnabledControls =
       ListEnabledControlsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -138,6 +138,9 @@ instance Core.AWSRequest ListEnabledControls where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListEnabledControls where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListEnabledControls where
   hashWithSalt _salt ListEnabledControls' {..} =

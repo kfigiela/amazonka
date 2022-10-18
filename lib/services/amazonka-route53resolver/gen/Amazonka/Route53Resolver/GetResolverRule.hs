@@ -79,7 +79,7 @@ instance Core.AWSRequest GetResolverRule where
   type
     AWSResponse GetResolverRule =
       GetResolverRuleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetResolverRule where
             Prelude.<$> (x Core..?> "ResolverRule")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetResolverRule where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetResolverRule where
   hashWithSalt _salt GetResolverRule' {..} =

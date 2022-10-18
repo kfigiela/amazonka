@@ -78,7 +78,7 @@ instance Core.AWSRequest GetNetworkSite where
   type
     AWSResponse GetNetworkSite =
       GetNetworkSiteResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetNetworkSite where
             Prelude.<*> (x Core..?> "networkSite")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetNetworkSite where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetNetworkSite where
   hashWithSalt _salt GetNetworkSite' {..} =

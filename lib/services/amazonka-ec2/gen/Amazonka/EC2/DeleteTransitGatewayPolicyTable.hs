@@ -104,7 +104,7 @@ instance
   type
     AWSResponse DeleteTransitGatewayPolicyTable =
       DeleteTransitGatewayPolicyTableResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -112,6 +112,12 @@ instance
             Prelude.<$> (x Core..@? "transitGatewayPolicyTable")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteTransitGatewayPolicyTable
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

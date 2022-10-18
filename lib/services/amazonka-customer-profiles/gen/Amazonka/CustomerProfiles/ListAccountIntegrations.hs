@@ -115,7 +115,7 @@ instance Core.AWSRequest ListAccountIntegrations where
   type
     AWSResponse ListAccountIntegrations =
       ListAccountIntegrationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest ListAccountIntegrations where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAccountIntegrations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAccountIntegrations where
   hashWithSalt _salt ListAccountIntegrations' {..} =

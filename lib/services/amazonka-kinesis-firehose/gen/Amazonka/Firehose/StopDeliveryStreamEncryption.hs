@@ -107,13 +107,16 @@ instance Core.AWSRequest StopDeliveryStreamEncryption where
   type
     AWSResponse StopDeliveryStreamEncryption =
       StopDeliveryStreamEncryptionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopDeliveryStreamEncryptionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopDeliveryStreamEncryption where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

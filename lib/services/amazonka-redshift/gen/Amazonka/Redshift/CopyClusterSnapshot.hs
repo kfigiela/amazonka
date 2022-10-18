@@ -221,7 +221,7 @@ instance Core.AWSRequest CopyClusterSnapshot where
   type
     AWSResponse CopyClusterSnapshot =
       CopyClusterSnapshotResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CopyClusterSnapshotResult"
@@ -230,6 +230,9 @@ instance Core.AWSRequest CopyClusterSnapshot where
             Prelude.<$> (x Core..@? "Snapshot")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CopyClusterSnapshot where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CopyClusterSnapshot where
   hashWithSalt _salt CopyClusterSnapshot' {..} =

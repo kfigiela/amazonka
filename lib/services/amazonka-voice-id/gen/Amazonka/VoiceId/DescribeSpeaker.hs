@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeSpeaker where
   type
     AWSResponse DescribeSpeaker =
       DescribeSpeakerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeSpeaker where
             Prelude.<$> (x Core..?> "Speaker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSpeaker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSpeaker where
   hashWithSalt _salt DescribeSpeaker' {..} =

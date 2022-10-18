@@ -111,10 +111,13 @@ instance Core.AWSRequest UntagOpenIDConnectProvider where
   type
     AWSResponse UntagOpenIDConnectProvider =
       UntagOpenIDConnectProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UntagOpenIDConnectProviderResponse'
+
+instance Core.AWSService UntagOpenIDConnectProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagOpenIDConnectProvider where
   hashWithSalt _salt UntagOpenIDConnectProvider' {..} =

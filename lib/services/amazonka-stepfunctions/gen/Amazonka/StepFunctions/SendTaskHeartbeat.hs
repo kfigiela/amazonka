@@ -106,13 +106,16 @@ instance Core.AWSRequest SendTaskHeartbeat where
   type
     AWSResponse SendTaskHeartbeat =
       SendTaskHeartbeatResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           SendTaskHeartbeatResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SendTaskHeartbeat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SendTaskHeartbeat where
   hashWithSalt _salt SendTaskHeartbeat' {..} =

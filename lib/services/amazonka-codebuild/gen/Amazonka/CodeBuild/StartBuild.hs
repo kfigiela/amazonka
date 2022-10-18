@@ -699,7 +699,7 @@ startBuild_projectName = Lens.lens (\StartBuild' {projectName} -> projectName) (
 
 instance Core.AWSRequest StartBuild where
   type AWSResponse StartBuild = StartBuildResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -707,6 +707,9 @@ instance Core.AWSRequest StartBuild where
             Prelude.<$> (x Core..?> "build")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartBuild where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartBuild where
   hashWithSalt _salt StartBuild' {..} =

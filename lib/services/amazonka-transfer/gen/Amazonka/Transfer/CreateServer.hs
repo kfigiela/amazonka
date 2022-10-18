@@ -750,7 +750,7 @@ createServer_hostKey = Lens.lens (\CreateServer' {hostKey} -> hostKey) (\s@Creat
 
 instance Core.AWSRequest CreateServer where
   type AWSResponse CreateServer = CreateServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -758,6 +758,9 @@ instance Core.AWSRequest CreateServer where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "ServerId")
       )
+
+instance Core.AWSService CreateServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateServer where
   hashWithSalt _salt CreateServer' {..} =

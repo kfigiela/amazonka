@@ -104,9 +104,12 @@ instance Core.AWSRequest AdminAddUserToGroup where
   type
     AWSResponse AdminAddUserToGroup =
       AdminAddUserToGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AdminAddUserToGroupResponse'
+
+instance Core.AWSService AdminAddUserToGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AdminAddUserToGroup where
   hashWithSalt _salt AdminAddUserToGroup' {..} =

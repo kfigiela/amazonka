@@ -160,7 +160,7 @@ instance Core.AWSRequest DescribeAddressesAttribute where
   type
     AWSResponse DescribeAddressesAttribute =
       DescribeAddressesAttributeResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -171,6 +171,9 @@ instance Core.AWSRequest DescribeAddressesAttribute where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeAddressesAttribute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAddressesAttribute where
   hashWithSalt _salt DescribeAddressesAttribute' {..} =

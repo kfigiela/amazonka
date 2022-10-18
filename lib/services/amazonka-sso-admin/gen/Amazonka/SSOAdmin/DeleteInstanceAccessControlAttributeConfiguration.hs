@@ -94,13 +94,19 @@ instance
     AWSResponse
       DeleteInstanceAccessControlAttributeConfiguration =
       DeleteInstanceAccessControlAttributeConfigurationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteInstanceAccessControlAttributeConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DeleteInstanceAccessControlAttributeConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

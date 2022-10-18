@@ -150,7 +150,7 @@ instance
     AWSResponse
       SetIdentityHeadersInNotificationsEnabled =
       SetIdentityHeadersInNotificationsEnabledResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "SetIdentityHeadersInNotificationsEnabledResult"
@@ -158,6 +158,12 @@ instance
           SetIdentityHeadersInNotificationsEnabledResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    SetIdentityHeadersInNotificationsEnabled
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -148,10 +148,13 @@ instance Core.AWSRequest DisableAWSServiceAccess where
   type
     AWSResponse DisableAWSServiceAccess =
       DisableAWSServiceAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisableAWSServiceAccessResponse'
+
+instance Core.AWSService DisableAWSServiceAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisableAWSServiceAccess where
   hashWithSalt _salt DisableAWSServiceAccess' {..} =

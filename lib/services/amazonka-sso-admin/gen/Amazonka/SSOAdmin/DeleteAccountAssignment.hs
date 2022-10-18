@@ -175,7 +175,7 @@ instance Core.AWSRequest DeleteAccountAssignment where
   type
     AWSResponse DeleteAccountAssignment =
       DeleteAccountAssignmentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -183,6 +183,9 @@ instance Core.AWSRequest DeleteAccountAssignment where
             Prelude.<$> (x Core..?> "AccountAssignmentDeletionStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAccountAssignment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAccountAssignment where
   hashWithSalt _salt DeleteAccountAssignment' {..} =

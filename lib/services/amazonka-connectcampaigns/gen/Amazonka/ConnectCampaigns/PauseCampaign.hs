@@ -73,9 +73,12 @@ instance Core.AWSRequest PauseCampaign where
   type
     AWSResponse PauseCampaign =
       PauseCampaignResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull PauseCampaignResponse'
+
+instance Core.AWSService PauseCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PauseCampaign where
   hashWithSalt _salt PauseCampaign' {..} =

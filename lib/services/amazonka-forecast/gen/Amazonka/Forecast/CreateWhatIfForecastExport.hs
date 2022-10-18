@@ -173,7 +173,7 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
   type
     AWSResponse CreateWhatIfForecastExport =
       CreateWhatIfForecastExportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest CreateWhatIfForecastExport where
             Prelude.<$> (x Core..?> "WhatIfForecastExportArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWhatIfForecastExport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWhatIfForecastExport where
   hashWithSalt _salt CreateWhatIfForecastExport' {..} =

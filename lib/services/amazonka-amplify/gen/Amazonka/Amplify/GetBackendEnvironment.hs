@@ -93,7 +93,7 @@ instance Core.AWSRequest GetBackendEnvironment where
   type
     AWSResponse GetBackendEnvironment =
       GetBackendEnvironmentResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GetBackendEnvironment where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "backendEnvironment")
       )
+
+instance Core.AWSService GetBackendEnvironment where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBackendEnvironment where
   hashWithSalt _salt GetBackendEnvironment' {..} =

@@ -157,7 +157,7 @@ instance Core.AWSRequest CreateProgram where
   type
     AWSResponse CreateProgram =
       CreateProgramResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -173,6 +173,9 @@ instance Core.AWSRequest CreateProgram where
             Prelude.<*> (x Core..?> "SourceLocationName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateProgram where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateProgram where
   hashWithSalt _salt CreateProgram' {..} =

@@ -118,7 +118,7 @@ instance Core.AWSRequest CreateDefaultSubnet where
   type
     AWSResponse CreateDefaultSubnet =
       CreateDefaultSubnetResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateDefaultSubnet where
             Prelude.<$> (x Core..@? "subnet")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateDefaultSubnet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateDefaultSubnet where
   hashWithSalt _salt CreateDefaultSubnet' {..} =

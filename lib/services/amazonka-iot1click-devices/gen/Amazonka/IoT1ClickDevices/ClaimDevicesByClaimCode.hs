@@ -82,7 +82,7 @@ instance Core.AWSRequest ClaimDevicesByClaimCode where
   type
     AWSResponse ClaimDevicesByClaimCode =
       ClaimDevicesByClaimCodeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -91,6 +91,9 @@ instance Core.AWSRequest ClaimDevicesByClaimCode where
             Prelude.<*> (x Core..?> "claimCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ClaimDevicesByClaimCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ClaimDevicesByClaimCode where
   hashWithSalt _salt ClaimDevicesByClaimCode' {..} =

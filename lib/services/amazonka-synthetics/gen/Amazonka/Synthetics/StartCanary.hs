@@ -79,13 +79,16 @@ startCanary_name = Lens.lens (\StartCanary' {name} -> name) (\s@StartCanary' {} 
 
 instance Core.AWSRequest StartCanary where
   type AWSResponse StartCanary = StartCanaryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StartCanaryResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartCanary where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartCanary where
   hashWithSalt _salt StartCanary' {..} =

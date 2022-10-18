@@ -123,11 +123,14 @@ instance Core.AWSRequest CreateApplication where
   type
     AWSResponse CreateApplication =
       ApplicationDescriptionMessage
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateApplicationResult"
       (\s h x -> Core.parseXML x)
+
+instance Core.AWSService CreateApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateApplication where
   hashWithSalt _salt CreateApplication' {..} =

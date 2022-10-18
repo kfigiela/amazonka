@@ -196,10 +196,13 @@ instance Core.AWSRequest AllowCustomRoutingTraffic where
   type
     AWSResponse AllowCustomRoutingTraffic =
       AllowCustomRoutingTrafficResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       AllowCustomRoutingTrafficResponse'
+
+instance Core.AWSService AllowCustomRoutingTraffic where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AllowCustomRoutingTraffic where
   hashWithSalt _salt AllowCustomRoutingTraffic' {..} =

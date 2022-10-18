@@ -79,10 +79,13 @@ instance Core.AWSRequest EnableTrustAnchor where
   type
     AWSResponse EnableTrustAnchor =
       TrustAnchorDetailResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService EnableTrustAnchor where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableTrustAnchor where
   hashWithSalt _salt EnableTrustAnchor' {..} =

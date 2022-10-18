@@ -148,7 +148,7 @@ instance Core.AWSRequest ListImageBuildVersions where
   type
     AWSResponse ListImageBuildVersions =
       ListImageBuildVersionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -160,6 +160,9 @@ instance Core.AWSRequest ListImageBuildVersions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListImageBuildVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListImageBuildVersions where
   hashWithSalt _salt ListImageBuildVersions' {..} =

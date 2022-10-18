@@ -241,7 +241,7 @@ instance Core.AWSRequest ListAggregatedUtterances where
   type
     AWSResponse ListAggregatedUtterances =
       ListAggregatedUtterancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -260,6 +260,9 @@ instance Core.AWSRequest ListAggregatedUtterances where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListAggregatedUtterances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListAggregatedUtterances where
   hashWithSalt _salt ListAggregatedUtterances' {..} =

@@ -75,9 +75,12 @@ instance Core.AWSRequest DeleteUserPool where
   type
     AWSResponse DeleteUserPool =
       DeleteUserPoolResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteUserPoolResponse'
+
+instance Core.AWSService DeleteUserPool where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserPool where
   hashWithSalt _salt DeleteUserPool' {..} =

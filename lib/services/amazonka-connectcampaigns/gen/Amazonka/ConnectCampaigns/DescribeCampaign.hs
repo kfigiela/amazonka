@@ -78,7 +78,7 @@ instance Core.AWSRequest DescribeCampaign where
   type
     AWSResponse DescribeCampaign =
       DescribeCampaignResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DescribeCampaign where
             Prelude.<$> (x Core..?> "campaign")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeCampaign where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeCampaign where
   hashWithSalt _salt DescribeCampaign' {..} =

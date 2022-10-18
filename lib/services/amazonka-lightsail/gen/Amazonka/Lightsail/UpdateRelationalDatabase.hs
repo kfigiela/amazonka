@@ -363,7 +363,7 @@ instance Core.AWSRequest UpdateRelationalDatabase where
   type
     AWSResponse UpdateRelationalDatabase =
       UpdateRelationalDatabaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -371,6 +371,9 @@ instance Core.AWSRequest UpdateRelationalDatabase where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRelationalDatabase where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRelationalDatabase where
   hashWithSalt _salt UpdateRelationalDatabase' {..} =

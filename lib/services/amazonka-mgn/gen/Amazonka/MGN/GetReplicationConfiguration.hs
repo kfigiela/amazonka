@@ -93,10 +93,13 @@ instance Core.AWSRequest GetReplicationConfiguration where
   type
     AWSResponse GetReplicationConfiguration =
       ReplicationConfiguration
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetReplicationConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetReplicationConfiguration where
   hashWithSalt _salt GetReplicationConfiguration' {..} =

@@ -357,7 +357,7 @@ createLedger_permissionsMode = Lens.lens (\CreateLedger' {permissionsMode} -> pe
 
 instance Core.AWSRequest CreateLedger where
   type AWSResponse CreateLedger = CreateLedgerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -371,6 +371,9 @@ instance Core.AWSRequest CreateLedger where
             Prelude.<*> (x Core..?> "PermissionsMode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLedger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLedger where
   hashWithSalt _salt CreateLedger' {..} =

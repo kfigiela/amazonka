@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeNFSFileShares where
   type
     AWSResponse DescribeNFSFileShares =
       DescribeNFSFileSharesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest DescribeNFSFileShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeNFSFileShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeNFSFileShares where
   hashWithSalt _salt DescribeNFSFileShares' {..} =

@@ -92,7 +92,7 @@ instance Core.AWSRequest GrantFlowEntitlements where
   type
     AWSResponse GrantFlowEntitlements =
       GrantFlowEntitlementsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest GrantFlowEntitlements where
             Prelude.<*> (x Core..?> "flowArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GrantFlowEntitlements where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GrantFlowEntitlements where
   hashWithSalt _salt GrantFlowEntitlements' {..} =

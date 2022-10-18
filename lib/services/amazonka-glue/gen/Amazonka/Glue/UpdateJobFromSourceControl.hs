@@ -169,7 +169,7 @@ instance Core.AWSRequest UpdateJobFromSourceControl where
   type
     AWSResponse UpdateJobFromSourceControl =
       UpdateJobFromSourceControlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -177,6 +177,9 @@ instance Core.AWSRequest UpdateJobFromSourceControl where
             Prelude.<$> (x Core..?> "JobName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateJobFromSourceControl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateJobFromSourceControl where
   hashWithSalt _salt UpdateJobFromSourceControl' {..} =

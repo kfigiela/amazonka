@@ -168,7 +168,7 @@ instance Core.AWSRequest ImportClientBranding where
   type
     AWSResponse ImportClientBranding =
       ImportClientBrandingResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ImportClientBranding where
             Prelude.<*> (x Core..?> "DeviceTypeIos")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportClientBranding where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportClientBranding where
   hashWithSalt _salt ImportClientBranding' {..} =

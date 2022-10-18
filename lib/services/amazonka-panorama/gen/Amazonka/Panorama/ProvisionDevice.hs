@@ -118,7 +118,7 @@ instance Core.AWSRequest ProvisionDevice where
   type
     AWSResponse ProvisionDevice =
       ProvisionDeviceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -130,6 +130,9 @@ instance Core.AWSRequest ProvisionDevice where
             Prelude.<*> (x Core..:> "Arn")
             Prelude.<*> (x Core..:> "Status")
       )
+
+instance Core.AWSService ProvisionDevice where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ProvisionDevice where
   hashWithSalt _salt ProvisionDevice' {..} =

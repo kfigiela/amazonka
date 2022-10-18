@@ -78,7 +78,7 @@ instance Core.AWSRequest StartDiscoverer where
   type
     AWSResponse StartDiscoverer =
       StartDiscovererResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest StartDiscoverer where
             Prelude.<*> (x Core..?> "State")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartDiscoverer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartDiscoverer where
   hashWithSalt _salt StartDiscoverer' {..} =

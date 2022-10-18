@@ -165,7 +165,7 @@ instance Core.AWSRequest UpdateBotAlias where
   type
     AWSResponse UpdateBotAlias =
       UpdateBotAliasResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -185,6 +185,9 @@ instance Core.AWSRequest UpdateBotAlias where
             Prelude.<*> (x Core..?> "lastUpdatedDateTime")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBotAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBotAlias where
   hashWithSalt _salt UpdateBotAlias' {..} =

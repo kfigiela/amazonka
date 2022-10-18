@@ -239,7 +239,7 @@ instance Core.AWSRequest UpdateComponent where
   type
     AWSResponse UpdateComponent =
       UpdateComponentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -247,6 +247,9 @@ instance Core.AWSRequest UpdateComponent where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "component")
       )
+
+instance Core.AWSService UpdateComponent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateComponent where
   hashWithSalt _salt UpdateComponent' {..} =

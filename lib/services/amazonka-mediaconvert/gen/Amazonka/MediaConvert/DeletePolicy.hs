@@ -58,13 +58,16 @@ newDeletePolicy = DeletePolicy'
 
 instance Core.AWSRequest DeletePolicy where
   type AWSResponse DeletePolicy = DeletePolicyResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePolicy where
   hashWithSalt _salt _ =

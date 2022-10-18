@@ -96,13 +96,19 @@ instance
     AWSResponse
       AssociateWirelessDeviceWithMulticastGroup =
       AssociateWirelessDeviceWithMulticastGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateWirelessDeviceWithMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateWirelessDeviceWithMulticastGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

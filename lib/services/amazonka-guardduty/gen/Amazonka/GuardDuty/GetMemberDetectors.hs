@@ -93,7 +93,7 @@ instance Core.AWSRequest GetMemberDetectors where
   type
     AWSResponse GetMemberDetectors =
       GetMemberDetectorsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetMemberDetectors where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetMemberDetectors where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetMemberDetectors where
   hashWithSalt _salt GetMemberDetectors' {..} =

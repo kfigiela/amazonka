@@ -79,7 +79,7 @@ instance Core.AWSRequest DeleteInvitations where
   type
     AWSResponse DeleteInvitations =
       DeleteInvitationsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteInvitations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteInvitations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteInvitations where
   hashWithSalt _salt DeleteInvitations' {..} =

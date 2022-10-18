@@ -106,10 +106,16 @@ instance
   type
     AWSResponse DisassociateRoutingProfileQueues =
       DisassociateRoutingProfileQueuesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull
       DisassociateRoutingProfileQueuesResponse'
+
+instance
+  Core.AWSService
+    DisassociateRoutingProfileQueues
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

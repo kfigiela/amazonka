@@ -144,7 +144,7 @@ reimportApi_body = Lens.lens (\ReimportApi' {body} -> body) (\s@ReimportApi' {} 
 
 instance Core.AWSRequest ReimportApi where
   type AWSResponse ReimportApi = ReimportApiResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -167,6 +167,9 @@ instance Core.AWSRequest ReimportApi where
             Prelude.<*> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReimportApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReimportApi where
   hashWithSalt _salt ReimportApi' {..} =

@@ -126,7 +126,7 @@ instance Core.AWSRequest DescribeTrainingJob where
   type
     AWSResponse DescribeTrainingJob =
       DescribeTrainingJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -188,6 +188,9 @@ instance Core.AWSRequest DescribeTrainingJob where
             Prelude.<*> (x Core..:> "StoppingCondition")
             Prelude.<*> (x Core..:> "CreationTime")
       )
+
+instance Core.AWSService DescribeTrainingJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTrainingJob where
   hashWithSalt _salt DescribeTrainingJob' {..} =

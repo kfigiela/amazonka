@@ -120,7 +120,7 @@ instance Core.AWSRequest SearchFolders where
   type
     AWSResponse SearchFolders =
       SearchFoldersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest SearchFolders where
             Prelude.<*> (x Core..?> "RequestId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SearchFolders where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SearchFolders where
   hashWithSalt _salt SearchFolders' {..} =

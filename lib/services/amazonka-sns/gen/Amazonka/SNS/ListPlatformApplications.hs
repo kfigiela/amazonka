@@ -122,7 +122,7 @@ instance Core.AWSRequest ListPlatformApplications where
   type
     AWSResponse ListPlatformApplications =
       ListPlatformApplicationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListPlatformApplicationsResult"
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListPlatformApplications where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListPlatformApplications where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListPlatformApplications where
   hashWithSalt _salt ListPlatformApplications' {..} =

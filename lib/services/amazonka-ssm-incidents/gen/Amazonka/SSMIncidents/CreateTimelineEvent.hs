@@ -143,7 +143,7 @@ instance Core.AWSRequest CreateTimelineEvent where
   type
     AWSResponse CreateTimelineEvent =
       CreateTimelineEventResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest CreateTimelineEvent where
             Prelude.<*> (x Core..:> "eventId")
             Prelude.<*> (x Core..:> "incidentRecordArn")
       )
+
+instance Core.AWSService CreateTimelineEvent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTimelineEvent where
   hashWithSalt _salt CreateTimelineEvent' {..} =

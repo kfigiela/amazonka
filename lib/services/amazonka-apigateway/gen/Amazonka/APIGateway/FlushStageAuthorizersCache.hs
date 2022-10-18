@@ -90,10 +90,13 @@ instance Core.AWSRequest FlushStageAuthorizersCache where
   type
     AWSResponse FlushStageAuthorizersCache =
       FlushStageAuthorizersCacheResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       FlushStageAuthorizersCacheResponse'
+
+instance Core.AWSService FlushStageAuthorizersCache where
+  service _proxy = defaultService
 
 instance Prelude.Hashable FlushStageAuthorizersCache where
   hashWithSalt _salt FlushStageAuthorizersCache' {..} =

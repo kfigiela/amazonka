@@ -244,7 +244,7 @@ instance Core.AWSRequest UpdateContainerService where
   type
     AWSResponse UpdateContainerService =
       UpdateContainerServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -252,6 +252,9 @@ instance Core.AWSRequest UpdateContainerService where
             Prelude.<$> (x Core..?> "containerService")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateContainerService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContainerService where
   hashWithSalt _salt UpdateContainerService' {..} =

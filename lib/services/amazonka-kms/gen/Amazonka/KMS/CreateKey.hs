@@ -1031,7 +1031,7 @@ createKey_origin = Lens.lens (\CreateKey' {origin} -> origin) (\s@CreateKey' {} 
 
 instance Core.AWSRequest CreateKey where
   type AWSResponse CreateKey = CreateKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -1039,6 +1039,9 @@ instance Core.AWSRequest CreateKey where
             Prelude.<$> (x Core..?> "KeyMetadata")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateKey where
   hashWithSalt _salt CreateKey' {..} =

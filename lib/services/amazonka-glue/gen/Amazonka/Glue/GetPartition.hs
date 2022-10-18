@@ -112,7 +112,7 @@ getPartition_partitionValues = Lens.lens (\GetPartition' {partitionValues} -> pa
 
 instance Core.AWSRequest GetPartition where
   type AWSResponse GetPartition = GetPartitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest GetPartition where
             Prelude.<$> (x Core..?> "Partition")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPartition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPartition where
   hashWithSalt _salt GetPartition' {..} =

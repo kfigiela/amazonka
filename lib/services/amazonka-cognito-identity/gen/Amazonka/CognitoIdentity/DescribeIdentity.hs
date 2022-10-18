@@ -84,10 +84,13 @@ instance Core.AWSRequest DescribeIdentity where
   type
     AWSResponse DescribeIdentity =
       IdentityDescription
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService DescribeIdentity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeIdentity where
   hashWithSalt _salt DescribeIdentity' {..} =

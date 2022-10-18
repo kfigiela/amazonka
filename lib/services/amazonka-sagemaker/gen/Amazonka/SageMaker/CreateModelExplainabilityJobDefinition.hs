@@ -210,7 +210,7 @@ instance
     AWSResponse
       CreateModelExplainabilityJobDefinition =
       CreateModelExplainabilityJobDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -218,6 +218,12 @@ instance
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
               Prelude.<*> (x Core..:> "JobDefinitionArn")
       )
+
+instance
+  Core.AWSService
+    CreateModelExplainabilityJobDefinition
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

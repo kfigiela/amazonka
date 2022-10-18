@@ -289,6 +289,7 @@ defaultService =
       Core._serviceEndpointPrefix = "machinelearning",
       Core._serviceSigningName = "machinelearning",
       Core._serviceVersion = "2014-12-12",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

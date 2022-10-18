@@ -85,7 +85,7 @@ instance
   type
     AWSResponse RegisterOrganizationAdminAccount =
       RegisterOrganizationAdminAccountResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,12 @@ instance
             Prelude.<*> (x Core..?> "organizationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    RegisterOrganizationAdminAccount
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

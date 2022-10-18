@@ -143,9 +143,12 @@ instance Core.AWSRequest UpdateAgentStatus where
   type
     AWSResponse UpdateAgentStatus =
       UpdateAgentStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateAgentStatusResponse'
+
+instance Core.AWSService UpdateAgentStatus where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAgentStatus where
   hashWithSalt _salt UpdateAgentStatus' {..} =

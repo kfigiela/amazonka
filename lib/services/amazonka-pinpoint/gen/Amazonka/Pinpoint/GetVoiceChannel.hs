@@ -81,7 +81,7 @@ instance Core.AWSRequest GetVoiceChannel where
   type
     AWSResponse GetVoiceChannel =
       GetVoiceChannelResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest GetVoiceChannel where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService GetVoiceChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetVoiceChannel where
   hashWithSalt _salt GetVoiceChannel' {..} =

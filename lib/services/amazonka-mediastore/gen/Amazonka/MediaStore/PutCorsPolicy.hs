@@ -105,13 +105,16 @@ instance Core.AWSRequest PutCorsPolicy where
   type
     AWSResponse PutCorsPolicy =
       PutCorsPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutCorsPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutCorsPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutCorsPolicy where
   hashWithSalt _salt PutCorsPolicy' {..} =

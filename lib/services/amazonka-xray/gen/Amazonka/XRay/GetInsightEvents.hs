@@ -109,7 +109,7 @@ instance Core.AWSRequest GetInsightEvents where
   type
     AWSResponse GetInsightEvents =
       GetInsightEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest GetInsightEvents where
             Prelude.<*> (x Core..?> "InsightEvents" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetInsightEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetInsightEvents where
   hashWithSalt _salt GetInsightEvents' {..} =

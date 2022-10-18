@@ -244,7 +244,7 @@ createRoute_serviceIdentifier = Lens.lens (\CreateRoute' {serviceIdentifier} -> 
 
 instance Core.AWSRequest CreateRoute where
   type AWSResponse CreateRoute = CreateRouteResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -263,6 +263,9 @@ instance Core.AWSRequest CreateRoute where
             Prelude.<*> (x Core..?> "ServiceId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoute where
   hashWithSalt _salt CreateRoute' {..} =

@@ -94,7 +94,7 @@ instance Core.AWSRequest GetIdentityPoolConfiguration where
   type
     AWSResponse GetIdentityPoolConfiguration =
       GetIdentityPoolConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest GetIdentityPoolConfiguration where
             Prelude.<*> (x Core..?> "PushSync")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetIdentityPoolConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

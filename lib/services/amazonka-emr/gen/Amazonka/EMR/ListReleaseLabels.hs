@@ -126,7 +126,7 @@ instance Core.AWSRequest ListReleaseLabels where
   type
     AWSResponse ListReleaseLabels =
       ListReleaseLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -135,6 +135,9 @@ instance Core.AWSRequest ListReleaseLabels where
             Prelude.<*> (x Core..?> "ReleaseLabels" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListReleaseLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListReleaseLabels where
   hashWithSalt _salt ListReleaseLabels' {..} =

@@ -111,10 +111,13 @@ getModel_modelName = Lens.lens (\GetModel' {modelName} -> modelName) (\s@GetMode
 
 instance Core.AWSRequest GetModel where
   type AWSResponse GetModel = Model
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetModel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetModel where
   hashWithSalt _salt GetModel' {..} =

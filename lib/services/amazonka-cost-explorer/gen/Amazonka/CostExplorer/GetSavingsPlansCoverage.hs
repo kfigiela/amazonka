@@ -308,7 +308,7 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
   type
     AWSResponse GetSavingsPlansCoverage =
       GetSavingsPlansCoverageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -319,6 +319,9 @@ instance Core.AWSRequest GetSavingsPlansCoverage where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService GetSavingsPlansCoverage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetSavingsPlansCoverage where
   hashWithSalt _salt GetSavingsPlansCoverage' {..} =

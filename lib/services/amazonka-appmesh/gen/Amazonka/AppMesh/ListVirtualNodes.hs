@@ -172,7 +172,7 @@ instance Core.AWSRequest ListVirtualNodes where
   type
     AWSResponse ListVirtualNodes =
       ListVirtualNodesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -181,6 +181,9 @@ instance Core.AWSRequest ListVirtualNodes where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "virtualNodes" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListVirtualNodes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListVirtualNodes where
   hashWithSalt _salt ListVirtualNodes' {..} =

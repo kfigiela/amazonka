@@ -157,7 +157,7 @@ instance Core.AWSRequest ListSigningPlatforms where
   type
     AWSResponse ListSigningPlatforms =
       ListSigningPlatformsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -166,6 +166,9 @@ instance Core.AWSRequest ListSigningPlatforms where
             Prelude.<*> (x Core..?> "platforms" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSigningPlatforms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSigningPlatforms where
   hashWithSalt _salt ListSigningPlatforms' {..} =

@@ -159,7 +159,7 @@ instance
   type
     AWSResponse ApplyPendingMaintenanceAction =
       ApplyPendingMaintenanceActionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ApplyPendingMaintenanceActionResult"
@@ -168,6 +168,12 @@ instance
             Prelude.<$> (x Core..@? "ResourcePendingMaintenanceActions")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    ApplyPendingMaintenanceAction
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

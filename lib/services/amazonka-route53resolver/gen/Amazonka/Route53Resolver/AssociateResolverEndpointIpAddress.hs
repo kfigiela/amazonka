@@ -111,7 +111,7 @@ instance
   type
     AWSResponse AssociateResolverEndpointIpAddress =
       AssociateResolverEndpointIpAddressResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,12 @@ instance
             Prelude.<$> (x Core..?> "ResolverEndpoint")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateResolverEndpointIpAddress
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

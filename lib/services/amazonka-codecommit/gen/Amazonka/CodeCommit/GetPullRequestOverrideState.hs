@@ -104,7 +104,7 @@ instance Core.AWSRequest GetPullRequestOverrideState where
   type
     AWSResponse GetPullRequestOverrideState =
       GetPullRequestOverrideStateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetPullRequestOverrideState where
             Prelude.<*> (x Core..?> "overrider")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetPullRequestOverrideState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetPullRequestOverrideState where
   hashWithSalt _salt GetPullRequestOverrideState' {..} =

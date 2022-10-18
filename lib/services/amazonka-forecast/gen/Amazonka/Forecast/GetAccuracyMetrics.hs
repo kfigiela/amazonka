@@ -100,7 +100,7 @@ instance Core.AWSRequest GetAccuracyMetrics where
   type
     AWSResponse GetAccuracyMetrics =
       GetAccuracyMetricsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -113,6 +113,9 @@ instance Core.AWSRequest GetAccuracyMetrics where
             Prelude.<*> (x Core..?> "AutoMLOverrideStrategy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccuracyMetrics where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccuracyMetrics where
   hashWithSalt _salt GetAccuracyMetrics' {..} =

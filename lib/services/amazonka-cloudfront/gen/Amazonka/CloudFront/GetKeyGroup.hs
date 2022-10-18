@@ -85,7 +85,7 @@ getKeyGroup_id = Lens.lens (\GetKeyGroup' {id} -> id) (\s@GetKeyGroup' {} a -> s
 
 instance Core.AWSRequest GetKeyGroup where
   type AWSResponse GetKeyGroup = GetKeyGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetKeyGroup where
             Prelude.<*> (h Core..#? "ETag")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetKeyGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetKeyGroup where
   hashWithSalt _salt GetKeyGroup' {..} =

@@ -100,7 +100,7 @@ instance Core.AWSRequest UpdateBackupPlan where
   type
     AWSResponse UpdateBackupPlan =
       UpdateBackupPlanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest UpdateBackupPlan where
             Prelude.<*> (x Core..?> "VersionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBackupPlan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBackupPlan where
   hashWithSalt _salt UpdateBackupPlan' {..} =

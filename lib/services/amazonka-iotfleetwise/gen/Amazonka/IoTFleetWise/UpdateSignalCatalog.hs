@@ -124,7 +124,7 @@ instance Core.AWSRequest UpdateSignalCatalog where
   type
     AWSResponse UpdateSignalCatalog =
       UpdateSignalCatalogResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,9 @@ instance Core.AWSRequest UpdateSignalCatalog where
             Prelude.<*> (x Core..:> "name")
             Prelude.<*> (x Core..:> "arn")
       )
+
+instance Core.AWSService UpdateSignalCatalog where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSignalCatalog where
   hashWithSalt _salt UpdateSignalCatalog' {..} =

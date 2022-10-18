@@ -117,7 +117,7 @@ instance Core.AWSPager ListSuites where
 
 instance Core.AWSRequest ListSuites where
   type AWSResponse ListSuites = ListSuitesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ListSuites where
             Prelude.<*> (x Core..?> "nextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSuites where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSuites where
   hashWithSalt _salt ListSuites' {..} =

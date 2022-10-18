@@ -99,7 +99,7 @@ instance Core.AWSRequest GetIntegration where
   type
     AWSResponse GetIntegration =
       GetIntegrationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -117,6 +117,9 @@ instance Core.AWSRequest GetIntegration where
             Prelude.<*> (x Core..:> "CreatedAt")
             Prelude.<*> (x Core..:> "LastUpdatedAt")
       )
+
+instance Core.AWSService GetIntegration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetIntegration where
   hashWithSalt _salt GetIntegration' {..} =

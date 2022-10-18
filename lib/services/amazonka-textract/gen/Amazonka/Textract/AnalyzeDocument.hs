@@ -189,7 +189,7 @@ instance Core.AWSRequest AnalyzeDocument where
   type
     AWSResponse AnalyzeDocument =
       AnalyzeDocumentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -200,6 +200,9 @@ instance Core.AWSRequest AnalyzeDocument where
             Prelude.<*> (x Core..?> "Blocks" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AnalyzeDocument where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AnalyzeDocument where
   hashWithSalt _salt AnalyzeDocument' {..} =

@@ -180,7 +180,7 @@ instance Core.AWSRequest ListInstanceProfilesForRole where
   type
     AWSResponse ListInstanceProfilesForRole =
       ListInstanceProfilesForRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListInstanceProfilesForRoleResult"
@@ -194,6 +194,9 @@ instance Core.AWSRequest ListInstanceProfilesForRole where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService ListInstanceProfilesForRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInstanceProfilesForRole where
   hashWithSalt _salt ListInstanceProfilesForRole' {..} =

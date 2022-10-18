@@ -104,7 +104,7 @@ instance Core.AWSRequest BatchCreateRoomMembership where
   type
     AWSResponse BatchCreateRoomMembership =
       BatchCreateRoomMembershipResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -112,6 +112,9 @@ instance Core.AWSRequest BatchCreateRoomMembership where
             Prelude.<$> (x Core..?> "Errors" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService BatchCreateRoomMembership where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchCreateRoomMembership where
   hashWithSalt _salt BatchCreateRoomMembership' {..} =

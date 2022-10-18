@@ -146,7 +146,7 @@ instance Core.AWSRequest UpdateSMBSecurityStrategy where
   type
     AWSResponse UpdateSMBSecurityStrategy =
       UpdateSMBSecurityStrategyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest UpdateSMBSecurityStrategy where
             Prelude.<$> (x Core..?> "GatewayARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSMBSecurityStrategy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSMBSecurityStrategy where
   hashWithSalt _salt UpdateSMBSecurityStrategy' {..} =

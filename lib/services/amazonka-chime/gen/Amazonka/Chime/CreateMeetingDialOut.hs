@@ -137,7 +137,7 @@ instance Core.AWSRequest CreateMeetingDialOut where
   type
     AWSResponse CreateMeetingDialOut =
       CreateMeetingDialOutResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -145,6 +145,9 @@ instance Core.AWSRequest CreateMeetingDialOut where
             Prelude.<$> (x Core..?> "TransactionId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateMeetingDialOut where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateMeetingDialOut where
   hashWithSalt _salt CreateMeetingDialOut' {..} =

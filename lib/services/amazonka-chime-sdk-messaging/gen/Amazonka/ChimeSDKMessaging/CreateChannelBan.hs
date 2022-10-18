@@ -117,7 +117,7 @@ instance Core.AWSRequest CreateChannelBan where
   type
     AWSResponse CreateChannelBan =
       CreateChannelBanResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest CreateChannelBan where
             Prelude.<*> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateChannelBan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateChannelBan where
   hashWithSalt _salt CreateChannelBan' {..} =

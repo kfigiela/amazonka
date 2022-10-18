@@ -226,7 +226,7 @@ putFile_filePath = Lens.lens (\PutFile' {filePath} -> filePath) (\s@PutFile' {} 
 
 instance Core.AWSRequest PutFile where
   type AWSResponse PutFile = PutFileResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -236,6 +236,9 @@ instance Core.AWSRequest PutFile where
             Prelude.<*> (x Core..:> "blobId")
             Prelude.<*> (x Core..:> "treeId")
       )
+
+instance Core.AWSService PutFile where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutFile where
   hashWithSalt _salt PutFile' {..} =

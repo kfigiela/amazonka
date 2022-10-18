@@ -118,7 +118,7 @@ instance Core.AWSRequest ValidatePipelineDefinition where
   type
     AWSResponse ValidatePipelineDefinition =
       ValidatePipelineDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ValidatePipelineDefinition where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "errored")
       )
+
+instance Core.AWSService ValidatePipelineDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ValidatePipelineDefinition where
   hashWithSalt _salt ValidatePipelineDefinition' {..} =

@@ -139,7 +139,7 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
   type
     AWSResponse QuerySchemaVersionMetadata =
       QuerySchemaVersionMetadataResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest QuerySchemaVersionMetadata where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService QuerySchemaVersionMetadata where
+  service _proxy = defaultService
 
 instance Prelude.Hashable QuerySchemaVersionMetadata where
   hashWithSalt _salt QuerySchemaVersionMetadata' {..} =

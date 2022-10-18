@@ -117,7 +117,7 @@ instance Core.AWSRequest CreateFunctionDefinition where
   type
     AWSResponse CreateFunctionDefinition =
       CreateFunctionDefinitionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -131,6 +131,9 @@ instance Core.AWSRequest CreateFunctionDefinition where
             Prelude.<*> (x Core..?> "LatestVersionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateFunctionDefinition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateFunctionDefinition where
   hashWithSalt _salt CreateFunctionDefinition' {..} =

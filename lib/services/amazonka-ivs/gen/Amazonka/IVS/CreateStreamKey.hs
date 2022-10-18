@@ -108,7 +108,7 @@ instance Core.AWSRequest CreateStreamKey where
   type
     AWSResponse CreateStreamKey =
       CreateStreamKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -116,6 +116,9 @@ instance Core.AWSRequest CreateStreamKey where
             Prelude.<$> (x Core..?> "streamKey")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateStreamKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateStreamKey where
   hashWithSalt _salt CreateStreamKey' {..} =

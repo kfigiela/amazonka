@@ -209,7 +209,7 @@ instance Core.AWSRequest DescribeDBClusterParameters where
   type
     AWSResponse DescribeDBClusterParameters =
       DescribeDBClusterParametersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeDBClusterParametersResult"
@@ -221,6 +221,9 @@ instance Core.AWSRequest DescribeDBClusterParameters where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDBClusterParameters where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDBClusterParameters where
   hashWithSalt _salt DescribeDBClusterParameters' {..} =

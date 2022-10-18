@@ -83,7 +83,7 @@ getImport_importId = Lens.lens (\GetImport' {importId} -> importId) (\s@GetImpor
 
 instance Core.AWSRequest GetImport where
   type AWSResponse GetImport = GetImportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest GetImport where
             Prelude.<*> (x Core..?> "Destinations")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetImport where
   hashWithSalt _salt GetImport' {..} =

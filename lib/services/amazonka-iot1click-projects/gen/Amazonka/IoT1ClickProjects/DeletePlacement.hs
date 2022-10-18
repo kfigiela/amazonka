@@ -93,13 +93,16 @@ instance Core.AWSRequest DeletePlacement where
   type
     AWSResponse DeletePlacement =
       DeletePlacementResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeletePlacementResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePlacement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlacement where
   hashWithSalt _salt DeletePlacement' {..} =

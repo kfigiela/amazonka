@@ -91,7 +91,7 @@ describeStep_stepId = Lens.lens (\DescribeStep' {stepId} -> stepId) (\s@Describe
 
 instance Core.AWSRequest DescribeStep where
   type AWSResponse DescribeStep = DescribeStepResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -99,6 +99,9 @@ instance Core.AWSRequest DescribeStep where
             Prelude.<$> (x Core..?> "Step")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeStep where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStep where
   hashWithSalt _salt DescribeStep' {..} =

@@ -133,7 +133,7 @@ instance Core.AWSRequest DescribeTemplate where
   type
     AWSResponse DescribeTemplate =
       DescribeTemplateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest DescribeTemplate where
             Prelude.<*> (x Core..?> "Template")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTemplate where
   hashWithSalt _salt DescribeTemplate' {..} =

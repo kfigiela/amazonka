@@ -189,7 +189,7 @@ instance Core.AWSRequest CreateLocationFsxOntap where
   type
     AWSResponse CreateLocationFsxOntap =
       CreateLocationFsxOntapResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -197,6 +197,9 @@ instance Core.AWSRequest CreateLocationFsxOntap where
             Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocationFsxOntap where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocationFsxOntap where
   hashWithSalt _salt CreateLocationFsxOntap' {..} =

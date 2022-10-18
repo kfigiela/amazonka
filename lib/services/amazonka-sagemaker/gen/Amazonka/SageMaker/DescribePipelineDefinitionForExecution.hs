@@ -86,7 +86,7 @@ instance
     AWSResponse
       DescribePipelineDefinitionForExecution =
       DescribePipelineDefinitionForExecutionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
               Prelude.<*> (x Core..?> "CreationTime")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribePipelineDefinitionForExecution
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

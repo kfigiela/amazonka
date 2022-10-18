@@ -628,7 +628,7 @@ replicateKey_replicaRegion = Lens.lens (\ReplicateKey' {replicaRegion} -> replic
 
 instance Core.AWSRequest ReplicateKey where
   type AWSResponse ReplicateKey = ReplicateKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -638,6 +638,9 @@ instance Core.AWSRequest ReplicateKey where
             Prelude.<*> (x Core..?> "ReplicaPolicy")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReplicateKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReplicateKey where
   hashWithSalt _salt ReplicateKey' {..} =

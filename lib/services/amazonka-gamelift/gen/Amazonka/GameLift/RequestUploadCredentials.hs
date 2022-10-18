@@ -99,7 +99,7 @@ instance Core.AWSRequest RequestUploadCredentials where
   type
     AWSResponse RequestUploadCredentials =
       RequestUploadCredentialsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest RequestUploadCredentials where
             Prelude.<*> (x Core..?> "StorageLocation")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RequestUploadCredentials where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RequestUploadCredentials where
   hashWithSalt _salt RequestUploadCredentials' {..} =

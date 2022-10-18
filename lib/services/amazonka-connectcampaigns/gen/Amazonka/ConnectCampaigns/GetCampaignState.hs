@@ -78,7 +78,7 @@ instance Core.AWSRequest GetCampaignState where
   type
     AWSResponse GetCampaignState =
       GetCampaignStateResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest GetCampaignState where
             Prelude.<$> (x Core..?> "state")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetCampaignState where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetCampaignState where
   hashWithSalt _salt GetCampaignState' {..} =

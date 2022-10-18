@@ -184,7 +184,7 @@ instance Core.AWSRequest CreateActivity where
   type
     AWSResponse CreateActivity =
       CreateActivityResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -193,6 +193,9 @@ instance Core.AWSRequest CreateActivity where
             Prelude.<*> (x Core..:> "activityArn")
             Prelude.<*> (x Core..:> "creationDate")
       )
+
+instance Core.AWSService CreateActivity where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateActivity where
   hashWithSalt _salt CreateActivity' {..} =

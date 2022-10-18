@@ -89,7 +89,7 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
   type
     AWSResponse ReleaseFileSystemNfsV3Locks =
       ReleaseFileSystemNfsV3LocksResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest ReleaseFileSystemNfsV3Locks where
             Prelude.<$> (x Core..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReleaseFileSystemNfsV3Locks where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ReleaseFileSystemNfsV3Locks where
   hashWithSalt _salt ReleaseFileSystemNfsV3Locks' {..} =

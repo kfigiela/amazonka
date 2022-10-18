@@ -95,10 +95,13 @@ instance Core.AWSRequest DeleteVpnConnectionRoute where
   type
     AWSResponse DeleteVpnConnectionRoute =
       DeleteVpnConnectionRouteResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeleteVpnConnectionRouteResponse'
+
+instance Core.AWSService DeleteVpnConnectionRoute where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteVpnConnectionRoute where
   hashWithSalt _salt DeleteVpnConnectionRoute' {..} =

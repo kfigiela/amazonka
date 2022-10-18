@@ -398,9 +398,12 @@ instance Core.AWSRequest RegisterWorkflowType where
   type
     AWSResponse RegisterWorkflowType =
       RegisterWorkflowTypeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull RegisterWorkflowTypeResponse'
+
+instance Core.AWSService RegisterWorkflowType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterWorkflowType where
   hashWithSalt _salt RegisterWorkflowType' {..} =

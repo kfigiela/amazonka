@@ -89,7 +89,7 @@ instance Core.AWSRequest GenerateTemplate where
   type
     AWSResponse GenerateTemplate =
       GenerateTemplateResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GenerateTemplate where
             Prelude.<$> (x Core..?> "s3Location")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GenerateTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GenerateTemplate where
   hashWithSalt _salt GenerateTemplate' {..} =

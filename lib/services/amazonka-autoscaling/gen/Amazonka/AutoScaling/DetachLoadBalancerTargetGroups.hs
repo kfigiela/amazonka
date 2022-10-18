@@ -102,7 +102,7 @@ instance
   type
     AWSResponse DetachLoadBalancerTargetGroups =
       DetachLoadBalancerTargetGroupsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DetachLoadBalancerTargetGroupsResult"
@@ -110,6 +110,12 @@ instance
           DetachLoadBalancerTargetGroupsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DetachLoadBalancerTargetGroups
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

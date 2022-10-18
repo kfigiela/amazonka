@@ -114,7 +114,7 @@ exportSchema_type = Lens.lens (\ExportSchema' {type'} -> type') (\s@ExportSchema
 
 instance Core.AWSRequest ExportSchema where
   type AWSResponse ExportSchema = ExportSchemaResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -126,6 +126,9 @@ instance Core.AWSRequest ExportSchema where
             Prelude.<*> (x Core..?> "Content")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ExportSchema where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ExportSchema where
   hashWithSalt _salt ExportSchema' {..} =

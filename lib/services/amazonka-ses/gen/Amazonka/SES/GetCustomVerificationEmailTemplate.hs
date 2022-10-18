@@ -101,7 +101,7 @@ instance
   type
     AWSResponse GetCustomVerificationEmailTemplate =
       GetCustomVerificationEmailTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetCustomVerificationEmailTemplateResult"
@@ -115,6 +115,12 @@ instance
               Prelude.<*> (x Core..@? "FailureRedirectionURL")
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    GetCustomVerificationEmailTemplate
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

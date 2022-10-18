@@ -83,7 +83,7 @@ instance Core.AWSRequest GetStackPolicy where
   type
     AWSResponse GetStackPolicy =
       GetStackPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetStackPolicyResult"
@@ -92,6 +92,9 @@ instance Core.AWSRequest GetStackPolicy where
             Prelude.<$> (x Core..@? "StackPolicyBody")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetStackPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetStackPolicy where
   hashWithSalt _salt GetStackPolicy' {..} =

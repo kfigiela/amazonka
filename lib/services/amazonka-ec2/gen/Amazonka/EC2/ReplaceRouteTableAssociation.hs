@@ -123,7 +123,7 @@ instance Core.AWSRequest ReplaceRouteTableAssociation where
   type
     AWSResponse ReplaceRouteTableAssociation =
       ReplaceRouteTableAssociationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ReplaceRouteTableAssociation where
             Prelude.<*> (x Core..@? "associationState")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ReplaceRouteTableAssociation where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

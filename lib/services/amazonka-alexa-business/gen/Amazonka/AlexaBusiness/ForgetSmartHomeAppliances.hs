@@ -76,13 +76,16 @@ instance Core.AWSRequest ForgetSmartHomeAppliances where
   type
     AWSResponse ForgetSmartHomeAppliances =
       ForgetSmartHomeAppliancesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           ForgetSmartHomeAppliancesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ForgetSmartHomeAppliances where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ForgetSmartHomeAppliances where
   hashWithSalt _salt ForgetSmartHomeAppliances' {..} =

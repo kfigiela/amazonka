@@ -1051,7 +1051,7 @@ instance Core.AWSPager Query where
 
 instance Core.AWSRequest Query where
   type AWSResponse Query = QueryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -1065,6 +1065,9 @@ instance Core.AWSRequest Query where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Items" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService Query where
+  service _proxy = defaultService
 
 instance Prelude.Hashable Query where
   hashWithSalt _salt Query' {..} =

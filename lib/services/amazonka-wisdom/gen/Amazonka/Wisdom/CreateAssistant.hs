@@ -134,7 +134,7 @@ instance Core.AWSRequest CreateAssistant where
   type
     AWSResponse CreateAssistant =
       CreateAssistantResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CreateAssistant where
             Prelude.<$> (x Core..?> "assistant")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAssistant where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAssistant where
   hashWithSalt _salt CreateAssistant' {..} =

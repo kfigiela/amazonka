@@ -138,7 +138,7 @@ instance Core.AWSRequest DescribeTapeArchives where
   type
     AWSResponse DescribeTapeArchives =
       DescribeTapeArchivesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -147,6 +147,9 @@ instance Core.AWSRequest DescribeTapeArchives where
             Prelude.<*> (x Core..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeTapeArchives where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeTapeArchives where
   hashWithSalt _salt DescribeTapeArchives' {..} =

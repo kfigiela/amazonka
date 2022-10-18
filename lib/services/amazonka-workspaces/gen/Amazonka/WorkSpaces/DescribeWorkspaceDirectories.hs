@@ -130,7 +130,7 @@ instance Core.AWSRequest DescribeWorkspaceDirectories where
   type
     AWSResponse DescribeWorkspaceDirectories =
       DescribeWorkspaceDirectoriesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest DescribeWorkspaceDirectories where
             Prelude.<*> (x Core..?> "Directories" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeWorkspaceDirectories where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

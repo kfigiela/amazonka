@@ -95,7 +95,7 @@ instance Core.AWSRequest GetJobUnlockCode where
   type
     AWSResponse GetJobUnlockCode =
       GetJobUnlockCodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetJobUnlockCode where
             Prelude.<$> (x Core..?> "UnlockCode")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetJobUnlockCode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetJobUnlockCode where
   hashWithSalt _salt GetJobUnlockCode' {..} =

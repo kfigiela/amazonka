@@ -88,7 +88,7 @@ instance Core.AWSRequest DescribeMultiplex where
   type
     AWSResponse DescribeMultiplex =
       DescribeMultiplexResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeMultiplex where
             Prelude.<*> (x Core..?> "programCount")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMultiplex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMultiplex where
   hashWithSalt _salt DescribeMultiplex' {..} =

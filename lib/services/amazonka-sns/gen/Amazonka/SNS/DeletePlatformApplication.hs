@@ -81,10 +81,13 @@ instance Core.AWSRequest DeletePlatformApplication where
   type
     AWSResponse DeletePlatformApplication =
       DeletePlatformApplicationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       DeletePlatformApplicationResponse'
+
+instance Core.AWSService DeletePlatformApplication where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePlatformApplication where
   hashWithSalt _salt DeletePlatformApplication' {..} =

@@ -434,6 +434,7 @@ defaultService =
       Core._serviceEndpointPrefix = "panorama",
       Core._serviceSigningName = "panorama",
       Core._serviceVersion = "2019-07-24",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

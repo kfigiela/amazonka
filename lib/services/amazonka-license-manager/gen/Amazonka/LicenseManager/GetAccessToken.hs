@@ -90,7 +90,7 @@ instance Core.AWSRequest GetAccessToken where
   type
     AWSResponse GetAccessToken =
       GetAccessTokenResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest GetAccessToken where
             Prelude.<$> (x Core..?> "AccessToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccessToken where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccessToken where
   hashWithSalt _salt GetAccessToken' {..} =

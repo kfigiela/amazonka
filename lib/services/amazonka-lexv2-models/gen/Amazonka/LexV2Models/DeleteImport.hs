@@ -77,7 +77,7 @@ deleteImport_importId = Lens.lens (\DeleteImport' {importId} -> importId) (\s@De
 
 instance Core.AWSRequest DeleteImport where
   type AWSResponse DeleteImport = DeleteImportResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -86,6 +86,9 @@ instance Core.AWSRequest DeleteImport where
             Prelude.<*> (x Core..?> "importStatus")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteImport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteImport where
   hashWithSalt _salt DeleteImport' {..} =

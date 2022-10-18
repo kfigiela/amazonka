@@ -161,7 +161,7 @@ instance Core.AWSRequest TransferContact where
   type
     AWSResponse TransferContact =
       TransferContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -170,6 +170,9 @@ instance Core.AWSRequest TransferContact where
             Prelude.<*> (x Core..?> "ContactArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService TransferContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable TransferContact where
   hashWithSalt _salt TransferContact' {..} =

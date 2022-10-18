@@ -117,7 +117,7 @@ instance Core.AWSRequest UpdateBillingGroup where
   type
     AWSResponse UpdateBillingGroup =
       UpdateBillingGroupResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest UpdateBillingGroup where
             Prelude.<$> (x Core..?> "version")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBillingGroup where
   hashWithSalt _salt UpdateBillingGroup' {..} =

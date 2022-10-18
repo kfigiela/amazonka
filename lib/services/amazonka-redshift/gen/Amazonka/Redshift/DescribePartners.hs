@@ -124,7 +124,7 @@ instance Core.AWSRequest DescribePartners where
   type
     AWSResponse DescribePartners =
       DescribePartnersResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePartnersResult"
@@ -137,6 +137,9 @@ instance Core.AWSRequest DescribePartners where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePartners where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePartners where
   hashWithSalt _salt DescribePartners' {..} =

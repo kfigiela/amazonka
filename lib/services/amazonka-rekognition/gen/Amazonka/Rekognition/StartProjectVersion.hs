@@ -151,7 +151,7 @@ instance Core.AWSRequest StartProjectVersion where
   type
     AWSResponse StartProjectVersion =
       StartProjectVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -159,6 +159,9 @@ instance Core.AWSRequest StartProjectVersion where
             Prelude.<$> (x Core..?> "Status")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartProjectVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartProjectVersion where
   hashWithSalt _salt StartProjectVersion' {..} =

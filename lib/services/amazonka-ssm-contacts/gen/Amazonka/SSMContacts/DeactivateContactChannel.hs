@@ -83,13 +83,16 @@ instance Core.AWSRequest DeactivateContactChannel where
   type
     AWSResponse DeactivateContactChannel =
       DeactivateContactChannelResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeactivateContactChannelResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeactivateContactChannel where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeactivateContactChannel where
   hashWithSalt _salt DeactivateContactChannel' {..} =

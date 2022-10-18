@@ -116,7 +116,7 @@ instance Core.AWSRequest BatchUpdateDevicePosition where
   type
     AWSResponse BatchUpdateDevicePosition =
       BatchUpdateDevicePositionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -124,6 +124,9 @@ instance Core.AWSRequest BatchUpdateDevicePosition where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchUpdateDevicePosition where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchUpdateDevicePosition where
   hashWithSalt _salt BatchUpdateDevicePosition' {..} =

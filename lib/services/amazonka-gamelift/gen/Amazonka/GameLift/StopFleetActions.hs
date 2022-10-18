@@ -144,7 +144,7 @@ instance Core.AWSRequest StopFleetActions where
   type
     AWSResponse StopFleetActions =
       StopFleetActionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -153,6 +153,9 @@ instance Core.AWSRequest StopFleetActions where
             Prelude.<*> (x Core..?> "FleetArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopFleetActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopFleetActions where
   hashWithSalt _salt StopFleetActions' {..} =

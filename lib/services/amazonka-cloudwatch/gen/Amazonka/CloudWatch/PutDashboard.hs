@@ -135,7 +135,7 @@ putDashboard_dashboardBody = Lens.lens (\PutDashboard' {dashboardBody} -> dashbo
 
 instance Core.AWSRequest PutDashboard where
   type AWSResponse PutDashboard = PutDashboardResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "PutDashboardResult"
@@ -147,6 +147,9 @@ instance Core.AWSRequest PutDashboard where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutDashboard where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutDashboard where
   hashWithSalt _salt PutDashboard' {..} =

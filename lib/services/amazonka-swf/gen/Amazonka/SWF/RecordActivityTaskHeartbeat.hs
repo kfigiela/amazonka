@@ -154,7 +154,7 @@ instance Core.AWSRequest RecordActivityTaskHeartbeat where
   type
     AWSResponse RecordActivityTaskHeartbeat =
       RecordActivityTaskHeartbeatResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest RecordActivityTaskHeartbeat where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "cancelRequested")
       )
+
+instance Core.AWSService RecordActivityTaskHeartbeat where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RecordActivityTaskHeartbeat where
   hashWithSalt _salt RecordActivityTaskHeartbeat' {..} =

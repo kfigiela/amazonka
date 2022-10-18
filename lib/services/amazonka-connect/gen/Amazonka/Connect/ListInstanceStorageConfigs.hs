@@ -152,7 +152,7 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
   type
     AWSResponse ListInstanceStorageConfigs =
       ListInstanceStorageConfigsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -161,6 +161,9 @@ instance Core.AWSRequest ListInstanceStorageConfigs where
             Prelude.<*> (x Core..?> "StorageConfigs" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListInstanceStorageConfigs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListInstanceStorageConfigs where
   hashWithSalt _salt ListInstanceStorageConfigs' {..} =

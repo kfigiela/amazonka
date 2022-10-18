@@ -107,13 +107,19 @@ instance
   type
     AWSResponse AssociateUserToPermissionGroup =
       AssociateUserToPermissionGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           AssociateUserToPermissionGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    AssociateUserToPermissionGroup
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

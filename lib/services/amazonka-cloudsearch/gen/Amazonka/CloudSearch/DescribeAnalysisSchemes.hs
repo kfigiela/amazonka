@@ -116,7 +116,7 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
   type
     AWSResponse DescribeAnalysisSchemes =
       DescribeAnalysisSchemesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeAnalysisSchemesResult"
@@ -127,6 +127,9 @@ instance Core.AWSRequest DescribeAnalysisSchemes where
                             Prelude.>>= Core.parseXMLList "member"
                         )
       )
+
+instance Core.AWSService DescribeAnalysisSchemes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAnalysisSchemes where
   hashWithSalt _salt DescribeAnalysisSchemes' {..} =

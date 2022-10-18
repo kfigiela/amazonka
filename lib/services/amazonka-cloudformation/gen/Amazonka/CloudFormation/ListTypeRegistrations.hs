@@ -176,7 +176,7 @@ instance Core.AWSRequest ListTypeRegistrations where
   type
     AWSResponse ListTypeRegistrations =
       ListTypeRegistrationsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "ListTypeRegistrationsResult"
@@ -189,6 +189,9 @@ instance Core.AWSRequest ListTypeRegistrations where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListTypeRegistrations where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListTypeRegistrations where
   hashWithSalt _salt ListTypeRegistrations' {..} =

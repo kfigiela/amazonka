@@ -130,7 +130,7 @@ instance Core.AWSRequest ListUsageTotals where
   type
     AWSResponse ListUsageTotals =
       ListUsageTotalsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -139,6 +139,9 @@ instance Core.AWSRequest ListUsageTotals where
             Prelude.<*> (x Core..?> "totals" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListUsageTotals where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListUsageTotals where
   hashWithSalt _salt ListUsageTotals' {..} =

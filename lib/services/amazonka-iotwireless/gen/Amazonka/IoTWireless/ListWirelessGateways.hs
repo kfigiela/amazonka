@@ -94,7 +94,7 @@ instance Core.AWSRequest ListWirelessGateways where
   type
     AWSResponse ListWirelessGateways =
       ListWirelessGatewaysResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest ListWirelessGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWirelessGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWirelessGateways where
   hashWithSalt _salt ListWirelessGateways' {..} =

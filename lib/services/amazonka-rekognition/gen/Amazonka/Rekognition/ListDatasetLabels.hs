@@ -145,7 +145,7 @@ instance Core.AWSRequest ListDatasetLabels where
   type
     AWSResponse ListDatasetLabels =
       ListDatasetLabelsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest ListDatasetLabels where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDatasetLabels where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDatasetLabels where
   hashWithSalt _salt ListDatasetLabels' {..} =

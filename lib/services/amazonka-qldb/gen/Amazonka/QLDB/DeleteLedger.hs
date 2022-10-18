@@ -74,8 +74,11 @@ deleteLedger_name = Lens.lens (\DeleteLedger' {name} -> name) (\s@DeleteLedger' 
 
 instance Core.AWSRequest DeleteLedger where
   type AWSResponse DeleteLedger = DeleteLedgerResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response = Response.receiveNull DeleteLedgerResponse'
+
+instance Core.AWSService DeleteLedger where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteLedger where
   hashWithSalt _salt DeleteLedger' {..} =

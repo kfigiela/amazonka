@@ -155,7 +155,7 @@ instance Core.AWSRequest CreateRoleAlias where
   type
     AWSResponse CreateRoleAlias =
       CreateRoleAliasResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -164,6 +164,9 @@ instance Core.AWSRequest CreateRoleAlias where
             Prelude.<*> (x Core..?> "roleAliasArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateRoleAlias where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateRoleAlias where
   hashWithSalt _salt CreateRoleAlias' {..} =

@@ -144,7 +144,7 @@ instance Core.AWSRequest CreatePresignedDomainUrl where
   type
     AWSResponse CreatePresignedDomainUrl =
       CreatePresignedDomainUrlResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest CreatePresignedDomainUrl where
             Prelude.<$> (x Core..?> "AuthorizedUrl")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreatePresignedDomainUrl where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePresignedDomainUrl where
   hashWithSalt _salt CreatePresignedDomainUrl' {..} =

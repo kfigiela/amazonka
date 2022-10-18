@@ -93,7 +93,7 @@ instance Core.AWSRequest GetAccessKeyLastUsed where
   type
     AWSResponse GetAccessKeyLastUsed =
       GetAccessKeyLastUsedResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetAccessKeyLastUsedResult"
@@ -103,6 +103,9 @@ instance Core.AWSRequest GetAccessKeyLastUsed where
             Prelude.<*> (x Core..@? "UserName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAccessKeyLastUsed where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAccessKeyLastUsed where
   hashWithSalt _salt GetAccessKeyLastUsed' {..} =

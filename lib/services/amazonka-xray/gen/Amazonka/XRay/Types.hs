@@ -579,6 +579,7 @@ defaultService =
       Core._serviceEndpointPrefix = "xray",
       Core._serviceSigningName = "xray",
       Core._serviceVersion = "2016-04-12",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

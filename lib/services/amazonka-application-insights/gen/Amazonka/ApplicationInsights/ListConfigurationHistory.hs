@@ -175,7 +175,7 @@ instance Core.AWSRequest ListConfigurationHistory where
   type
     AWSResponse ListConfigurationHistory =
       ListConfigurationHistoryResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest ListConfigurationHistory where
             Prelude.<*> (x Core..?> "EventList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListConfigurationHistory where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListConfigurationHistory where
   hashWithSalt _salt ListConfigurationHistory' {..} =

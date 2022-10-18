@@ -145,7 +145,7 @@ instance Core.AWSRequest GetBotVersions where
   type
     AWSResponse GetBotVersions =
       GetBotVersionsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -154,6 +154,9 @@ instance Core.AWSRequest GetBotVersions where
             Prelude.<*> (x Core..?> "bots" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetBotVersions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetBotVersions where
   hashWithSalt _salt GetBotVersions' {..} =

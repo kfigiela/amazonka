@@ -79,8 +79,11 @@ startServer_serverId = Lens.lens (\StartServer' {serverId} -> serverId) (\s@Star
 
 instance Core.AWSRequest StartServer where
   type AWSResponse StartServer = StartServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response = Response.receiveNull StartServerResponse'
+
+instance Core.AWSService StartServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartServer where
   hashWithSalt _salt StartServer' {..} =

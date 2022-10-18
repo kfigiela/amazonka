@@ -115,7 +115,7 @@ instance Core.AWSRequest GetWebACLForResource where
   type
     AWSResponse GetWebACLForResource =
       GetWebACLForResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -123,6 +123,9 @@ instance Core.AWSRequest GetWebACLForResource where
             Prelude.<$> (x Core..?> "WebACLSummary")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetWebACLForResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetWebACLForResource where
   hashWithSalt _salt GetWebACLForResource' {..} =

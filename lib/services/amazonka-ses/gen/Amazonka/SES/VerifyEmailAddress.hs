@@ -78,9 +78,12 @@ instance Core.AWSRequest VerifyEmailAddress where
   type
     AWSResponse VerifyEmailAddress =
       VerifyEmailAddressResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull VerifyEmailAddressResponse'
+
+instance Core.AWSService VerifyEmailAddress where
+  service _proxy = defaultService
 
 instance Prelude.Hashable VerifyEmailAddress where
   hashWithSalt _salt VerifyEmailAddress' {..} =

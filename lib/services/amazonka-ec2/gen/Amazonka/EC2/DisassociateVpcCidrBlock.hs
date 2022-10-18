@@ -88,7 +88,7 @@ instance Core.AWSRequest DisassociateVpcCidrBlock where
   type
     AWSResponse DisassociateVpcCidrBlock =
       DisassociateVpcCidrBlockResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -98,6 +98,9 @@ instance Core.AWSRequest DisassociateVpcCidrBlock where
             Prelude.<*> (x Core..@? "vpcId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateVpcCidrBlock where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateVpcCidrBlock where
   hashWithSalt _salt DisassociateVpcCidrBlock' {..} =

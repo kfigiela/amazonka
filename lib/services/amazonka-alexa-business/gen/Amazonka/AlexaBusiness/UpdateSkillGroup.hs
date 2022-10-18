@@ -96,13 +96,16 @@ instance Core.AWSRequest UpdateSkillGroup where
   type
     AWSResponse UpdateSkillGroup =
       UpdateSkillGroupResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateSkillGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateSkillGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateSkillGroup where
   hashWithSalt _salt UpdateSkillGroup' {..} =

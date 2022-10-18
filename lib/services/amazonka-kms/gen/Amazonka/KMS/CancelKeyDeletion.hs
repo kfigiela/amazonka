@@ -134,7 +134,7 @@ instance Core.AWSRequest CancelKeyDeletion where
   type
     AWSResponse CancelKeyDeletion =
       CancelKeyDeletionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -142,6 +142,9 @@ instance Core.AWSRequest CancelKeyDeletion where
             Prelude.<$> (x Core..?> "KeyId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CancelKeyDeletion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CancelKeyDeletion where
   hashWithSalt _salt CancelKeyDeletion' {..} =

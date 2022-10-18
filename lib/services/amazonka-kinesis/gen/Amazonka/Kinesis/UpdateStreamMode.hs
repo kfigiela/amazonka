@@ -101,9 +101,12 @@ instance Core.AWSRequest UpdateStreamMode where
   type
     AWSResponse UpdateStreamMode =
       UpdateStreamModeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateStreamModeResponse'
+
+instance Core.AWSService UpdateStreamMode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateStreamMode where
   hashWithSalt _salt UpdateStreamMode' {..} =

@@ -78,7 +78,7 @@ instance Core.AWSRequest GetAssociatedRole where
   type
     AWSResponse GetAssociatedRole =
       GetAssociatedRoleResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -87,6 +87,9 @@ instance Core.AWSRequest GetAssociatedRole where
             Prelude.<*> (x Core..?> "AssociatedAt")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAssociatedRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAssociatedRole where
   hashWithSalt _salt GetAssociatedRole' {..} =

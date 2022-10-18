@@ -64,7 +64,7 @@ instance Core.AWSRequest DescribeDRTAccess where
   type
     AWSResponse DescribeDRTAccess =
       DescribeDRTAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -73,6 +73,9 @@ instance Core.AWSRequest DescribeDRTAccess where
             Prelude.<*> (x Core..?> "LogBucketList" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeDRTAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeDRTAccess where
   hashWithSalt _salt _ =

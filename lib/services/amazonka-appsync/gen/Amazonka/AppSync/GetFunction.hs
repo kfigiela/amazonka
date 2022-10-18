@@ -89,7 +89,7 @@ getFunction_functionId = Lens.lens (\GetFunction' {functionId} -> functionId) (\
 
 instance Core.AWSRequest GetFunction where
   type AWSResponse GetFunction = GetFunctionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest GetFunction where
             Prelude.<$> (x Core..?> "functionConfiguration")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetFunction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFunction where
   hashWithSalt _salt GetFunction' {..} =

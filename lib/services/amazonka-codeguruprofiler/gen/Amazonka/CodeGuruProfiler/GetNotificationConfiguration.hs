@@ -86,7 +86,7 @@ instance Core.AWSRequest GetNotificationConfiguration where
   type
     AWSResponse GetNotificationConfiguration =
       GetNotificationConfigurationResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -94,6 +94,9 @@ instance Core.AWSRequest GetNotificationConfiguration where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "notificationConfiguration")
       )
+
+instance Core.AWSService GetNotificationConfiguration where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

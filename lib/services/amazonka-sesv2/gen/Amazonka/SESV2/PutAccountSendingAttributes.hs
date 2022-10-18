@@ -94,13 +94,16 @@ instance Core.AWSRequest PutAccountSendingAttributes where
   type
     AWSResponse PutAccountSendingAttributes =
       PutAccountSendingAttributesResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutAccountSendingAttributesResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService PutAccountSendingAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable PutAccountSendingAttributes where
   hashWithSalt _salt PutAccountSendingAttributes' {..} =

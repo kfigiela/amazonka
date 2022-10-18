@@ -165,7 +165,7 @@ instance Core.AWSRequest DescribePullRequestEvents where
   type
     AWSResponse DescribePullRequestEvents =
       DescribePullRequestEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -176,6 +176,9 @@ instance Core.AWSRequest DescribePullRequestEvents where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService DescribePullRequestEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePullRequestEvents where
   hashWithSalt _salt DescribePullRequestEvents' {..} =

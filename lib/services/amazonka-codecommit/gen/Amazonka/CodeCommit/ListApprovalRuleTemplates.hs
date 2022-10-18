@@ -97,7 +97,7 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
   type
     AWSResponse ListApprovalRuleTemplates =
       ListApprovalRuleTemplatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -108,6 +108,9 @@ instance Core.AWSRequest ListApprovalRuleTemplates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListApprovalRuleTemplates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListApprovalRuleTemplates where
   hashWithSalt _salt ListApprovalRuleTemplates' {..} =

@@ -448,6 +448,7 @@ defaultService =
       Core._serviceEndpointPrefix = "storagegateway",
       Core._serviceSigningName = "storagegateway",
       Core._serviceVersion = "2013-06-30",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

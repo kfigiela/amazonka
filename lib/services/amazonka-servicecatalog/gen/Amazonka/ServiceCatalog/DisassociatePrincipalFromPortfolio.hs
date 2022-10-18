@@ -125,13 +125,19 @@ instance
   type
     AWSResponse DisassociatePrincipalFromPortfolio =
       DisassociatePrincipalFromPortfolioResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociatePrincipalFromPortfolioResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DisassociatePrincipalFromPortfolio
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

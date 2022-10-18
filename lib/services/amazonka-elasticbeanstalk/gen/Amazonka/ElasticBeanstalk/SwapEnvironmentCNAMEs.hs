@@ -160,9 +160,12 @@ instance Core.AWSRequest SwapEnvironmentCNAMEs where
   type
     AWSResponse SwapEnvironmentCNAMEs =
       SwapEnvironmentCNAMEsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull SwapEnvironmentCNAMEsResponse'
+
+instance Core.AWSService SwapEnvironmentCNAMEs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SwapEnvironmentCNAMEs where
   hashWithSalt _salt SwapEnvironmentCNAMEs' {..} =

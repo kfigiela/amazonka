@@ -217,10 +217,13 @@ instance Core.AWSRequest SetSubscriptionAttributes where
   type
     AWSResponse SetSubscriptionAttributes =
       SetSubscriptionAttributesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       SetSubscriptionAttributesResponse'
+
+instance Core.AWSService SetSubscriptionAttributes where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SetSubscriptionAttributes where
   hashWithSalt _salt SetSubscriptionAttributes' {..} =

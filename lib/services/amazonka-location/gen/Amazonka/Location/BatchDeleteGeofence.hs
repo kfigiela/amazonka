@@ -94,7 +94,7 @@ instance Core.AWSRequest BatchDeleteGeofence where
   type
     AWSResponse BatchDeleteGeofence =
       BatchDeleteGeofenceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest BatchDeleteGeofence where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Errors" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService BatchDeleteGeofence where
+  service _proxy = defaultService
 
 instance Prelude.Hashable BatchDeleteGeofence where
   hashWithSalt _salt BatchDeleteGeofence' {..} =

@@ -171,10 +171,13 @@ instance Core.AWSRequest GetFunctionConfiguration where
   type
     AWSResponse GetFunctionConfiguration =
       FunctionConfiguration
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetFunctionConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetFunctionConfiguration where
   hashWithSalt _salt GetFunctionConfiguration' {..} =

@@ -101,9 +101,12 @@ instance Core.AWSRequest DeleteChannelBan where
   type
     AWSResponse DeleteChannelBan =
       DeleteChannelBanResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull DeleteChannelBanResponse'
+
+instance Core.AWSService DeleteChannelBan where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteChannelBan where
   hashWithSalt _salt DeleteChannelBan' {..} =

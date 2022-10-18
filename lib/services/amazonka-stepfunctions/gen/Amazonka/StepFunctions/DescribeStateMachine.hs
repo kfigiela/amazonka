@@ -91,7 +91,7 @@ instance Core.AWSRequest DescribeStateMachine where
   type
     AWSResponse DescribeStateMachine =
       DescribeStateMachineResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -107,6 +107,9 @@ instance Core.AWSRequest DescribeStateMachine where
             Prelude.<*> (x Core..:> "type")
             Prelude.<*> (x Core..:> "creationDate")
       )
+
+instance Core.AWSService DescribeStateMachine where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeStateMachine where
   hashWithSalt _salt DescribeStateMachine' {..} =

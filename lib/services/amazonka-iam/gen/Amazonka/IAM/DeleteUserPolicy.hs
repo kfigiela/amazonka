@@ -127,9 +127,12 @@ instance Core.AWSRequest DeleteUserPolicy where
   type
     AWSResponse DeleteUserPolicy =
       DeleteUserPolicyResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull DeleteUserPolicyResponse'
+
+instance Core.AWSService DeleteUserPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteUserPolicy where
   hashWithSalt _salt DeleteUserPolicy' {..} =

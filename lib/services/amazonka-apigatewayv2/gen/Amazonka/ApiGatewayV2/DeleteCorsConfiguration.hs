@@ -73,10 +73,13 @@ instance Core.AWSRequest DeleteCorsConfiguration where
   type
     AWSResponse DeleteCorsConfiguration =
       DeleteCorsConfigurationResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteCorsConfigurationResponse'
+
+instance Core.AWSService DeleteCorsConfiguration where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCorsConfiguration where
   hashWithSalt _salt DeleteCorsConfiguration' {..} =

@@ -213,7 +213,7 @@ instance
   type
     AWSResponse DescribeNetworkInsightsAnalyses =
       DescribeNetworkInsightsAnalysesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -225,6 +225,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeNetworkInsightsAnalyses
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

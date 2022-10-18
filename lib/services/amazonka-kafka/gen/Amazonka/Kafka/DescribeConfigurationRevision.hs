@@ -102,7 +102,7 @@ instance
   type
     AWSResponse DescribeConfigurationRevision =
       DescribeConfigurationRevisionResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,12 @@ instance
             Prelude.<*> (x Core..?> "serverProperties")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeConfigurationRevision
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

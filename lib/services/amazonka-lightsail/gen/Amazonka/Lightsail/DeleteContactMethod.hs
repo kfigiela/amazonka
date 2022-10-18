@@ -97,7 +97,7 @@ instance Core.AWSRequest DeleteContactMethod where
   type
     AWSResponse DeleteContactMethod =
       DeleteContactMethodResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DeleteContactMethod where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteContactMethod where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteContactMethod where
   hashWithSalt _salt DeleteContactMethod' {..} =

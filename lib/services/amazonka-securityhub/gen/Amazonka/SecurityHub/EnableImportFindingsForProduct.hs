@@ -87,7 +87,7 @@ instance
   type
     AWSResponse EnableImportFindingsForProduct =
       EnableImportFindingsForProductResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -95,6 +95,12 @@ instance
             Prelude.<$> (x Core..?> "ProductSubscriptionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    EnableImportFindingsForProduct
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

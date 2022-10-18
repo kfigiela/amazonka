@@ -97,7 +97,7 @@ instance Core.AWSRequest DescribeUserHierarchyGroup where
   type
     AWSResponse DescribeUserHierarchyGroup =
       DescribeUserHierarchyGroupResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest DescribeUserHierarchyGroup where
             Prelude.<$> (x Core..?> "HierarchyGroup")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeUserHierarchyGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeUserHierarchyGroup where
   hashWithSalt _salt DescribeUserHierarchyGroup' {..} =

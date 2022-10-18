@@ -227,7 +227,7 @@ instance Core.AWSRequest DescribeInternetGateways where
   type
     AWSResponse DescribeInternetGateways =
       DescribeInternetGatewaysResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -239,6 +239,9 @@ instance Core.AWSRequest DescribeInternetGateways where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeInternetGateways where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeInternetGateways where
   hashWithSalt _salt DescribeInternetGateways' {..} =

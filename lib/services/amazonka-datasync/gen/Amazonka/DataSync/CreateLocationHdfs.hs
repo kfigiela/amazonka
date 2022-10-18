@@ -330,7 +330,7 @@ instance Core.AWSRequest CreateLocationHdfs where
   type
     AWSResponse CreateLocationHdfs =
       CreateLocationHdfsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -338,6 +338,9 @@ instance Core.AWSRequest CreateLocationHdfs where
             Prelude.<$> (x Core..?> "LocationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateLocationHdfs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateLocationHdfs where
   hashWithSalt _salt CreateLocationHdfs' {..} =

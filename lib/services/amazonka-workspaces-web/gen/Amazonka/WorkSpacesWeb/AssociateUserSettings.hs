@@ -94,7 +94,7 @@ instance Core.AWSRequest AssociateUserSettings where
   type
     AWSResponse AssociateUserSettings =
       AssociateUserSettingsResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest AssociateUserSettings where
             Prelude.<*> (x Core..:> "portalArn")
             Prelude.<*> (x Core..:> "userSettingsArn")
       )
+
+instance Core.AWSService AssociateUserSettings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateUserSettings where
   hashWithSalt _salt AssociateUserSettings' {..} =

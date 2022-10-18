@@ -145,7 +145,7 @@ instance Core.AWSPager LookupPolicy where
 
 instance Core.AWSRequest LookupPolicy where
   type AWSResponse LookupPolicy = LookupPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -156,6 +156,9 @@ instance Core.AWSRequest LookupPolicy where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService LookupPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable LookupPolicy where
   hashWithSalt _salt LookupPolicy' {..} =

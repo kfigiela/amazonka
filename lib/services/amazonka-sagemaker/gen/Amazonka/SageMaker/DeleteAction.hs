@@ -75,7 +75,7 @@ deleteAction_actionName = Lens.lens (\DeleteAction' {actionName} -> actionName) 
 
 instance Core.AWSRequest DeleteAction where
   type AWSResponse DeleteAction = DeleteActionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -83,6 +83,9 @@ instance Core.AWSRequest DeleteAction where
             Prelude.<$> (x Core..?> "ActionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteAction where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteAction where
   hashWithSalt _salt DeleteAction' {..} =

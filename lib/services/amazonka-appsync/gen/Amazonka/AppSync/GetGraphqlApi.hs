@@ -77,7 +77,7 @@ instance Core.AWSRequest GetGraphqlApi where
   type
     AWSResponse GetGraphqlApi =
       GetGraphqlApiResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest GetGraphqlApi where
             Prelude.<$> (x Core..?> "graphqlApi")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetGraphqlApi where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetGraphqlApi where
   hashWithSalt _salt GetGraphqlApi' {..} =

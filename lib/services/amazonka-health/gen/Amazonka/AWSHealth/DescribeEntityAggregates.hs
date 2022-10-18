@@ -82,7 +82,7 @@ instance Core.AWSRequest DescribeEntityAggregates where
   type
     AWSResponse DescribeEntityAggregates =
       DescribeEntityAggregatesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest DescribeEntityAggregates where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeEntityAggregates where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeEntityAggregates where
   hashWithSalt _salt DescribeEntityAggregates' {..} =

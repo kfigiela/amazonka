@@ -84,7 +84,7 @@ instance Core.AWSRequest RejectInboundConnection where
   type
     AWSResponse RejectInboundConnection =
       RejectInboundConnectionResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -92,6 +92,9 @@ instance Core.AWSRequest RejectInboundConnection where
             Prelude.<$> (x Core..?> "Connection")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RejectInboundConnection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RejectInboundConnection where
   hashWithSalt _salt RejectInboundConnection' {..} =

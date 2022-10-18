@@ -132,7 +132,7 @@ getAlarms_monitoredResourceName = Lens.lens (\GetAlarms' {monitoredResourceName}
 
 instance Core.AWSRequest GetAlarms where
   type AWSResponse GetAlarms = GetAlarmsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest GetAlarms where
             Prelude.<*> (x Core..?> "nextPageToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetAlarms where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetAlarms where
   hashWithSalt _salt GetAlarms' {..} =

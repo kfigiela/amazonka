@@ -105,7 +105,7 @@ instance Core.AWSRequest GetObjectInformation where
   type
     AWSResponse GetObjectInformation =
       GetObjectInformationResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -114,6 +114,9 @@ instance Core.AWSRequest GetObjectInformation where
             Prelude.<*> (x Core..?> "SchemaFacets" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetObjectInformation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetObjectInformation where
   hashWithSalt _salt GetObjectInformation' {..} =

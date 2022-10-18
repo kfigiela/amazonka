@@ -142,7 +142,7 @@ instance Core.AWSRequest DescribeAccess where
   type
     AWSResponse DescribeAccess =
       DescribeAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -151,6 +151,9 @@ instance Core.AWSRequest DescribeAccess where
             Prelude.<*> (x Core..:> "ServerId")
             Prelude.<*> (x Core..:> "Access")
       )
+
+instance Core.AWSService DescribeAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccess where
   hashWithSalt _salt DescribeAccess' {..} =

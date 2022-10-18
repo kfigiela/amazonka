@@ -133,7 +133,7 @@ instance Core.AWSRequest DeletePortfolioShare where
   type
     AWSResponse DeletePortfolioShare =
       DeletePortfolioShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest DeletePortfolioShare where
             Prelude.<$> (x Core..?> "PortfolioShareToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeletePortfolioShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeletePortfolioShare where
   hashWithSalt _salt DeletePortfolioShare' {..} =

@@ -241,7 +241,7 @@ instance Core.AWSRequest CreateTapeWithBarcode where
   type
     AWSResponse CreateTapeWithBarcode =
       CreateTapeWithBarcodeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -249,6 +249,9 @@ instance Core.AWSRequest CreateTapeWithBarcode where
             Prelude.<$> (x Core..?> "TapeARN")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateTapeWithBarcode where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateTapeWithBarcode where
   hashWithSalt _salt CreateTapeWithBarcode' {..} =

@@ -73,7 +73,7 @@ describeLags_lagId = Lens.lens (\DescribeLags' {lagId} -> lagId) (\s@DescribeLag
 
 instance Core.AWSRequest DescribeLags where
   type AWSResponse DescribeLags = DescribeLagsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -81,6 +81,9 @@ instance Core.AWSRequest DescribeLags where
             Prelude.<$> (x Core..?> "lags" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeLags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeLags where
   hashWithSalt _salt DescribeLags' {..} =

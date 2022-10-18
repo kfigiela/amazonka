@@ -109,13 +109,16 @@ detachPolicy_objectReference = Lens.lens (\DetachPolicy' {objectReference} -> ob
 
 instance Core.AWSRequest DetachPolicy where
   type AWSResponse DetachPolicy = DetachPolicyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DetachPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachPolicy where
   hashWithSalt _salt DetachPolicy' {..} =

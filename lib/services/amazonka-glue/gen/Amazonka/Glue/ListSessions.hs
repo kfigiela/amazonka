@@ -110,7 +110,7 @@ listSessions_maxResults = Lens.lens (\ListSessions' {maxResults} -> maxResults) 
 
 instance Core.AWSRequest ListSessions where
   type AWSResponse ListSessions = ListSessionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest ListSessions where
             Prelude.<*> (x Core..?> "Ids" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListSessions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSessions where
   hashWithSalt _salt ListSessions' {..} =

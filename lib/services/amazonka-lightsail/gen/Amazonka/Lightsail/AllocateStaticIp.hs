@@ -77,7 +77,7 @@ instance Core.AWSRequest AllocateStaticIp where
   type
     AWSResponse AllocateStaticIp =
       AllocateStaticIpResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest AllocateStaticIp where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AllocateStaticIp where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AllocateStaticIp where
   hashWithSalt _salt AllocateStaticIp' {..} =

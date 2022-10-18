@@ -109,7 +109,7 @@ instance Core.AWSRequest DescribeAccountOverview where
   type
     AWSResponse DescribeAccountOverview =
       DescribeAccountOverviewResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -119,6 +119,9 @@ instance Core.AWSRequest DescribeAccountOverview where
             Prelude.<*> (x Core..:> "ProactiveInsights")
             Prelude.<*> (x Core..:> "MeanTimeToRecoverInMilliseconds")
       )
+
+instance Core.AWSService DescribeAccountOverview where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAccountOverview where
   hashWithSalt _salt DescribeAccountOverview' {..} =

@@ -85,7 +85,7 @@ detachDisk_diskName = Lens.lens (\DetachDisk' {diskName} -> diskName) (\s@Detach
 
 instance Core.AWSRequest DetachDisk where
   type AWSResponse DetachDisk = DetachDiskResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest DetachDisk where
             Prelude.<$> (x Core..?> "operations" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DetachDisk where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DetachDisk where
   hashWithSalt _salt DetachDisk' {..} =

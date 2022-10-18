@@ -114,7 +114,7 @@ instance Core.AWSRequest DescribeVirtualRouter where
   type
     AWSResponse DescribeVirtualRouter =
       DescribeVirtualRouterResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest DescribeVirtualRouter where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DescribeVirtualRouter where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeVirtualRouter where
   hashWithSalt _salt DescribeVirtualRouter' {..} =

@@ -158,7 +158,7 @@ instance Core.AWSRequest ListWirelessDevices where
   type
     AWSResponse ListWirelessDevices =
       ListWirelessDevicesResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -169,6 +169,9 @@ instance Core.AWSRequest ListWirelessDevices where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListWirelessDevices where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWirelessDevices where
   hashWithSalt _salt ListWirelessDevices' {..} =

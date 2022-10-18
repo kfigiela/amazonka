@@ -194,7 +194,7 @@ instance
   type
     AWSResponse UpdateFirewallDeleteProtection =
       UpdateFirewallDeleteProtectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -205,6 +205,12 @@ instance
             Prelude.<*> (x Core..?> "FirewallName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateFirewallDeleteProtection
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

@@ -73,9 +73,12 @@ instance Core.AWSRequest ResumeResource where
   type
     AWSResponse ResumeResource =
       ResumeResourceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull ResumeResourceResponse'
+
+instance Core.AWSService ResumeResource where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ResumeResource where
   hashWithSalt _salt ResumeResource' {..} =

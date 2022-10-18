@@ -85,7 +85,7 @@ instance Core.AWSRequest DescribePlaceIndex where
   type
     AWSResponse DescribePlaceIndex =
       DescribePlaceIndexResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -101,6 +101,9 @@ instance Core.AWSRequest DescribePlaceIndex where
             Prelude.<*> (x Core..:> "IndexName")
             Prelude.<*> (x Core..:> "UpdateTime")
       )
+
+instance Core.AWSService DescribePlaceIndex where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePlaceIndex where
   hashWithSalt _salt DescribePlaceIndex' {..} =

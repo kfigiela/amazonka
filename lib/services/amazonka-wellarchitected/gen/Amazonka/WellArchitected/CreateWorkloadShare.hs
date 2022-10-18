@@ -127,7 +127,7 @@ instance Core.AWSRequest CreateWorkloadShare where
   type
     AWSResponse CreateWorkloadShare =
       CreateWorkloadShareResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -136,6 +136,9 @@ instance Core.AWSRequest CreateWorkloadShare where
             Prelude.<*> (x Core..?> "WorkloadId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateWorkloadShare where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateWorkloadShare where
   hashWithSalt _salt CreateWorkloadShare' {..} =

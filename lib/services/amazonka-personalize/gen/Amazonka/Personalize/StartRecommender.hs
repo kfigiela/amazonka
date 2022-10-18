@@ -82,7 +82,7 @@ instance Core.AWSRequest StartRecommender where
   type
     AWSResponse StartRecommender =
       StartRecommenderResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -90,6 +90,9 @@ instance Core.AWSRequest StartRecommender where
             Prelude.<$> (x Core..?> "recommenderArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartRecommender where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartRecommender where
   hashWithSalt _salt StartRecommender' {..} =

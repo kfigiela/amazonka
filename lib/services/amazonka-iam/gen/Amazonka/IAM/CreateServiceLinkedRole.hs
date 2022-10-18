@@ -162,7 +162,7 @@ instance Core.AWSRequest CreateServiceLinkedRole where
   type
     AWSResponse CreateServiceLinkedRole =
       CreateServiceLinkedRoleResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "CreateServiceLinkedRoleResult"
@@ -171,6 +171,9 @@ instance Core.AWSRequest CreateServiceLinkedRole where
             Prelude.<$> (x Core..@? "Role")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateServiceLinkedRole where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateServiceLinkedRole where
   hashWithSalt _salt CreateServiceLinkedRole' {..} =

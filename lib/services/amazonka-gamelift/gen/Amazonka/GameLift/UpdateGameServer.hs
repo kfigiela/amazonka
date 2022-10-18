@@ -176,7 +176,7 @@ instance Core.AWSRequest UpdateGameServer where
   type
     AWSResponse UpdateGameServer =
       UpdateGameServerResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest UpdateGameServer where
             Prelude.<$> (x Core..?> "GameServer")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateGameServer where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateGameServer where
   hashWithSalt _salt UpdateGameServer' {..} =

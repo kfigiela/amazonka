@@ -176,7 +176,7 @@ instance Core.AWSRequest CreateEventDataStore where
   type
     AWSResponse CreateEventDataStore =
       CreateEventDataStoreResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -196,6 +196,9 @@ instance Core.AWSRequest CreateEventDataStore where
             Prelude.<*> (x Core..?> "TerminationProtectionEnabled")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateEventDataStore where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateEventDataStore where
   hashWithSalt _salt CreateEventDataStore' {..} =

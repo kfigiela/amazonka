@@ -81,9 +81,12 @@ instance Core.AWSRequest DisassociateKmsKey where
   type
     AWSResponse DisassociateKmsKey =
       DisassociateKmsKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DisassociateKmsKeyResponse'
+
+instance Core.AWSService DisassociateKmsKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateKmsKey where
   hashWithSalt _salt DisassociateKmsKey' {..} =

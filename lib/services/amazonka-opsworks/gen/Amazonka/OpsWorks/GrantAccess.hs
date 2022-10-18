@@ -98,7 +98,7 @@ grantAccess_instanceId = Lens.lens (\GrantAccess' {instanceId} -> instanceId) (\
 
 instance Core.AWSRequest GrantAccess where
   type AWSResponse GrantAccess = GrantAccessResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -106,6 +106,9 @@ instance Core.AWSRequest GrantAccess where
             Prelude.<$> (x Core..?> "TemporaryCredential")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GrantAccess where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GrantAccess where
   hashWithSalt _salt GrantAccess' {..} =

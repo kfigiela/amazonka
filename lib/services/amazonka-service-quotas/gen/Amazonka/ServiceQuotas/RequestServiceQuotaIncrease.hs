@@ -107,7 +107,7 @@ instance Core.AWSRequest RequestServiceQuotaIncrease where
   type
     AWSResponse RequestServiceQuotaIncrease =
       RequestServiceQuotaIncreaseResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -115,6 +115,9 @@ instance Core.AWSRequest RequestServiceQuotaIncrease where
             Prelude.<$> (x Core..?> "RequestedQuota")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RequestServiceQuotaIncrease where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RequestServiceQuotaIncrease where
   hashWithSalt _salt RequestServiceQuotaIncrease' {..} =

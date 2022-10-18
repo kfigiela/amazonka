@@ -329,7 +329,7 @@ instance Core.AWSRequest CreateService where
   type
     AWSResponse CreateService =
       CreateServiceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -337,6 +337,9 @@ instance Core.AWSRequest CreateService where
             Prelude.<$> (x Core..?> "Service")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateService where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateService where
   hashWithSalt _salt CreateService' {..} =

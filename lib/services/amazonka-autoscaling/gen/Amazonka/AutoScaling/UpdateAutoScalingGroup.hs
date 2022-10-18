@@ -604,10 +604,13 @@ instance Core.AWSRequest UpdateAutoScalingGroup where
   type
     AWSResponse UpdateAutoScalingGroup =
       UpdateAutoScalingGroupResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       UpdateAutoScalingGroupResponse'
+
+instance Core.AWSService UpdateAutoScalingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateAutoScalingGroup where
   hashWithSalt _salt UpdateAutoScalingGroup' {..} =

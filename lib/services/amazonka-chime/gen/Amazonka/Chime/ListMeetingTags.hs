@@ -77,7 +77,7 @@ instance Core.AWSRequest ListMeetingTags where
   type
     AWSResponse ListMeetingTags =
       ListMeetingTagsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -85,6 +85,9 @@ instance Core.AWSRequest ListMeetingTags where
             Prelude.<$> (x Core..?> "Tags")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListMeetingTags where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListMeetingTags where
   hashWithSalt _salt ListMeetingTags' {..} =

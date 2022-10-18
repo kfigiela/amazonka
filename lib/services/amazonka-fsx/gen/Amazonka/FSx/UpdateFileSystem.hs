@@ -336,7 +336,7 @@ instance Core.AWSRequest UpdateFileSystem where
   type
     AWSResponse UpdateFileSystem =
       UpdateFileSystemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -344,6 +344,9 @@ instance Core.AWSRequest UpdateFileSystem where
             Prelude.<$> (x Core..?> "FileSystem")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateFileSystem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateFileSystem where
   hashWithSalt _salt UpdateFileSystem' {..} =

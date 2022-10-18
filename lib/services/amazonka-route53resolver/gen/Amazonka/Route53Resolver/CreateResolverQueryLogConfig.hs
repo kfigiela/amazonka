@@ -199,7 +199,7 @@ instance Core.AWSRequest CreateResolverQueryLogConfig where
   type
     AWSResponse CreateResolverQueryLogConfig =
       CreateResolverQueryLogConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest CreateResolverQueryLogConfig where
             Prelude.<$> (x Core..?> "ResolverQueryLogConfig")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateResolverQueryLogConfig where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

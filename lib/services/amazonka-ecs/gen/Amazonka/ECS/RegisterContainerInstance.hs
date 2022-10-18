@@ -273,7 +273,7 @@ instance Core.AWSRequest RegisterContainerInstance where
   type
     AWSResponse RegisterContainerInstance =
       RegisterContainerInstanceResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -281,6 +281,9 @@ instance Core.AWSRequest RegisterContainerInstance where
             Prelude.<$> (x Core..?> "containerInstance")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RegisterContainerInstance where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RegisterContainerInstance where
   hashWithSalt _salt RegisterContainerInstance' {..} =

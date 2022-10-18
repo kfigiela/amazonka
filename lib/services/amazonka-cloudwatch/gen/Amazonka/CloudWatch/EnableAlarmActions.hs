@@ -71,9 +71,12 @@ instance Core.AWSRequest EnableAlarmActions where
   type
     AWSResponse EnableAlarmActions =
       EnableAlarmActionsResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull EnableAlarmActionsResponse'
+
+instance Core.AWSService EnableAlarmActions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableAlarmActions where
   hashWithSalt _salt EnableAlarmActions' {..} =

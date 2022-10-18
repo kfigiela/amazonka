@@ -117,9 +117,12 @@ instance Core.AWSRequest AssociateKmsKey where
   type
     AWSResponse AssociateKmsKey =
       AssociateKmsKeyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull AssociateKmsKeyResponse'
+
+instance Core.AWSService AssociateKmsKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateKmsKey where
   hashWithSalt _salt AssociateKmsKey' {..} =

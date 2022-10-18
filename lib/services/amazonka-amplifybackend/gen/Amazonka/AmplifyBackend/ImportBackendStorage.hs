@@ -121,7 +121,7 @@ instance Core.AWSRequest ImportBackendStorage where
   type
     AWSResponse ImportBackendStorage =
       ImportBackendStorageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -132,6 +132,9 @@ instance Core.AWSRequest ImportBackendStorage where
             Prelude.<*> (x Core..?> "backendEnvironmentName")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ImportBackendStorage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ImportBackendStorage where
   hashWithSalt _salt ImportBackendStorage' {..} =

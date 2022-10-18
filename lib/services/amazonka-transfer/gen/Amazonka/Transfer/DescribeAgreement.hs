@@ -94,7 +94,7 @@ instance Core.AWSRequest DescribeAgreement where
   type
     AWSResponse DescribeAgreement =
       DescribeAgreementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest DescribeAgreement where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "Agreement")
       )
+
+instance Core.AWSService DescribeAgreement where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeAgreement where
   hashWithSalt _salt DescribeAgreement' {..} =

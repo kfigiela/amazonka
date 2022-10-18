@@ -110,9 +110,12 @@ instance Core.AWSRequest UpdateContactFlowName where
   type
     AWSResponse UpdateContactFlowName =
       UpdateContactFlowNameResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull UpdateContactFlowNameResponse'
+
+instance Core.AWSService UpdateContactFlowName where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateContactFlowName where
   hashWithSalt _salt UpdateContactFlowName' {..} =

@@ -251,7 +251,7 @@ instance Core.AWSRequest CreateImageRecipe where
   type
     AWSResponse CreateImageRecipe =
       CreateImageRecipeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -261,6 +261,9 @@ instance Core.AWSRequest CreateImageRecipe where
             Prelude.<*> (x Core..?> "imageRecipeArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateImageRecipe where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateImageRecipe where
   hashWithSalt _salt CreateImageRecipe' {..} =

@@ -95,7 +95,7 @@ instance Core.AWSRequest UpdatePullRequestTitle where
   type
     AWSResponse UpdatePullRequestTitle =
       UpdatePullRequestTitleResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -103,6 +103,9 @@ instance Core.AWSRequest UpdatePullRequestTitle where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..:> "pullRequest")
       )
+
+instance Core.AWSService UpdatePullRequestTitle where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdatePullRequestTitle where
   hashWithSalt _salt UpdatePullRequestTitle' {..} =

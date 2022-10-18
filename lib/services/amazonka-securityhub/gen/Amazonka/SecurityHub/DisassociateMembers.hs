@@ -81,13 +81,16 @@ instance Core.AWSRequest DisassociateMembers where
   type
     AWSResponse DisassociateMembers =
       DisassociateMembersResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DisassociateMembersResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DisassociateMembers where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DisassociateMembers where
   hashWithSalt _salt DisassociateMembers' {..} =

@@ -110,7 +110,7 @@ instance Core.AWSRequest CreateCollection where
   type
     AWSResponse CreateCollection =
       CreateCollectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,9 @@ instance Core.AWSRequest CreateCollection where
             Prelude.<*> (x Core..?> "CollectionArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateCollection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateCollection where
   hashWithSalt _salt CreateCollection' {..} =

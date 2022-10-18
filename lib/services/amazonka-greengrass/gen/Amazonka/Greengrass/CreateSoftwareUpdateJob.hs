@@ -152,7 +152,7 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
   type
     AWSResponse CreateSoftwareUpdateJob =
       CreateSoftwareUpdateJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest CreateSoftwareUpdateJob where
             Prelude.<*> (x Core..?> "IotJobId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSoftwareUpdateJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSoftwareUpdateJob where
   hashWithSalt _salt CreateSoftwareUpdateJob' {..} =

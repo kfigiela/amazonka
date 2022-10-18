@@ -155,7 +155,7 @@ getTemplate_stackName = Lens.lens (\GetTemplate' {stackName} -> stackName) (\s@G
 
 instance Core.AWSRequest GetTemplate where
   type AWSResponse GetTemplate = GetTemplateResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "GetTemplateResult"
@@ -167,6 +167,9 @@ instance Core.AWSRequest GetTemplate where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTemplate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTemplate where
   hashWithSalt _salt GetTemplate' {..} =

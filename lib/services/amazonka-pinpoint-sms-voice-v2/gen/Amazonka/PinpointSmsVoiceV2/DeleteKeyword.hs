@@ -113,7 +113,7 @@ instance Core.AWSRequest DeleteKeyword where
   type
     AWSResponse DeleteKeyword =
       DeleteKeywordResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -125,6 +125,9 @@ instance Core.AWSRequest DeleteKeyword where
             Prelude.<*> (x Core..?> "KeywordMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteKeyword where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteKeyword where
   hashWithSalt _salt DeleteKeyword' {..} =

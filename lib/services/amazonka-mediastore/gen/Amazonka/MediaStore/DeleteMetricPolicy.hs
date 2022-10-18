@@ -84,13 +84,16 @@ instance Core.AWSRequest DeleteMetricPolicy where
   type
     AWSResponse DeleteMetricPolicy =
       DeleteMetricPolicyResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteMetricPolicyResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteMetricPolicy where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteMetricPolicy where
   hashWithSalt _salt DeleteMetricPolicy' {..} =

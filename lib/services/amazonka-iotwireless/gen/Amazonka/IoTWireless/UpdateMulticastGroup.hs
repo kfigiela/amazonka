@@ -104,13 +104,16 @@ instance Core.AWSRequest UpdateMulticastGroup where
   type
     AWSResponse UpdateMulticastGroup =
       UpdateMulticastGroupResponse
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateMulticastGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateMulticastGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateMulticastGroup where
   hashWithSalt _salt UpdateMulticastGroup' {..} =

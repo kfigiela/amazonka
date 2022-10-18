@@ -80,7 +80,7 @@ instance Core.AWSRequest DeleteEventStream where
   type
     AWSResponse DeleteEventStream =
       DeleteEventStreamResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -88,6 +88,9 @@ instance Core.AWSRequest DeleteEventStream where
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (Core.eitherParseJSON x)
       )
+
+instance Core.AWSService DeleteEventStream where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteEventStream where
   hashWithSalt _salt DeleteEventStream' {..} =

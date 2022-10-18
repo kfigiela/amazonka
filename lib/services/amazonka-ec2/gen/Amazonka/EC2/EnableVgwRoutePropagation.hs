@@ -121,10 +121,13 @@ instance Core.AWSRequest EnableVgwRoutePropagation where
   type
     AWSResponse EnableVgwRoutePropagation =
       EnableVgwRoutePropagationResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull
       EnableVgwRoutePropagationResponse'
+
+instance Core.AWSService EnableVgwRoutePropagation where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableVgwRoutePropagation where
   hashWithSalt _salt EnableVgwRoutePropagation' {..} =

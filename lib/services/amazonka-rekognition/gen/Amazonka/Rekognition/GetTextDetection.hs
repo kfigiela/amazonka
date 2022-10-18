@@ -150,7 +150,7 @@ instance Core.AWSRequest GetTextDetection where
   type
     AWSResponse GetTextDetection =
       GetTextDetectionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -163,6 +163,9 @@ instance Core.AWSRequest GetTextDetection where
             Prelude.<*> (x Core..?> "StatusMessage")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetTextDetection where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetTextDetection where
   hashWithSalt _salt GetTextDetection' {..} =

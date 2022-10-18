@@ -147,13 +147,16 @@ instance Core.AWSRequest CreateAuditSuppression where
   type
     AWSResponse CreateAuditSuppression =
       CreateAuditSuppressionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateAuditSuppressionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateAuditSuppression where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateAuditSuppression where
   hashWithSalt _salt CreateAuditSuppression' {..} =

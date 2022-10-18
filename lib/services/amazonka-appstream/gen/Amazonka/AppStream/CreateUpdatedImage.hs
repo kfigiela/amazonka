@@ -198,7 +198,7 @@ instance Core.AWSRequest CreateUpdatedImage where
   type
     AWSResponse CreateUpdatedImage =
       CreateUpdatedImageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest CreateUpdatedImage where
             Prelude.<*> (x Core..?> "image")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateUpdatedImage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateUpdatedImage where
   hashWithSalt _salt CreateUpdatedImage' {..} =

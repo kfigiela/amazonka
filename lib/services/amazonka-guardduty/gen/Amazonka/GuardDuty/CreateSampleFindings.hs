@@ -91,13 +91,16 @@ instance Core.AWSRequest CreateSampleFindings where
   type
     AWSResponse CreateSampleFindings =
       CreateSampleFindingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateSampleFindingsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateSampleFindings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateSampleFindings where
   hashWithSalt _salt CreateSampleFindings' {..} =

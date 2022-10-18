@@ -239,7 +239,7 @@ instance Core.AWSRequest ListNotebookExecutions where
   type
     AWSResponse ListNotebookExecutions =
       ListNotebookExecutionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -250,6 +250,9 @@ instance Core.AWSRequest ListNotebookExecutions where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListNotebookExecutions where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListNotebookExecutions where
   hashWithSalt _salt ListNotebookExecutions' {..} =

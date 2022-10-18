@@ -81,7 +81,7 @@ instance Core.AWSRequest GetHostedZone where
   type
     AWSResponse GetHostedZone =
       GetHostedZoneResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveXML
       ( \s h x ->
@@ -93,6 +93,9 @@ instance Core.AWSRequest GetHostedZone where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..@ "HostedZone")
       )
+
+instance Core.AWSService GetHostedZone where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetHostedZone where
   hashWithSalt _salt GetHostedZone' {..} =

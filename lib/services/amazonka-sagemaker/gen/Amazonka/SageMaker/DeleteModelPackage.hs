@@ -89,9 +89,12 @@ instance Core.AWSRequest DeleteModelPackage where
   type
     AWSResponse DeleteModelPackage =
       DeleteModelPackageResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveNull DeleteModelPackageResponse'
+
+instance Core.AWSService DeleteModelPackage where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteModelPackage where
   hashWithSalt _salt DeleteModelPackage' {..} =

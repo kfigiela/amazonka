@@ -198,7 +198,7 @@ instance Core.AWSRequest DescribeFleetEvents where
   type
     AWSResponse DescribeFleetEvents =
       DescribeFleetEventsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -207,6 +207,9 @@ instance Core.AWSRequest DescribeFleetEvents where
             Prelude.<*> (x Core..?> "Events" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeFleetEvents where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeFleetEvents where
   hashWithSalt _salt DescribeFleetEvents' {..} =

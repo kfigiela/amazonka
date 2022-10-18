@@ -87,7 +87,7 @@ instance Core.AWSRequest DescribeSMBFileShares where
   type
     AWSResponse DescribeSMBFileShares =
       DescribeSMBFileSharesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -97,6 +97,9 @@ instance Core.AWSRequest DescribeSMBFileShares where
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeSMBFileShares where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeSMBFileShares where
   hashWithSalt _salt DescribeSMBFileShares' {..} =

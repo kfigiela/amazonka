@@ -95,7 +95,7 @@ instance Core.AWSRequest DescribeMetricSet where
   type
     AWSResponse DescribeMetricSet =
       DescribeMetricSetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -118,6 +118,9 @@ instance Core.AWSRequest DescribeMetricSet where
             Prelude.<*> (x Core..?> "MetricList")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeMetricSet where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribeMetricSet where
   hashWithSalt _salt DescribeMetricSet' {..} =

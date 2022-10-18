@@ -94,7 +94,7 @@ instance Core.AWSRequest UpdateChannelReadMarker where
   type
     AWSResponse UpdateChannelReadMarker =
       UpdateChannelReadMarkerResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest UpdateChannelReadMarker where
             Prelude.<$> (x Core..?> "ChannelArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateChannelReadMarker where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateChannelReadMarker where
   hashWithSalt _salt UpdateChannelReadMarker' {..} =

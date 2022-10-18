@@ -113,9 +113,12 @@ instance Core.AWSRequest UntagSAMLProvider where
   type
     AWSResponse UntagSAMLProvider =
       UntagSAMLProviderResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveNull UntagSAMLProviderResponse'
+
+instance Core.AWSService UntagSAMLProvider where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UntagSAMLProvider where
   hashWithSalt _salt UntagSAMLProvider' {..} =

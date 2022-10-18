@@ -487,7 +487,7 @@ deleteItem_key = Lens.lens (\DeleteItem' {key} -> key) (\s@DeleteItem' {} a -> s
 
 instance Core.AWSRequest DeleteItem where
   type AWSResponse DeleteItem = DeleteItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -497,6 +497,9 @@ instance Core.AWSRequest DeleteItem where
             Prelude.<*> (x Core..?> "ItemCollectionMetrics")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteItem where
   hashWithSalt _salt DeleteItem' {..} =

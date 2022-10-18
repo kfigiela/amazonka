@@ -124,10 +124,13 @@ instance Core.AWSRequest DeleteFunctionUrlConfig where
   type
     AWSResponse DeleteFunctionUrlConfig =
       DeleteFunctionUrlConfigResponse
-  request = Request.delete defaultService
+  request srv = Request.delete srv
   response =
     Response.receiveNull
       DeleteFunctionUrlConfigResponse'
+
+instance Core.AWSService DeleteFunctionUrlConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteFunctionUrlConfig where
   hashWithSalt _salt DeleteFunctionUrlConfig' {..} =

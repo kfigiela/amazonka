@@ -103,7 +103,7 @@ instance Core.AWSRequest DescribeGameSessionPlacement where
   type
     AWSResponse DescribeGameSessionPlacement =
       DescribeGameSessionPlacementResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -111,6 +111,9 @@ instance Core.AWSRequest DescribeGameSessionPlacement where
             Prelude.<$> (x Core..?> "GameSessionPlacement")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribeGameSessionPlacement where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

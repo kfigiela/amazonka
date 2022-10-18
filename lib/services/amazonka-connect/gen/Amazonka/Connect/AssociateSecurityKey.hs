@@ -97,7 +97,7 @@ instance Core.AWSRequest AssociateSecurityKey where
   type
     AWSResponse AssociateSecurityKey =
       AssociateSecurityKeyResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -105,6 +105,9 @@ instance Core.AWSRequest AssociateSecurityKey where
             Prelude.<$> (x Core..?> "AssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateSecurityKey where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateSecurityKey where
   hashWithSalt _salt AssociateSecurityKey' {..} =

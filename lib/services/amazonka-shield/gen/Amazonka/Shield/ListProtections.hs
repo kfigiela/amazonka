@@ -199,7 +199,7 @@ instance Core.AWSRequest ListProtections where
   type
     AWSResponse ListProtections =
       ListProtectionsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -208,6 +208,9 @@ instance Core.AWSRequest ListProtections where
             Prelude.<*> (x Core..?> "Protections" Core..!@ Prelude.mempty)
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListProtections where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListProtections where
   hashWithSalt _salt ListProtections' {..} =

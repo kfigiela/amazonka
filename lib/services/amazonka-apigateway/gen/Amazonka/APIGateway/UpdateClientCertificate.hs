@@ -99,10 +99,13 @@ instance Core.AWSRequest UpdateClientCertificate where
   type
     AWSResponse UpdateClientCertificate =
       ClientCertificate
-  request = Request.patchJSON defaultService
+  request srv = Request.patchJSON srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService UpdateClientCertificate where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateClientCertificate where
   hashWithSalt _salt UpdateClientCertificate' {..} =

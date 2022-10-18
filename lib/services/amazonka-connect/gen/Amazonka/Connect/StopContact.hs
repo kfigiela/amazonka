@@ -98,13 +98,16 @@ stopContact_instanceId = Lens.lens (\StopContact' {instanceId} -> instanceId) (\
 
 instance Core.AWSRequest StopContact where
   type AWSResponse StopContact = StopContactResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           StopContactResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopContact where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopContact where
   hashWithSalt _salt StopContact' {..} =

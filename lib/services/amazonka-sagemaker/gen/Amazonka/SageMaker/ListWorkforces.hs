@@ -143,7 +143,7 @@ instance Core.AWSRequest ListWorkforces where
   type
     AWSResponse ListWorkforces =
       ListWorkforcesResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -152,6 +152,9 @@ instance Core.AWSRequest ListWorkforces where
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
             Prelude.<*> (x Core..?> "Workforces" Core..!@ Prelude.mempty)
       )
+
+instance Core.AWSService ListWorkforces where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListWorkforces where
   hashWithSalt _salt ListWorkforces' {..} =

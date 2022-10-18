@@ -296,7 +296,7 @@ createPortal_roleArn = Lens.lens (\CreatePortal' {roleArn} -> roleArn) (\s@Creat
 
 instance Core.AWSRequest CreatePortal where
   type AWSResponse CreatePortal = CreatePortalResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -308,6 +308,9 @@ instance Core.AWSRequest CreatePortal where
             Prelude.<*> (x Core..:> "portalStatus")
             Prelude.<*> (x Core..:> "ssoApplicationId")
       )
+
+instance Core.AWSService CreatePortal where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreatePortal where
   hashWithSalt _salt CreatePortal' {..} =

@@ -183,7 +183,7 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
   type
     AWSResponse StartSpeakerEnrollmentJob =
       StartSpeakerEnrollmentJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -191,6 +191,9 @@ instance Core.AWSRequest StartSpeakerEnrollmentJob where
             Prelude.<$> (x Core..?> "Job")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StartSpeakerEnrollmentJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StartSpeakerEnrollmentJob where
   hashWithSalt _salt StartSpeakerEnrollmentJob' {..} =

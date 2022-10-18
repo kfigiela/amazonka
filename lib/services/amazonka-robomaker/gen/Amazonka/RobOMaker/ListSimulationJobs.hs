@@ -173,7 +173,7 @@ instance Core.AWSRequest ListSimulationJobs where
   type
     AWSResponse ListSimulationJobs =
       ListSimulationJobsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -184,6 +184,9 @@ instance Core.AWSRequest ListSimulationJobs where
                             Core..!@ Prelude.mempty
                         )
       )
+
+instance Core.AWSService ListSimulationJobs where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListSimulationJobs where
   hashWithSalt _salt ListSimulationJobs' {..} =

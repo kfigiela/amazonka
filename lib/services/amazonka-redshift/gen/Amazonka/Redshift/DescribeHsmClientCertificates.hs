@@ -243,7 +243,7 @@ instance
   type
     AWSResponse DescribeHsmClientCertificates =
       DescribeHsmClientCertificatesResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribeHsmClientCertificatesResult"
@@ -256,6 +256,12 @@ instance
                         )
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeHsmClientCertificates
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

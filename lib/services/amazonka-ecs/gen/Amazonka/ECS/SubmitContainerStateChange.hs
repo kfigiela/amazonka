@@ -154,7 +154,7 @@ instance Core.AWSRequest SubmitContainerStateChange where
   type
     AWSResponse SubmitContainerStateChange =
       SubmitContainerStateChangeResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -162,6 +162,9 @@ instance Core.AWSRequest SubmitContainerStateChange where
             Prelude.<$> (x Core..?> "acknowledgment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService SubmitContainerStateChange where
+  service _proxy = defaultService
 
 instance Prelude.Hashable SubmitContainerStateChange where
   hashWithSalt _salt SubmitContainerStateChange' {..} =

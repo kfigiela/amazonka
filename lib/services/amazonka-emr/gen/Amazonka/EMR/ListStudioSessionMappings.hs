@@ -130,7 +130,7 @@ instance Core.AWSRequest ListStudioSessionMappings where
   type
     AWSResponse ListStudioSessionMappings =
       ListStudioSessionMappingsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -141,6 +141,9 @@ instance Core.AWSRequest ListStudioSessionMappings where
             Prelude.<*> (x Core..?> "Marker")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListStudioSessionMappings where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListStudioSessionMappings where
   hashWithSalt _salt ListStudioSessionMappings' {..} =

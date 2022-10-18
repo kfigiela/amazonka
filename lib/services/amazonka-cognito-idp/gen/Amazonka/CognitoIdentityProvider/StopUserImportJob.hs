@@ -96,7 +96,7 @@ instance Core.AWSRequest StopUserImportJob where
   type
     AWSResponse StopUserImportJob =
       StopUserImportJobResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -104,6 +104,9 @@ instance Core.AWSRequest StopUserImportJob where
             Prelude.<$> (x Core..?> "UserImportJob")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopUserImportJob where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopUserImportJob where
   hashWithSalt _salt StopUserImportJob' {..} =

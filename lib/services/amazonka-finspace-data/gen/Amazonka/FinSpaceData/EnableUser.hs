@@ -88,7 +88,7 @@ enableUser_userId = Lens.lens (\EnableUser' {userId} -> userId) (\s@EnableUser' 
 
 instance Core.AWSRequest EnableUser where
   type AWSResponse EnableUser = EnableUserResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest EnableUser where
             Prelude.<$> (x Core..?> "userId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService EnableUser where
+  service _proxy = defaultService
 
 instance Prelude.Hashable EnableUser where
   hashWithSalt _salt EnableUser' {..} =

@@ -92,7 +92,7 @@ instance Core.AWSRequest StopDBCluster where
   type
     AWSResponse StopDBCluster =
       StopDBClusterResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "StopDBClusterResult"
@@ -101,6 +101,9 @@ instance Core.AWSRequest StopDBCluster where
             Prelude.<$> (x Core..@? "DBCluster")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService StopDBCluster where
+  service _proxy = defaultService
 
 instance Prelude.Hashable StopDBCluster where
   hashWithSalt _salt StopDBCluster' {..} =

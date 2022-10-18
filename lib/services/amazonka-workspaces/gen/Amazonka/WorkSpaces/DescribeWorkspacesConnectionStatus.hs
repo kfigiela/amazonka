@@ -122,7 +122,7 @@ instance
   type
     AWSResponse DescribeWorkspacesConnectionStatus =
       DescribeWorkspacesConnectionStatusResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -133,6 +133,12 @@ instance
                           )
               Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    DescribeWorkspacesConnectionStatus
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

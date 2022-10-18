@@ -87,7 +87,7 @@ listDomains_maxResults = Lens.lens (\ListDomains' {maxResults} -> maxResults) (\
 
 instance Core.AWSRequest ListDomains where
   type AWSResponse ListDomains = ListDomainsResponse
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -96,6 +96,9 @@ instance Core.AWSRequest ListDomains where
             Prelude.<*> (x Core..?> "NextToken")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService ListDomains where
+  service _proxy = defaultService
 
 instance Prelude.Hashable ListDomains where
   hashWithSalt _salt ListDomains' {..} =

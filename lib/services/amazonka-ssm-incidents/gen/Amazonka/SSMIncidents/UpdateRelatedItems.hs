@@ -109,13 +109,16 @@ instance Core.AWSRequest UpdateRelatedItems where
   type
     AWSResponse UpdateRelatedItems =
       UpdateRelatedItemsResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           UpdateRelatedItemsResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateRelatedItems where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateRelatedItems where
   hashWithSalt _salt UpdateRelatedItems' {..} =

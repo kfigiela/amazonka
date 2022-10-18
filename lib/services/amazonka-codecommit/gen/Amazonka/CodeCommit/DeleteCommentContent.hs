@@ -81,7 +81,7 @@ instance Core.AWSRequest DeleteCommentContent where
   type
     AWSResponse DeleteCommentContent =
       DeleteCommentContentResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -89,6 +89,9 @@ instance Core.AWSRequest DeleteCommentContent where
             Prelude.<$> (x Core..?> "comment")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteCommentContent where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteCommentContent where
   hashWithSalt _salt DeleteCommentContent' {..} =

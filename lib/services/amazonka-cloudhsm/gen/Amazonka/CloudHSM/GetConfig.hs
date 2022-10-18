@@ -119,7 +119,7 @@ getConfig_hapgList = Lens.lens (\GetConfig' {hapgList} -> hapgList) (\s@GetConfi
 
 instance Core.AWSRequest GetConfig where
   type AWSResponse GetConfig = GetConfigResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -129,6 +129,9 @@ instance Core.AWSRequest GetConfig where
             Prelude.<*> (x Core..?> "ConfigType")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService GetConfig where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetConfig where
   hashWithSalt _salt GetConfig' {..} =

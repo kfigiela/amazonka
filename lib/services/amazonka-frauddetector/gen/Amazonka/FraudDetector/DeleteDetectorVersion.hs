@@ -97,13 +97,16 @@ instance Core.AWSRequest DeleteDetectorVersion where
   type
     AWSResponse DeleteDetectorVersion =
       DeleteDetectorVersionResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           DeleteDetectorVersionResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DeleteDetectorVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DeleteDetectorVersion where
   hashWithSalt _salt DeleteDetectorVersion' {..} =

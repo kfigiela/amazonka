@@ -149,6 +149,7 @@ defaultService =
       Core._serviceEndpointPrefix = "aps",
       Core._serviceSigningName = "aps",
       Core._serviceVersion = "2020-08-01",
+      Core._serviceRewriteS3VHost = Prelude.True,
       Core._serviceEndpoint =
         Core.defaultEndpoint defaultService,
       Core._serviceTimeout = Prelude.Just 70,

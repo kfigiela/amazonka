@@ -98,13 +98,19 @@ instance
   type
     AWSResponse PutFindingsPublicationConfiguration =
       PutFindingsPublicationConfigurationResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           PutFindingsPublicationConfigurationResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    PutFindingsPublicationConfiguration
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

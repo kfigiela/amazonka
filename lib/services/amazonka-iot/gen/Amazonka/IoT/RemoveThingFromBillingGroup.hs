@@ -114,13 +114,16 @@ instance Core.AWSRequest RemoveThingFromBillingGroup where
   type
     AWSResponse RemoveThingFromBillingGroup =
       RemoveThingFromBillingGroupResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           RemoveThingFromBillingGroupResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService RemoveThingFromBillingGroup where
+  service _proxy = defaultService
 
 instance Prelude.Hashable RemoveThingFromBillingGroup where
   hashWithSalt _salt RemoveThingFromBillingGroup' {..} =

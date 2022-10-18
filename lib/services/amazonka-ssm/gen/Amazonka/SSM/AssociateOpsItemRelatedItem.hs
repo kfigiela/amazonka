@@ -150,7 +150,7 @@ instance Core.AWSRequest AssociateOpsItemRelatedItem where
   type
     AWSResponse AssociateOpsItemRelatedItem =
       AssociateOpsItemRelatedItemResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -158,6 +158,9 @@ instance Core.AWSRequest AssociateOpsItemRelatedItem where
             Prelude.<$> (x Core..?> "AssociationId")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService AssociateOpsItemRelatedItem where
+  service _proxy = defaultService
 
 instance Prelude.Hashable AssociateOpsItemRelatedItem where
   hashWithSalt _salt AssociateOpsItemRelatedItem' {..} =

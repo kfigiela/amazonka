@@ -120,13 +120,16 @@ createBudget_budget = Lens.lens (\CreateBudget' {budget} -> budget) (\s@CreateBu
 
 instance Core.AWSRequest CreateBudget where
   type AWSResponse CreateBudget = CreateBudgetResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveEmpty
       ( \s h x ->
           CreateBudgetResponse'
             Prelude.<$> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService CreateBudget where
+  service _proxy = defaultService
 
 instance Prelude.Hashable CreateBudget where
   hashWithSalt _salt CreateBudget' {..} =

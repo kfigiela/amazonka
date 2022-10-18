@@ -84,7 +84,7 @@ instance Core.AWSRequest DescribePlatformVersion where
   type
     AWSResponse DescribePlatformVersion =
       DescribePlatformVersionResponse
-  request = Request.postQuery defaultService
+  request srv = Request.postQuery srv
   response =
     Response.receiveXMLWrapper
       "DescribePlatformVersionResult"
@@ -93,6 +93,9 @@ instance Core.AWSRequest DescribePlatformVersion where
             Prelude.<$> (x Core..@? "PlatformDescription")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService DescribePlatformVersion where
+  service _proxy = defaultService
 
 instance Prelude.Hashable DescribePlatformVersion where
   hashWithSalt _salt DescribePlatformVersion' {..} =

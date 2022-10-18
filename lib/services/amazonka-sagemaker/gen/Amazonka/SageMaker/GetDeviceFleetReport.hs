@@ -87,7 +87,7 @@ instance Core.AWSRequest GetDeviceFleetReport where
   type
     AWSResponse GetDeviceFleetReport =
       GetDeviceFleetReportResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -102,6 +102,9 @@ instance Core.AWSRequest GetDeviceFleetReport where
             Prelude.<*> (x Core..:> "DeviceFleetArn")
             Prelude.<*> (x Core..:> "DeviceFleetName")
       )
+
+instance Core.AWSService GetDeviceFleetReport where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDeviceFleetReport where
   hashWithSalt _salt GetDeviceFleetReport' {..} =

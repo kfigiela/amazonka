@@ -112,7 +112,7 @@ instance
   type
     AWSResponse UpdateSipMediaApplicationCall =
       UpdateSipMediaApplicationCallResponse
-  request = Request.postJSON defaultService
+  request srv = Request.postJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -120,6 +120,12 @@ instance
             Prelude.<$> (x Core..?> "SipMediaApplicationCall")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance
+  Core.AWSService
+    UpdateSipMediaApplicationCall
+  where
+  service _proxy = defaultService
 
 instance
   Prelude.Hashable

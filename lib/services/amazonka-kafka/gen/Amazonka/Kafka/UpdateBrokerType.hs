@@ -113,7 +113,7 @@ instance Core.AWSRequest UpdateBrokerType where
   type
     AWSResponse UpdateBrokerType =
       UpdateBrokerTypeResponse
-  request = Request.putJSON defaultService
+  request srv = Request.putJSON srv
   response =
     Response.receiveJSON
       ( \s h x ->
@@ -122,6 +122,9 @@ instance Core.AWSRequest UpdateBrokerType where
             Prelude.<*> (x Core..?> "clusterOperationArn")
             Prelude.<*> (Prelude.pure (Prelude.fromEnum s))
       )
+
+instance Core.AWSService UpdateBrokerType where
+  service _proxy = defaultService
 
 instance Prelude.Hashable UpdateBrokerType where
   hashWithSalt _salt UpdateBrokerType' {..} =

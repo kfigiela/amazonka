@@ -96,10 +96,13 @@ instance Core.AWSRequest GetDocumentationPart where
   type
     AWSResponse GetDocumentationPart =
       DocumentationPart
-  request = Request.get defaultService
+  request srv = Request.get srv
   response =
     Response.receiveJSON
       (\s h x -> Core.eitherParseJSON x)
+
+instance Core.AWSService GetDocumentationPart where
+  service _proxy = defaultService
 
 instance Prelude.Hashable GetDocumentationPart where
   hashWithSalt _salt GetDocumentationPart' {..} =
